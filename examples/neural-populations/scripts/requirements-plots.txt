@@ -1,0 +1,5 @@
+# Packages used for the reviewed original plots. FluxPlot is pure Python.
+numpy==2.5.2
+scipy==1.18.1
+matplotlib==3.11.1
+fluxplot @ git+https://github.com/fluxsci/fluxplot.git@9b299d40d7aad5574d9ce5af04bbf68b76c90c5e

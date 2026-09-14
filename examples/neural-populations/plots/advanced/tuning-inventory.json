@@ -1,0 +1,457 @@
+{
+  "generator": "scripts/advanced/tuning.py",
+  "plots": [
+    {
+      "id": "16-tuning-landscape-1hz",
+      "title": "Direction tuning across temporal frequency",
+      "file": "plots/advanced/16-tuning-landscape-1hz.svg",
+      "preview": "exports/advanced-previews/16-tuning-landscape-1hz.png",
+      "pdf": "exports/advanced-previews/16-tuning-landscape-1hz.pdf",
+      "widthIn": 3.45,
+      "heightIn": 3.25,
+      "sources": [
+        "data/allen/responses.json"
+      ],
+      "methods": {
+        "cellSpecimenIds": [
+          517470610,
+          517470181,
+          587375741,
+          517472541,
+          517470177,
+          517470480
+        ],
+        "selection": "Six responsive example cells selected to show varied directional preferences; not a random sample.",
+        "normalization": "Each cell is divided by its own maximum absolute mean over all eight directions and 1, 2, 4 Hz. Values are multiplied by 0.7 and vertically offset by integer cell rows. Negative observations remain negative.",
+        "points": "Eight measured condition means per cell. Their ordering and IDs are constant across states.",
+        "curves": "Shape-preserving piecewise cubic interpolation over direction, with a duplicate 0-degree value at 360 degrees. Lines are visual guides, not fitted tuning models.",
+        "scale": "Each row's baseline-to-peak separation of 0.7 is one normalized response unit. All axes, ticks, positions, and cell colors are fixed across states."
+      },
+      "experimentId": 501940850,
+      "morphFamily": "tuning-temporal-frequency",
+      "state": {
+        "temporalFrequencyHz": 1
+      },
+      "sha256": "8f51f134a051e995887a223f6f53947158f97c0182c2140604f6741dec3c225b",
+      "series": [
+        "cell-517470610-guide",
+        "cell-517470610-means",
+        "cell-517470181-guide",
+        "cell-517470181-means",
+        "cell-587375741-guide",
+        "cell-587375741-means",
+        "cell-517472541-guide",
+        "cell-517472541-means",
+        "cell-517470177-guide",
+        "cell-517470177-means",
+        "cell-517470480-guide",
+        "cell-517470480-means"
+      ]
+    },
+    {
+      "id": "16-tuning-landscape-2hz",
+      "title": "Direction tuning across temporal frequency",
+      "file": "plots/advanced/16-tuning-landscape-2hz.svg",
+      "preview": "exports/advanced-previews/16-tuning-landscape-2hz.png",
+      "pdf": "exports/advanced-previews/16-tuning-landscape-2hz.pdf",
+      "widthIn": 3.45,
+      "heightIn": 3.25,
+      "sources": [
+        "data/allen/responses.json"
+      ],
+      "methods": {
+        "cellSpecimenIds": [
+          517470610,
+          517470181,
+          587375741,
+          517472541,
+          517470177,
+          517470480
+        ],
+        "selection": "Six responsive example cells selected to show varied directional preferences; not a random sample.",
+        "normalization": "Each cell is divided by its own maximum absolute mean over all eight directions and 1, 2, 4 Hz. Values are multiplied by 0.7 and vertically offset by integer cell rows. Negative observations remain negative.",
+        "points": "Eight measured condition means per cell. Their ordering and IDs are constant across states.",
+        "curves": "Shape-preserving piecewise cubic interpolation over direction, with a duplicate 0-degree value at 360 degrees. Lines are visual guides, not fitted tuning models.",
+        "scale": "Each row's baseline-to-peak separation of 0.7 is one normalized response unit. All axes, ticks, positions, and cell colors are fixed across states."
+      },
+      "experimentId": 501940850,
+      "morphFamily": "tuning-temporal-frequency",
+      "state": {
+        "temporalFrequencyHz": 2
+      },
+      "sha256": "fc1a0adb605ff16d4786daf7ef386b9c22194cc8b7c9e991723289589319bf42",
+      "series": [
+        "cell-517470610-guide",
+        "cell-517470610-means",
+        "cell-517470181-guide",
+        "cell-517470181-means",
+        "cell-587375741-guide",
+        "cell-587375741-means",
+        "cell-517472541-guide",
+        "cell-517472541-means",
+        "cell-517470177-guide",
+        "cell-517470177-means",
+        "cell-517470480-guide",
+        "cell-517470480-means"
+      ]
+    },
+    {
+      "id": "16-tuning-landscape-4hz",
+      "title": "Direction tuning across temporal frequency",
+      "file": "plots/advanced/16-tuning-landscape-4hz.svg",
+      "preview": "exports/advanced-previews/16-tuning-landscape-4hz.png",
+      "pdf": "exports/advanced-previews/16-tuning-landscape-4hz.pdf",
+      "widthIn": 3.45,
+      "heightIn": 3.25,
+      "sources": [
+        "data/allen/responses.json"
+      ],
+      "methods": {
+        "cellSpecimenIds": [
+          517470610,
+          517470181,
+          587375741,
+          517472541,
+          517470177,
+          517470480
+        ],
+        "selection": "Six responsive example cells selected to show varied directional preferences; not a random sample.",
+        "normalization": "Each cell is divided by its own maximum absolute mean over all eight directions and 1, 2, 4 Hz. Values are multiplied by 0.7 and vertically offset by integer cell rows. Negative observations remain negative.",
+        "points": "Eight measured condition means per cell. Their ordering and IDs are constant across states.",
+        "curves": "Shape-preserving piecewise cubic interpolation over direction, with a duplicate 0-degree value at 360 degrees. Lines are visual guides, not fitted tuning models.",
+        "scale": "Each row's baseline-to-peak separation of 0.7 is one normalized response unit. All axes, ticks, positions, and cell colors are fixed across states."
+      },
+      "experimentId": 501940850,
+      "morphFamily": "tuning-temporal-frequency",
+      "state": {
+        "temporalFrequencyHz": 4
+      },
+      "sha256": "6d608b1ffa312a6c38dfd953a6daf2a04fbcb2ee231d5fd8e0c701af6465f821",
+      "series": [
+        "cell-517470610-guide",
+        "cell-517470610-means",
+        "cell-517470181-guide",
+        "cell-517470181-means",
+        "cell-587375741-guide",
+        "cell-587375741-means",
+        "cell-517472541-guide",
+        "cell-517472541-means",
+        "cell-517470177-guide",
+        "cell-517470177-means",
+        "cell-517470480-guide",
+        "cell-517470480-means"
+      ]
+    },
+    {
+      "id": "17-trial-response-raincloud",
+      "title": "Trial response distributions by drift direction",
+      "file": "plots/advanced/17-trial-response-raincloud.svg",
+      "preview": "exports/advanced-previews/17-trial-response-raincloud.png",
+      "pdf": "exports/advanced-previews/17-trial-response-raincloud.pdf",
+      "widthIn": 3.5,
+      "heightIn": 3.3,
+      "sources": [
+        "data/allen/trials.json",
+        "data/allen/responses.json"
+      ],
+      "methods": {
+        "cellSpecimenId": 587375741,
+        "temporalFrequencyHz": 2,
+        "selection": "Example cell selected for a clear measured response to opposing drift directions.",
+        "points": "Every available nonblank trial in each plotted condition; no response clipping or removal.",
+        "density": "Gaussian kernel density estimate with scipy's default Scott bandwidth, each half-density normalized to equal visual height. Density outlines are guides, not new observations.",
+        "summary": "Open circles are arithmetic means; horizontal whiskers are percentile 95% bootstrap intervals from 10,000 resamples within each direction (seed 1717). Intervals describe this single cell's sampled trials; no population or between-animal inference is made.",
+        "intervals": [
+          {
+            "directionDeg": 0.0,
+            "n": 15,
+            "meanPct": -2.4984197999999997,
+            "bootstrap95CI": [
+              -5.615578111666667,
+              0.17036269499999923
+            ],
+            "trialIndices": [
+              1,
+              66,
+              77,
+              258,
+              274,
+              306,
+              324,
+              335,
+              366,
+              380,
+              417,
+              419,
+              469,
+              530,
+              589
+            ]
+          },
+          {
+            "directionDeg": 45.0,
+            "n": 15,
+            "meanPct": -0.5835105333333331,
+            "bootstrap95CI": [
+              -2.6869501983333333,
+              0.9023687099999991
+            ],
+            "trialIndices": [
+              29,
+              43,
+              56,
+              96,
+              127,
+              142,
+              172,
+              345,
+              347,
+              423,
+              432,
+              434,
+              473,
+              531,
+              623
+            ]
+          },
+          {
+            "directionDeg": 90.0,
+            "n": 15,
+            "meanPct": 63.4606242,
+            "bootstrap95CI": [
+              51.029530980000004,
+              75.81985880166667
+            ],
+            "trialIndices": [
+              18,
+              93,
+              179,
+              182,
+              289,
+              312,
+              406,
+              458,
+              481,
+              510,
+              516,
+              560,
+              564,
+              568,
+              605
+            ]
+          },
+          {
+            "directionDeg": 135.0,
+            "n": 15,
+            "meanPct": -3.4067319333333335,
+            "bootstrap95CI": [
+              -7.047849556666666,
+              -0.6018018266666666
+            ],
+            "trialIndices": [
+              12,
+              148,
+              157,
+              214,
+              256,
+              325,
+              330,
+              348,
+              399,
+              455,
+              467,
+              479,
+              508,
+              547,
+              548
+            ]
+          },
+          {
+            "directionDeg": 180.0,
+            "n": 15,
+            "meanPct": -3.7877887999999995,
+            "bootstrap95CI": [
+              -8.384266556666669,
+              -0.015213753333334164
+            ],
+            "trialIndices": [
+              57,
+              67,
+              107,
+              129,
+              135,
+              178,
+              217,
+              247,
+              283,
+              344,
+              383,
+              460,
+              511,
+              595,
+              596
+            ]
+          },
+          {
+            "directionDeg": 225.0,
+            "n": 15,
+            "meanPct": -0.5956470666666668,
+            "bootstrap95CI": [
+              -4.628271988333333,
+              2.816501623333333
+            ],
+            "trialIndices": [
+              5,
+              94,
+              123,
+              138,
+              165,
+              215,
+              218,
+              238,
+              261,
+              385,
+              435,
+              437,
+              521,
+              550,
+              552
+            ]
+          },
+          {
+            "directionDeg": 270.0,
+            "n": 15,
+            "meanPct": 46.98994253333333,
+            "bootstrap95CI": [
+              36.85047022833333,
+              58.11208407166667
+            ],
+            "trialIndices": [
+              97,
+              110,
+              125,
+              171,
+              257,
+              281,
+              320,
+              334,
+              390,
+              391,
+              415,
+              450,
+              485,
+              491,
+              557
+            ]
+          },
+          {
+            "directionDeg": 315.0,
+            "n": 15,
+            "meanPct": -6.086723666666667,
+            "bootstrap95CI": [
+              -12.697882244999995,
+              -0.4408557550000009
+            ],
+            "trialIndices": [
+              60,
+              92,
+              98,
+              118,
+              156,
+              183,
+              227,
+              301,
+              364,
+              389,
+              486,
+              520,
+              622,
+              625,
+              626
+            ]
+          }
+        ]
+      },
+      "experimentId": 501940850,
+      "morphFamily": null,
+      "state": null,
+      "sha256": "f738008ba23fa3625de5d2e9c49ed51d45ebba0756b90f30efdc93e26ba3926c",
+      "series": [
+        "direction-0-density",
+        "direction-0-density-outline",
+        "direction-0-trials",
+        "direction-0-mean-ci",
+        "direction-0-mean",
+        "direction-45-density",
+        "direction-45-density-outline",
+        "direction-45-trials",
+        "direction-45-mean-ci",
+        "direction-45-mean",
+        "direction-90-density",
+        "direction-90-density-outline",
+        "direction-90-trials",
+        "direction-90-mean-ci",
+        "direction-90-mean",
+        "direction-135-density",
+        "direction-135-density-outline",
+        "direction-135-trials",
+        "direction-135-mean-ci",
+        "direction-135-mean",
+        "direction-180-density",
+        "direction-180-density-outline",
+        "direction-180-trials",
+        "direction-180-mean-ci",
+        "direction-180-mean",
+        "direction-225-density",
+        "direction-225-density-outline",
+        "direction-225-trials",
+        "direction-225-mean-ci",
+        "direction-225-mean",
+        "direction-270-density",
+        "direction-270-density-outline",
+        "direction-270-trials",
+        "direction-270-mean-ci",
+        "direction-270-mean",
+        "direction-315-density",
+        "direction-315-density-outline",
+        "direction-315-trials",
+        "direction-315-mean-ci",
+        "direction-315-mean"
+      ]
+    },
+    {
+      "id": "18-joint-tuning-surface",
+      "title": "Joint direction and temporal-frequency tuning",
+      "file": "plots/advanced/18-joint-tuning-surface.svg",
+      "preview": "exports/advanced-previews/18-joint-tuning-surface.png",
+      "pdf": "exports/advanced-previews/18-joint-tuning-surface.pdf",
+      "widthIn": 3.5,
+      "heightIn": 3.35,
+      "sources": [
+        "data/allen/responses.json"
+      ],
+      "methods": {
+        "cellSpecimenId": 517470181,
+        "points": "All 40 observed means: eight directions \u00d7 five temporal frequencies. Black dots are the measured conditions; no synthetic observations or omitted conditions.",
+        "surface": "Shape-preserving piecewise cubic interpolation first across direction, then across log2 temporal frequency. Direction 360 repeats direction 0 for visual closure. The interpolated surface is a visual guide, not a fitted biological model or evidence for unmeasured responses.",
+        "shading": "Uniform cyan material with geometric illumination only. Z height carries the response value; color is not an independent variable.",
+        "selection": "One responsive example cell selected to show a structured joint-tuning landscape."
+      },
+      "experimentId": 501940850,
+      "morphFamily": null,
+      "state": null,
+      "sha256": "58efa6801b7744a2c1fc4858ea72ccb138ddeb08f4c34cf78148ae3ad86ce048",
+      "series": [
+        "cell-517470181-interpolated-surface",
+        "frequency-1hz",
+        "frequency-2hz",
+        "frequency-4hz",
+        "frequency-8hz",
+        "frequency-15hz",
+        "cell-517470181-condition-means"
+      ]
+    }
+  ],
+  "attribution": "Allen Institute. Public Allen Brain Observatory Visual Coding experiment 501940850. Source terms and checksums: data/README.md and data/allen/provenance.json.",
+  "originality": "All plot compositions and explanatory wording authored for this demonstration; no published research-paper images or prose are used."
+}

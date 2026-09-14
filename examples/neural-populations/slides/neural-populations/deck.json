@@ -1,0 +1,1360 @@
+{
+  "schemaVersion": "0.4.0",
+  "id": "neural-populations",
+  "title": "From neurons to neural codes",
+  "created": "2026-09-14T00:00:00.000Z",
+  "modified": "2026-09-14T01:52:11.853Z",
+  "stage": {
+    "width": 960,
+    "height": 540
+  },
+  "theme": "flux-light",
+  "defaults": {
+    "transition": "fade",
+    "buildEasing": "smooth",
+    "advance": "click"
+  },
+  "palette": [],
+  "colorGroups": [
+    {
+      "name": "base",
+      "swatches": [
+        {
+          "name": "paper",
+          "hex": "#fffcf0"
+        },
+        {
+          "name": "base-50",
+          "hex": "#f2f0e5"
+        },
+        {
+          "name": "base-100",
+          "hex": "#e6e4d9"
+        },
+        {
+          "name": "base-150",
+          "hex": "#dad8ce"
+        },
+        {
+          "name": "base-200",
+          "hex": "#cecdc3"
+        },
+        {
+          "name": "base-300",
+          "hex": "#b7b5ac"
+        },
+        {
+          "name": "base-400",
+          "hex": "#9f9d96"
+        },
+        {
+          "name": "base-500",
+          "hex": "#878580"
+        },
+        {
+          "name": "base-600",
+          "hex": "#6f6e69"
+        },
+        {
+          "name": "base-700",
+          "hex": "#575653"
+        },
+        {
+          "name": "base-800",
+          "hex": "#403e3c"
+        },
+        {
+          "name": "base-850",
+          "hex": "#343331"
+        },
+        {
+          "name": "base-900",
+          "hex": "#282726"
+        },
+        {
+          "name": "base-950",
+          "hex": "#1c1b1a"
+        },
+        {
+          "name": "black",
+          "hex": "#100f0f"
+        },
+        {
+          "name": "black-opacity-10",
+          "hex": "#100f0f1a"
+        },
+        {
+          "name": "paper-opacity-10",
+          "hex": "#fffcf01a"
+        }
+      ]
+    },
+    {
+      "name": "red",
+      "swatches": [
+        {
+          "name": "red-50",
+          "hex": "#ffe1d5"
+        },
+        {
+          "name": "red-100",
+          "hex": "#ffcabb"
+        },
+        {
+          "name": "red-150",
+          "hex": "#fdb2a2"
+        },
+        {
+          "name": "red-200",
+          "hex": "#f89a8a"
+        },
+        {
+          "name": "red-300",
+          "hex": "#e8705f"
+        },
+        {
+          "name": "red-400",
+          "hex": "#d14d41"
+        },
+        {
+          "name": "red-500",
+          "hex": "#c03e35"
+        },
+        {
+          "name": "red-600",
+          "hex": "#af3029"
+        },
+        {
+          "name": "red-700",
+          "hex": "#942822"
+        },
+        {
+          "name": "red-800",
+          "hex": "#6c201c"
+        },
+        {
+          "name": "red-850",
+          "hex": "#551b18"
+        },
+        {
+          "name": "red-900",
+          "hex": "#3e1715"
+        },
+        {
+          "name": "red-950",
+          "hex": "#261312"
+        }
+      ]
+    },
+    {
+      "name": "orange",
+      "swatches": [
+        {
+          "name": "orange-50",
+          "hex": "#ffe7ce"
+        },
+        {
+          "name": "orange-100",
+          "hex": "#fed3af"
+        },
+        {
+          "name": "orange-150",
+          "hex": "#fcc192"
+        },
+        {
+          "name": "orange-200",
+          "hex": "#f9ae77"
+        },
+        {
+          "name": "orange-300",
+          "hex": "#ec8b49"
+        },
+        {
+          "name": "orange-400",
+          "hex": "#da702c"
+        },
+        {
+          "name": "orange-500",
+          "hex": "#cb6120"
+        },
+        {
+          "name": "orange-600",
+          "hex": "#bc5215"
+        },
+        {
+          "name": "orange-700",
+          "hex": "#9d4310"
+        },
+        {
+          "name": "orange-800",
+          "hex": "#71320d"
+        },
+        {
+          "name": "orange-850",
+          "hex": "#59290d"
+        },
+        {
+          "name": "orange-900",
+          "hex": "#40200d"
+        },
+        {
+          "name": "orange-950",
+          "hex": "#27180e"
+        }
+      ]
+    },
+    {
+      "name": "yellow",
+      "swatches": [
+        {
+          "name": "yellow-50",
+          "hex": "#faeec6"
+        },
+        {
+          "name": "yellow-100",
+          "hex": "#f6e2a0"
+        },
+        {
+          "name": "yellow-150",
+          "hex": "#f1d67e"
+        },
+        {
+          "name": "yellow-200",
+          "hex": "#eccb60"
+        },
+        {
+          "name": "yellow-300",
+          "hex": "#dfb431"
+        },
+        {
+          "name": "yellow-400",
+          "hex": "#d0a215"
+        },
+        {
+          "name": "yellow-500",
+          "hex": "#be9207"
+        },
+        {
+          "name": "yellow-600",
+          "hex": "#ad8301"
+        },
+        {
+          "name": "yellow-700",
+          "hex": "#8e6b01"
+        },
+        {
+          "name": "yellow-800",
+          "hex": "#664d01"
+        },
+        {
+          "name": "yellow-850",
+          "hex": "#503d02"
+        },
+        {
+          "name": "yellow-900",
+          "hex": "#3a2d04"
+        },
+        {
+          "name": "yellow-950",
+          "hex": "#241e08"
+        }
+      ]
+    },
+    {
+      "name": "cyan",
+      "swatches": [
+        {
+          "name": "cyan-50",
+          "hex": "#ddf1e4"
+        },
+        {
+          "name": "cyan-100",
+          "hex": "#bfe8d9"
+        },
+        {
+          "name": "cyan-150",
+          "hex": "#a2dece"
+        },
+        {
+          "name": "cyan-200",
+          "hex": "#87d3c3"
+        },
+        {
+          "name": "cyan-300",
+          "hex": "#5abdac"
+        },
+        {
+          "name": "cyan-400",
+          "hex": "#3aa99f"
+        },
+        {
+          "name": "cyan-500",
+          "hex": "#2f968d"
+        },
+        {
+          "name": "cyan-600",
+          "hex": "#24837b"
+        },
+        {
+          "name": "cyan-700",
+          "hex": "#1c6c66"
+        },
+        {
+          "name": "cyan-800",
+          "hex": "#164f4a"
+        },
+        {
+          "name": "cyan-850",
+          "hex": "#143f3c"
+        },
+        {
+          "name": "cyan-900",
+          "hex": "#122f2c"
+        },
+        {
+          "name": "cyan-950",
+          "hex": "#101f1d"
+        }
+      ]
+    },
+    {
+      "name": "olive",
+      "swatches": [
+        {
+          "name": "olive-50",
+          "hex": "#edeecf"
+        },
+        {
+          "name": "olive-100",
+          "hex": "#dde2b2"
+        },
+        {
+          "name": "olive-150",
+          "hex": "#cdd597"
+        },
+        {
+          "name": "olive-200",
+          "hex": "#bec97e"
+        },
+        {
+          "name": "olive-300",
+          "hex": "#a0af54"
+        },
+        {
+          "name": "olive-400",
+          "hex": "#879a39"
+        },
+        {
+          "name": "olive-500",
+          "hex": "#768d21"
+        },
+        {
+          "name": "olive-600",
+          "hex": "#66800b"
+        },
+        {
+          "name": "olive-700",
+          "hex": "#536907"
+        },
+        {
+          "name": "olive-800",
+          "hex": "#3d4c07"
+        },
+        {
+          "name": "olive-850",
+          "hex": "#313d07"
+        },
+        {
+          "name": "olive-900",
+          "hex": "#252d09"
+        },
+        {
+          "name": "olive-950",
+          "hex": "#1a1e0c"
+        }
+      ]
+    },
+    {
+      "name": "blue",
+      "swatches": [
+        {
+          "name": "blue-50",
+          "hex": "#e1eceb"
+        },
+        {
+          "name": "blue-100",
+          "hex": "#c6dde8"
+        },
+        {
+          "name": "blue-150",
+          "hex": "#abcfe2"
+        },
+        {
+          "name": "blue-200",
+          "hex": "#92bfdb"
+        },
+        {
+          "name": "blue-300",
+          "hex": "#66a0c8"
+        },
+        {
+          "name": "blue-400",
+          "hex": "#4385be"
+        },
+        {
+          "name": "blue-500",
+          "hex": "#3171b2"
+        },
+        {
+          "name": "blue-600",
+          "hex": "#205ea6"
+        },
+        {
+          "name": "blue-700",
+          "hex": "#1a4f8c"
+        },
+        {
+          "name": "blue-800",
+          "hex": "#163b66"
+        },
+        {
+          "name": "blue-850",
+          "hex": "#133051"
+        },
+        {
+          "name": "blue-900",
+          "hex": "#12253b"
+        },
+        {
+          "name": "blue-950",
+          "hex": "#101a24"
+        }
+      ]
+    },
+    {
+      "name": "purple",
+      "swatches": [
+        {
+          "name": "purple-50",
+          "hex": "#f0eaec"
+        },
+        {
+          "name": "purple-100",
+          "hex": "#e2d9e9"
+        },
+        {
+          "name": "purple-150",
+          "hex": "#d3cae6"
+        },
+        {
+          "name": "purple-200",
+          "hex": "#c4b9e0"
+        },
+        {
+          "name": "purple-300",
+          "hex": "#a699d0"
+        },
+        {
+          "name": "purple-400",
+          "hex": "#8b7ec8"
+        },
+        {
+          "name": "purple-500",
+          "hex": "#735eb5"
+        },
+        {
+          "name": "purple-600",
+          "hex": "#5e409d"
+        },
+        {
+          "name": "purple-700",
+          "hex": "#4f3685"
+        },
+        {
+          "name": "purple-800",
+          "hex": "#3c2a62"
+        },
+        {
+          "name": "purple-850",
+          "hex": "#31234e"
+        },
+        {
+          "name": "purple-900",
+          "hex": "#261c39"
+        },
+        {
+          "name": "purple-950",
+          "hex": "#1a1623"
+        }
+      ]
+    },
+    {
+      "name": "magenta",
+      "swatches": [
+        {
+          "name": "magenta-50",
+          "hex": "#fee4e5"
+        },
+        {
+          "name": "magenta-100",
+          "hex": "#fccfda"
+        },
+        {
+          "name": "magenta-150",
+          "hex": "#f9b9cf"
+        },
+        {
+          "name": "magenta-200",
+          "hex": "#f4a4c2"
+        },
+        {
+          "name": "magenta-300",
+          "hex": "#e47da8"
+        },
+        {
+          "name": "magenta-400",
+          "hex": "#ce5d97"
+        },
+        {
+          "name": "magenta-500",
+          "hex": "#b74583"
+        },
+        {
+          "name": "magenta-600",
+          "hex": "#a02f6f"
+        },
+        {
+          "name": "magenta-700",
+          "hex": "#87285e"
+        },
+        {
+          "name": "magenta-800",
+          "hex": "#641f46"
+        },
+        {
+          "name": "magenta-850",
+          "hex": "#4f1b39"
+        },
+        {
+          "name": "magenta-900",
+          "hex": "#39172b"
+        },
+        {
+          "name": "magenta-950",
+          "hex": "#24131d"
+        }
+      ]
+    },
+    {
+      "name": "GRN",
+      "swatches": [
+        {
+          "name": "green-50",
+          "hex": "#a9e3b2"
+        },
+        {
+          "name": "green-100",
+          "hex": "#95dca1"
+        },
+        {
+          "name": "green-150",
+          "hex": "#7fd68d"
+        },
+        {
+          "name": "green-200",
+          "hex": "#67d379"
+        },
+        {
+          "name": "green-300",
+          "hex": "#44c55a"
+        },
+        {
+          "name": "green-400",
+          "hex": "#35ab49"
+        },
+        {
+          "name": "green-500",
+          "hex": "#2c973e"
+        },
+        {
+          "name": "green-600",
+          "hex": "#228833"
+        },
+        {
+          "name": "green-700",
+          "hex": "#1c722a"
+        },
+        {
+          "name": "green-800",
+          "hex": "#165421"
+        },
+        {
+          "name": "green-850",
+          "hex": "#13421b"
+        },
+        {
+          "name": "green-900",
+          "hex": "#113016"
+        },
+        {
+          "name": "green-950",
+          "hex": "#0f1e11"
+        }
+      ]
+    }
+  ],
+  "textStyles": [
+    {
+      "id": "sl-title",
+      "name": "Title",
+      "fontFamily": "Georgia, \"Gelasio\", \"Times New Roman\", Times, serif",
+      "fontSize": 49,
+      "fontWeight": 700,
+      "fontStyle": "normal",
+      "color": "#100f0f"
+    },
+    {
+      "id": "sl-body",
+      "name": "Body",
+      "fontFamily": "Georgia, \"Gelasio\", \"Times New Roman\", Times, serif",
+      "fontSize": 24,
+      "fontWeight": 400,
+      "fontStyle": "normal",
+      "color": "#100f0f"
+    },
+    {
+      "id": "sl-caption",
+      "name": "Caption",
+      "fontFamily": "Georgia, \"Gelasio\", \"Times New Roman\", Times, serif",
+      "fontSize": 19,
+      "fontWeight": 400,
+      "fontStyle": "normal",
+      "color": "#6f6e69"
+    }
+  ],
+  "assets": [],
+  "slides": [
+    {
+      "id": "results",
+      "name": "Many neurons. Many responses.",
+      "background": "#ffffff",
+      "notes": "Original explanatory demo made from public data. Figures are exploratory and do not establish a biological finding. Source records and processing choices are documented in data/ and paper/methods.qmd.",
+      "elements": [
+        {
+          "id": "results-eyebrow",
+          "type": "text",
+          "text": "NEURAL POPULATIONS / A FLUX DEMONSTRATION",
+          "x": 32,
+          "y": 24,
+          "width": 880,
+          "height": 19,
+          "rotation": 0,
+          "fontFamily": "Gelasio",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "fontStyle": "normal",
+          "align": "left",
+          "color": "#646b72",
+          "lines": [
+            "NEURAL POPULATIONS / A FLUX DEMONSTRATION"
+          ],
+          "sizing": "fixed"
+        },
+        {
+          "id": "results-title",
+          "type": "text",
+          "text": "An ensemble, many responses.",
+          "x": 32,
+          "y": 55,
+          "width": 900,
+          "height": 48,
+          "rotation": 0,
+          "fontFamily": "Gelasio",
+          "fontSize": 32,
+          "fontWeight": 400,
+          "fontStyle": "normal",
+          "align": "left",
+          "color": "#22272e",
+          "lines": [
+            "An ensemble, many responses."
+          ],
+          "sizing": "fixed"
+        },
+        {
+          "id": "results-footer",
+          "type": "text",
+          "text": "Public data · original analysis and presentation · an illustrative Flux project",
+          "x": 32,
+          "y": 512,
+          "width": 900,
+          "height": 18,
+          "rotation": 0,
+          "fontFamily": "Gelasio",
+          "fontSize": 11,
+          "fontWeight": 400,
+          "fontStyle": "normal",
+          "align": "left",
+          "color": "#646b72",
+          "lines": [
+            "Public data · original analysis and presentation · an illustrative Flux project"
+          ],
+          "sizing": "fixed"
+        },
+        {
+          "id": "response-map",
+          "type": "plot",
+          "name": "Population responses",
+          "x": 63.15686274509804,
+          "y": 133,
+          "width": 431.6862745098039,
+          "height": 344,
+          "rotation": 0,
+          "assetId": "03-response-heatmap",
+          "source": {
+            "svgPath": "plots/03-response-heatmap.svg",
+            "manifestPath": "plots/03-response-heatmap.fluxplot.json",
+            "recipePath": "plots/03-response-heatmap.recipe.json",
+            "frozen": false
+          }
+        },
+        {
+          "id": "response-network",
+          "type": "plot",
+          "name": "Response similarity network",
+          "x": 580,
+          "y": 151.03125,
+          "width": 340.00000000000006,
+          "height": 270.9375,
+          "rotation": 0,
+          "assetId": "05-response-network",
+          "source": {
+            "svgPath": "plots/05-response-network.svg",
+            "manifestPath": "plots/05-response-network.fluxplot.json",
+            "recipePath": "plots/05-response-network.recipe.json",
+            "frozen": false
+          }
+        },
+        {
+          "id": "response-map-label",
+          "type": "text",
+          "text": "01   Patterns across a population",
+          "x": 38,
+          "y": 111,
+          "width": 460,
+          "height": 21,
+          "rotation": 0,
+          "fontFamily": "Gelasio",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontStyle": "normal",
+          "align": "left",
+          "color": "#646b72",
+          "lines": [
+            "01   Patterns across a population"
+          ],
+          "sizing": "fixed"
+        },
+        {
+          "id": "network-label",
+          "type": "text",
+          "text": "02   Shared response profiles",
+          "x": 584,
+          "y": 111,
+          "width": 342,
+          "height": 21,
+          "rotation": 0,
+          "fontFamily": "Gelasio",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontStyle": "normal",
+          "align": "left",
+          "color": "#646b72",
+          "lines": [
+            "02   Shared response profiles"
+          ],
+          "sizing": "fixed"
+        },
+        {
+          "id": "results-caption",
+          "type": "text",
+          "text": "Different views. One connected result.",
+          "x": 578,
+          "y": 466,
+          "width": 352,
+          "height": 25,
+          "rotation": 0,
+          "fontFamily": "Gelasio",
+          "fontSize": 18,
+          "fontWeight": 400,
+          "fontStyle": "normal",
+          "align": "left",
+          "color": "#266e9e",
+          "lines": [
+            "Different views. One connected result."
+          ],
+          "sizing": "fixed"
+        }
+      ],
+      "beats": [
+        {
+          "id": "initial",
+          "label": "The cells and stimulus axes",
+          "advance": "click",
+          "tracks": []
+        },
+        {
+          "id": "responses",
+          "label": "Reveal population responses",
+          "advance": "click",
+          "tracks": [
+            {
+              "id": "response-map-reveal",
+              "target": "response-map",
+              "part": "cell-responses.x-heatmap",
+              "preset": "fade",
+              "duration": 850,
+              "easing": "smooth"
+            }
+          ]
+        },
+        {
+          "id": "relationships",
+          "label": "Reveal shared response profiles",
+          "advance": "click",
+          "tracks": [
+            {
+              "id": "network-edges-reveal",
+              "target": "response-network",
+              "part": "signal-correlation-edges.x-similarity-edges",
+              "preset": "drawOn",
+              "duration": 1200,
+              "easing": "smooth"
+            }
+          ]
+        },
+        {
+          "id": "interpretation",
+          "label": "Bring out the interpretation",
+          "advance": "click",
+          "tracks": [
+            {
+              "id": "conclusion-reveal",
+              "target": "results-caption",
+              "preset": "fadeRise",
+              "duration": 800,
+              "easing": "smooth"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "anatomy",
+      "name": "From anatomy to activity",
+      "background": "#ffffff",
+      "notes": "Original explanatory demo made from public data. Figures are exploratory and do not establish a biological finding. Source records and processing choices are documented in data/ and paper/methods.qmd.",
+      "elements": [
+        {
+          "id": "anatomy-eyebrow",
+          "type": "text",
+          "text": "NEURAL POPULATIONS / A FLUX DEMONSTRATION",
+          "x": 32,
+          "y": 24,
+          "width": 880,
+          "height": 19,
+          "rotation": 0,
+          "fontFamily": "Gelasio",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "fontStyle": "normal",
+          "align": "left",
+          "color": "#646b72",
+          "lines": [
+            "NEURAL POPULATIONS / A FLUX DEMONSTRATION"
+          ],
+          "sizing": "fixed"
+        },
+        {
+          "id": "anatomy-title",
+          "type": "text",
+          "text": "A circuit begins with its cells.",
+          "x": 32,
+          "y": 55,
+          "width": 900,
+          "height": 48,
+          "rotation": 0,
+          "fontFamily": "Gelasio",
+          "fontSize": 32,
+          "fontWeight": 400,
+          "fontStyle": "normal",
+          "align": "left",
+          "color": "#22272e",
+          "lines": [
+            "A circuit begins with its cells."
+          ],
+          "sizing": "fixed"
+        },
+        {
+          "id": "anatomy-footer",
+          "type": "text",
+          "text": "Public data · original analysis and presentation · an illustrative Flux project",
+          "x": 32,
+          "y": 512,
+          "width": 900,
+          "height": 18,
+          "rotation": 0,
+          "fontFamily": "Gelasio",
+          "fontSize": 11,
+          "fontWeight": 400,
+          "fontStyle": "normal",
+          "align": "left",
+          "color": "#646b72",
+          "lines": [
+            "Public data · original analysis and presentation · an illustrative Flux project"
+          ],
+          "sizing": "fixed"
+        },
+        {
+          "id": "brain-context",
+          "type": "plot",
+          "name": "Anatomical context",
+          "x": 44.91176470588235,
+          "y": 132,
+          "width": 429.1764705882353,
+          "height": 342,
+          "rotation": 0,
+          "assetId": "01-brain-regions",
+          "source": {
+            "svgPath": "plots/01-brain-regions.svg",
+            "manifestPath": "plots/01-brain-regions.fluxplot.json",
+            "recipePath": "plots/01-brain-regions.recipe.json",
+            "frozen": false
+          }
+        },
+        {
+          "id": "neuron-context",
+          "type": "plot",
+          "name": "Neuronal architecture",
+          "x": 500,
+          "y": 134.0625,
+          "width": 424.00000000000006,
+          "height": 337.875,
+          "rotation": 0,
+          "assetId": "02-neuron-morphology",
+          "source": {
+            "svgPath": "plots/02-neuron-morphology.svg",
+            "manifestPath": "plots/02-neuron-morphology.fluxplot.json",
+            "recipePath": "plots/02-neuron-morphology.recipe.json",
+            "frozen": false
+          }
+        },
+        {
+          "id": "anatomy-note",
+          "type": "text",
+          "text": "Structure provides context for the activity we measure.",
+          "x": 32,
+          "y": 478,
+          "width": 870,
+          "height": 22,
+          "rotation": 0,
+          "fontFamily": "Gelasio",
+          "fontSize": 17,
+          "fontWeight": 400,
+          "fontStyle": "normal",
+          "align": "left",
+          "color": "#266e9e",
+          "lines": [
+            "Structure provides context for the activity we measure."
+          ],
+          "sizing": "fixed"
+        }
+      ],
+      "beats": [
+        {
+          "id": "initial",
+          "label": "Anatomical context",
+          "advance": "click",
+          "tracks": []
+        },
+        {
+          "id": "cells",
+          "label": "Meet the neurons",
+          "advance": "click",
+          "tracks": [
+            {
+              "id": "neurons-reveal",
+              "target": "neuron-context",
+              "preset": "fade",
+              "duration": 850,
+              "easing": "smooth"
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "label": "Connect scales",
+          "advance": "click",
+          "tracks": [
+            {
+              "id": "context-note",
+              "target": "anatomy-note",
+              "preset": "fadeRise",
+              "duration": 800,
+              "easing": "smooth"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tuning",
+      "name": "A diversity of responses",
+      "background": "#ffffff",
+      "notes": "Original explanatory demo made from public data. Figures are exploratory and do not establish a biological finding. Source records and processing choices are documented in data/ and paper/methods.qmd.",
+      "elements": [
+        {
+          "id": "tuning-eyebrow",
+          "type": "text",
+          "text": "NEURAL POPULATIONS / A FLUX DEMONSTRATION",
+          "x": 32,
+          "y": 24,
+          "width": 880,
+          "height": 19,
+          "rotation": 0,
+          "fontFamily": "Gelasio",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "fontStyle": "normal",
+          "align": "left",
+          "color": "#646b72",
+          "lines": [
+            "NEURAL POPULATIONS / A FLUX DEMONSTRATION"
+          ],
+          "sizing": "fixed"
+        },
+        {
+          "id": "tuning-title",
+          "type": "text",
+          "text": "The same input, different preferences.",
+          "x": 32,
+          "y": 55,
+          "width": 900,
+          "height": 48,
+          "rotation": 0,
+          "fontFamily": "Gelasio",
+          "fontSize": 32,
+          "fontWeight": 400,
+          "fontStyle": "normal",
+          "align": "left",
+          "color": "#22272e",
+          "lines": [
+            "The same input, different preferences."
+          ],
+          "sizing": "fixed"
+        },
+        {
+          "id": "tuning-footer",
+          "type": "text",
+          "text": "Public data · original analysis and presentation · an illustrative Flux project",
+          "x": 32,
+          "y": 512,
+          "width": 900,
+          "height": 18,
+          "rotation": 0,
+          "fontFamily": "Gelasio",
+          "fontSize": 11,
+          "fontWeight": 400,
+          "fontStyle": "normal",
+          "align": "left",
+          "color": "#646b72",
+          "lines": [
+            "Public data · original analysis and presentation · an illustrative Flux project"
+          ],
+          "sizing": "fixed"
+        },
+        {
+          "id": "tuning-profiles",
+          "type": "plot",
+          "name": "Diverse tuning profiles",
+          "x": 43.823529411764696,
+          "y": 138,
+          "width": 410.3529411764706,
+          "height": 327,
+          "rotation": 0,
+          "assetId": "04-tuning-curves",
+          "source": {
+            "svgPath": "plots/04-tuning-curves.svg",
+            "manifestPath": "plots/04-tuning-curves.fluxplot.json",
+            "recipePath": "plots/04-tuning-curves.recipe.json",
+            "frozen": false
+          }
+        },
+        {
+          "id": "response-statistics",
+          "type": "plot",
+          "name": "Response selectivity",
+          "x": 511.3333333333333,
+          "y": 140,
+          "width": 405.33333333333337,
+          "height": 323,
+          "rotation": 0,
+          "assetId": "06-selectivity-distribution",
+          "source": {
+            "svgPath": "plots/06-selectivity-distribution.svg",
+            "manifestPath": "plots/06-selectivity-distribution.fluxplot.json",
+            "recipePath": "plots/06-selectivity-distribution.recipe.json",
+            "frozen": false
+          }
+        },
+        {
+          "id": "tuning-note",
+          "type": "text",
+          "text": "Individual differences become visible in the population.",
+          "x": 32,
+          "y": 482,
+          "width": 890,
+          "height": 24,
+          "rotation": 0,
+          "fontFamily": "Gelasio",
+          "fontSize": 17,
+          "fontWeight": 400,
+          "fontStyle": "normal",
+          "align": "left",
+          "color": "#266e9e",
+          "lines": [
+            "Individual differences become visible in the population."
+          ],
+          "sizing": "fixed"
+        }
+      ],
+      "beats": [
+        {
+          "id": "initial",
+          "label": "Individual tuning profiles",
+          "advance": "click",
+          "tracks": []
+        },
+        {
+          "id": "variation",
+          "label": "See the variation",
+          "advance": "click",
+          "tracks": [
+            {
+              "id": "statistics-reveal",
+              "target": "response-statistics",
+              "preset": "fade",
+              "duration": 850,
+              "easing": "smooth"
+            }
+          ]
+        },
+        {
+          "id": "summary",
+          "label": "Read the population",
+          "advance": "click",
+          "tracks": [
+            {
+              "id": "tuning-summary",
+              "target": "tuning-note",
+              "preset": "fadeRise",
+              "duration": 800,
+              "easing": "smooth"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "population",
+      "name": "Patterns in activity space",
+      "background": "#ffffff",
+      "notes": "Original explanatory demo made from public data. Figures are exploratory and do not establish a biological finding. Source records and processing choices are documented in data/ and paper/methods.qmd.",
+      "elements": [
+        {
+          "id": "population-eyebrow",
+          "type": "text",
+          "text": "NEURAL POPULATIONS / A FLUX DEMONSTRATION",
+          "x": 32,
+          "y": 24,
+          "width": 880,
+          "height": 19,
+          "rotation": 0,
+          "fontFamily": "Gelasio",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "fontStyle": "normal",
+          "align": "left",
+          "color": "#646b72",
+          "lines": [
+            "NEURAL POPULATIONS / A FLUX DEMONSTRATION"
+          ],
+          "sizing": "fixed"
+        },
+        {
+          "id": "population-title",
+          "type": "text",
+          "text": "A population reveals its structure.",
+          "x": 32,
+          "y": 55,
+          "width": 900,
+          "height": 48,
+          "rotation": 0,
+          "fontFamily": "Gelasio",
+          "fontSize": 32,
+          "fontWeight": 400,
+          "fontStyle": "normal",
+          "align": "left",
+          "color": "#22272e",
+          "lines": [
+            "A population reveals its structure."
+          ],
+          "sizing": "fixed"
+        },
+        {
+          "id": "population-footer",
+          "type": "text",
+          "text": "Public data · original analysis and presentation · an illustrative Flux project",
+          "x": 32,
+          "y": 512,
+          "width": 900,
+          "height": 18,
+          "rotation": 0,
+          "fontFamily": "Gelasio",
+          "fontSize": 11,
+          "fontWeight": 400,
+          "fontStyle": "normal",
+          "align": "left",
+          "color": "#646b72",
+          "lines": [
+            "Public data · original analysis and presentation · an illustrative Flux project"
+          ],
+          "sizing": "fixed"
+        },
+        {
+          "id": "population-space",
+          "type": "plot",
+          "name": "Population activity space",
+          "x": 50.882352941176435,
+          "y": 126,
+          "width": 444.23529411764713,
+          "height": 354,
+          "rotation": 0,
+          "assetId": "08-population-pca",
+          "source": {
+            "svgPath": "plots/08-population-pca.svg",
+            "manifestPath": "plots/08-population-pca.fluxplot.json",
+            "recipePath": "plots/08-population-pca.recipe.json",
+            "frozen": false
+          }
+        },
+        {
+          "id": "shared-structure",
+          "type": "plot",
+          "name": "Shared response structure",
+          "x": 566,
+          "y": 155.65625,
+          "width": 356,
+          "height": 283.6875,
+          "rotation": 0,
+          "assetId": "09-response-correlation",
+          "source": {
+            "svgPath": "plots/09-response-correlation.svg",
+            "manifestPath": "plots/09-response-correlation.fluxplot.json",
+            "recipePath": "plots/09-response-correlation.recipe.json",
+            "frozen": false
+          }
+        },
+        {
+          "id": "population-note",
+          "type": "text",
+          "text": "One dataset. Many ways to see the pattern.",
+          "x": 545,
+          "y": 474,
+          "width": 380,
+          "height": 23,
+          "rotation": 0,
+          "fontFamily": "Gelasio",
+          "fontSize": 17,
+          "fontWeight": 400,
+          "fontStyle": "normal",
+          "align": "left",
+          "color": "#266e9e",
+          "lines": [
+            "One dataset. Many ways to see the pattern."
+          ],
+          "sizing": "fixed"
+        }
+      ],
+      "beats": [
+        {
+          "id": "initial",
+          "label": "Population activity space",
+          "advance": "click",
+          "tracks": []
+        },
+        {
+          "id": "shared",
+          "label": "Reveal shared structure",
+          "advance": "click",
+          "tracks": [
+            {
+              "id": "correlation-reveal",
+              "target": "shared-structure",
+              "preset": "fade",
+              "duration": 850,
+              "easing": "smooth"
+            }
+          ]
+        },
+        {
+          "id": "summary",
+          "label": "Bring the views together",
+          "advance": "click",
+          "tracks": [
+            {
+              "id": "population-summary",
+              "target": "population-note",
+              "preset": "fadeRise",
+              "duration": 800,
+              "easing": "smooth"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "externalAssetSizes": {
+    "01-brain-regions": {
+      "width": 307.2,
+      "height": 244.79999999999998
+    },
+    "02-neuron-morphology": {
+      "width": 307.2,
+      "height": 244.79999999999998
+    },
+    "03-response-heatmap": {
+      "width": 307.2,
+      "height": 244.79999999999998
+    },
+    "04-tuning-curves": {
+      "width": 307.2,
+      "height": 244.79999999999998
+    },
+    "05-response-network": {
+      "width": 307.2,
+      "height": 244.79999999999998
+    },
+    "06-selectivity-distribution": {
+      "width": 307.2,
+      "height": 244.79999999999998
+    },
+    "08-population-pca": {
+      "width": 307.2,
+      "height": 244.79999999999998
+    },
+    "09-response-correlation": {
+      "width": 307.2,
+      "height": 244.79999999999998
+    }
+  }
+}

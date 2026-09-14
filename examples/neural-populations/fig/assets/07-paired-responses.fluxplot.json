@@ -1,0 +1,3433 @@
+{
+  "artifact": {
+    "svgSha256": "a608c554a80494f602bdbdbc36a7a1a118c09789df7b7467618aa12d2d46508d"
+  },
+  "axes": [
+    {
+      "id": "plot-area",
+      "pixelBox": {
+        "x0": 41.472,
+        "x1": 221.184,
+        "y0": 33.04800000000001,
+        "y1": 143.208
+      },
+      "projection": "rectilinear",
+      "svgId": "plot-area",
+      "x": {
+        "anchors": [
+          {
+            "data": -0.35,
+            "svg": 41.471999999999994
+          },
+          {
+            "data": 1.35,
+            "svg": 221.18399999999997
+          }
+        ],
+        "domain": [
+          -0.35,
+          1.35
+        ],
+        "label": "Temporal frequency",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "1 Hz",
+            "value": 0
+          },
+          {
+            "label": "8 Hz",
+            "value": 1
+          }
+        ]
+      },
+      "y": {
+        "anchors": [],
+        "domain": [
+          -10,
+          100
+        ],
+        "label": "Mean ΔF/F (%)",
+        "scale": "symlog",
+        "supported": false,
+        "ticks": [
+          {
+            "label": "−10",
+            "value": -10
+          },
+          {
+            "label": "−1",
+            "value": -1
+          },
+          {
+            "label": "0",
+            "value": 0
+          },
+          {
+            "label": "1",
+            "value": 1
+          },
+          {
+            "label": "10",
+            "value": 10
+          },
+          {
+            "label": "100",
+            "value": 100
+          }
+        ]
+      }
+    }
+  ],
+  "build": {
+    "order": [
+      "axis.x",
+      "axis.y",
+      "figure.title",
+      "gridlines",
+      "one-hz-iqr.line",
+      "eight-hz-iqr.line",
+      "within-cell-pairs.x-paired-responses",
+      "one-hz.points",
+      "one-hz-median.points",
+      "eight-hz.points",
+      "eight-hz-median.points",
+      "annotation.0"
+    ],
+    "presets": {
+      "axis": {
+        "animation": "draw-on",
+        "durationMs": 400
+      },
+      "gridline": {
+        "animation": "fade-in",
+        "durationMs": 300
+      },
+      "line": {
+        "animation": "draw-on",
+        "durationMs": 800
+      },
+      "point": {
+        "animation": "stagger-in",
+        "durationMs": 240,
+        "staggerMs": 40
+      }
+    }
+  },
+  "generator": {
+    "matplotlib": "3.11.1",
+    "name": "fluxplot",
+    "version": "0.1.0"
+  },
+  "guides": [
+    {
+      "axis": "x",
+      "id": "axis.x",
+      "role": "axis",
+      "svgId": "axis.x"
+    },
+    {
+      "axis": "y",
+      "id": "axis.y",
+      "role": "axis",
+      "svgId": "axis.y"
+    }
+  ],
+  "overlays": [
+    {
+      "id": "annotation.0",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.0",
+      "text": "Paired cells · direction mean · symmetric-log y axis"
+    }
+  ],
+  "parts": {
+    "children": [
+      {
+        "children": [
+          {
+            "axis": "x",
+            "children": [
+              {
+                "kind": "line",
+                "ref": "axis.x.spine"
+              },
+              {
+                "groupRole": "tick",
+                "id": "axis.x.ticks",
+                "kind": "line",
+                "members": [
+                  "axis.x.tick.0",
+                  "axis.x.tick.1"
+                ],
+                "role": "group"
+              },
+              {
+                "groupRole": "tick-label",
+                "id": "axis.x.tick-labels",
+                "kind": "text",
+                "members": [
+                  "axis.x.ticklabel.0",
+                  "axis.x.ticklabel.1"
+                ],
+                "role": "group"
+              },
+              {
+                "kind": "text",
+                "ref": "axis.x.title"
+              }
+            ],
+            "id": "axis.x",
+            "kind": "container",
+            "role": "axis"
+          },
+          {
+            "axis": "y",
+            "children": [
+              {
+                "kind": "line",
+                "ref": "axis.y.spine"
+              },
+              {
+                "groupRole": "tick",
+                "id": "axis.y.ticks",
+                "kind": "line",
+                "members": [
+                  "axis.y.tick.0",
+                  "axis.y.tick.1",
+                  "axis.y.tick.2",
+                  "axis.y.tick.3",
+                  "axis.y.tick.4",
+                  "axis.y.tick.5"
+                ],
+                "role": "group"
+              },
+              {
+                "groupRole": "tick-label",
+                "id": "axis.y.tick-labels",
+                "kind": "text",
+                "members": [
+                  "axis.y.ticklabel.0",
+                  "axis.y.ticklabel.1",
+                  "axis.y.ticklabel.2",
+                  "axis.y.ticklabel.3",
+                  "axis.y.ticklabel.4",
+                  "axis.y.ticklabel.5"
+                ],
+                "role": "group"
+              },
+              {
+                "kind": "text",
+                "ref": "axis.y.title"
+              }
+            ],
+            "id": "axis.y",
+            "kind": "container",
+            "role": "axis"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "within-cell-pairs.x-paired-responses"
+              }
+            ],
+            "id": "within-cell-pairs",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "groupRole": "point",
+                "id": "one-hz.points",
+                "kind": "shape",
+                "members": [
+                  "one-hz.point.0",
+                  "one-hz.point.1",
+                  "one-hz.point.2",
+                  "one-hz.point.3",
+                  "one-hz.point.4",
+                  "one-hz.point.5",
+                  "one-hz.point.6",
+                  "one-hz.point.7",
+                  "one-hz.point.8",
+                  "one-hz.point.9",
+                  "one-hz.point.10",
+                  "one-hz.point.11",
+                  "one-hz.point.12",
+                  "one-hz.point.13",
+                  "one-hz.point.14",
+                  "one-hz.point.15",
+                  "one-hz.point.16",
+                  "one-hz.point.17",
+                  "one-hz.point.18",
+                  "one-hz.point.19",
+                  "one-hz.point.20",
+                  "one-hz.point.21",
+                  "one-hz.point.22",
+                  "one-hz.point.23",
+                  "one-hz.point.24",
+                  "one-hz.point.25",
+                  "one-hz.point.26",
+                  "one-hz.point.27",
+                  "one-hz.point.28",
+                  "one-hz.point.29",
+                  "one-hz.point.30",
+                  "one-hz.point.31",
+                  "one-hz.point.32",
+                  "one-hz.point.33",
+                  "one-hz.point.34",
+                  "one-hz.point.35",
+                  "one-hz.point.36",
+                  "one-hz.point.37",
+                  "one-hz.point.38",
+                  "one-hz.point.39",
+                  "one-hz.point.40",
+                  "one-hz.point.41",
+                  "one-hz.point.42",
+                  "one-hz.point.43",
+                  "one-hz.point.44",
+                  "one-hz.point.45",
+                  "one-hz.point.46",
+                  "one-hz.point.47",
+                  "one-hz.point.48",
+                  "one-hz.point.49",
+                  "one-hz.point.50",
+                  "one-hz.point.51",
+                  "one-hz.point.52",
+                  "one-hz.point.53",
+                  "one-hz.point.54",
+                  "one-hz.point.55",
+                  "one-hz.point.56",
+                  "one-hz.point.57",
+                  "one-hz.point.58",
+                  "one-hz.point.59",
+                  "one-hz.point.60",
+                  "one-hz.point.61",
+                  "one-hz.point.62",
+                  "one-hz.point.63",
+                  "one-hz.point.64",
+                  "one-hz.point.65",
+                  "one-hz.point.66",
+                  "one-hz.point.67",
+                  "one-hz.point.68",
+                  "one-hz.point.69",
+                  "one-hz.point.70",
+                  "one-hz.point.71",
+                  "one-hz.point.72",
+                  "one-hz.point.73",
+                  "one-hz.point.74",
+                  "one-hz.point.75",
+                  "one-hz.point.76",
+                  "one-hz.point.77",
+                  "one-hz.point.78",
+                  "one-hz.point.79",
+                  "one-hz.point.80",
+                  "one-hz.point.81",
+                  "one-hz.point.82",
+                  "one-hz.point.83",
+                  "one-hz.point.84",
+                  "one-hz.point.85",
+                  "one-hz.point.86",
+                  "one-hz.point.87",
+                  "one-hz.point.88",
+                  "one-hz.point.89",
+                  "one-hz.point.90",
+                  "one-hz.point.91",
+                  "one-hz.point.92",
+                  "one-hz.point.93",
+                  "one-hz.point.94",
+                  "one-hz.point.95",
+                  "one-hz.point.96",
+                  "one-hz.point.97",
+                  "one-hz.point.98",
+                  "one-hz.point.99",
+                  "one-hz.point.100",
+                  "one-hz.point.101",
+                  "one-hz.point.102",
+                  "one-hz.point.103",
+                  "one-hz.point.104",
+                  "one-hz.point.105",
+                  "one-hz.point.106",
+                  "one-hz.point.107",
+                  "one-hz.point.108",
+                  "one-hz.point.109",
+                  "one-hz.point.110",
+                  "one-hz.point.111",
+                  "one-hz.point.112",
+                  "one-hz.point.113",
+                  "one-hz.point.114",
+                  "one-hz.point.115",
+                  "one-hz.point.116",
+                  "one-hz.point.117",
+                  "one-hz.point.118",
+                  "one-hz.point.119",
+                  "one-hz.point.120",
+                  "one-hz.point.121",
+                  "one-hz.point.122",
+                  "one-hz.point.123",
+                  "one-hz.point.124",
+                  "one-hz.point.125",
+                  "one-hz.point.126",
+                  "one-hz.point.127",
+                  "one-hz.point.128",
+                  "one-hz.point.129",
+                  "one-hz.point.130",
+                  "one-hz.point.131",
+                  "one-hz.point.132",
+                  "one-hz.point.133",
+                  "one-hz.point.134",
+                  "one-hz.point.135",
+                  "one-hz.point.136",
+                  "one-hz.point.137",
+                  "one-hz.point.138",
+                  "one-hz.point.139",
+                  "one-hz.point.140",
+                  "one-hz.point.141",
+                  "one-hz.point.142"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "one-hz",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "one-hz-iqr.line"
+              }
+            ],
+            "id": "one-hz-iqr",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "groupRole": "point",
+                "id": "one-hz-median.points",
+                "kind": "shape",
+                "members": [
+                  "one-hz-median.point.0"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "one-hz-median",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "groupRole": "point",
+                "id": "eight-hz.points",
+                "kind": "shape",
+                "members": [
+                  "eight-hz.point.0",
+                  "eight-hz.point.1",
+                  "eight-hz.point.2",
+                  "eight-hz.point.3",
+                  "eight-hz.point.4",
+                  "eight-hz.point.5",
+                  "eight-hz.point.6",
+                  "eight-hz.point.7",
+                  "eight-hz.point.8",
+                  "eight-hz.point.9",
+                  "eight-hz.point.10",
+                  "eight-hz.point.11",
+                  "eight-hz.point.12",
+                  "eight-hz.point.13",
+                  "eight-hz.point.14",
+                  "eight-hz.point.15",
+                  "eight-hz.point.16",
+                  "eight-hz.point.17",
+                  "eight-hz.point.18",
+                  "eight-hz.point.19",
+                  "eight-hz.point.20",
+                  "eight-hz.point.21",
+                  "eight-hz.point.22",
+                  "eight-hz.point.23",
+                  "eight-hz.point.24",
+                  "eight-hz.point.25",
+                  "eight-hz.point.26",
+                  "eight-hz.point.27",
+                  "eight-hz.point.28",
+                  "eight-hz.point.29",
+                  "eight-hz.point.30",
+                  "eight-hz.point.31",
+                  "eight-hz.point.32",
+                  "eight-hz.point.33",
+                  "eight-hz.point.34",
+                  "eight-hz.point.35",
+                  "eight-hz.point.36",
+                  "eight-hz.point.37",
+                  "eight-hz.point.38",
+                  "eight-hz.point.39",
+                  "eight-hz.point.40",
+                  "eight-hz.point.41",
+                  "eight-hz.point.42",
+                  "eight-hz.point.43",
+                  "eight-hz.point.44",
+                  "eight-hz.point.45",
+                  "eight-hz.point.46",
+                  "eight-hz.point.47",
+                  "eight-hz.point.48",
+                  "eight-hz.point.49",
+                  "eight-hz.point.50",
+                  "eight-hz.point.51",
+                  "eight-hz.point.52",
+                  "eight-hz.point.53",
+                  "eight-hz.point.54",
+                  "eight-hz.point.55",
+                  "eight-hz.point.56",
+                  "eight-hz.point.57",
+                  "eight-hz.point.58",
+                  "eight-hz.point.59",
+                  "eight-hz.point.60",
+                  "eight-hz.point.61",
+                  "eight-hz.point.62",
+                  "eight-hz.point.63",
+                  "eight-hz.point.64",
+                  "eight-hz.point.65",
+                  "eight-hz.point.66",
+                  "eight-hz.point.67",
+                  "eight-hz.point.68",
+                  "eight-hz.point.69",
+                  "eight-hz.point.70",
+                  "eight-hz.point.71",
+                  "eight-hz.point.72",
+                  "eight-hz.point.73",
+                  "eight-hz.point.74",
+                  "eight-hz.point.75",
+                  "eight-hz.point.76",
+                  "eight-hz.point.77",
+                  "eight-hz.point.78",
+                  "eight-hz.point.79",
+                  "eight-hz.point.80",
+                  "eight-hz.point.81",
+                  "eight-hz.point.82",
+                  "eight-hz.point.83",
+                  "eight-hz.point.84",
+                  "eight-hz.point.85",
+                  "eight-hz.point.86",
+                  "eight-hz.point.87",
+                  "eight-hz.point.88",
+                  "eight-hz.point.89",
+                  "eight-hz.point.90",
+                  "eight-hz.point.91",
+                  "eight-hz.point.92",
+                  "eight-hz.point.93",
+                  "eight-hz.point.94",
+                  "eight-hz.point.95",
+                  "eight-hz.point.96",
+                  "eight-hz.point.97",
+                  "eight-hz.point.98",
+                  "eight-hz.point.99",
+                  "eight-hz.point.100",
+                  "eight-hz.point.101",
+                  "eight-hz.point.102",
+                  "eight-hz.point.103",
+                  "eight-hz.point.104",
+                  "eight-hz.point.105",
+                  "eight-hz.point.106",
+                  "eight-hz.point.107",
+                  "eight-hz.point.108",
+                  "eight-hz.point.109",
+                  "eight-hz.point.110",
+                  "eight-hz.point.111",
+                  "eight-hz.point.112",
+                  "eight-hz.point.113",
+                  "eight-hz.point.114",
+                  "eight-hz.point.115",
+                  "eight-hz.point.116",
+                  "eight-hz.point.117",
+                  "eight-hz.point.118",
+                  "eight-hz.point.119",
+                  "eight-hz.point.120",
+                  "eight-hz.point.121",
+                  "eight-hz.point.122",
+                  "eight-hz.point.123",
+                  "eight-hz.point.124",
+                  "eight-hz.point.125",
+                  "eight-hz.point.126",
+                  "eight-hz.point.127",
+                  "eight-hz.point.128",
+                  "eight-hz.point.129",
+                  "eight-hz.point.130",
+                  "eight-hz.point.131",
+                  "eight-hz.point.132",
+                  "eight-hz.point.133",
+                  "eight-hz.point.134",
+                  "eight-hz.point.135",
+                  "eight-hz.point.136",
+                  "eight-hz.point.137",
+                  "eight-hz.point.138",
+                  "eight-hz.point.139",
+                  "eight-hz.point.140",
+                  "eight-hz.point.141",
+                  "eight-hz.point.142"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "eight-hz",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "eight-hz-iqr.line"
+              }
+            ],
+            "id": "eight-hz-iqr",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "groupRole": "point",
+                "id": "eight-hz-median.points",
+                "kind": "shape",
+                "members": [
+                  "eight-hz-median.point.0"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "eight-hz-median",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.0"
+          }
+        ],
+        "id": "plot-area",
+        "kind": "container",
+        "role": "plot-area"
+      },
+      {
+        "kind": "text",
+        "ref": "figure.title"
+      }
+    ],
+    "id": "figure",
+    "kind": "container",
+    "role": "figure"
+  },
+  "plotType": "line",
+  "schemaVersion": "0.3.0",
+  "series": [
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-paired-responses",
+          "svgId": "within-cell-pairs.x-paired-responses"
+        }
+      ],
+      "data": {},
+      "id": "within-cell-pairs",
+      "kind": "x-paired-responses",
+      "name": "within-cell-pairs",
+      "roles": [
+        "x-paired-responses"
+      ],
+      "svg": {
+        "x-paired-responses": "within-cell-pairs.x-paired-responses"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "members": [
+            "one-hz.point.0",
+            "one-hz.point.1",
+            "one-hz.point.2",
+            "one-hz.point.3",
+            "one-hz.point.4",
+            "one-hz.point.5",
+            "one-hz.point.6",
+            "one-hz.point.7",
+            "one-hz.point.8",
+            "one-hz.point.9",
+            "one-hz.point.10",
+            "one-hz.point.11",
+            "one-hz.point.12",
+            "one-hz.point.13",
+            "one-hz.point.14",
+            "one-hz.point.15",
+            "one-hz.point.16",
+            "one-hz.point.17",
+            "one-hz.point.18",
+            "one-hz.point.19",
+            "one-hz.point.20",
+            "one-hz.point.21",
+            "one-hz.point.22",
+            "one-hz.point.23",
+            "one-hz.point.24",
+            "one-hz.point.25",
+            "one-hz.point.26",
+            "one-hz.point.27",
+            "one-hz.point.28",
+            "one-hz.point.29",
+            "one-hz.point.30",
+            "one-hz.point.31",
+            "one-hz.point.32",
+            "one-hz.point.33",
+            "one-hz.point.34",
+            "one-hz.point.35",
+            "one-hz.point.36",
+            "one-hz.point.37",
+            "one-hz.point.38",
+            "one-hz.point.39",
+            "one-hz.point.40",
+            "one-hz.point.41",
+            "one-hz.point.42",
+            "one-hz.point.43",
+            "one-hz.point.44",
+            "one-hz.point.45",
+            "one-hz.point.46",
+            "one-hz.point.47",
+            "one-hz.point.48",
+            "one-hz.point.49",
+            "one-hz.point.50",
+            "one-hz.point.51",
+            "one-hz.point.52",
+            "one-hz.point.53",
+            "one-hz.point.54",
+            "one-hz.point.55",
+            "one-hz.point.56",
+            "one-hz.point.57",
+            "one-hz.point.58",
+            "one-hz.point.59",
+            "one-hz.point.60",
+            "one-hz.point.61",
+            "one-hz.point.62",
+            "one-hz.point.63",
+            "one-hz.point.64",
+            "one-hz.point.65",
+            "one-hz.point.66",
+            "one-hz.point.67",
+            "one-hz.point.68",
+            "one-hz.point.69",
+            "one-hz.point.70",
+            "one-hz.point.71",
+            "one-hz.point.72",
+            "one-hz.point.73",
+            "one-hz.point.74",
+            "one-hz.point.75",
+            "one-hz.point.76",
+            "one-hz.point.77",
+            "one-hz.point.78",
+            "one-hz.point.79",
+            "one-hz.point.80",
+            "one-hz.point.81",
+            "one-hz.point.82",
+            "one-hz.point.83",
+            "one-hz.point.84",
+            "one-hz.point.85",
+            "one-hz.point.86",
+            "one-hz.point.87",
+            "one-hz.point.88",
+            "one-hz.point.89",
+            "one-hz.point.90",
+            "one-hz.point.91",
+            "one-hz.point.92",
+            "one-hz.point.93",
+            "one-hz.point.94",
+            "one-hz.point.95",
+            "one-hz.point.96",
+            "one-hz.point.97",
+            "one-hz.point.98",
+            "one-hz.point.99",
+            "one-hz.point.100",
+            "one-hz.point.101",
+            "one-hz.point.102",
+            "one-hz.point.103",
+            "one-hz.point.104",
+            "one-hz.point.105",
+            "one-hz.point.106",
+            "one-hz.point.107",
+            "one-hz.point.108",
+            "one-hz.point.109",
+            "one-hz.point.110",
+            "one-hz.point.111",
+            "one-hz.point.112",
+            "one-hz.point.113",
+            "one-hz.point.114",
+            "one-hz.point.115",
+            "one-hz.point.116",
+            "one-hz.point.117",
+            "one-hz.point.118",
+            "one-hz.point.119",
+            "one-hz.point.120",
+            "one-hz.point.121",
+            "one-hz.point.122",
+            "one-hz.point.123",
+            "one-hz.point.124",
+            "one-hz.point.125",
+            "one-hz.point.126",
+            "one-hz.point.127",
+            "one-hz.point.128",
+            "one-hz.point.129",
+            "one-hz.point.130",
+            "one-hz.point.131",
+            "one-hz.point.132",
+            "one-hz.point.133",
+            "one-hz.point.134",
+            "one-hz.point.135",
+            "one-hz.point.136",
+            "one-hz.point.137",
+            "one-hz.point.138",
+            "one-hz.point.139",
+            "one-hz.point.140",
+            "one-hz.point.141",
+            "one-hz.point.142"
+          ],
+          "role": "point",
+          "svgId": "one-hz.points"
+        }
+      ],
+      "data": {
+        "x": [
+          -0.05261969855129108,
+          -0.00734264114340944,
+          0.04727739875671799,
+          0.07572777604780467,
+          0.024185003991105673,
+          0.017372920118970334,
+          0.030084378865580033,
+          -0.030015900622276406,
+          -0.047475217008472015,
+          -0.037318732222178505,
+          0.042551972802797156,
+          -0.004008409813983087,
+          0.08705011309750056,
+          0.034319531991372866,
+          0.027031340385996135,
+          0.014783676471312809,
+          0.0034794462163676852,
+          0.04649384024171635,
+          0.020956094973070424,
+          0.0066173862084123744,
+          0.027369046276275094,
+          0.045578964225837446,
+          0.08665250508687883,
+          0.056528014982717686,
+          0.07387441186470259,
+          0.01663699153798323,
+          -0.05803200802284445,
+          0.0038108766493867427,
+          -0.025821563373690133,
+          0.04104351673843148,
+          0.05696693730994098,
+          -0.04008773442468459,
+          -0.03469770966917685,
+          -0.005185119292818139,
+          -0.03926268630355337,
+          0.00023345089226155523,
+          -0.011015600719905538,
+          -0.010518647146877867,
+          0.0882640919963618,
+          -0.08530531920011554,
+          -0.03093011149247952,
+          -0.08043791046037498,
+          -0.08019620863889587,
+          0.03003815949225948,
+          0.06536638016517558,
+          0.07450475408994814,
+          -0.0653093579830692,
+          -0.013864698891530367,
+          -0.004186118860462638,
+          -0.008510656636037539,
+          0.08771341650482412,
+          0.037804255586381716,
+          0.05458054291330846,
+          -0.010329508282423691,
+          -0.028481654558543918,
+          0.08323656020781822,
+          -0.0019192514047699438,
+          -0.00622856150721296,
+          -0.0014633354150101385,
+          -0.003299083775118632,
+          0.0035326280272183074,
+          -0.08743762587234087,
+          0.08280593536268073,
+          -0.0014009607284302295,
+          0.06524396345459188,
+          -0.00803474339967915,
+          0.05934484076733759,
+          0.04326795958099184,
+          0.017063722737054456,
+          -0.07491993314252755,
+          0.08119531114460675,
+          -0.012535236563921276,
+          -0.045325696554767876,
+          -0.07664433273706525,
+          -0.023612012829184605,
+          -0.060861773621733305,
+          -0.06522234474051762,
+          -0.06040624185681232,
+          0.05145891121191776,
+          -0.006006925936366398,
+          0.08917100243097648,
+          0.0038325300736449016,
+          0.0787605807051168,
+          -0.05743817851418606,
+          -0.03713073409809051,
+          0.057843878058343234,
+          0.07223617520748729,
+          -0.04342626866373188,
+          0.016111968367469164,
+          0.007429590166270461,
+          0.06511968946573998,
+          0.0472499772145574,
+          0.024664523101609197,
+          -0.04157580220097045,
+          0.010739115394612236,
+          -0.006381724365321221,
+          0.037409170886681296,
+          0.020670930439989396,
+          0.055278385801484406,
+          0.07686814892242695,
+          0.011564136351804265,
+          0.0037073558236881987,
+          -0.0648726543024828,
+          0.004454015433064249,
+          -0.0006122617663351803,
+          0.007500481379635746,
+          -0.0861474894878784,
+          -0.04631541237799579,
+          0.024649515146996648,
+          -0.028647985911310354,
+          -0.052396391043329764,
+          -0.08190366523626605,
+          -0.05604939280603244,
+          -0.03659819765242832,
+          -0.05486459674573763,
+          -0.08940434799842069,
+          0.044092096773043744,
+          0.05545321288978943,
+          0.01751515437158641,
+          0.02050628895475391,
+          0.03684380689168545,
+          0.05163052280077442,
+          -0.07301292403581842,
+          0.057922507053315274,
+          0.07768777655069799,
+          0.045802880621564644,
+          0.04079297198005613,
+          -0.012817477530490843,
+          0.08071792201203112,
+          0.000037424260105949345,
+          0.014905086174083712,
+          -0.05442974132154485,
+          0.03303360589912397,
+          0.056316835810053416,
+          0.08834420617761016,
+          0.05257615671187057,
+          0.05237325776721223,
+          0.07222458989205625,
+          -0.005552815207327684,
+          0.05647633192113652,
+          -0.06825566506023505,
+          0.06661551351693401,
+          0.013510077380784536
+        ],
+        "y": [
+          2.4777036249999997,
+          0.5254035,
+          0.8720665,
+          0.82913075,
+          -1.217402375,
+          2.88615975,
+          0.823071,
+          1.365718625,
+          1.1949779999999999,
+          -0.038159250000000026,
+          0.19510387500000007,
+          -0.05003725,
+          1.0360315,
+          0.9542129999999999,
+          0.5692582500000001,
+          0.372665875,
+          0.9027032500000001,
+          0.5250288750000001,
+          0.6394463749999999,
+          0.04066775,
+          4.921669125,
+          0.018300750000000032,
+          -0.026346250000000015,
+          1.8320645,
+          0.03600325,
+          0.73652625,
+          -0.16752962500000002,
+          4.496440875,
+          -1.3454435,
+          -1.143088875,
+          0.43606125,
+          -1.2012369999999999,
+          1.078871,
+          0.29897075000000006,
+          0.08906912500000003,
+          3.1976516249999998,
+          0.7973542499999999,
+          -0.09313075,
+          -2.4311395000000005,
+          0.19458600000000004,
+          3.663931375,
+          2.7667485,
+          0.54007325,
+          0.38444950000000006,
+          1.0013877500000001,
+          0.534859875,
+          0.682898875,
+          0.04617700000000003,
+          4.486168749999999,
+          0.914753375,
+          1.59053425,
+          1.4275920000000002,
+          1.530732625,
+          0.769313625,
+          0.7875486250000001,
+          0.20858075,
+          0.655244375,
+          -2.043618,
+          1.4622811249999998,
+          2.3682298750000004,
+          0.38216825,
+          0.33907050000000005,
+          -0.8274796249999998,
+          3.4314051249999995,
+          0.024420499999999984,
+          0.020794375000000004,
+          1.59980075,
+          2.2937857499999996,
+          2.596953,
+          9.9549515,
+          0.78924475,
+          0.918153625,
+          3.807393125000001,
+          2.4863746250000003,
+          -0.065813,
+          0.707812125,
+          -0.055834,
+          0.263641375,
+          2.9255586250000003,
+          0.37579175,
+          0.400112125,
+          -2.333883,
+          1.738816,
+          0.5171236250000001,
+          0.26703625,
+          0.7350068750000001,
+          1.5267375,
+          0.55213425,
+          -1.4392887499999998,
+          1.04581425,
+          1.7057246249999998,
+          0.14165450000000002,
+          -0.39988775000000004,
+          1.85715025,
+          1.432926,
+          4.792089249999999,
+          0.9220911250000001,
+          0.660648,
+          0.900541875,
+          0.40773625,
+          0.10962649999999999,
+          1.4388045,
+          7.5448721249999995,
+          1.171967625,
+          0.140432875,
+          0.2756125,
+          -4.038105750000001,
+          -0.457457,
+          0.54585775,
+          -0.276489125,
+          0.19421887499999999,
+          6.890172249999999,
+          1.291599125,
+          1.1598763750000003,
+          0.40541874999999994,
+          -0.6538887499999999,
+          1.39914525,
+          1.144773,
+          0.06415087499999998,
+          0.7490090000000001,
+          1.475343,
+          -0.443542125,
+          -0.05902174999999999,
+          -0.68384075,
+          0.63016525,
+          1.6366277500000006,
+          0.805769875,
+          0.913298,
+          0.398360875,
+          0.515486,
+          0.30738425,
+          2.438136125,
+          0.6291340000000001,
+          0.06423237500000001,
+          0.47850775000000006,
+          -0.51798175,
+          -2.3926135,
+          -0.008824499999999971,
+          1.4451681250000001,
+          0.6222353750000001,
+          0.6860866249999998,
+          2.5511450000000004,
+          1.6255935
+        ]
+      },
+      "id": "one-hz",
+      "kind": "scatter",
+      "name": "one-hz",
+      "points": [
+        {
+          "index": 0,
+          "svgId": "one-hz.point.0",
+          "x": -0.05261969855129108,
+          "y": 2.4777036249999997
+        },
+        {
+          "index": 1,
+          "svgId": "one-hz.point.1",
+          "x": -0.00734264114340944,
+          "y": 0.5254035
+        },
+        {
+          "index": 2,
+          "svgId": "one-hz.point.2",
+          "x": 0.04727739875671799,
+          "y": 0.8720665
+        },
+        {
+          "index": 3,
+          "svgId": "one-hz.point.3",
+          "x": 0.07572777604780467,
+          "y": 0.82913075
+        },
+        {
+          "index": 4,
+          "svgId": "one-hz.point.4",
+          "x": 0.024185003991105673,
+          "y": -1.217402375
+        },
+        {
+          "index": 5,
+          "svgId": "one-hz.point.5",
+          "x": 0.017372920118970334,
+          "y": 2.88615975
+        },
+        {
+          "index": 6,
+          "svgId": "one-hz.point.6",
+          "x": 0.030084378865580033,
+          "y": 0.823071
+        },
+        {
+          "index": 7,
+          "svgId": "one-hz.point.7",
+          "x": -0.030015900622276406,
+          "y": 1.365718625
+        },
+        {
+          "index": 8,
+          "svgId": "one-hz.point.8",
+          "x": -0.047475217008472015,
+          "y": 1.1949779999999999
+        },
+        {
+          "index": 9,
+          "svgId": "one-hz.point.9",
+          "x": -0.037318732222178505,
+          "y": -0.038159250000000026
+        },
+        {
+          "index": 10,
+          "svgId": "one-hz.point.10",
+          "x": 0.042551972802797156,
+          "y": 0.19510387500000007
+        },
+        {
+          "index": 11,
+          "svgId": "one-hz.point.11",
+          "x": -0.004008409813983087,
+          "y": -0.05003725
+        },
+        {
+          "index": 12,
+          "svgId": "one-hz.point.12",
+          "x": 0.08705011309750056,
+          "y": 1.0360315
+        },
+        {
+          "index": 13,
+          "svgId": "one-hz.point.13",
+          "x": 0.034319531991372866,
+          "y": 0.9542129999999999
+        },
+        {
+          "index": 14,
+          "svgId": "one-hz.point.14",
+          "x": 0.027031340385996135,
+          "y": 0.5692582500000001
+        },
+        {
+          "index": 15,
+          "svgId": "one-hz.point.15",
+          "x": 0.014783676471312809,
+          "y": 0.372665875
+        },
+        {
+          "index": 16,
+          "svgId": "one-hz.point.16",
+          "x": 0.0034794462163676852,
+          "y": 0.9027032500000001
+        },
+        {
+          "index": 17,
+          "svgId": "one-hz.point.17",
+          "x": 0.04649384024171635,
+          "y": 0.5250288750000001
+        },
+        {
+          "index": 18,
+          "svgId": "one-hz.point.18",
+          "x": 0.020956094973070424,
+          "y": 0.6394463749999999
+        },
+        {
+          "index": 19,
+          "svgId": "one-hz.point.19",
+          "x": 0.0066173862084123744,
+          "y": 0.04066775
+        },
+        {
+          "index": 20,
+          "svgId": "one-hz.point.20",
+          "x": 0.027369046276275094,
+          "y": 4.921669125
+        },
+        {
+          "index": 21,
+          "svgId": "one-hz.point.21",
+          "x": 0.045578964225837446,
+          "y": 0.018300750000000032
+        },
+        {
+          "index": 22,
+          "svgId": "one-hz.point.22",
+          "x": 0.08665250508687883,
+          "y": -0.026346250000000015
+        },
+        {
+          "index": 23,
+          "svgId": "one-hz.point.23",
+          "x": 0.056528014982717686,
+          "y": 1.8320645
+        },
+        {
+          "index": 24,
+          "svgId": "one-hz.point.24",
+          "x": 0.07387441186470259,
+          "y": 0.03600325
+        },
+        {
+          "index": 25,
+          "svgId": "one-hz.point.25",
+          "x": 0.01663699153798323,
+          "y": 0.73652625
+        },
+        {
+          "index": 26,
+          "svgId": "one-hz.point.26",
+          "x": -0.05803200802284445,
+          "y": -0.16752962500000002
+        },
+        {
+          "index": 27,
+          "svgId": "one-hz.point.27",
+          "x": 0.0038108766493867427,
+          "y": 4.496440875
+        },
+        {
+          "index": 28,
+          "svgId": "one-hz.point.28",
+          "x": -0.025821563373690133,
+          "y": -1.3454435
+        },
+        {
+          "index": 29,
+          "svgId": "one-hz.point.29",
+          "x": 0.04104351673843148,
+          "y": -1.143088875
+        },
+        {
+          "index": 30,
+          "svgId": "one-hz.point.30",
+          "x": 0.05696693730994098,
+          "y": 0.43606125
+        },
+        {
+          "index": 31,
+          "svgId": "one-hz.point.31",
+          "x": -0.04008773442468459,
+          "y": -1.2012369999999999
+        },
+        {
+          "index": 32,
+          "svgId": "one-hz.point.32",
+          "x": -0.03469770966917685,
+          "y": 1.078871
+        },
+        {
+          "index": 33,
+          "svgId": "one-hz.point.33",
+          "x": -0.005185119292818139,
+          "y": 0.29897075000000006
+        },
+        {
+          "index": 34,
+          "svgId": "one-hz.point.34",
+          "x": -0.03926268630355337,
+          "y": 0.08906912500000003
+        },
+        {
+          "index": 35,
+          "svgId": "one-hz.point.35",
+          "x": 0.00023345089226155523,
+          "y": 3.1976516249999998
+        },
+        {
+          "index": 36,
+          "svgId": "one-hz.point.36",
+          "x": -0.011015600719905538,
+          "y": 0.7973542499999999
+        },
+        {
+          "index": 37,
+          "svgId": "one-hz.point.37",
+          "x": -0.010518647146877867,
+          "y": -0.09313075
+        },
+        {
+          "index": 38,
+          "svgId": "one-hz.point.38",
+          "x": 0.0882640919963618,
+          "y": -2.4311395000000005
+        },
+        {
+          "index": 39,
+          "svgId": "one-hz.point.39",
+          "x": -0.08530531920011554,
+          "y": 0.19458600000000004
+        },
+        {
+          "index": 40,
+          "svgId": "one-hz.point.40",
+          "x": -0.03093011149247952,
+          "y": 3.663931375
+        },
+        {
+          "index": 41,
+          "svgId": "one-hz.point.41",
+          "x": -0.08043791046037498,
+          "y": 2.7667485
+        },
+        {
+          "index": 42,
+          "svgId": "one-hz.point.42",
+          "x": -0.08019620863889587,
+          "y": 0.54007325
+        },
+        {
+          "index": 43,
+          "svgId": "one-hz.point.43",
+          "x": 0.03003815949225948,
+          "y": 0.38444950000000006
+        },
+        {
+          "index": 44,
+          "svgId": "one-hz.point.44",
+          "x": 0.06536638016517558,
+          "y": 1.0013877500000001
+        },
+        {
+          "index": 45,
+          "svgId": "one-hz.point.45",
+          "x": 0.07450475408994814,
+          "y": 0.534859875
+        },
+        {
+          "index": 46,
+          "svgId": "one-hz.point.46",
+          "x": -0.0653093579830692,
+          "y": 0.682898875
+        },
+        {
+          "index": 47,
+          "svgId": "one-hz.point.47",
+          "x": -0.013864698891530367,
+          "y": 0.04617700000000003
+        },
+        {
+          "index": 48,
+          "svgId": "one-hz.point.48",
+          "x": -0.004186118860462638,
+          "y": 4.486168749999999
+        },
+        {
+          "index": 49,
+          "svgId": "one-hz.point.49",
+          "x": -0.008510656636037539,
+          "y": 0.914753375
+        },
+        {
+          "index": 50,
+          "svgId": "one-hz.point.50",
+          "x": 0.08771341650482412,
+          "y": 1.59053425
+        },
+        {
+          "index": 51,
+          "svgId": "one-hz.point.51",
+          "x": 0.037804255586381716,
+          "y": 1.4275920000000002
+        },
+        {
+          "index": 52,
+          "svgId": "one-hz.point.52",
+          "x": 0.05458054291330846,
+          "y": 1.530732625
+        },
+        {
+          "index": 53,
+          "svgId": "one-hz.point.53",
+          "x": -0.010329508282423691,
+          "y": 0.769313625
+        },
+        {
+          "index": 54,
+          "svgId": "one-hz.point.54",
+          "x": -0.028481654558543918,
+          "y": 0.7875486250000001
+        },
+        {
+          "index": 55,
+          "svgId": "one-hz.point.55",
+          "x": 0.08323656020781822,
+          "y": 0.20858075
+        },
+        {
+          "index": 56,
+          "svgId": "one-hz.point.56",
+          "x": -0.0019192514047699438,
+          "y": 0.655244375
+        },
+        {
+          "index": 57,
+          "svgId": "one-hz.point.57",
+          "x": -0.00622856150721296,
+          "y": -2.043618
+        },
+        {
+          "index": 58,
+          "svgId": "one-hz.point.58",
+          "x": -0.0014633354150101385,
+          "y": 1.4622811249999998
+        },
+        {
+          "index": 59,
+          "svgId": "one-hz.point.59",
+          "x": -0.003299083775118632,
+          "y": 2.3682298750000004
+        },
+        {
+          "index": 60,
+          "svgId": "one-hz.point.60",
+          "x": 0.0035326280272183074,
+          "y": 0.38216825
+        },
+        {
+          "index": 61,
+          "svgId": "one-hz.point.61",
+          "x": -0.08743762587234087,
+          "y": 0.33907050000000005
+        },
+        {
+          "index": 62,
+          "svgId": "one-hz.point.62",
+          "x": 0.08280593536268073,
+          "y": -0.8274796249999998
+        },
+        {
+          "index": 63,
+          "svgId": "one-hz.point.63",
+          "x": -0.0014009607284302295,
+          "y": 3.4314051249999995
+        },
+        {
+          "index": 64,
+          "svgId": "one-hz.point.64",
+          "x": 0.06524396345459188,
+          "y": 0.024420499999999984
+        },
+        {
+          "index": 65,
+          "svgId": "one-hz.point.65",
+          "x": -0.00803474339967915,
+          "y": 0.020794375000000004
+        },
+        {
+          "index": 66,
+          "svgId": "one-hz.point.66",
+          "x": 0.05934484076733759,
+          "y": 1.59980075
+        },
+        {
+          "index": 67,
+          "svgId": "one-hz.point.67",
+          "x": 0.04326795958099184,
+          "y": 2.2937857499999996
+        },
+        {
+          "index": 68,
+          "svgId": "one-hz.point.68",
+          "x": 0.017063722737054456,
+          "y": 2.596953
+        },
+        {
+          "index": 69,
+          "svgId": "one-hz.point.69",
+          "x": -0.07491993314252755,
+          "y": 9.9549515
+        },
+        {
+          "index": 70,
+          "svgId": "one-hz.point.70",
+          "x": 0.08119531114460675,
+          "y": 0.78924475
+        },
+        {
+          "index": 71,
+          "svgId": "one-hz.point.71",
+          "x": -0.012535236563921276,
+          "y": 0.918153625
+        },
+        {
+          "index": 72,
+          "svgId": "one-hz.point.72",
+          "x": -0.045325696554767876,
+          "y": 3.807393125000001
+        },
+        {
+          "index": 73,
+          "svgId": "one-hz.point.73",
+          "x": -0.07664433273706525,
+          "y": 2.4863746250000003
+        },
+        {
+          "index": 74,
+          "svgId": "one-hz.point.74",
+          "x": -0.023612012829184605,
+          "y": -0.065813
+        },
+        {
+          "index": 75,
+          "svgId": "one-hz.point.75",
+          "x": -0.060861773621733305,
+          "y": 0.707812125
+        },
+        {
+          "index": 76,
+          "svgId": "one-hz.point.76",
+          "x": -0.06522234474051762,
+          "y": -0.055834
+        },
+        {
+          "index": 77,
+          "svgId": "one-hz.point.77",
+          "x": -0.06040624185681232,
+          "y": 0.263641375
+        },
+        {
+          "index": 78,
+          "svgId": "one-hz.point.78",
+          "x": 0.05145891121191776,
+          "y": 2.9255586250000003
+        },
+        {
+          "index": 79,
+          "svgId": "one-hz.point.79",
+          "x": -0.006006925936366398,
+          "y": 0.37579175
+        },
+        {
+          "index": 80,
+          "svgId": "one-hz.point.80",
+          "x": 0.08917100243097648,
+          "y": 0.400112125
+        },
+        {
+          "index": 81,
+          "svgId": "one-hz.point.81",
+          "x": 0.0038325300736449016,
+          "y": -2.333883
+        },
+        {
+          "index": 82,
+          "svgId": "one-hz.point.82",
+          "x": 0.0787605807051168,
+          "y": 1.738816
+        },
+        {
+          "index": 83,
+          "svgId": "one-hz.point.83",
+          "x": -0.05743817851418606,
+          "y": 0.5171236250000001
+        },
+        {
+          "index": 84,
+          "svgId": "one-hz.point.84",
+          "x": -0.03713073409809051,
+          "y": 0.26703625
+        },
+        {
+          "index": 85,
+          "svgId": "one-hz.point.85",
+          "x": 0.057843878058343234,
+          "y": 0.7350068750000001
+        },
+        {
+          "index": 86,
+          "svgId": "one-hz.point.86",
+          "x": 0.07223617520748729,
+          "y": 1.5267375
+        },
+        {
+          "index": 87,
+          "svgId": "one-hz.point.87",
+          "x": -0.04342626866373188,
+          "y": 0.55213425
+        },
+        {
+          "index": 88,
+          "svgId": "one-hz.point.88",
+          "x": 0.016111968367469164,
+          "y": -1.4392887499999998
+        },
+        {
+          "index": 89,
+          "svgId": "one-hz.point.89",
+          "x": 0.007429590166270461,
+          "y": 1.04581425
+        },
+        {
+          "index": 90,
+          "svgId": "one-hz.point.90",
+          "x": 0.06511968946573998,
+          "y": 1.7057246249999998
+        },
+        {
+          "index": 91,
+          "svgId": "one-hz.point.91",
+          "x": 0.0472499772145574,
+          "y": 0.14165450000000002
+        },
+        {
+          "index": 92,
+          "svgId": "one-hz.point.92",
+          "x": 0.024664523101609197,
+          "y": -0.39988775000000004
+        },
+        {
+          "index": 93,
+          "svgId": "one-hz.point.93",
+          "x": -0.04157580220097045,
+          "y": 1.85715025
+        },
+        {
+          "index": 94,
+          "svgId": "one-hz.point.94",
+          "x": 0.010739115394612236,
+          "y": 1.432926
+        },
+        {
+          "index": 95,
+          "svgId": "one-hz.point.95",
+          "x": -0.006381724365321221,
+          "y": 4.792089249999999
+        },
+        {
+          "index": 96,
+          "svgId": "one-hz.point.96",
+          "x": 0.037409170886681296,
+          "y": 0.9220911250000001
+        },
+        {
+          "index": 97,
+          "svgId": "one-hz.point.97",
+          "x": 0.020670930439989396,
+          "y": 0.660648
+        },
+        {
+          "index": 98,
+          "svgId": "one-hz.point.98",
+          "x": 0.055278385801484406,
+          "y": 0.900541875
+        },
+        {
+          "index": 99,
+          "svgId": "one-hz.point.99",
+          "x": 0.07686814892242695,
+          "y": 0.40773625
+        },
+        {
+          "index": 100,
+          "svgId": "one-hz.point.100",
+          "x": 0.011564136351804265,
+          "y": 0.10962649999999999
+        },
+        {
+          "index": 101,
+          "svgId": "one-hz.point.101",
+          "x": 0.0037073558236881987,
+          "y": 1.4388045
+        },
+        {
+          "index": 102,
+          "svgId": "one-hz.point.102",
+          "x": -0.0648726543024828,
+          "y": 7.5448721249999995
+        },
+        {
+          "index": 103,
+          "svgId": "one-hz.point.103",
+          "x": 0.004454015433064249,
+          "y": 1.171967625
+        },
+        {
+          "index": 104,
+          "svgId": "one-hz.point.104",
+          "x": -0.0006122617663351803,
+          "y": 0.140432875
+        },
+        {
+          "index": 105,
+          "svgId": "one-hz.point.105",
+          "x": 0.007500481379635746,
+          "y": 0.2756125
+        },
+        {
+          "index": 106,
+          "svgId": "one-hz.point.106",
+          "x": -0.0861474894878784,
+          "y": -4.038105750000001
+        },
+        {
+          "index": 107,
+          "svgId": "one-hz.point.107",
+          "x": -0.04631541237799579,
+          "y": -0.457457
+        },
+        {
+          "index": 108,
+          "svgId": "one-hz.point.108",
+          "x": 0.024649515146996648,
+          "y": 0.54585775
+        },
+        {
+          "index": 109,
+          "svgId": "one-hz.point.109",
+          "x": -0.028647985911310354,
+          "y": -0.276489125
+        },
+        {
+          "index": 110,
+          "svgId": "one-hz.point.110",
+          "x": -0.052396391043329764,
+          "y": 0.19421887499999999
+        },
+        {
+          "index": 111,
+          "svgId": "one-hz.point.111",
+          "x": -0.08190366523626605,
+          "y": 6.890172249999999
+        },
+        {
+          "index": 112,
+          "svgId": "one-hz.point.112",
+          "x": -0.05604939280603244,
+          "y": 1.291599125
+        },
+        {
+          "index": 113,
+          "svgId": "one-hz.point.113",
+          "x": -0.03659819765242832,
+          "y": 1.1598763750000003
+        },
+        {
+          "index": 114,
+          "svgId": "one-hz.point.114",
+          "x": -0.05486459674573763,
+          "y": 0.40541874999999994
+        },
+        {
+          "index": 115,
+          "svgId": "one-hz.point.115",
+          "x": -0.08940434799842069,
+          "y": -0.6538887499999999
+        },
+        {
+          "index": 116,
+          "svgId": "one-hz.point.116",
+          "x": 0.044092096773043744,
+          "y": 1.39914525
+        },
+        {
+          "index": 117,
+          "svgId": "one-hz.point.117",
+          "x": 0.05545321288978943,
+          "y": 1.144773
+        },
+        {
+          "index": 118,
+          "svgId": "one-hz.point.118",
+          "x": 0.01751515437158641,
+          "y": 0.06415087499999998
+        },
+        {
+          "index": 119,
+          "svgId": "one-hz.point.119",
+          "x": 0.02050628895475391,
+          "y": 0.7490090000000001
+        },
+        {
+          "index": 120,
+          "svgId": "one-hz.point.120",
+          "x": 0.03684380689168545,
+          "y": 1.475343
+        },
+        {
+          "index": 121,
+          "svgId": "one-hz.point.121",
+          "x": 0.05163052280077442,
+          "y": -0.443542125
+        },
+        {
+          "index": 122,
+          "svgId": "one-hz.point.122",
+          "x": -0.07301292403581842,
+          "y": -0.05902174999999999
+        },
+        {
+          "index": 123,
+          "svgId": "one-hz.point.123",
+          "x": 0.057922507053315274,
+          "y": -0.68384075
+        },
+        {
+          "index": 124,
+          "svgId": "one-hz.point.124",
+          "x": 0.07768777655069799,
+          "y": 0.63016525
+        },
+        {
+          "index": 125,
+          "svgId": "one-hz.point.125",
+          "x": 0.045802880621564644,
+          "y": 1.6366277500000006
+        },
+        {
+          "index": 126,
+          "svgId": "one-hz.point.126",
+          "x": 0.04079297198005613,
+          "y": 0.805769875
+        },
+        {
+          "index": 127,
+          "svgId": "one-hz.point.127",
+          "x": -0.012817477530490843,
+          "y": 0.913298
+        },
+        {
+          "index": 128,
+          "svgId": "one-hz.point.128",
+          "x": 0.08071792201203112,
+          "y": 0.398360875
+        },
+        {
+          "index": 129,
+          "svgId": "one-hz.point.129",
+          "x": 0.000037424260105949345,
+          "y": 0.515486
+        },
+        {
+          "index": 130,
+          "svgId": "one-hz.point.130",
+          "x": 0.014905086174083712,
+          "y": 0.30738425
+        },
+        {
+          "index": 131,
+          "svgId": "one-hz.point.131",
+          "x": -0.05442974132154485,
+          "y": 2.438136125
+        },
+        {
+          "index": 132,
+          "svgId": "one-hz.point.132",
+          "x": 0.03303360589912397,
+          "y": 0.6291340000000001
+        },
+        {
+          "index": 133,
+          "svgId": "one-hz.point.133",
+          "x": 0.056316835810053416,
+          "y": 0.06423237500000001
+        },
+        {
+          "index": 134,
+          "svgId": "one-hz.point.134",
+          "x": 0.08834420617761016,
+          "y": 0.47850775000000006
+        },
+        {
+          "index": 135,
+          "svgId": "one-hz.point.135",
+          "x": 0.05257615671187057,
+          "y": -0.51798175
+        },
+        {
+          "index": 136,
+          "svgId": "one-hz.point.136",
+          "x": 0.05237325776721223,
+          "y": -2.3926135
+        },
+        {
+          "index": 137,
+          "svgId": "one-hz.point.137",
+          "x": 0.07222458989205625,
+          "y": -0.008824499999999971
+        },
+        {
+          "index": 138,
+          "svgId": "one-hz.point.138",
+          "x": -0.005552815207327684,
+          "y": 1.4451681250000001
+        },
+        {
+          "index": 139,
+          "svgId": "one-hz.point.139",
+          "x": 0.05647633192113652,
+          "y": 0.6222353750000001
+        },
+        {
+          "index": 140,
+          "svgId": "one-hz.point.140",
+          "x": -0.06825566506023505,
+          "y": 0.6860866249999998
+        },
+        {
+          "index": 141,
+          "svgId": "one-hz.point.141",
+          "x": 0.06661551351693401,
+          "y": 2.5511450000000004
+        },
+        {
+          "index": 142,
+          "svgId": "one-hz.point.142",
+          "x": 0.013510077380784536,
+          "y": 1.6255935
+        }
+      ],
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "one-hz.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "role": "line",
+          "svgId": "one-hz-iqr.line"
+        }
+      ],
+      "data": {
+        "x": [
+          0,
+          0
+        ],
+        "y": [
+          0.09934781250000001,
+          1.430259
+        ]
+      },
+      "id": "one-hz-iqr",
+      "kind": "line",
+      "name": "one-hz-iqr",
+      "roles": [
+        "line"
+      ],
+      "svg": {
+        "line": "one-hz-iqr.line"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "members": [
+            "one-hz-median.point.0"
+          ],
+          "role": "point",
+          "svgId": "one-hz-median.points"
+        }
+      ],
+      "data": {
+        "x": [
+          0
+        ],
+        "y": [
+          0.6394463749999999
+        ]
+      },
+      "id": "one-hz-median",
+      "kind": "scatter",
+      "name": "one-hz-median",
+      "points": [
+        {
+          "index": 0,
+          "svgId": "one-hz-median.point.0",
+          "x": 0,
+          "y": 0.6394463749999999
+        }
+      ],
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "one-hz-median.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "members": [
+            "eight-hz.point.0",
+            "eight-hz.point.1",
+            "eight-hz.point.2",
+            "eight-hz.point.3",
+            "eight-hz.point.4",
+            "eight-hz.point.5",
+            "eight-hz.point.6",
+            "eight-hz.point.7",
+            "eight-hz.point.8",
+            "eight-hz.point.9",
+            "eight-hz.point.10",
+            "eight-hz.point.11",
+            "eight-hz.point.12",
+            "eight-hz.point.13",
+            "eight-hz.point.14",
+            "eight-hz.point.15",
+            "eight-hz.point.16",
+            "eight-hz.point.17",
+            "eight-hz.point.18",
+            "eight-hz.point.19",
+            "eight-hz.point.20",
+            "eight-hz.point.21",
+            "eight-hz.point.22",
+            "eight-hz.point.23",
+            "eight-hz.point.24",
+            "eight-hz.point.25",
+            "eight-hz.point.26",
+            "eight-hz.point.27",
+            "eight-hz.point.28",
+            "eight-hz.point.29",
+            "eight-hz.point.30",
+            "eight-hz.point.31",
+            "eight-hz.point.32",
+            "eight-hz.point.33",
+            "eight-hz.point.34",
+            "eight-hz.point.35",
+            "eight-hz.point.36",
+            "eight-hz.point.37",
+            "eight-hz.point.38",
+            "eight-hz.point.39",
+            "eight-hz.point.40",
+            "eight-hz.point.41",
+            "eight-hz.point.42",
+            "eight-hz.point.43",
+            "eight-hz.point.44",
+            "eight-hz.point.45",
+            "eight-hz.point.46",
+            "eight-hz.point.47",
+            "eight-hz.point.48",
+            "eight-hz.point.49",
+            "eight-hz.point.50",
+            "eight-hz.point.51",
+            "eight-hz.point.52",
+            "eight-hz.point.53",
+            "eight-hz.point.54",
+            "eight-hz.point.55",
+            "eight-hz.point.56",
+            "eight-hz.point.57",
+            "eight-hz.point.58",
+            "eight-hz.point.59",
+            "eight-hz.point.60",
+            "eight-hz.point.61",
+            "eight-hz.point.62",
+            "eight-hz.point.63",
+            "eight-hz.point.64",
+            "eight-hz.point.65",
+            "eight-hz.point.66",
+            "eight-hz.point.67",
+            "eight-hz.point.68",
+            "eight-hz.point.69",
+            "eight-hz.point.70",
+            "eight-hz.point.71",
+            "eight-hz.point.72",
+            "eight-hz.point.73",
+            "eight-hz.point.74",
+            "eight-hz.point.75",
+            "eight-hz.point.76",
+            "eight-hz.point.77",
+            "eight-hz.point.78",
+            "eight-hz.point.79",
+            "eight-hz.point.80",
+            "eight-hz.point.81",
+            "eight-hz.point.82",
+            "eight-hz.point.83",
+            "eight-hz.point.84",
+            "eight-hz.point.85",
+            "eight-hz.point.86",
+            "eight-hz.point.87",
+            "eight-hz.point.88",
+            "eight-hz.point.89",
+            "eight-hz.point.90",
+            "eight-hz.point.91",
+            "eight-hz.point.92",
+            "eight-hz.point.93",
+            "eight-hz.point.94",
+            "eight-hz.point.95",
+            "eight-hz.point.96",
+            "eight-hz.point.97",
+            "eight-hz.point.98",
+            "eight-hz.point.99",
+            "eight-hz.point.100",
+            "eight-hz.point.101",
+            "eight-hz.point.102",
+            "eight-hz.point.103",
+            "eight-hz.point.104",
+            "eight-hz.point.105",
+            "eight-hz.point.106",
+            "eight-hz.point.107",
+            "eight-hz.point.108",
+            "eight-hz.point.109",
+            "eight-hz.point.110",
+            "eight-hz.point.111",
+            "eight-hz.point.112",
+            "eight-hz.point.113",
+            "eight-hz.point.114",
+            "eight-hz.point.115",
+            "eight-hz.point.116",
+            "eight-hz.point.117",
+            "eight-hz.point.118",
+            "eight-hz.point.119",
+            "eight-hz.point.120",
+            "eight-hz.point.121",
+            "eight-hz.point.122",
+            "eight-hz.point.123",
+            "eight-hz.point.124",
+            "eight-hz.point.125",
+            "eight-hz.point.126",
+            "eight-hz.point.127",
+            "eight-hz.point.128",
+            "eight-hz.point.129",
+            "eight-hz.point.130",
+            "eight-hz.point.131",
+            "eight-hz.point.132",
+            "eight-hz.point.133",
+            "eight-hz.point.134",
+            "eight-hz.point.135",
+            "eight-hz.point.136",
+            "eight-hz.point.137",
+            "eight-hz.point.138",
+            "eight-hz.point.139",
+            "eight-hz.point.140",
+            "eight-hz.point.141",
+            "eight-hz.point.142"
+          ],
+          "role": "point",
+          "svgId": "eight-hz.points"
+        }
+      ],
+      "data": {
+        "x": [
+          0.9622653151195817,
+          0.9329321082377696,
+          1.04376692182461,
+          0.9720257550512035,
+          1.0079497957799282,
+          0.9238197561512835,
+          1.062008544358759,
+          1.0854522695265196,
+          0.9991768918961016,
+          0.9184316296667385,
+          0.9811665028322892,
+          1.0530670585654662,
+          1.0738213010519495,
+          1.0370881537933452,
+          1.0768447651877875,
+          1.0112343062967306,
+          0.9795495159146128,
+          0.9506178860046188,
+          1.0835554449973466,
+          1.0263911022849637,
+          0.9313568894889912,
+          1.0032672808450593,
+          0.946639477144029,
+          1.0422642221096758,
+          0.9680837522893977,
+          0.944248506307468,
+          0.9297192761406353,
+          0.9550419328322453,
+          0.9998465470047967,
+          0.9182064560235902,
+          0.9342964620527073,
+          0.9111982734017523,
+          1.0097026627048151,
+          1.004818842730014,
+          1.0290734762752767,
+          1.0756768031433783,
+          1.0857197325769798,
+          0.9170352823560303,
+          0.9511691968285402,
+          0.9121394418912661,
+          0.9109416220106074,
+          0.9849267740589651,
+          0.9665258580413748,
+          0.9582700626067299,
+          1.021133674351576,
+          1.0099618733435978,
+          0.9930463107177933,
+          1.0860887147980014,
+          0.9827131831259907,
+          1.0392766961239768,
+          1.0431516156572238,
+          1.0728039391219049,
+          0.9606029978296893,
+          0.9274228849066656,
+          0.9623431488630443,
+          1.088678544989142,
+          0.9361645405179632,
+          1.0453131078445825,
+          1.072818417010626,
+          1.0320209222158343,
+          1.0762587231728507,
+          1.0381443429856516,
+          0.985321988236974,
+          0.9107650352327836,
+          1.0196569436314262,
+          0.9895795680105606,
+          0.9215116892870073,
+          0.9656795603653907,
+          0.9836253822076074,
+          1.0360772358639538,
+          1.0372317877539918,
+          0.9906896069241804,
+          1.0328132069278877,
+          1.0753537435887766,
+          0.9906592164736127,
+          1.0030078635316826,
+          1.0099448892256662,
+          0.9326106584861318,
+          1.0612576142715877,
+          1.0094105119854357,
+          0.9957935052587589,
+          1.0303380402038314,
+          1.0253510884933619,
+          1.0209897617881474,
+          1.0258469812505737,
+          0.9897377243872632,
+          0.956663233537552,
+          1.0795907654214674,
+          0.9731778961492787,
+          0.955805445527127,
+          0.9711172147607264,
+          0.916620353560242,
+          1.0598368933179823,
+          1.0899140252956498,
+          1.0696010890336518,
+          0.9547003750091663,
+          1.044865873103503,
+          1.037504073385552,
+          0.9613716453289063,
+          0.9299227070472478,
+          1.0857047562424365,
+          1.0225343523737176,
+          1.0580562774472826,
+          1.0252586065014482,
+          1.0273817222496262,
+          0.9264568116181274,
+          0.9445155757519739,
+          0.9916014029107032,
+          1.050503034182929,
+          0.9761475003726275,
+          1.0742235939729554,
+          1.0498286392160756,
+          0.9434276033734439,
+          0.9803540651470153,
+          1.0186652803851075,
+          0.9793869370983792,
+          1.0083771912022184,
+          0.9509266564540076,
+          0.9617028869834514,
+          1.0249040442687258,
+          1.0773666517348421,
+          1.060039849890875,
+          0.9829373682307606,
+          0.9711565050110664,
+          0.9568182466425424,
+          0.9463498273881509,
+          1.0336781101247123,
+          0.9278566475978776,
+          0.9157110856861279,
+          0.9504777273472789,
+          0.9755640160235599,
+          1.017538796692979,
+          0.9291363807995854,
+          0.9866576944450327,
+          0.9618762737949648,
+          0.9482711972045625,
+          0.9615690241792736,
+          1.032989869241278,
+          1.0838218705548235,
+          0.9757364315161617,
+          1.0220413876885839,
+          0.9821836426359177,
+          1.0557886530612288
+        ],
+        "y": [
+          0.29197625000000005,
+          0.986749,
+          0.55269025,
+          -0.37030962500000003,
+          14.186659625,
+          1.18778175,
+          1.03204275,
+          0.024948125000000005,
+          0.28866737499999995,
+          -0.4315252499999999,
+          0.526926,
+          0.43205299999999996,
+          0.34968462499999997,
+          -0.478738875,
+          -0.16356362500000002,
+          0.19032099999999996,
+          1.249383875,
+          -1.0520630000000002,
+          -0.517745,
+          -0.22542175000000003,
+          -0.217520875,
+          -0.445760375,
+          -1.4476516250000002,
+          -0.7815907500000001,
+          -0.35039875000000004,
+          -0.295314875,
+          1.557196625,
+          -0.785801375,
+          3.5176182500000004,
+          -1.874039125,
+          -0.22364137499999998,
+          -1.3176714999999999,
+          -0.6315977500000001,
+          -0.5327395000000001,
+          -0.40038550000000006,
+          -0.48047675,
+          -0.03504887499999999,
+          -0.7987626250000001,
+          -1.7713138749999997,
+          0.594294625,
+          0.767966625,
+          0.188131375,
+          -0.24136449999999998,
+          0.021849999999999994,
+          -0.07169600000000001,
+          -0.272949125,
+          0.161874375,
+          1.82973525,
+          8.795202999999999,
+          0.154527375,
+          1.8028165000000003,
+          0.07391137500000003,
+          0.874730875,
+          0.769808,
+          0.39593575000000003,
+          0.18215125,
+          1.2214168749999998,
+          -2.33315475,
+          0.15980049999999998,
+          -0.5363135,
+          -0.28699050000000004,
+          -0.191078875,
+          -0.390107,
+          11.767527874999999,
+          -0.29809775,
+          -0.472457,
+          -0.93536675,
+          -0.18400987500000004,
+          -1.109367375,
+          2.4009843749999993,
+          0.43454575,
+          0.7837046250000002,
+          0.2784486249999999,
+          -0.69732025,
+          -0.0014149999999999996,
+          0.5902365,
+          -0.215955375,
+          -0.36548662500000006,
+          0.17671237500000003,
+          -0.9255385,
+          0.7097279999999999,
+          -1.29418425,
+          0.38353924999999994,
+          -0.32119412500000005,
+          0.02176075,
+          -0.34935737499999997,
+          -0.5571898750000001,
+          -0.42658212500000003,
+          0.5552775000000001,
+          1.3458061250000002,
+          -0.8520026249999999,
+          -0.37268175000000003,
+          3.4750326249999994,
+          0.932666125,
+          0.908487,
+          1.762771875,
+          0.213932875,
+          -0.08756562499999998,
+          -0.8096292499999999,
+          0.003989500000000014,
+          0.1132185,
+          -0.04257400000000001,
+          -0.19371912500000005,
+          -0.0016575000000000062,
+          -0.08535662500000002,
+          -0.019083000000000017,
+          -3.8909697500000004,
+          -0.5926718750000001,
+          -0.03716975000000003,
+          0.26380875000000004,
+          0.794813625,
+          -1.07972525,
+          -0.40081137499999997,
+          0.56303425,
+          0.32863037500000003,
+          -1.5957320000000002,
+          0.13229437500000002,
+          -0.18462875,
+          0.16480175000000002,
+          -0.276388875,
+          0.121248375,
+          -0.9079058750000002,
+          -0.26172850000000003,
+          -1.05268225,
+          -0.08556137500000002,
+          25.044241375,
+          0.44203175,
+          0.41142112499999994,
+          0.279115625,
+          -0.48731725000000004,
+          -0.960492,
+          -0.099295,
+          0.09347475000000002,
+          0.1530785,
+          0.5511124999999999,
+          -0.644785375,
+          -2.6883303749999996,
+          -0.49259437500000003,
+          0.323018,
+          0.10397687500000002,
+          -0.32822025,
+          0.03972687499999998,
+          0.04879799999999997
+        ]
+      },
+      "id": "eight-hz",
+      "kind": "scatter",
+      "name": "eight-hz",
+      "points": [
+        {
+          "index": 0,
+          "svgId": "eight-hz.point.0",
+          "x": 0.9622653151195817,
+          "y": 0.29197625000000005
+        },
+        {
+          "index": 1,
+          "svgId": "eight-hz.point.1",
+          "x": 0.9329321082377696,
+          "y": 0.986749
+        },
+        {
+          "index": 2,
+          "svgId": "eight-hz.point.2",
+          "x": 1.04376692182461,
+          "y": 0.55269025
+        },
+        {
+          "index": 3,
+          "svgId": "eight-hz.point.3",
+          "x": 0.9720257550512035,
+          "y": -0.37030962500000003
+        },
+        {
+          "index": 4,
+          "svgId": "eight-hz.point.4",
+          "x": 1.0079497957799282,
+          "y": 14.186659625
+        },
+        {
+          "index": 5,
+          "svgId": "eight-hz.point.5",
+          "x": 0.9238197561512835,
+          "y": 1.18778175
+        },
+        {
+          "index": 6,
+          "svgId": "eight-hz.point.6",
+          "x": 1.062008544358759,
+          "y": 1.03204275
+        },
+        {
+          "index": 7,
+          "svgId": "eight-hz.point.7",
+          "x": 1.0854522695265196,
+          "y": 0.024948125000000005
+        },
+        {
+          "index": 8,
+          "svgId": "eight-hz.point.8",
+          "x": 0.9991768918961016,
+          "y": 0.28866737499999995
+        },
+        {
+          "index": 9,
+          "svgId": "eight-hz.point.9",
+          "x": 0.9184316296667385,
+          "y": -0.4315252499999999
+        },
+        {
+          "index": 10,
+          "svgId": "eight-hz.point.10",
+          "x": 0.9811665028322892,
+          "y": 0.526926
+        },
+        {
+          "index": 11,
+          "svgId": "eight-hz.point.11",
+          "x": 1.0530670585654662,
+          "y": 0.43205299999999996
+        },
+        {
+          "index": 12,
+          "svgId": "eight-hz.point.12",
+          "x": 1.0738213010519495,
+          "y": 0.34968462499999997
+        },
+        {
+          "index": 13,
+          "svgId": "eight-hz.point.13",
+          "x": 1.0370881537933452,
+          "y": -0.478738875
+        },
+        {
+          "index": 14,
+          "svgId": "eight-hz.point.14",
+          "x": 1.0768447651877875,
+          "y": -0.16356362500000002
+        },
+        {
+          "index": 15,
+          "svgId": "eight-hz.point.15",
+          "x": 1.0112343062967306,
+          "y": 0.19032099999999996
+        },
+        {
+          "index": 16,
+          "svgId": "eight-hz.point.16",
+          "x": 0.9795495159146128,
+          "y": 1.249383875
+        },
+        {
+          "index": 17,
+          "svgId": "eight-hz.point.17",
+          "x": 0.9506178860046188,
+          "y": -1.0520630000000002
+        },
+        {
+          "index": 18,
+          "svgId": "eight-hz.point.18",
+          "x": 1.0835554449973466,
+          "y": -0.517745
+        },
+        {
+          "index": 19,
+          "svgId": "eight-hz.point.19",
+          "x": 1.0263911022849637,
+          "y": -0.22542175000000003
+        },
+        {
+          "index": 20,
+          "svgId": "eight-hz.point.20",
+          "x": 0.9313568894889912,
+          "y": -0.217520875
+        },
+        {
+          "index": 21,
+          "svgId": "eight-hz.point.21",
+          "x": 1.0032672808450593,
+          "y": -0.445760375
+        },
+        {
+          "index": 22,
+          "svgId": "eight-hz.point.22",
+          "x": 0.946639477144029,
+          "y": -1.4476516250000002
+        },
+        {
+          "index": 23,
+          "svgId": "eight-hz.point.23",
+          "x": 1.0422642221096758,
+          "y": -0.7815907500000001
+        },
+        {
+          "index": 24,
+          "svgId": "eight-hz.point.24",
+          "x": 0.9680837522893977,
+          "y": -0.35039875000000004
+        },
+        {
+          "index": 25,
+          "svgId": "eight-hz.point.25",
+          "x": 0.944248506307468,
+          "y": -0.295314875
+        },
+        {
+          "index": 26,
+          "svgId": "eight-hz.point.26",
+          "x": 0.9297192761406353,
+          "y": 1.557196625
+        },
+        {
+          "index": 27,
+          "svgId": "eight-hz.point.27",
+          "x": 0.9550419328322453,
+          "y": -0.785801375
+        },
+        {
+          "index": 28,
+          "svgId": "eight-hz.point.28",
+          "x": 0.9998465470047967,
+          "y": 3.5176182500000004
+        },
+        {
+          "index": 29,
+          "svgId": "eight-hz.point.29",
+          "x": 0.9182064560235902,
+          "y": -1.874039125
+        },
+        {
+          "index": 30,
+          "svgId": "eight-hz.point.30",
+          "x": 0.9342964620527073,
+          "y": -0.22364137499999998
+        },
+        {
+          "index": 31,
+          "svgId": "eight-hz.point.31",
+          "x": 0.9111982734017523,
+          "y": -1.3176714999999999
+        },
+        {
+          "index": 32,
+          "svgId": "eight-hz.point.32",
+          "x": 1.0097026627048151,
+          "y": -0.6315977500000001
+        },
+        {
+          "index": 33,
+          "svgId": "eight-hz.point.33",
+          "x": 1.004818842730014,
+          "y": -0.5327395000000001
+        },
+        {
+          "index": 34,
+          "svgId": "eight-hz.point.34",
+          "x": 1.0290734762752767,
+          "y": -0.40038550000000006
+        },
+        {
+          "index": 35,
+          "svgId": "eight-hz.point.35",
+          "x": 1.0756768031433783,
+          "y": -0.48047675
+        },
+        {
+          "index": 36,
+          "svgId": "eight-hz.point.36",
+          "x": 1.0857197325769798,
+          "y": -0.03504887499999999
+        },
+        {
+          "index": 37,
+          "svgId": "eight-hz.point.37",
+          "x": 0.9170352823560303,
+          "y": -0.7987626250000001
+        },
+        {
+          "index": 38,
+          "svgId": "eight-hz.point.38",
+          "x": 0.9511691968285402,
+          "y": -1.7713138749999997
+        },
+        {
+          "index": 39,
+          "svgId": "eight-hz.point.39",
+          "x": 0.9121394418912661,
+          "y": 0.594294625
+        },
+        {
+          "index": 40,
+          "svgId": "eight-hz.point.40",
+          "x": 0.9109416220106074,
+          "y": 0.767966625
+        },
+        {
+          "index": 41,
+          "svgId": "eight-hz.point.41",
+          "x": 0.9849267740589651,
+          "y": 0.188131375
+        },
+        {
+          "index": 42,
+          "svgId": "eight-hz.point.42",
+          "x": 0.9665258580413748,
+          "y": -0.24136449999999998
+        },
+        {
+          "index": 43,
+          "svgId": "eight-hz.point.43",
+          "x": 0.9582700626067299,
+          "y": 0.021849999999999994
+        },
+        {
+          "index": 44,
+          "svgId": "eight-hz.point.44",
+          "x": 1.021133674351576,
+          "y": -0.07169600000000001
+        },
+        {
+          "index": 45,
+          "svgId": "eight-hz.point.45",
+          "x": 1.0099618733435978,
+          "y": -0.272949125
+        },
+        {
+          "index": 46,
+          "svgId": "eight-hz.point.46",
+          "x": 0.9930463107177933,
+          "y": 0.161874375
+        },
+        {
+          "index": 47,
+          "svgId": "eight-hz.point.47",
+          "x": 1.0860887147980014,
+          "y": 1.82973525
+        },
+        {
+          "index": 48,
+          "svgId": "eight-hz.point.48",
+          "x": 0.9827131831259907,
+          "y": 8.795202999999999
+        },
+        {
+          "index": 49,
+          "svgId": "eight-hz.point.49",
+          "x": 1.0392766961239768,
+          "y": 0.154527375
+        },
+        {
+          "index": 50,
+          "svgId": "eight-hz.point.50",
+          "x": 1.0431516156572238,
+          "y": 1.8028165000000003
+        },
+        {
+          "index": 51,
+          "svgId": "eight-hz.point.51",
+          "x": 1.0728039391219049,
+          "y": 0.07391137500000003
+        },
+        {
+          "index": 52,
+          "svgId": "eight-hz.point.52",
+          "x": 0.9606029978296893,
+          "y": 0.874730875
+        },
+        {
+          "index": 53,
+          "svgId": "eight-hz.point.53",
+          "x": 0.9274228849066656,
+          "y": 0.769808
+        },
+        {
+          "index": 54,
+          "svgId": "eight-hz.point.54",
+          "x": 0.9623431488630443,
+          "y": 0.39593575000000003
+        },
+        {
+          "index": 55,
+          "svgId": "eight-hz.point.55",
+          "x": 1.088678544989142,
+          "y": 0.18215125
+        },
+        {
+          "index": 56,
+          "svgId": "eight-hz.point.56",
+          "x": 0.9361645405179632,
+          "y": 1.2214168749999998
+        },
+        {
+          "index": 57,
+          "svgId": "eight-hz.point.57",
+          "x": 1.0453131078445825,
+          "y": -2.33315475
+        },
+        {
+          "index": 58,
+          "svgId": "eight-hz.point.58",
+          "x": 1.072818417010626,
+          "y": 0.15980049999999998
+        },
+        {
+          "index": 59,
+          "svgId": "eight-hz.point.59",
+          "x": 1.0320209222158343,
+          "y": -0.5363135
+        },
+        {
+          "index": 60,
+          "svgId": "eight-hz.point.60",
+          "x": 1.0762587231728507,
+          "y": -0.28699050000000004
+        },
+        {
+          "index": 61,
+          "svgId": "eight-hz.point.61",
+          "x": 1.0381443429856516,
+          "y": -0.191078875
+        },
+        {
+          "index": 62,
+          "svgId": "eight-hz.point.62",
+          "x": 0.985321988236974,
+          "y": -0.390107
+        },
+        {
+          "index": 63,
+          "svgId": "eight-hz.point.63",
+          "x": 0.9107650352327836,
+          "y": 11.767527874999999
+        },
+        {
+          "index": 64,
+          "svgId": "eight-hz.point.64",
+          "x": 1.0196569436314262,
+          "y": -0.29809775
+        },
+        {
+          "index": 65,
+          "svgId": "eight-hz.point.65",
+          "x": 0.9895795680105606,
+          "y": -0.472457
+        },
+        {
+          "index": 66,
+          "svgId": "eight-hz.point.66",
+          "x": 0.9215116892870073,
+          "y": -0.93536675
+        },
+        {
+          "index": 67,
+          "svgId": "eight-hz.point.67",
+          "x": 0.9656795603653907,
+          "y": -0.18400987500000004
+        },
+        {
+          "index": 68,
+          "svgId": "eight-hz.point.68",
+          "x": 0.9836253822076074,
+          "y": -1.109367375
+        },
+        {
+          "index": 69,
+          "svgId": "eight-hz.point.69",
+          "x": 1.0360772358639538,
+          "y": 2.4009843749999993
+        },
+        {
+          "index": 70,
+          "svgId": "eight-hz.point.70",
+          "x": 1.0372317877539918,
+          "y": 0.43454575
+        },
+        {
+          "index": 71,
+          "svgId": "eight-hz.point.71",
+          "x": 0.9906896069241804,
+          "y": 0.7837046250000002
+        },
+        {
+          "index": 72,
+          "svgId": "eight-hz.point.72",
+          "x": 1.0328132069278877,
+          "y": 0.2784486249999999
+        },
+        {
+          "index": 73,
+          "svgId": "eight-hz.point.73",
+          "x": 1.0753537435887766,
+          "y": -0.69732025
+        },
+        {
+          "index": 74,
+          "svgId": "eight-hz.point.74",
+          "x": 0.9906592164736127,
+          "y": -0.0014149999999999996
+        },
+        {
+          "index": 75,
+          "svgId": "eight-hz.point.75",
+          "x": 1.0030078635316826,
+          "y": 0.5902365
+        },
+        {
+          "index": 76,
+          "svgId": "eight-hz.point.76",
+          "x": 1.0099448892256662,
+          "y": -0.215955375
+        },
+        {
+          "index": 77,
+          "svgId": "eight-hz.point.77",
+          "x": 0.9326106584861318,
+          "y": -0.36548662500000006
+        },
+        {
+          "index": 78,
+          "svgId": "eight-hz.point.78",
+          "x": 1.0612576142715877,
+          "y": 0.17671237500000003
+        },
+        {
+          "index": 79,
+          "svgId": "eight-hz.point.79",
+          "x": 1.0094105119854357,
+          "y": -0.9255385
+        },
+        {
+          "index": 80,
+          "svgId": "eight-hz.point.80",
+          "x": 0.9957935052587589,
+          "y": 0.7097279999999999
+        },
+        {
+          "index": 81,
+          "svgId": "eight-hz.point.81",
+          "x": 1.0303380402038314,
+          "y": -1.29418425
+        },
+        {
+          "index": 82,
+          "svgId": "eight-hz.point.82",
+          "x": 1.0253510884933619,
+          "y": 0.38353924999999994
+        },
+        {
+          "index": 83,
+          "svgId": "eight-hz.point.83",
+          "x": 1.0209897617881474,
+          "y": -0.32119412500000005
+        },
+        {
+          "index": 84,
+          "svgId": "eight-hz.point.84",
+          "x": 1.0258469812505737,
+          "y": 0.02176075
+        },
+        {
+          "index": 85,
+          "svgId": "eight-hz.point.85",
+          "x": 0.9897377243872632,
+          "y": -0.34935737499999997
+        },
+        {
+          "index": 86,
+          "svgId": "eight-hz.point.86",
+          "x": 0.956663233537552,
+          "y": -0.5571898750000001
+        },
+        {
+          "index": 87,
+          "svgId": "eight-hz.point.87",
+          "x": 1.0795907654214674,
+          "y": -0.42658212500000003
+        },
+        {
+          "index": 88,
+          "svgId": "eight-hz.point.88",
+          "x": 0.9731778961492787,
+          "y": 0.5552775000000001
+        },
+        {
+          "index": 89,
+          "svgId": "eight-hz.point.89",
+          "x": 0.955805445527127,
+          "y": 1.3458061250000002
+        },
+        {
+          "index": 90,
+          "svgId": "eight-hz.point.90",
+          "x": 0.9711172147607264,
+          "y": -0.8520026249999999
+        },
+        {
+          "index": 91,
+          "svgId": "eight-hz.point.91",
+          "x": 0.916620353560242,
+          "y": -0.37268175000000003
+        },
+        {
+          "index": 92,
+          "svgId": "eight-hz.point.92",
+          "x": 1.0598368933179823,
+          "y": 3.4750326249999994
+        },
+        {
+          "index": 93,
+          "svgId": "eight-hz.point.93",
+          "x": 1.0899140252956498,
+          "y": 0.932666125
+        },
+        {
+          "index": 94,
+          "svgId": "eight-hz.point.94",
+          "x": 1.0696010890336518,
+          "y": 0.908487
+        },
+        {
+          "index": 95,
+          "svgId": "eight-hz.point.95",
+          "x": 0.9547003750091663,
+          "y": 1.762771875
+        },
+        {
+          "index": 96,
+          "svgId": "eight-hz.point.96",
+          "x": 1.044865873103503,
+          "y": 0.213932875
+        },
+        {
+          "index": 97,
+          "svgId": "eight-hz.point.97",
+          "x": 1.037504073385552,
+          "y": -0.08756562499999998
+        },
+        {
+          "index": 98,
+          "svgId": "eight-hz.point.98",
+          "x": 0.9613716453289063,
+          "y": -0.8096292499999999
+        },
+        {
+          "index": 99,
+          "svgId": "eight-hz.point.99",
+          "x": 0.9299227070472478,
+          "y": 0.003989500000000014
+        },
+        {
+          "index": 100,
+          "svgId": "eight-hz.point.100",
+          "x": 1.0857047562424365,
+          "y": 0.1132185
+        },
+        {
+          "index": 101,
+          "svgId": "eight-hz.point.101",
+          "x": 1.0225343523737176,
+          "y": -0.04257400000000001
+        },
+        {
+          "index": 102,
+          "svgId": "eight-hz.point.102",
+          "x": 1.0580562774472826,
+          "y": -0.19371912500000005
+        },
+        {
+          "index": 103,
+          "svgId": "eight-hz.point.103",
+          "x": 1.0252586065014482,
+          "y": -0.0016575000000000062
+        },
+        {
+          "index": 104,
+          "svgId": "eight-hz.point.104",
+          "x": 1.0273817222496262,
+          "y": -0.08535662500000002
+        },
+        {
+          "index": 105,
+          "svgId": "eight-hz.point.105",
+          "x": 0.9264568116181274,
+          "y": -0.019083000000000017
+        },
+        {
+          "index": 106,
+          "svgId": "eight-hz.point.106",
+          "x": 0.9445155757519739,
+          "y": -3.8909697500000004
+        },
+        {
+          "index": 107,
+          "svgId": "eight-hz.point.107",
+          "x": 0.9916014029107032,
+          "y": -0.5926718750000001
+        },
+        {
+          "index": 108,
+          "svgId": "eight-hz.point.108",
+          "x": 1.050503034182929,
+          "y": -0.03716975000000003
+        },
+        {
+          "index": 109,
+          "svgId": "eight-hz.point.109",
+          "x": 0.9761475003726275,
+          "y": 0.26380875000000004
+        },
+        {
+          "index": 110,
+          "svgId": "eight-hz.point.110",
+          "x": 1.0742235939729554,
+          "y": 0.794813625
+        },
+        {
+          "index": 111,
+          "svgId": "eight-hz.point.111",
+          "x": 1.0498286392160756,
+          "y": -1.07972525
+        },
+        {
+          "index": 112,
+          "svgId": "eight-hz.point.112",
+          "x": 0.9434276033734439,
+          "y": -0.40081137499999997
+        },
+        {
+          "index": 113,
+          "svgId": "eight-hz.point.113",
+          "x": 0.9803540651470153,
+          "y": 0.56303425
+        },
+        {
+          "index": 114,
+          "svgId": "eight-hz.point.114",
+          "x": 1.0186652803851075,
+          "y": 0.32863037500000003
+        },
+        {
+          "index": 115,
+          "svgId": "eight-hz.point.115",
+          "x": 0.9793869370983792,
+          "y": -1.5957320000000002
+        },
+        {
+          "index": 116,
+          "svgId": "eight-hz.point.116",
+          "x": 1.0083771912022184,
+          "y": 0.13229437500000002
+        },
+        {
+          "index": 117,
+          "svgId": "eight-hz.point.117",
+          "x": 0.9509266564540076,
+          "y": -0.18462875
+        },
+        {
+          "index": 118,
+          "svgId": "eight-hz.point.118",
+          "x": 0.9617028869834514,
+          "y": 0.16480175000000002
+        },
+        {
+          "index": 119,
+          "svgId": "eight-hz.point.119",
+          "x": 1.0249040442687258,
+          "y": -0.276388875
+        },
+        {
+          "index": 120,
+          "svgId": "eight-hz.point.120",
+          "x": 1.0773666517348421,
+          "y": 0.121248375
+        },
+        {
+          "index": 121,
+          "svgId": "eight-hz.point.121",
+          "x": 1.060039849890875,
+          "y": -0.9079058750000002
+        },
+        {
+          "index": 122,
+          "svgId": "eight-hz.point.122",
+          "x": 0.9829373682307606,
+          "y": -0.26172850000000003
+        },
+        {
+          "index": 123,
+          "svgId": "eight-hz.point.123",
+          "x": 0.9711565050110664,
+          "y": -1.05268225
+        },
+        {
+          "index": 124,
+          "svgId": "eight-hz.point.124",
+          "x": 0.9568182466425424,
+          "y": -0.08556137500000002
+        },
+        {
+          "index": 125,
+          "svgId": "eight-hz.point.125",
+          "x": 0.9463498273881509,
+          "y": 25.044241375
+        },
+        {
+          "index": 126,
+          "svgId": "eight-hz.point.126",
+          "x": 1.0336781101247123,
+          "y": 0.44203175
+        },
+        {
+          "index": 127,
+          "svgId": "eight-hz.point.127",
+          "x": 0.9278566475978776,
+          "y": 0.41142112499999994
+        },
+        {
+          "index": 128,
+          "svgId": "eight-hz.point.128",
+          "x": 0.9157110856861279,
+          "y": 0.279115625
+        },
+        {
+          "index": 129,
+          "svgId": "eight-hz.point.129",
+          "x": 0.9504777273472789,
+          "y": -0.48731725000000004
+        },
+        {
+          "index": 130,
+          "svgId": "eight-hz.point.130",
+          "x": 0.9755640160235599,
+          "y": -0.960492
+        },
+        {
+          "index": 131,
+          "svgId": "eight-hz.point.131",
+          "x": 1.017538796692979,
+          "y": -0.099295
+        },
+        {
+          "index": 132,
+          "svgId": "eight-hz.point.132",
+          "x": 0.9291363807995854,
+          "y": 0.09347475000000002
+        },
+        {
+          "index": 133,
+          "svgId": "eight-hz.point.133",
+          "x": 0.9866576944450327,
+          "y": 0.1530785
+        },
+        {
+          "index": 134,
+          "svgId": "eight-hz.point.134",
+          "x": 0.9618762737949648,
+          "y": 0.5511124999999999
+        },
+        {
+          "index": 135,
+          "svgId": "eight-hz.point.135",
+          "x": 0.9482711972045625,
+          "y": -0.644785375
+        },
+        {
+          "index": 136,
+          "svgId": "eight-hz.point.136",
+          "x": 0.9615690241792736,
+          "y": -2.6883303749999996
+        },
+        {
+          "index": 137,
+          "svgId": "eight-hz.point.137",
+          "x": 1.032989869241278,
+          "y": -0.49259437500000003
+        },
+        {
+          "index": 138,
+          "svgId": "eight-hz.point.138",
+          "x": 1.0838218705548235,
+          "y": 0.323018
+        },
+        {
+          "index": 139,
+          "svgId": "eight-hz.point.139",
+          "x": 0.9757364315161617,
+          "y": 0.10397687500000002
+        },
+        {
+          "index": 140,
+          "svgId": "eight-hz.point.140",
+          "x": 1.0220413876885839,
+          "y": -0.32822025
+        },
+        {
+          "index": 141,
+          "svgId": "eight-hz.point.141",
+          "x": 0.9821836426359177,
+          "y": 0.03972687499999998
+        },
+        {
+          "index": 142,
+          "svgId": "eight-hz.point.142",
+          "x": 1.0557886530612288,
+          "y": 0.04879799999999997
+        }
+      ],
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "eight-hz.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "role": "line",
+          "svgId": "eight-hz-iqr.line"
+        }
+      ],
+      "data": {
+        "x": [
+          1,
+          1
+        ],
+        "y": [
+          -0.4386428124999999,
+          0.4036784375
+        ]
+      },
+      "id": "eight-hz-iqr",
+      "kind": "line",
+      "name": "eight-hz-iqr",
+      "roles": [
+        "line"
+      ],
+      "svg": {
+        "line": "eight-hz-iqr.line"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "members": [
+            "eight-hz-median.point.0"
+          ],
+          "role": "point",
+          "svgId": "eight-hz-median.points"
+        }
+      ],
+      "data": {
+        "x": [
+          1
+        ],
+        "y": [
+          -0.03504887499999999
+        ]
+      },
+      "id": "eight-hz-median",
+      "kind": "scatter",
+      "name": "eight-hz-median",
+      "points": [
+        {
+          "index": 0,
+          "svgId": "eight-hz-median.point.0",
+          "x": 1,
+          "y": -0.03504887499999999
+        }
+      ],
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "eight-hz-median.points"
+      }
+    }
+  ],
+  "size": {
+    "height": 183.6,
+    "unit": "pt",
+    "width": 230.4
+  },
+  "spec": "fluxplot/manifest",
+  "svg": "07-paired-responses.svg"
+}

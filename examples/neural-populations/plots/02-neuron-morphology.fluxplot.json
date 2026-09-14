@@ -1,0 +1,545 @@
+{
+  "artifact": {
+    "svgSha256": "dd5f9327956b3d22363db30d54e127ccf037b02bc70347816a637aa5e8ea326b"
+  },
+  "axes": [
+    {
+      "id": "plot-area",
+      "pixelBox": {
+        "x0": 13.824,
+        "x1": 223.488,
+        "y0": 46.7237814754624,
+        "y1": 133.20421852453754
+      },
+      "projection": "rectilinear",
+      "svgId": "plot-area",
+      "x": {
+        "anchors": [
+          {
+            "data": -437.881132,
+            "svg": 13.823999999999998
+          },
+          {
+            "data": 1498.6488920000002,
+            "svg": 223.48799999999994
+          }
+        ],
+        "domain": [
+          -437.881132,
+          1498.6488920000002
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "−500",
+            "value": -500.0
+          },
+          {
+            "label": "−250",
+            "value": -250.0
+          },
+          {
+            "label": "0",
+            "value": 0.0
+          },
+          {
+            "label": "250",
+            "value": 250.0
+          },
+          {
+            "label": "500",
+            "value": 500.0
+          },
+          {
+            "label": "750",
+            "value": 750.0
+          },
+          {
+            "label": "1000",
+            "value": 1000.0
+          },
+          {
+            "label": "1250",
+            "value": 1250.0
+          },
+          {
+            "label": "1500",
+            "value": 1500.0
+          }
+        ]
+      },
+      "y": {
+        "anchors": [
+          {
+            "data": -501.7385245,
+            "svg": 133.20421852453754
+          },
+          {
+            "data": 297.02503450000006,
+            "svg": 46.7237814754624
+          }
+        ],
+        "domain": [
+          -501.7385245,
+          297.02503450000006
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "−600",
+            "value": -600.0
+          },
+          {
+            "label": "−400",
+            "value": -400.0
+          },
+          {
+            "label": "−200",
+            "value": -200.0
+          },
+          {
+            "label": "0",
+            "value": 0.0
+          },
+          {
+            "label": "200",
+            "value": 200.0
+          },
+          {
+            "label": "400",
+            "value": 400.0
+          }
+        ]
+      }
+    }
+  ],
+  "build": {
+    "order": [
+      "figure.title",
+      "gridlines",
+      "scale-100um.line",
+      "cell-480114344.x-neuron-morphology",
+      "cell-480114344-soma.points",
+      "cell-464198958.x-neuron-morphology",
+      "cell-464198958-soma.points",
+      "cell-464212183.x-neuron-morphology",
+      "cell-464212183-soma.points",
+      "annotation.0",
+      "annotation.1",
+      "annotation.2",
+      "annotation.3",
+      "annotation.4",
+      "annotation.5",
+      "annotation.6",
+      "annotation.7"
+    ],
+    "presets": {
+      "axis": {
+        "animation": "draw-on",
+        "durationMs": 400
+      },
+      "gridline": {
+        "animation": "fade-in",
+        "durationMs": 300
+      },
+      "line": {
+        "animation": "draw-on",
+        "durationMs": 800
+      },
+      "point": {
+        "animation": "stagger-in",
+        "durationMs": 240,
+        "staggerMs": 40
+      }
+    }
+  },
+  "generator": {
+    "matplotlib": "3.11.1",
+    "name": "fluxplot",
+    "version": "0.1.0"
+  },
+  "guides": [],
+  "overlays": [
+    {
+      "id": "annotation.0",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.0",
+      "text": "Rorb"
+    },
+    {
+      "id": "annotation.1",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.1",
+      "text": "480114344"
+    },
+    {
+      "id": "annotation.2",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.2",
+      "text": "Sst"
+    },
+    {
+      "id": "annotation.3",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.3",
+      "text": "464198958"
+    },
+    {
+      "id": "annotation.4",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.4",
+      "text": "Sst"
+    },
+    {
+      "id": "annotation.5",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.5",
+      "text": "464212183"
+    },
+    {
+      "id": "annotation.6",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.6",
+      "text": "100 μm"
+    },
+    {
+      "id": "annotation.7",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.7",
+      "text": "Allen Cell Types · separate specimens, not the imaged cells"
+    }
+  ],
+  "parts": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "cell-480114344.x-neuron-morphology"
+              }
+            ],
+            "id": "cell-480114344",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "cell-480114344-soma.points"
+              }
+            ],
+            "id": "cell-480114344-soma",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "cell-464198958.x-neuron-morphology"
+              }
+            ],
+            "id": "cell-464198958",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "cell-464198958-soma.points"
+              }
+            ],
+            "id": "cell-464198958-soma",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "cell-464212183.x-neuron-morphology"
+              }
+            ],
+            "id": "cell-464212183",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "cell-464212183-soma.points"
+              }
+            ],
+            "id": "cell-464212183-soma",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "scale-100um.line"
+              }
+            ],
+            "id": "scale-100um",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.0"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.1"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.2"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.3"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.4"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.5"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.6"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.7"
+          }
+        ],
+        "id": "plot-area",
+        "kind": "container",
+        "role": "plot-area"
+      },
+      {
+        "kind": "text",
+        "ref": "figure.title"
+      }
+    ],
+    "id": "figure",
+    "kind": "container",
+    "role": "figure"
+  },
+  "plotType": "line",
+  "schemaVersion": "0.3.0",
+  "series": [
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-neuron-morphology",
+          "svgId": "cell-480114344.x-neuron-morphology"
+        }
+      ],
+      "data": {},
+      "id": "cell-480114344",
+      "kind": "x-neuron-morphology",
+      "name": "cell-480114344",
+      "rasterized": true,
+      "roles": [
+        "x-neuron-morphology"
+      ],
+      "svg": {
+        "x-neuron-morphology": "cell-480114344.x-neuron-morphology"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "members": [],
+          "role": "point",
+          "svgId": "cell-480114344-soma.points"
+        }
+      ],
+      "data": {
+        "x": [
+          0.0
+        ],
+        "y": [
+          0.0
+        ]
+      },
+      "id": "cell-480114344-soma",
+      "kind": "scatter",
+      "name": "cell-480114344-soma",
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "cell-480114344-soma.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-neuron-morphology",
+          "svgId": "cell-464198958.x-neuron-morphology"
+        }
+      ],
+      "data": {},
+      "id": "cell-464198958",
+      "kind": "x-neuron-morphology",
+      "name": "cell-464198958",
+      "rasterized": true,
+      "roles": [
+        "x-neuron-morphology"
+      ],
+      "svg": {
+        "x-neuron-morphology": "cell-464198958.x-neuron-morphology"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "members": [],
+          "role": "point",
+          "svgId": "cell-464198958-soma.points"
+        }
+      ],
+      "data": {
+        "x": [
+          650.0
+        ],
+        "y": [
+          0.0
+        ]
+      },
+      "id": "cell-464198958-soma",
+      "kind": "scatter",
+      "name": "cell-464198958-soma",
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "cell-464198958-soma.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-neuron-morphology",
+          "svgId": "cell-464212183.x-neuron-morphology"
+        }
+      ],
+      "data": {},
+      "id": "cell-464212183",
+      "kind": "x-neuron-morphology",
+      "name": "cell-464212183",
+      "rasterized": true,
+      "roles": [
+        "x-neuron-morphology"
+      ],
+      "svg": {
+        "x-neuron-morphology": "cell-464212183.x-neuron-morphology"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "members": [],
+          "role": "point",
+          "svgId": "cell-464212183-soma.points"
+        }
+      ],
+      "data": {
+        "x": [
+          1300.0
+        ],
+        "y": [
+          0.0
+        ]
+      },
+      "id": "cell-464212183-soma",
+      "kind": "scatter",
+      "name": "cell-464212183-soma",
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "cell-464212183-soma.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "role": "line",
+          "svgId": "scale-100um.line"
+        }
+      ],
+      "data": {
+        "x": [
+          -349.85704,
+          -249.85703999999998
+        ],
+        "y": [
+          -465.43109,
+          -465.43109
+        ]
+      },
+      "id": "scale-100um",
+      "kind": "line",
+      "name": "scale-100um",
+      "roles": [
+        "line"
+      ],
+      "svg": {
+        "line": "scale-100um.line"
+      }
+    }
+  ],
+  "size": {
+    "height": 183.6,
+    "unit": "pt",
+    "width": 230.4
+  },
+  "spec": "fluxplot/manifest",
+  "svg": "02-neuron-morphology.svg"
+}

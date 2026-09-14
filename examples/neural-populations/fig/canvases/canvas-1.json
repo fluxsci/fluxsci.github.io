@@ -1,0 +1,513 @@
+{
+  "schemaVersion": "0.1.0",
+  "id": "canvas-1",
+  "name": "Population coding",
+  "figures": [
+    {
+      "id": "fig-neural-populations",
+      "referenceKey": "fig-neural-populations",
+      "name": "Figure 1",
+      "family": "figure",
+      "number": 1,
+      "nickname": "From neurons to population codes",
+      "canvasId": "canvas-1",
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 700,
+      "background": "#ffffff",
+      "elements": [
+        {
+          "id": "fig-neural-populations-label-0",
+          "type": "text",
+          "text": "a",
+          "x": 22,
+          "y": 22,
+          "width": 28,
+          "height": 34,
+          "rotation": 0,
+          "fontFamily": "Arial",
+          "fontSize": 27,
+          "fontWeight": 700,
+          "fontStyle": "normal",
+          "align": "left",
+          "color": "#22272e",
+          "lines": [
+            "a"
+          ],
+          "sizing": "fixed",
+          "panelLabel": true
+        },
+        {
+          "id": "fig-neural-populations-01-brain-regions",
+          "type": "plot",
+          "name": "Anatomical context",
+          "x": 24.99999999999997,
+          "y": 61.82421875,
+          "width": 335.50000000000006,
+          "height": 267.3515625,
+          "rotation": 0,
+          "assetId": "01-brain-regions",
+          "source": {
+            "svgPath": "plots/01-brain-regions.svg",
+            "manifestPath": "plots/01-brain-regions.fluxplot.json",
+            "recipePath": "plots/01-brain-regions.recipe.json",
+            "frozen": false
+          }
+        },
+        {
+          "id": "fig-neural-populations-label-1",
+          "type": "text",
+          "text": "b",
+          "x": 374.5,
+          "y": 22,
+          "width": 28,
+          "height": 34,
+          "rotation": 0,
+          "fontFamily": "Arial",
+          "fontSize": 27,
+          "fontWeight": 700,
+          "fontStyle": "normal",
+          "align": "left",
+          "color": "#22272e",
+          "lines": [
+            "b"
+          ],
+          "sizing": "fixed",
+          "panelLabel": true
+        },
+        {
+          "id": "fig-neural-populations-02-neuron-morphology",
+          "type": "plot",
+          "name": "Neuronal architecture",
+          "x": 377.5,
+          "y": 61.82421875,
+          "width": 335.50000000000006,
+          "height": 267.3515625,
+          "rotation": 0,
+          "assetId": "02-neuron-morphology",
+          "source": {
+            "svgPath": "plots/02-neuron-morphology.svg",
+            "manifestPath": "plots/02-neuron-morphology.fluxplot.json",
+            "recipePath": "plots/02-neuron-morphology.recipe.json",
+            "frozen": false
+          }
+        },
+        {
+          "id": "fig-neural-populations-label-2",
+          "type": "text",
+          "text": "c",
+          "x": 727,
+          "y": 22,
+          "width": 28,
+          "height": 34,
+          "rotation": 0,
+          "fontFamily": "Arial",
+          "fontSize": 27,
+          "fontWeight": 700,
+          "fontStyle": "normal",
+          "align": "left",
+          "color": "#22272e",
+          "lines": [
+            "c"
+          ],
+          "sizing": "fixed",
+          "panelLabel": true
+        },
+        {
+          "id": "fig-neural-populations-05-response-network",
+          "type": "plot",
+          "name": "Response similarity network",
+          "x": 730,
+          "y": 61.82421875,
+          "width": 335.50000000000006,
+          "height": 267.3515625,
+          "rotation": 0,
+          "assetId": "05-response-network",
+          "source": {
+            "svgPath": "plots/05-response-network.svg",
+            "manifestPath": "plots/05-response-network.fluxplot.json",
+            "recipePath": "plots/05-response-network.recipe.json",
+            "frozen": false
+          }
+        },
+        {
+          "id": "fig-neural-populations-label-3",
+          "type": "text",
+          "text": "d",
+          "x": 1079.5,
+          "y": 22,
+          "width": 28,
+          "height": 34,
+          "rotation": 0,
+          "fontFamily": "Arial",
+          "fontSize": 27,
+          "fontWeight": 700,
+          "fontStyle": "normal",
+          "align": "left",
+          "color": "#22272e",
+          "lines": [
+            "d"
+          ],
+          "sizing": "fixed",
+          "panelLabel": true
+        },
+        {
+          "id": "fig-neural-populations-03-response-heatmap",
+          "type": "plot",
+          "name": "Population responses",
+          "x": 1082.5,
+          "y": 61.82421875,
+          "width": 335.50000000000006,
+          "height": 267.3515625,
+          "rotation": 0,
+          "assetId": "03-response-heatmap",
+          "source": {
+            "svgPath": "plots/03-response-heatmap.svg",
+            "manifestPath": "plots/03-response-heatmap.fluxplot.json",
+            "recipePath": "plots/03-response-heatmap.recipe.json",
+            "frozen": false
+          }
+        },
+        {
+          "id": "fig-neural-populations-label-4",
+          "type": "text",
+          "text": "e",
+          "x": 22,
+          "y": 357,
+          "width": 28,
+          "height": 34,
+          "rotation": 0,
+          "fontFamily": "Arial",
+          "fontSize": 27,
+          "fontWeight": 700,
+          "fontStyle": "normal",
+          "align": "left",
+          "color": "#22272e",
+          "lines": [
+            "e"
+          ],
+          "sizing": "fixed",
+          "panelLabel": true
+        },
+        {
+          "id": "fig-neural-populations-04-tuning-curves",
+          "type": "plot",
+          "name": "Diverse tuning profiles",
+          "x": 24.99999999999997,
+          "y": 396.82421875,
+          "width": 335.50000000000006,
+          "height": 267.3515625,
+          "rotation": 0,
+          "assetId": "04-tuning-curves",
+          "source": {
+            "svgPath": "plots/04-tuning-curves.svg",
+            "manifestPath": "plots/04-tuning-curves.fluxplot.json",
+            "recipePath": "plots/04-tuning-curves.recipe.json",
+            "frozen": false
+          }
+        },
+        {
+          "id": "fig-neural-populations-label-5",
+          "type": "text",
+          "text": "f",
+          "x": 374.5,
+          "y": 357,
+          "width": 28,
+          "height": 34,
+          "rotation": 0,
+          "fontFamily": "Arial",
+          "fontSize": 27,
+          "fontWeight": 700,
+          "fontStyle": "normal",
+          "align": "left",
+          "color": "#22272e",
+          "lines": [
+            "f"
+          ],
+          "sizing": "fixed",
+          "panelLabel": true
+        },
+        {
+          "id": "fig-neural-populations-08-population-pca",
+          "type": "plot",
+          "name": "Population activity space",
+          "x": 377.5,
+          "y": 396.82421875,
+          "width": 335.50000000000006,
+          "height": 267.3515625,
+          "rotation": 0,
+          "assetId": "08-population-pca",
+          "source": {
+            "svgPath": "plots/08-population-pca.svg",
+            "manifestPath": "plots/08-population-pca.fluxplot.json",
+            "recipePath": "plots/08-population-pca.recipe.json",
+            "frozen": false
+          }
+        },
+        {
+          "id": "fig-neural-populations-label-6",
+          "type": "text",
+          "text": "g",
+          "x": 727,
+          "y": 357,
+          "width": 28,
+          "height": 34,
+          "rotation": 0,
+          "fontFamily": "Arial",
+          "fontSize": 27,
+          "fontWeight": 700,
+          "fontStyle": "normal",
+          "align": "left",
+          "color": "#22272e",
+          "lines": [
+            "g"
+          ],
+          "sizing": "fixed",
+          "panelLabel": true
+        },
+        {
+          "id": "fig-neural-populations-06-selectivity-distribution",
+          "type": "plot",
+          "name": "Response selectivity",
+          "x": 730,
+          "y": 396.82421875,
+          "width": 335.50000000000006,
+          "height": 267.3515625,
+          "rotation": 0,
+          "assetId": "06-selectivity-distribution",
+          "source": {
+            "svgPath": "plots/06-selectivity-distribution.svg",
+            "manifestPath": "plots/06-selectivity-distribution.fluxplot.json",
+            "recipePath": "plots/06-selectivity-distribution.recipe.json",
+            "frozen": false
+          }
+        },
+        {
+          "id": "fig-neural-populations-label-7",
+          "type": "text",
+          "text": "h",
+          "x": 1079.5,
+          "y": 357,
+          "width": 28,
+          "height": 34,
+          "rotation": 0,
+          "fontFamily": "Arial",
+          "fontSize": 27,
+          "fontWeight": 700,
+          "fontStyle": "normal",
+          "align": "left",
+          "color": "#22272e",
+          "lines": [
+            "h"
+          ],
+          "sizing": "fixed",
+          "panelLabel": true
+        },
+        {
+          "id": "fig-neural-populations-07-paired-responses",
+          "type": "plot",
+          "name": "Within-cell comparisons",
+          "x": 1082.5,
+          "y": 396.82421875,
+          "width": 335.50000000000006,
+          "height": 267.3515625,
+          "rotation": 0,
+          "assetId": "07-paired-responses",
+          "source": {
+            "svgPath": "plots/07-paired-responses.svg",
+            "manifestPath": "plots/07-paired-responses.fluxplot.json",
+            "recipePath": "plots/07-paired-responses.recipe.json",
+            "frozen": false
+          }
+        }
+      ],
+      "captions": {
+        "__figure__": "Neuronal populations encode diverse stimulus features. An original demonstration assembled from public neuronal and anatomical datasets; the panels are exploratory visualizations, not a reproduced publication.",
+        "fig-neural-populations-label-0": "Anatomical context.",
+        "fig-neural-populations-label-1": "Neuronal architecture.",
+        "fig-neural-populations-label-2": "Response similarity network.",
+        "fig-neural-populations-label-3": "Population responses.",
+        "fig-neural-populations-label-4": "Diverse tuning profiles.",
+        "fig-neural-populations-label-5": "Population activity space.",
+        "fig-neural-populations-label-6": "Response selectivity.",
+        "fig-neural-populations-label-7": "Within-cell comparisons."
+      }
+    },
+    {
+      "id": "fig-neural-structure",
+      "referenceKey": "fig-neural-structure",
+      "name": "Figure 2",
+      "family": "figure",
+      "number": 2,
+      "nickname": "Response structure and variation",
+      "canvasId": "canvas-1",
+      "x": 1500,
+      "y": 0,
+      "width": 1440,
+      "height": 850,
+      "background": "#ffffff",
+      "elements": [
+        {
+          "id": "fig-neural-structure-label-0",
+          "type": "text",
+          "text": "a",
+          "x": 22,
+          "y": 22,
+          "width": 28,
+          "height": 34,
+          "rotation": 0,
+          "fontFamily": "Arial",
+          "fontSize": 27,
+          "fontWeight": 700,
+          "fontStyle": "normal",
+          "align": "left",
+          "color": "#22272e",
+          "lines": [
+            "a"
+          ],
+          "sizing": "fixed",
+          "panelLabel": true
+        },
+        {
+          "id": "fig-neural-structure-09-response-correlation",
+          "type": "plot",
+          "name": "Shared response structure",
+          "x": 141.8627450980392,
+          "y": 52,
+          "width": 454.2745098039216,
+          "height": 362,
+          "rotation": 0,
+          "assetId": "09-response-correlation",
+          "source": {
+            "svgPath": "plots/09-response-correlation.svg",
+            "manifestPath": "plots/09-response-correlation.fluxplot.json",
+            "recipePath": "plots/09-response-correlation.recipe.json",
+            "frozen": false
+          }
+        },
+        {
+          "id": "fig-neural-structure-label-1",
+          "type": "text",
+          "text": "b",
+          "x": 727,
+          "y": 22,
+          "width": 28,
+          "height": 34,
+          "rotation": 0,
+          "fontFamily": "Arial",
+          "fontSize": 27,
+          "fontWeight": 700,
+          "fontStyle": "normal",
+          "align": "left",
+          "color": "#22272e",
+          "lines": [
+            "b"
+          ],
+          "sizing": "fixed",
+          "panelLabel": true
+        },
+        {
+          "id": "fig-neural-structure-10-response-traces",
+          "type": "plot",
+          "name": "Responses through time",
+          "x": 846.8627450980392,
+          "y": 52,
+          "width": 454.2745098039216,
+          "height": 362,
+          "rotation": 0,
+          "assetId": "10-response-traces",
+          "source": {
+            "svgPath": "plots/10-response-traces.svg",
+            "manifestPath": "plots/10-response-traces.fluxplot.json",
+            "recipePath": "plots/10-response-traces.recipe.json",
+            "frozen": false
+          }
+        },
+        {
+          "id": "fig-neural-structure-label-2",
+          "type": "text",
+          "text": "c",
+          "x": 22,
+          "y": 432,
+          "width": 28,
+          "height": 34,
+          "rotation": 0,
+          "fontFamily": "Arial",
+          "fontSize": 27,
+          "fontWeight": 700,
+          "fontStyle": "normal",
+          "align": "left",
+          "color": "#22272e",
+          "lines": [
+            "c"
+          ],
+          "sizing": "fixed",
+          "panelLabel": true
+        },
+        {
+          "id": "fig-neural-structure-11-frequency-selectivity",
+          "type": "plot",
+          "name": "Response variation by temporal frequency",
+          "x": 141.8627450980392,
+          "y": 462,
+          "width": 454.2745098039216,
+          "height": 362,
+          "rotation": 0,
+          "assetId": "11-frequency-selectivity",
+          "source": {
+            "svgPath": "plots/11-frequency-selectivity.svg",
+            "manifestPath": "plots/11-frequency-selectivity.fluxplot.json",
+            "recipePath": "plots/11-frequency-selectivity.recipe.json",
+            "frozen": false
+          }
+        },
+        {
+          "id": "fig-neural-structure-label-3",
+          "type": "text",
+          "text": "d",
+          "x": 727,
+          "y": 432,
+          "width": 28,
+          "height": 34,
+          "rotation": 0,
+          "fontFamily": "Arial",
+          "fontSize": 27,
+          "fontWeight": 700,
+          "fontStyle": "normal",
+          "align": "left",
+          "color": "#22272e",
+          "lines": [
+            "d"
+          ],
+          "sizing": "fixed",
+          "panelLabel": true
+        },
+        {
+          "id": "fig-neural-structure-12-variance-spectrum",
+          "type": "plot",
+          "name": "Dimensions of population activity",
+          "x": 846.8627450980392,
+          "y": 462,
+          "width": 454.2745098039216,
+          "height": 362,
+          "rotation": 0,
+          "assetId": "12-variance-spectrum",
+          "source": {
+            "svgPath": "plots/12-variance-spectrum.svg",
+            "manifestPath": "plots/12-variance-spectrum.fluxplot.json",
+            "recipePath": "plots/12-variance-spectrum.recipe.json",
+            "frozen": false
+          }
+        }
+      ],
+      "captions": {
+        "__figure__": "Complementary views of response structure. Original exploratory summaries of the same public source collection.",
+        "fig-neural-structure-label-0": "Shared response structure.",
+        "fig-neural-structure-label-1": "Responses through time.",
+        "fig-neural-structure-label-2": "Response variation by temporal frequency.",
+        "fig-neural-structure-label-3": "Dimensions of population activity."
+      }
+    }
+  ]
+}

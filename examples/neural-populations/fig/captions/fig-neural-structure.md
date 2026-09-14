@@ -1,0 +1,1 @@
+Complementary views of response structure. Original exploratory summaries of the same public source collection. **a**, Shared response structure. **b**, Responses through time. **c**, Response variation by temporal frequency. **d**, Dimensions of population activity.

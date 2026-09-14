@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="230.4pt" height="183.6pt" viewBox="0 0 230.4 183.6" version="1.1" data-fluxplot="1" data-plot-type="line">
+  <defs>
+    <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+  </defs>
+  <g id="figure" data-role="figure" data-kind="container">
+    <g id="patch_1">
+      <path d="M 0 183.6  L 230.4 183.6  L 230.4 0  L 0 0  z " style="fill: #ffffff"/>
+    </g>
+    <g id="panel.a.plot-area" data-role="plot-area" data-kind="container">
+      <g id="patch_2">
+        <path d="M 41.472 143.208  L 184.32 143.208  L 184.32 33.048  L 41.472 33.048  z " style="fill: #ffffff"/>
+      </g>
+      <g id="panel.a.component-variance.bar.0" data-role="bar" data-series="component-variance" data-index="0" data-x="1.0" data-y="11.212576128675845" data-kind="shape">
+        <path d="M 45.888557 143.208  L 54.997704 143.208  L 54.997704 49.852068  L 45.888557 49.852068  z " clip-path="url(#p980f232fc6)" style="fill: #315c80"/>
+      </g>
+      <g id="panel.a.component-variance.bar.1" data-role="bar" data-series="component-variance" data-index="1" data-x="2.0" data-y="10.180559982574675" data-kind="shape">
+        <path d="M 59.690296 143.208  L 68.799443 143.208  L 68.799443 58.444636  L 59.690296 58.444636  z " clip-path="url(#p980f232fc6)" style="fill: #315c80"/>
+      </g>
+      <g id="panel.a.component-variance.bar.2" data-role="bar" data-series="component-variance" data-index="2" data-x="3.0" data-y="8.926795179887232" data-kind="shape">
+        <path d="M 73.492035 143.208  L 82.601183 143.208  L 82.601183 68.883485  L 73.492035 68.883485  z " clip-path="url(#p980f232fc6)" style="fill: #315c80"/>
+      </g>
+      <g id="panel.a.component-variance.bar.3" data-role="bar" data-series="component-variance" data-index="3" data-x="4.0" data-y="7.871382292101139" data-kind="shape">
+        <path d="M 87.293774 143.208  L 96.402922 143.208  L 96.402922 77.670855  L 87.293774 77.670855  z " clip-path="url(#p980f232fc6)" style="fill: #315c80"/>
+      </g>
+      <g id="panel.a.component-variance.bar.4" data-role="bar" data-series="component-variance" data-index="4" data-x="5.0" data-y="5.2142263794382995" data-kind="shape">
+        <path d="M 101.095513 143.208  L 110.204661 143.208  L 110.204661 99.79434  L 101.095513 99.79434  z " clip-path="url(#p980f232fc6)" style="fill: #315c80"/>
+      </g>
+      <g id="panel.a.component-variance.bar.5" data-role="bar" data-series="component-variance" data-index="5" data-x="6.0" data-y="4.329255660249188" data-kind="shape">
+        <path d="M 114.897252 143.208  L 124.0064 143.208  L 124.0064 107.162608  L 114.897252 107.162608  z " clip-path="url(#p980f232fc6)" style="fill: #315c80"/>
+      </g>
+      <g id="panel.a.component-variance.bar.6" data-role="bar" data-series="component-variance" data-index="6" data-x="7.0" data-y="4.064909647219088" data-kind="shape">
+        <path d="M 128.698991 143.208  L 137.808139 143.208  L 137.808139 109.363554  L 128.698991 109.363554  z " clip-path="url(#p980f232fc6)" style="fill: #315c80"/>
+      </g>
+      <g id="panel.a.component-variance.bar.7" data-role="bar" data-series="component-variance" data-index="7" data-x="8.0" data-y="3.766608978109756" data-kind="shape">
+        <path d="M 142.50073 143.208  L 151.609878 143.208  L 151.609878 111.847206  L 142.50073 111.847206  z " clip-path="url(#p980f232fc6)" style="fill: #315c80"/>
+      </g>
+      <g id="panel.a.component-variance.bar.8" data-role="bar" data-series="component-variance" data-index="8" data-x="9.0" data-y="3.4170540443750554" data-kind="shape">
+        <path d="M 156.30247 143.208  L 165.411617 143.208  L 165.411617 114.757601  L 156.30247 114.757601  z " clip-path="url(#p980f232fc6)" style="fill: #315c80"/>
+      </g>
+      <g id="panel.a.component-variance.bar.9" data-role="bar" data-series="component-variance" data-index="9" data-x="10.0" data-y="3.163094377246657" data-kind="shape">
+        <path d="M 170.104209 143.208  L 179.213357 143.208  L 179.213357 116.87207  L 170.104209 116.87207  z " clip-path="url(#p980f232fc6)" style="fill: #315c80"/>
+      </g>
+      <g id="panel.a.axis.x" data-role="axis" data-axis="x" data-kind="container">
+        <g id="xtick_1">
+          <g id="panel.a.axis.x.tick.0" data-role="tick" data-axis="x" data-index="0" data-kind="line">
+            <path d="M 0 0  L 0 2.5  " transform="translate(50.44313 143.208)" style="stroke: #8d969b; stroke-width: 0.5; fill: #8d969b"/>
+          </g>
+          <g id="panel.a.axis.x.ticklabel.0" data-role="tick-label" data-axis="x" data-index="0" data-kind="text">
+            <text style="font-size: 6.2px; font-family: 'Arial'; text-anchor: middle; fill: #1b2838" x="50.44313" y="153.22177" transform="rotate(-0 50.44313 153.22177)">1</text>
+          </g>
+        </g>
+        <g id="xtick_2">
+          <g id="panel.a.axis.x.tick.1" data-role="tick" data-axis="x" data-index="1" data-kind="line">
+            <path d="M 0 0  L 0 2.5  " transform="translate(64.24487 143.208)" style="stroke: #8d969b; stroke-width: 0.5; fill: #8d969b"/>
+          </g>
+          <g id="panel.a.axis.x.ticklabel.1" data-role="tick-label" data-axis="x" data-index="1" data-kind="text">
+            <text style="font-size: 6.2px; font-family: 'Arial'; text-anchor: middle; fill: #1b2838" x="64.24487" y="153.22177" transform="rotate(-0 64.24487 153.22177)">2</text>
+          </g>
+        </g>
+        <g id="xtick_3">
+          <g id="panel.a.axis.x.tick.2" data-role="tick" data-axis="x" data-index="2" data-kind="line">
+            <path d="M 0 0  L 0 2.5  " transform="translate(91.848348 143.208)" style="stroke: #8d969b; stroke-width: 0.5; fill: #8d969b"/>
+          </g>
+          <g id="panel.a.axis.x.ticklabel.2" data-role="tick-label" data-axis="x" data-index="2" data-kind="text">
+            <text style="font-size: 6.2px; font-family: 'Arial'; text-anchor: middle; fill: #1b2838" x="91.848348" y="153.22177" transform="rotate(-0 91.848348 153.22177)">4</text>
+          </g>
+        </g>
+        <g id="xtick_4">
+          <g id="panel.a.axis.x.tick.3" data-role="tick" data-axis="x" data-index="3" data-kind="line">
+            <path d="M 0 0  L 0 2.5  " transform="translate(119.451826 143.208)" style="stroke: #8d969b; stroke-width: 0.5; fill: #8d969b"/>
+          </g>
+          <g id="panel.a.axis.x.ticklabel.3" data-role="tick-label" data-axis="x" data-index="3" data-kind="text">
+            <text style="font-size: 6.2px; font-family: 'Arial'; text-anchor: middle; fill: #1b2838" x="119.451826" y="153.22177" transform="rotate(-0 119.451826 153.22177)">6</text>
+          </g>
+        </g>
+        <g id="xtick_5">
+          <g id="panel.a.axis.x.tick.4" data-role="tick" data-axis="x" data-index="4" data-kind="line">
+            <path d="M 0 0  L 0 2.5  " transform="translate(147.055304 143.208)" style="stroke: #8d969b; stroke-width: 0.5; fill: #8d969b"/>
+          </g>
+          <g id="panel.a.axis.x.ticklabel.4" data-role="tick-label" data-axis="x" data-index="4" data-kind="text">
+            <text style="font-size: 6.2px; font-family: 'Arial'; text-anchor: middle; fill: #1b2838" x="147.055304" y="153.22177" transform="rotate(-0 147.055304 153.22177)">8</text>
+          </g>
+        </g>
+        <g id="xtick_6">
+          <g id="panel.a.axis.x.tick.5" data-role="tick" data-axis="x" data-index="5" data-kind="line">
+            <path d="M 0 0  L 0 2.5  " transform="translate(174.658783 143.208)" style="stroke: #8d969b; stroke-width: 0.5; fill: #8d969b"/>
+          </g>
+          <g id="panel.a.axis.x.ticklabel.5" data-role="tick-label" data-axis="x" data-index="5" data-kind="text">
+            <text style="font-size: 6.2px; font-family: 'Arial'; text-anchor: middle; fill: #1b2838" x="174.658783" y="153.22177" transform="rotate(-0 174.658783 153.22177)">10</text>
+          </g>
+        </g>
+        <g id="panel.a.axis.x.title" data-role="axis-title" data-axis="x" data-kind="text">
+          <text style="font-size: 7.2px; font-family: 'Arial'; text-anchor: middle; fill: #1b2838" x="112.896" y="163.768352" transform="rotate(-0 112.896 163.768352)">Principal component</text>
+        </g>
+      </g>
+      <g id="panel.a.axis.y" data-role="axis" data-axis="y" data-kind="container">
+        <g id="ytick_1">
+          <g id="panel.a.axis.y.tick.0" data-role="tick" data-axis="y" data-index="0" data-kind="line">
+            <path d="M 0 0  L -2.5 0  " transform="translate(41.472 143.208)" style="stroke: #8d969b; stroke-width: 0.5; fill: #8d969b"/>
+          </g>
+          <g id="panel.a.axis.y.ticklabel.0" data-role="tick-label" data-axis="y" data-index="0" data-kind="text">
+            <text style="font-size: 6.2px; font-family: 'Arial'; text-anchor: end; fill: #1b2838" x="35.972" y="145.464885" transform="rotate(-0 35.972 145.464885)">0</text>
+          </g>
+        </g>
+        <g id="ytick_2">
+          <g id="panel.a.axis.y.tick.1" data-role="tick" data-axis="y" data-index="1" data-kind="line">
+            <path d="M 0 0  L -2.5 0  " transform="translate(41.472 126.555996)" style="stroke: #8d969b; stroke-width: 0.5; fill: #8d969b"/>
+          </g>
+          <g id="panel.a.axis.y.ticklabel.1" data-role="tick-label" data-axis="y" data-index="1" data-kind="text">
+            <text style="font-size: 6.2px; font-family: 'Arial'; text-anchor: end; fill: #1b2838" x="35.972" y="128.812881" transform="rotate(-0 35.972 128.812881)">2</text>
+          </g>
+        </g>
+        <g id="ytick_3">
+          <g id="panel.a.axis.y.tick.2" data-role="tick" data-axis="y" data-index="2" data-kind="line">
+            <path d="M 0 0  L -2.5 0  " transform="translate(41.472 109.903992)" style="stroke: #8d969b; stroke-width: 0.5; fill: #8d969b"/>
+          </g>
+          <g id="panel.a.axis.y.ticklabel.2" data-role="tick-label" data-axis="y" data-index="2" data-kind="text">
+            <text style="font-size: 6.2px; font-family: 'Arial'; text-anchor: end; fill: #1b2838" x="35.972" y="112.160876" transform="rotate(-0 35.972 112.160876)">4</text>
+          </g>
+        </g>
+        <g id="ytick_4">
+          <g id="panel.a.axis.y.tick.3" data-role="tick" data-axis="y" data-index="3" data-kind="line">
+            <path d="M 0 0  L -2.5 0  " transform="translate(41.472 93.251988)" style="stroke: #8d969b; stroke-width: 0.5; fill: #8d969b"/>
+          </g>
+          <g id="panel.a.axis.y.ticklabel.3" data-role="tick-label" data-axis="y" data-index="3" data-kind="text">
+            <text style="font-size: 6.2px; font-family: 'Arial'; text-anchor: end; fill: #1b2838" x="35.972" y="95.508872" transform="rotate(-0 35.972 95.508872)">6</text>
+          </g>
+        </g>
+        <g id="ytick_5">
+          <g id="panel.a.axis.y.tick.4" data-role="tick" data-axis="y" data-index="4" data-kind="line">
+            <path d="M 0 0  L -2.5 0  " transform="translate(41.472 76.599983)" style="stroke: #8d969b; stroke-width: 0.5; fill: #8d969b"/>
+          </g>
+          <g id="panel.a.axis.y.ticklabel.4" data-role="tick-label" data-axis="y" data-index="4" data-kind="text">
+            <text style="font-size: 6.2px; font-family: 'Arial'; text-anchor: end; fill: #1b2838" x="35.972" y="78.856868" transform="rotate(-0 35.972 78.856868)">8</text>
+          </g>
+        </g>
+        <g id="ytick_6">
+          <g id="panel.a.axis.y.tick.5" data-role="tick" data-axis="y" data-index="5" data-kind="line">
+            <path d="M 0 0  L -2.5 0  " transform="translate(41.472 59.947979)" style="stroke: #8d969b; stroke-width: 0.5; fill: #8d969b"/>
+          </g>
+          <g id="panel.a.axis.y.ticklabel.5" data-role="tick-label" data-axis="y" data-index="5" data-kind="text">
+            <text style="font-size: 6.2px; font-family: 'Arial'; text-anchor: end; fill: #1b2838" x="35.972" y="62.204864" transform="rotate(-0 35.972 62.204864)">10</text>
+          </g>
+        </g>
+        <g id="ytick_7">
+          <g id="panel.a.axis.y.tick.6" data-role="tick" data-axis="y" data-index="6" data-kind="line">
+            <path d="M 0 0  L -2.5 0  " transform="translate(41.472 43.295975)" style="stroke: #8d969b; stroke-width: 0.5; fill: #8d969b"/>
+          </g>
+          <g id="panel.a.axis.y.ticklabel.6" data-role="tick-label" data-axis="y" data-index="6" data-kind="text">
+            <text style="font-size: 6.2px; font-family: 'Arial'; text-anchor: end; fill: #1b2838" x="35.972" y="45.55286" transform="rotate(-0 35.972 45.55286)">12</text>
+          </g>
+        </g>
+        <g id="panel.a.axis.y.title" data-role="axis-title" data-axis="y" data-kind="text">
+          <text style="font-size: 7.2px; font-family: 'Arial'; text-anchor: middle; fill: #1b2838" x="23.561063" y="88.128" transform="rotate(-90 23.561063 88.128)">Explained variance (%)</text>
+        </g>
+      </g>
+      <g id="panel.a.axis.y.spine" data-role="spine" data-axis="y" data-kind="line">
+        <path d="M 41.472 143.208  L 41.472 33.048  " style="fill: none; stroke: #8d969b; stroke-width: 0.55; stroke-linejoin: miter; stroke-linecap: square"/>
+      </g>
+      <g id="panel.a.axis.x.spine" data-role="spine" data-axis="x" data-kind="line">
+        <path d="M 41.472 143.208  L 184.32 143.208  " style="fill: none; stroke: #8d969b; stroke-width: 0.55; stroke-linejoin: miter; stroke-linecap: square"/>
+      </g>
+      <g id="panel.a.figure.title" data-role="title" data-kind="text">
+        <text style="font-size: 8.2px; font-family: 'Arial'; text-anchor: start; fill: #1b2838" x="41.472" y="23.048" transform="rotate(-0 41.472 23.048)">A compact response space</text>
+      </g>
+    </g>
+    <g id="panel.b.plot-area" data-role="plot-area" data-kind="container">
+      <g id="panel.b.axis.y" data-role="axis" data-axis="y" data-kind="container">
+        <g id="ytick_8">
+          <g id="line2d_1">
+            <defs>
+              <path id="m4ccc26a40b" d="M 0 0  L 2.5 0  " style="stroke: #cc8249; stroke-width: 0.5"/>
+            </defs>
+            <g>
+              <use xlink:href="#m4ccc26a40b" x="184.32" y="143.208" style="fill: #cc8249; stroke: #cc8249; stroke-width: 0.5"/>
+            </g>
+          </g>
+          <g id="panel.b.axis.y.ticklabel.0" data-role="tick-label" data-axis="y" data-index="0" data-kind="text">
+            <text style="font-size: 6px; font-family: 'Arial'; text-anchor: start; fill: #cc8249" x="189.82" y="145.392082" transform="rotate(-0 189.82 145.392082)">0</text>
+          </g>
+        </g>
+        <g id="ytick_9">
+          <g id="line2d_2">
+            <g>
+              <use xlink:href="#m4ccc26a40b" x="184.32" y="88.128" style="fill: #cc8249; stroke: #cc8249; stroke-width: 0.5"/>
+            </g>
+          </g>
+          <g id="panel.b.axis.y.ticklabel.1" data-role="tick-label" data-axis="y" data-index="1" data-kind="text">
+            <text style="font-size: 6px; font-family: 'Arial'; text-anchor: start; fill: #cc8249" x="189.82" y="90.312082" transform="rotate(-0 189.82 90.312082)">50</text>
+          </g>
+        </g>
+        <g id="ytick_10">
+          <g id="line2d_3">
+            <g>
+              <use xlink:href="#m4ccc26a40b" x="184.32" y="33.048" style="fill: #cc8249; stroke: #cc8249; stroke-width: 0.5"/>
+            </g>
+          </g>
+          <g id="panel.b.axis.y.ticklabel.2" data-role="tick-label" data-axis="y" data-index="2" data-kind="text">
+            <text style="font-size: 6px; font-family: 'Arial'; text-anchor: start; fill: #cc8249" x="189.82" y="35.232082" transform="rotate(-0 189.82 35.232082)">100</text>
+          </g>
+        </g>
+        <g id="panel.b.axis.y.title" data-role="axis-title" data-axis="y" data-kind="text">
+          <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: middle; fill: #cc8249" x="208.561865" y="88.128" transform="rotate(-90 208.561865 88.128)">Cumulative (%)</text>
+        </g>
+      </g>
+      <g id="panel.b.cumulative-variance.line" data-role="line" data-series="cumulative-variance" data-kind="line">
+        <path d="M 50.44313 130.856226  L 64.24487 119.641321  L 78.046609 109.807564  L 91.848348 101.136449  L 105.650087 95.392457  L 119.451826 90.623349  L 133.253565 86.145445  L 147.055304 81.996148  L 160.857043 78.231921  L 174.658783 74.747457  " clip-path="url(#p980f232fc6)" style="fill: none; stroke: #cc8249; stroke-width: 1.3; stroke-linecap: square"/>
+      </g>
+      <g id="panel.b.cumulative-variance.points" data-series="cumulative-variance" data-kind="shape">
+        <defs>
+          <path id="m3948e34b08" d="M 0 1.3  C 0.344764 1.3 0.675454 1.163024 0.919239 0.919239  C 1.163024 0.675454 1.3 0.344764 1.3 0  C 1.3 -0.344764 1.163024 -0.675454 0.919239 -0.919239  C 0.675454 -1.163024 0.344764 -1.3 0 -1.3  C -0.344764 -1.3 -0.675454 -1.163024 -0.919239 -0.919239  C -1.163024 -0.675454 -1.3 -0.344764 -1.3 0  C -1.3 0.344764 -1.163024 0.675454 -0.919239 0.919239  C -0.675454 1.163024 -0.344764 1.3 0 1.3  z " style="stroke: #cc8249"/>
+        </defs>
+        <g clip-path="url(#p980f232fc6)">
+          <use xlink:href="#m3948e34b08" x="50.44313" y="130.856226" style="fill: #cc8249; stroke: #cc8249" id="panel.b.cumulative-variance.point.0" data-role="point" data-series="cumulative-variance" data-index="0" data-x="1.0" data-y="11.212576128675845" data-kind="shape"/>
+          <use xlink:href="#m3948e34b08" x="64.24487" y="119.641321" style="fill: #cc8249; stroke: #cc8249" id="panel.b.cumulative-variance.point.1" data-role="point" data-series="cumulative-variance" data-index="1" data-x="2.0" data-y="21.39313611125052" data-kind="shape"/>
+          <use xlink:href="#m3948e34b08" x="78.046609" y="109.807564" style="fill: #cc8249; stroke: #cc8249" id="panel.b.cumulative-variance.point.2" data-role="point" data-series="cumulative-variance" data-index="2" data-x="3.0" data-y="30.319931291137753" data-kind="shape"/>
+          <use xlink:href="#m3948e34b08" x="91.848348" y="101.136449" style="fill: #cc8249; stroke: #cc8249" id="panel.b.cumulative-variance.point.3" data-role="point" data-series="cumulative-variance" data-index="3" data-x="4.0" data-y="38.191313583238895" data-kind="shape"/>
+          <use xlink:href="#m3948e34b08" x="105.650087" y="95.392457" style="fill: #cc8249; stroke: #cc8249" id="panel.b.cumulative-variance.point.4" data-role="point" data-series="cumulative-variance" data-index="4" data-x="5.0" data-y="43.405539962677196" data-kind="shape"/>
+          <use xlink:href="#m3948e34b08" x="119.451826" y="90.623349" style="fill: #cc8249; stroke: #cc8249" id="panel.b.cumulative-variance.point.5" data-role="point" data-series="cumulative-variance" data-index="5" data-x="6.0" data-y="47.734795622926384" data-kind="shape"/>
+          <use xlink:href="#m3948e34b08" x="133.253565" y="86.145445" style="fill: #cc8249; stroke: #cc8249" id="panel.b.cumulative-variance.point.6" data-role="point" data-series="cumulative-variance" data-index="6" data-x="7.0" data-y="51.799705270145466" data-kind="shape"/>
+          <use xlink:href="#m3948e34b08" x="147.055304" y="81.996148" style="fill: #cc8249; stroke: #cc8249" id="panel.b.cumulative-variance.point.7" data-role="point" data-series="cumulative-variance" data-index="7" data-x="8.0" data-y="55.566314248255225" data-kind="shape"/>
+          <use xlink:href="#m3948e34b08" x="160.857043" y="78.231921" style="fill: #cc8249; stroke: #cc8249" id="panel.b.cumulative-variance.point.8" data-role="point" data-series="cumulative-variance" data-index="8" data-x="9.0" data-y="58.98336829263028" data-kind="shape"/>
+          <use xlink:href="#m3948e34b08" x="174.658783" y="74.747457" style="fill: #cc8249; stroke: #cc8249" id="panel.b.cumulative-variance.point.9" data-role="point" data-series="cumulative-variance" data-index="9" data-x="10.0" data-y="62.14646266987693" data-kind="shape"/>
+        </g>
+      </g>
+      <g id="panel.b.axis.y.spine" data-role="spine" data-axis="y" data-kind="line">
+        <path d="M 41.472 143.208  L 41.472 33.048  " style="fill: none; stroke: #8d969b; stroke-width: 0.55; stroke-linejoin: miter; stroke-linecap: square"/>
+      </g>
+      <g id="panel.b.axis.y.spine-2" data-role="spine" data-axis="y" data-kind="line">
+        <path d="M 184.32 143.208  L 184.32 33.048  " style="fill: none; stroke: #cc8249; stroke-width: 0.55; stroke-linejoin: miter; stroke-linecap: square"/>
+      </g>
+      <g id="panel.b.axis.x.spine" data-role="spine" data-axis="x" data-kind="line">
+        <path d="M 41.472 143.208  L 184.32 143.208  " style="fill: none; stroke: #8d969b; stroke-width: 0.55; stroke-linejoin: miter; stroke-linecap: square"/>
+      </g>
+    </g>
+    <g id="panel.a.annotation.0" data-role="annotation" data-kind="text">
+      <text style="font-size: 5.6px; font-family: 'Arial'; text-anchor: start; fill: #8d969b" x="16.128" y="172.323375" transform="rotate(-0 16.128 172.323375)">Same standardized response matrix as the PCA projection</text>
+    </g>
+  </g>
+  <defs>
+    <clipPath id="p980f232fc6">
+      <rect x="41.472" y="33.048" width="142.848" height="110.16"/>
+    </clipPath>
+  </defs>
+</svg>

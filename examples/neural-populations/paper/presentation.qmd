@@ -1,0 +1,19 @@
+---
+title: "A presentation inside a document"
+---
+
+## Many neurons. Many responses.
+
+![](../slides/neural-populations/renders/results-step-0.svg){#slide-results-walkthrough .flux-slide deck="neural-populations" slide="results" width=100%}
+
+## From anatomy to activity
+
+![](../slides/neural-populations/renders/anatomy-step-0.svg){#slide-anatomy-walkthrough .flux-slide deck="neural-populations" slide="anatomy" width=100%}
+
+## A diversity of responses
+
+![](../slides/neural-populations/renders/tuning-step-0.svg){#slide-tuning-walkthrough .flux-slide deck="neural-populations" slide="tuning" width=100%}
+
+## Patterns in activity space
+
+![](../slides/neural-populations/renders/population-step-0.svg){#slide-population-walkthrough .flux-slide deck="neural-populations" slide="population" width=100%}

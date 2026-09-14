@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="230.4pt" height="183.6pt" viewBox="0 0 230.4 183.6" version="1.1" data-fluxplot="1" data-plot-type="line">
+  <defs>
+    <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+  </defs>
+  <g id="figure" data-role="figure" data-kind="container">
+    <g id="patch_1">
+      <path d="M 0 183.6  L 230.4 183.6  L 230.4 0  L 0 0  z " style="fill: #ffffff"/>
+    </g>
+    <g id="plot-area" data-role="plot-area" data-kind="container">
+      <g id="patch_2">
+        <path d="M 41.472 143.208  L 221.184 143.208  L 221.184 33.048  L 41.472 33.048  z " style="fill: #ffffff"/>
+      </g>
+      <g id="orientation-selectivity.bar.0" data-role="bar" data-series="orientation-selectivity" data-index="0" data-x="0.041666666666666664" data-y="0.5034965034965035" data-kind="shape">
+        <path d="M 41.472 143.208  L 56.448 143.208  L 56.448 124.719608  L 41.472 124.719608  z " clip-path="url(#p42f6bb73b6)" style="fill: #26857d; opacity: 0.17"/>
+      </g>
+      <g id="orientation-selectivity.bar.1" data-role="bar" data-series="orientation-selectivity" data-index="1" data-x="0.125" data-y="0.7552447552447552" data-kind="shape">
+        <path d="M 56.448 143.208  L 71.424 143.208  L 71.424 115.475413  L 56.448 115.475413  z " clip-path="url(#p42f6bb73b6)" style="fill: #26857d; opacity: 0.17"/>
+      </g>
+      <g id="orientation-selectivity.bar.2" data-role="bar" data-series="orientation-selectivity" data-index="2" data-x="0.20833333333333331" data-y="0.9230769230769229" data-kind="shape">
+        <path d="M 71.424 143.208  L 86.4 143.208  L 86.4 109.312615  L 71.424 109.312615  z " clip-path="url(#p42f6bb73b6)" style="fill: #26857d; opacity: 0.17"/>
+      </g>
+      <g id="orientation-selectivity.bar.3" data-role="bar" data-series="orientation-selectivity" data-index="3" data-x="0.29166666666666663" data-y="0.6713286713286716" data-kind="shape">
+        <path d="M 86.4 143.208  L 101.376 143.208  L 101.376 118.556811  L 86.4 118.556811  z " clip-path="url(#p42f6bb73b6)" style="fill: #26857d; opacity: 0.17"/>
+      </g>
+      <g id="orientation-selectivity.bar.4" data-role="bar" data-series="orientation-selectivity" data-index="4" data-x="0.375" data-y="1.5944055944055948" data-kind="shape">
+        <path d="M 101.376 143.208  L 116.352 143.208  L 116.352 84.661427  L 101.376 84.661427  z " clip-path="url(#p42f6bb73b6)" style="fill: #26857d; opacity: 0.17"/>
+      </g>
+      <g id="orientation-selectivity.bar.5" data-role="bar" data-series="orientation-selectivity" data-index="5" data-x="0.4583333333333333" data-y="1.0909090909090906" data-kind="shape">
+        <path d="M 116.352 143.208  L 131.328 143.208  L 131.328 103.149818  L 116.352 103.149818  z " clip-path="url(#p42f6bb73b6)" style="fill: #26857d; opacity: 0.17"/>
+      </g>
+      <g id="orientation-selectivity.bar.6" data-role="bar" data-series="orientation-selectivity" data-index="6" data-x="0.5416666666666666" data-y="1.3426573426573438" data-kind="shape">
+        <path d="M 131.328 143.208  L 146.304 143.208  L 146.304 93.905622  L 131.328 93.905622  z " clip-path="url(#p42f6bb73b6)" style="fill: #26857d; opacity: 0.17"/>
+      </g>
+      <g id="orientation-selectivity.bar.7" data-role="bar" data-series="orientation-selectivity" data-index="7" data-x="0.625" data-y="1.0069930069930066" data-kind="shape">
+        <path d="M 146.304 143.208  L 161.28 143.208  L 161.28 106.231217  L 146.304 106.231217  z " clip-path="url(#p42f6bb73b6)" style="fill: #26857d; opacity: 0.17"/>
+      </g>
+      <g id="orientation-selectivity.bar.8" data-role="bar" data-series="orientation-selectivity" data-index="8" data-x="0.7083333333333333" data-y="1.51048951048951" data-kind="shape">
+        <path d="M 161.28 143.208  L 176.256 143.208  L 176.256 87.742825  L 161.28 87.742825  z " clip-path="url(#p42f6bb73b6)" style="fill: #26857d; opacity: 0.17"/>
+      </g>
+      <g id="orientation-selectivity.bar.9" data-role="bar" data-series="orientation-selectivity" data-index="9" data-x="0.7916666666666666" data-y="0.41958041958041997" data-kind="shape">
+        <path d="M 176.256 143.208  L 191.232 143.208  L 191.232 127.801007  L 176.256 127.801007  z " clip-path="url(#p42f6bb73b6)" style="fill: #26857d; opacity: 0.17"/>
+      </g>
+      <g id="orientation-selectivity.bar.10" data-role="bar" data-series="orientation-selectivity" data-index="10" data-x="0.875" data-y="0.8391608391608387" data-kind="shape">
+        <path d="M 191.232 143.208  L 206.208 143.208  L 206.208 112.394014  L 191.232 112.394014  z " clip-path="url(#p42f6bb73b6)" style="fill: #26857d; opacity: 0.17"/>
+      </g>
+      <g id="orientation-selectivity.bar.11" data-role="bar" data-series="orientation-selectivity" data-index="11" data-x="0.9583333333333333" data-y="1.342657342657342" data-kind="shape">
+        <path d="M 206.208 143.208  L 221.184 143.208  L 221.184 93.905622  L 206.208 93.905622  z " clip-path="url(#p42f6bb73b6)" style="fill: #26857d; opacity: 0.17"/>
+      </g>
+      <g id="direction-selectivity.bar.0" data-role="bar" data-series="direction-selectivity" data-index="0" data-x="0.041666666666666664" data-y="0.9230769230769231" data-kind="shape">
+        <path d="M 41.472 143.208  L 56.448 143.208  L 56.448 109.312615  L 41.472 109.312615  z " clip-path="url(#p42f6bb73b6)" style="fill: #315c80; opacity: 0.17"/>
+      </g>
+      <g id="direction-selectivity.bar.1" data-role="bar" data-series="direction-selectivity" data-index="1" data-x="0.125" data-y="1.5944055944055944" data-kind="shape">
+        <path d="M 56.448 143.208  L 71.424 143.208  L 71.424 84.661427  L 56.448 84.661427  z " clip-path="url(#p42f6bb73b6)" style="fill: #315c80; opacity: 0.17"/>
+      </g>
+      <g id="direction-selectivity.bar.2" data-role="bar" data-series="direction-selectivity" data-index="2" data-x="0.20833333333333331" data-y="2.181818181818181" data-kind="shape">
+        <path d="M 71.424 143.208  L 86.4 143.208  L 86.4 63.091636  L 71.424 63.091636  z " clip-path="url(#p42f6bb73b6)" style="fill: #315c80; opacity: 0.17"/>
+      </g>
+      <g id="direction-selectivity.bar.3" data-role="bar" data-series="direction-selectivity" data-index="3" data-x="0.29166666666666663" data-y="2.013986013986014" data-kind="shape">
+        <path d="M 86.4 143.208  L 101.376 143.208  L 101.376 69.254434  L 86.4 69.254434  z " clip-path="url(#p42f6bb73b6)" style="fill: #315c80; opacity: 0.17"/>
+      </g>
+      <g id="direction-selectivity.bar.4" data-role="bar" data-series="direction-selectivity" data-index="4" data-x="0.375" data-y="1.174825174825175" data-kind="shape">
+        <path d="M 101.376 143.208  L 116.352 143.208  L 116.352 100.06842  L 101.376 100.06842  z " clip-path="url(#p42f6bb73b6)" style="fill: #315c80; opacity: 0.17"/>
+      </g>
+      <g id="direction-selectivity.bar.5" data-role="bar" data-series="direction-selectivity" data-index="5" data-x="0.4583333333333333" data-y="1.0069930069930066" data-kind="shape">
+        <path d="M 116.352 143.208  L 131.328 143.208  L 131.328 106.231217  L 116.352 106.231217  z " clip-path="url(#p42f6bb73b6)" style="fill: #315c80; opacity: 0.17"/>
+      </g>
+      <g id="direction-selectivity.bar.6" data-role="bar" data-series="direction-selectivity" data-index="6" data-x="0.5416666666666666" data-y="0.755244755244756" data-kind="shape">
+        <path d="M 131.328 143.208  L 146.304 143.208  L 146.304 115.475413  L 131.328 115.475413  z " clip-path="url(#p42f6bb73b6)" style="fill: #315c80; opacity: 0.17"/>
+      </g>
+      <g id="direction-selectivity.bar.7" data-role="bar" data-series="direction-selectivity" data-index="7" data-x="0.625" data-y="0.5874125874125871" data-kind="shape">
+        <path d="M 146.304 143.208  L 161.28 143.208  L 161.28 121.63821  L 146.304 121.63821  z " clip-path="url(#p42f6bb73b6)" style="fill: #315c80; opacity: 0.17"/>
+      </g>
+      <g id="direction-selectivity.bar.8" data-role="bar" data-series="direction-selectivity" data-index="8" data-x="0.7083333333333333" data-y="0.755244755244755" data-kind="shape">
+        <path d="M 161.28 143.208  L 176.256 143.208  L 176.256 115.475413  L 161.28 115.475413  z " clip-path="url(#p42f6bb73b6)" style="fill: #315c80; opacity: 0.17"/>
+      </g>
+      <g id="direction-selectivity.bar.9" data-role="bar" data-series="direction-selectivity" data-index="9" data-x="0.7916666666666666" data-y="0.33566433566433596" data-kind="shape">
+        <path d="M 176.256 143.208  L 191.232 143.208  L 191.232 130.882406  L 176.256 130.882406  z " clip-path="url(#p42f6bb73b6)" style="fill: #315c80; opacity: 0.17"/>
+      </g>
+      <g id="direction-selectivity.bar.10" data-role="bar" data-series="direction-selectivity" data-index="10" data-x="0.875" data-y="0.16783216783216776" data-kind="shape">
+        <path d="M 191.232 143.208  L 206.208 143.208  L 206.208 137.045203  L 191.232 137.045203  z " clip-path="url(#p42f6bb73b6)" style="fill: #315c80; opacity: 0.17"/>
+      </g>
+      <g id="direction-selectivity.bar.11" data-role="bar" data-series="direction-selectivity" data-index="11" data-x="0.9583333333333333" data-y="0.5034965034965033" data-kind="shape">
+        <path d="M 206.208 143.208  L 221.184 143.208  L 221.184 124.719608  L 206.208 124.719608  z " clip-path="url(#p42f6bb73b6)" style="fill: #315c80; opacity: 0.17"/>
+      </g>
+      <g id="axis.x" data-role="axis" data-axis="x" data-kind="container">
+        <g id="xtick_1">
+          <g id="axis.x.tick.0" data-role="tick" data-axis="x" data-index="0" data-kind="line">
+            <path d="M 0 0  L 0 2.5  " transform="translate(41.472 143.208)" style="stroke: #8d969b; stroke-width: 0.5; fill: #8d969b"/>
+          </g>
+          <g id="axis.x.ticklabel.0" data-role="tick-label" data-axis="x" data-index="0" data-kind="text">
+            <text style="font-size: 6.2px; font-family: 'Arial'; text-anchor: middle; fill: #1b2838" x="41.472" y="153.22177" transform="rotate(-0 41.472 153.22177)">0.0</text>
+          </g>
+        </g>
+        <g id="xtick_2">
+          <g id="axis.x.tick.1" data-role="tick" data-axis="x" data-index="1" data-kind="line">
+            <path d="M 0 0  L 0 2.5  " transform="translate(77.4144 143.208)" style="stroke: #8d969b; stroke-width: 0.5; fill: #8d969b"/>
+          </g>
+          <g id="axis.x.ticklabel.1" data-role="tick-label" data-axis="x" data-index="1" data-kind="text">
+            <text style="font-size: 6.2px; font-family: 'Arial'; text-anchor: middle; fill: #1b2838" x="77.4144" y="153.22177" transform="rotate(-0 77.4144 153.22177)">0.2</text>
+          </g>
+        </g>
+        <g id="xtick_3">
+          <g id="axis.x.tick.2" data-role="tick" data-axis="x" data-index="2" data-kind="line">
+            <path d="M 0 0  L 0 2.5  " transform="translate(113.3568 143.208)" style="stroke: #8d969b; stroke-width: 0.5; fill: #8d969b"/>
+          </g>
+          <g id="axis.x.ticklabel.2" data-role="tick-label" data-axis="x" data-index="2" data-kind="text">
+            <text style="font-size: 6.2px; font-family: 'Arial'; text-anchor: middle; fill: #1b2838" x="113.3568" y="153.22177" transform="rotate(-0 113.3568 153.22177)">0.4</text>
+          </g>
+        </g>
+        <g id="xtick_4">
+          <g id="axis.x.tick.3" data-role="tick" data-axis="x" data-index="3" data-kind="line">
+            <path d="M 0 0  L 0 2.5  " transform="translate(149.2992 143.208)" style="stroke: #8d969b; stroke-width: 0.5; fill: #8d969b"/>
+          </g>
+          <g id="axis.x.ticklabel.3" data-role="tick-label" data-axis="x" data-index="3" data-kind="text">
+            <text style="font-size: 6.2px; font-family: 'Arial'; text-anchor: middle; fill: #1b2838" x="149.2992" y="153.22177" transform="rotate(-0 149.2992 153.22177)">0.6</text>
+          </g>
+        </g>
+        <g id="xtick_5">
+          <g id="axis.x.tick.4" data-role="tick" data-axis="x" data-index="4" data-kind="line">
+            <path d="M 0 0  L 0 2.5  " transform="translate(185.2416 143.208)" style="stroke: #8d969b; stroke-width: 0.5; fill: #8d969b"/>
+          </g>
+          <g id="axis.x.ticklabel.4" data-role="tick-label" data-axis="x" data-index="4" data-kind="text">
+            <text style="font-size: 6.2px; font-family: 'Arial'; text-anchor: middle; fill: #1b2838" x="185.2416" y="153.22177" transform="rotate(-0 185.2416 153.22177)">0.8</text>
+          </g>
+        </g>
+        <g id="xtick_6">
+          <g id="axis.x.tick.5" data-role="tick" data-axis="x" data-index="5" data-kind="line">
+            <path d="M 0 0  L 0 2.5  " transform="translate(221.184 143.208)" style="stroke: #8d969b; stroke-width: 0.5; fill: #8d969b"/>
+          </g>
+          <g id="axis.x.ticklabel.5" data-role="tick-label" data-axis="x" data-index="5" data-kind="text">
+            <text style="font-size: 6.2px; font-family: 'Arial'; text-anchor: middle; fill: #1b2838" x="221.184" y="153.22177" transform="rotate(-0 221.184 153.22177)">1.0</text>
+          </g>
+        </g>
+        <g id="axis.x.title" data-role="axis-title" data-axis="x" data-kind="text">
+          <text style="font-size: 7.2px; font-family: 'Arial'; text-anchor: middle; fill: #1b2838" x="131.328" y="163.768352" transform="rotate(-0 131.328 163.768352)">Circular selectivity</text>
+        </g>
+      </g>
+      <g id="axis.y" data-role="axis" data-axis="y" data-kind="container">
+        <g id="ytick_1">
+          <g id="axis.y.tick.0" data-role="tick" data-axis="y" data-index="0" data-kind="line">
+            <path d="M 0 0  L -2.5 0  " transform="translate(41.472 143.208)" style="stroke: #8d969b; stroke-width: 0.5; fill: #8d969b"/>
+          </g>
+          <g id="axis.y.ticklabel.0" data-role="tick-label" data-axis="y" data-index="0" data-kind="text">
+            <text style="font-size: 6.2px; font-family: 'Arial'; text-anchor: end; fill: #1b2838" x="35.972" y="145.464885" transform="rotate(-0 35.972 145.464885)">0</text>
+          </g>
+        </g>
+        <g id="ytick_2">
+          <g id="axis.y.tick.1" data-role="tick" data-axis="y" data-index="1" data-kind="line">
+            <path d="M 0 0  L -2.5 0  " transform="translate(41.472 106.488)" style="stroke: #8d969b; stroke-width: 0.5; fill: #8d969b"/>
+          </g>
+          <g id="axis.y.ticklabel.1" data-role="tick-label" data-axis="y" data-index="1" data-kind="text">
+            <text style="font-size: 6.2px; font-family: 'Arial'; text-anchor: end; fill: #1b2838" x="35.972" y="108.744885" transform="rotate(-0 35.972 108.744885)">1</text>
+          </g>
+        </g>
+        <g id="ytick_3">
+          <g id="axis.y.tick.2" data-role="tick" data-axis="y" data-index="2" data-kind="line">
+            <path d="M 0 0  L -2.5 0  " transform="translate(41.472 69.768)" style="stroke: #8d969b; stroke-width: 0.5; fill: #8d969b"/>
+          </g>
+          <g id="axis.y.ticklabel.2" data-role="tick-label" data-axis="y" data-index="2" data-kind="text">
+            <text style="font-size: 6.2px; font-family: 'Arial'; text-anchor: end; fill: #1b2838" x="35.972" y="72.024885" transform="rotate(-0 35.972 72.024885)">2</text>
+          </g>
+        </g>
+        <g id="ytick_4">
+          <g id="axis.y.tick.3" data-role="tick" data-axis="y" data-index="3" data-kind="line">
+            <path d="M 0 0  L -2.5 0  " transform="translate(41.472 33.048)" style="stroke: #8d969b; stroke-width: 0.5; fill: #8d969b"/>
+          </g>
+          <g id="axis.y.ticklabel.3" data-role="tick-label" data-axis="y" data-index="3" data-kind="text">
+            <text style="font-size: 6.2px; font-family: 'Arial'; text-anchor: end; fill: #1b2838" x="35.972" y="35.304885" transform="rotate(-0 35.972 35.304885)">3</text>
+          </g>
+        </g>
+        <g id="axis.y.title" data-role="axis-title" data-axis="y" data-kind="text">
+          <text style="font-size: 7.2px; font-family: 'Arial'; text-anchor: middle; fill: #1b2838" x="27.008844" y="88.128" transform="rotate(-90 27.008844 88.128)">Density</text>
+        </g>
+      </g>
+      <g id="orientation-selectivity-density.line" data-role="line" data-series="orientation-selectivity-density" data-kind="line">
+        <path d="M 41.472 132.37783  L 46.890452 129.573332  L 54.115055 125.536318  L 65.855035 118.889812  L 71.273487 116.10684  L 76.69194 113.610489  L 83.013467 110.995202  L 105.590352 102.148603  L 110.105729 100.633085  L 113.71803 99.628142  L 117.330332 98.847407  L 120.942633 98.306158  L 124.554935 97.997979  L 128.167236 97.897319  L 132.682613 98.002954  L 139.004141 98.427138  L 148.034894 99.297984  L 154.356422 100.121198  L 158.871799 100.944411  L 162.484101 101.810764  L 166.096402 102.888246  L 169.708704 104.168995  L 175.127156 106.368802  L 184.15791 110.097954  L 188.673286 111.662825  L 193.188663 112.934476  L 198.607116 114.167512  L 205.831719 115.804875  L 209.44402 116.866008  L 213.056322 118.211505  L 215.765548 119.43786  L 219.377849 121.367771  L 221.184 122.44948  L 221.184 122.44948  " clip-path="url(#p42f6bb73b6)" style="fill: none; stroke: #26857d; stroke-width: 1.3; stroke-linecap: square"/>
+      </g>
+      <g id="direction-selectivity-density.line" data-role="line" data-series="direction-selectivity-density" data-kind="line">
+        <path d="M 41.472 121.622316  L 45.084302 116.69429  L 49.599678 110.066826  L 59.533508 95.228117  L 63.145809 90.341993  L 65.855035 87.039921  L 68.564261 84.125016  L 70.370412 82.425981  L 72.176563 80.939257  L 73.982714 79.676268  L 75.788864 78.645399  L 77.595015 77.851779  L 79.401166 77.297122  L 81.207317 76.979647  L 83.013467 76.894097  L 84.819618 77.031869  L 86.625769 77.381258  L 88.43192 77.927828  L 90.23807 78.654876  L 92.947296 80.043266  L 95.656523 81.730015  L 99.268824 84.32817  L 103.784201 87.934091  L 120.942633 102.079502  L 125.45801 105.395296  L 129.070312 107.818726  L 132.682613 110.01123  L 136.294915 111.964993  L 139.907216 113.690603  L 144.422593 115.567228  L 148.93797 117.196191  L 154.356422 118.918905  L 161.581025 120.977678  L 182.351759 126.76123  L 190.479437 129.00694  L 196.800965 130.505836  L 204.025568 131.936569  L 213.056322 133.709499  L 218.474774 135.007648  L 221.184 135.740508  L 221.184 135.740508  " clip-path="url(#p42f6bb73b6)" style="fill: none; stroke: #315c80; stroke-width: 1.3; stroke-linecap: square"/>
+      </g>
+      <g id="axis.y.spine" data-role="spine" data-axis="y" data-kind="line">
+        <path d="M 41.472 143.208  L 41.472 33.048  " style="fill: none; stroke: #8d969b; stroke-width: 0.55; stroke-linejoin: miter; stroke-linecap: square"/>
+      </g>
+      <g id="axis.x.spine" data-role="spine" data-axis="x" data-kind="line">
+        <path d="M 41.472 143.208  L 221.184 143.208  " style="fill: none; stroke: #8d969b; stroke-width: 0.55; stroke-linejoin: miter; stroke-linecap: square"/>
+      </g>
+      <g id="figure.title" data-role="title" data-kind="text">
+        <text style="font-size: 8.2px; font-family: 'Arial'; text-anchor: start; fill: #1b2838" x="41.472" y="23.048" transform="rotate(-0 41.472 23.048)">Selectivity varies across cells</text>
+      </g>
+      <g id="legend" data-role="legend" data-kind="container">
+        <g id="legend.entry.0.swatch" data-role="legend-swatch" data-index="0" data-kind="shape">
+          <path d="M 171.01825 40.975281  L 175.66825 40.975281  L 180.31825 40.975281  " style="fill: none; stroke: #26857d; stroke-width: 1.3; stroke-linecap: square"/>
+        </g>
+        <g id="legend.entry.0.label" data-role="legend-label" data-index="0" data-kind="text">
+          <text style="font-size: 6.2px; font-family: 'Arial'; text-anchor: start; fill: #1b2838" x="185.27825" y="43.145281" transform="rotate(-0 185.27825 43.145281)">Orientation</text>
+        </g>
+        <g id="legend.entry.1.swatch" data-role="legend-swatch" data-index="1" data-kind="shape">
+          <path d="M 171.01825 49.893836  L 175.66825 49.893836  L 180.31825 49.893836  " style="fill: none; stroke: #315c80; stroke-width: 1.3; stroke-linecap: square"/>
+        </g>
+        <g id="legend.entry.1.label" data-role="legend-label" data-index="1" data-kind="text">
+          <text style="font-size: 6.2px; font-family: 'Arial'; text-anchor: start; fill: #1b2838" x="185.27825" y="52.063836" transform="rotate(-0 185.27825 52.063836)">Direction</text>
+        </g>
+      </g>
+    </g>
+    <g id="annotation.0" data-role="annotation" data-kind="text">
+      <text style="font-size: 5.6px; font-family: 'Arial'; text-anchor: start; fill: #8d969b" x="23.04" y="172.323375" transform="rotate(-0 23.04 172.323375)">Positive-response vector strength · one value per cell</text>
+    </g>
+  </g>
+  <defs>
+    <clipPath id="p42f6bb73b6">
+      <rect x="41.472" y="33.048" width="179.712" height="110.16"/>
+    </clipPath>
+  </defs>
+</svg>

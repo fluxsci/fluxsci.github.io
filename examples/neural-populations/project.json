@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "0.1.0",
+  "id": "proj_flux_neural_population_demo",
+  "slug": "neural-population-demo",
+  "title": "Neuronal networks flexibly encode diverse stimuli",
+  "created": "2026-09-14T00:00:00.000Z",
+  "modified": "2026-09-14T01:56:12.015Z",
+  "authors": [
+    {
+      "name": "Flux demonstration project",
+      "orcid": null,
+      "email": null
+    }
+  ],
+  "manuscript": {
+    "path": "paper/manuscript.qmd",
+    "config": "paper/_quarto.yml",
+    "format": "quarto"
+  },
+  "documentRoot": "paper",
+  "supplementary": [],
+  "references": {
+    "library": "references/library.bib",
+    "csljson": "references/library.csl.json",
+    "defaultStyle": null,
+    "zoteroSync": null
+  },
+  "figures": [
+    {
+      "id": "fig-neural-populations",
+      "name": "Figure 1",
+      "label": "fig-neural-populations",
+      "order": 1,
+      "kind": "main",
+      "family": "figure",
+      "number": 1,
+      "nickname": "From neurons to population codes",
+      "canvas": "canvas-1",
+      "caption": "fig/captions/fig-neural-populations.md"
+    },
+    {
+      "id": "fig-neural-structure",
+      "name": "Figure 2",
+      "label": "fig-neural-structure",
+      "order": 2,
+      "kind": "main",
+      "family": "figure",
+      "number": 2,
+      "nickname": "Response structure and variation",
+      "canvas": "canvas-1",
+      "caption": "fig/captions/fig-neural-structure.md"
+    }
+  ],
+  "slides": [
+    {
+      "id": "neural-populations",
+      "path": "slides/neural-populations/deck.json",
+      "title": "From neurons to neural codes",
+      "order": 1
+    }
+  ],
+  "capabilities": {
+    "manuscript": "0.1",
+    "figures": "0.1",
+    "references": "0.1",
+    "slides": "0.1"
+  },
+  "documentOrder": [
+    "paper/manuscript.qmd",
+    "paper/methods.qmd",
+    "paper/presentation.qmd"
+  ],
+  "figureFamilies": []
+}

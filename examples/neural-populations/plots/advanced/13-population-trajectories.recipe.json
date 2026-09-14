@@ -1,0 +1,43 @@
+{
+  "args": [
+    "run",
+    "--project",
+    "scripts/advanced",
+    "python",
+    "scripts/advanced/population.py"
+  ],
+  "command": "uv",
+  "cwd": "../..",
+  "env": null,
+  "generatedAt": "2026-09-14T04:51:32Z",
+  "inputs": [
+    {
+      "bytes": 1298700,
+      "path": "data/allen/traces.json",
+      "role": "data",
+      "sha256": "398cedecf94ddaeb332f082dee8c3b694aefe31ebb1db421bff0de8c615c08e4"
+    }
+  ],
+  "output": "13-population-trajectories.svg",
+  "outputs": {
+    "manifest": "13-population-trajectories.fluxplot.json",
+    "svg": "13-population-trajectories.svg"
+  },
+  "params": {},
+  "plot": "13-population-trajectories",
+  "provenance": {
+    "packages": {
+      "fluxplot": "0.1.0",
+      "matplotlib": "3.11.2"
+    },
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.12",
+    "scriptDiscovery": "explicit",
+    "scriptSha256": "b86359b943253e714a0c1edfc0d1f6d79eaa7965ef7ff425dfc2dc86c7b7f3da"
+  },
+  "schemaVersion": "0.3.0",
+  "script": {
+    "path": "scripts/advanced/population.py"
+  },
+  "spec": "fluxplot/recipe"
+}

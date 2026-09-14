@@ -1,0 +1,39 @@
+{
+  "experimentId": 501940850,
+  "region": "VISl",
+  "cellCount": 143,
+  "exampleCellIds": [
+    517470610,
+    587375741,
+    517472513,
+    517470879
+  ],
+  "pcaExplainedVariance": [
+    0.11212576128675845,
+    0.10180559982574675,
+    0.08926795179887233,
+    0.0787138229210114,
+    0.052142263794383,
+    0.04329255660249188,
+    0.04064909647219088,
+    0.03766608978109756,
+    0.034170540443750556,
+    0.03163094377246657
+  ],
+  "graphEdgeCount": 405,
+  "graphShownCellCount": 111,
+  "graphAllCellCount": 143,
+  "graphSelection": "largest connected component",
+  "graphThreshold": 0.5,
+  "preferredDirectionCounts": {
+    "0": 24,
+    "45": 31,
+    "90": 21,
+    "135": 9,
+    "180": 13,
+    "225": 12,
+    "270": 19,
+    "315": 14
+  },
+  "description": "Original descriptive analysis of public Allen measurements. No synthetic responses or claims of anatomical connectivity."
+}

@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="248.4pt" height="234pt" viewBox="0 0 248.4 234" version="1.1" data-fluxplot="1" data-plot-type="line">
+  <defs>
+    <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+  </defs>
+  <g id="figure" data-role="figure" data-kind="container">
+    <g id="patch_1">
+      <path d="M 0 234  L 248.4 234  L 248.4 0  L 0 0  z " style="fill: #ffffff"/>
+    </g>
+    <g id="plot-area" data-role="plot-area" data-kind="container">
+      <g id="patch_2">
+        <path d="M 63.342 198.9  L 239.706 198.9  L 239.706 8.19  L 63.342 8.19  z " style="fill: #ffffff"/>
+      </g>
+      <g id="extra.line.0" data-role="extra" data-index="0" data-kind="line">
+        <path d="M 63.342 35.434286  L 239.706 35.434286  " clip-path="url(#morph-def-006)" style="fill: none; stroke: #dad8ce; stroke-width: 0.45; stroke-linecap: round"/>
+      </g>
+      <g id="extra.line.1" data-role="extra" data-index="1" data-kind="line">
+        <path d="M 63.342 66.393701  L 239.706 66.393701  " clip-path="url(#morph-def-006)" style="fill: none; stroke: #dad8ce; stroke-width: 0.45; stroke-linecap: round"/>
+      </g>
+      <g id="extra.line.2" data-role="extra" data-index="2" data-kind="line">
+        <path d="M 63.342 97.353117  L 239.706 97.353117  " clip-path="url(#morph-def-006)" style="fill: none; stroke: #dad8ce; stroke-width: 0.45; stroke-linecap: round"/>
+      </g>
+      <g id="extra.line.3" data-role="extra" data-index="3" data-kind="line">
+        <path d="M 63.342 128.312532  L 239.706 128.312532  " clip-path="url(#morph-def-006)" style="fill: none; stroke: #dad8ce; stroke-width: 0.45; stroke-linecap: round"/>
+      </g>
+      <g id="extra.line.4" data-role="extra" data-index="4" data-kind="line">
+        <path d="M 63.342 159.271948  L 239.706 159.271948  " clip-path="url(#morph-def-006)" style="fill: none; stroke: #dad8ce; stroke-width: 0.45; stroke-linecap: round"/>
+      </g>
+      <g id="extra.line.5" data-role="extra" data-index="5" data-kind="line">
+        <path d="M 63.342 190.231364  L 239.706 190.231364  " clip-path="url(#morph-def-006)" style="fill: none; stroke: #dad8ce; stroke-width: 0.45; stroke-linecap: round"/>
+      </g>
+      <g id="axis.x" data-role="axis" data-axis="x" data-kind="container">
+        <g id="xtick_1">
+          <g id="axis.x.tick.0" data-role="tick" data-axis="x" data-index="0" data-kind="line">
+            <path d="M 0 0  L 0 3  " transform="translate(63.342 198.9)" style="stroke: #575653; stroke-width: 0.65; fill: #575653"/>
+          </g>
+          <g id="axis.x.ticklabel.0" data-role="tick-label" data-axis="x" data-index="0" data-kind="text">
+            <text style="font-size: 5px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #100f0f" x="63.342" y="209.040137" transform="rotate(-0 63.342 209.040137)">0</text>
+          </g>
+        </g>
+        <g id="xtick_2">
+          <g id="axis.x.tick.1" data-role="tick" data-axis="x" data-index="1" data-kind="line">
+            <path d="M 0 0  L 0 3  " transform="translate(107.433 198.9)" style="stroke: #575653; stroke-width: 0.65; fill: #575653"/>
+          </g>
+          <g id="axis.x.ticklabel.1" data-role="tick-label" data-axis="x" data-index="1" data-kind="text">
+            <text style="font-size: 5px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #100f0f" x="107.433" y="209.040137" transform="rotate(-0 107.433 209.040137)">90</text>
+          </g>
+        </g>
+        <g id="xtick_3">
+          <g id="axis.x.tick.2" data-role="tick" data-axis="x" data-index="2" data-kind="line">
+            <path d="M 0 0  L 0 3  " transform="translate(151.524 198.9)" style="stroke: #575653; stroke-width: 0.65; fill: #575653"/>
+          </g>
+          <g id="axis.x.ticklabel.2" data-role="tick-label" data-axis="x" data-index="2" data-kind="text">
+            <text style="font-size: 5px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #100f0f" x="151.524" y="209.040137" transform="rotate(-0 151.524 209.040137)">180</text>
+          </g>
+        </g>
+        <g id="xtick_4">
+          <g id="axis.x.tick.3" data-role="tick" data-axis="x" data-index="3" data-kind="line">
+            <path d="M 0 0  L 0 3  " transform="translate(195.615 198.9)" style="stroke: #575653; stroke-width: 0.65; fill: #575653"/>
+          </g>
+          <g id="axis.x.ticklabel.3" data-role="tick-label" data-axis="x" data-index="3" data-kind="text">
+            <text style="font-size: 5px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #100f0f" x="195.615" y="209.040137" transform="rotate(-0 195.615 209.040137)">270</text>
+          </g>
+        </g>
+        <g id="xtick_5">
+          <g id="axis.x.tick.4" data-role="tick" data-axis="x" data-index="4" data-kind="line">
+            <path d="M 0 0  L 0 3  " transform="translate(239.706 198.9)" style="stroke: #575653; stroke-width: 0.65; fill: #575653"/>
+          </g>
+          <g id="axis.x.ticklabel.4" data-role="tick-label" data-axis="x" data-index="4" data-kind="text">
+            <text style="font-size: 5px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #100f0f" x="239.706" y="209.040137" transform="rotate(-0 239.706 209.040137)">360</text>
+          </g>
+        </g>
+        <g id="axis.x.title" data-role="axis-title" data-axis="x" data-kind="text">
+          <text style="font-size: 6px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #100f0f" x="151.524" y="220.460547" transform="rotate(-0 151.524 220.460547)">Drift direction (°)</text>
+        </g>
+      </g>
+      <g id="axis.y" data-role="axis" data-axis="y" data-kind="container">
+        <g id="ytick_1">
+          <g id="axis.y.tick.0" data-role="tick" data-axis="y" data-index="0" data-kind="line"/>
+          <g id="axis.y.ticklabel.0" data-role="tick-label" data-axis="y" data-index="0" data-kind="text">
+            <text style="font-size: 5px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #100f0f" x="58.342" y="37.254354" transform="rotate(-0 58.342 37.254354)">517470610</text>
+          </g>
+        </g>
+        <g id="ytick_2">
+          <g id="axis.y.tick.1" data-role="tick" data-axis="y" data-index="1" data-kind="line"/>
+          <g id="axis.y.ticklabel.1" data-role="tick-label" data-axis="y" data-index="1" data-kind="text">
+            <text style="font-size: 5px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #100f0f" x="58.342" y="68.21377" transform="rotate(-0 58.342 68.21377)">517470181</text>
+          </g>
+        </g>
+        <g id="ytick_3">
+          <g id="axis.y.tick.2" data-role="tick" data-axis="y" data-index="2" data-kind="line"/>
+          <g id="axis.y.ticklabel.2" data-role="tick-label" data-axis="y" data-index="2" data-kind="text">
+            <text style="font-size: 5px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #100f0f" x="58.342" y="99.173185" transform="rotate(-0 58.342 99.173185)">587375741</text>
+          </g>
+        </g>
+        <g id="ytick_4">
+          <g id="axis.y.tick.3" data-role="tick" data-axis="y" data-index="3" data-kind="line"/>
+          <g id="axis.y.ticklabel.3" data-role="tick-label" data-axis="y" data-index="3" data-kind="text">
+            <text style="font-size: 5px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #100f0f" x="58.342" y="130.132601" transform="rotate(-0 58.342 130.132601)">517472541</text>
+          </g>
+        </g>
+        <g id="ytick_5">
+          <g id="axis.y.tick.4" data-role="tick" data-axis="y" data-index="4" data-kind="line"/>
+          <g id="axis.y.ticklabel.4" data-role="tick-label" data-axis="y" data-index="4" data-kind="text">
+            <text style="font-size: 5px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #100f0f" x="58.342" y="161.092016" transform="rotate(-0 58.342 161.092016)">517470177</text>
+          </g>
+        </g>
+        <g id="ytick_6">
+          <g id="axis.y.tick.5" data-role="tick" data-axis="y" data-index="5" data-kind="line"/>
+          <g id="axis.y.ticklabel.5" data-role="tick-label" data-axis="y" data-index="5" data-kind="text">
+            <text style="font-size: 5px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #100f0f" x="58.342" y="192.051432" transform="rotate(-0 58.342 192.051432)">517470480</text>
+          </g>
+        </g>
+        <g id="axis.y.title" data-role="axis-title" data-axis="y" data-kind="text">
+          <text style="font-size: 6px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #100f0f" x="26.055086" y="103.545" transform="rotate(-90 26.055086 103.545)">Cell ID · normalized response</text>
+        </g>
+      </g>
+      <g id="axis.x.spine" data-role="spine" data-axis="x" data-kind="line">
+        <path d="M 63.342 198.9  L 239.706 198.9  " style="fill: none; stroke: #575653; stroke-width: 0.65; stroke-linejoin: miter; stroke-linecap: square"/>
+      </g>
+      <g id="cell-517470610-guide.line" data-role="line" data-series="cell-517470610-guide" data-kind="line">
+        <path d="M 63.342 17.543253  L 68.853375 24.742395  L 72.1602 28.65237  L 74.36475 30.97136  L 76.5693 32.994683  L 78.77385 34.666165  L 80.9784 35.929631  L 82.080675 36.390803  L 83.18295 36.728906  L 84.285225 36.936917  L 86.489775 37.002452  L 93.103425 36.79945  L 106.330725 36.273641  L 109.63755 36.321938  L 114.04665 36.68222  L 127.27395 38.131016  L 129.4785 38.184675  L 130.580775 38.007615  L 131.68305 37.500859  L 132.785325 36.701039  L 133.8876 35.644789  L 134.989875 34.36874  L 137.194425 31.303782  L 140.50125 25.973685  L 143.808075 20.643588  L 146.012625 17.578629  L 147.1149 16.302581  L 148.217175 15.24633  L 149.31945 14.44651  L 150.421725 13.939754  L 151.524 13.762695  L 152.626275 13.930568  L 153.72855 14.411033  L 154.830825 15.169356  L 155.9331 16.170807  L 157.035375 17.380651  L 159.239925 20.286594  L 162.54675 25.340156  L 165.853575 30.393718  L 168.058125 33.299661  L 169.1604 34.509506  L 170.262675 35.510956  L 171.36495 36.26928  L 172.467225 36.749744  L 173.5695 36.917618  L 218.762775 36.823945  L 219.86505 36.614806  L 220.967325 36.275096  L 223.171875 35.232943  L 225.376425 33.755448  L 227.580975 31.900574  L 229.785525 29.72628  L 231.990075 27.290531  L 235.2969 23.273465  L 239.706 17.543253  L 239.706 17.543253  " clip-path="url(#morph-def-006)" style="fill: none; stroke: #205ea6; stroke-width: 1.15; stroke-linecap: round"/>
+      </g>
+      <g id="cell-517470181-guide.line" data-role="line" data-series="cell-517470181-guide" data-kind="line">
+        <path d="M 63.342 67.475129  L 65.54655 63.142929  L 67.7511 59.26962  L 69.95565 55.854527  L 72.1602 52.896972  L 74.36475 50.396281  L 76.5693 48.351777  L 78.77385 46.762784  L 80.9784 45.628626  L 83.18295 44.948627  L 84.285225 44.778725  L 85.3875 44.72211  L 86.489775 44.888704  L 87.59205 45.365505  L 88.694325 46.118046  L 89.7966 47.11186  L 90.898875 48.31248  L 93.103425 51.196265  L 96.41025 56.211293  L 99.717075 61.226322  L 101.921625 64.110107  L 103.0239 65.310726  L 104.126175 66.304541  L 105.22845 67.057082  L 106.330725 67.533883  L 107.433 67.700476  L 112.944375 67.580729  L 130.580775 66.939174  L 137.194425 67.131632  L 150.421725 67.630128  L 152.626275 67.565842  L 153.72855 67.367305  L 155.9331 66.640131  L 158.13765 65.568507  L 161.444475 63.566387  L 165.853575 60.762941  L 168.058125 59.562148  L 170.262675 58.648397  L 172.467225 58.136505  L 173.5695 58.067137  L 174.671775 58.135297  L 176.876325 58.638294  L 179.080875 59.536216  L 181.285425 60.716289  L 185.694525 63.471806  L 189.00135 65.440353  L 191.2059 66.494561  L 193.41045 67.210676  L 194.512725 67.406708  L 196.717275 67.477013  L 239.706 67.475129  L 239.706 67.475129  " clip-path="url(#morph-def-006)" style="fill: none; stroke: #24837b; stroke-width: 1.15; stroke-linecap: round"/>
+      </g>
+      <g id="cell-587375741-guide.line" data-role="line" data-series="cell-587375741-guide" data-kind="line">
+        <path d="M 63.342 98.218336  L 74.36475 98.105264  L 85.3875 97.778771  L 86.489775 97.63332  L 87.59205 97.296657  L 88.694325 96.790266  L 90.898875 95.354229  L 93.103425 93.497071  L 96.41025 90.297684  L 99.717075 87.117506  L 101.921625 85.294496  L 104.126175 83.90968  L 105.22845 83.435302  L 106.330725 83.134921  L 107.433 83.03002  L 108.535275 83.136429  L 109.63755 83.441207  L 110.739825 83.922685  L 111.8421 84.559191  L 114.04665 86.210608  L 116.2512 88.222092  L 122.86485 94.683306  L 125.0694 96.401415  L 126.171675 97.081272  L 127.27395 97.612769  L 128.376225 97.974235  L 130.580775 98.20925  L 140.50125 98.659588  L 149.31945 98.834181  L 154.830825 98.788971  L 160.3422 98.486846  L 165.853575 97.957945  L 172.467225 97.090525  L 174.671775 96.68499  L 175.77405 96.303778  L 177.9786 95.18821  L 180.18315 93.711376  L 183.489975 91.10642  L 187.899075 87.596119  L 190.103625 86.120992  L 192.308175 85.007893  L 193.41045 84.6282  L 194.512725 84.388329  L 195.615 84.304719  L 196.717275 84.402406  L 197.81955 84.682083  L 198.921825 85.123675  L 201.126375 86.412303  L 203.330925 88.107686  L 206.63775 91.06211  L 209.944575 94.028344  L 212.149125 95.744724  L 214.353675 97.064846  L 215.45595 97.526123  L 216.558225 97.828109  L 218.762775 97.976357  L 233.09235 98.193603  L 239.706 98.218336  L 239.706 98.218336  " clip-path="url(#morph-def-006)" style="fill: none; stroke: #228833; stroke-width: 1.15; stroke-linecap: round"/>
+      </g>
+      <g id="cell-517472541-guide.line" data-role="line" data-series="cell-517472541-guide" data-kind="line">
+        <path d="M 63.342 129.152501  L 71.057925 129.452414  L 80.9784 129.596522  L 90.898875 129.541181  L 98.6148 129.243823  L 106.330725 128.731497  L 108.535275 128.44291  L 109.63755 128.041748  L 110.739825 127.461815  L 112.944375 125.857294  L 115.148925 123.812668  L 119.558025 119.13639  L 121.762575 116.87138  L 123.967125 114.899549  L 125.0694 114.080865  L 126.171675 113.404221  L 127.27395 112.892532  L 128.376225 112.568715  L 129.4785 112.455684  L 130.580775 112.590231  L 131.68305 112.975378  L 132.785325 113.583378  L 133.8876 114.386487  L 136.09215 116.467051  L 138.2967 118.995109  L 144.91035 127.044642  L 147.1149 129.143071  L 148.217175 129.957793  L 149.31945 130.579192  L 150.421725 130.979524  L 151.524 131.131043  L 169.1604 131.304093  L 177.9786 131.252081  L 184.59225 130.951855  L 191.2059 130.419852  L 195.615 129.948465  L 196.717275 129.663274  L 197.81955 129.087254  L 198.921825 128.253433  L 200.0241 127.194843  L 202.22865 124.535469  L 204.4332 121.373372  L 209.944575 113.002777  L 212.149125 110.162024  L 213.2514 108.982514  L 214.353675 108.007621  L 215.45595 107.270374  L 216.558225 106.803805  L 217.6605 106.640942  L 219.86505 106.862475  L 222.0696 107.528669  L 224.27415 108.641909  L 226.4787 110.204585  L 228.68325 112.219084  L 230.8878 114.687794  L 233.09235 117.613103  L 235.2969 120.997398  L 237.50145 124.843069  L 239.706 129.152501  L 239.706 129.152501  " clip-path="url(#morph-def-006)" style="fill: none; stroke: #bc5215; stroke-width: 1.15; stroke-linecap: round"/>
+      </g>
+      <g id="cell-517470177-guide.line" data-role="line" data-series="cell-517470177-guide" data-kind="line">
+        <path d="M 63.342 160.116932  L 67.7511 159.126074  L 72.1602 158.333372  L 76.5693 157.751482  L 80.9784 157.393066  L 85.3875 157.270781  L 88.694325 157.411642  L 93.103425 157.924074  L 104.126175 159.448619  L 107.433 159.58948  L 125.0694 159.465321  L 150.421725 159.387249  L 162.54675 159.486189  L 176.876325 159.574857  L 200.0241 159.525567  L 206.63775 159.954233  L 214.353675 160.429716  L 218.762775 160.495366  L 231.990075 160.387589  L 239.706 160.116932  L 239.706 160.116932  " clip-path="url(#morph-def-006)" style="fill: none; stroke: #5e409d; stroke-width: 1.15; stroke-linecap: round"/>
+      </g>
+      <g id="cell-517470480-guide.line" data-role="line" data-series="cell-517470480-guide" data-kind="line">
+        <path d="M 63.342 191.17421  L 68.853375 191.683534  L 74.36475 191.959637  L 82.080675 192.089238  L 87.59205 192.027409  L 90.898875 191.715448  L 96.41025 190.879296  L 101.921625 190.043144  L 105.22845 189.731184  L 108.535275 189.675659  L 111.8421 189.843578  L 117.353475 190.401142  L 125.0694 191.218178  L 128.376225 191.386098  L 132.785325 191.360781  L 141.603525 191.040107  L 150.421725 190.779325  L 157.035375 190.850682  L 175.77405 191.236185  L 182.3877 190.955638  L 193.41045 190.418789  L 198.921825 190.426899  L 207.740025 190.712311  L 217.6605 191.009076  L 239.706 191.17421  L 239.706 191.17421  " clip-path="url(#morph-def-006)" style="fill: none; stroke: #a02f6f; stroke-width: 1.15; stroke-linecap: round"/>
+      </g>
+      <g id="cell-517470610-means.points" data-series="cell-517470610-means" data-kind="shape">
+        <defs>
+          <path id="morph-def-000" d="M 0 1.414214  C 0.375054 1.414214 0.734797 1.265203 1 1  C 1.265203 0.734797 1.414214 0.375054 1.414214 0  C 1.414214 -0.375054 1.265203 -0.734797 1 -1  C 0.734797 -1.265203 0.375054 -1.414214 0 -1.414214  C -0.375054 -1.414214 -0.734797 -1.265203 -1 -1  C -1.265203 -0.734797 -1.414214 -0.375054 -1.414214 0  C -1.414214 0.375054 -1.265203 0.734797 -1 1  C -0.734797 1.265203 -0.375054 1.414214 0 1.414214  z " style="stroke: #fffcf0; stroke-width: 0.35"/>
+        </defs>
+        <g clip-path="url(#morph-def-006)">
+          <use xlink:href="#morph-def-000" x="63.342" y="17.543253" style="fill: #205ea6; stroke: #fffcf0; stroke-width: 0.35" id="cell-517470610-means.point.0" data-role="point" data-series="cell-517470610-means" data-index="0" data-x="0.0" data-y="5.577886641461613" data-kind="shape"/>
+          <use xlink:href="#morph-def-000" x="85.3875" y="37.007814" style="fill: #205ea6; stroke: #fffcf0; stroke-width: 0.35" id="cell-517470610-means.point.1" data-role="point" data-series="cell-517470610-means" data-index="1" data-x="45.0" data-y="4.949174487736517" data-kind="shape"/>
+          <use xlink:href="#morph-def-000" x="107.433" y="36.268279" style="fill: #205ea6; stroke: #fffcf0; stroke-width: 0.35" id="cell-517470610-means.point.2" data-role="point" data-series="cell-517470610-means" data-index="2" data-x="90.0" data-y="4.973061726139816" data-kind="shape"/>
+          <use xlink:href="#morph-def-000" x="129.4785" y="38.184675" style="fill: #205ea6; stroke: #fffcf0; stroke-width: 0.35" id="cell-517470610-means.point.3" data-role="point" data-series="cell-517470610-means" data-index="3" data-x="135.0" data-y="4.911161468904574" data-kind="shape"/>
+          <use xlink:href="#morph-def-000" x="151.524" y="13.762695" style="fill: #205ea6; stroke: #fffcf0; stroke-width: 0.35" id="cell-517470610-means.point.4" data-role="point" data-series="cell-517470610-means" data-index="4" data-x="180.0" data-y="5.7" data-kind="shape"/>
+          <use xlink:href="#morph-def-000" x="173.5695" y="36.917618" style="fill: #205ea6; stroke: #fffcf0; stroke-width: 0.35" id="cell-517470610-means.point.5" data-role="point" data-series="cell-517470610-means" data-index="5" data-x="225.0" data-y="4.952087859727111" data-kind="shape"/>
+          <use xlink:href="#morph-def-000" x="195.615" y="36.863779" style="fill: #205ea6; stroke: #fffcf0; stroke-width: 0.35" id="cell-517470610-means.point.6" data-role="point" data-series="cell-517470610-means" data-index="6" data-x="270.0" data-y="4.95382686015934" data-kind="shape"/>
+          <use xlink:href="#morph-def-000" x="217.6605" y="36.895268" style="fill: #205ea6; stroke: #fffcf0; stroke-width: 0.35" id="cell-517470610-means.point.7" data-role="point" data-series="cell-517470610-means" data-index="7" data-x="315.0" data-y="4.952809744901059" data-kind="shape"/>
+        </g>
+      </g>
+      <g id="cell-517470181-means.points" data-series="cell-517470181-means" data-kind="shape">
+        <defs>
+          <path id="morph-def-001" d="M 0 1.414214  C 0.375054 1.414214 0.734797 1.265203 1 1  C 1.265203 0.734797 1.414214 0.375054 1.414214 0  C 1.414214 -0.375054 1.265203 -0.734797 1 -1  C 0.734797 -1.265203 0.375054 -1.414214 0 -1.414214  C -0.375054 -1.414214 -0.734797 -1.265203 -1 -1  C -1.265203 -0.734797 -1.414214 -0.375054 -1.414214 0  C -1.414214 0.375054 -1.265203 0.734797 -1 1  C -0.734797 1.265203 -0.375054 1.414214 0 1.414214  z " style="stroke: #fffcf0; stroke-width: 0.35"/>
+        </defs>
+        <g clip-path="url(#morph-def-006)">
+          <use xlink:href="#morph-def-001" x="63.342" y="67.475129" style="fill: #24837b; stroke: #fffcf0; stroke-width: 0.35" id="cell-517470181-means.point.0" data-role="point" data-series="cell-517470181-means" data-index="0" data-x="0.0" data-y="3.9650695040274426" data-kind="shape"/>
+          <use xlink:href="#morph-def-001" x="85.3875" y="44.72211" style="fill: #24837b; stroke: #fffcf0; stroke-width: 0.35" id="cell-517470181-means.point.1" data-role="point" data-series="cell-517470181-means" data-index="1" data-x="45.0" data-y="4.7" data-kind="shape"/>
+          <use xlink:href="#morph-def-001" x="107.433" y="67.700476" style="fill: #24837b; stroke: #fffcf0; stroke-width: 0.35" id="cell-517470181-means.point.2" data-role="point" data-series="cell-517470181-means" data-index="2" data-x="90.0" data-y="3.9577907088531363" data-kind="shape"/>
+          <use xlink:href="#morph-def-001" x="129.4785" y="66.934091" style="fill: #24837b; stroke: #fffcf0; stroke-width: 0.35" id="cell-517470181-means.point.3" data-role="point" data-series="cell-517470181-means" data-index="3" data-x="135.0" data-y="3.9825452168100415" data-kind="shape"/>
+          <use xlink:href="#morph-def-001" x="151.524" y="67.635211" style="fill: #24837b; stroke: #fffcf0; stroke-width: 0.35" id="cell-517470181-means.point.4" data-role="point" data-series="cell-517470181-means" data-index="4" data-x="180.0" data-y="3.959898809690443" data-kind="shape"/>
+          <use xlink:href="#morph-def-001" x="173.5695" y="58.067137" style="fill: #24837b; stroke: #fffcf0; stroke-width: 0.35" id="cell-517470181-means.point.5" data-role="point" data-series="cell-517470181-means" data-index="5" data-x="225.0" data-y="4.268950967412434" data-kind="shape"/>
+          <use xlink:href="#morph-def-001" x="195.615" y="67.475927" style="fill: #24837b; stroke: #fffcf0; stroke-width: 0.35" id="cell-517470181-means.point.6" data-role="point" data-series="cell-517470181-means" data-index="6" data-x="270.0" data-y="3.9650437423228686" data-kind="shape"/>
+          <use xlink:href="#morph-def-001" x="217.6605" y="67.487079" style="fill: #24837b; stroke: #fffcf0; stroke-width: 0.35" id="cell-517470181-means.point.7" data-role="point" data-series="cell-517470181-means" data-index="7" data-x="315.0" data-y="3.9646835038376267" data-kind="shape"/>
+        </g>
+      </g>
+      <g id="cell-587375741-means.points" data-series="cell-587375741-means" data-kind="shape">
+        <defs>
+          <path id="morph-def-002" d="M 0 1.414214  C 0.375054 1.414214 0.734797 1.265203 1 1  C 1.265203 0.734797 1.414214 0.375054 1.414214 0  C 1.414214 -0.375054 1.265203 -0.734797 1 -1  C 0.734797 -1.265203 0.375054 -1.414214 0 -1.414214  C -0.375054 -1.414214 -0.734797 -1.265203 -1 -1  C -1.265203 -0.734797 -1.414214 -0.375054 -1.414214 0  C -1.414214 0.375054 -1.265203 0.734797 -1 1  C -0.734797 1.265203 -0.375054 1.414214 0 1.414214  z " style="stroke: #fffcf0; stroke-width: 0.35"/>
+        </defs>
+        <g clip-path="url(#morph-def-006)">
+          <use xlink:href="#morph-def-002" x="63.342" y="98.218336" style="fill: #228833; stroke: #fffcf0; stroke-width: 0.35" id="cell-587375741-means.point.0" data-role="point" data-series="cell-587375741-means" data-index="0" data-x="0.0" data-y="2.9720531222636577" data-kind="shape"/>
+          <use xlink:href="#morph-def-002" x="85.3875" y="97.778771" style="fill: #228833; stroke: #fffcf0; stroke-width: 0.35" id="cell-587375741-means.point.1" data-role="point" data-series="cell-587375741-means" data-index="1" data-x="45.0" data-y="2.986251235096585" data-kind="shape"/>
+          <use xlink:href="#morph-def-002" x="107.433" y="83.03002" style="fill: #228833; stroke: #fffcf0; stroke-width: 0.35" id="cell-587375741-means.point.2" data-role="point" data-series="cell-587375741-means" data-index="2" data-x="90.0" data-y="3.4626410591235284" data-kind="shape"/>
+          <use xlink:href="#morph-def-002" x="129.4785" y="98.144002" style="fill: #228833; stroke: #fffcf0; stroke-width: 0.35" id="cell-587375741-means.point.3" data-role="point" data-series="cell-587375741-means" data-index="3" data-x="135.0" data-y="2.9744541449828796" data-kind="shape"/>
+          <use xlink:href="#morph-def-002" x="151.524" y="98.841712" style="fill: #228833; stroke: #fffcf0; stroke-width: 0.35" id="cell-587375741-means.point.4" data-role="point" data-series="cell-587375741-means" data-index="4" data-x="180.0" data-y="2.9519178522417304" data-kind="shape"/>
+          <use xlink:href="#morph-def-002" x="173.5695" y="96.926569" style="fill: #228833; stroke: #fffcf0; stroke-width: 0.35" id="cell-587375741-means.point.5" data-role="point" data-series="cell-587375741-means" data-index="5" data-x="225.0" data-y="3.0137776426528675" data-kind="shape"/>
+          <use xlink:href="#morph-def-002" x="195.615" y="84.304719" style="fill: #228833; stroke: #fffcf0; stroke-width: 0.35" id="cell-587375741-means.point.6" data-role="point" data-series="cell-587375741-means" data-index="6" data-x="270.0" data-y="3.4214678301934125" data-kind="shape"/>
+          <use xlink:href="#morph-def-002" x="217.6605" y="97.95073" style="fill: #228833; stroke: #fffcf0; stroke-width: 0.35" id="cell-587375741-means.point.7" data-role="point" data-series="cell-587375741-means" data-index="7" data-x="315.0" data-y="2.980696901120922" data-kind="shape"/>
+        </g>
+      </g>
+      <g id="cell-517472541-means.points" data-series="cell-517472541-means" data-kind="shape">
+        <defs>
+          <path id="morph-def-003" d="M 0 1.414214  C 0.375054 1.414214 0.734797 1.265203 1 1  C 1.265203 0.734797 1.414214 0.375054 1.414214 0  C 1.414214 -0.375054 1.265203 -0.734797 1 -1  C 0.734797 -1.265203 0.375054 -1.414214 0 -1.414214  C -0.375054 -1.414214 -0.734797 -1.265203 -1 -1  C -1.265203 -0.734797 -1.414214 -0.375054 -1.414214 0  C -1.414214 0.375054 -1.265203 0.734797 -1 1  C -0.734797 1.265203 -0.375054 1.414214 0 1.414214  z " style="stroke: #fffcf0; stroke-width: 0.35"/>
+        </defs>
+        <g clip-path="url(#morph-def-006)">
+          <use xlink:href="#morph-def-003" x="63.342" y="129.152501" style="fill: #bc5215; stroke: #fffcf0; stroke-width: 0.35" id="cell-517472541-means.point.0" data-role="point" data-series="cell-517472541-means" data-index="0" data-x="0.0" data-y="1.9728687086681673" data-kind="shape"/>
+          <use xlink:href="#morph-def-003" x="85.3875" y="129.606521" style="fill: #bc5215; stroke: #fffcf0; stroke-width: 0.35" id="cell-517472541-means.point.1" data-role="point" data-series="cell-517472541-means" data-index="1" data-x="45.0" data-y="1.958203711966081" data-kind="shape"/>
+          <use xlink:href="#morph-def-003" x="107.433" y="128.642385" style="fill: #bc5215; stroke: #fffcf0; stroke-width: 0.35" id="cell-517472541-means.point.2" data-role="point" data-series="cell-517472541-means" data-index="2" data-x="90.0" data-y="1.989345631826682" data-kind="shape"/>
+          <use xlink:href="#morph-def-003" x="129.4785" y="112.455684" style="fill: #bc5215; stroke: #fffcf0; stroke-width: 0.35" id="cell-517472541-means.point.3" data-role="point" data-series="cell-517472541-means" data-index="3" data-x="135.0" data-y="2.5121817860348146" data-kind="shape"/>
+          <use xlink:href="#morph-def-003" x="151.524" y="131.131043" style="fill: #bc5215; stroke: #fffcf0; stroke-width: 0.35" id="cell-517472541-means.point.4" data-role="point" data-series="cell-517472541-means" data-index="4" data-x="180.0" data-y="1.908961117557449" data-kind="shape"/>
+          <use xlink:href="#morph-def-003" x="173.5695" y="131.311418" style="fill: #bc5215; stroke: #fffcf0; stroke-width: 0.35" id="cell-517472541-means.point.5" data-role="point" data-series="cell-517472541-means" data-index="5" data-x="225.0" data-y="1.9031349338904011" data-kind="shape"/>
+          <use xlink:href="#morph-def-003" x="195.615" y="129.948465" style="fill: #bc5215; stroke: #fffcf0; stroke-width: 0.35" id="cell-517472541-means.point.6" data-role="point" data-series="cell-517472541-means" data-index="6" data-x="270.0" data-y="1.947158813886782" data-kind="shape"/>
+          <use xlink:href="#morph-def-003" x="217.6605" y="106.640942" style="fill: #bc5215; stroke: #fffcf0; stroke-width: 0.35" id="cell-517472541-means.point.7" data-role="point" data-series="cell-517472541-means" data-index="7" data-x="315.0" data-y="2.7" data-kind="shape"/>
+        </g>
+      </g>
+      <g id="cell-517470177-means.points" data-series="cell-517470177-means" data-kind="shape">
+        <defs>
+          <path id="morph-def-004" d="M 0 1.414214  C 0.375054 1.414214 0.734797 1.265203 1 1  C 1.265203 0.734797 1.414214 0.375054 1.414214 0  C 1.414214 -0.375054 1.265203 -0.734797 1 -1  C 0.734797 -1.265203 0.375054 -1.414214 0 -1.414214  C -0.375054 -1.414214 -0.734797 -1.265203 -1 -1  C -1.265203 -0.734797 -1.414214 -0.375054 -1.414214 0  C -1.414214 0.375054 -1.265203 0.734797 -1 1  C -0.734797 1.265203 -0.375054 1.414214 0 1.414214  z " style="stroke: #fffcf0; stroke-width: 0.35"/>
+        </defs>
+        <g clip-path="url(#morph-def-006)">
+          <use xlink:href="#morph-def-004" x="63.342" y="160.116932" style="fill: #5e409d; stroke: #fffcf0; stroke-width: 0.35" id="cell-517470177-means.point.0" data-role="point" data-series="cell-517470177-means" data-index="0" data-x="0.0" data-y="0.9727067294569172" data-kind="shape"/>
+          <use xlink:href="#morph-def-004" x="85.3875" y="157.270781" style="fill: #5e409d; stroke: #fffcf0; stroke-width: 0.35" id="cell-517470177-means.point.1" data-role="point" data-series="cell-517470177-means" data-index="1" data-x="45.0" data-y="1.0646384112386036" data-kind="shape"/>
+          <use xlink:href="#morph-def-004" x="107.433" y="159.58948" style="fill: #5e409d; stroke: #fffcf0; stroke-width: 0.35" id="cell-517470177-means.point.2" data-role="point" data-series="cell-517470177-means" data-index="2" data-x="90.0" data-y="0.989743609730604" data-kind="shape"/>
+          <use xlink:href="#morph-def-004" x="129.4785" y="159.439771" style="fill: #5e409d; stroke: #fffcf0; stroke-width: 0.35" id="cell-517470177-means.point.3" data-role="point" data-series="cell-517470177-means" data-index="3" data-x="135.0" data-y="0.9945792751774293" data-kind="shape"/>
+          <use xlink:href="#morph-def-004" x="151.524" y="159.387052" style="fill: #5e409d; stroke: #fffcf0; stroke-width: 0.35" id="cell-517470177-means.point.4" data-role="point" data-series="cell-517470177-means" data-index="4" data-x="180.0" data-y="0.9962821045748378" data-kind="shape"/>
+          <use xlink:href="#morph-def-004" x="173.5695" y="159.585326" style="fill: #5e409d; stroke: #fffcf0; stroke-width: 0.35" id="cell-517470177-means.point.5" data-role="point" data-series="cell-517470177-means" data-index="5" data-x="225.0" data-y="0.9898777775863117" data-kind="shape"/>
+          <use xlink:href="#morph-def-004" x="195.615" y="159.412988" style="fill: #5e409d; stroke: #fffcf0; stroke-width: 0.35" id="cell-517470177-means.point.6" data-role="point" data-series="cell-517470177-means" data-index="6" data-x="270.0" data-y="0.9954443448622738" data-kind="shape"/>
+          <use xlink:href="#morph-def-004" x="217.6605" y="160.495477" style="fill: #5e409d; stroke: #fffcf0; stroke-width: 0.35" id="cell-517470177-means.point.7" data-role="point" data-series="cell-517470177-means" data-index="7" data-x="315.0" data-y="0.9604795895448073" data-kind="shape"/>
+        </g>
+      </g>
+      <g id="cell-517470480-means.points" data-series="cell-517470480-means" data-kind="shape">
+        <defs>
+          <path id="morph-def-005" d="M 0 1.414214  C 0.375054 1.414214 0.734797 1.265203 1 1  C 1.265203 0.734797 1.414214 0.375054 1.414214 0  C 1.414214 -0.375054 1.265203 -0.734797 1 -1  C 0.734797 -1.265203 0.375054 -1.414214 0 -1.414214  C -0.375054 -1.414214 -0.734797 -1.265203 -1 -1  C -1.265203 -0.734797 -1.414214 -0.375054 -1.414214 0  C -1.414214 0.375054 -1.265203 0.734797 -1 1  C -0.734797 1.265203 -0.375054 1.414214 0 1.414214  z " style="stroke: #fffcf0; stroke-width: 0.35"/>
+        </defs>
+        <g clip-path="url(#morph-def-006)">
+          <use xlink:href="#morph-def-005" x="63.342" y="191.17421" style="fill: #a02f6f; stroke: #fffcf0; stroke-width: 0.35" id="cell-517470480-means.point.0" data-role="point" data-series="cell-517470480-means" data-index="0" data-x="0.0" data-y="-0.030454261764706583" data-kind="shape"/>
+          <use xlink:href="#morph-def-005" x="85.3875" y="192.095518" style="fill: #a02f6f; stroke: #fffcf0; stroke-width: 0.35" id="cell-517470480-means.point.1" data-role="point" data-series="cell-517470480-means" data-index="1" data-x="45.0" data-y="-0.060212826888845564" data-kind="shape"/>
+          <use xlink:href="#morph-def-005" x="107.433" y="189.663075" style="fill: #a02f6f; stroke: #fffcf0; stroke-width: 0.35" id="cell-517470480-means.point.2" data-role="point" data-series="cell-517470480-means" data-index="2" data-x="90.0" data-y="0.018355909392174973" data-kind="shape"/>
+          <use xlink:href="#morph-def-005" x="129.4785" y="191.398681" style="fill: #a02f6f; stroke: #fffcf0; stroke-width: 0.35" id="cell-517470480-means.point.3" data-role="point" data-series="cell-517470480-means" data-index="3" data-x="135.0" data-y="-0.03770477459408998" data-kind="shape"/>
+          <use xlink:href="#morph-def-005" x="151.524" y="190.774802" style="fill: #a02f6f; stroke: #fffcf0; stroke-width: 0.35" id="cell-517470480-means.point.4" data-role="point" data-series="cell-517470480-means" data-index="4" data-x="180.0" data-y="-0.017553261729016324" data-kind="shape"/>
+          <use xlink:href="#morph-def-005" x="173.5695" y="191.26043" style="fill: #a02f6f; stroke: #fffcf0; stroke-width: 0.35" id="cell-517470480-means.point.5" data-role="point" data-series="cell-517470480-means" data-index="5" data-x="225.0" data-y="-0.03323920411466641" data-kind="shape"/>
+          <use xlink:href="#morph-def-005" x="195.615" y="190.394545" style="fill: #a02f6f; stroke: #fffcf0; stroke-width: 0.35" id="cell-517470480-means.point.6" data-role="point" data-series="cell-517470480-means" data-index="6" data-x="270.0" data-y="-0.00527080508780951" data-kind="shape"/>
+          <use xlink:href="#morph-def-005" x="217.6605" y="191.009076" style="fill: #a02f6f; stroke: #fffcf0; stroke-width: 0.35" id="cell-517470480-means.point.7" data-role="point" data-series="cell-517470480-means" data-index="7" data-x="315.0" data-y="-0.025120387910383703" data-kind="shape"/>
+        </g>
+      </g>
+    </g>
+  </g>
+  <defs>
+    <clipPath id="morph-def-006">
+      <rect x="63.342" y="8.19" width="176.364" height="190.71"/>
+    </clipPath>
+  </defs>
+</svg>

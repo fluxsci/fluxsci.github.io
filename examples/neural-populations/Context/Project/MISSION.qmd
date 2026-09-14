@@ -1,0 +1,23 @@
+---
+title: "Mission — a population neuroscience showcase"
+---
+
+## Purpose
+
+Create an elegant scientific demonstration of neurons, networks and population responses for the Flux website.
+
+## Deliverable
+
+One editable project with a manuscript, twelve source plots, two Figure compositions and four native animated slides.
+
+## Data
+
+Only public data from the sources documented under data/. Anatomical and activity panels may have different source specimens.
+
+## Visual direction
+
+White scientific panels; ink labels; restrained blue, rose, teal and ochre groups; individual observations alongside population summaries.
+
+## Next steps
+
+Refine layouts, add observations or additional source records, and improve the story directly in Flux.

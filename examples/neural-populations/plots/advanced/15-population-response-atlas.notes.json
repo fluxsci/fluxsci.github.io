@@ -1,0 +1,30 @@
+{
+  "id": "15-population-response-atlas",
+  "title": "Population response dynamics across eight directions",
+  "family": "15",
+  "svg": "plots/advanced/15-population-response-atlas.svg",
+  "preview": "exports/advanced-previews/15-population-response-atlas.png",
+  "pdf": "exports/advanced-previews/15-population-response-atlas.pdf",
+  "widthIn": 3.5,
+  "heightIn": 2.85,
+  "axes": 1,
+  "description": "One continuous 143-row response atlas with eight consecutive motion-direction blocks. Every block contains the same cells in the same order and the same 120 source frames (\u221230 to +89 relative to onset). Cells are grouped by their preferred direction at 2 Hz, then ordered by peak-response latency within their preferred condition. The thin left strip identifies those preference groups; colored bars above each block indicate the 60 stimulus frames. Values are Gaussian-smoothed at sigma 1.5 frames, baseline-subtracted and divided by each cell's standard deviation pooled across all eight traces. Color saturates at \u00b12.5 SD; no cell or measurement is removed.",
+  "generator": {
+    "script": "scripts/advanced/population.py",
+    "sha256": "b86359b943253e714a0c1edfc0d1f6d79eaa7965ef7ff425dfc2dc86c7b7f3da",
+    "morphIdentityHelperSha256": null
+  },
+  "sources": [
+    {
+      "path": "data/allen/traces.json",
+      "sha256": "398cedecf94ddaeb332f082dee8c3b694aefe31ebb1db421bff0de8c615c08e4"
+    },
+    {
+      "path": "data/allen/responses.json",
+      "sha256": "b7f97edaa82619781a9075751c5596f85cd2cb7551650e5d24f8f2e048d1d85f"
+    }
+  ],
+  "morphGroup": null,
+  "state": null,
+  "analysis": "plots/advanced/15-population-response-atlas.analysis.json"
+}

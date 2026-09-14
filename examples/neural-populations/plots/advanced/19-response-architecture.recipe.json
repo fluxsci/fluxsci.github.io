@@ -1,0 +1,43 @@
+{
+  "args": [
+    "run",
+    "--project",
+    "scripts/advanced",
+    "python",
+    "scripts/advanced/architecture.py"
+  ],
+  "command": "uv",
+  "cwd": "../..",
+  "env": null,
+  "generatedAt": "2026-09-14T04:51:34Z",
+  "inputs": [
+    {
+      "bytes": 320196,
+      "path": "data/allen/responses.json",
+      "role": "data",
+      "sha256": "b7f97edaa82619781a9075751c5596f85cd2cb7551650e5d24f8f2e048d1d85f"
+    }
+  ],
+  "output": "19-response-architecture.svg",
+  "outputs": {
+    "manifest": "19-response-architecture.fluxplot.json",
+    "svg": "19-response-architecture.svg"
+  },
+  "params": {},
+  "plot": "19-response-architecture",
+  "provenance": {
+    "packages": {
+      "fluxplot": "0.1.0",
+      "matplotlib": "3.11.2"
+    },
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.12",
+    "scriptDiscovery": "explicit",
+    "scriptSha256": "c1ebc05ac620f2e1b1de5c24a0d17b7634347237e7864f39fe2b8b78d4649d00"
+  },
+  "schemaVersion": "0.3.0",
+  "script": {
+    "path": "scripts/advanced/architecture.py"
+  },
+  "spec": "fluxplot/recipe"
+}

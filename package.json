@@ -1,0 +1,25 @@
+{
+  "name": "flux-website",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "The public Flux website, built with Quarto and independently maintained.",
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/dev.mjs",
+    "preview": "node scripts/serve.mjs",
+    "check": "node scripts/check.mjs",
+    "test": "npm run build && node --test tests/server.test.mjs tests/bundle-project.test.mjs && playwright test",
+    "test:browser": "playwright test",
+    "test:install": "playwright install chromium firefox webkit"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "@playwright/test": "1.63.0",
+    "cheerio": "1.2.0",
+    "fflate": "0.8.3"
+  }
+}

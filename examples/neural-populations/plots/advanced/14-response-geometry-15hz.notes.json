@@ -1,0 +1,28 @@
+{
+  "id": "14-response-geometry-15hz",
+  "title": "Response geometry at 15 Hz",
+  "family": "14",
+  "svg": "plots/advanced/14-response-geometry-15hz.svg",
+  "preview": "exports/advanced-previews/14-response-geometry-15hz.png",
+  "pdf": "exports/advanced-previews/14-response-geometry-15hz.pdf",
+  "widthIn": 2.9,
+  "heightIn": 3.0,
+  "axes": 1,
+  "description": "Actual 143-cell directional-response profiles projected into one PCA basis fitted jointly across all five temporal frequencies. Colors identify each cell's preferred direction pooled across frequencies; these colors, cell ordering, axes, marker styles and source identities remain fixed across 1, 4 and 15 Hz variants. Grey contours show the same pooled 715-point density in every state. Each SVG has one vector point series, permitting genuine native Data Morph rather than a crossfade.",
+  "generator": {
+    "script": "scripts/advanced/population.py",
+    "sha256": "b86359b943253e714a0c1edfc0d1f6d79eaa7965ef7ff425dfc2dc86c7b7f3da",
+    "morphIdentityHelperSha256": "cb3a61445760bdbb2a18edbef528c2ddd85feb9fdbfb8da68fb9da3e5b21962e"
+  },
+  "sources": [
+    {
+      "path": "data/allen/responses.json",
+      "sha256": "b7f97edaa82619781a9075751c5596f85cd2cb7551650e5d24f8f2e048d1d85f"
+    }
+  ],
+  "morphGroup": "frequency-response-geometry",
+  "state": {
+    "temporalFrequencyHz": 15
+  },
+  "analysis": "plots/advanced/14-response-geometry-15hz.analysis.json"
+}

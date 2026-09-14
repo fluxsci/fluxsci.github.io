@@ -1,0 +1,26 @@
+{
+  "id": "13-population-trajectories",
+  "title": "Population trajectories during directional stimulation",
+  "family": "13",
+  "svg": "plots/advanced/13-population-trajectories.svg",
+  "preview": "exports/advanced-previews/13-population-trajectories.png",
+  "pdf": "exports/advanced-previews/13-population-trajectories.pdf",
+  "widthIn": 3.45,
+  "heightIn": 3.1,
+  "axes": 1,
+  "description": "Eight trajectories in a shared three-dimensional PCA basis fitted to all 960 population states. Actual mean traces at a 2 Hz stimulus frequency; 143 cells, 120 source frames per direction. Gaussian temporal smoothing sigma 2.5 frames; each cell centered to its pooled baseline and divided by its pooled temporal standard deviation. Saturated lines mark stimulus frames 0\u201360; pale lines show pre-stimulus and recovery epochs. Circles and squares mark onset and offset. Floor projections indicate geometry only. This 3D plot supports semantic editing and build animations, not Data Morph.",
+  "generator": {
+    "script": "scripts/advanced/population.py",
+    "sha256": "b86359b943253e714a0c1edfc0d1f6d79eaa7965ef7ff425dfc2dc86c7b7f3da",
+    "morphIdentityHelperSha256": null
+  },
+  "sources": [
+    {
+      "path": "data/allen/traces.json",
+      "sha256": "398cedecf94ddaeb332f082dee8c3b694aefe31ebb1db421bff0de8c615c08e4"
+    }
+  ],
+  "morphGroup": null,
+  "state": null,
+  "analysis": "plots/advanced/13-population-trajectories.analysis.json"
+}

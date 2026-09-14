@@ -1,0 +1,55 @@
+{
+  "source": {
+    "repository": "https://github.com/fluxsci/flux.git",
+    "revision": "4bb72d895b7879acc404ca83863cdc385982b0b5",
+    "version": "0.1.0"
+  },
+  "browser": "Chrome/147.0.7727.137",
+  "project": "examples/neural-populations",
+  "note": "Unmodified Flux GUI captured from an exact FileBridge copy of the bundled editable project. Original manuscript and plot designs; public Allen Institute numerical and anatomical data. No personal library was accessed.",
+  "errors": [],
+  "outputs": {
+    "site/assets/media/paper.webp": {
+      "width": 1500,
+      "height": 950,
+      "bytes": 114804,
+      "sha256": "fb55a7b2ca2708628da794753309c7cd1d72c0da6dc9cb1cc0164ce0b9e8c41d"
+    },
+    "site/assets/media/paper-detail.webp": {
+      "width": 1158,
+      "height": 760,
+      "bytes": 81962,
+      "sha256": "20328e97e2156e29bfcc9083cbc12b4843ee64a5ead371eacb72ef10b811b6c7"
+    },
+    "site/assets/media/figure.webp": {
+      "width": 1500,
+      "height": 950,
+      "bytes": 86030,
+      "sha256": "597067efd54631f655c864d32da4ff5a2ca1c33a947ac29bfe8b403ef61bbc4d"
+    },
+    "site/assets/media/slides.webp": {
+      "width": 1500,
+      "height": 950,
+      "bytes": 82146,
+      "sha256": "b7b01ef9abe521615acd7291dbac1c25a995520562c6e22b427a60c220fc658a"
+    },
+    "site/assets/media/library.webp": {
+      "width": 1500,
+      "height": 950,
+      "bytes": 63978,
+      "sha256": "65164540b9f44a710f9c0f4926fe0388aee65ea635da2fb449c2dc77e4dcf4b8"
+    },
+    "site/assets/media/reader.webp": {
+      "width": 1500,
+      "height": 950,
+      "bytes": 79106,
+      "sha256": "7f4f43525305343a0c5338ee17f668861f95b385a7c5d053d9731e314c5e7477"
+    },
+    "site/assets/media/neural-figure.webp": {
+      "width": 1800,
+      "height": 875,
+      "bytes": 141112,
+      "sha256": "e9955a4f5f3a1aa3a2d9d9e242ed4dfc1e9e9afa0daf0607cb6ece8d89a57dfe"
+    }
+  }
+}

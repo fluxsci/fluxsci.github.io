@@ -1,0 +1,47 @@
+project:
+  type: website
+  output-dir: ../dist
+  render:
+    - index.qmd
+    - 404.qmd
+  resources:
+    - assets/**
+    - demos/**
+    - downloads/**
+    - robots.txt
+
+website:
+  title: Flux
+  description: A connected workspace for scientific work. Write papers, build figures, make slides, and stay close to your sources.
+  site-url: https://fluxsci.github.io/
+  image: assets/brand/social-card.png
+  repo-url: https://github.com/fluxsci/fluxsci.github.io
+  search: false
+  open-graph:
+    locale: en_US
+  twitter-card:
+    card-style: summary_large_image
+
+format:
+  html:
+    minimal: true
+    theme: none
+    title-block-style: none
+    toc: false
+    number-sections: false
+    anchor-sections: false
+    smooth-scroll: false
+    lang: en
+    css: assets/styles/site.css
+    include-in-header:
+      text: |
+        <meta name="color-scheme" content="light dark">
+        <script>try{const theme=localStorage.getItem('flux-site-appearance');if(theme==='light'||theme==='dark')document.documentElement.setAttribute('data-theme',theme)}catch{}</script>
+        <link rel="canonical" href="https://fluxsci.github.io/">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://fluxsci.github.io/">
+        <link rel="icon" href="/assets/brand/flux-mark.svg" type="image/svg+xml">
+        <script src="/assets/scripts/site.js" defer></script>
+
+execute:
+  enabled: false

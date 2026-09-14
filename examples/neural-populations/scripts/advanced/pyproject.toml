@@ -1,0 +1,11 @@
+[project]
+name = "flux-neural-advanced"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "fluxplot",
+    "scipy>=1.18.1",
+]
+
+[tool.uv.sources]
+fluxplot = { git = "https://github.com/fluxsci/fluxplot.git", rev = "9b299d40d7aad5574d9ce5af04bbf68b76c90c5e" }

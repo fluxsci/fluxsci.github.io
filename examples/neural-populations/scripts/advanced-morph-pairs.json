@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Population response geometry",
+    "states": [
+      "plots/advanced/14-response-geometry-01hz.svg",
+      "plots/advanced/14-response-geometry-04hz.svg",
+      "plots/advanced/14-response-geometry-15hz.svg"
+    ]
+  },
+  {
+    "name": "Single-neuron tuning landscape",
+    "states": [
+      "plots/advanced/16-tuning-landscape-1hz.svg",
+      "plots/advanced/16-tuning-landscape-2hz.svg",
+      "plots/advanced/16-tuning-landscape-4hz.svg"
+    ]
+  }
+]

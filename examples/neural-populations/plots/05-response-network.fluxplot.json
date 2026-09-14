@@ -1,0 +1,761 @@
+{
+  "artifact": {
+    "svgSha256": "002b615e18a9ac3dbb17eaa09124cc12e79bf00b317cfb6bb161a607db783c2a"
+  },
+  "axes": [
+    {
+      "id": "plot-area",
+      "pixelBox": {
+        "x0": 49.58257418590624,
+        "x1": 180.81742581409375,
+        "y0": 33.047999999999966,
+        "y1": 150.55200000000002
+      },
+      "projection": "rectilinear",
+      "svgId": "plot-area",
+      "x": {
+        "anchors": [
+          {
+            "data": -1.1320148588697707,
+            "svg": 49.582574185906225
+          },
+          {
+            "data": 0.7822005947419034,
+            "svg": 180.81742581409378
+          }
+        ],
+        "domain": [
+          -1.1320148588697707,
+          0.7822005947419034
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "−1.5",
+            "value": -1.5
+          },
+          {
+            "label": "−1.0",
+            "value": -1.0
+          },
+          {
+            "label": "−0.5",
+            "value": -0.5
+          },
+          {
+            "label": "0.0",
+            "value": 0.0
+          },
+          {
+            "label": "0.5",
+            "value": 0.5
+          },
+          {
+            "label": "1.0",
+            "value": 1.0
+          }
+        ]
+      },
+      "y": {
+        "anchors": [
+          {
+            "data": -0.9989080591046807,
+            "svg": 150.55199999999996
+          },
+          {
+            "data": 0.7150266912347223,
+            "svg": 33.047999999999966
+          }
+        ],
+        "domain": [
+          -0.9989080591046807,
+          0.7150266912347223
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "−1.0",
+            "value": -1.0
+          },
+          {
+            "label": "−0.8",
+            "value": -0.8
+          },
+          {
+            "label": "−0.6",
+            "value": -0.6
+          },
+          {
+            "label": "−0.4",
+            "value": -0.3999999999999999
+          },
+          {
+            "label": "−0.2",
+            "value": -0.19999999999999996
+          },
+          {
+            "label": "0.0",
+            "value": 0.0
+          },
+          {
+            "label": "0.2",
+            "value": 0.20000000000000018
+          },
+          {
+            "label": "0.4",
+            "value": 0.40000000000000013
+          },
+          {
+            "label": "0.6",
+            "value": 0.6000000000000001
+          },
+          {
+            "label": "0.8",
+            "value": 0.8
+          }
+        ]
+      }
+    }
+  ],
+  "build": {
+    "order": [
+      "figure.title",
+      "gridlines",
+      "signal-correlation-edges.x-similarity-edges",
+      "direction-0-cells.points",
+      "direction-45-cells.points",
+      "direction-90-cells.points",
+      "direction-135-cells.points",
+      "direction-180-cells.points",
+      "direction-225-cells.points",
+      "direction-270-cells.points",
+      "direction-315-cells.points",
+      "annotation.0"
+    ],
+    "presets": {
+      "axis": {
+        "animation": "draw-on",
+        "durationMs": 400
+      },
+      "gridline": {
+        "animation": "fade-in",
+        "durationMs": 300
+      },
+      "point": {
+        "animation": "stagger-in",
+        "durationMs": 240,
+        "staggerMs": 40
+      }
+    }
+  },
+  "generator": {
+    "matplotlib": "3.11.1",
+    "name": "fluxplot",
+    "version": "0.1.0"
+  },
+  "guides": [],
+  "overlays": [
+    {
+      "id": "annotation.0",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.0",
+      "text": "Largest component: 111/143 cells · 405 edges · r ≥ 0.50"
+    }
+  ],
+  "parts": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "signal-correlation-edges.x-similarity-edges"
+              }
+            ],
+            "id": "signal-correlation-edges",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "direction-0-cells.points"
+              }
+            ],
+            "id": "direction-0-cells",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "direction-45-cells.points"
+              }
+            ],
+            "id": "direction-45-cells",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "direction-90-cells.points"
+              }
+            ],
+            "id": "direction-90-cells",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "direction-135-cells.points"
+              }
+            ],
+            "id": "direction-135-cells",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "direction-180-cells.points"
+              }
+            ],
+            "id": "direction-180-cells",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "direction-225-cells.points"
+              }
+            ],
+            "id": "direction-225-cells",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "direction-270-cells.points"
+              }
+            ],
+            "id": "direction-270-cells",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "direction-315-cells.points"
+              }
+            ],
+            "id": "direction-315-cells",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.0"
+          }
+        ],
+        "id": "plot-area",
+        "kind": "container",
+        "role": "plot-area"
+      },
+      {
+        "kind": "text",
+        "ref": "figure.title"
+      }
+    ],
+    "id": "figure",
+    "kind": "container",
+    "role": "figure"
+  },
+  "plotType": "scatter",
+  "schemaVersion": "0.3.0",
+  "series": [
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-similarity-edges",
+          "svgId": "signal-correlation-edges.x-similarity-edges"
+        }
+      ],
+      "data": {},
+      "id": "signal-correlation-edges",
+      "kind": "x-similarity-edges",
+      "name": "signal-correlation-edges",
+      "roles": [
+        "x-similarity-edges"
+      ],
+      "svg": {
+        "x-similarity-edges": "signal-correlation-edges.x-similarity-edges"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "members": [],
+          "role": "point",
+          "svgId": "direction-0-cells.points"
+        }
+      ],
+      "data": {
+        "x": [
+          -0.40666317925976764,
+          -0.014169065463842246,
+          -0.7389385190266028,
+          -0.1576912971552612,
+          0.04439005253195442,
+          -0.6891141884581614,
+          -0.07053227850953717,
+          -0.1308270080461823,
+          -0.20151457781267498,
+          -0.4135805561814895,
+          -0.13418770749571104,
+          -0.10532601368849233,
+          -0.3515731933648433,
+          -0.19410919170668522,
+          -0.258677759934205,
+          -0.5321721975241077,
+          0.0511772402662482,
+          -0.11292387498222142,
+          -0.15590714877014197,
+          -0.23979927816784907
+        ],
+        "y": [
+          -0.19779932937080652,
+          0.03811244914287677,
+          -0.33807621992945996,
+          0.1057259225274729,
+          0.11735683022390886,
+          -0.5463942484122021,
+          -0.00944919932499674,
+          0.04140254069964829,
+          -0.030930268631092047,
+          -0.22751158648814535,
+          0.013988058474657193,
+          0.11730009598027821,
+          0.2967298819797967,
+          0.4976282451589998,
+          -0.08808690593318837,
+          0.5155354052802168,
+          -0.05841055864191065,
+          0.3655793915844575,
+          0.15954017088752598,
+          -0.13917405589562204
+        ]
+      },
+      "id": "direction-0-cells",
+      "kind": "scatter",
+      "name": "direction-0-cells",
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "direction-0-cells.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "members": [],
+          "role": "point",
+          "svgId": "direction-45-cells.points"
+        }
+      ],
+      "data": {
+        "x": [
+          0.44823827810027156,
+          0.012677113144037426,
+          0.24804936398413788,
+          0.5215257383045493,
+          0.4516772560689875,
+          -0.023999519691464237,
+          0.3621081902263829,
+          -0.0225638000918752,
+          0.12249810679394511,
+          0.2545202777462712,
+          0.1540972789650725,
+          -0.34355293385263924,
+          0.32355353424218947,
+          -0.03937457751126431,
+          -0.014942759407421232,
+          0.015590883876010582,
+          0.17664293677629078,
+          0.2029369860035044,
+          0.3346239206283376,
+          -0.15457977231748887,
+          -0.43496001397235445,
+          0.1170964791256581,
+          0.40402982601780557,
+          0.16026085290662054,
+          0.4022198540546857,
+          0.21555226199179955,
+          -0.21737340816410747,
+          0.5476733091248458
+        ],
+        "y": [
+          0.34235956776569404,
+          0.040631043695856586,
+          0.13950611088424159,
+          0.27616227187393433,
+          0.24353936718906677,
+          0.48144827965526166,
+          0.2582029483302492,
+          0.18340882764261907,
+          0.12939581789582172,
+          -0.07418550033012154,
+          0.03620839945767261,
+          0.06952944437705193,
+          0.2605035655148929,
+          0.2507296642579748,
+          0.09252750501047745,
+          0.07251834526613762,
+          0.3437219221335656,
+          -0.25116760891698436,
+          0.1846643143335464,
+          -0.108549669963023,
+          -0.1793723004081857,
+          0.2864928496189265,
+          0.11661165981690803,
+          -0.05572096532267716,
+          0.20848372050005773,
+          0.18391520525718827,
+          0.20220459000885166,
+          0.19740903291797068
+        ]
+      },
+      "id": "direction-45-cells",
+      "kind": "scatter",
+      "name": "direction-45-cells",
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "direction-45-cells.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "members": [],
+          "role": "point",
+          "svgId": "direction-90-cells.points"
+        }
+      ],
+      "data": {
+        "x": [
+          0.28850468961518916,
+          0.09158151505853913,
+          -0.8703519593665303,
+          -0.05790285843771363,
+          0.11572244714821904,
+          0.21550109249998492,
+          -1.0,
+          0.09077151620780738,
+          0.018078979590747786,
+          0.13143793223251415,
+          0.21875854432954936,
+          0.02161011972915031,
+          -0.17650170330857212,
+          0.3580710068533206,
+          0.20618926623590175,
+          -0.026934678143467495,
+          -0.05036943670851363,
+          0.10406002942810255
+        ],
+        "y": [
+          -0.621844211497734,
+          -0.18915307386273744,
+          -0.6966357077990107,
+          -0.1131159831610548,
+          -0.2644663472101877,
+          -0.42074621345772745,
+          -0.8030454279756137,
+          -0.1129204212651287,
+          -0.21311207646582508,
+          -0.07716768400158076,
+          -0.17688357759200246,
+          -0.07687766540999094,
+          0.25617296081200835,
+          -0.4702528418901735,
+          -0.06315266277713809,
+          -0.11424093806942776,
+          0.40754312254239794,
+          0.020144994591601434
+        ]
+      },
+      "id": "direction-90-cells",
+      "kind": "scatter",
+      "name": "direction-90-cells",
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "direction-90-cells.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "members": [],
+          "role": "point",
+          "svgId": "direction-135-cells.points"
+        }
+      ],
+      "data": {
+        "x": [
+          -0.19293647252368076,
+          0.09529887823978452,
+          -0.21628122131363378
+        ],
+        "y": [
+          0.5896578134358985,
+          0.08315734811678774,
+          0.32226247683923664
+        ]
+      },
+      "id": "direction-135-cells",
+      "kind": "scatter",
+      "name": "direction-135-cells",
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "direction-135-cells.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "members": [],
+          "role": "point",
+          "svgId": "direction-180-cells.points"
+        }
+      ],
+      "data": {
+        "x": [
+          0.1428492883959416,
+          -0.5666951513050313,
+          -0.21334539532223373,
+          -0.21509934409447157,
+          -0.38786485973653384,
+          -0.12494305417004478,
+          -0.24319990040073172,
+          -0.4344081362464966,
+          0.39300200169755,
+          0.6501857358721328,
+          -0.023538747864247533
+        ],
+        "y": [
+          0.23898198416436442,
+          -0.26660909985438314,
+          -0.38568183809258255,
+          0.06679872867879548,
+          0.18688012998036765,
+          -0.1756736796667465,
+          -0.25771171440788226,
+          -0.0719769448206084,
+          -0.041205864196039714,
+          -0.8488071150845765,
+          0.07117255467618983
+        ]
+      },
+      "id": "direction-180-cells",
+      "kind": "scatter",
+      "name": "direction-180-cells",
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "direction-180-cells.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "members": [],
+          "role": "point",
+          "svgId": "direction-225-cells.points"
+        }
+      ],
+      "data": {
+        "x": [
+          0.14480674762366433,
+          -0.1994769310617603,
+          0.2002850141069598,
+          0.30602592220605657,
+          0.09143203299043458,
+          0.11834064718836697,
+          0.27181628000226543,
+          0.23014671563593736,
+          0.15300729900031002,
+          0.032457115458757596
+        ],
+        "y": [
+          0.00823392710352651,
+          0.14996751131867103,
+          0.12927001268544638,
+          -0.09581417026917416,
+          0.05702384029568544,
+          0.07273333517475512,
+          -0.20171657766512346,
+          0.2453512827972295,
+          -0.1091024822734188,
+          0.012900343253030426
+        ]
+      },
+      "id": "direction-225-cells",
+      "kind": "scatter",
+      "name": "direction-225-cells",
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "direction-225-cells.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "members": [],
+          "role": "point",
+          "svgId": "direction-270-cells.points"
+        }
+      ],
+      "data": {
+        "x": [
+          -0.02016256315985709,
+          0.186859788855577,
+          -0.06255625573084027,
+          0.26741614060332636,
+          0.045332497837205867,
+          0.21865289559655804,
+          0.6124648258536779,
+          0.006524374948199695,
+          0.5342564554695747,
+          0.06563417152430007,
+          -0.4507519174839741,
+          0.14352496065954903,
+          -0.3990394857943644,
+          0.047314747981664754,
+          -0.4375551947624737,
+          0.009446931515580466
+        ],
+        "y": [
+          -0.030044623024909786,
+          -0.2370361356226812,
+          -0.23318378363901557,
+          -0.001826469535774369,
+          0.05960919081668441,
+          -0.11389909603552599,
+          -0.8807056625295495,
+          -0.02322306310351459,
+          -0.7234434147238495,
+          0.10417582232520839,
+          -0.34135908839202866,
+          -0.49589050174873794,
+          0.3700723664983204,
+          -0.03522463314352101,
+          -0.014708073185080384,
+          -0.13977176881920575
+        ]
+      },
+      "id": "direction-270-cells",
+      "kind": "scatter",
+      "name": "direction-270-cells",
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "direction-270-cells.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "members": [],
+          "role": "point",
+          "svgId": "direction-315-cells.points"
+        }
+      ],
+      "data": {
+        "x": [
+          -0.04605910636687942,
+          0.6124202557476327,
+          -0.5852194964859424,
+          0.045286049264096434,
+          0.10403303626064811
+        ],
+        "y": [
+          0.5968242946595911,
+          0.3245974795784747,
+          0.48046161920358854,
+          0.36678957347428914,
+          0.3532028914717216
+        ]
+      },
+      "id": "direction-315-cells",
+      "kind": "scatter",
+      "name": "direction-315-cells",
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "direction-315-cells.points"
+      }
+    }
+  ],
+  "size": {
+    "height": 183.6,
+    "unit": "pt",
+    "width": 230.4
+  },
+  "spec": "fluxplot/manifest",
+  "svg": "05-response-network.svg"
+}

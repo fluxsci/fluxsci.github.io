@@ -1,0 +1,43 @@
+{
+  "args": [
+    "run",
+    "--project",
+    "scripts/advanced",
+    "python",
+    "scripts/advanced/architecture.py"
+  ],
+  "command": "uv",
+  "cwd": "../..",
+  "env": null,
+  "generatedAt": "2026-09-14T04:51:34Z",
+  "inputs": [
+    {
+      "bytes": 177665,
+      "path": "data/allen/cell-480114344.swc",
+      "role": "data",
+      "sha256": "e14442b6184082fcad2e1358887b388e9561c96b1b9c0eae79d2200f39419ac6"
+    }
+  ],
+  "output": "20-dendritic-arbor.svg",
+  "outputs": {
+    "manifest": "20-dendritic-arbor.fluxplot.json",
+    "svg": "20-dendritic-arbor.svg"
+  },
+  "params": {},
+  "plot": "20-dendritic-arbor",
+  "provenance": {
+    "packages": {
+      "fluxplot": "0.1.0",
+      "matplotlib": "3.11.2"
+    },
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.12",
+    "scriptDiscovery": "explicit",
+    "scriptSha256": "c1ebc05ac620f2e1b1de5c24a0d17b7634347237e7864f39fe2b8b78d4649d00"
+  },
+  "schemaVersion": "0.3.0",
+  "script": {
+    "path": "scripts/advanced/architecture.py"
+  },
+  "spec": "fluxplot/recipe"
+}

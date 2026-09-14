@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "retrieved_utc": "2026-09-14",
+  "purpose": "Original Flux software demonstration; fictional manuscript narrative with plots derived from public data. This is not a new scientific study.",
+  "provider": "Allen Institute for Brain Science",
+  "attribution": "Data and anatomical models: Allen Institute for Brain Science. Original extraction, figure design and demo narrative: Flux.",
+  "license": {
+    "name": "Allen Institute Terms of Use (noncommercial use with attribution; not a blanket CC BY license)",
+    "terms_url": "https://alleninstitute.org/legal/terms-of-use",
+    "citation_policy_url": "https://alleninstitute.org/legal/citation-policy",
+    "scope": "Applies to downloaded Allen data and derived data visualizations. Website/application source-code licensing does not relicense these data.",
+    "website_requirement": "Provide visible source credit and source links on every web page displaying these data or their renderings.",
+    "commercial_note": "The default terms restrict commercial use; consult the linked terms before repurposing these assets for a commercial product."
+  },
+  "functional_source": {
+    "dataset": "Allen Brain Observatory Visual Coding 2-photon",
+    "experiment_id": 501940850,
+    "container_id": 511510688,
+    "region": "VISl (lateral visual area)",
+    "imaging_depth_um": 175,
+    "acquisition_date": "2016-02-16",
+    "cell_count": 143,
+    "trial_count": 628,
+    "download_url": "https://api.brain-map.org/api/v2/well_known_file_download/515078316",
+    "source_bytes": 84681279,
+    "sha256": "dcae357266b3635397a6fc8ce1b609d9cb32cd01050412b9b25e39e1b0f5f417",
+    "dataset_url": "https://brain-map.org/our-research/circuits-behavior/visual-coding",
+    "metadata_url": "https://api.brain-map.org/api/v2/data/OphysExperiment/501940850.json",
+    "extraction": "Read upstream analysis arrays, omit running-speed channel from cell axes and blank-condition column from 8x5 stimulus grid; retain six decimal places and encode nonfinite values as null. Mean time traces derived by averaging recorded trial traces within each direction at2Hz. No synthetic neural measurements added."
+  },
+  "anatomical_sources": {
+    "ccf": {
+      "dataset": "Allen Mouse Common Coordinate Framework,2017 annotation meshes",
+      "url": "https://download.alleninstitute.org/informatics-archive/current-release/mouse_ccf/",
+      "structure_ids": {
+        "997": "root / whole brain",
+        "315": "isocortex",
+        "385": "primary visual area(VISp)",
+        "409": "lateral visual area(VISl)"
+      },
+      "coordinates": "Original OBJ coordinate units and orientation preserved; renderers may rotate/scale for presentation."
+    },
+    "morphologies": {
+      "dataset": "Allen Cell Types Database",
+      "url": "https://celltypes.brain-map.org/",
+      "specimen_ids": [
+        464212183,
+        464198958,
+        480114344
+      ],
+      "note": "Separate anatomical specimens, not the imaged cells or proven synaptic connections. SWC coordinates and radii retained unchanged."
+    }
+  },
+  "files": [
+    {
+      "path": "ccf-2017-315.obj",
+      "bytes": 4319423,
+      "sha256": "f2abc66a4222fb8c1973b6d470386b000eed3f7810555e592ebdf32822c15df7",
+      "kind": "upstream anatomy data",
+      "download_url": "https://download.alleninstitute.org/informatics-archive/current-release/mouse_ccf/annotation/ccf_2017/structure_meshes/315.obj"
+    },
+    {
+      "path": "ccf-2017-385.obj",
+      "bytes": 442204,
+      "sha256": "437c987dce4befd53bd4fae096b89aeaab33ed6e671557503db08dd75684de37",
+      "kind": "upstream anatomy data",
+      "download_url": "https://download.alleninstitute.org/informatics-archive/current-release/mouse_ccf/annotation/ccf_2017/structure_meshes/385.obj"
+    },
+    {
+      "path": "ccf-2017-409.obj",
+      "bytes": 132966,
+      "sha256": "5af062d1aeaebccd2f752e9803925c06a7b7042a4680231af44bb35fd186d525",
+      "kind": "upstream anatomy data",
+      "download_url": "https://download.alleninstitute.org/informatics-archive/current-release/mouse_ccf/annotation/ccf_2017/structure_meshes/409.obj"
+    },
+    {
+      "path": "ccf-2017-997.obj",
+      "bytes": 6825611,
+      "sha256": "400100fd2e162f864b928a01fbcfbdcf34aa1a47bdde11f042be2442c77951eb",
+      "kind": "upstream anatomy data",
+      "download_url": "https://download.alleninstitute.org/informatics-archive/current-release/mouse_ccf/annotation/ccf_2017/structure_meshes/997.obj"
+    },
+    {
+      "path": "cell-464198958.swc",
+      "bytes": 57028,
+      "sha256": "dc2cec74c1d7b28251194fa7a424d32d0af461ad915d91d023312f6bed06a833",
+      "kind": "upstream anatomy data",
+      "download_url": "https://api.brain-map.org/api/v2/well_known_file_download/491119183"
+    },
+    {
+      "path": "cell-464212183.swc",
+      "bytes": 114591,
+      "sha256": "3618b3c5f55bcbf0df7ee5187e1cbcae0d59fa01a19f603f3be49158bde37d89",
+      "kind": "upstream anatomy data",
+      "download_url": "https://api.brain-map.org/api/v2/well_known_file_download/491119539"
+    },
+    {
+      "path": "cell-480114344.swc",
+      "bytes": 177665,
+      "sha256": "e14442b6184082fcad2e1358887b388e9561c96b1b9c0eae79d2200f39419ac6",
+      "kind": "upstream anatomy data",
+      "download_url": "https://api.brain-map.org/api/v2/well_known_file_download/491771448"
+    },
+    {
+      "path": "cell-metrics.csv",
+      "bytes": 13987,
+      "sha256": "c5b2b38995940ea697d45004e0248025439ad94032abb8139e15d85f65dff1cd",
+      "kind": "original compact extraction or derivation"
+    },
+    {
+      "path": "experiment-metadata.json",
+      "bytes": 4151,
+      "sha256": "a1cdac99da809de8e154c34d0fb7bc8161bed4b08ca60023770d136164a2a445",
+      "kind": "upstream metadata"
+    },
+    {
+      "path": "morphology-metadata.json",
+      "bytes": 18248,
+      "sha256": "530b95e054fee5854fb1aa21ffe2ab6a975b367b16a45a609c3e719393404a2a",
+      "kind": "upstream metadata"
+    },
+    {
+      "path": "responses.json",
+      "bytes": 320196,
+      "sha256": "b7f97edaa82619781a9075751c5596f85cd2cb7551650e5d24f8f2e048d1d85f",
+      "kind": "original compact extraction or derivation"
+    },
+    {
+      "path": "traces.json",
+      "bytes": 1298700,
+      "sha256": "398cedecf94ddaeb332f082dee8c3b694aefe31ebb1db421bff0de8c615c08e4",
+      "kind": "original compact extraction or derivation"
+    },
+    {
+      "path": "trials.json",
+      "bytes": 943153,
+      "sha256": "f67330c47b68d5ee8d02bebcc8231554b65cde56d769453eff6552bf4b1e909e",
+      "kind": "original compact extraction or derivation"
+    }
+  ]
+}

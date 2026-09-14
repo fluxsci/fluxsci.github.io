@@ -1,0 +1,56 @@
+{
+  "source": {
+    "repository": "https://github.com/fluxsci/flux.git",
+    "revision": "4bb72d895b7879acc404ca83863cdc385982b0b5",
+    "version": "0.1.0"
+  },
+  "description": "Original neural-population project rendered by the pinned Flux native inline-slide player. Four editable slides; first poster shows the completed step 3, interactive playback starts at step 0. Public-source data, original composition and wording.",
+  "project": {
+    "id": "proj_flux_neural_population_demo",
+    "title": "Neuronal networks flexibly encode diverse stimuli",
+    "inputHashes": {
+      "project.json": "0f18ae32b1dba7e94c2180533f7cdc7452e53f2b524a035d7df0e7a0af25d67f",
+      "slides/neural-populations/deck.json": "2ce931b76c2edc9b16576b841bfd4e31bb54e1094d52e58605af151755af50b2",
+      "fig/index.json": "3fe619135fca4bebbb07fc31b68d131f192754967b2665cd64ae162ec66120fa",
+      "fig/canvases/canvas-1.json": "a7c615b42ceeacb1be33a0248930f290b467b7d082b9961a4e45c35dae3aa267"
+    }
+  },
+  "bundledPackages": [
+    "esm-env",
+    "svelte"
+  ],
+  "outputs": {
+    "site/demos/neural-populations/index.html": {
+      "bytes": 2557846,
+      "sha256": "8b5070a2e0ed8148dd7f9160c8fd74dc92e85c44901f25518a09dad36d872cb8"
+    },
+    "site/assets/media/slide-poster.svg": {
+      "bytes": 322541,
+      "sha256": "7f95265c5cc9caf822f3b8d6f9d502da0183ee0733a8ea06355cfcae57706221"
+    },
+    "site/assets/brand/flux-mark.svg": {
+      "bytes": 5352,
+      "sha256": "214f6a56299daecb328aa4fa93c2efd1250d54e0ba895dbd0f742f98375bd1db"
+    },
+    "site/assets/fonts/Gelasio.woff2": {
+      "bytes": 34832,
+      "sha256": "ba5b902e472cfe3456eba6b2d8fcf2d237988ff181d8da3cb5cf839de989ab15"
+    },
+    "site/assets/fonts/Gelasio-italic.woff2": {
+      "bytes": 21800,
+      "sha256": "0a06efba3949d19ad4cb02d20d1d28f970fcd881183a927bffeb59f154aa1d04"
+    },
+    "site/assets/licenses/Flux-MIT.txt": {
+      "bytes": 1070,
+      "sha256": "9cb484ed57e4668339b0dfd500e41ffc986e352a96f0601a2d4b44517d0296d1"
+    },
+    "site/assets/licenses/esm-env-LICENSE.txt": {
+      "bytes": 1063,
+      "sha256": "6df5276ee7531fcc5446f19082c12e77bb6c5f081fd2b6d6cf88180a5ee36acd"
+    },
+    "site/assets/licenses/svelte-LICENSE.txt": {
+      "bytes": 1126,
+      "sha256": "06257f4847b13a49a039efb17b944c141e71b12fd8d231b362d86919067d77a3"
+    }
+  }
+}

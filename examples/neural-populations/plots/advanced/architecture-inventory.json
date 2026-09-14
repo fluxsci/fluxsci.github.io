@@ -1,0 +1,30 @@
+[
+  {
+    "id": "19-response-architecture",
+    "svg": "plots/advanced/19-response-architecture.svg",
+    "preview": "exports/advanced-previews/19-response-architecture.png",
+    "description": "Circular response-similarity graph for all 143 measured cells. Cells grouped by preferred drift direction (positive mean response across temporal frequencies); all measured signal correlations \u22650.60 are shown. Node area scales with the square root of peak direction response, winsorized at the 95th percentile. Layout is illustrative; edges are not synapses.",
+    "sourceFiles": [
+      "data/allen/responses.json"
+    ],
+    "morphSuitable": false,
+    "axesCount": 1,
+    "widthIn": 3.35,
+    "heightIn": 3.45,
+    "sha256": "e08464d926e7b0f134abaff7dab07c1c6b66048bdc8feda2b28920ef4bd71d60"
+  },
+  {
+    "id": "20-dendritic-arbor",
+    "svg": "plots/advanced/20-dendritic-arbor.svg",
+    "preview": "exports/advanced-previews/20-dendritic-arbor.png",
+    "description": "A single original rendering of Allen Cell Types specimen 480114344 (Rorb). Actual SWC x/y coordinates, topology and radii are retained. Color is cumulative 3D path distance along the reconstruction from the soma; visible width is a square-root mapping of recorded radius for legibility. This anatomical specimen is independent of the 143-cell imaging experiment.",
+    "sourceFiles": [
+      "data/allen/cell-480114344.swc"
+    ],
+    "morphSuitable": false,
+    "axesCount": 1,
+    "widthIn": 3.35,
+    "heightIn": 3.5,
+    "sha256": "7e6ff99f5c8cf1576f467619d697bf6a3a63b23ff331005bc5db4d963ee73537"
+  }
+]

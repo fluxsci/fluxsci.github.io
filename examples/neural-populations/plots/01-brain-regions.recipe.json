@@ -1,0 +1,52 @@
+{
+  "args": [
+    "scripts/generate-plots.py",
+    "--project",
+    "."
+  ],
+  "command": "python3",
+  "cwd": "..",
+  "env": null,
+  "generatedAt": "2026-09-14T01:55:19Z",
+  "inputs": [
+    {
+      "bytes": 6825611,
+      "path": "data/allen/ccf-2017-997.obj",
+      "role": "data",
+      "sha256": "400100fd2e162f864b928a01fbcfbdcf34aa1a47bdde11f042be2442c77951eb"
+    },
+    {
+      "bytes": 442204,
+      "path": "data/allen/ccf-2017-385.obj",
+      "role": "data",
+      "sha256": "437c987dce4befd53bd4fae096b89aeaab33ed6e671557503db08dd75684de37"
+    },
+    {
+      "bytes": 132966,
+      "path": "data/allen/ccf-2017-409.obj",
+      "role": "data",
+      "sha256": "5af062d1aeaebccd2f752e9803925c06a7b7042a4680231af44bb35fd186d525"
+    }
+  ],
+  "output": "01-brain-regions.svg",
+  "outputs": {
+    "manifest": "01-brain-regions.fluxplot.json",
+    "svg": "01-brain-regions.svg"
+  },
+  "params": {},
+  "plot": "01-brain-regions",
+  "provenance": {
+    "packages": {
+      "fluxplot": "0.1.0",
+      "matplotlib": "3.11.1"
+    },
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.12",
+    "scriptDiscovery": "explicit"
+  },
+  "schemaVersion": "0.3.0",
+  "script": {
+    "path": "scripts/generate-plots.py"
+  },
+  "spec": "fluxplot/recipe"
+}

@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="230.4pt" height="183.6pt" viewBox="0 0 230.4 183.6" version="1.1" data-fluxplot="1" data-plot-type="scatter">
+  <defs>
+    <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+  </defs>
+  <g id="figure" data-role="figure" data-kind="container">
+    <g id="patch_1">
+      <path d="M 0 183.6  L 230.4 183.6  L 230.4 0  L 0 0  z " style="fill: #ffffff"/>
+    </g>
+    <g id="plot-area" data-role="plot-area" data-kind="container">
+      <g id="patch_2">
+        <path d="M 41.472 130.356  L 221.184 130.356  L 221.184 33.048  L 41.472 33.048  z " style="fill: #ffffff"/>
+      </g>
+      <g id="reference-line.pc1-zero" data-role="reference-line" data-name="pc1-zero" data-kind="line">
+        <path d="M 147.687122 130.356  L 147.687122 33.048  " clip-path="url(#p062e4bce73)" style="fill: none; stroke: #e4e9e9; stroke-width: 0.6; stroke-linecap: square"/>
+      </g>
+      <g id="reference-line.pc2-zero" data-role="reference-line" data-name="pc2-zero" data-kind="line">
+        <path d="M 41.472 73.024388  L 221.184 73.024388  " clip-path="url(#p062e4bce73)" style="fill: none; stroke: #e4e9e9; stroke-width: 0.6; stroke-linecap: square"/>
+      </g>
+      <g id="direction-0-scores.points" data-series="direction-0-scores" data-kind="shape">
+        <defs>
+          <path id="m52e592e146" d="M 0 1.581139  C 0.419323 1.581139 0.821528 1.41454 1.118034 1.118034  C 1.41454 0.821528 1.581139 0.419323 1.581139 0  C 1.581139 -0.419323 1.41454 -0.821528 1.118034 -1.118034  C 0.821528 -1.41454 0.419323 -1.581139 0 -1.581139  C -0.419323 -1.581139 -0.821528 -1.41454 -1.118034 -1.118034  C -1.41454 -0.821528 -1.581139 -0.419323 -1.581139 0  C -1.581139 0.419323 -1.41454 0.821528 -1.118034 1.118034  C -0.821528 1.41454 -0.419323 1.581139 0 1.581139  z " style="stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3"/>
+        </defs>
+        <g clip-path="url(#p062e4bce73)">
+          <use xlink:href="#m52e592e146" x="138.719556" y="49.404293" style="fill: #315c80; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-0-scores.point.0" data-role="point" data-series="direction-0-scores" data-index="0" data-x="-0.500701755408953" data-y="2.2240151904779206" data-kind="shape"/>
+          <use xlink:href="#m52e592e146" x="184.350718" y="69.729682" style="fill: #315c80; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-0-scores.point.1" data-role="point" data-series="direction-0-scores" data-index="1" data-x="2.0471024166187286" data-y="0.3102221961907872" data-kind="shape"/>
+          <use xlink:href="#m52e592e146" x="129.170504" y="41.133085" style="fill: #315c80; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-0-scores.point.2" data-role="point" data-series="direction-0-scores" data-index="2" data-x="-1.03387055098196" data-y="3.002813662491803" data-kind="shape"/>
+          <use xlink:href="#m52e592e146" x="171.162935" y="53.219792" style="fill: #315c80; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-0-scores.point.3" data-role="point" data-series="direction-0-scores" data-index="3" data-x="1.310765940633333" data-y="1.864756361480824" data-kind="shape"/>
+          <use xlink:href="#m52e592e146" x="145.750312" y="65.680892" style="fill: #315c80; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-0-scores.point.4" data-role="point" data-series="direction-0-scores" data-index="4" data-x="-0.10814130509378211" data-y="0.6914471136869657" data-kind="shape"/>
+          <use xlink:href="#m52e592e146" x="134.423988" y="71.737953" style="fill: #315c80; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-0-scores.point.5" data-role="point" data-series="direction-0-scores" data-index="5" data-x="-0.7405436567739431" data-y="0.1211279013150534" data-kind="shape"/>
+          <use xlink:href="#m52e592e146" x="139.227568" y="41.302019" style="fill: #315c80; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-0-scores.point.6" data-role="point" data-series="direction-0-scores" data-index="6" data-x="-0.4723370354115318" data-y="2.9869071740917383" data-kind="shape"/>
+          <use xlink:href="#m52e592e146" x="129.971307" y="60.607231" style="fill: #315c80; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-0-scores.point.7" data-role="point" data-series="direction-0-scores" data-index="7" data-x="-0.9891579407489435" data-y="1.169171732354662" data-kind="shape"/>
+          <use xlink:href="#m52e592e146" x="189.034698" y="57.147453" style="fill: #315c80; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-0-scores.point.8" data-role="point" data-series="direction-0-scores" data-index="8" data-x="2.3086311834203785" data-y="1.4949365981883755" data-kind="shape"/>
+          <use xlink:href="#m52e592e146" x="155.593968" y="51.316733" style="fill: #315c80; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-0-scores.point.9" data-role="point" data-series="direction-0-scores" data-index="9" data-x="0.4414766837537636" data-y="2.0439441383439108" data-kind="shape"/>
+          <use xlink:href="#m52e592e146" x="145.795244" y="45.125387" style="fill: #315c80; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-0-scores.point.10" data-role="point" data-series="direction-0-scores" data-index="10" data-x="-0.10563253782218435" data-y="2.626907454824518" data-kind="shape"/>
+          <use xlink:href="#m52e592e146" x="130.786647" y="54.461039" style="fill: #315c80; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-0-scores.point.11" data-role="point" data-series="direction-0-scores" data-index="11" data-x="-0.9436336426739301" data-y="1.7478833797643556" data-kind="shape"/>
+          <use xlink:href="#m52e592e146" x="155.728076" y="54.615358" style="fill: #315c80; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-0-scores.point.12" data-role="point" data-series="direction-0-scores" data-index="12" data-x="0.4489645672245864" data-y="1.7333529943669566" data-kind="shape"/>
+          <use xlink:href="#m52e592e146" x="144.702007" y="57.950362" style="fill: #315c80; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-0-scores.point.13" data-role="point" data-series="direction-0-scores" data-index="13" data-x="-0.1666731491017153" data-y="1.4193364773696096" data-kind="shape"/>
+          <use xlink:href="#m52e592e146" x="166.021154" y="86.913474" style="fill: #315c80; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-0-scores.point.14" data-role="point" data-series="direction-0-scores" data-index="14" data-x="1.0236759172926202" data-y="-1.3077651528853935" data-kind="shape"/>
+          <use xlink:href="#m52e592e146" x="76.180113" y="60.419895" style="fill: #315c80; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-0-scores.point.15" data-role="point" data-series="direction-0-scores" data-index="15" data-x="-3.9925753695757256" data-y="1.1868108715589556" data-kind="shape"/>
+          <use xlink:href="#m52e592e146" x="166.285968" y="42.246748" style="fill: #315c80; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-0-scores.point.16" data-role="point" data-series="direction-0-scores" data-index="16" data-x="1.038461735458549" data-y="2.89795365066196" data-kind="shape"/>
+          <use xlink:href="#m52e592e146" x="188.68154" y="71.222031" style="fill: #315c80; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-0-scores.point.17" data-role="point" data-series="direction-0-scores" data-index="17" data-x="2.2889127030841854" data-y="0.16970587034041787" data-kind="shape"/>
+          <use xlink:href="#m52e592e146" x="134.993195" y="87.628029" style="fill: #315c80; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-0-scores.point.18" data-role="point" data-series="direction-0-scores" data-index="18" data-x="-0.7087621338373593" data-y="-1.375046057534625" data-kind="shape"/>
+          <use xlink:href="#m52e592e146" x="172.417993" y="63.746164" style="fill: #315c80; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-0-scores.point.19" data-role="point" data-series="direction-0-scores" data-index="19" data-x="1.3808417934215877" data-y="0.8736167824378065" data-kind="shape"/>
+          <use xlink:href="#m52e592e146" x="133.752592" y="56.500717" style="fill: #315c80; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-0-scores.point.20" data-role="point" data-series="direction-0-scores" data-index="20" data-x="-0.7780308586909878" data-y="1.5558318360468069" data-kind="shape"/>
+          <use xlink:href="#m52e592e146" x="139.935045" y="62.310471" style="fill: #315c80; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-0-scores.point.21" data-role="point" data-series="direction-0-scores" data-index="21" data-x="-0.43283520406405496" data-y="1.0087984138589252" data-kind="shape"/>
+          <use xlink:href="#m52e592e146" x="170.951618" y="70.308499" style="fill: #315c80; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-0-scores.point.22" data-role="point" data-series="direction-0-scores" data-index="22" data-x="1.29896711192175" data-y="0.2557220511485212" data-kind="shape"/>
+          <use xlink:href="#m52e592e146" x="137.945875" y="37.695649" style="fill: #315c80; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-0-scores.point.23" data-role="point" data-series="direction-0-scores" data-index="23" data-x="-0.5439000098213284" data-y="3.3264749220276277" data-kind="shape"/>
+        </g>
+      </g>
+      <g id="direction-45-scores.points" data-series="direction-45-scores" data-kind="shape">
+        <defs>
+          <path id="mb0a94befee" d="M 0 1.581139  C 0.419323 1.581139 0.821528 1.41454 1.118034 1.118034  C 1.41454 0.821528 1.581139 0.419323 1.581139 0  C 1.581139 -0.419323 1.41454 -0.821528 1.118034 -1.118034  C 0.821528 -1.41454 0.419323 -1.581139 0 -1.581139  C -0.419323 -1.581139 -0.821528 -1.41454 -1.118034 -1.118034  C -1.41454 -0.821528 -1.581139 -0.419323 -1.581139 0  C -1.581139 0.419323 -1.41454 0.821528 -1.118034 1.118034  C -0.821528 1.41454 -0.419323 1.581139 0 1.581139  z " style="stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3"/>
+        </defs>
+        <g clip-path="url(#p062e4bce73)">
+          <use xlink:href="#mb0a94befee" x="183.493976" y="97.892365" style="fill: #588fa8; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-45-scores.point.0" data-role="point" data-series="direction-45-scores" data-index="0" data-x="1.9992664527057569" data-y="-2.341512922613308" data-kind="shape"/>
+          <use xlink:href="#mb0a94befee" x="199.1101" y="73.633344" style="fill: #588fa8; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-45-scores.point.1" data-role="point" data-series="direction-45-scores" data-index="1" data-x="2.8711886766850268" data-y="-0.05733789152188435" data-kind="shape"/>
+          <use xlink:href="#mb0a94befee" x="210.26988" y="99.413082" style="fill: #588fa8; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-45-scores.point.2" data-role="point" data-series="direction-45-scores" data-index="2" data-x="3.4942920993261164" data-y="-2.484700288368403" data-kind="shape"/>
+          <use xlink:href="#mb0a94befee" x="156.814108" y="125.841986" style="fill: #588fa8; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-45-scores.point.3" data-role="point" data-series="direction-45-scores" data-index="3" data-x="0.5096029098617363" data-y="-4.973186564312139" data-kind="shape"/>
+          <use xlink:href="#mb0a94befee" x="177.927112" y="125.932909" style="fill: #588fa8; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-45-scores.point.4" data-role="point" data-series="direction-45-scores" data-index="4" data-x="1.6884419990841018" data-y="-4.98174771620172" data-kind="shape"/>
+          <use xlink:href="#mb0a94befee" x="102.33683" y="72.901409" style="fill: #588fa8; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-45-scores.point.5" data-role="point" data-series="direction-45-scores" data-index="5" data-x="-2.5321218224758657" data-y="0.011579464384965404" data-kind="shape"/>
+          <use xlink:href="#mb0a94befee" x="176.104186" y="80.831819" style="fill: #588fa8; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-45-scores.point.6" data-role="point" data-series="direction-45-scores" data-index="6" data-x="1.5866593915857343" data-y="-0.7351301799682096" data-kind="shape"/>
+          <use xlink:href="#mb0a94befee" x="168.077569" y="75.69504" style="fill: #588fa8; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-45-scores.point.7" data-role="point" data-series="direction-45-scores" data-index="7" data-x="1.1384953383040266" data-y="-0.2514625536286688" data-kind="shape"/>
+          <use xlink:href="#mb0a94befee" x="199.528919" y="99.579235" style="fill: #588fa8; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-45-scores.point.8" data-role="point" data-series="direction-45-scores" data-index="8" data-x="2.894573296007092" data-y="-2.5003448298190474" data-kind="shape"/>
+          <use xlink:href="#mb0a94befee" x="209.84952" y="78.074404" style="fill: #588fa8; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-45-scores.point.9" data-role="point" data-series="direction-45-scores" data-index="9" data-x="3.470821423407978" data-y="-0.47549818554002066" data-kind="shape"/>
+          <use xlink:href="#mb0a94befee" x="157.414615" y="100.790729" style="fill: #588fa8; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-45-scores.point.10" data-role="point" data-series="direction-45-scores" data-index="10" data-x="0.5431320426747612" data-y="-2.6144163803438936" data-kind="shape"/>
+          <use xlink:href="#mb0a94befee" x="205.618152" y="83.969552" style="fill: #588fa8; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-45-scores.point.11" data-role="point" data-series="direction-45-scores" data-index="11" data-x="3.2345640765007695" data-y="-1.030572096743271" data-kind="shape"/>
+          <use xlink:href="#mb0a94befee" x="190.357107" y="67.506151" style="fill: #588fa8; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-45-scores.point.12" data-role="point" data-series="direction-45-scores" data-index="12" data-x="2.382467597001055" data-y="0.5195848591544802" data-kind="shape"/>
+          <use xlink:href="#mb0a94befee" x="203.251939" y="109.232117" style="fill: #588fa8; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-45-scores.point.13" data-role="point" data-series="direction-45-scores" data-index="13" data-x="3.102447170407809" data-y="-3.4092385928844684" data-kind="shape"/>
+          <use xlink:href="#mb0a94befee" x="144.389206" y="71.089635" style="fill: #588fa8; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-45-scores.point.14" data-role="point" data-series="direction-45-scores" data-index="14" data-x="-0.18413831130576586" data-y="0.1821720596177469" data-kind="shape"/>
+          <use xlink:href="#mb0a94befee" x="167.906695" y="75.065088" style="fill: #588fa8; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-45-scores.point.15" data-role="point" data-series="direction-45-scores" data-index="15" data-x="1.1289546530584027" data-y="-0.19214768457062845" data-kind="shape"/>
+          <use xlink:href="#mb0a94befee" x="167.188551" y="88.962767" style="fill: #588fa8; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-45-scores.point.16" data-role="point" data-series="direction-45-scores" data-index="16" data-x="1.0888572160722993" data-y="-1.5007220452307608" data-kind="shape"/>
+          <use xlink:href="#mb0a94befee" x="176.899921" y="80.942948" style="fill: #588fa8; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-45-scores.point.17" data-role="point" data-series="direction-45-scores" data-index="17" data-x="1.631089090649173" data-y="-0.7455938085063736" data-kind="shape"/>
+          <use xlink:href="#mb0a94befee" x="181.967053" y="79.485584" style="fill: #588fa8; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-45-scores.point.18" data-role="point" data-series="direction-45-scores" data-index="18" data-x="1.9140110629886076" data-y="-0.6083716984736643" data-kind="shape"/>
+          <use xlink:href="#mb0a94befee" x="213.015273" y="113.100509" style="fill: #588fa8; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-45-scores.point.19" data-role="point" data-series="direction-45-scores" data-index="19" data-x="3.647580391680326" data-y="-3.773477713839506" data-kind="shape"/>
+          <use xlink:href="#mb0a94befee" x="174.55442" y="57.439142" style="fill: #588fa8; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-45-scores.point.20" data-role="point" data-series="direction-45-scores" data-index="20" data-x="1.5001286264051974" data-y="1.4674718877158732" data-kind="shape"/>
+          <use xlink:href="#mb0a94befee" x="146.157828" y="51.995307" style="fill: #588fa8; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-45-scores.point.21" data-role="point" data-series="direction-45-scores" data-index="21" data-x="-0.08538772698565193" data-y="1.9800511525883113" data-kind="shape"/>
+          <use xlink:href="#mb0a94befee" x="98.338989" y="105.560136" style="fill: #588fa8; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-45-scores.point.22" data-role="point" data-series="direction-45-scores" data-index="22" data-x="-2.755340224488745" data-y="-3.0634930925466795" data-kind="shape"/>
+          <use xlink:href="#mb0a94befee" x="132.609153" y="90.385322" style="fill: #588fa8; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-45-scores.point.23" data-role="point" data-series="direction-45-scores" data-index="23" data-x="-0.8418744913674027" data-y="-1.6346665586734623" data-kind="shape"/>
+          <use xlink:href="#mb0a94befee" x="188.754617" y="90.352773" style="fill: #588fa8; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-45-scores.point.24" data-role="point" data-series="direction-45-scores" data-index="24" data-x="2.2929929391942347" data-y="-1.631601818340097" data-kind="shape"/>
+          <use xlink:href="#mb0a94befee" x="196.327467" y="93.802726" style="fill: #588fa8; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-45-scores.point.25" data-role="point" data-series="direction-45-scores" data-index="25" data-x="2.715821101147433" data-y="-1.9564417398184868" data-kind="shape"/>
+          <use xlink:href="#mb0a94befee" x="157.586452" y="84.628242" style="fill: #588fa8; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-45-scores.point.26" data-role="point" data-series="direction-45-scores" data-index="26" data-x="0.5527265028557796" data-y="-1.0925928688869755" data-kind="shape"/>
+          <use xlink:href="#mb0a94befee" x="191.01985" y="123.959134" style="fill: #588fa8; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-45-scores.point.27" data-role="point" data-series="direction-45-scores" data-index="27" data-x="2.4194716477610556" data-y="-4.795901477481437" data-kind="shape"/>
+          <use xlink:href="#mb0a94befee" x="187.004416" y="97.963825" style="fill: #588fa8; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-45-scores.point.28" data-role="point" data-series="direction-45-scores" data-index="28" data-x="2.195270939468404" data-y="-2.3482414345081764" data-kind="shape"/>
+          <use xlink:href="#mb0a94befee" x="165.17884" y="91.199925" style="fill: #588fa8; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-45-scores.point.29" data-role="point" data-series="direction-45-scores" data-index="29" data-x="0.9766455655398638" data-y="-1.7113677531289582" data-kind="shape"/>
+          <use xlink:href="#mb0a94befee" x="187.398159" y="105.875268" style="fill: #588fa8; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-45-scores.point.30" data-role="point" data-series="direction-45-scores" data-index="30" data-x="2.21725545858586" data-y="-3.093165197466822" data-kind="shape"/>
+        </g>
+      </g>
+      <g id="direction-90-scores.points" data-series="direction-90-scores" data-kind="shape">
+        <defs>
+          <path id="mc7b1ed86c5" d="M 0 1.581139  C 0.419323 1.581139 0.821528 1.41454 1.118034 1.118034  C 1.41454 0.821528 1.581139 0.419323 1.581139 0  C 1.581139 -0.419323 1.41454 -0.821528 1.118034 -1.118034  C 0.821528 -1.41454 0.419323 -1.581139 0 -1.581139  C -0.419323 -1.581139 -0.821528 -1.41454 -1.118034 -1.118034  C -1.41454 -0.821528 -1.581139 -0.419323 -1.581139 0  C -1.581139 0.419323 -1.41454 0.821528 -1.118034 1.118034  C -0.821528 1.41454 -0.419323 1.581139 0 1.581139  z " style="stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3"/>
+        </defs>
+        <g clip-path="url(#p062e4bce73)">
+          <use xlink:href="#mc7b1ed86c5" x="101.136231" y="88.059843" style="fill: #26857d; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-90-scores.point.0" data-role="point" data-series="direction-90-scores" data-index="0" data-x="-2.5991569427998846" data-y="-1.4157047502547802" data-kind="shape"/>
+          <use xlink:href="#mc7b1ed86c5" x="83.951974" y="88.57473" style="fill: #26857d; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-90-scores.point.1" data-role="point" data-series="direction-90-scores" data-index="1" data-x="-3.5586355034940884" data-y="-1.4641853606237873" data-kind="shape"/>
+          <use xlink:href="#mc7b1ed86c5" x="140.588953" y="54.10111" style="fill: #26857d; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-90-scores.point.2" data-role="point" data-series="direction-90-scores" data-index="2" data-x="-0.39632444830963964" data-y="1.7817734260591043" data-kind="shape"/>
+          <use xlink:href="#mc7b1ed86c5" x="124.921237" y="47.920641" style="fill: #26857d; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-90-scores.point.3" data-role="point" data-series="direction-90-scores" data-index="3" data-x="-1.2711273048519827" data-y="2.363712560510773" data-kind="shape"/>
+          <use xlink:href="#mc7b1ed86c5" x="160.975776" y="37.61913" style="fill: #26857d; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-90-scores.point.4" data-role="point" data-series="direction-90-scores" data-index="4" data-x="0.7419685595081718" data-y="3.3336797627702057" data-kind="shape"/>
+          <use xlink:href="#mc7b1ed86c5" x="137.795728" y="77.164155" style="fill: #26857d; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-90-scores.point.5" data-role="point" data-series="direction-90-scores" data-index="5" data-x="-0.5522834099031249" data-y="-0.38979113528133014" data-kind="shape"/>
+          <use xlink:href="#mc7b1ed86c5" x="133.352177" y="53.971456" style="fill: #26857d; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-90-scores.point.6" data-role="point" data-series="direction-90-scores" data-index="6" data-x="-0.8003879638949662" data-y="1.793981353730755" data-kind="shape"/>
+          <use xlink:href="#mc7b1ed86c5" x="139.429954" y="72.020193" style="fill: #26857d; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-90-scores.point.7" data-role="point" data-series="direction-90-scores" data-index="7" data-x="-0.46103685646740866" data-y="0.0945527360671603" data-kind="shape"/>
+          <use xlink:href="#mc7b1ed86c5" x="144.068435" y="55.112393" style="fill: #26857d; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-90-scores.point.8" data-role="point" data-series="direction-90-scores" data-index="8" data-x="-0.2020484619458777" data-y="1.6865533273574782" data-kind="shape"/>
+          <use xlink:href="#mc7b1ed86c5" x="166.475592" y="53.821631" style="fill: #26857d; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-90-scores.point.9" data-role="point" data-series="direction-90-scores" data-index="9" data-x="1.0490493685962232" data-y="1.8080885515653777" data-kind="shape"/>
+          <use xlink:href="#mc7b1ed86c5" x="135.464406" y="46.148606" style="fill: #26857d; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-90-scores.point.10" data-role="point" data-series="direction-90-scores" data-index="10" data-x="-0.6824521842585471" data-y="2.530563426438782" data-kind="shape"/>
+          <use xlink:href="#mc7b1ed86c5" x="153.009084" y="56.551903" style="fill: #26857d; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-90-scores.point.11" data-role="point" data-series="direction-90-scores" data-index="11" data-x="0.2971503677378835" data-y="1.5510123283910158" data-kind="shape"/>
+          <use xlink:href="#mc7b1ed86c5" x="204.733011" y="78.054339" style="fill: #26857d; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-90-scores.point.12" data-role="point" data-series="direction-90-scores" data-index="12" data-x="3.185142433226712" data-y="-0.47360887378199606" data-kind="shape"/>
+          <use xlink:href="#mc7b1ed86c5" x="139.605509" y="47.23583" style="fill: #26857d; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-90-scores.point.13" data-role="point" data-series="direction-90-scores" data-index="13" data-x="-0.4512347985268174" data-y="2.428192846412676" data-kind="shape"/>
+          <use xlink:href="#mc7b1ed86c5" x="178.280534" y="51.203844" style="fill: #26857d; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-90-scores.point.14" data-role="point" data-series="direction-90-scores" data-index="14" data-x="1.7081752433369217" data-y="2.05457353610949" data-kind="shape"/>
+          <use xlink:href="#mc7b1ed86c5" x="152.182144" y="82.365544" style="fill: #26857d; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-90-scores.point.15" data-role="point" data-series="direction-90-scores" data-index="15" data-x="0.25097841455429826" data-y="-0.8795422512001573" data-kind="shape"/>
+          <use xlink:href="#mc7b1ed86c5" x="142.731188" y="76.675451" style="fill: #26857d; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-90-scores.point.16" data-role="point" data-series="direction-90-scores" data-index="16" data-x="-0.2767133196454042" data-y="-0.34377592486268216" data-kind="shape"/>
+          <use xlink:href="#mc7b1ed86c5" x="168.585176" y="56.216997" style="fill: #26857d; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-90-scores.point.17" data-role="point" data-series="direction-90-scores" data-index="17" data-x="1.1668374341839238" data-y="1.5825462660486418" data-kind="shape"/>
+          <use xlink:href="#mc7b1ed86c5" x="154.395999" y="41.842631" style="fill: #26857d; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-90-scores.point.18" data-role="point" data-series="direction-90-scores" data-index="18" data-x="0.37458840462134596" data-y="2.9360044006309507" data-kind="shape"/>
+          <use xlink:href="#mc7b1ed86c5" x="115.257119" y="57.413714" style="fill: #26857d; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-90-scores.point.19" data-role="point" data-series="direction-90-scores" data-index="19" data-x="-1.8107208546820523" data-y="1.4698661108484636" data-kind="shape"/>
+          <use xlink:href="#mc7b1ed86c5" x="190.850928" y="74.081007" style="fill: #26857d; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-90-scores.point.20" data-role="point" data-series="direction-90-scores" data-index="20" data-x="2.4100399405557575" data-y="-0.09948885511882098" data-kind="shape"/>
+        </g>
+      </g>
+      <g id="direction-135-scores.points" data-series="direction-135-scores" data-kind="shape">
+        <defs>
+          <path id="m09f18d0fca" d="M 0 1.581139  C 0.419323 1.581139 0.821528 1.41454 1.118034 1.118034  C 1.41454 0.821528 1.581139 0.419323 1.581139 0  C 1.581139 -0.419323 1.41454 -0.821528 1.118034 -1.118034  C 0.821528 -1.41454 0.419323 -1.581139 0 -1.581139  C -0.419323 -1.581139 -0.821528 -1.41454 -1.118034 -1.118034  C -1.41454 -0.821528 -1.581139 -0.419323 -1.581139 0  C -1.581139 0.419323 -1.41454 0.821528 -1.118034 1.118034  C -0.821528 1.41454 -0.419323 1.581139 0 1.581139  z " style="stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3"/>
+        </defs>
+        <g clip-path="url(#p062e4bce73)">
+          <use xlink:href="#m09f18d0fca" x="132.245723" y="72.99417" style="fill: #86a390; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-135-scores.point.0" data-role="point" data-series="direction-135-scores" data-index="0" data-x="-0.8621665453583087" data-y="0.0028452943764021876" data-kind="shape"/>
+          <use xlink:href="#m09f18d0fca" x="54.291472" y="86.704784" style="fill: #86a390; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-135-scores.point.1" data-role="point" data-series="direction-135-scores" data-index="1" data-x="-5.214721955411166" data-y="-1.2881154230349545" data-kind="shape"/>
+          <use xlink:href="#m09f18d0fca" x="49.640727" y="106.66657" style="fill: #86a390; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-135-scores.point.2" data-role="point" data-series="direction-135-scores" data-index="2" data-x="-5.474395081669235" data-y="-3.1676724501179163" data-kind="shape"/>
+          <use xlink:href="#m09f18d0fca" x="75.341512" y="105.249155" style="fill: #86a390; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-135-scores.point.3" data-role="point" data-series="direction-135-scores" data-index="3" data-x="-4.039398425333149" data-y="-3.0342118189179437" data-kind="shape"/>
+          <use xlink:href="#m09f18d0fca" x="152.261516" y="77.272521" style="fill: #86a390; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-135-scores.point.4" data-role="point" data-series="direction-135-scores" data-index="4" data-x="0.25541007656644316" data-y="-0.3999946864133521" data-kind="shape"/>
+          <use xlink:href="#m09f18d0fca" x="109.3213" y="96.842676" style="fill: #86a390; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-135-scores.point.5" data-role="point" data-series="direction-135-scores" data-index="5" data-x="-2.1421457725988557" data-y="-2.2426765755515103" data-kind="shape"/>
+          <use xlink:href="#m09f18d0fca" x="164.352575" y="77.858021" style="fill: #86a390; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-135-scores.point.6" data-role="point" data-series="direction-135-scores" data-index="6" data-x="0.9305112390471628" data-y="-0.45512404256242156" data-kind="shape"/>
+          <use xlink:href="#m09f18d0fca" x="115.415055" y="71.261956" style="fill: #86a390; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-135-scores.point.7" data-role="point" data-series="direction-135-scores" data-index="7" data-x="-1.8019025242545241" data-y="0.16594667124664705" data-kind="shape"/>
+          <use xlink:href="#m09f18d0fca" x="84.74481" y="76.844246" style="fill: #86a390; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-135-scores.point.8" data-role="point" data-series="direction-135-scores" data-index="8" data-x="-3.51436769636687" data-y="-0.35966925134852973" data-kind="shape"/>
+        </g>
+      </g>
+      <g id="direction-180-scores.points" data-series="direction-180-scores" data-kind="shape">
+        <defs>
+          <path id="m63368718ab" d="M 0 1.581139  C 0.419323 1.581139 0.821528 1.41454 1.118034 1.118034  C 1.41454 0.821528 1.581139 0.419323 1.581139 0  C 1.581139 -0.419323 1.41454 -0.821528 1.118034 -1.118034  C 0.821528 -1.41454 0.419323 -1.581139 0 -1.581139  C -0.419323 -1.581139 -0.821528 -1.41454 -1.118034 -1.118034  C -1.41454 -0.821528 -1.581139 -0.419323 -1.581139 0  C -1.581139 0.419323 -1.41454 0.821528 -1.118034 1.118034  C -0.821528 1.41454 -0.419323 1.581139 0 1.581139  z " style="stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3"/>
+        </defs>
+        <g clip-path="url(#p062e4bce73)">
+          <use xlink:href="#m63368718ab" x="135.929481" y="70.095694" style="fill: #c5ab79; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-180-scores.point.0" data-role="point" data-series="direction-180-scores" data-index="0" data-x="-0.6564848401467945" data-y="0.27575924743322033" data-kind="shape"/>
+          <use xlink:href="#m63368718ab" x="137.283907" y="39.99639" style="fill: #c5ab79; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-180-scores.point.1" data-role="point" data-series="direction-180-scores" data-index="1" data-x="-0.5808607987626591" data-y="3.1098422267249646" data-kind="shape"/>
+          <use xlink:href="#m63368718ab" x="146.423644" y="61.45976" style="fill: #c5ab79; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-180-scores.point.2" data-role="point" data-series="direction-180-scores" data-index="2" data-x="-0.07054598490684492" data-y="1.0888994284589084" data-kind="shape"/>
+          <use xlink:href="#m63368718ab" x="135.460362" y="46.047525" style="fill: #c5ab79; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-180-scores.point.3" data-role="point" data-series="direction-180-scores" data-index="3" data-x="-0.6826779883794091" data-y="2.540080959464951" data-kind="shape"/>
+          <use xlink:href="#m63368718ab" x="122.589878" y="73.326703" style="fill: #c5ab79; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-180-scores.point.4" data-role="point" data-series="direction-180-scores" data-index="4" data-x="-1.4012981053764573" data-y="-0.028465312542725326" data-kind="shape"/>
+          <use xlink:href="#m63368718ab" x="137.369329" y="67.961252" style="fill: #c5ab79; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-180-scores.point.5" data-role="point" data-series="direction-180-scores" data-index="5" data-x="-0.5760913116786041" data-y="0.4767335612053413" data-kind="shape"/>
+          <use xlink:href="#m63368718ab" x="143.135606" y="48.427658" style="fill: #c5ab79; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-180-scores.point.6" data-role="point" data-series="direction-180-scores" data-index="6" data-x="-0.2541327235460774" data-y="2.3159729475788513" data-kind="shape"/>
+          <use xlink:href="#m63368718ab" x="139.2945" y="51.283874" style="fill: #c5ab79; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-180-scores.point.7" data-role="point" data-series="direction-180-scores" data-index="7" data-x="-0.4685998855447487" data-y="2.0470381138909866" data-kind="shape"/>
+          <use xlink:href="#m63368718ab" x="109.793322" y="63.727638" style="fill: #c5ab79; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-180-scores.point.8" data-role="point" data-series="direction-180-scores" data-index="8" data-x="-2.115790527565624" data-y="0.8753611336527534" data-kind="shape"/>
+          <use xlink:href="#m63368718ab" x="165.252032" y="65.485433" style="fill: #c5ab79; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-180-scores.point.9" data-role="point" data-series="direction-180-scores" data-index="9" data-x="0.9807321900575385" data-y="0.7098510818650492" data-kind="shape"/>
+          <use xlink:href="#m63368718ab" x="138.115215" y="55.787825" style="fill: #c5ab79; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-180-scores.point.10" data-role="point" data-series="direction-180-scores" data-index="10" data-x="-0.5344449563925486" data-y="1.6229561841709013" data-kind="shape"/>
+          <use xlink:href="#m63368718ab" x="196.902943" y="62.395934" style="fill: #c5ab79; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-180-scores.point.11" data-role="point" data-series="direction-180-scores" data-index="11" data-x="2.7479526289464435" data-y="1.0007514227027698" data-kind="shape"/>
+          <use xlink:href="#m63368718ab" x="125.042276" y="81.817372" style="fill: #c5ab79; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-180-scores.point.12" data-role="point" data-series="direction-180-scores" data-index="12" data-x="-1.2643691081670674" data-y="-0.8279276676894568" data-kind="shape"/>
+        </g>
+      </g>
+      <g id="direction-225-scores.points" data-series="direction-225-scores" data-kind="shape">
+        <defs>
+          <path id="m30c1a4e928" d="M 0 1.581139  C 0.419323 1.581139 0.821528 1.41454 1.118034 1.118034  C 1.41454 0.821528 1.581139 0.419323 1.581139 0  C 1.581139 -0.419323 1.41454 -0.821528 1.118034 -1.118034  C 0.821528 -1.41454 0.419323 -1.581139 0 -1.581139  C -0.419323 -1.581139 -0.821528 -1.41454 -1.118034 -1.118034  C -1.41454 -0.821528 -1.581139 -0.419323 -1.581139 0  C -1.581139 0.419323 -1.41454 0.821528 -1.118034 1.118034  C -0.821528 1.41454 -0.419323 1.581139 0 1.581139  z " style="stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3"/>
+        </defs>
+        <g clip-path="url(#p062e4bce73)">
+          <use xlink:href="#m30c1a4e928" x="187.480698" y="70.432948" style="fill: #cc8249; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-225-scores.point.0" data-role="point" data-series="direction-225-scores" data-index="0" data-x="2.221864026017232" data-y="0.24400417862461718" data-kind="shape"/>
+          <use xlink:href="#m30c1a4e928" x="155.758778" y="76.672319" style="fill: #cc8249; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-225-scores.point.1" data-role="point" data-series="direction-225-scores" data-index="1" data-x="0.4506788159331279" data-y="-0.3434809944307642" data-kind="shape"/>
+          <use xlink:href="#m30c1a4e928" x="153.321255" y="110.69564" style="fill: #cc8249; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-225-scores.point.2" data-role="point" data-series="direction-225-scores" data-index="2" data-x="0.31458037044047876" data-y="-3.547040640563897" data-kind="shape"/>
+          <use xlink:href="#m30c1a4e928" x="207.24777" y="91.208547" style="fill: #cc8249; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-225-scores.point.3" data-role="point" data-series="direction-225-scores" data-index="3" data-x="3.325553347809219" data-y="-1.7121795972232277" data-kind="shape"/>
+          <use xlink:href="#m30c1a4e928" x="176.691454" y="87.304647" style="fill: #cc8249; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-225-scores.point.4" data-role="point" data-series="direction-225-scores" data-index="4" data-x="1.6194493490440172" data-y="-1.344597183437457" data-kind="shape"/>
+          <use xlink:href="#m30c1a4e928" x="180.985597" y="65.277173" style="fill: #cc8249; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-225-scores.point.5" data-role="point" data-series="direction-225-scores" data-index="5" data-x="1.8592117336600718" data-y="0.7294604424744728" data-kind="shape"/>
+          <use xlink:href="#m30c1a4e928" x="173.582303" y="71.642261" style="fill: #cc8249; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-225-scores.point.6" data-role="point" data-series="direction-225-scores" data-index="6" data-x="1.4458507564566543" data-y="0.13013797741994548" data-kind="shape"/>
+          <use xlink:href="#m30c1a4e928" x="207.707136" y="93.48736" style="fill: #cc8249; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-225-scores.point.7" data-role="point" data-series="direction-225-scores" data-index="7" data-x="3.351201975717895" data-y="-1.9267475676106933" data-kind="shape"/>
+          <use xlink:href="#m30c1a4e928" x="175.13464" y="85.583317" style="fill: #cc8249; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-225-scores.point.8" data-role="point" data-series="direction-225-scores" data-index="8" data-x="1.5325250531286294" data-y="-1.1825206028324293" data-kind="shape"/>
+          <use xlink:href="#m30c1a4e928" x="144.57498" y="68.331841" style="fill: #cc8249; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-225-scores.point.9" data-role="point" data-series="direction-225-scores" data-index="9" data-x="-0.1737656655675036" data-y="0.4418397243272219" data-kind="shape"/>
+          <use xlink:href="#m30c1a4e928" x="193.313286" y="83.308006" style="fill: #cc8249; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-225-scores.point.10" data-role="point" data-series="direction-225-scores" data-index="10" data-x="2.5475250675930217" data-y="-0.9682823955835778" data-kind="shape"/>
+          <use xlink:href="#m30c1a4e928" x="198.593472" y="60.384526" style="fill: #cc8249; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-225-scores.point.11" data-role="point" data-series="direction-225-scores" data-index="11" data-x="2.8423428742811803" data-y="1.1901410651336526" data-kind="shape"/>
+        </g>
+      </g>
+      <g id="direction-270-scores.points" data-series="direction-270-scores" data-kind="shape">
+        <defs>
+          <path id="m12f7089e8d" d="M 0 1.581139  C 0.419323 1.581139 0.821528 1.41454 1.118034 1.118034  C 1.41454 0.821528 1.581139 0.419323 1.581139 0  C 1.581139 -0.419323 1.41454 -0.821528 1.118034 -1.118034  C 0.821528 -1.41454 0.419323 -1.581139 0 -1.581139  C -0.419323 -1.581139 -0.821528 -1.41454 -1.118034 -1.118034  C -1.41454 -0.821528 -1.581139 -0.419323 -1.581139 0  C -1.581139 0.419323 -1.41454 0.821528 -1.118034 1.118034  C -0.821528 1.41454 -0.419323 1.581139 0 1.581139  z " style="stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3"/>
+        </defs>
+        <g clip-path="url(#p062e4bce73)">
+          <use xlink:href="#m12f7089e8d" x="179.539501" y="56.495334" style="fill: #895d86; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-270-scores.point.0" data-role="point" data-series="direction-270-scores" data-index="0" data-x="1.7784693539019145" data-y="1.5563386545649442" data-kind="shape"/>
+          <use xlink:href="#m12f7089e8d" x="110.732912" y="67.839237" style="fill: #895d86; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-270-scores.point.1" data-role="point" data-series="direction-270-scores" data-index="1" data-x="-2.063328766552062" data-y="0.4882222272599282" data-kind="shape"/>
+          <use xlink:href="#m12f7089e8d" x="150.435169" y="45.297708" style="fill: #895d86; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-270-scores.point.2" data-role="point" data-series="direction-270-scores" data-index="2" data-x="0.15343649198532985" data-y="2.6106820345504653" data-kind="shape"/>
+          <use xlink:href="#m12f7089e8d" x="133.802066" y="37.471091" style="fill: #895d86; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-270-scores.point.3" data-role="point" data-series="direction-270-scores" data-index="3" data-x="-0.7752685373244294" data-y="3.3476187733228318" data-kind="shape"/>
+          <use xlink:href="#m12f7089e8d" x="110.372481" y="57.448734" style="fill: #895d86; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-270-scores.point.4" data-role="point" data-series="direction-270-scores" data-index="4" data-x="-2.083453311127009" data-y="1.4665686519731342" data-kind="shape"/>
+          <use xlink:href="#m12f7089e8d" x="128.647199" y="60.901383" style="fill: #895d86; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-270-scores.point.5" data-role="point" data-series="direction-270-scores" data-index="5" data-x="-1.0630891497374177" data-y="1.141475006767689" data-kind="shape"/>
+          <use xlink:href="#m12f7089e8d" x="146.330693" y="82.980746" style="fill: #895d86; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-270-scores.point.6" data-role="point" data-series="direction-270-scores" data-index="6" data-x="-0.0757358482945051" data-y="-0.9374683534030747" data-kind="shape"/>
+          <use xlink:href="#m12f7089e8d" x="175.161644" y="59.519639" style="fill: #895d86; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-270-scores.point.7" data-role="point" data-series="direction-270-scores" data-index="7" data-x="1.5340328159346877" data-y="1.271576891558107" data-kind="shape"/>
+          <use xlink:href="#m12f7089e8d" x="177.44812" y="55.82835" style="fill: #895d86; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-270-scores.point.8" data-role="point" data-series="direction-270-scores" data-index="8" data-x="1.661697630124543" data-y="1.6191404220477006" data-kind="shape"/>
+          <use xlink:href="#m12f7089e8d" x="142.611597" y="59.038579" style="fill: #895d86; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-270-scores.point.9" data-role="point" data-series="direction-270-scores" data-index="9" data-x="-0.2833906139708787" data-y="1.3168724225900497" data-kind="shape"/>
+          <use xlink:href="#m12f7089e8d" x="173.238166" y="46.951846" style="fill: #895d86; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-270-scores.point.10" data-role="point" data-series="direction-270-scores" data-index="10" data-x="1.426635915526675" data-y="2.454932151746431" data-kind="shape"/>
+          <use xlink:href="#m12f7089e8d" x="111.971229" y="67.759924" style="fill: #895d86; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-270-scores.point.11" data-role="point" data-series="direction-270-scores" data-index="11" data-x="-1.9941876583843245" data-y="0.49569010913146244" data-kind="shape"/>
+          <use xlink:href="#m12f7089e8d" x="162.146547" y="64.602686" style="fill: #895d86; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-270-scores.point.12" data-role="point" data-series="direction-270-scores" data-index="12" data-x="0.8073382408849539" data-y="0.7929686268119148" data-kind="shape"/>
+          <use xlink:href="#m12f7089e8d" x="117.15914" y="51.615563" style="fill: #895d86; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-270-scores.point.13" data-role="point" data-series="direction-270-scores" data-index="13" data-x="-1.70452197599736" data-y="2.0158070280633362" data-kind="shape"/>
+          <use xlink:href="#m12f7089e8d" x="121.682201" y="53.995438" style="fill: #895d86; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-270-scores.point.14" data-role="point" data-series="direction-270-scores" data-index="14" data-x="-1.4519780553418553" data-y="1.791723253165468" data-kind="shape"/>
+          <use xlink:href="#m12f7089e8d" x="151.935159" y="75.795423" style="fill: #895d86; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-270-scores.point.15" data-role="point" data-series="direction-270-scores" data-index="15" data-x="0.23718803861824805" data-y="-0.26091440220009726" data-kind="shape"/>
+          <use xlink:href="#m12f7089e8d" x="157.498778" y="54.473264" style="fill: #895d86; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-270-scores.point.16" data-role="point" data-series="direction-270-scores" data-index="16" data-x="0.5478312592763458" data-y="1.746732227157769" data-kind="shape"/>
+          <use xlink:href="#m12f7089e8d" x="135.363855" y="84.617923" style="fill: #895d86; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-270-scores.point.17" data-role="point" data-series="direction-270-scores" data-index="17" data-x="-0.6880664292438723" data-y="-1.0916212730300698" data-kind="shape"/>
+          <use xlink:href="#m12f7089e8d" x="155.924378" y="57.952506" style="fill: #895d86; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-270-scores.point.18" data-role="point" data-series="direction-270-scores" data-index="18" data-x="0.45992505524615607" data-y="1.4191345967716198" data-kind="shape"/>
+        </g>
+      </g>
+      <g id="direction-315-scores.points" data-series="direction-315-scores" data-kind="shape">
+        <defs>
+          <path id="m206337d32c" d="M 0 1.581139  C 0.419323 1.581139 0.821528 1.41454 1.118034 1.118034  C 1.41454 0.821528 1.581139 0.419323 1.581139 0  C 1.581139 -0.419323 1.41454 -0.821528 1.118034 -1.118034  C 0.821528 -1.41454 0.419323 -1.581139 0 -1.581139  C -0.419323 -1.581139 -0.821528 -1.41454 -1.118034 -1.118034  C -1.41454 -0.821528 -1.581139 -0.419323 -1.581139 0  C -1.581139 0.419323 -1.41454 0.821528 -1.118034 1.118034  C -0.821528 1.41454 -0.419323 1.581139 0 1.581139  z " style="stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3"/>
+        </defs>
+        <g clip-path="url(#p062e4bce73)">
+          <use xlink:href="#m206337d32c" x="60.864652" y="104.503541" style="fill: #63658b; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-315-scores.point.0" data-role="point" data-series="direction-315-scores" data-index="0" data-x="-4.847710148975395" data-y="-2.9640064601021017" data-kind="shape"/>
+          <use xlink:href="#m206337d32c" x="125.053298" y="80.052031" style="fill: #63658b; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-315-scores.point.1" data-role="point" data-series="direction-315-scores" data-index="1" data-x="-1.2637537098191112" data-y="-0.6617070439651235" data-kind="shape"/>
+          <use xlink:href="#m206337d32c" x="88.408985" y="79.518344" style="fill: #63658b; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-315-scores.point.2" data-role="point" data-series="direction-315-scores" data-index="2" data-x="-3.3097794516725747" data-y="-0.6114563308531566" data-kind="shape"/>
+          <use xlink:href="#m206337d32c" x="77.569489" y="90.89183" style="fill: #63658b; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-315-scores.point.3" data-role="point" data-series="direction-315-scores" data-index="3" data-x="-3.914999911509419" data-y="-1.682358225434251" data-kind="shape"/>
+          <use xlink:href="#m206337d32c" x="88.622661" y="105.147211" style="fill: #63658b; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-315-scores.point.4" data-role="point" data-series="direction-315-scores" data-index="4" data-x="-3.2978489154437645" data-y="-3.02461299647061" data-kind="shape"/>
+          <use xlink:href="#m206337d32c" x="145.350999" y="119.684454" style="fill: #63658b; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-315-scores.point.5" data-role="point" data-series="direction-315-scores" data-index="5" data-x="-0.1304368493948147" data-y="-4.393407201179595" data-kind="shape"/>
+          <use xlink:href="#m206337d32c" x="93.160743" y="102.059831" style="fill: #63658b; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-315-scores.point.6" data-role="point" data-series="direction-315-scores" data-index="6" data-x="-3.0444662673416154" data-y="-2.733912179762352" data-kind="shape"/>
+          <use xlink:href="#m206337d32c" x="109.989256" y="73.556706" style="fill: #63658b; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-315-scores.point.7" data-role="point" data-series="direction-315-scores" data-index="7" data-x="-2.1048505902907593" data-y="-0.050121848048276206" data-kind="shape"/>
+          <use xlink:href="#m206337d32c" x="102.134595" y="79.181727" style="fill: #63658b; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-315-scores.point.8" data-role="point" data-series="direction-315-scores" data-index="8" data-x="-2.543413584256495" data-y="-0.5797612356569003" data-kind="shape"/>
+          <use xlink:href="#m206337d32c" x="60.090724" y="94.333381" style="fill: #63658b; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-315-scores.point.9" data-role="point" data-series="direction-315-scores" data-index="9" data-x="-4.890922229137757" data-y="-2.006407008065085" data-kind="shape"/>
+          <use xlink:href="#m206337d32c" x="90.738292" y="95.173914" style="fill: #63658b; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-315-scores.point.10" data-role="point" data-series="direction-315-scores" data-index="10" data-x="-3.1797231773097656" data-y="-2.085549713757541" data-kind="shape"/>
+          <use xlink:href="#m206337d32c" x="117.359778" y="87.244414" style="fill: #63658b; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-315-scores.point.11" data-role="point" data-series="direction-315-scores" data-index="11" data-x="-1.693319429466381" data-y="-1.3389257584455763" data-kind="shape"/>
+          <use xlink:href="#m206337d32c" x="138.139606" y="88.743549" style="fill: #63658b; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-315-scores.point.12" data-role="point" data-series="direction-315-scores" data-index="12" data-x="-0.5330830821257474" data-y="-1.480080897288422" data-kind="shape"/>
+          <use xlink:href="#m206337d32c" x="89.351313" y="76.294889" style="fill: #63658b; fill-opacity: 0.88; stroke: #ffffff; stroke-opacity: 0.88; stroke-width: 0.3" id="direction-315-scores.point.13" data-role="point" data-series="direction-315-scores" data-index="13" data-x="-3.2571648291538895" data-y="-0.30794297518153263" data-kind="shape"/>
+        </g>
+      </g>
+      <g id="axis.x" data-role="axis" data-axis="x" data-kind="container">
+        <g id="xtick_1">
+          <g id="axis.x.tick.1" data-role="tick" data-axis="x" data-index="1" data-kind="line">
+            <path d="M 0 0  L 0 2.5  " transform="translate(58.137141 130.356)" style="stroke: #8d969b; stroke-width: 0.5; fill: #8d969b"/>
+          </g>
+          <g id="axis.x.ticklabel.1" data-role="tick-label" data-axis="x" data-index="1" data-kind="text">
+            <text style="font-size: 6.2px; font-family: 'Arial'; text-anchor: middle; fill: #1b2838" x="58.137141" y="140.36977" transform="rotate(-0 58.137141 140.36977)">−5</text>
+          </g>
+        </g>
+        <g id="xtick_2">
+          <g id="axis.x.tick.2" data-role="tick" data-axis="x" data-index="2" data-kind="line">
+            <path d="M 0 0  L 0 2.5  " transform="translate(147.687122 130.356)" style="stroke: #8d969b; stroke-width: 0.5; fill: #8d969b"/>
+          </g>
+          <g id="axis.x.ticklabel.2" data-role="tick-label" data-axis="x" data-index="2" data-kind="text">
+            <text style="font-size: 6.2px; font-family: 'Arial'; text-anchor: middle; fill: #1b2838" x="147.687122" y="140.36977" transform="rotate(-0 147.687122 140.36977)">0</text>
+          </g>
+        </g>
+        <g id="axis.x.title" data-role="axis-title" data-axis="x" data-kind="text">
+          <text style="font-size: 7.2px; font-family: 'Arial'; text-anchor: middle; fill: #1b2838" x="131.328" y="150.916352" transform="rotate(-0 131.328 150.916352)">PC 1 (11.2%)</text>
+        </g>
+      </g>
+      <g id="axis.y" data-role="axis" data-axis="y" data-kind="container">
+        <g id="ytick_1">
+          <g id="axis.y.tick.1" data-role="tick" data-axis="y" data-index="1" data-kind="line">
+            <path d="M 0 0  L -2.5 0  " transform="translate(41.472 126.126757)" style="stroke: #8d969b; stroke-width: 0.5; fill: #8d969b"/>
+          </g>
+          <g id="axis.y.ticklabel.1" data-role="tick-label" data-axis="y" data-index="1" data-kind="text">
+            <text style="font-size: 6.2px; font-family: 'Arial'; text-anchor: end; fill: #1b2838" x="35.972" y="128.383642" transform="rotate(-0 35.972 128.383642)">−5.0</text>
+          </g>
+        </g>
+        <g id="ytick_2">
+          <g id="axis.y.tick.2" data-role="tick" data-axis="y" data-index="2" data-kind="line">
+            <path d="M 0 0  L -2.5 0  " transform="translate(41.472 99.575573)" style="stroke: #8d969b; stroke-width: 0.5; fill: #8d969b"/>
+          </g>
+          <g id="axis.y.ticklabel.2" data-role="tick-label" data-axis="y" data-index="2" data-kind="text">
+            <text style="font-size: 6.2px; font-family: 'Arial'; text-anchor: end; fill: #1b2838" x="35.972" y="101.832457" transform="rotate(-0 35.972 101.832457)">−2.5</text>
+          </g>
+        </g>
+        <g id="ytick_3">
+          <g id="axis.y.tick.3" data-role="tick" data-axis="y" data-index="3" data-kind="line">
+            <path d="M 0 0  L -2.5 0  " transform="translate(41.472 73.024388)" style="stroke: #8d969b; stroke-width: 0.5; fill: #8d969b"/>
+          </g>
+          <g id="axis.y.ticklabel.3" data-role="tick-label" data-axis="y" data-index="3" data-kind="text">
+            <text style="font-size: 6.2px; font-family: 'Arial'; text-anchor: end; fill: #1b2838" x="35.972" y="75.281273" transform="rotate(-0 35.972 75.281273)">0.0</text>
+          </g>
+        </g>
+        <g id="ytick_4">
+          <g id="axis.y.tick.4" data-role="tick" data-axis="y" data-index="4" data-kind="line">
+            <path d="M 0 0  L -2.5 0  " transform="translate(41.472 46.473204)" style="stroke: #8d969b; stroke-width: 0.5; fill: #8d969b"/>
+          </g>
+          <g id="axis.y.ticklabel.4" data-role="tick-label" data-axis="y" data-index="4" data-kind="text">
+            <text style="font-size: 6.2px; font-family: 'Arial'; text-anchor: end; fill: #1b2838" x="35.972" y="48.730089" transform="rotate(-0 35.972 48.730089)">2.5</text>
+          </g>
+        </g>
+        <g id="axis.y.title" data-role="axis-title" data-axis="y" data-kind="text">
+          <text style="font-size: 7.2px; font-family: 'Arial'; text-anchor: middle; fill: #1b2838" x="18.217438" y="81.702" transform="rotate(-90 18.217438 81.702)">PC 2 (10.2%)</text>
+        </g>
+      </g>
+      <g id="axis.y.spine" data-role="spine" data-axis="y" data-kind="line">
+        <path d="M 41.472 130.356  L 41.472 33.048  " style="fill: none; stroke: #8d969b; stroke-width: 0.55; stroke-linejoin: miter; stroke-linecap: square"/>
+      </g>
+      <g id="axis.x.spine" data-role="spine" data-axis="x" data-kind="line">
+        <path d="M 41.472 130.356  L 221.184 130.356  " style="fill: none; stroke: #8d969b; stroke-width: 0.55; stroke-linejoin: miter; stroke-linecap: square"/>
+      </g>
+      <g id="figure.title" data-role="title" data-kind="text">
+        <text style="font-size: 8.2px; font-family: 'Arial'; text-anchor: start; fill: #1b2838" x="41.472" y="23.048" transform="rotate(-0 41.472 23.048)">Population response geometry</text>
+      </g>
+    </g>
+    <g id="annotation.0" data-role="annotation" data-kind="text">
+      <text style="font-size: 5.2px; font-family: 'Arial'; text-anchor: start; fill: #8d969b" x="18.432" y="179.5608" transform="rotate(-0 18.432 179.5608)">Within-cell standardized tuning · color: preferred direction</text>
+    </g>
+    <g id="legend_1">
+      <g id="line2d_1">
+        <defs>
+          <path id="m10ef91a3cc" d="M 0 1.5  C 0.397805 1.5 0.77937 1.341951 1.06066 1.06066  C 1.341951 0.77937 1.5 0.397805 1.5 0  C 1.5 -0.397805 1.341951 -0.77937 1.06066 -1.06066  C 0.77937 -1.341951 0.397805 -1.5 0 -1.5  C -0.397805 -1.5 -0.77937 -1.341951 -1.06066 -1.06066  C -1.341951 -0.77937 -1.5 -0.397805 -1.5 0  C -1.5 0.397805 -1.341951 0.77937 -1.06066 1.06066  C -0.77937 1.341951 -0.397805 1.5 0 1.5  z "/>
+        </defs>
+        <g>
+          <use xlink:href="#m10ef91a3cc" x="58.678594" y="164.175979" style="fill: #315c80"/>
+        </g>
+      </g>
+      <g id="text_1">
+        <text style="font-size: 4.5px; font-family: 'Arial'; text-anchor: start; fill: #1b2838" x="61.153594" y="165.750979" transform="rotate(-0 61.153594 165.750979)">0°</text>
+      </g>
+      <g id="line2d_2">
+        <defs>
+          <path id="m5297a434ee" d="M 0 1.5  C 0.397805 1.5 0.77937 1.341951 1.06066 1.06066  C 1.341951 0.77937 1.5 0.397805 1.5 0  C 1.5 -0.397805 1.341951 -0.77937 1.06066 -1.06066  C 0.77937 -1.341951 0.397805 -1.5 0 -1.5  C -0.397805 -1.5 -0.77937 -1.341951 -1.06066 -1.06066  C -1.341951 -0.77937 -1.5 -0.397805 -1.5 0  C -1.5 0.397805 -1.341951 0.77937 -1.06066 1.06066  C -0.77937 1.341951 -0.397805 1.5 0 1.5  z "/>
+        </defs>
+        <g>
+          <use xlink:href="#m5297a434ee" x="69.730313" y="164.175979" style="fill: #588fa8"/>
+        </g>
+      </g>
+      <g id="text_2">
+        <text style="font-size: 4.5px; font-family: 'Arial'; text-anchor: start; fill: #1b2838" x="72.205313" y="165.750979" transform="rotate(-0 72.205313 165.750979)">45°</text>
+      </g>
+      <g id="line2d_3">
+        <defs>
+          <path id="ma783516d56" d="M 0 1.5  C 0.397805 1.5 0.77937 1.341951 1.06066 1.06066  C 1.341951 0.77937 1.5 0.397805 1.5 0  C 1.5 -0.397805 1.341951 -0.77937 1.06066 -1.06066  C 0.77937 -1.341951 0.397805 -1.5 0 -1.5  C -0.397805 -1.5 -0.77937 -1.341951 -1.06066 -1.06066  C -1.341951 -0.77937 -1.5 -0.397805 -1.5 0  C -1.5 0.397805 -1.341951 0.77937 -1.06066 1.06066  C -0.77937 1.341951 -0.397805 1.5 0 1.5  z "/>
+        </defs>
+        <g>
+          <use xlink:href="#ma783516d56" x="83.284453" y="164.175979" style="fill: #26857d"/>
+        </g>
+      </g>
+      <g id="text_3">
+        <text style="font-size: 4.5px; font-family: 'Arial'; text-anchor: start; fill: #1b2838" x="85.759453" y="165.750979" transform="rotate(-0 85.759453 165.750979)">90°</text>
+      </g>
+      <g id="line2d_4">
+        <defs>
+          <path id="mdde1c734ad" d="M 0 1.5  C 0.397805 1.5 0.77937 1.341951 1.06066 1.06066  C 1.341951 0.77937 1.5 0.397805 1.5 0  C 1.5 -0.397805 1.341951 -0.77937 1.06066 -1.06066  C 0.77937 -1.341951 0.397805 -1.5 0 -1.5  C -0.397805 -1.5 -0.77937 -1.341951 -1.06066 -1.06066  C -1.341951 -0.77937 -1.5 -0.397805 -1.5 0  C -1.5 0.397805 -1.341951 0.77937 -1.06066 1.06066  C -0.77937 1.341951 -0.397805 1.5 0 1.5  z "/>
+        </defs>
+        <g>
+          <use xlink:href="#mdde1c734ad" x="96.838594" y="164.175979" style="fill: #86a390"/>
+        </g>
+      </g>
+      <g id="text_4">
+        <text style="font-size: 4.5px; font-family: 'Arial'; text-anchor: start; fill: #1b2838" x="99.313594" y="165.750979" transform="rotate(-0 99.313594 165.750979)">135°</text>
+      </g>
+      <g id="line2d_5">
+        <defs>
+          <path id="mb6e28ebc4a" d="M 0 1.5  C 0.397805 1.5 0.77937 1.341951 1.06066 1.06066  C 1.341951 0.77937 1.5 0.397805 1.5 0  C 1.5 -0.397805 1.341951 -0.77937 1.06066 -1.06066  C 0.77937 -1.341951 0.397805 -1.5 0 -1.5  C -0.397805 -1.5 -0.77937 -1.341951 -1.06066 -1.06066  C -1.341951 -0.77937 -1.5 -0.397805 -1.5 0  C -1.5 0.397805 -1.341951 0.77937 -1.06066 1.06066  C -0.77937 1.341951 -0.397805 1.5 0 1.5  z "/>
+        </defs>
+        <g>
+          <use xlink:href="#mb6e28ebc4a" x="112.895156" y="164.175979" style="fill: #c5ab79"/>
+        </g>
+      </g>
+      <g id="text_5">
+        <text style="font-size: 4.5px; font-family: 'Arial'; text-anchor: start; fill: #1b2838" x="115.370156" y="165.750979" transform="rotate(-0 115.370156 165.750979)">180°</text>
+      </g>
+      <g id="line2d_6">
+        <defs>
+          <path id="me80d5ca9a5" d="M 0 1.5  C 0.397805 1.5 0.77937 1.341951 1.06066 1.06066  C 1.341951 0.77937 1.5 0.397805 1.5 0  C 1.5 -0.397805 1.341951 -0.77937 1.06066 -1.06066  C 0.77937 -1.341951 0.397805 -1.5 0 -1.5  C -0.397805 -1.5 -0.77937 -1.341951 -1.06066 -1.06066  C -1.341951 -0.77937 -1.5 -0.397805 -1.5 0  C -1.5 0.397805 -1.341951 0.77937 -1.06066 1.06066  C -0.77937 1.341951 -0.397805 1.5 0 1.5  z "/>
+        </defs>
+        <g>
+          <use xlink:href="#me80d5ca9a5" x="128.951719" y="164.175979" style="fill: #cc8249"/>
+        </g>
+      </g>
+      <g id="text_6">
+        <text style="font-size: 4.5px; font-family: 'Arial'; text-anchor: start; fill: #1b2838" x="131.426719" y="165.750979" transform="rotate(-0 131.426719 165.750979)">225°</text>
+      </g>
+      <g id="line2d_7">
+        <defs>
+          <path id="mcfe1eb88f1" d="M 0 1.5  C 0.397805 1.5 0.77937 1.341951 1.06066 1.06066  C 1.341951 0.77937 1.5 0.397805 1.5 0  C 1.5 -0.397805 1.341951 -0.77937 1.06066 -1.06066  C 0.77937 -1.341951 0.397805 -1.5 0 -1.5  C -0.397805 -1.5 -0.77937 -1.341951 -1.06066 -1.06066  C -1.341951 -0.77937 -1.5 -0.397805 -1.5 0  C -1.5 0.397805 -1.341951 0.77937 -1.06066 1.06066  C -0.77937 1.341951 -0.397805 1.5 0 1.5  z "/>
+        </defs>
+        <g>
+          <use xlink:href="#mcfe1eb88f1" x="145.008281" y="164.175979" style="fill: #895d86"/>
+        </g>
+      </g>
+      <g id="text_7">
+        <text style="font-size: 4.5px; font-family: 'Arial'; text-anchor: start; fill: #1b2838" x="147.483281" y="165.750979" transform="rotate(-0 147.483281 165.750979)">270°</text>
+      </g>
+      <g id="line2d_8">
+        <defs>
+          <path id="mbb1d45053c" d="M 0 1.5  C 0.397805 1.5 0.77937 1.341951 1.06066 1.06066  C 1.341951 0.77937 1.5 0.397805 1.5 0  C 1.5 -0.397805 1.341951 -0.77937 1.06066 -1.06066  C 0.77937 -1.341951 0.397805 -1.5 0 -1.5  C -0.397805 -1.5 -0.77937 -1.341951 -1.06066 -1.06066  C -1.341951 -0.77937 -1.5 -0.397805 -1.5 0  C -1.5 0.397805 -1.341951 0.77937 -1.06066 1.06066  C -0.77937 1.341951 -0.397805 1.5 0 1.5  z "/>
+        </defs>
+        <g>
+          <use xlink:href="#mbb1d45053c" x="161.064844" y="164.175979" style="fill: #63658b"/>
+        </g>
+      </g>
+      <g id="text_8">
+        <text style="font-size: 4.5px; font-family: 'Arial'; text-anchor: start; fill: #1b2838" x="163.539844" y="165.750979" transform="rotate(-0 163.539844 165.750979)">315°</text>
+      </g>
+    </g>
+  </g>
+  <defs>
+    <clipPath id="p062e4bce73">
+      <rect x="41.472" y="33.048" width="179.712" height="97.308"/>
+    </clipPath>
+  </defs>
+</svg>

@@ -1,0 +1,2087 @@
+{
+  "artifact": {
+    "svgSha256": "3215d7a369081d13b7ccd56dc239def35d42e235f9ecb071744b5eb761e852b6"
+  },
+  "axes": [
+    {
+      "id": "plot-area",
+      "pixelBox": {
+        "x0": 41.472,
+        "x1": 221.184,
+        "y0": 33.04800000000001,
+        "y1": 130.35600000000002
+      },
+      "projection": "rectilinear",
+      "svgId": "plot-area",
+      "x": {
+        "anchors": [
+          {
+            "data": -5.930493855336714,
+            "svg": 41.47200000000001
+          },
+          {
+            "data": 4.103679165347804,
+            "svg": 221.18399999999997
+          }
+        ],
+        "domain": [
+          -5.930493855336714,
+          4.103679165347804
+        ],
+        "label": "PC 1 (11.2%)",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "−10",
+            "value": -10.0
+          },
+          {
+            "label": "−5",
+            "value": -5.0
+          },
+          {
+            "label": "0",
+            "value": 0.0
+          },
+          {
+            "label": "5",
+            "value": 5.0
+          }
+        ]
+      },
+      "y": {
+        "anchors": [
+          {
+            "data": -5.398216040677947,
+            "svg": 130.35600000000002
+          },
+          {
+            "data": 3.7640870977990595,
+            "svg": 33.04800000000003
+          }
+        ],
+        "domain": [
+          -5.398216040677947,
+          3.7640870977990595
+        ],
+        "label": "PC 2 (10.2%)",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "−7.5",
+            "value": -7.5
+          },
+          {
+            "label": "−5.0",
+            "value": -5.0
+          },
+          {
+            "label": "−2.5",
+            "value": -2.5
+          },
+          {
+            "label": "0.0",
+            "value": 0.0
+          },
+          {
+            "label": "2.5",
+            "value": 2.5
+          },
+          {
+            "label": "5.0",
+            "value": 5.0
+          }
+        ]
+      }
+    }
+  ],
+  "build": {
+    "order": [
+      "axis.x",
+      "axis.y",
+      "figure.title",
+      "gridlines",
+      "direction-0-scores.points",
+      "direction-45-scores.points",
+      "direction-90-scores.points",
+      "direction-135-scores.points",
+      "direction-180-scores.points",
+      "direction-225-scores.points",
+      "direction-270-scores.points",
+      "direction-315-scores.points",
+      "reference-line.pc1-zero",
+      "reference-line.pc2-zero",
+      "annotation.0"
+    ],
+    "presets": {
+      "axis": {
+        "animation": "draw-on",
+        "durationMs": 400
+      },
+      "gridline": {
+        "animation": "fade-in",
+        "durationMs": 300
+      },
+      "point": {
+        "animation": "stagger-in",
+        "durationMs": 240,
+        "staggerMs": 40
+      },
+      "reference-line": {
+        "animation": "draw-on",
+        "durationMs": 400
+      }
+    }
+  },
+  "generator": {
+    "matplotlib": "3.11.1",
+    "name": "fluxplot",
+    "version": "0.1.0"
+  },
+  "guides": [
+    {
+      "axis": "x",
+      "id": "axis.x",
+      "role": "axis",
+      "svgId": "axis.x"
+    },
+    {
+      "axis": "y",
+      "id": "axis.y",
+      "role": "axis",
+      "svgId": "axis.y"
+    }
+  ],
+  "overlays": [
+    {
+      "id": "reference-line.pc1-zero",
+      "kind": "line",
+      "name": "pc1-zero",
+      "role": "reference-line",
+      "svgId": "reference-line.pc1-zero"
+    },
+    {
+      "id": "reference-line.pc2-zero",
+      "kind": "line",
+      "name": "pc2-zero",
+      "role": "reference-line",
+      "svgId": "reference-line.pc2-zero"
+    },
+    {
+      "id": "annotation.0",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.0",
+      "text": "Within-cell standardized tuning · color: preferred direction"
+    }
+  ],
+  "parts": {
+    "children": [
+      {
+        "children": [
+          {
+            "axis": "x",
+            "children": [
+              {
+                "kind": "line",
+                "ref": "axis.x.spine"
+              },
+              {
+                "groupRole": "tick",
+                "id": "axis.x.ticks",
+                "kind": "line",
+                "members": [
+                  "axis.x.tick.1",
+                  "axis.x.tick.2"
+                ],
+                "role": "group"
+              },
+              {
+                "groupRole": "tick-label",
+                "id": "axis.x.tick-labels",
+                "kind": "text",
+                "members": [
+                  "axis.x.ticklabel.1",
+                  "axis.x.ticklabel.2"
+                ],
+                "role": "group"
+              },
+              {
+                "kind": "text",
+                "ref": "axis.x.title"
+              }
+            ],
+            "id": "axis.x",
+            "kind": "container",
+            "role": "axis"
+          },
+          {
+            "axis": "y",
+            "children": [
+              {
+                "kind": "line",
+                "ref": "axis.y.spine"
+              },
+              {
+                "groupRole": "tick",
+                "id": "axis.y.ticks",
+                "kind": "line",
+                "members": [
+                  "axis.y.tick.1",
+                  "axis.y.tick.2",
+                  "axis.y.tick.3",
+                  "axis.y.tick.4"
+                ],
+                "role": "group"
+              },
+              {
+                "groupRole": "tick-label",
+                "id": "axis.y.tick-labels",
+                "kind": "text",
+                "members": [
+                  "axis.y.ticklabel.1",
+                  "axis.y.ticklabel.2",
+                  "axis.y.ticklabel.3",
+                  "axis.y.ticklabel.4"
+                ],
+                "role": "group"
+              },
+              {
+                "kind": "text",
+                "ref": "axis.y.title"
+              }
+            ],
+            "id": "axis.y",
+            "kind": "container",
+            "role": "axis"
+          },
+          {
+            "children": [
+              {
+                "groupRole": "point",
+                "id": "direction-0-scores.points",
+                "kind": "shape",
+                "members": [
+                  "direction-0-scores.point.0",
+                  "direction-0-scores.point.1",
+                  "direction-0-scores.point.2",
+                  "direction-0-scores.point.3",
+                  "direction-0-scores.point.4",
+                  "direction-0-scores.point.5",
+                  "direction-0-scores.point.6",
+                  "direction-0-scores.point.7",
+                  "direction-0-scores.point.8",
+                  "direction-0-scores.point.9",
+                  "direction-0-scores.point.10",
+                  "direction-0-scores.point.11",
+                  "direction-0-scores.point.12",
+                  "direction-0-scores.point.13",
+                  "direction-0-scores.point.14",
+                  "direction-0-scores.point.15",
+                  "direction-0-scores.point.16",
+                  "direction-0-scores.point.17",
+                  "direction-0-scores.point.18",
+                  "direction-0-scores.point.19",
+                  "direction-0-scores.point.20",
+                  "direction-0-scores.point.21",
+                  "direction-0-scores.point.22",
+                  "direction-0-scores.point.23"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "direction-0-scores",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "groupRole": "point",
+                "id": "direction-45-scores.points",
+                "kind": "shape",
+                "members": [
+                  "direction-45-scores.point.0",
+                  "direction-45-scores.point.1",
+                  "direction-45-scores.point.2",
+                  "direction-45-scores.point.3",
+                  "direction-45-scores.point.4",
+                  "direction-45-scores.point.5",
+                  "direction-45-scores.point.6",
+                  "direction-45-scores.point.7",
+                  "direction-45-scores.point.8",
+                  "direction-45-scores.point.9",
+                  "direction-45-scores.point.10",
+                  "direction-45-scores.point.11",
+                  "direction-45-scores.point.12",
+                  "direction-45-scores.point.13",
+                  "direction-45-scores.point.14",
+                  "direction-45-scores.point.15",
+                  "direction-45-scores.point.16",
+                  "direction-45-scores.point.17",
+                  "direction-45-scores.point.18",
+                  "direction-45-scores.point.19",
+                  "direction-45-scores.point.20",
+                  "direction-45-scores.point.21",
+                  "direction-45-scores.point.22",
+                  "direction-45-scores.point.23",
+                  "direction-45-scores.point.24",
+                  "direction-45-scores.point.25",
+                  "direction-45-scores.point.26",
+                  "direction-45-scores.point.27",
+                  "direction-45-scores.point.28",
+                  "direction-45-scores.point.29",
+                  "direction-45-scores.point.30"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "direction-45-scores",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "groupRole": "point",
+                "id": "direction-90-scores.points",
+                "kind": "shape",
+                "members": [
+                  "direction-90-scores.point.0",
+                  "direction-90-scores.point.1",
+                  "direction-90-scores.point.2",
+                  "direction-90-scores.point.3",
+                  "direction-90-scores.point.4",
+                  "direction-90-scores.point.5",
+                  "direction-90-scores.point.6",
+                  "direction-90-scores.point.7",
+                  "direction-90-scores.point.8",
+                  "direction-90-scores.point.9",
+                  "direction-90-scores.point.10",
+                  "direction-90-scores.point.11",
+                  "direction-90-scores.point.12",
+                  "direction-90-scores.point.13",
+                  "direction-90-scores.point.14",
+                  "direction-90-scores.point.15",
+                  "direction-90-scores.point.16",
+                  "direction-90-scores.point.17",
+                  "direction-90-scores.point.18",
+                  "direction-90-scores.point.19",
+                  "direction-90-scores.point.20"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "direction-90-scores",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "groupRole": "point",
+                "id": "direction-135-scores.points",
+                "kind": "shape",
+                "members": [
+                  "direction-135-scores.point.0",
+                  "direction-135-scores.point.1",
+                  "direction-135-scores.point.2",
+                  "direction-135-scores.point.3",
+                  "direction-135-scores.point.4",
+                  "direction-135-scores.point.5",
+                  "direction-135-scores.point.6",
+                  "direction-135-scores.point.7",
+                  "direction-135-scores.point.8"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "direction-135-scores",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "groupRole": "point",
+                "id": "direction-180-scores.points",
+                "kind": "shape",
+                "members": [
+                  "direction-180-scores.point.0",
+                  "direction-180-scores.point.1",
+                  "direction-180-scores.point.2",
+                  "direction-180-scores.point.3",
+                  "direction-180-scores.point.4",
+                  "direction-180-scores.point.5",
+                  "direction-180-scores.point.6",
+                  "direction-180-scores.point.7",
+                  "direction-180-scores.point.8",
+                  "direction-180-scores.point.9",
+                  "direction-180-scores.point.10",
+                  "direction-180-scores.point.11",
+                  "direction-180-scores.point.12"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "direction-180-scores",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "groupRole": "point",
+                "id": "direction-225-scores.points",
+                "kind": "shape",
+                "members": [
+                  "direction-225-scores.point.0",
+                  "direction-225-scores.point.1",
+                  "direction-225-scores.point.2",
+                  "direction-225-scores.point.3",
+                  "direction-225-scores.point.4",
+                  "direction-225-scores.point.5",
+                  "direction-225-scores.point.6",
+                  "direction-225-scores.point.7",
+                  "direction-225-scores.point.8",
+                  "direction-225-scores.point.9",
+                  "direction-225-scores.point.10",
+                  "direction-225-scores.point.11"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "direction-225-scores",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "groupRole": "point",
+                "id": "direction-270-scores.points",
+                "kind": "shape",
+                "members": [
+                  "direction-270-scores.point.0",
+                  "direction-270-scores.point.1",
+                  "direction-270-scores.point.2",
+                  "direction-270-scores.point.3",
+                  "direction-270-scores.point.4",
+                  "direction-270-scores.point.5",
+                  "direction-270-scores.point.6",
+                  "direction-270-scores.point.7",
+                  "direction-270-scores.point.8",
+                  "direction-270-scores.point.9",
+                  "direction-270-scores.point.10",
+                  "direction-270-scores.point.11",
+                  "direction-270-scores.point.12",
+                  "direction-270-scores.point.13",
+                  "direction-270-scores.point.14",
+                  "direction-270-scores.point.15",
+                  "direction-270-scores.point.16",
+                  "direction-270-scores.point.17",
+                  "direction-270-scores.point.18"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "direction-270-scores",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "groupRole": "point",
+                "id": "direction-315-scores.points",
+                "kind": "shape",
+                "members": [
+                  "direction-315-scores.point.0",
+                  "direction-315-scores.point.1",
+                  "direction-315-scores.point.2",
+                  "direction-315-scores.point.3",
+                  "direction-315-scores.point.4",
+                  "direction-315-scores.point.5",
+                  "direction-315-scores.point.6",
+                  "direction-315-scores.point.7",
+                  "direction-315-scores.point.8",
+                  "direction-315-scores.point.9",
+                  "direction-315-scores.point.10",
+                  "direction-315-scores.point.11",
+                  "direction-315-scores.point.12",
+                  "direction-315-scores.point.13"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "direction-315-scores",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "kind": "line",
+            "ref": "reference-line.pc1-zero"
+          },
+          {
+            "kind": "line",
+            "ref": "reference-line.pc2-zero"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.0"
+          }
+        ],
+        "id": "plot-area",
+        "kind": "container",
+        "role": "plot-area"
+      },
+      {
+        "kind": "text",
+        "ref": "figure.title"
+      }
+    ],
+    "id": "figure",
+    "kind": "container",
+    "role": "figure"
+  },
+  "plotType": "scatter",
+  "schemaVersion": "0.3.0",
+  "series": [
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "members": [
+            "direction-0-scores.point.0",
+            "direction-0-scores.point.1",
+            "direction-0-scores.point.2",
+            "direction-0-scores.point.3",
+            "direction-0-scores.point.4",
+            "direction-0-scores.point.5",
+            "direction-0-scores.point.6",
+            "direction-0-scores.point.7",
+            "direction-0-scores.point.8",
+            "direction-0-scores.point.9",
+            "direction-0-scores.point.10",
+            "direction-0-scores.point.11",
+            "direction-0-scores.point.12",
+            "direction-0-scores.point.13",
+            "direction-0-scores.point.14",
+            "direction-0-scores.point.15",
+            "direction-0-scores.point.16",
+            "direction-0-scores.point.17",
+            "direction-0-scores.point.18",
+            "direction-0-scores.point.19",
+            "direction-0-scores.point.20",
+            "direction-0-scores.point.21",
+            "direction-0-scores.point.22",
+            "direction-0-scores.point.23"
+          ],
+          "role": "point",
+          "svgId": "direction-0-scores.points"
+        }
+      ],
+      "data": {
+        "x": [
+          -0.500701755408953,
+          2.0471024166187286,
+          -1.03387055098196,
+          1.310765940633333,
+          -0.10814130509378211,
+          -0.7405436567739431,
+          -0.4723370354115318,
+          -0.9891579407489435,
+          2.3086311834203785,
+          0.4414766837537636,
+          -0.10563253782218435,
+          -0.9436336426739301,
+          0.4489645672245864,
+          -0.1666731491017153,
+          1.0236759172926202,
+          -3.9925753695757256,
+          1.038461735458549,
+          2.2889127030841854,
+          -0.7087621338373593,
+          1.3808417934215877,
+          -0.7780308586909878,
+          -0.43283520406405496,
+          1.29896711192175,
+          -0.5439000098213284
+        ],
+        "y": [
+          2.2240151904779206,
+          0.3102221961907872,
+          3.002813662491803,
+          1.864756361480824,
+          0.6914471136869657,
+          0.1211279013150534,
+          2.9869071740917383,
+          1.169171732354662,
+          1.4949365981883755,
+          2.0439441383439108,
+          2.626907454824518,
+          1.7478833797643556,
+          1.7333529943669566,
+          1.4193364773696096,
+          -1.3077651528853935,
+          1.1868108715589556,
+          2.89795365066196,
+          0.16970587034041787,
+          -1.375046057534625,
+          0.8736167824378065,
+          1.5558318360468069,
+          1.0087984138589252,
+          0.2557220511485212,
+          3.3264749220276277
+        ]
+      },
+      "id": "direction-0-scores",
+      "kind": "scatter",
+      "name": "direction-0-scores",
+      "points": [
+        {
+          "index": 0,
+          "svgId": "direction-0-scores.point.0",
+          "x": -0.500701755408953,
+          "y": 2.2240151904779206
+        },
+        {
+          "index": 1,
+          "svgId": "direction-0-scores.point.1",
+          "x": 2.0471024166187286,
+          "y": 0.3102221961907872
+        },
+        {
+          "index": 2,
+          "svgId": "direction-0-scores.point.2",
+          "x": -1.03387055098196,
+          "y": 3.002813662491803
+        },
+        {
+          "index": 3,
+          "svgId": "direction-0-scores.point.3",
+          "x": 1.310765940633333,
+          "y": 1.864756361480824
+        },
+        {
+          "index": 4,
+          "svgId": "direction-0-scores.point.4",
+          "x": -0.10814130509378211,
+          "y": 0.6914471136869657
+        },
+        {
+          "index": 5,
+          "svgId": "direction-0-scores.point.5",
+          "x": -0.7405436567739431,
+          "y": 0.1211279013150534
+        },
+        {
+          "index": 6,
+          "svgId": "direction-0-scores.point.6",
+          "x": -0.4723370354115318,
+          "y": 2.9869071740917383
+        },
+        {
+          "index": 7,
+          "svgId": "direction-0-scores.point.7",
+          "x": -0.9891579407489435,
+          "y": 1.169171732354662
+        },
+        {
+          "index": 8,
+          "svgId": "direction-0-scores.point.8",
+          "x": 2.3086311834203785,
+          "y": 1.4949365981883755
+        },
+        {
+          "index": 9,
+          "svgId": "direction-0-scores.point.9",
+          "x": 0.4414766837537636,
+          "y": 2.0439441383439108
+        },
+        {
+          "index": 10,
+          "svgId": "direction-0-scores.point.10",
+          "x": -0.10563253782218435,
+          "y": 2.626907454824518
+        },
+        {
+          "index": 11,
+          "svgId": "direction-0-scores.point.11",
+          "x": -0.9436336426739301,
+          "y": 1.7478833797643556
+        },
+        {
+          "index": 12,
+          "svgId": "direction-0-scores.point.12",
+          "x": 0.4489645672245864,
+          "y": 1.7333529943669566
+        },
+        {
+          "index": 13,
+          "svgId": "direction-0-scores.point.13",
+          "x": -0.1666731491017153,
+          "y": 1.4193364773696096
+        },
+        {
+          "index": 14,
+          "svgId": "direction-0-scores.point.14",
+          "x": 1.0236759172926202,
+          "y": -1.3077651528853935
+        },
+        {
+          "index": 15,
+          "svgId": "direction-0-scores.point.15",
+          "x": -3.9925753695757256,
+          "y": 1.1868108715589556
+        },
+        {
+          "index": 16,
+          "svgId": "direction-0-scores.point.16",
+          "x": 1.038461735458549,
+          "y": 2.89795365066196
+        },
+        {
+          "index": 17,
+          "svgId": "direction-0-scores.point.17",
+          "x": 2.2889127030841854,
+          "y": 0.16970587034041787
+        },
+        {
+          "index": 18,
+          "svgId": "direction-0-scores.point.18",
+          "x": -0.7087621338373593,
+          "y": -1.375046057534625
+        },
+        {
+          "index": 19,
+          "svgId": "direction-0-scores.point.19",
+          "x": 1.3808417934215877,
+          "y": 0.8736167824378065
+        },
+        {
+          "index": 20,
+          "svgId": "direction-0-scores.point.20",
+          "x": -0.7780308586909878,
+          "y": 1.5558318360468069
+        },
+        {
+          "index": 21,
+          "svgId": "direction-0-scores.point.21",
+          "x": -0.43283520406405496,
+          "y": 1.0087984138589252
+        },
+        {
+          "index": 22,
+          "svgId": "direction-0-scores.point.22",
+          "x": 1.29896711192175,
+          "y": 0.2557220511485212
+        },
+        {
+          "index": 23,
+          "svgId": "direction-0-scores.point.23",
+          "x": -0.5439000098213284,
+          "y": 3.3264749220276277
+        }
+      ],
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "direction-0-scores.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "members": [
+            "direction-45-scores.point.0",
+            "direction-45-scores.point.1",
+            "direction-45-scores.point.2",
+            "direction-45-scores.point.3",
+            "direction-45-scores.point.4",
+            "direction-45-scores.point.5",
+            "direction-45-scores.point.6",
+            "direction-45-scores.point.7",
+            "direction-45-scores.point.8",
+            "direction-45-scores.point.9",
+            "direction-45-scores.point.10",
+            "direction-45-scores.point.11",
+            "direction-45-scores.point.12",
+            "direction-45-scores.point.13",
+            "direction-45-scores.point.14",
+            "direction-45-scores.point.15",
+            "direction-45-scores.point.16",
+            "direction-45-scores.point.17",
+            "direction-45-scores.point.18",
+            "direction-45-scores.point.19",
+            "direction-45-scores.point.20",
+            "direction-45-scores.point.21",
+            "direction-45-scores.point.22",
+            "direction-45-scores.point.23",
+            "direction-45-scores.point.24",
+            "direction-45-scores.point.25",
+            "direction-45-scores.point.26",
+            "direction-45-scores.point.27",
+            "direction-45-scores.point.28",
+            "direction-45-scores.point.29",
+            "direction-45-scores.point.30"
+          ],
+          "role": "point",
+          "svgId": "direction-45-scores.points"
+        }
+      ],
+      "data": {
+        "x": [
+          1.9992664527057569,
+          2.8711886766850268,
+          3.4942920993261164,
+          0.5096029098617363,
+          1.6884419990841018,
+          -2.5321218224758657,
+          1.5866593915857343,
+          1.1384953383040266,
+          2.894573296007092,
+          3.470821423407978,
+          0.5431320426747612,
+          3.2345640765007695,
+          2.382467597001055,
+          3.102447170407809,
+          -0.18413831130576586,
+          1.1289546530584027,
+          1.0888572160722993,
+          1.631089090649173,
+          1.9140110629886076,
+          3.647580391680326,
+          1.5001286264051974,
+          -0.08538772698565193,
+          -2.755340224488745,
+          -0.8418744913674027,
+          2.2929929391942347,
+          2.715821101147433,
+          0.5527265028557796,
+          2.4194716477610556,
+          2.195270939468404,
+          0.9766455655398638,
+          2.21725545858586
+        ],
+        "y": [
+          -2.341512922613308,
+          -0.05733789152188435,
+          -2.484700288368403,
+          -4.973186564312139,
+          -4.98174771620172,
+          0.011579464384965404,
+          -0.7351301799682096,
+          -0.2514625536286688,
+          -2.5003448298190474,
+          -0.47549818554002066,
+          -2.6144163803438936,
+          -1.030572096743271,
+          0.5195848591544802,
+          -3.4092385928844684,
+          0.1821720596177469,
+          -0.19214768457062845,
+          -1.5007220452307608,
+          -0.7455938085063736,
+          -0.6083716984736643,
+          -3.773477713839506,
+          1.4674718877158732,
+          1.9800511525883113,
+          -3.0634930925466795,
+          -1.6346665586734623,
+          -1.631601818340097,
+          -1.9564417398184868,
+          -1.0925928688869755,
+          -4.795901477481437,
+          -2.3482414345081764,
+          -1.7113677531289582,
+          -3.093165197466822
+        ]
+      },
+      "id": "direction-45-scores",
+      "kind": "scatter",
+      "name": "direction-45-scores",
+      "points": [
+        {
+          "index": 0,
+          "svgId": "direction-45-scores.point.0",
+          "x": 1.9992664527057569,
+          "y": -2.341512922613308
+        },
+        {
+          "index": 1,
+          "svgId": "direction-45-scores.point.1",
+          "x": 2.8711886766850268,
+          "y": -0.05733789152188435
+        },
+        {
+          "index": 2,
+          "svgId": "direction-45-scores.point.2",
+          "x": 3.4942920993261164,
+          "y": -2.484700288368403
+        },
+        {
+          "index": 3,
+          "svgId": "direction-45-scores.point.3",
+          "x": 0.5096029098617363,
+          "y": -4.973186564312139
+        },
+        {
+          "index": 4,
+          "svgId": "direction-45-scores.point.4",
+          "x": 1.6884419990841018,
+          "y": -4.98174771620172
+        },
+        {
+          "index": 5,
+          "svgId": "direction-45-scores.point.5",
+          "x": -2.5321218224758657,
+          "y": 0.011579464384965404
+        },
+        {
+          "index": 6,
+          "svgId": "direction-45-scores.point.6",
+          "x": 1.5866593915857343,
+          "y": -0.7351301799682096
+        },
+        {
+          "index": 7,
+          "svgId": "direction-45-scores.point.7",
+          "x": 1.1384953383040266,
+          "y": -0.2514625536286688
+        },
+        {
+          "index": 8,
+          "svgId": "direction-45-scores.point.8",
+          "x": 2.894573296007092,
+          "y": -2.5003448298190474
+        },
+        {
+          "index": 9,
+          "svgId": "direction-45-scores.point.9",
+          "x": 3.470821423407978,
+          "y": -0.47549818554002066
+        },
+        {
+          "index": 10,
+          "svgId": "direction-45-scores.point.10",
+          "x": 0.5431320426747612,
+          "y": -2.6144163803438936
+        },
+        {
+          "index": 11,
+          "svgId": "direction-45-scores.point.11",
+          "x": 3.2345640765007695,
+          "y": -1.030572096743271
+        },
+        {
+          "index": 12,
+          "svgId": "direction-45-scores.point.12",
+          "x": 2.382467597001055,
+          "y": 0.5195848591544802
+        },
+        {
+          "index": 13,
+          "svgId": "direction-45-scores.point.13",
+          "x": 3.102447170407809,
+          "y": -3.4092385928844684
+        },
+        {
+          "index": 14,
+          "svgId": "direction-45-scores.point.14",
+          "x": -0.18413831130576586,
+          "y": 0.1821720596177469
+        },
+        {
+          "index": 15,
+          "svgId": "direction-45-scores.point.15",
+          "x": 1.1289546530584027,
+          "y": -0.19214768457062845
+        },
+        {
+          "index": 16,
+          "svgId": "direction-45-scores.point.16",
+          "x": 1.0888572160722993,
+          "y": -1.5007220452307608
+        },
+        {
+          "index": 17,
+          "svgId": "direction-45-scores.point.17",
+          "x": 1.631089090649173,
+          "y": -0.7455938085063736
+        },
+        {
+          "index": 18,
+          "svgId": "direction-45-scores.point.18",
+          "x": 1.9140110629886076,
+          "y": -0.6083716984736643
+        },
+        {
+          "index": 19,
+          "svgId": "direction-45-scores.point.19",
+          "x": 3.647580391680326,
+          "y": -3.773477713839506
+        },
+        {
+          "index": 20,
+          "svgId": "direction-45-scores.point.20",
+          "x": 1.5001286264051974,
+          "y": 1.4674718877158732
+        },
+        {
+          "index": 21,
+          "svgId": "direction-45-scores.point.21",
+          "x": -0.08538772698565193,
+          "y": 1.9800511525883113
+        },
+        {
+          "index": 22,
+          "svgId": "direction-45-scores.point.22",
+          "x": -2.755340224488745,
+          "y": -3.0634930925466795
+        },
+        {
+          "index": 23,
+          "svgId": "direction-45-scores.point.23",
+          "x": -0.8418744913674027,
+          "y": -1.6346665586734623
+        },
+        {
+          "index": 24,
+          "svgId": "direction-45-scores.point.24",
+          "x": 2.2929929391942347,
+          "y": -1.631601818340097
+        },
+        {
+          "index": 25,
+          "svgId": "direction-45-scores.point.25",
+          "x": 2.715821101147433,
+          "y": -1.9564417398184868
+        },
+        {
+          "index": 26,
+          "svgId": "direction-45-scores.point.26",
+          "x": 0.5527265028557796,
+          "y": -1.0925928688869755
+        },
+        {
+          "index": 27,
+          "svgId": "direction-45-scores.point.27",
+          "x": 2.4194716477610556,
+          "y": -4.795901477481437
+        },
+        {
+          "index": 28,
+          "svgId": "direction-45-scores.point.28",
+          "x": 2.195270939468404,
+          "y": -2.3482414345081764
+        },
+        {
+          "index": 29,
+          "svgId": "direction-45-scores.point.29",
+          "x": 0.9766455655398638,
+          "y": -1.7113677531289582
+        },
+        {
+          "index": 30,
+          "svgId": "direction-45-scores.point.30",
+          "x": 2.21725545858586,
+          "y": -3.093165197466822
+        }
+      ],
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "direction-45-scores.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "members": [
+            "direction-90-scores.point.0",
+            "direction-90-scores.point.1",
+            "direction-90-scores.point.2",
+            "direction-90-scores.point.3",
+            "direction-90-scores.point.4",
+            "direction-90-scores.point.5",
+            "direction-90-scores.point.6",
+            "direction-90-scores.point.7",
+            "direction-90-scores.point.8",
+            "direction-90-scores.point.9",
+            "direction-90-scores.point.10",
+            "direction-90-scores.point.11",
+            "direction-90-scores.point.12",
+            "direction-90-scores.point.13",
+            "direction-90-scores.point.14",
+            "direction-90-scores.point.15",
+            "direction-90-scores.point.16",
+            "direction-90-scores.point.17",
+            "direction-90-scores.point.18",
+            "direction-90-scores.point.19",
+            "direction-90-scores.point.20"
+          ],
+          "role": "point",
+          "svgId": "direction-90-scores.points"
+        }
+      ],
+      "data": {
+        "x": [
+          -2.5991569427998846,
+          -3.5586355034940884,
+          -0.39632444830963964,
+          -1.2711273048519827,
+          0.7419685595081718,
+          -0.5522834099031249,
+          -0.8003879638949662,
+          -0.46103685646740866,
+          -0.2020484619458777,
+          1.0490493685962232,
+          -0.6824521842585471,
+          0.2971503677378835,
+          3.185142433226712,
+          -0.4512347985268174,
+          1.7081752433369217,
+          0.25097841455429826,
+          -0.2767133196454042,
+          1.1668374341839238,
+          0.37458840462134596,
+          -1.8107208546820523,
+          2.4100399405557575
+        ],
+        "y": [
+          -1.4157047502547802,
+          -1.4641853606237873,
+          1.7817734260591043,
+          2.363712560510773,
+          3.3336797627702057,
+          -0.38979113528133014,
+          1.793981353730755,
+          0.0945527360671603,
+          1.6865533273574782,
+          1.8080885515653777,
+          2.530563426438782,
+          1.5510123283910158,
+          -0.47360887378199606,
+          2.428192846412676,
+          2.05457353610949,
+          -0.8795422512001573,
+          -0.34377592486268216,
+          1.5825462660486418,
+          2.9360044006309507,
+          1.4698661108484636,
+          -0.09948885511882098
+        ]
+      },
+      "id": "direction-90-scores",
+      "kind": "scatter",
+      "name": "direction-90-scores",
+      "points": [
+        {
+          "index": 0,
+          "svgId": "direction-90-scores.point.0",
+          "x": -2.5991569427998846,
+          "y": -1.4157047502547802
+        },
+        {
+          "index": 1,
+          "svgId": "direction-90-scores.point.1",
+          "x": -3.5586355034940884,
+          "y": -1.4641853606237873
+        },
+        {
+          "index": 2,
+          "svgId": "direction-90-scores.point.2",
+          "x": -0.39632444830963964,
+          "y": 1.7817734260591043
+        },
+        {
+          "index": 3,
+          "svgId": "direction-90-scores.point.3",
+          "x": -1.2711273048519827,
+          "y": 2.363712560510773
+        },
+        {
+          "index": 4,
+          "svgId": "direction-90-scores.point.4",
+          "x": 0.7419685595081718,
+          "y": 3.3336797627702057
+        },
+        {
+          "index": 5,
+          "svgId": "direction-90-scores.point.5",
+          "x": -0.5522834099031249,
+          "y": -0.38979113528133014
+        },
+        {
+          "index": 6,
+          "svgId": "direction-90-scores.point.6",
+          "x": -0.8003879638949662,
+          "y": 1.793981353730755
+        },
+        {
+          "index": 7,
+          "svgId": "direction-90-scores.point.7",
+          "x": -0.46103685646740866,
+          "y": 0.0945527360671603
+        },
+        {
+          "index": 8,
+          "svgId": "direction-90-scores.point.8",
+          "x": -0.2020484619458777,
+          "y": 1.6865533273574782
+        },
+        {
+          "index": 9,
+          "svgId": "direction-90-scores.point.9",
+          "x": 1.0490493685962232,
+          "y": 1.8080885515653777
+        },
+        {
+          "index": 10,
+          "svgId": "direction-90-scores.point.10",
+          "x": -0.6824521842585471,
+          "y": 2.530563426438782
+        },
+        {
+          "index": 11,
+          "svgId": "direction-90-scores.point.11",
+          "x": 0.2971503677378835,
+          "y": 1.5510123283910158
+        },
+        {
+          "index": 12,
+          "svgId": "direction-90-scores.point.12",
+          "x": 3.185142433226712,
+          "y": -0.47360887378199606
+        },
+        {
+          "index": 13,
+          "svgId": "direction-90-scores.point.13",
+          "x": -0.4512347985268174,
+          "y": 2.428192846412676
+        },
+        {
+          "index": 14,
+          "svgId": "direction-90-scores.point.14",
+          "x": 1.7081752433369217,
+          "y": 2.05457353610949
+        },
+        {
+          "index": 15,
+          "svgId": "direction-90-scores.point.15",
+          "x": 0.25097841455429826,
+          "y": -0.8795422512001573
+        },
+        {
+          "index": 16,
+          "svgId": "direction-90-scores.point.16",
+          "x": -0.2767133196454042,
+          "y": -0.34377592486268216
+        },
+        {
+          "index": 17,
+          "svgId": "direction-90-scores.point.17",
+          "x": 1.1668374341839238,
+          "y": 1.5825462660486418
+        },
+        {
+          "index": 18,
+          "svgId": "direction-90-scores.point.18",
+          "x": 0.37458840462134596,
+          "y": 2.9360044006309507
+        },
+        {
+          "index": 19,
+          "svgId": "direction-90-scores.point.19",
+          "x": -1.8107208546820523,
+          "y": 1.4698661108484636
+        },
+        {
+          "index": 20,
+          "svgId": "direction-90-scores.point.20",
+          "x": 2.4100399405557575,
+          "y": -0.09948885511882098
+        }
+      ],
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "direction-90-scores.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "members": [
+            "direction-135-scores.point.0",
+            "direction-135-scores.point.1",
+            "direction-135-scores.point.2",
+            "direction-135-scores.point.3",
+            "direction-135-scores.point.4",
+            "direction-135-scores.point.5",
+            "direction-135-scores.point.6",
+            "direction-135-scores.point.7",
+            "direction-135-scores.point.8"
+          ],
+          "role": "point",
+          "svgId": "direction-135-scores.points"
+        }
+      ],
+      "data": {
+        "x": [
+          -0.8621665453583087,
+          -5.214721955411166,
+          -5.474395081669235,
+          -4.039398425333149,
+          0.25541007656644316,
+          -2.1421457725988557,
+          0.9305112390471628,
+          -1.8019025242545241,
+          -3.51436769636687
+        ],
+        "y": [
+          0.0028452943764021876,
+          -1.2881154230349545,
+          -3.1676724501179163,
+          -3.0342118189179437,
+          -0.3999946864133521,
+          -2.2426765755515103,
+          -0.45512404256242156,
+          0.16594667124664705,
+          -0.35966925134852973
+        ]
+      },
+      "id": "direction-135-scores",
+      "kind": "scatter",
+      "name": "direction-135-scores",
+      "points": [
+        {
+          "index": 0,
+          "svgId": "direction-135-scores.point.0",
+          "x": -0.8621665453583087,
+          "y": 0.0028452943764021876
+        },
+        {
+          "index": 1,
+          "svgId": "direction-135-scores.point.1",
+          "x": -5.214721955411166,
+          "y": -1.2881154230349545
+        },
+        {
+          "index": 2,
+          "svgId": "direction-135-scores.point.2",
+          "x": -5.474395081669235,
+          "y": -3.1676724501179163
+        },
+        {
+          "index": 3,
+          "svgId": "direction-135-scores.point.3",
+          "x": -4.039398425333149,
+          "y": -3.0342118189179437
+        },
+        {
+          "index": 4,
+          "svgId": "direction-135-scores.point.4",
+          "x": 0.25541007656644316,
+          "y": -0.3999946864133521
+        },
+        {
+          "index": 5,
+          "svgId": "direction-135-scores.point.5",
+          "x": -2.1421457725988557,
+          "y": -2.2426765755515103
+        },
+        {
+          "index": 6,
+          "svgId": "direction-135-scores.point.6",
+          "x": 0.9305112390471628,
+          "y": -0.45512404256242156
+        },
+        {
+          "index": 7,
+          "svgId": "direction-135-scores.point.7",
+          "x": -1.8019025242545241,
+          "y": 0.16594667124664705
+        },
+        {
+          "index": 8,
+          "svgId": "direction-135-scores.point.8",
+          "x": -3.51436769636687,
+          "y": -0.35966925134852973
+        }
+      ],
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "direction-135-scores.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "members": [
+            "direction-180-scores.point.0",
+            "direction-180-scores.point.1",
+            "direction-180-scores.point.2",
+            "direction-180-scores.point.3",
+            "direction-180-scores.point.4",
+            "direction-180-scores.point.5",
+            "direction-180-scores.point.6",
+            "direction-180-scores.point.7",
+            "direction-180-scores.point.8",
+            "direction-180-scores.point.9",
+            "direction-180-scores.point.10",
+            "direction-180-scores.point.11",
+            "direction-180-scores.point.12"
+          ],
+          "role": "point",
+          "svgId": "direction-180-scores.points"
+        }
+      ],
+      "data": {
+        "x": [
+          -0.6564848401467945,
+          -0.5808607987626591,
+          -0.07054598490684492,
+          -0.6826779883794091,
+          -1.4012981053764573,
+          -0.5760913116786041,
+          -0.2541327235460774,
+          -0.4685998855447487,
+          -2.115790527565624,
+          0.9807321900575385,
+          -0.5344449563925486,
+          2.7479526289464435,
+          -1.2643691081670674
+        ],
+        "y": [
+          0.27575924743322033,
+          3.1098422267249646,
+          1.0888994284589084,
+          2.540080959464951,
+          -0.028465312542725326,
+          0.4767335612053413,
+          2.3159729475788513,
+          2.0470381138909866,
+          0.8753611336527534,
+          0.7098510818650492,
+          1.6229561841709013,
+          1.0007514227027698,
+          -0.8279276676894568
+        ]
+      },
+      "id": "direction-180-scores",
+      "kind": "scatter",
+      "name": "direction-180-scores",
+      "points": [
+        {
+          "index": 0,
+          "svgId": "direction-180-scores.point.0",
+          "x": -0.6564848401467945,
+          "y": 0.27575924743322033
+        },
+        {
+          "index": 1,
+          "svgId": "direction-180-scores.point.1",
+          "x": -0.5808607987626591,
+          "y": 3.1098422267249646
+        },
+        {
+          "index": 2,
+          "svgId": "direction-180-scores.point.2",
+          "x": -0.07054598490684492,
+          "y": 1.0888994284589084
+        },
+        {
+          "index": 3,
+          "svgId": "direction-180-scores.point.3",
+          "x": -0.6826779883794091,
+          "y": 2.540080959464951
+        },
+        {
+          "index": 4,
+          "svgId": "direction-180-scores.point.4",
+          "x": -1.4012981053764573,
+          "y": -0.028465312542725326
+        },
+        {
+          "index": 5,
+          "svgId": "direction-180-scores.point.5",
+          "x": -0.5760913116786041,
+          "y": 0.4767335612053413
+        },
+        {
+          "index": 6,
+          "svgId": "direction-180-scores.point.6",
+          "x": -0.2541327235460774,
+          "y": 2.3159729475788513
+        },
+        {
+          "index": 7,
+          "svgId": "direction-180-scores.point.7",
+          "x": -0.4685998855447487,
+          "y": 2.0470381138909866
+        },
+        {
+          "index": 8,
+          "svgId": "direction-180-scores.point.8",
+          "x": -2.115790527565624,
+          "y": 0.8753611336527534
+        },
+        {
+          "index": 9,
+          "svgId": "direction-180-scores.point.9",
+          "x": 0.9807321900575385,
+          "y": 0.7098510818650492
+        },
+        {
+          "index": 10,
+          "svgId": "direction-180-scores.point.10",
+          "x": -0.5344449563925486,
+          "y": 1.6229561841709013
+        },
+        {
+          "index": 11,
+          "svgId": "direction-180-scores.point.11",
+          "x": 2.7479526289464435,
+          "y": 1.0007514227027698
+        },
+        {
+          "index": 12,
+          "svgId": "direction-180-scores.point.12",
+          "x": -1.2643691081670674,
+          "y": -0.8279276676894568
+        }
+      ],
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "direction-180-scores.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "members": [
+            "direction-225-scores.point.0",
+            "direction-225-scores.point.1",
+            "direction-225-scores.point.2",
+            "direction-225-scores.point.3",
+            "direction-225-scores.point.4",
+            "direction-225-scores.point.5",
+            "direction-225-scores.point.6",
+            "direction-225-scores.point.7",
+            "direction-225-scores.point.8",
+            "direction-225-scores.point.9",
+            "direction-225-scores.point.10",
+            "direction-225-scores.point.11"
+          ],
+          "role": "point",
+          "svgId": "direction-225-scores.points"
+        }
+      ],
+      "data": {
+        "x": [
+          2.221864026017232,
+          0.4506788159331279,
+          0.31458037044047876,
+          3.325553347809219,
+          1.6194493490440172,
+          1.8592117336600718,
+          1.4458507564566543,
+          3.351201975717895,
+          1.5325250531286294,
+          -0.1737656655675036,
+          2.5475250675930217,
+          2.8423428742811803
+        ],
+        "y": [
+          0.24400417862461718,
+          -0.3434809944307642,
+          -3.547040640563897,
+          -1.7121795972232277,
+          -1.344597183437457,
+          0.7294604424744728,
+          0.13013797741994548,
+          -1.9267475676106933,
+          -1.1825206028324293,
+          0.4418397243272219,
+          -0.9682823955835778,
+          1.1901410651336526
+        ]
+      },
+      "id": "direction-225-scores",
+      "kind": "scatter",
+      "name": "direction-225-scores",
+      "points": [
+        {
+          "index": 0,
+          "svgId": "direction-225-scores.point.0",
+          "x": 2.221864026017232,
+          "y": 0.24400417862461718
+        },
+        {
+          "index": 1,
+          "svgId": "direction-225-scores.point.1",
+          "x": 0.4506788159331279,
+          "y": -0.3434809944307642
+        },
+        {
+          "index": 2,
+          "svgId": "direction-225-scores.point.2",
+          "x": 0.31458037044047876,
+          "y": -3.547040640563897
+        },
+        {
+          "index": 3,
+          "svgId": "direction-225-scores.point.3",
+          "x": 3.325553347809219,
+          "y": -1.7121795972232277
+        },
+        {
+          "index": 4,
+          "svgId": "direction-225-scores.point.4",
+          "x": 1.6194493490440172,
+          "y": -1.344597183437457
+        },
+        {
+          "index": 5,
+          "svgId": "direction-225-scores.point.5",
+          "x": 1.8592117336600718,
+          "y": 0.7294604424744728
+        },
+        {
+          "index": 6,
+          "svgId": "direction-225-scores.point.6",
+          "x": 1.4458507564566543,
+          "y": 0.13013797741994548
+        },
+        {
+          "index": 7,
+          "svgId": "direction-225-scores.point.7",
+          "x": 3.351201975717895,
+          "y": -1.9267475676106933
+        },
+        {
+          "index": 8,
+          "svgId": "direction-225-scores.point.8",
+          "x": 1.5325250531286294,
+          "y": -1.1825206028324293
+        },
+        {
+          "index": 9,
+          "svgId": "direction-225-scores.point.9",
+          "x": -0.1737656655675036,
+          "y": 0.4418397243272219
+        },
+        {
+          "index": 10,
+          "svgId": "direction-225-scores.point.10",
+          "x": 2.5475250675930217,
+          "y": -0.9682823955835778
+        },
+        {
+          "index": 11,
+          "svgId": "direction-225-scores.point.11",
+          "x": 2.8423428742811803,
+          "y": 1.1901410651336526
+        }
+      ],
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "direction-225-scores.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "members": [
+            "direction-270-scores.point.0",
+            "direction-270-scores.point.1",
+            "direction-270-scores.point.2",
+            "direction-270-scores.point.3",
+            "direction-270-scores.point.4",
+            "direction-270-scores.point.5",
+            "direction-270-scores.point.6",
+            "direction-270-scores.point.7",
+            "direction-270-scores.point.8",
+            "direction-270-scores.point.9",
+            "direction-270-scores.point.10",
+            "direction-270-scores.point.11",
+            "direction-270-scores.point.12",
+            "direction-270-scores.point.13",
+            "direction-270-scores.point.14",
+            "direction-270-scores.point.15",
+            "direction-270-scores.point.16",
+            "direction-270-scores.point.17",
+            "direction-270-scores.point.18"
+          ],
+          "role": "point",
+          "svgId": "direction-270-scores.points"
+        }
+      ],
+      "data": {
+        "x": [
+          1.7784693539019145,
+          -2.063328766552062,
+          0.15343649198532985,
+          -0.7752685373244294,
+          -2.083453311127009,
+          -1.0630891497374177,
+          -0.0757358482945051,
+          1.5340328159346877,
+          1.661697630124543,
+          -0.2833906139708787,
+          1.426635915526675,
+          -1.9941876583843245,
+          0.8073382408849539,
+          -1.70452197599736,
+          -1.4519780553418553,
+          0.23718803861824805,
+          0.5478312592763458,
+          -0.6880664292438723,
+          0.45992505524615607
+        ],
+        "y": [
+          1.5563386545649442,
+          0.4882222272599282,
+          2.6106820345504653,
+          3.3476187733228318,
+          1.4665686519731342,
+          1.141475006767689,
+          -0.9374683534030747,
+          1.271576891558107,
+          1.6191404220477006,
+          1.3168724225900497,
+          2.454932151746431,
+          0.49569010913146244,
+          0.7929686268119148,
+          2.0158070280633362,
+          1.791723253165468,
+          -0.26091440220009726,
+          1.746732227157769,
+          -1.0916212730300698,
+          1.4191345967716198
+        ]
+      },
+      "id": "direction-270-scores",
+      "kind": "scatter",
+      "name": "direction-270-scores",
+      "points": [
+        {
+          "index": 0,
+          "svgId": "direction-270-scores.point.0",
+          "x": 1.7784693539019145,
+          "y": 1.5563386545649442
+        },
+        {
+          "index": 1,
+          "svgId": "direction-270-scores.point.1",
+          "x": -2.063328766552062,
+          "y": 0.4882222272599282
+        },
+        {
+          "index": 2,
+          "svgId": "direction-270-scores.point.2",
+          "x": 0.15343649198532985,
+          "y": 2.6106820345504653
+        },
+        {
+          "index": 3,
+          "svgId": "direction-270-scores.point.3",
+          "x": -0.7752685373244294,
+          "y": 3.3476187733228318
+        },
+        {
+          "index": 4,
+          "svgId": "direction-270-scores.point.4",
+          "x": -2.083453311127009,
+          "y": 1.4665686519731342
+        },
+        {
+          "index": 5,
+          "svgId": "direction-270-scores.point.5",
+          "x": -1.0630891497374177,
+          "y": 1.141475006767689
+        },
+        {
+          "index": 6,
+          "svgId": "direction-270-scores.point.6",
+          "x": -0.0757358482945051,
+          "y": -0.9374683534030747
+        },
+        {
+          "index": 7,
+          "svgId": "direction-270-scores.point.7",
+          "x": 1.5340328159346877,
+          "y": 1.271576891558107
+        },
+        {
+          "index": 8,
+          "svgId": "direction-270-scores.point.8",
+          "x": 1.661697630124543,
+          "y": 1.6191404220477006
+        },
+        {
+          "index": 9,
+          "svgId": "direction-270-scores.point.9",
+          "x": -0.2833906139708787,
+          "y": 1.3168724225900497
+        },
+        {
+          "index": 10,
+          "svgId": "direction-270-scores.point.10",
+          "x": 1.426635915526675,
+          "y": 2.454932151746431
+        },
+        {
+          "index": 11,
+          "svgId": "direction-270-scores.point.11",
+          "x": -1.9941876583843245,
+          "y": 0.49569010913146244
+        },
+        {
+          "index": 12,
+          "svgId": "direction-270-scores.point.12",
+          "x": 0.8073382408849539,
+          "y": 0.7929686268119148
+        },
+        {
+          "index": 13,
+          "svgId": "direction-270-scores.point.13",
+          "x": -1.70452197599736,
+          "y": 2.0158070280633362
+        },
+        {
+          "index": 14,
+          "svgId": "direction-270-scores.point.14",
+          "x": -1.4519780553418553,
+          "y": 1.791723253165468
+        },
+        {
+          "index": 15,
+          "svgId": "direction-270-scores.point.15",
+          "x": 0.23718803861824805,
+          "y": -0.26091440220009726
+        },
+        {
+          "index": 16,
+          "svgId": "direction-270-scores.point.16",
+          "x": 0.5478312592763458,
+          "y": 1.746732227157769
+        },
+        {
+          "index": 17,
+          "svgId": "direction-270-scores.point.17",
+          "x": -0.6880664292438723,
+          "y": -1.0916212730300698
+        },
+        {
+          "index": 18,
+          "svgId": "direction-270-scores.point.18",
+          "x": 0.45992505524615607,
+          "y": 1.4191345967716198
+        }
+      ],
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "direction-270-scores.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "members": [
+            "direction-315-scores.point.0",
+            "direction-315-scores.point.1",
+            "direction-315-scores.point.2",
+            "direction-315-scores.point.3",
+            "direction-315-scores.point.4",
+            "direction-315-scores.point.5",
+            "direction-315-scores.point.6",
+            "direction-315-scores.point.7",
+            "direction-315-scores.point.8",
+            "direction-315-scores.point.9",
+            "direction-315-scores.point.10",
+            "direction-315-scores.point.11",
+            "direction-315-scores.point.12",
+            "direction-315-scores.point.13"
+          ],
+          "role": "point",
+          "svgId": "direction-315-scores.points"
+        }
+      ],
+      "data": {
+        "x": [
+          -4.847710148975395,
+          -1.2637537098191112,
+          -3.3097794516725747,
+          -3.914999911509419,
+          -3.2978489154437645,
+          -0.1304368493948147,
+          -3.0444662673416154,
+          -2.1048505902907593,
+          -2.543413584256495,
+          -4.890922229137757,
+          -3.1797231773097656,
+          -1.693319429466381,
+          -0.5330830821257474,
+          -3.2571648291538895
+        ],
+        "y": [
+          -2.9640064601021017,
+          -0.6617070439651235,
+          -0.6114563308531566,
+          -1.682358225434251,
+          -3.02461299647061,
+          -4.393407201179595,
+          -2.733912179762352,
+          -0.050121848048276206,
+          -0.5797612356569003,
+          -2.006407008065085,
+          -2.085549713757541,
+          -1.3389257584455763,
+          -1.480080897288422,
+          -0.30794297518153263
+        ]
+      },
+      "id": "direction-315-scores",
+      "kind": "scatter",
+      "name": "direction-315-scores",
+      "points": [
+        {
+          "index": 0,
+          "svgId": "direction-315-scores.point.0",
+          "x": -4.847710148975395,
+          "y": -2.9640064601021017
+        },
+        {
+          "index": 1,
+          "svgId": "direction-315-scores.point.1",
+          "x": -1.2637537098191112,
+          "y": -0.6617070439651235
+        },
+        {
+          "index": 2,
+          "svgId": "direction-315-scores.point.2",
+          "x": -3.3097794516725747,
+          "y": -0.6114563308531566
+        },
+        {
+          "index": 3,
+          "svgId": "direction-315-scores.point.3",
+          "x": -3.914999911509419,
+          "y": -1.682358225434251
+        },
+        {
+          "index": 4,
+          "svgId": "direction-315-scores.point.4",
+          "x": -3.2978489154437645,
+          "y": -3.02461299647061
+        },
+        {
+          "index": 5,
+          "svgId": "direction-315-scores.point.5",
+          "x": -0.1304368493948147,
+          "y": -4.393407201179595
+        },
+        {
+          "index": 6,
+          "svgId": "direction-315-scores.point.6",
+          "x": -3.0444662673416154,
+          "y": -2.733912179762352
+        },
+        {
+          "index": 7,
+          "svgId": "direction-315-scores.point.7",
+          "x": -2.1048505902907593,
+          "y": -0.050121848048276206
+        },
+        {
+          "index": 8,
+          "svgId": "direction-315-scores.point.8",
+          "x": -2.543413584256495,
+          "y": -0.5797612356569003
+        },
+        {
+          "index": 9,
+          "svgId": "direction-315-scores.point.9",
+          "x": -4.890922229137757,
+          "y": -2.006407008065085
+        },
+        {
+          "index": 10,
+          "svgId": "direction-315-scores.point.10",
+          "x": -3.1797231773097656,
+          "y": -2.085549713757541
+        },
+        {
+          "index": 11,
+          "svgId": "direction-315-scores.point.11",
+          "x": -1.693319429466381,
+          "y": -1.3389257584455763
+        },
+        {
+          "index": 12,
+          "svgId": "direction-315-scores.point.12",
+          "x": -0.5330830821257474,
+          "y": -1.480080897288422
+        },
+        {
+          "index": 13,
+          "svgId": "direction-315-scores.point.13",
+          "x": -3.2571648291538895,
+          "y": -0.30794297518153263
+        }
+      ],
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "direction-315-scores.points"
+      }
+    }
+  ],
+  "size": {
+    "height": 183.6,
+    "unit": "pt",
+    "width": 230.4
+  },
+  "spec": "fluxplot/manifest",
+  "svg": "08-population-pca.svg"
+}

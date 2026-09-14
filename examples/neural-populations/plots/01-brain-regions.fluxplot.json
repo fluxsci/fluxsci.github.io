@@ -1,0 +1,347 @@
+{
+  "artifact": {
+    "svgSha256": "a74affb58a33380ed341f453dd391f91712ef203974d6ac51cfecdc0db9805ae"
+  },
+  "axes": [
+    {
+      "id": "plot-area",
+      "pixelBox": {
+        "x0": 68.99819162775188,
+        "x1": 166.00980837224813,
+        "y0": 31.211999999999986,
+        "y1": 150.55200000000002
+      },
+      "projection": "rectilinear",
+      "svgId": "plot-area",
+      "x": {
+        "anchors": [
+          {
+            "data": -5.445606446460095,
+            "svg": 68.99819162775188
+          },
+          {
+            "data": 6.36067134392882,
+            "svg": 166.00980837224813
+          }
+        ],
+        "domain": [
+          -5.445606446460095,
+          6.36067134392882
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "−7.5",
+            "value": -7.5
+          },
+          {
+            "label": "−5.0",
+            "value": -5.0
+          },
+          {
+            "label": "−2.5",
+            "value": -2.5
+          },
+          {
+            "label": "0.0",
+            "value": 0.0
+          },
+          {
+            "label": "2.5",
+            "value": 2.5
+          },
+          {
+            "label": "5.0",
+            "value": 5.0
+          },
+          {
+            "label": "7.5",
+            "value": 7.5
+          }
+        ]
+      },
+      "y": {
+        "anchors": [
+          {
+            "data": -7.152524109526343,
+            "svg": 150.55200000000002
+          },
+          {
+            "data": 7.371109644726573,
+            "svg": 31.212000000000028
+          }
+        ],
+        "domain": [
+          -7.152524109526343,
+          7.371109644726573
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "−8",
+            "value": -8.0
+          },
+          {
+            "label": "−6",
+            "value": -6.0
+          },
+          {
+            "label": "−4",
+            "value": -4.0
+          },
+          {
+            "label": "−2",
+            "value": -2.0
+          },
+          {
+            "label": "0",
+            "value": 0.0
+          },
+          {
+            "label": "2",
+            "value": 2.0
+          },
+          {
+            "label": "4",
+            "value": 4.0
+          },
+          {
+            "label": "6",
+            "value": 6.0
+          },
+          {
+            "label": "8",
+            "value": 8.0
+          }
+        ]
+      }
+    }
+  ],
+  "build": {
+    "order": [
+      "figure.title",
+      "gridlines",
+      "brain-envelope.x-brain-surface",
+      "primary-visual-area.x-brain-surface",
+      "lateral-visual-area.x-brain-surface",
+      "legend",
+      "annotation.0"
+    ],
+    "presets": {
+      "axis": {
+        "animation": "draw-on",
+        "durationMs": 400
+      },
+      "gridline": {
+        "animation": "fade-in",
+        "durationMs": 300
+      }
+    }
+  },
+  "generator": {
+    "matplotlib": "3.11.1",
+    "name": "fluxplot",
+    "version": "0.1.0"
+  },
+  "guides": [
+    {
+      "entries": [
+        {
+          "label": "legend.entry.0.label",
+          "swatch": "legend.entry.0.swatch",
+          "text": "VISl · recorded area"
+        },
+        {
+          "label": "legend.entry.1.label",
+          "swatch": "legend.entry.1.swatch",
+          "text": "VISp · anatomical context"
+        }
+      ],
+      "id": "legend",
+      "role": "legend",
+      "svgId": "legend"
+    }
+  ],
+  "overlays": [
+    {
+      "id": "annotation.0",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.0",
+      "text": "Allen CCFv3 · oblique dorsal view"
+    }
+  ],
+  "parts": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "brain-envelope.x-brain-surface"
+              }
+            ],
+            "id": "brain-envelope",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "primary-visual-area.x-brain-surface"
+              }
+            ],
+            "id": "primary-visual-area",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "lateral-visual-area.x-brain-surface"
+              }
+            ],
+            "id": "lateral-visual-area",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.0"
+          }
+        ],
+        "id": "plot-area",
+        "kind": "container",
+        "role": "plot-area"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "legend.entry.0.swatch"
+              },
+              {
+                "kind": "text",
+                "ref": "legend.entry.0.label"
+              }
+            ],
+            "id": "legend.entry.0",
+            "kind": "container",
+            "role": "legend-entry"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "legend.entry.1.swatch"
+              },
+              {
+                "kind": "text",
+                "ref": "legend.entry.1.label"
+              }
+            ],
+            "id": "legend.entry.1",
+            "kind": "container",
+            "role": "legend-entry"
+          }
+        ],
+        "id": "legend",
+        "kind": "container",
+        "role": "legend"
+      },
+      {
+        "kind": "text",
+        "ref": "figure.title"
+      }
+    ],
+    "id": "figure",
+    "kind": "container",
+    "role": "figure"
+  },
+  "plotType": "plot",
+  "schemaVersion": "0.3.0",
+  "series": [
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-brain-surface",
+          "svgId": "brain-envelope.x-brain-surface"
+        }
+      ],
+      "data": {},
+      "id": "brain-envelope",
+      "kind": "x-brain-surface",
+      "name": "brain-envelope",
+      "rasterized": true,
+      "roles": [
+        "x-brain-surface"
+      ],
+      "svg": {
+        "x-brain-surface": "brain-envelope.x-brain-surface"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-brain-surface",
+          "svgId": "primary-visual-area.x-brain-surface"
+        }
+      ],
+      "data": {},
+      "id": "primary-visual-area",
+      "kind": "x-brain-surface",
+      "name": "primary-visual-area",
+      "rasterized": true,
+      "roles": [
+        "x-brain-surface"
+      ],
+      "svg": {
+        "x-brain-surface": "primary-visual-area.x-brain-surface"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-brain-surface",
+          "svgId": "lateral-visual-area.x-brain-surface"
+        }
+      ],
+      "data": {},
+      "id": "lateral-visual-area",
+      "kind": "x-brain-surface",
+      "name": "lateral-visual-area",
+      "rasterized": true,
+      "roles": [
+        "x-brain-surface"
+      ],
+      "svg": {
+        "x-brain-surface": "lateral-visual-area.x-brain-surface"
+      }
+    }
+  ],
+  "size": {
+    "height": 183.6,
+    "unit": "pt",
+    "width": 230.4
+  },
+  "spec": "fluxplot/manifest",
+  "svg": "01-brain-regions.svg"
+}

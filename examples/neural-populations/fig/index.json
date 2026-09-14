@@ -1,0 +1,161 @@
+{
+  "schemaVersion": "0.1.0",
+  "canvases": [
+    {
+      "id": "canvas-1",
+      "name": "Population coding",
+      "order": 1
+    },
+    {
+      "id": "canvas_mu1vwcyuwae6_3",
+      "name": "Example_figures",
+      "order": 2
+    }
+  ],
+  "figures": [
+    {
+      "id": "fig-neural-populations",
+      "name": "Figure 1",
+      "label": "fig-neural-populations",
+      "order": 1,
+      "kind": "main",
+      "family": "figure",
+      "number": 1,
+      "nickname": "From neurons to population codes",
+      "canvas": "canvas-1",
+      "caption": "Neuronal populations encode diverse stimulus features. An original demonstration assembled from public neuronal and anatomical datasets; the panels are exploratory visualizations, not a reproduced publication. **a**, Anatomical context. **b**, Neuronal architecture. **c**, Response similarity network. **d**, Population responses. **e**, Diverse tuning profiles. **f**, Population activity space. **g**, Response selectivity. **h**, Within-cell comparisons."
+    },
+    {
+      "id": "fig-neural-structure",
+      "name": "Figure 2",
+      "label": "fig-neural-structure",
+      "order": 2,
+      "kind": "main",
+      "family": "figure",
+      "number": 2,
+      "nickname": "Response structure and variation",
+      "canvas": "canvas-1",
+      "caption": "Complementary views of response structure. Original exploratory summaries of the same public source collection. **a**, Shared response structure. **b**, Responses through time. **c**, Response variation by temporal frequency. **d**, Dimensions of population activity."
+    },
+    {
+      "id": "fig_mu1vwcyuwae6_4",
+      "name": "Figure 3",
+      "label": "fig-fig-mu1vwcyuwae6-4",
+      "order": 3,
+      "kind": "main",
+      "family": "figure",
+      "number": 3,
+      "canvas": "canvas_mu1vwcyuwae6_3",
+      "caption": ""
+    }
+  ],
+  "assets": [
+    {
+      "id": "01-brain-regions",
+      "kind": "svg",
+      "path": "assets/01-brain-regions.svg",
+      "name": "brain regions",
+      "naturalWidth": 307.2,
+      "naturalHeight": 244.79999999999998
+    },
+    {
+      "id": "02-neuron-morphology",
+      "kind": "svg",
+      "path": "assets/02-neuron-morphology.svg",
+      "name": "neuron morphology",
+      "naturalWidth": 307.2,
+      "naturalHeight": 244.79999999999998
+    },
+    {
+      "id": "03-response-heatmap",
+      "kind": "svg",
+      "path": "assets/03-response-heatmap.svg",
+      "name": "response heatmap",
+      "naturalWidth": 307.2,
+      "naturalHeight": 244.79999999999998
+    },
+    {
+      "id": "04-tuning-curves",
+      "kind": "svg",
+      "path": "assets/04-tuning-curves.svg",
+      "name": "tuning curves",
+      "naturalWidth": 307.2,
+      "naturalHeight": 244.79999999999998
+    },
+    {
+      "id": "05-response-network",
+      "kind": "svg",
+      "path": "assets/05-response-network.svg",
+      "name": "response network",
+      "naturalWidth": 307.2,
+      "naturalHeight": 244.79999999999998
+    },
+    {
+      "id": "06-selectivity-distribution",
+      "kind": "svg",
+      "path": "assets/06-selectivity-distribution.svg",
+      "name": "selectivity distribution",
+      "naturalWidth": 307.2,
+      "naturalHeight": 244.79999999999998
+    },
+    {
+      "id": "07-paired-responses",
+      "kind": "svg",
+      "path": "assets/07-paired-responses.svg",
+      "name": "paired responses",
+      "naturalWidth": 307.2,
+      "naturalHeight": 244.79999999999998
+    },
+    {
+      "id": "08-population-pca",
+      "kind": "svg",
+      "path": "assets/08-population-pca.svg",
+      "name": "population pca",
+      "naturalWidth": 307.2,
+      "naturalHeight": 244.79999999999998
+    },
+    {
+      "id": "09-response-correlation",
+      "kind": "svg",
+      "path": "assets/09-response-correlation.svg",
+      "name": "response correlation",
+      "naturalWidth": 307.2,
+      "naturalHeight": 244.79999999999998
+    },
+    {
+      "id": "10-response-traces",
+      "kind": "svg",
+      "path": "assets/10-response-traces.svg",
+      "name": "response traces",
+      "naturalWidth": 307.2,
+      "naturalHeight": 244.79999999999998
+    },
+    {
+      "id": "11-frequency-selectivity",
+      "kind": "svg",
+      "path": "assets/11-frequency-selectivity.svg",
+      "name": "frequency selectivity",
+      "naturalWidth": 307.2,
+      "naturalHeight": 244.79999999999998
+    },
+    {
+      "id": "12-variance-spectrum",
+      "kind": "svg",
+      "path": "assets/12-variance-spectrum.svg",
+      "name": "variance spectrum",
+      "naturalWidth": 307.2,
+      "naturalHeight": 244.79999999999998
+    }
+  ],
+  "palette": [
+    "#266e9e",
+    "#b44e6c",
+    "#368d89",
+    "#bd8635",
+    "#75649a",
+    "#22272e"
+  ],
+  "colorGroups": [],
+  "textStyles": [],
+  "families": []
+}

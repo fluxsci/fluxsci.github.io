@@ -1,0 +1,4 @@
+# Used only to refresh public-data inputs, not to open the Flux project.
+# Validated with Python 3.12.
+numpy==2.5.3
+h5py==3.16.0

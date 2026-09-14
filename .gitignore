@@ -1,0 +1,16 @@
+node_modules/
+dist/
+site/.quarto/
+.quarto/
+test-results/
+playwright-report/
+.DS_Store
+.env
+.env.*
+.cache/
+tmp/
+site/downloads/*.zip
+media/project-bundle.json
+examples/**/__pycache__/
+examples/**/.venv/
+examples/**/.meta/

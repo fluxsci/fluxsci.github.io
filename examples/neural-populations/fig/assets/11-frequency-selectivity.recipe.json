@@ -1,0 +1,40 @@
+{
+  "args": [
+    "scripts/generate-plots.py",
+    "--project",
+    "."
+  ],
+  "command": "python3",
+  "cwd": "..",
+  "env": null,
+  "generatedAt": "2026-09-14T01:55:20Z",
+  "inputs": [
+    {
+      "bytes": 320196,
+      "path": "data/allen/responses.json",
+      "role": "data",
+      "sha256": "b7f97edaa82619781a9075751c5596f85cd2cb7551650e5d24f8f2e048d1d85f"
+    }
+  ],
+  "output": "11-frequency-selectivity.svg",
+  "outputs": {
+    "manifest": "11-frequency-selectivity.fluxplot.json",
+    "svg": "11-frequency-selectivity.svg"
+  },
+  "params": {},
+  "plot": "11-frequency-selectivity",
+  "provenance": {
+    "packages": {
+      "fluxplot": "0.1.0",
+      "matplotlib": "3.11.1"
+    },
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.12",
+    "scriptDiscovery": "explicit"
+  },
+  "schemaVersion": "0.3.0",
+  "script": {
+    "path": "scripts/generate-plots.py"
+  },
+  "spec": "fluxplot/recipe"
+}
