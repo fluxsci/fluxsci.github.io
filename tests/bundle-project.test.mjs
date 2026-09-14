@@ -46,3 +46,27 @@ test('reviewed project exports survive a clean Git checkout with their license n
       await readFile(path.join(ROOT, 'site/assets/licenses', name)));
   }
 });
+
+test('the complete project ZIP is byte-identical across local and CI timezones', async () => {
+  const outputs = ['site/downloads/neural-populations.zip', 'media/project-bundle.json'];
+  const saved = await Promise.all(outputs.map(file => readFile(path.join(ROOT, file)).catch(() => null)));
+  const program = `import { bundleProject } from './scripts/bundle-project.mjs';
+    import { readFile } from 'node:fs/promises';
+    await bundleProject();
+    console.log(JSON.parse(await readFile('media/project-bundle.json', 'utf8')).sha256);`;
+  try {
+    const hashes = ['UTC', 'America/Chicago'].map(TZ => {
+      const result = spawnSync(process.execPath, ['--input-type=module', '-e', program], {
+        cwd:ROOT, env:{ ...process.env, TZ }, encoding:'utf8'
+      });
+      assert.equal(result.status, 0, result.stderr || result.stdout);
+      return result.stdout.trim().split('\n').at(-1);
+    });
+    assert.match(hashes[0], /^[a-f0-9]{64}$/);
+    assert.equal(hashes[0], hashes[1], 'ZIP timestamps must not depend on the build machine timezone.');
+  } finally {
+    await Promise.all(outputs.map((file, index) => saved[index] === null
+      ? rm(path.join(ROOT, file), { force:true })
+      : writeFile(path.join(ROOT, file), saved[index])));
+  }
+});

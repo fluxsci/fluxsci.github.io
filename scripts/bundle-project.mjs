@@ -44,7 +44,9 @@ export async function bundleProject() {
       assert(!/(?:\/Users\/|\/home\/)[a-zA-Z0-9_-]+\//.test(new TextDecoder().decode(bytes)), `Nonportable machine path in project bundle: ${file}`);
     }
     manifest[file] = { bytes:bytes.length, sha256:sha(bytes) };
-    entries[`neural-populations/${file}`] = [bytes, { mtime:new Date('2026-09-13T12:00:00Z') }];
+    // ZIP stores local calendar fields, without a timezone. Use fixed calendar
+    // components so macOS and UTC CI serialize the exact same DOS timestamp.
+    entries[`neural-populations/${file}`] = [bytes, { mtime:new Date(2026, 8, 13, 12, 0, 0) }];
   }
   const zipped = zipSync(entries, { level:6 });
   assert(zipped.length <= 40 * 1024 * 1024, 'Project download exceeds 40 MB; review data and export duplication.');
