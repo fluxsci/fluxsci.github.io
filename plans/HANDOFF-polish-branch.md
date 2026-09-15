@@ -38,14 +38,17 @@ held afterwards: retry a CLI verb after ~5 s if it reports "deferred … locked"
 
 ## Environment set up for the media refresh
 
-- Pinned Flux checkout (revision from `flux-source.json`, `4bb72d8…`) as a git worktree at
-  `~/.cache/flux-website-pin/flux` with `npm ci` done. Remove later with
-  `git -C ~/flux worktree remove ~/.cache/flux-website-pin/flux`.
+- A pinned Flux checkout is needed for the refresh/capture scripts (they refuse a dirty or
+  off-pin tree, and `~/flux` is the owner's live tree). Recreate it outside the Flux repo's
+  working tree, e.g. `git -C ~/flux worktree add ~/.cache/flux-website-pin/flux 4bb72d895b7879acc404ca83863cdc385982b0b5`
+  then `npm ci` there (seconds from the npm cache), and remove it again when done with
+  `git -C ~/flux worktree remove --force ~/.cache/flux-website-pin/flux`. It was removed at handoff
+  so the Flux repo carries no trace of this work.
 - CLI wrapper used for composition: `~/.cache/flux-website-pin/flux/node_modules/.bin/tsx
   ~/.cache/flux-website-pin/flux/flux-cli.ts <verb>`, run from the project dir with
   `FLUX_PROJECT=$PWD FLUX_CLIENT=agent` (a tiny `fluxpin` shell wrapper makes `FLUX_CLI` easy).
-- The dev server for captures is `npm run dev` in that worktree (port 1420). It was stopped at
-  handoff; restart it before `capture-media.mjs`. Brave is installed (capture default `FLUX_CHROME`).
+- The dev server for captures is `npm run dev` in that worktree (port 1420; check the port is
+  free first). Brave is installed (capture default `FLUX_CHROME`).
 - Port 1430 is held by a stale `node scripts/serve.mjs --port 1431` from another agent session
   (PID 88957); Playwright reuses it, and it serves the live `dist/`, so tests still work.
 
@@ -88,8 +91,8 @@ held afterwards: retry a CLI verb after ~5 s if it reports "deferred … locked"
 6. **Website docs**: `README.md` and `plans/implementation-review.md` numbers (ZIP size, figure
    panels), then `npm test` (build + server checks + 4 browser projects) and visual QA at 1440,
    800 and 390 px, light and dark, with real Chrome via the claude-in-chrome tools.
-7. **Flux engineering guide**: a session-log entry is already appended (uncommitted in `~/flux`,
-   where another session also has uncommitted guide edits — stage only that file if committing).
+7. **Do not touch the Flux app repo (`~/flux`)** for this work: it is website content, not app
+   engineering, so no engineering-guide entry is wanted (the owner said so explicitly).
 8. Commit with explicit paths; push the branch for review; do not merge to `main`.
 
 ## Verification already run
