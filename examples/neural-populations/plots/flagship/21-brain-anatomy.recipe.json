@@ -1,0 +1,67 @@
+{
+  "args": [
+    "run",
+    "--project",
+    "scripts/advanced",
+    "python",
+    "scripts/advanced/flagship.py",
+    "--project",
+    "."
+  ],
+  "command": "uv",
+  "cwd": "../..",
+  "env": null,
+  "generatedAt": "2026-09-15T00:29:14Z",
+  "inputs": [
+    {
+      "bytes": 6825611,
+      "path": "data/allen/ccf-2017-997.obj",
+      "role": "data",
+      "sha256": "400100fd2e162f864b928a01fbcfbdcf34aa1a47bdde11f042be2442c77951eb"
+    },
+    {
+      "bytes": 4319423,
+      "path": "data/allen/ccf-2017-315.obj",
+      "role": "data",
+      "sha256": "f2abc66a4222fb8c1973b6d470386b000eed3f7810555e592ebdf32822c15df7"
+    },
+    {
+      "bytes": 442204,
+      "path": "data/allen/ccf-2017-385.obj",
+      "role": "data",
+      "sha256": "437c987dce4befd53bd4fae096b89aeaab33ed6e671557503db08dd75684de37"
+    },
+    {
+      "bytes": 132966,
+      "path": "data/allen/ccf-2017-409.obj",
+      "role": "data",
+      "sha256": "5af062d1aeaebccd2f752e9803925c06a7b7042a4680231af44bb35fd186d525"
+    }
+  ],
+  "output": "21-brain-anatomy.svg",
+  "outputs": {
+    "manifest": "21-brain-anatomy.fluxplot.json",
+    "svg": "21-brain-anatomy.svg"
+  },
+  "params": {},
+  "plot": "21-brain-anatomy",
+  "provenance": {
+    "git": {
+      "commit": "4629d4961c92983be250f2449f5baff13fea96a7",
+      "dirty": true
+    },
+    "packages": {
+      "fluxplot": "0.1.0",
+      "matplotlib": "3.11.2"
+    },
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.12",
+    "scriptDiscovery": "explicit",
+    "scriptSha256": "bf08f66a428ce912dc52adc3b90671d9a45aec4b5c393665fe09f2c86139f749"
+  },
+  "schemaVersion": "0.3.0",
+  "script": {
+    "path": "scripts/advanced/flagship.py"
+  },
+  "spec": "fluxplot/recipe"
+}

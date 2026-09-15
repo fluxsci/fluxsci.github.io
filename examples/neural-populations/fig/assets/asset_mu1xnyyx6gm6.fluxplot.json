@@ -1,0 +1,1588 @@
+{
+  "artifact": {
+    "svgSha256": "7b65a69902595d6d3e1d940cd02ee15e3da6f9e0f1d0857bc5d1f32595e6a1df"
+  },
+  "axes": [
+    {
+      "id": "panel.orientation.plot-area",
+      "panelId": "panel.orientation",
+      "pixelBox": {
+        "x0": 33.264,
+        "x1": 185.328,
+        "y0": 8.819999999999988,
+        "y1": 35.279999999999994
+      },
+      "projection": "rectilinear",
+      "svgId": "panel.orientation.plot-area",
+      "x": {
+        "anchors": [
+          {
+            "data": 0.0,
+            "svg": 33.264
+          },
+          {
+            "data": 1.0,
+            "svg": 185.328
+          }
+        ],
+        "domain": [
+          0.0,
+          1.0
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "0.0",
+            "value": 0.0
+          },
+          {
+            "label": "0.5",
+            "value": 0.5
+          },
+          {
+            "label": "1.0",
+            "value": 1.0
+          }
+        ]
+      },
+      "y": {
+        "anchors": [
+          {
+            "data": 0.0,
+            "svg": 35.279999999999994
+          },
+          {
+            "data": 15.75,
+            "svg": 8.819999999999988
+          }
+        ],
+        "domain": [
+          0.0,
+          15.75
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "0",
+            "value": 0.0
+          },
+          {
+            "label": "10",
+            "value": 10.0
+          },
+          {
+            "label": "20",
+            "value": 20.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "panel.joint.plot-area",
+      "panelId": "panel.joint",
+      "pixelBox": {
+        "x0": 33.264,
+        "x1": 185.328,
+        "y0": 37.043999999999976,
+        "y1": 146.412
+      },
+      "projection": "rectilinear",
+      "svgId": "panel.joint.plot-area",
+      "x": {
+        "anchors": [
+          {
+            "data": 0.0,
+            "svg": 33.264
+          },
+          {
+            "data": 1.0,
+            "svg": 185.328
+          }
+        ],
+        "domain": [
+          0.0,
+          1.0
+        ],
+        "label": "Orientation selectivity",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "0.0",
+            "value": 0.0
+          },
+          {
+            "label": "0.5",
+            "value": 0.5
+          },
+          {
+            "label": "1.0",
+            "value": 1.0
+          }
+        ]
+      },
+      "y": {
+        "anchors": [
+          {
+            "data": 0.0,
+            "svg": 146.412
+          },
+          {
+            "data": 1.0,
+            "svg": 37.043999999999976
+          }
+        ],
+        "domain": [
+          0.0,
+          1.0
+        ],
+        "label": "Direction selectivity",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "0.0",
+            "value": 0.0
+          },
+          {
+            "label": "0.5",
+            "value": 0.5
+          },
+          {
+            "label": "1.0",
+            "value": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "panel.direction.plot-area",
+      "panelId": "panel.direction",
+      "pixelBox": {
+        "x0": 187.704,
+        "x1": 230.47199999999998,
+        "y0": 37.043999999999976,
+        "y1": 146.412
+      },
+      "projection": "rectilinear",
+      "svgId": "panel.direction.plot-area",
+      "x": {
+        "anchors": [
+          {
+            "data": 0.0,
+            "svg": 187.704
+          },
+          {
+            "data": 22.05,
+            "svg": 230.47199999999998
+          }
+        ],
+        "domain": [
+          0.0,
+          22.05
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "0",
+            "value": 0.0
+          },
+          {
+            "label": "20",
+            "value": 20.0
+          },
+          {
+            "label": "40",
+            "value": 40.0
+          }
+        ]
+      },
+      "y": {
+        "anchors": [
+          {
+            "data": 0.0,
+            "svg": 146.412
+          },
+          {
+            "data": 1.0,
+            "svg": 37.043999999999976
+          }
+        ],
+        "domain": [
+          0.0,
+          1.0
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "0.0",
+            "value": 0.0
+          },
+          {
+            "label": "0.5",
+            "value": 0.5
+          },
+          {
+            "label": "1.0",
+            "value": 1.0
+          }
+        ]
+      }
+    }
+  ],
+  "build": {
+    "order": [
+      "gridlines",
+      "panel.orientation.orientation-selectivity.bar.0",
+      "panel.orientation.orientation-selectivity.bar.1",
+      "panel.orientation.orientation-selectivity.bar.2",
+      "panel.orientation.orientation-selectivity.bar.3",
+      "panel.orientation.orientation-selectivity.bar.4",
+      "panel.orientation.orientation-selectivity.bar.5",
+      "panel.orientation.orientation-selectivity.bar.6",
+      "panel.orientation.orientation-selectivity.bar.7",
+      "panel.orientation.orientation-selectivity.bar.8",
+      "panel.orientation.orientation-selectivity.bar.9",
+      "panel.orientation.orientation-selectivity.bar.10",
+      "panel.orientation.orientation-selectivity.bar.11",
+      "panel.orientation.orientation-selectivity.bar.12",
+      "panel.orientation.orientation-selectivity.bar.13",
+      "panel.orientation.orientation-selectivity.bar.14",
+      "panel.orientation.annotation.0",
+      "panel.joint.axis.x",
+      "panel.joint.axis.y",
+      "panel.joint.direction-0-cells.points",
+      "panel.joint.direction-45-cells.points",
+      "panel.joint.direction-90-cells.points",
+      "panel.joint.direction-135-cells.points",
+      "panel.joint.direction-180-cells.points",
+      "panel.joint.direction-225-cells.points",
+      "panel.joint.direction-270-cells.points",
+      "panel.joint.direction-315-cells.points",
+      "panel.joint.extra.line.0",
+      "panel.direction.direction-selectivity.bar.0",
+      "panel.direction.direction-selectivity.bar.1",
+      "panel.direction.direction-selectivity.bar.2",
+      "panel.direction.direction-selectivity.bar.3",
+      "panel.direction.direction-selectivity.bar.4",
+      "panel.direction.direction-selectivity.bar.5",
+      "panel.direction.direction-selectivity.bar.6",
+      "panel.direction.direction-selectivity.bar.7",
+      "panel.direction.direction-selectivity.bar.8",
+      "panel.direction.direction-selectivity.bar.9",
+      "panel.direction.direction-selectivity.bar.10",
+      "panel.direction.direction-selectivity.bar.11",
+      "panel.direction.direction-selectivity.bar.12",
+      "panel.direction.direction-selectivity.bar.13",
+      "panel.direction.direction-selectivity.bar.14"
+    ],
+    "presets": {
+      "axis": {
+        "animation": "draw-on",
+        "durationMs": 400
+      },
+      "bar": {
+        "animation": "grow-from-baseline",
+        "durationMs": 500
+      },
+      "extra": {
+        "animation": "fade-in",
+        "durationMs": 400
+      },
+      "gridline": {
+        "animation": "fade-in",
+        "durationMs": 300
+      },
+      "point": {
+        "animation": "stagger-in",
+        "durationMs": 240,
+        "staggerMs": 40
+      }
+    }
+  },
+  "generator": {
+    "matplotlib": "3.11.2",
+    "name": "fluxplot",
+    "version": "0.1.0"
+  },
+  "guides": [
+    {
+      "axis": "x",
+      "id": "panel.joint.axis.x",
+      "role": "axis",
+      "svgId": "panel.joint.axis.x"
+    },
+    {
+      "axis": "y",
+      "id": "panel.joint.axis.y",
+      "role": "axis",
+      "svgId": "panel.joint.axis.y"
+    }
+  ],
+  "overlays": [
+    {
+      "id": "panel.orientation.annotation.0",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "panel.orientation.annotation.0",
+      "text": "circular vector strengths · one point per cell · area: √peak"
+    },
+    {
+      "id": "panel.joint.extra.line.0",
+      "kind": "line",
+      "role": "extra",
+      "svgId": "panel.joint.extra.line.0"
+    }
+  ],
+  "panels": [
+    {
+      "id": "panel.orientation",
+      "index": 0,
+      "label": "orientation",
+      "svgId": "panel.orientation.plot-area"
+    },
+    {
+      "id": "panel.joint",
+      "index": 1,
+      "label": "joint",
+      "svgId": "panel.joint.plot-area"
+    },
+    {
+      "id": "panel.direction",
+      "index": 2,
+      "label": "direction",
+      "svgId": "panel.direction.plot-area"
+    }
+  ],
+  "parts": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "groupRole": "bar",
+                    "id": "panel.orientation.orientation-selectivity.bars",
+                    "kind": "shape",
+                    "members": [
+                      "panel.orientation.orientation-selectivity.bar.0",
+                      "panel.orientation.orientation-selectivity.bar.1",
+                      "panel.orientation.orientation-selectivity.bar.2",
+                      "panel.orientation.orientation-selectivity.bar.3",
+                      "panel.orientation.orientation-selectivity.bar.4",
+                      "panel.orientation.orientation-selectivity.bar.5",
+                      "panel.orientation.orientation-selectivity.bar.6",
+                      "panel.orientation.orientation-selectivity.bar.7",
+                      "panel.orientation.orientation-selectivity.bar.8",
+                      "panel.orientation.orientation-selectivity.bar.9",
+                      "panel.orientation.orientation-selectivity.bar.10",
+                      "panel.orientation.orientation-selectivity.bar.11",
+                      "panel.orientation.orientation-selectivity.bar.12",
+                      "panel.orientation.orientation-selectivity.bar.13",
+                      "panel.orientation.orientation-selectivity.bar.14"
+                    ],
+                    "role": "group"
+                  }
+                ],
+                "id": "panel.orientation.orientation-selectivity",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "kind": "text",
+                "ref": "panel.orientation.annotation.0"
+              }
+            ],
+            "id": "panel.orientation.plot-area",
+            "kind": "container",
+            "role": "plot-area"
+          }
+        ],
+        "id": "panel.orientation",
+        "kind": "container",
+        "label": "orientation",
+        "role": "panel"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "axis": "x",
+                "children": [
+                  {
+                    "kind": "line",
+                    "ref": "panel.joint.axis.x.spine"
+                  },
+                  {
+                    "groupRole": "tick",
+                    "id": "panel.joint.axis.x.ticks",
+                    "kind": "line",
+                    "members": [
+                      "panel.joint.axis.x.tick.0",
+                      "panel.joint.axis.x.tick.1",
+                      "panel.joint.axis.x.tick.2"
+                    ],
+                    "role": "group"
+                  },
+                  {
+                    "groupRole": "tick-label",
+                    "id": "panel.joint.axis.x.tick-labels",
+                    "kind": "text",
+                    "members": [
+                      "panel.joint.axis.x.ticklabel.0",
+                      "panel.joint.axis.x.ticklabel.1",
+                      "panel.joint.axis.x.ticklabel.2"
+                    ],
+                    "role": "group"
+                  },
+                  {
+                    "kind": "text",
+                    "ref": "panel.joint.axis.x.title"
+                  }
+                ],
+                "id": "panel.joint.axis.x",
+                "kind": "container",
+                "role": "axis"
+              },
+              {
+                "axis": "y",
+                "children": [
+                  {
+                    "kind": "line",
+                    "ref": "panel.joint.axis.y.spine"
+                  },
+                  {
+                    "groupRole": "tick",
+                    "id": "panel.joint.axis.y.ticks",
+                    "kind": "line",
+                    "members": [
+                      "panel.joint.axis.y.tick.0",
+                      "panel.joint.axis.y.tick.1",
+                      "panel.joint.axis.y.tick.2"
+                    ],
+                    "role": "group"
+                  },
+                  {
+                    "groupRole": "tick-label",
+                    "id": "panel.joint.axis.y.tick-labels",
+                    "kind": "text",
+                    "members": [
+                      "panel.joint.axis.y.ticklabel.0",
+                      "panel.joint.axis.y.ticklabel.1",
+                      "panel.joint.axis.y.ticklabel.2"
+                    ],
+                    "role": "group"
+                  },
+                  {
+                    "kind": "text",
+                    "ref": "panel.joint.axis.y.title"
+                  }
+                ],
+                "id": "panel.joint.axis.y",
+                "kind": "container",
+                "role": "axis"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.joint.direction-0-cells.points"
+                  }
+                ],
+                "id": "panel.joint.direction-0-cells",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.joint.direction-45-cells.points"
+                  }
+                ],
+                "id": "panel.joint.direction-45-cells",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.joint.direction-90-cells.points"
+                  }
+                ],
+                "id": "panel.joint.direction-90-cells",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.joint.direction-135-cells.points"
+                  }
+                ],
+                "id": "panel.joint.direction-135-cells",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.joint.direction-180-cells.points"
+                  }
+                ],
+                "id": "panel.joint.direction-180-cells",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.joint.direction-225-cells.points"
+                  }
+                ],
+                "id": "panel.joint.direction-225-cells",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.joint.direction-270-cells.points"
+                  }
+                ],
+                "id": "panel.joint.direction-270-cells",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.joint.direction-315-cells.points"
+                  }
+                ],
+                "id": "panel.joint.direction-315-cells",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "groupRole": "extra",
+                "id": "panel.joint.extras",
+                "members": [
+                  "panel.joint.extra.line.0"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "panel.joint.plot-area",
+            "kind": "container",
+            "role": "plot-area"
+          }
+        ],
+        "id": "panel.joint",
+        "kind": "container",
+        "label": "joint",
+        "role": "panel"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "groupRole": "bar",
+                    "id": "panel.direction.direction-selectivity.bars",
+                    "kind": "shape",
+                    "members": [
+                      "panel.direction.direction-selectivity.bar.0",
+                      "panel.direction.direction-selectivity.bar.1",
+                      "panel.direction.direction-selectivity.bar.2",
+                      "panel.direction.direction-selectivity.bar.3",
+                      "panel.direction.direction-selectivity.bar.4",
+                      "panel.direction.direction-selectivity.bar.5",
+                      "panel.direction.direction-selectivity.bar.6",
+                      "panel.direction.direction-selectivity.bar.7",
+                      "panel.direction.direction-selectivity.bar.8",
+                      "panel.direction.direction-selectivity.bar.9",
+                      "panel.direction.direction-selectivity.bar.10",
+                      "panel.direction.direction-selectivity.bar.11",
+                      "panel.direction.direction-selectivity.bar.12",
+                      "panel.direction.direction-selectivity.bar.13",
+                      "panel.direction.direction-selectivity.bar.14"
+                    ],
+                    "role": "group"
+                  }
+                ],
+                "id": "panel.direction.direction-selectivity",
+                "kind": "container",
+                "role": "series"
+              }
+            ],
+            "id": "panel.direction.plot-area",
+            "kind": "container",
+            "role": "plot-area"
+          }
+        ],
+        "id": "panel.direction",
+        "kind": "container",
+        "label": "direction",
+        "role": "panel"
+      }
+    ],
+    "id": "figure",
+    "kind": "container",
+    "role": "figure"
+  },
+  "plotType": "scatter",
+  "schemaVersion": "0.3.0",
+  "series": [
+    {
+      "bar": {
+        "baseline": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "length": [
+          6.0,
+          3.0,
+          9.0,
+          8.0,
+          8.0,
+          14.0,
+          12.0,
+          12.0,
+          12.0,
+          10.0,
+          15.0,
+          7.0,
+          5.0,
+          8.0,
+          14.0
+        ],
+        "orientation": "vertical"
+      },
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "bar",
+          "svgId": "panel.orientation.orientation-selectivity.bar.0"
+        },
+        {
+          "role": "bar",
+          "svgId": "panel.orientation.orientation-selectivity.bar.1"
+        },
+        {
+          "role": "bar",
+          "svgId": "panel.orientation.orientation-selectivity.bar.2"
+        },
+        {
+          "role": "bar",
+          "svgId": "panel.orientation.orientation-selectivity.bar.3"
+        },
+        {
+          "role": "bar",
+          "svgId": "panel.orientation.orientation-selectivity.bar.4"
+        },
+        {
+          "role": "bar",
+          "svgId": "panel.orientation.orientation-selectivity.bar.5"
+        },
+        {
+          "role": "bar",
+          "svgId": "panel.orientation.orientation-selectivity.bar.6"
+        },
+        {
+          "role": "bar",
+          "svgId": "panel.orientation.orientation-selectivity.bar.7"
+        },
+        {
+          "role": "bar",
+          "svgId": "panel.orientation.orientation-selectivity.bar.8"
+        },
+        {
+          "role": "bar",
+          "svgId": "panel.orientation.orientation-selectivity.bar.9"
+        },
+        {
+          "role": "bar",
+          "svgId": "panel.orientation.orientation-selectivity.bar.10"
+        },
+        {
+          "role": "bar",
+          "svgId": "panel.orientation.orientation-selectivity.bar.11"
+        },
+        {
+          "role": "bar",
+          "svgId": "panel.orientation.orientation-selectivity.bar.12"
+        },
+        {
+          "role": "bar",
+          "svgId": "panel.orientation.orientation-selectivity.bar.13"
+        },
+        {
+          "role": "bar",
+          "svgId": "panel.orientation.orientation-selectivity.bar.14"
+        }
+      ],
+      "data": {
+        "x": [
+          0.03333333333333333,
+          0.1,
+          0.16666666666666669,
+          0.23333333333333334,
+          0.3,
+          0.3666666666666667,
+          0.43333333333333335,
+          0.5,
+          0.5666666666666667,
+          0.6333333333333333,
+          0.7,
+          0.7666666666666666,
+          0.8333333333333334,
+          0.9,
+          0.9666666666666667
+        ],
+        "y": [
+          6.0,
+          3.0,
+          9.0,
+          8.0,
+          8.0,
+          14.0,
+          12.0,
+          12.0,
+          12.0,
+          10.0,
+          15.0,
+          7.0,
+          5.0,
+          8.0,
+          14.0
+        ]
+      },
+      "distribution": {
+        "binEdges": [
+          0.0,
+          0.06666666666666667,
+          0.13333333333333333,
+          0.2,
+          0.26666666666666666,
+          0.3333333333333333,
+          0.4,
+          0.4666666666666667,
+          0.5333333333333333,
+          0.6,
+          0.6666666666666666,
+          0.7333333333333333,
+          0.8,
+          0.8666666666666667,
+          0.9333333333333333,
+          1.0
+        ],
+        "counts": [
+          6.0,
+          3.0,
+          9.0,
+          8.0,
+          8.0,
+          14.0,
+          12.0,
+          12.0,
+          12.0,
+          10.0,
+          15.0,
+          7.0,
+          5.0,
+          8.0,
+          14.0
+        ],
+        "cumulative": false,
+        "normalization": "count",
+        "orientation": "vertical",
+        "weighted": false
+      },
+      "id": "panel.orientation.orientation-selectivity",
+      "kind": "bar",
+      "name": "orientation-selectivity",
+      "panelId": "panel.orientation",
+      "roles": [
+        "bar"
+      ],
+      "svg": {
+        "bars": [
+          "panel.orientation.orientation-selectivity.bar.0",
+          "panel.orientation.orientation-selectivity.bar.1",
+          "panel.orientation.orientation-selectivity.bar.2",
+          "panel.orientation.orientation-selectivity.bar.3",
+          "panel.orientation.orientation-selectivity.bar.4",
+          "panel.orientation.orientation-selectivity.bar.5",
+          "panel.orientation.orientation-selectivity.bar.6",
+          "panel.orientation.orientation-selectivity.bar.7",
+          "panel.orientation.orientation-selectivity.bar.8",
+          "panel.orientation.orientation-selectivity.bar.9",
+          "panel.orientation.orientation-selectivity.bar.10",
+          "panel.orientation.orientation-selectivity.bar.11",
+          "panel.orientation.orientation-selectivity.bar.12",
+          "panel.orientation.orientation-selectivity.bar.13",
+          "panel.orientation.orientation-selectivity.bar.14"
+        ]
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "members": [],
+          "role": "point",
+          "svgId": "panel.joint.direction-0-cells.points"
+        }
+      ],
+      "data": {
+        "x": [
+          0.9761113428643564,
+          0.23718379892443275,
+          0.18691605569897388,
+          0.4372878084497121,
+          0.49372176431882614,
+          0.8288008949256273,
+          0.027200777363710273,
+          0.0,
+          0.33674876590203506,
+          0.6832819129674095,
+          0.5471590847389235,
+          1.0,
+          0.15144539192412773,
+          0.834199388773316,
+          0.1429806986226577,
+          0.5778571552113364,
+          0.6306219611678524,
+          1.0,
+          0.5514874511062345,
+          0.15259774873123985,
+          0.0,
+          0.0,
+          0.6686381501181675,
+          0.5130604505013834
+        ],
+        "y": [
+          0.5684690388428347,
+          0.29011202951718384,
+          0.7192703966656901,
+          0.5810915457297142,
+          0.3994203459435033,
+          0.9530468679912552,
+          0.2569746361653372,
+          0.0,
+          0.24825170814385697,
+          0.30952104973709876,
+          0.24206024611595572,
+          0.03944940983185374,
+          0.3073586041987687,
+          0.3996460501333668,
+          0.22660349242581435,
+          0.2734871366475459,
+          0.3479719521540828,
+          1.0,
+          0.8124927099197455,
+          0.17059347065283786,
+          0.0,
+          0.0,
+          0.6262874896950136,
+          0.44143905333907746
+        ]
+      },
+      "id": "panel.joint.direction-0-cells",
+      "kind": "scatter",
+      "name": "direction-0-cells",
+      "panelId": "panel.joint",
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "panel.joint.direction-0-cells.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "members": [],
+          "role": "point",
+          "svgId": "panel.joint.direction-45-cells.points"
+        }
+      ],
+      "data": {
+        "x": [
+          0.4580290786771046,
+          0.21926171399530459,
+          0.7142679169280797,
+          0.9389198314767663,
+          0.596859444221681,
+          0.4030945560732719,
+          0.39051412836104976,
+          0.33354917677688833,
+          0.6481310001806675,
+          0.6635898748037645,
+          0.6286297214842058,
+          0.4686808050198062,
+          0.6893445688388496,
+          0.9579415646655827,
+          0.1328316134517934,
+          0.038638803633671316,
+          0.4084275886905756,
+          0.6350710448229345,
+          0.697787578731502,
+          0.9793960667402856,
+          0.19148788580912948,
+          0.3729744956400691,
+          0.4927401234444991,
+          0.5473238928206561,
+          0.9274511346981178,
+          0.7395017770921328,
+          0.20763662616013318,
+          1.0,
+          0.889636661807986,
+          0.28041301490429654,
+          0.44758459533895917
+        ],
+        "y": [
+          0.19805320694713577,
+          0.3229382875987008,
+          0.3299773097785816,
+          0.11101075885328456,
+          0.37434025444013685,
+          0.21493728562541856,
+          0.13959606827962387,
+          0.1373553814820415,
+          0.4557943314681344,
+          0.08026634671226295,
+          0.7322418491836346,
+          0.1056116567583323,
+          0.16410057969328817,
+          0.6718455760683801,
+          0.4669570544788467,
+          0.3933987137341329,
+          0.7302665624561331,
+          0.28055296150862913,
+          0.0563586592167247,
+          0.2953084480814221,
+          0.3299086525137942,
+          0.1967174449485582,
+          0.1396445283875966,
+          0.32928159912869764,
+          0.835562959320467,
+          0.9312782666142229,
+          0.3846317546789225,
+          0.2021296385308214,
+          0.15406023947960226,
+          0.6005484214187446,
+          0.46487321862646547
+        ]
+      },
+      "id": "panel.joint.direction-45-cells",
+      "kind": "scatter",
+      "name": "direction-45-cells",
+      "panelId": "panel.joint",
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "panel.joint.direction-45-cells.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "members": [],
+          "role": "point",
+          "svgId": "panel.joint.direction-90-cells.points"
+        }
+      ],
+      "data": {
+        "x": [
+          0.653729534545161,
+          0.7106781655894543,
+          0.7704840703569503,
+          1.0,
+          0.3292496007550228,
+          0.6225826431117022,
+          0.9753502578661913,
+          0.8616179808013726,
+          1.0,
+          0.7598216094895713,
+          0.7288210934668683,
+          0.36934484382068306,
+          0.5677110331422646,
+          1.0,
+          0.8336034518046601,
+          0.4083092620372357,
+          0.8671225977545846,
+          0.26952082695391005,
+          0.20002214574217306,
+          0.33876859586180136,
+          0.3617171013144332
+        ],
+        "y": [
+          0.09037670002148433,
+          0.5999592364316423,
+          0.43337664663131287,
+          0.0920746921084685,
+          0.18505169261609444,
+          0.8060179231701852,
+          0.5140973513491826,
+          0.9615333967238904,
+          1.0,
+          0.23164468779602984,
+          0.6613577288304885,
+          0.3370630016236841,
+          0.4335510553464205,
+          0.14912265818538226,
+          0.6922085659414734,
+          0.1964497752055144,
+          0.7486517045125236,
+          0.20285319473182703,
+          0.39167562426407043,
+          0.37356471635138677,
+          0.25391481780904723
+        ]
+      },
+      "id": "panel.joint.direction-90-cells",
+      "kind": "scatter",
+      "name": "direction-90-cells",
+      "panelId": "panel.joint",
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "panel.joint.direction-90-cells.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "members": [],
+          "role": "point",
+          "svgId": "panel.joint.direction-135-cells.points"
+        }
+      ],
+      "data": {
+        "x": [
+          0.6350974797388402,
+          0.7944817608639337,
+          1.0,
+          0.716523505373628,
+          0.5072941106715066,
+          0.1098119981278384,
+          0.18454966176665813,
+          0.1551045862126499,
+          0.7179530563102532
+        ],
+        "y": [
+          0.5510136543911021,
+          0.06306165561136477,
+          0.010128771545008568,
+          0.6987123253854448,
+          0.1738065290724826,
+          0.15140914474600925,
+          0.20183651254965615,
+          0.1933950197131873,
+          0.0814653385580837
+        ]
+      },
+      "id": "panel.joint.direction-135-cells",
+      "kind": "scatter",
+      "name": "direction-135-cells",
+      "panelId": "panel.joint",
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "panel.joint.direction-135-cells.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "members": [],
+          "role": "point",
+          "svgId": "panel.joint.direction-180-cells.points"
+        }
+      ],
+      "data": {
+        "x": [
+          0.15693304356575,
+          0.3142216736493808,
+          0.539424434540682,
+          0.385320260081933,
+          0.4584465469068128,
+          0.2829119677317694,
+          0.4092113788449317,
+          0.2081818640953589,
+          0.6875135224777842,
+          0.3437785602144901,
+          0.11851362649332418,
+          0.4960298911422775,
+          0.4237275188185228
+        ],
+        "y": [
+          0.4134173733055461,
+          0.4886221808552675,
+          0.10644441504266111,
+          0.25691331554092733,
+          0.26035902417215373,
+          0.7382222511754754,
+          0.08779734714220436,
+          0.23493974574677082,
+          0.5645026630177119,
+          0.20965210342187407,
+          0.5902872452541416,
+          0.24495878961793277,
+          0.1775488261696522
+        ]
+      },
+      "id": "panel.joint.direction-180-cells",
+      "kind": "scatter",
+      "name": "direction-180-cells",
+      "panelId": "panel.joint",
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "panel.joint.direction-180-cells.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "members": [],
+          "role": "point",
+          "svgId": "panel.joint.direction-225-cells.points"
+        }
+      ],
+      "data": {
+        "x": [
+          0.5531089921238439,
+          0.38454563370911027,
+          0.741851947431421,
+          0.5312465062309107,
+          0.9003940614344812,
+          0.5913172324770771,
+          0.6571038176802576,
+          0.5469240077659462,
+          0.651998515517332,
+          0.04803260708127122,
+          0.7995886313574475,
+          0.3912992743417744
+        ],
+        "y": [
+          0.26526724172247973,
+          0.26027429379054823,
+          0.07470538561160699,
+          0.12383282175164805,
+          0.07699915489342751,
+          0.5137978629143517,
+          0.3044819774927192,
+          0.19026960560017475,
+          0.38349396252840257,
+          0.3253642698388078,
+          0.43565993390437585,
+          0.10449400614421017
+        ]
+      },
+      "id": "panel.joint.direction-225-cells",
+      "kind": "scatter",
+      "name": "direction-225-cells",
+      "panelId": "panel.joint",
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "panel.joint.direction-225-cells.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "members": [],
+          "role": "point",
+          "svgId": "panel.joint.direction-270-cells.points"
+        }
+      ],
+      "data": {
+        "x": [
+          0.5087549583084311,
+          0.15133647789238044,
+          0.9208261908931674,
+          0.3098675041562275,
+          0.5244641673896994,
+          0.44532954113614137,
+          0.709538680539496,
+          0.43962515211833725,
+          0.36023276441203433,
+          0.5107179927146893,
+          0.24883453863674176,
+          0.9834727024694603,
+          0.22399375711563438,
+          0.5536146107429174,
+          0.6817475011398447,
+          0.3893296160560017,
+          0.7147330748340609,
+          0.8884546938058012,
+          0.30366860372767074
+        ],
+        "y": [
+          0.12548804206192102,
+          0.2746930980642504,
+          0.23929770765813763,
+          0.26827635127349786,
+          0.522915878576643,
+          0.4560531664266857,
+          0.5445713083975668,
+          0.5788904578431142,
+          0.2001353816819357,
+          0.16522472438457553,
+          0.17936799670618248,
+          0.12101574347155868,
+          0.109024594014034,
+          0.3102800656518404,
+          0.3765978106070285,
+          0.4967140516673113,
+          0.19580393506294255,
+          0.8002505432283304,
+          0.6132332362843285
+        ]
+      },
+      "id": "panel.joint.direction-270-cells",
+      "kind": "scatter",
+      "name": "direction-270-cells",
+      "panelId": "panel.joint",
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "panel.joint.direction-270-cells.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "members": [],
+          "role": "point",
+          "svgId": "panel.joint.direction-315-cells.points"
+        }
+      ],
+      "data": {
+        "x": [
+          0.6834726348723633,
+          0.8462913466638522,
+          0.7211721888890625,
+          0.4963754790557699,
+          0.5525749078028047,
+          0.20608758198266272,
+          0.8868189804113843,
+          0.27083042751597036,
+          0.4814039574323377,
+          0.9391295815942655,
+          0.7427960737299113,
+          0.39574566825768376,
+          0.4130216737196261,
+          0.8900638742997389
+        ],
+        "y": [
+          0.31665240509357173,
+          0.949524339477194,
+          0.7177857403399601,
+          0.4435535519317906,
+          0.22927380206107473,
+          0.3914665252205678,
+          0.8889517428566497,
+          0.39387734244839345,
+          0.23856112918753133,
+          0.30974229814232546,
+          0.285157584233654,
+          0.42688774276970104,
+          0.8239474429038288,
+          0.6174195654234956
+        ]
+      },
+      "id": "panel.joint.direction-315-cells",
+      "kind": "scatter",
+      "name": "direction-315-cells",
+      "panelId": "panel.joint",
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "panel.joint.direction-315-cells.points"
+      }
+    },
+    {
+      "bar": {
+        "baseline": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "length": [
+          7.0,
+          15.0,
+          19.0,
+          21.0,
+          18.0,
+          13.0,
+          10.0,
+          6.0,
+          8.0,
+          5.0,
+          7.0,
+          2.0,
+          5.0,
+          2.0,
+          5.0
+        ],
+        "orientation": "horizontal"
+      },
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "bar",
+          "svgId": "panel.direction.direction-selectivity.bar.0"
+        },
+        {
+          "role": "bar",
+          "svgId": "panel.direction.direction-selectivity.bar.1"
+        },
+        {
+          "role": "bar",
+          "svgId": "panel.direction.direction-selectivity.bar.2"
+        },
+        {
+          "role": "bar",
+          "svgId": "panel.direction.direction-selectivity.bar.3"
+        },
+        {
+          "role": "bar",
+          "svgId": "panel.direction.direction-selectivity.bar.4"
+        },
+        {
+          "role": "bar",
+          "svgId": "panel.direction.direction-selectivity.bar.5"
+        },
+        {
+          "role": "bar",
+          "svgId": "panel.direction.direction-selectivity.bar.6"
+        },
+        {
+          "role": "bar",
+          "svgId": "panel.direction.direction-selectivity.bar.7"
+        },
+        {
+          "role": "bar",
+          "svgId": "panel.direction.direction-selectivity.bar.8"
+        },
+        {
+          "role": "bar",
+          "svgId": "panel.direction.direction-selectivity.bar.9"
+        },
+        {
+          "role": "bar",
+          "svgId": "panel.direction.direction-selectivity.bar.10"
+        },
+        {
+          "role": "bar",
+          "svgId": "panel.direction.direction-selectivity.bar.11"
+        },
+        {
+          "role": "bar",
+          "svgId": "panel.direction.direction-selectivity.bar.12"
+        },
+        {
+          "role": "bar",
+          "svgId": "panel.direction.direction-selectivity.bar.13"
+        },
+        {
+          "role": "bar",
+          "svgId": "panel.direction.direction-selectivity.bar.14"
+        }
+      ],
+      "data": {
+        "x": [
+          7.0,
+          15.0,
+          19.0,
+          21.0,
+          18.0,
+          13.0,
+          10.0,
+          6.0,
+          8.0,
+          5.0,
+          7.0,
+          2.0,
+          5.0,
+          2.0,
+          5.0
+        ],
+        "y": [
+          0.03333333333333333,
+          0.1,
+          0.16666666666666669,
+          0.23333333333333334,
+          0.3,
+          0.3666666666666667,
+          0.43333333333333335,
+          0.5,
+          0.5666666666666667,
+          0.6333333333333333,
+          0.7,
+          0.7666666666666666,
+          0.8333333333333334,
+          0.9,
+          0.9666666666666667
+        ]
+      },
+      "distribution": {
+        "binEdges": [
+          0.0,
+          0.06666666666666667,
+          0.13333333333333333,
+          0.2,
+          0.26666666666666666,
+          0.3333333333333333,
+          0.4,
+          0.4666666666666667,
+          0.5333333333333333,
+          0.6,
+          0.6666666666666666,
+          0.7333333333333333,
+          0.8,
+          0.8666666666666667,
+          0.9333333333333333,
+          1.0
+        ],
+        "counts": [
+          7.0,
+          15.0,
+          19.0,
+          21.0,
+          18.0,
+          13.0,
+          10.0,
+          6.0,
+          8.0,
+          5.0,
+          7.0,
+          2.0,
+          5.0,
+          2.0,
+          5.0
+        ],
+        "cumulative": false,
+        "normalization": "count",
+        "orientation": "horizontal",
+        "weighted": false
+      },
+      "id": "panel.direction.direction-selectivity",
+      "kind": "bar",
+      "name": "direction-selectivity",
+      "panelId": "panel.direction",
+      "roles": [
+        "bar"
+      ],
+      "svg": {
+        "bars": [
+          "panel.direction.direction-selectivity.bar.0",
+          "panel.direction.direction-selectivity.bar.1",
+          "panel.direction.direction-selectivity.bar.2",
+          "panel.direction.direction-selectivity.bar.3",
+          "panel.direction.direction-selectivity.bar.4",
+          "panel.direction.direction-selectivity.bar.5",
+          "panel.direction.direction-selectivity.bar.6",
+          "panel.direction.direction-selectivity.bar.7",
+          "panel.direction.direction-selectivity.bar.8",
+          "panel.direction.direction-selectivity.bar.9",
+          "panel.direction.direction-selectivity.bar.10",
+          "panel.direction.direction-selectivity.bar.11",
+          "panel.direction.direction-selectivity.bar.12",
+          "panel.direction.direction-selectivity.bar.13",
+          "panel.direction.direction-selectivity.bar.14"
+        ]
+      }
+    }
+  ],
+  "size": {
+    "height": 176.4,
+    "unit": "pt",
+    "width": 237.6
+  },
+  "spec": "fluxplot/manifest",
+  "svg": "30-selectivity.svg"
+}

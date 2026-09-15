@@ -23,7 +23,7 @@
       "number": 1,
       "nickname": "From neurons to population codes",
       "canvas": "canvas-1",
-      "caption": "Neuronal populations encode diverse stimulus features. An original demonstration assembled from public neuronal and anatomical datasets; the panels are exploratory visualizations, not a reproduced publication. **a**, Anatomical context. **b**, Neuronal architecture. **c**, Response similarity network. **d**, Population responses. **e**, Diverse tuning profiles. **f**, Population activity space. **g**, Response selectivity. **h**, Within-cell comparisons."
+      "caption": "Neuronal populations flexibly encode diverse stimuli. An original demonstration composed from public Allen Institute data; anatomy and recordings come from separate specimens, and the graph links are response similarities, not synapses. **a**, Visual cortical areas on the Allen CCFv3 brain surface in an oblique dorsal view (inset, lateral view); VISl is the recorded area. **b**, Reconstructed neurons from the Allen Cell Types Database at one scale, pia upward. **c**, Trial-averaged, per-cell standardized responses of all 143 cells to eight drift directions at 2 Hz, grouped by preferred direction and ordered by response latency. **d**, Four example cells: trial-averaged ΔF/F for every direction (shaded, 2 s grating; one vertical scale per row) and their polar tuning, with the preferred direction marked. **e**, Population trajectories in one three-dimensional PCA basis; saturated segments are stimulus frames, circles onset and squares offset. **f**, Signal-correlation matrix ordered by preferred direction. **g**, Cells arranged by preferred direction with links for pairs whose signal correlation is at least 0.6. **h**, PCA of the standardized condition means; contours enclose 40, 70 and 90% of the density. **i**, Circular orientation versus direction selectivity with marginal distributions. **j**, Temporal-frequency tuning at each cell's preferred direction (mean ± s.e.m.; bands, 10–90% and interquartile ranges; bars, share of cells preferring each frequency). **k**, Number of cells preferring each direction. Colours throughout follow the drift-direction key."
     },
     {
       "id": "fig-neural-structure",
@@ -35,18 +35,7 @@
       "number": 2,
       "nickname": "Response structure and variation",
       "canvas": "canvas-1",
-      "caption": "Complementary views of response structure. Original exploratory summaries of the same public source collection. **a**, Shared response structure. **b**, Responses through time. **c**, Response variation by temporal frequency. **d**, Dimensions of population activity."
-    },
-    {
-      "id": "fig_mu1vwcyuwae6_4",
-      "name": "Figure 3",
-      "label": "fig-fig-mu1vwcyuwae6-4",
-      "order": 3,
-      "kind": "main",
-      "family": "figure",
-      "number": 3,
-      "canvas": "canvas_mu1vwcyuwae6_3",
-      "caption": ""
+      "caption": "Response structure across temporal frequency and within single cells. Original views of the same public recordings and an independent anatomical specimen. **a**, All 143 cells in one PCA basis of their direction profiles at 1, 4 and 15 Hz; colours, ordering and axes are fixed across the three states, which form a Data Morph sequence in Flux. **b**, A reconstructed VISp neuron coloured by path distance from the soma. **c**, Direction tuning of six identified cells at 2 Hz (points, measured means; curves, shape-preserving guides). **d**, Joint direction and temporal-frequency tuning of one cell; black points are the 40 measured conditions. **e**, Trial-by-trial responses of one cell by drift direction, with means and bootstrap 95% intervals. **f**, Circular orientation selectivity at each temporal frequency for all cells (lines, medians)."
     }
   ],
   "assets": [
@@ -99,14 +88,6 @@
       "naturalHeight": 244.79999999999998
     },
     {
-      "id": "07-paired-responses",
-      "kind": "svg",
-      "path": "assets/07-paired-responses.svg",
-      "name": "paired responses",
-      "naturalWidth": 307.2,
-      "naturalHeight": 244.79999999999998
-    },
-    {
       "id": "08-population-pca",
       "kind": "svg",
       "path": "assets/08-population-pca.svg",
@@ -145,6 +126,246 @@
       "name": "variance spectrum",
       "naturalWidth": 307.2,
       "naturalHeight": 244.79999999999998
+    },
+    {
+      "id": "asset_mu1xnvbabe30",
+      "kind": "svg",
+      "path": "assets/asset_mu1xnvbabe30.svg",
+      "name": "21-brain-anatomy.svg",
+      "naturalWidth": 436.8,
+      "naturalHeight": 321.59999999999997
+    },
+    {
+      "id": "asset_mu1xnvrjdr9h",
+      "kind": "svg",
+      "path": "assets/asset_mu1xnvrjdr9h.svg",
+      "name": "22-neuron-reconstructions.svg",
+      "naturalWidth": 355.19999999999993,
+      "naturalHeight": 321.59999999999997
+    },
+    {
+      "id": "asset_mu1xnw7z5kuf",
+      "kind": "svg",
+      "path": "assets/asset_mu1xnw7z5kuf.svg",
+      "name": "23-population-atlas.svg",
+      "naturalWidth": 576,
+      "naturalHeight": 321.59999999999997
+    },
+    {
+      "id": "asset_mu1xnwojao9p",
+      "kind": "svg",
+      "path": "assets/asset_mu1xnwojao9p.svg",
+      "name": "24-example-cells.svg",
+      "naturalWidth": 576,
+      "naturalHeight": 288
+    },
+    {
+      "id": "asset_mu1xnx4rrda",
+      "kind": "svg",
+      "path": "assets/asset_mu1xnx4rrda.svg",
+      "name": "25-population-trajectories.svg",
+      "naturalWidth": 288,
+      "naturalHeight": 288
+    },
+    {
+      "id": "asset_mu1xnxld511q",
+      "kind": "svg",
+      "path": "assets/asset_mu1xnxld511q.svg",
+      "name": "26-similarity-matrix.svg",
+      "naturalWidth": 259.2,
+      "naturalHeight": 288
+    },
+    {
+      "id": "asset_mu1xny22j9vh",
+      "kind": "svg",
+      "path": "assets/asset_mu1xny22j9vh.svg",
+      "name": "27-similarity-network.svg",
+      "naturalWidth": 259.2,
+      "naturalHeight": 288
+    },
+    {
+      "id": "asset_mu1xnyifal55",
+      "kind": "svg",
+      "path": "assets/asset_mu1xnyifal55.svg",
+      "name": "28-response-geometry.svg",
+      "naturalWidth": 316.79999999999995,
+      "naturalHeight": 235.2
+    },
+    {
+      "id": "asset_mu1xnyyx6gm6",
+      "kind": "svg",
+      "path": "assets/asset_mu1xnyyx6gm6.svg",
+      "name": "30-selectivity.svg",
+      "naturalWidth": 316.79999999999995,
+      "naturalHeight": 235.2
+    },
+    {
+      "id": "asset_mu1xnzfpevvt",
+      "kind": "svg",
+      "path": "assets/asset_mu1xnzfpevvt.svg",
+      "name": "31-frequency-tuning.svg",
+      "naturalWidth": 316.79999999999995,
+      "naturalHeight": 235.2
+    },
+    {
+      "id": "asset_mu1xnzwxi7bx",
+      "kind": "svg",
+      "path": "assets/asset_mu1xnzwxi7bx.svg",
+      "name": "32-preferred-directions.svg",
+      "naturalWidth": 278.4,
+      "naturalHeight": 235.2
+    },
+    {
+      "id": "asset_mu1xo0dh6eql",
+      "kind": "svg",
+      "path": "assets/asset_mu1xo0dh6eql.svg",
+      "name": "29-direction-key.svg",
+      "naturalWidth": 100.79999999999998,
+      "naturalHeight": 100.79999999999998
+    },
+    {
+      "id": "asset_mu1xsv6z86pc",
+      "kind": "svg",
+      "path": "assets/asset_mu1xsv6z86pc.svg",
+      "name": "14-response-geometry-01hz.svg",
+      "naturalWidth": 278.4,
+      "naturalHeight": 288
+    },
+    {
+      "id": "asset_mu1xsvogem7f",
+      "kind": "svg",
+      "path": "assets/asset_mu1xsvogem7f.svg",
+      "name": "14-response-geometry-04hz.svg",
+      "naturalWidth": 278.4,
+      "naturalHeight": 288
+    },
+    {
+      "id": "asset_mu1xsvwgbyp1",
+      "kind": "svg",
+      "path": "assets/asset_mu1xsvwgbyp1.svg",
+      "name": "14-response-geometry-15hz.svg",
+      "naturalWidth": 278.4,
+      "naturalHeight": 288
+    },
+    {
+      "id": "asset_mu1xsw5bf5jf",
+      "kind": "svg",
+      "path": "assets/asset_mu1xsw5bf5jf.svg",
+      "name": "20-dendritic-arbor.svg",
+      "naturalWidth": 321.59999999999997,
+      "naturalHeight": 336
+    },
+    {
+      "id": "asset_mu1xswmowmy",
+      "kind": "svg",
+      "path": "assets/asset_mu1xswmowmy.svg",
+      "name": "29-direction-key.svg",
+      "naturalWidth": 100.79999999999998,
+      "naturalHeight": 100.79999999999998
+    },
+    {
+      "id": "asset_mu1xswv499hk",
+      "kind": "svg",
+      "path": "assets/asset_mu1xswv499hk.svg",
+      "name": "16-tuning-landscape-2hz.svg",
+      "naturalWidth": 331.2,
+      "naturalHeight": 312
+    },
+    {
+      "id": "asset_mu1xsxc59c4z",
+      "kind": "svg",
+      "path": "assets/asset_mu1xsxc59c4z.svg",
+      "name": "18-joint-tuning-surface.svg",
+      "naturalWidth": 336,
+      "naturalHeight": 321.59999999999997
+    },
+    {
+      "id": "asset_mu1xsxui6ft3",
+      "kind": "svg",
+      "path": "assets/asset_mu1xsxui6ft3.svg",
+      "name": "17-trial-response-raincloud.svg",
+      "naturalWidth": 336,
+      "naturalHeight": 316.79999999999995
+    },
+    {
+      "id": "asset_mu1xsybs14d4",
+      "kind": "svg",
+      "path": "assets/asset_mu1xsybs14d4.svg",
+      "name": "11-frequency-selectivity.svg",
+      "naturalWidth": 307.2,
+      "naturalHeight": 244.79999999999998
+    },
+    {
+      "id": "asset_mu1xudcuifqk",
+      "kind": "svg",
+      "path": "assets/asset_mu1xudcuifqk.svg",
+      "name": "14-response-geometry-01hz.svg",
+      "naturalWidth": 278.4,
+      "naturalHeight": 288
+    },
+    {
+      "id": "asset_mu1xudu4hdj8",
+      "kind": "svg",
+      "path": "assets/asset_mu1xudu4hdj8.svg",
+      "name": "14-response-geometry-04hz.svg",
+      "naturalWidth": 278.4,
+      "naturalHeight": 288
+    },
+    {
+      "id": "asset_mu1xue2cbwog",
+      "kind": "svg",
+      "path": "assets/asset_mu1xue2cbwog.svg",
+      "name": "14-response-geometry-15hz.svg",
+      "naturalWidth": 278.4,
+      "naturalHeight": 288
+    },
+    {
+      "id": "asset_mu1xueajexpl",
+      "kind": "svg",
+      "path": "assets/asset_mu1xueajexpl.svg",
+      "name": "20-dendritic-arbor.svg",
+      "naturalWidth": 321.59999999999997,
+      "naturalHeight": 336
+    },
+    {
+      "id": "asset_mu1xues5e3u9",
+      "kind": "svg",
+      "path": "assets/asset_mu1xues5e3u9.svg",
+      "name": "29-direction-key.svg",
+      "naturalWidth": 100.79999999999998,
+      "naturalHeight": 100.79999999999998
+    },
+    {
+      "id": "asset_mu1xuf0hgdxq",
+      "kind": "svg",
+      "path": "assets/asset_mu1xuf0hgdxq.svg",
+      "name": "16-tuning-landscape-2hz.svg",
+      "naturalWidth": 331.2,
+      "naturalHeight": 312
+    },
+    {
+      "id": "asset_mu1xufi4azmj",
+      "kind": "svg",
+      "path": "assets/asset_mu1xufi4azmj.svg",
+      "name": "18-joint-tuning-surface.svg",
+      "naturalWidth": 336,
+      "naturalHeight": 321.59999999999997
+    },
+    {
+      "id": "asset_mu1xufzhcbg",
+      "kind": "svg",
+      "path": "assets/asset_mu1xufzhcbg.svg",
+      "name": "17-trial-response-raincloud.svg",
+      "naturalWidth": 336,
+      "naturalHeight": 316.79999999999995
+    },
+    {
+      "id": "asset_mu1xuggyc7i7",
+      "kind": "svg",
+      "path": "assets/asset_mu1xuggyc7i7.svg",
+      "name": "33-frequency-selectivity.svg",
+      "naturalWidth": 316.79999999999995,
+      "naturalHeight": 316.79999999999995
     }
   ],
   "palette": [

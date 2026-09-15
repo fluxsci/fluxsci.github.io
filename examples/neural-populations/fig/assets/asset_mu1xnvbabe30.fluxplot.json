@@ -1,0 +1,709 @@
+{
+  "artifact": {
+    "svgSha256": "1990e52e94aa1a3d86e84cbf0518738a8ba1757a61dc47367cbffaa4f9354e6c"
+  },
+  "axes": [
+    {
+      "id": "panel.dorsal.plot-area",
+      "panelId": "panel.dorsal",
+      "pixelBox": {
+        "x0": 0,
+        "x1": 209.664,
+        "y0": 3.1552618611733014,
+        "y1": 230.8087381388267
+      },
+      "projection": "rectilinear",
+      "svgId": "panel.dorsal.plot-area",
+      "x": {
+        "anchors": [
+          {
+            "data": -8.105809285707444,
+            "svg": 0
+          },
+          {
+            "data": 7.413061491997666,
+            "svg": 209.664
+          }
+        ],
+        "domain": [
+          -8.105809285707444,
+          7.413061491997666
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "−10",
+            "value": -10
+          },
+          {
+            "label": "−8",
+            "value": -8
+          },
+          {
+            "label": "−6",
+            "value": -6
+          },
+          {
+            "label": "−4",
+            "value": -4
+          },
+          {
+            "label": "−2",
+            "value": -2
+          },
+          {
+            "label": "0",
+            "value": 0
+          },
+          {
+            "label": "2",
+            "value": 2
+          },
+          {
+            "label": "4",
+            "value": 4
+          },
+          {
+            "label": "6",
+            "value": 6
+          },
+          {
+            "label": "8",
+            "value": 8
+          }
+        ]
+      },
+      "y": {
+        "anchors": [
+          {
+            "data": -9.132791378723416,
+            "svg": 230.8087381388267
+          },
+          {
+            "data": 7.717621092889538,
+            "svg": 3.155261861173328
+          }
+        ],
+        "domain": [
+          -9.132791378723416,
+          7.717621092889538
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "−10",
+            "value": -10
+          },
+          {
+            "label": "−8",
+            "value": -8
+          },
+          {
+            "label": "−6",
+            "value": -6
+          },
+          {
+            "label": "−4",
+            "value": -4
+          },
+          {
+            "label": "−2",
+            "value": -2
+          },
+          {
+            "label": "0",
+            "value": 0
+          },
+          {
+            "label": "2",
+            "value": 2
+          },
+          {
+            "label": "4",
+            "value": 4
+          },
+          {
+            "label": "6",
+            "value": 6
+          },
+          {
+            "label": "8",
+            "value": 8
+          }
+        ]
+      }
+    },
+    {
+      "id": "panel.lateral.plot-area",
+      "panelId": "panel.lateral",
+      "pixelBox": {
+        "x0": 196.55999999999997,
+        "x1": 327.59999999999997,
+        "y0": 37.9166922548992,
+        "y1": 111.62730774510081
+      },
+      "projection": "rectilinear",
+      "svgId": "panel.lateral.plot-area",
+      "x": {
+        "anchors": [
+          {
+            "data": -7.252966485,
+            "svg": 196.55999999999997
+          },
+          {
+            "data": 7.277296185000001,
+            "svg": 327.59999999999997
+          }
+        ],
+        "domain": [
+          -7.252966485,
+          7.277296185000001
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "−8",
+            "value": -8
+          },
+          {
+            "label": "−6",
+            "value": -6
+          },
+          {
+            "label": "−4",
+            "value": -4
+          },
+          {
+            "label": "−2",
+            "value": -2
+          },
+          {
+            "label": "0",
+            "value": 0
+          },
+          {
+            "label": "2",
+            "value": 2
+          },
+          {
+            "label": "4",
+            "value": 4
+          },
+          {
+            "label": "6",
+            "value": 6
+          },
+          {
+            "label": "8",
+            "value": 8
+          }
+        ]
+      },
+      "y": {
+        "anchors": [
+          {
+            "data": -4.2357555,
+            "svg": 111.62730774510081
+          },
+          {
+            "data": 3.9375855000000004,
+            "svg": 37.9166922548992
+          }
+        ],
+        "domain": [
+          -4.2357555,
+          3.9375855000000004
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "−6",
+            "value": -6
+          },
+          {
+            "label": "−4",
+            "value": -4
+          },
+          {
+            "label": "−2",
+            "value": -2
+          },
+          {
+            "label": "0",
+            "value": 0
+          },
+          {
+            "label": "2",
+            "value": 2
+          },
+          {
+            "label": "4",
+            "value": 4
+          }
+        ]
+      }
+    }
+  ],
+  "build": {
+    "order": [
+      "gridlines",
+      "panel.dorsal.dorsal-brain-surface.x-brain-surface",
+      "panel.dorsal.dorsal-isocortex.x-brain-surface",
+      "panel.dorsal.dorsal-primary-visual-area.x-brain-surface",
+      "panel.dorsal.dorsal-lateral-visual-area.x-brain-surface",
+      "panel.dorsal.annotation.0",
+      "panel.dorsal.annotation.1",
+      "panel.dorsal.annotation.2",
+      "panel.dorsal.extra.line.0",
+      "panel.dorsal.extra.patch.0",
+      "panel.dorsal.extra.patch.1",
+      "panel.dorsal.extra.patch.2",
+      "panel.lateral.lateral-brain-surface.x-brain-surface",
+      "panel.lateral.lateral-isocortex.x-brain-surface",
+      "panel.lateral.lateral-primary-visual-area.x-brain-surface",
+      "panel.lateral.lateral-lateral-visual-area.x-brain-surface",
+      "panel.lateral.annotation.0"
+    ],
+    "presets": {
+      "axis": {
+        "animation": "draw-on",
+        "durationMs": 400
+      },
+      "extra": {
+        "animation": "fade-in",
+        "durationMs": 400
+      },
+      "gridline": {
+        "animation": "fade-in",
+        "durationMs": 300
+      }
+    }
+  },
+  "generator": {
+    "matplotlib": "3.11.2",
+    "name": "fluxplot",
+    "version": "0.1.0"
+  },
+  "guides": [],
+  "overlays": [
+    {
+      "id": "panel.dorsal.annotation.0",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "panel.dorsal.annotation.0",
+      "text": "2 mm"
+    },
+    {
+      "id": "panel.dorsal.annotation.1",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "panel.dorsal.annotation.1",
+      "text": "A"
+    },
+    {
+      "id": "panel.dorsal.annotation.2",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "panel.dorsal.annotation.2",
+      "text": "Allen CCFv3 2017 surfaces · imaging plane 175 µm deep"
+    },
+    {
+      "id": "panel.dorsal.extra.line.0",
+      "kind": "line",
+      "role": "extra",
+      "svgId": "panel.dorsal.extra.line.0"
+    },
+    {
+      "id": "panel.dorsal.extra.patch.0",
+      "kind": "shape",
+      "role": "extra",
+      "svgId": "panel.dorsal.extra.patch.0"
+    },
+    {
+      "id": "panel.dorsal.extra.patch.1",
+      "kind": "shape",
+      "role": "extra",
+      "svgId": "panel.dorsal.extra.patch.1"
+    },
+    {
+      "id": "panel.dorsal.extra.patch.2",
+      "kind": "shape",
+      "role": "extra",
+      "svgId": "panel.dorsal.extra.patch.2"
+    },
+    {
+      "id": "panel.lateral.annotation.0",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "panel.lateral.annotation.0",
+      "text": "lateral"
+    }
+  ],
+  "panels": [
+    {
+      "id": "panel.dorsal",
+      "index": 0,
+      "label": "dorsal",
+      "svgId": "panel.dorsal.plot-area"
+    },
+    {
+      "id": "panel.lateral",
+      "index": 1,
+      "label": "lateral",
+      "svgId": "panel.lateral.plot-area"
+    }
+  ],
+  "parts": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.dorsal.dorsal-brain-surface.x-brain-surface"
+                  }
+                ],
+                "id": "panel.dorsal.dorsal-brain-surface",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.dorsal.dorsal-isocortex.x-brain-surface"
+                  }
+                ],
+                "id": "panel.dorsal.dorsal-isocortex",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.dorsal.dorsal-primary-visual-area.x-brain-surface"
+                  }
+                ],
+                "id": "panel.dorsal.dorsal-primary-visual-area",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.dorsal.dorsal-lateral-visual-area.x-brain-surface"
+                  }
+                ],
+                "id": "panel.dorsal.dorsal-lateral-visual-area",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "kind": "text",
+                "ref": "panel.dorsal.annotation.0"
+              },
+              {
+                "kind": "text",
+                "ref": "panel.dorsal.annotation.1"
+              },
+              {
+                "kind": "text",
+                "ref": "panel.dorsal.annotation.2"
+              },
+              {
+                "groupRole": "extra",
+                "id": "panel.dorsal.extras",
+                "members": [
+                  "panel.dorsal.extra.line.0",
+                  "panel.dorsal.extra.patch.0",
+                  "panel.dorsal.extra.patch.1",
+                  "panel.dorsal.extra.patch.2"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "panel.dorsal.plot-area",
+            "kind": "container",
+            "role": "plot-area"
+          }
+        ],
+        "id": "panel.dorsal",
+        "kind": "container",
+        "label": "dorsal",
+        "role": "panel"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.lateral.lateral-brain-surface.x-brain-surface"
+                  }
+                ],
+                "id": "panel.lateral.lateral-brain-surface",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.lateral.lateral-isocortex.x-brain-surface"
+                  }
+                ],
+                "id": "panel.lateral.lateral-isocortex",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.lateral.lateral-primary-visual-area.x-brain-surface"
+                  }
+                ],
+                "id": "panel.lateral.lateral-primary-visual-area",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.lateral.lateral-lateral-visual-area.x-brain-surface"
+                  }
+                ],
+                "id": "panel.lateral.lateral-lateral-visual-area",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "kind": "text",
+                "ref": "panel.lateral.annotation.0"
+              }
+            ],
+            "id": "panel.lateral.plot-area",
+            "kind": "container",
+            "role": "plot-area"
+          }
+        ],
+        "id": "panel.lateral",
+        "kind": "container",
+        "label": "lateral",
+        "role": "panel"
+      }
+    ],
+    "id": "figure",
+    "kind": "container",
+    "role": "figure"
+  },
+  "plotType": "plot",
+  "schemaVersion": "0.3.0",
+  "series": [
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-brain-surface",
+          "svgId": "panel.dorsal.dorsal-brain-surface.x-brain-surface"
+        }
+      ],
+      "data": {},
+      "id": "panel.dorsal.dorsal-brain-surface",
+      "kind": "x-brain-surface",
+      "name": "dorsal-brain-surface",
+      "panelId": "panel.dorsal",
+      "rasterized": true,
+      "roles": [
+        "x-brain-surface"
+      ],
+      "svg": {
+        "x-brain-surface": "panel.dorsal.dorsal-brain-surface.x-brain-surface"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-brain-surface",
+          "svgId": "panel.dorsal.dorsal-isocortex.x-brain-surface"
+        }
+      ],
+      "data": {},
+      "id": "panel.dorsal.dorsal-isocortex",
+      "kind": "x-brain-surface",
+      "name": "dorsal-isocortex",
+      "panelId": "panel.dorsal",
+      "rasterized": true,
+      "roles": [
+        "x-brain-surface"
+      ],
+      "svg": {
+        "x-brain-surface": "panel.dorsal.dorsal-isocortex.x-brain-surface"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-brain-surface",
+          "svgId": "panel.dorsal.dorsal-primary-visual-area.x-brain-surface"
+        }
+      ],
+      "data": {},
+      "id": "panel.dorsal.dorsal-primary-visual-area",
+      "kind": "x-brain-surface",
+      "name": "dorsal-primary-visual-area",
+      "panelId": "panel.dorsal",
+      "rasterized": true,
+      "roles": [
+        "x-brain-surface"
+      ],
+      "svg": {
+        "x-brain-surface": "panel.dorsal.dorsal-primary-visual-area.x-brain-surface"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-brain-surface",
+          "svgId": "panel.dorsal.dorsal-lateral-visual-area.x-brain-surface"
+        }
+      ],
+      "data": {},
+      "id": "panel.dorsal.dorsal-lateral-visual-area",
+      "kind": "x-brain-surface",
+      "name": "dorsal-lateral-visual-area",
+      "panelId": "panel.dorsal",
+      "roles": [
+        "x-brain-surface"
+      ],
+      "svg": {
+        "x-brain-surface": "panel.dorsal.dorsal-lateral-visual-area.x-brain-surface"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-brain-surface",
+          "svgId": "panel.lateral.lateral-brain-surface.x-brain-surface"
+        }
+      ],
+      "data": {},
+      "id": "panel.lateral.lateral-brain-surface",
+      "kind": "x-brain-surface",
+      "name": "lateral-brain-surface",
+      "panelId": "panel.lateral",
+      "rasterized": true,
+      "roles": [
+        "x-brain-surface"
+      ],
+      "svg": {
+        "x-brain-surface": "panel.lateral.lateral-brain-surface.x-brain-surface"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-brain-surface",
+          "svgId": "panel.lateral.lateral-isocortex.x-brain-surface"
+        }
+      ],
+      "data": {},
+      "id": "panel.lateral.lateral-isocortex",
+      "kind": "x-brain-surface",
+      "name": "lateral-isocortex",
+      "panelId": "panel.lateral",
+      "rasterized": true,
+      "roles": [
+        "x-brain-surface"
+      ],
+      "svg": {
+        "x-brain-surface": "panel.lateral.lateral-isocortex.x-brain-surface"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-brain-surface",
+          "svgId": "panel.lateral.lateral-primary-visual-area.x-brain-surface"
+        }
+      ],
+      "data": {},
+      "id": "panel.lateral.lateral-primary-visual-area",
+      "kind": "x-brain-surface",
+      "name": "lateral-primary-visual-area",
+      "panelId": "panel.lateral",
+      "rasterized": true,
+      "roles": [
+        "x-brain-surface"
+      ],
+      "svg": {
+        "x-brain-surface": "panel.lateral.lateral-primary-visual-area.x-brain-surface"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-brain-surface",
+          "svgId": "panel.lateral.lateral-lateral-visual-area.x-brain-surface"
+        }
+      ],
+      "data": {},
+      "id": "panel.lateral.lateral-lateral-visual-area",
+      "kind": "x-brain-surface",
+      "name": "lateral-lateral-visual-area",
+      "panelId": "panel.lateral",
+      "roles": [
+        "x-brain-surface"
+      ],
+      "svg": {
+        "x-brain-surface": "panel.lateral.lateral-lateral-visual-area.x-brain-surface"
+      }
+    }
+  ],
+  "size": {
+    "height": 241.20000000000002,
+    "unit": "pt",
+    "width": 327.59999999999997
+  },
+  "spec": "fluxplot/manifest",
+  "svg": "21-brain-anatomy.svg"
+}

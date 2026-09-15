@@ -1,0 +1,63 @@
+{
+  "args": [
+    "run",
+    "--project",
+    "scripts/advanced",
+    "python",
+    "scripts/advanced/flagship.py",
+    "--project",
+    "."
+  ],
+  "command": "uv",
+  "cwd": "../..",
+  "env": null,
+  "generatedAt": "2026-09-15T00:25:22Z",
+  "inputs": [
+    {
+      "bytes": 1298700,
+      "path": "data/allen/traces.json",
+      "role": "data",
+      "sha256": "398cedecf94ddaeb332f082dee8c3b694aefe31ebb1db421bff0de8c615c08e4"
+    },
+    {
+      "bytes": 320196,
+      "path": "data/allen/responses.json",
+      "role": "data",
+      "sha256": "b7f97edaa82619781a9075751c5596f85cd2cb7551650e5d24f8f2e048d1d85f"
+    }
+  ],
+  "output": "23-population-atlas.svg",
+  "outputs": {
+    "manifest": "23-population-atlas.fluxplot.json",
+    "svg": "23-population-atlas.svg"
+  },
+  "params": {
+    "__fluxplot__": {
+      "axes.1.direction-response-blocks": {
+        "cmap": "fusion_r",
+        "vmax": 2.5,
+        "vmin": -2.5
+      }
+    }
+  },
+  "plot": "23-population-atlas",
+  "provenance": {
+    "git": {
+      "commit": "4629d4961c92983be250f2449f5baff13fea96a7",
+      "dirty": true
+    },
+    "packages": {
+      "fluxplot": "0.1.0",
+      "matplotlib": "3.11.2"
+    },
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.12",
+    "scriptDiscovery": "explicit",
+    "scriptSha256": "f47da7e753f0f94315c4347e0fe66e64a1fd57b554a6d52b269a77b3ebfda7fb"
+  },
+  "schemaVersion": "0.3.0",
+  "script": {
+    "path": "scripts/advanced/flagship.py"
+  },
+  "spec": "fluxplot/recipe"
+}

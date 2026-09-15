@@ -1,0 +1,441 @@
+{
+  "artifact": {
+    "svgSha256": "5a463adf8759469981491f3f0b1f3c8828fae87e506cf0f394e4e2b4b9bbbb56"
+  },
+  "axes": [
+    {
+      "id": "plot-area",
+      "pixelBox": {
+        "x0": 41.76,
+        "x1": 167.04,
+        "y0": 29.087999999999997,
+        "y1": 154.368
+      },
+      "projection": "polar",
+      "svgId": "plot-area",
+      "x": {
+        "anchors": [],
+        "domain": [
+          0.0,
+          6.283185307179586
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": false,
+        "ticks": [
+          {
+            "label": "0°",
+            "value": 0.0
+          },
+          {
+            "label": "90°",
+            "value": 1.5707963267948966
+          },
+          {
+            "label": "180°",
+            "value": 3.141592653589793
+          },
+          {
+            "label": "270°",
+            "value": 4.71238898038469
+          }
+        ]
+      },
+      "y": {
+        "anchors": [],
+        "domain": [
+          0.0,
+          37.82
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": false,
+        "ticks": [
+          {
+            "label": "",
+            "value": 10.0
+          },
+          {
+            "label": "",
+            "value": 20.0
+          },
+          {
+            "label": "",
+            "value": 30.0
+          }
+        ]
+      }
+    }
+  ],
+  "build": {
+    "order": [
+      "axis.x",
+      "axis.y",
+      "gridlines",
+      "preferred-direction-count.bar.0",
+      "preferred-direction-count.bar.1",
+      "preferred-direction-count.bar.2",
+      "preferred-direction-count.bar.3",
+      "preferred-direction-count.bar.4",
+      "preferred-direction-count.bar.5",
+      "preferred-direction-count.bar.6",
+      "preferred-direction-count.bar.7",
+      "annotation.0",
+      "annotation.1",
+      "annotation.2",
+      "annotation.3",
+      "annotation.4",
+      "annotation.5",
+      "annotation.6",
+      "annotation.7",
+      "annotation.8",
+      "annotation.9"
+    ],
+    "presets": {
+      "axis": {
+        "animation": "draw-on",
+        "durationMs": 400
+      },
+      "bar": {
+        "animation": "grow-from-baseline",
+        "durationMs": 500
+      },
+      "gridline": {
+        "animation": "fade-in",
+        "durationMs": 300
+      }
+    }
+  },
+  "generator": {
+    "matplotlib": "3.11.2",
+    "name": "fluxplot",
+    "version": "0.1.0"
+  },
+  "guides": [
+    {
+      "axis": "x",
+      "id": "axis.x",
+      "role": "axis",
+      "svgId": "axis.x"
+    },
+    {
+      "axis": "y",
+      "id": "axis.y",
+      "role": "axis",
+      "svgId": "axis.y"
+    }
+  ],
+  "overlays": [
+    {
+      "id": "annotation.0",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.0",
+      "text": "24"
+    },
+    {
+      "id": "annotation.1",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.1",
+      "text": "31"
+    },
+    {
+      "id": "annotation.2",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.2",
+      "text": "21"
+    },
+    {
+      "id": "annotation.3",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.3",
+      "text": "9"
+    },
+    {
+      "id": "annotation.4",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.4",
+      "text": "13"
+    },
+    {
+      "id": "annotation.5",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.5",
+      "text": "12"
+    },
+    {
+      "id": "annotation.6",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.6",
+      "text": "19"
+    },
+    {
+      "id": "annotation.7",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.7",
+      "text": "14"
+    },
+    {
+      "id": "annotation.8",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.8",
+      "text": "cells per preferred direction"
+    },
+    {
+      "id": "annotation.9",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.9",
+      "text": "n = 143 · rings every 10 cells"
+    }
+  ],
+  "parts": {
+    "children": [
+      {
+        "children": [
+          {
+            "axis": "x",
+            "children": [
+              {
+                "groupRole": "tick-label",
+                "id": "axis.x.tick-labels",
+                "kind": "text",
+                "members": [
+                  "axis.x.ticklabel.0",
+                  "axis.x.ticklabel.1",
+                  "axis.x.ticklabel.2",
+                  "axis.x.ticklabel.3"
+                ],
+                "role": "group"
+              },
+              {
+                "groupRole": "gridline",
+                "id": "axis.x.gridlines",
+                "kind": "line",
+                "members": [
+                  "axis.x.gridline.0",
+                  "axis.x.gridline.1",
+                  "axis.x.gridline.2",
+                  "axis.x.gridline.3"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "axis.x",
+            "kind": "container",
+            "role": "axis"
+          },
+          {
+            "axis": "y",
+            "children": [
+              {
+                "groupRole": "gridline",
+                "id": "axis.y.gridlines",
+                "kind": "line",
+                "members": [
+                  "axis.y.gridline.0",
+                  "axis.y.gridline.1",
+                  "axis.y.gridline.2"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "axis.y",
+            "kind": "container",
+            "role": "axis"
+          },
+          {
+            "children": [
+              {
+                "groupRole": "bar",
+                "id": "preferred-direction-count.bars",
+                "kind": "shape",
+                "members": [
+                  "preferred-direction-count.bar.0",
+                  "preferred-direction-count.bar.1",
+                  "preferred-direction-count.bar.2",
+                  "preferred-direction-count.bar.3",
+                  "preferred-direction-count.bar.4",
+                  "preferred-direction-count.bar.5",
+                  "preferred-direction-count.bar.6",
+                  "preferred-direction-count.bar.7"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "preferred-direction-count",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.0"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.1"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.2"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.3"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.4"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.5"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.6"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.7"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.8"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.9"
+          }
+        ],
+        "id": "plot-area",
+        "kind": "container",
+        "role": "plot-area"
+      }
+    ],
+    "id": "figure",
+    "kind": "container",
+    "role": "figure"
+  },
+  "plotType": "bar",
+  "schemaVersion": "0.3.0",
+  "series": [
+    {
+      "bar": {
+        "baseline": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "length": [
+          24.0,
+          31.0,
+          21.0,
+          9.0,
+          13.0,
+          12.0,
+          19.0,
+          14.0
+        ],
+        "orientation": "vertical"
+      },
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "bar",
+          "svgId": "preferred-direction-count.bar.0"
+        },
+        {
+          "role": "bar",
+          "svgId": "preferred-direction-count.bar.1"
+        },
+        {
+          "role": "bar",
+          "svgId": "preferred-direction-count.bar.2"
+        },
+        {
+          "role": "bar",
+          "svgId": "preferred-direction-count.bar.3"
+        },
+        {
+          "role": "bar",
+          "svgId": "preferred-direction-count.bar.4"
+        },
+        {
+          "role": "bar",
+          "svgId": "preferred-direction-count.bar.5"
+        },
+        {
+          "role": "bar",
+          "svgId": "preferred-direction-count.bar.6"
+        },
+        {
+          "role": "bar",
+          "svgId": "preferred-direction-count.bar.7"
+        }
+      ],
+      "data": {
+        "x": [
+          0.0,
+          0.7853981633974483,
+          1.5707963267948966,
+          2.356194490192345,
+          3.141592653589793,
+          3.9269908169872414,
+          4.71238898038469,
+          5.497787143782139
+        ],
+        "y": [
+          24.0,
+          31.0,
+          21.0,
+          9.0,
+          13.0,
+          12.0,
+          19.0,
+          14.0
+        ]
+      },
+      "id": "preferred-direction-count",
+      "kind": "bar",
+      "name": "preferred-direction-count",
+      "roles": [
+        "bar"
+      ],
+      "svg": {
+        "bars": [
+          "preferred-direction-count.bar.0",
+          "preferred-direction-count.bar.1",
+          "preferred-direction-count.bar.2",
+          "preferred-direction-count.bar.3",
+          "preferred-direction-count.bar.4",
+          "preferred-direction-count.bar.5",
+          "preferred-direction-count.bar.6",
+          "preferred-direction-count.bar.7"
+        ]
+      }
+    }
+  ],
+  "size": {
+    "height": 176.4,
+    "unit": "pt",
+    "width": 208.79999999999998
+  },
+  "spec": "fluxplot/manifest",
+  "svg": "32-preferred-directions.svg"
+}

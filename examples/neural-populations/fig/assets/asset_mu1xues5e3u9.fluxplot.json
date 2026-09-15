@@ -1,0 +1,389 @@
+{
+  "artifact": {
+    "svgSha256": "b1f88c96604789a8c2755e41524d06524d54c22d4df2bea1004b131b757dcf1f"
+  },
+  "axes": [
+    {
+      "id": "plot-area",
+      "pixelBox": {
+        "x0": 10.584000000000001,
+        "x1": 65.016,
+        "y0": 12.096000000000004,
+        "y1": 66.528
+      },
+      "projection": "polar",
+      "svgId": "plot-area",
+      "x": {
+        "anchors": [],
+        "domain": [
+          0.0,
+          6.283185307179586
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": false,
+        "ticks": []
+      },
+      "y": {
+        "anchors": [],
+        "domain": [
+          0.0,
+          1.0
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": false,
+        "ticks": []
+      }
+    }
+  ],
+  "build": {
+    "order": [
+      "axis.x",
+      "axis.y",
+      "gridlines",
+      "direction-wheel.bar.0",
+      "direction-wheel.bar.1",
+      "direction-wheel.bar.2",
+      "direction-wheel.bar.3",
+      "direction-wheel.bar.4",
+      "direction-wheel.bar.5",
+      "direction-wheel.bar.6",
+      "direction-wheel.bar.7",
+      "annotation.0",
+      "annotation.1",
+      "annotation.2",
+      "annotation.3",
+      "annotation.4",
+      "extra.patch.0",
+      "extra.patch.1",
+      "extra.patch.2",
+      "extra.patch.3",
+      "extra.patch.4",
+      "extra.patch.5",
+      "extra.patch.6",
+      "extra.patch.7"
+    ],
+    "presets": {
+      "axis": {
+        "animation": "draw-on",
+        "durationMs": 400
+      },
+      "bar": {
+        "animation": "grow-from-baseline",
+        "durationMs": 500
+      },
+      "extra": {
+        "animation": "fade-in",
+        "durationMs": 400
+      },
+      "gridline": {
+        "animation": "fade-in",
+        "durationMs": 300
+      }
+    }
+  },
+  "generator": {
+    "matplotlib": "3.11.2",
+    "name": "fluxplot",
+    "version": "0.1.0"
+  },
+  "guides": [
+    {
+      "axis": "x",
+      "id": "axis.x",
+      "role": "axis",
+      "svgId": "axis.x"
+    },
+    {
+      "axis": "y",
+      "id": "axis.y",
+      "role": "axis",
+      "svgId": "axis.y"
+    }
+  ],
+  "overlays": [
+    {
+      "id": "annotation.0",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.0",
+      "text": "0°"
+    },
+    {
+      "id": "annotation.1",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.1",
+      "text": "90°"
+    },
+    {
+      "id": "annotation.2",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.2",
+      "text": "180°"
+    },
+    {
+      "id": "annotation.3",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.3",
+      "text": "270°"
+    },
+    {
+      "id": "annotation.4",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.4",
+      "text": "drift direction"
+    },
+    {
+      "id": "extra.patch.0",
+      "kind": "shape",
+      "role": "extra",
+      "svgId": "extra.patch.0"
+    },
+    {
+      "id": "extra.patch.1",
+      "kind": "shape",
+      "role": "extra",
+      "svgId": "extra.patch.1"
+    },
+    {
+      "id": "extra.patch.2",
+      "kind": "shape",
+      "role": "extra",
+      "svgId": "extra.patch.2"
+    },
+    {
+      "id": "extra.patch.3",
+      "kind": "shape",
+      "role": "extra",
+      "svgId": "extra.patch.3"
+    },
+    {
+      "id": "extra.patch.4",
+      "kind": "shape",
+      "role": "extra",
+      "svgId": "extra.patch.4"
+    },
+    {
+      "id": "extra.patch.5",
+      "kind": "shape",
+      "role": "extra",
+      "svgId": "extra.patch.5"
+    },
+    {
+      "id": "extra.patch.6",
+      "kind": "shape",
+      "role": "extra",
+      "svgId": "extra.patch.6"
+    },
+    {
+      "id": "extra.patch.7",
+      "kind": "shape",
+      "role": "extra",
+      "svgId": "extra.patch.7"
+    }
+  ],
+  "parts": {
+    "children": [
+      {
+        "children": [
+          {
+            "axis": "x",
+            "children": [],
+            "id": "axis.x",
+            "kind": "container",
+            "role": "axis"
+          },
+          {
+            "axis": "y",
+            "children": [],
+            "id": "axis.y",
+            "kind": "container",
+            "role": "axis"
+          },
+          {
+            "children": [
+              {
+                "groupRole": "bar",
+                "id": "direction-wheel.bars",
+                "kind": "shape",
+                "members": [
+                  "direction-wheel.bar.0",
+                  "direction-wheel.bar.1",
+                  "direction-wheel.bar.2",
+                  "direction-wheel.bar.3",
+                  "direction-wheel.bar.4",
+                  "direction-wheel.bar.5",
+                  "direction-wheel.bar.6",
+                  "direction-wheel.bar.7"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "direction-wheel",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.0"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.1"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.2"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.3"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.4"
+          },
+          {
+            "groupRole": "extra",
+            "id": "extras",
+            "members": [
+              "extra.patch.0",
+              "extra.patch.1",
+              "extra.patch.2",
+              "extra.patch.3",
+              "extra.patch.4",
+              "extra.patch.5",
+              "extra.patch.6",
+              "extra.patch.7"
+            ],
+            "role": "group"
+          }
+        ],
+        "id": "plot-area",
+        "kind": "container",
+        "role": "plot-area"
+      }
+    ],
+    "id": "figure",
+    "kind": "container",
+    "role": "figure"
+  },
+  "plotType": "bar",
+  "schemaVersion": "0.3.0",
+  "series": [
+    {
+      "bar": {
+        "baseline": [
+          0.68,
+          0.68,
+          0.68,
+          0.68,
+          0.68,
+          0.68,
+          0.68,
+          0.68
+        ],
+        "length": [
+          0.31999999999999995,
+          0.31999999999999995,
+          0.31999999999999995,
+          0.31999999999999995,
+          0.31999999999999995,
+          0.31999999999999995,
+          0.31999999999999995,
+          0.31999999999999995
+        ],
+        "orientation": "vertical"
+      },
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "bar",
+          "svgId": "direction-wheel.bar.0"
+        },
+        {
+          "role": "bar",
+          "svgId": "direction-wheel.bar.1"
+        },
+        {
+          "role": "bar",
+          "svgId": "direction-wheel.bar.2"
+        },
+        {
+          "role": "bar",
+          "svgId": "direction-wheel.bar.3"
+        },
+        {
+          "role": "bar",
+          "svgId": "direction-wheel.bar.4"
+        },
+        {
+          "role": "bar",
+          "svgId": "direction-wheel.bar.5"
+        },
+        {
+          "role": "bar",
+          "svgId": "direction-wheel.bar.6"
+        },
+        {
+          "role": "bar",
+          "svgId": "direction-wheel.bar.7"
+        }
+      ],
+      "data": {
+        "x": [
+          0.0,
+          0.7853981633974483,
+          1.5707963267948966,
+          2.356194490192345,
+          3.141592653589793,
+          3.9269908169872414,
+          4.71238898038469,
+          5.497787143782138
+        ],
+        "y": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "id": "direction-wheel",
+      "kind": "bar",
+      "name": "direction-wheel",
+      "roles": [
+        "bar"
+      ],
+      "svg": {
+        "bars": [
+          "direction-wheel.bar.0",
+          "direction-wheel.bar.1",
+          "direction-wheel.bar.2",
+          "direction-wheel.bar.3",
+          "direction-wheel.bar.4",
+          "direction-wheel.bar.5",
+          "direction-wheel.bar.6",
+          "direction-wheel.bar.7"
+        ]
+      }
+    }
+  ],
+  "size": {
+    "height": 75.60000000000001,
+    "unit": "pt",
+    "width": 75.60000000000001
+  },
+  "spec": "fluxplot/manifest",
+  "svg": "29-direction-key.svg"
+}

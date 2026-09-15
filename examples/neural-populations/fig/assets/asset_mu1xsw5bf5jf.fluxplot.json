@@ -1,0 +1,362 @@
+{
+  "artifact": {
+    "svgSha256": "7e6ff99f5c8cf1576f467619d697bf6a3a63b23ff331005bc5db4d963ee73537"
+  },
+  "axes": [
+    {
+      "id": "plot-area",
+      "pixelBox": {
+        "x0": 37.8326786959354,
+        "x1": 203.3673213040646,
+        "y0": 5.0400000000000045,
+        "y1": 206.64000000000001
+      },
+      "projection": "rectilinear",
+      "svgId": "plot-area",
+      "x": {
+        "anchors": [
+          {
+            "data": -316.596,
+            "svg": 37.832678695935385
+          },
+          {
+            "data": 188.97019999999998,
+            "svg": 203.3673213040646
+          }
+        ],
+        "domain": [
+          -316.596,
+          188.97019999999998
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "−400",
+            "value": -400.0
+          },
+          {
+            "label": "−300",
+            "value": -300.0
+          },
+          {
+            "label": "−200",
+            "value": -200.0
+          },
+          {
+            "label": "−100",
+            "value": -100.0
+          },
+          {
+            "label": "0",
+            "value": 0.0
+          },
+          {
+            "label": "100",
+            "value": 100.0
+          },
+          {
+            "label": "200",
+            "value": 200.0
+          }
+        ]
+      },
+      "y": {
+        "anchors": [
+          {
+            "data": -474.9002,
+            "svg": 206.64000000000001
+          },
+          {
+            "data": 140.81470000000002,
+            "svg": 5.039999999999976
+          }
+        ],
+        "domain": [
+          -474.9002,
+          140.81470000000002
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "−500",
+            "value": -500.0
+          },
+          {
+            "label": "−400",
+            "value": -400.0
+          },
+          {
+            "label": "−300",
+            "value": -300.0
+          },
+          {
+            "label": "−200",
+            "value": -200.0
+          },
+          {
+            "label": "−100",
+            "value": -100.0
+          },
+          {
+            "label": "0",
+            "value": 0.0
+          },
+          {
+            "label": "100",
+            "value": 100.0
+          },
+          {
+            "label": "200",
+            "value": 200.0
+          }
+        ]
+      }
+    }
+  ],
+  "build": {
+    "order": [
+      "gridlines",
+      "reconstructed-arbor.x-neuron-arbor",
+      "soma.points",
+      "path-distance-key.x-path-distance-key",
+      "annotation.0",
+      "annotation.1",
+      "annotation.2",
+      "annotation.3",
+      "extra.line.0"
+    ],
+    "presets": {
+      "axis": {
+        "animation": "draw-on",
+        "durationMs": 400
+      },
+      "extra": {
+        "animation": "fade-in",
+        "durationMs": 400
+      },
+      "gridline": {
+        "animation": "fade-in",
+        "durationMs": 300
+      },
+      "point": {
+        "animation": "stagger-in",
+        "durationMs": 240,
+        "staggerMs": 40
+      }
+    }
+  },
+  "generator": {
+    "matplotlib": "3.11.2",
+    "name": "fluxplot",
+    "version": "0.1.0"
+  },
+  "guides": [],
+  "overlays": [
+    {
+      "id": "annotation.0",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.0",
+      "text": "50 μm"
+    },
+    {
+      "id": "annotation.1",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.1",
+      "text": "0"
+    },
+    {
+      "id": "annotation.2",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.2",
+      "text": "528 μm"
+    },
+    {
+      "id": "annotation.3",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.3",
+      "text": "Path distance from soma"
+    },
+    {
+      "id": "extra.line.0",
+      "kind": "line",
+      "role": "extra",
+      "svgId": "extra.line.0"
+    }
+  ],
+  "parts": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "reconstructed-arbor.x-neuron-arbor"
+              }
+            ],
+            "id": "reconstructed-arbor",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "groupRole": "point",
+                "id": "soma.points",
+                "kind": "shape",
+                "members": [
+                  "soma.point.0"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "soma",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "path-distance-key.x-path-distance-key"
+              }
+            ],
+            "id": "path-distance-key",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.0"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.1"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.2"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.3"
+          },
+          {
+            "groupRole": "extra",
+            "id": "extras",
+            "members": [
+              "extra.line.0"
+            ],
+            "role": "group"
+          }
+        ],
+        "id": "plot-area",
+        "kind": "container",
+        "role": "plot-area"
+      }
+    ],
+    "id": "figure",
+    "kind": "container",
+    "role": "figure"
+  },
+  "plotType": "scatter",
+  "schemaVersion": "0.3.0",
+  "series": [
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-neuron-arbor",
+          "svgId": "reconstructed-arbor.x-neuron-arbor"
+        }
+      ],
+      "data": {},
+      "id": "reconstructed-arbor",
+      "kind": "x-neuron-arbor",
+      "name": "reconstructed-arbor",
+      "roles": [
+        "x-neuron-arbor"
+      ],
+      "svg": {
+        "x-neuron-arbor": "reconstructed-arbor.x-neuron-arbor"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "members": [
+            "soma.point.0"
+          ],
+          "role": "point",
+          "svgId": "soma.points"
+        }
+      ],
+      "data": {
+        "x": [
+          0.0
+        ],
+        "y": [
+          0.0
+        ]
+      },
+      "id": "soma",
+      "kind": "scatter",
+      "name": "soma",
+      "points": [
+        {
+          "index": 0,
+          "svgId": "soma.point.0",
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "soma.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-path-distance-key",
+          "svgId": "path-distance-key.x-path-distance-key"
+        }
+      ],
+      "data": {},
+      "id": "path-distance-key",
+      "kind": "x-path-distance-key",
+      "name": "path-distance-key",
+      "roles": [
+        "x-path-distance-key"
+      ],
+      "svg": {
+        "x-path-distance-key": "path-distance-key.x-path-distance-key"
+      }
+    }
+  ],
+  "size": {
+    "height": 252.0,
+    "unit": "pt",
+    "width": 241.20000000000002
+  },
+  "spec": "fluxplot/manifest",
+  "svg": "20-dendritic-arbor.svg"
+}

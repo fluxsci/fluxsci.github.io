@@ -1,0 +1,49 @@
+{
+  "args": [
+    "run",
+    "--project",
+    "scripts/advanced",
+    "python",
+    "scripts/advanced/flagship.py",
+    "--project",
+    "."
+  ],
+  "command": "uv",
+  "cwd": "../..",
+  "env": null,
+  "generatedAt": "2026-09-15T00:33:09Z",
+  "inputs": [
+    {
+      "bytes": 320196,
+      "path": "data/allen/responses.json",
+      "role": "data",
+      "sha256": "b7f97edaa82619781a9075751c5596f85cd2cb7551650e5d24f8f2e048d1d85f"
+    }
+  ],
+  "output": "33-frequency-selectivity.svg",
+  "outputs": {
+    "manifest": "33-frequency-selectivity.fluxplot.json",
+    "svg": "33-frequency-selectivity.svg"
+  },
+  "params": {},
+  "plot": "33-frequency-selectivity",
+  "provenance": {
+    "git": {
+      "commit": "4629d4961c92983be250f2449f5baff13fea96a7",
+      "dirty": true
+    },
+    "packages": {
+      "fluxplot": "0.1.0",
+      "matplotlib": "3.11.2"
+    },
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.12",
+    "scriptDiscovery": "explicit",
+    "scriptSha256": "975034b0142b4e560fc3dfb3f9bb946cd6e7cdd3a438178b5eb9f7b0b431b76d"
+  },
+  "schemaVersion": "0.3.0",
+  "script": {
+    "path": "scripts/advanced/flagship.py"
+  },
+  "spec": "fluxplot/recipe"
+}

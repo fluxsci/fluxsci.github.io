@@ -1,0 +1,869 @@
+{
+  "artifact": {
+    "svgSha256": "2b782c39190f208127aeba09faef8ebdeb6b024e3146afb6a683b94040462053"
+  },
+  "axes": [
+    {
+      "id": "plot-area",
+      "pixelBox": {
+        "x0": 30.509999999999994,
+        "x1": 178.47000000000003,
+        "y0": 24.839999999999996,
+        "y1": 172.8
+      },
+      "projection": "rectilinear",
+      "svgId": "plot-area",
+      "x": {
+        "anchors": [
+          {
+            "data": 0.0,
+            "svg": 30.509999999999994
+          },
+          {
+            "data": 143.0,
+            "svg": 178.47000000000003
+          }
+        ],
+        "domain": [
+          0.0,
+          143.0
+        ],
+        "label": "143 cells, sorted by preferred direction",
+        "scale": "linear",
+        "supported": true,
+        "ticks": []
+      },
+      "y": {
+        "anchors": [
+          {
+            "data": 143.0,
+            "svg": 172.8
+          },
+          {
+            "data": 0.0,
+            "svg": 24.839999999999996
+          }
+        ],
+        "domain": [
+          143.0,
+          0.0
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": []
+      }
+    }
+  ],
+  "build": {
+    "order": [
+      "axis.x",
+      "axis.y",
+      "colorbar.signal-correlation",
+      "gridlines",
+      "signal-correlation.x-heatmap",
+      "rows-preferred-0.x-preference-group",
+      "columns-preferred-0.x-preference-group",
+      "rows-preferred-45.x-preference-group",
+      "columns-preferred-45.x-preference-group",
+      "rows-preferred-90.x-preference-group",
+      "columns-preferred-90.x-preference-group",
+      "rows-preferred-135.x-preference-group",
+      "columns-preferred-135.x-preference-group",
+      "rows-preferred-180.x-preference-group",
+      "columns-preferred-180.x-preference-group",
+      "rows-preferred-225.x-preference-group",
+      "columns-preferred-225.x-preference-group",
+      "rows-preferred-270.x-preference-group",
+      "columns-preferred-270.x-preference-group",
+      "rows-preferred-315.x-preference-group",
+      "columns-preferred-315.x-preference-group",
+      "annotation.0"
+    ],
+    "presets": {
+      "axis": {
+        "animation": "draw-on",
+        "durationMs": 400
+      },
+      "gridline": {
+        "animation": "fade-in",
+        "durationMs": 300
+      }
+    }
+  },
+  "generator": {
+    "matplotlib": "3.11.2",
+    "name": "fluxplot",
+    "version": "0.1.0"
+  },
+  "guides": [
+    {
+      "axis": "x",
+      "id": "axis.x",
+      "role": "axis",
+      "svgId": "axis.x"
+    },
+    {
+      "axis": "y",
+      "id": "axis.y",
+      "role": "axis",
+      "svgId": "axis.y"
+    },
+    {
+      "cmap": "flux-correlation",
+      "id": "colorbar.signal-correlation",
+      "label": "Signal correlation (r)",
+      "mappable": "signal-correlation.x-heatmap",
+      "normalization": {
+        "clip": false,
+        "kind": "Normalize",
+        "vmax": 0.8,
+        "vmin": -0.8
+      },
+      "orientation": "horizontal",
+      "parts": [
+        {
+          "role": "colorbar-label",
+          "svgId": "colorbar.signal-correlation.label"
+        },
+        {
+          "role": "colorbar-tick-label",
+          "svgId": "colorbar.signal-correlation.tick-label.0"
+        },
+        {
+          "role": "colorbar-tick-label",
+          "svgId": "colorbar.signal-correlation.tick-label.1"
+        },
+        {
+          "role": "colorbar-tick-label",
+          "svgId": "colorbar.signal-correlation.tick-label.2"
+        },
+        {
+          "role": "colorbar-tick-label",
+          "svgId": "colorbar.signal-correlation.tick-label.3"
+        },
+        {
+          "role": "colorbar-tick-label",
+          "svgId": "colorbar.signal-correlation.tick-label.4"
+        },
+        {
+          "role": "colorbar-tick",
+          "svgId": "colorbar.signal-correlation.tick.0"
+        },
+        {
+          "role": "colorbar-tick",
+          "svgId": "colorbar.signal-correlation.tick.1"
+        },
+        {
+          "role": "colorbar-tick",
+          "svgId": "colorbar.signal-correlation.tick.2"
+        },
+        {
+          "role": "colorbar-tick",
+          "svgId": "colorbar.signal-correlation.tick.3"
+        },
+        {
+          "role": "colorbar-tick",
+          "svgId": "colorbar.signal-correlation.tick.4"
+        },
+        {
+          "role": "colorbar-solids",
+          "svgId": "colorbar.signal-correlation.solids"
+        }
+      ],
+      "role": "colorbar",
+      "svgId": "colorbar.signal-correlation",
+      "ticks": [
+        -0.8,
+        -0.4,
+        0.0,
+        0.4,
+        0.8
+      ]
+    }
+  ],
+  "overlays": [
+    {
+      "id": "annotation.0",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.0",
+      "text": "Allen SDK signal correlation · 40 conditions"
+    }
+  ],
+  "parts": {
+    "children": [
+      {
+        "children": [
+          {
+            "axis": "x",
+            "children": [
+              {
+                "kind": "text",
+                "ref": "axis.x.title"
+              }
+            ],
+            "id": "axis.x",
+            "kind": "container",
+            "role": "axis"
+          },
+          {
+            "axis": "y",
+            "children": [],
+            "id": "axis.y",
+            "kind": "container",
+            "role": "axis"
+          },
+          {
+            "children": [
+              {
+                "ref": "signal-correlation.x-heatmap"
+              }
+            ],
+            "id": "signal-correlation",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "rows-preferred-0.x-preference-group"
+              }
+            ],
+            "id": "rows-preferred-0",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "columns-preferred-0.x-preference-group"
+              }
+            ],
+            "id": "columns-preferred-0",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "rows-preferred-45.x-preference-group"
+              }
+            ],
+            "id": "rows-preferred-45",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "columns-preferred-45.x-preference-group"
+              }
+            ],
+            "id": "columns-preferred-45",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "rows-preferred-90.x-preference-group"
+              }
+            ],
+            "id": "rows-preferred-90",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "columns-preferred-90.x-preference-group"
+              }
+            ],
+            "id": "columns-preferred-90",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "rows-preferred-135.x-preference-group"
+              }
+            ],
+            "id": "rows-preferred-135",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "columns-preferred-135.x-preference-group"
+              }
+            ],
+            "id": "columns-preferred-135",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "rows-preferred-180.x-preference-group"
+              }
+            ],
+            "id": "rows-preferred-180",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "columns-preferred-180.x-preference-group"
+              }
+            ],
+            "id": "columns-preferred-180",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "rows-preferred-225.x-preference-group"
+              }
+            ],
+            "id": "rows-preferred-225",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "columns-preferred-225.x-preference-group"
+              }
+            ],
+            "id": "columns-preferred-225",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "rows-preferred-270.x-preference-group"
+              }
+            ],
+            "id": "rows-preferred-270",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "columns-preferred-270.x-preference-group"
+              }
+            ],
+            "id": "columns-preferred-270",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "rows-preferred-315.x-preference-group"
+              }
+            ],
+            "id": "rows-preferred-315",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "columns-preferred-315.x-preference-group"
+              }
+            ],
+            "id": "columns-preferred-315",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.0"
+          }
+        ],
+        "id": "plot-area",
+        "kind": "container",
+        "role": "plot-area"
+      },
+      {
+        "children": [
+          {
+            "ref": "colorbar.signal-correlation.label"
+          },
+          {
+            "ref": "colorbar.signal-correlation.tick-label.0"
+          },
+          {
+            "ref": "colorbar.signal-correlation.tick-label.1"
+          },
+          {
+            "ref": "colorbar.signal-correlation.tick-label.2"
+          },
+          {
+            "ref": "colorbar.signal-correlation.tick-label.3"
+          },
+          {
+            "ref": "colorbar.signal-correlation.tick-label.4"
+          },
+          {
+            "ref": "colorbar.signal-correlation.tick.0"
+          },
+          {
+            "ref": "colorbar.signal-correlation.tick.1"
+          },
+          {
+            "ref": "colorbar.signal-correlation.tick.2"
+          },
+          {
+            "ref": "colorbar.signal-correlation.tick.3"
+          },
+          {
+            "ref": "colorbar.signal-correlation.tick.4"
+          },
+          {
+            "ref": "colorbar.signal-correlation.solids"
+          }
+        ],
+        "id": "colorbar.signal-correlation",
+        "kind": "container",
+        "role": "colorbar"
+      }
+    ],
+    "id": "figure",
+    "kind": "container",
+    "role": "figure"
+  },
+  "plotType": "heatmap",
+  "schemaVersion": "0.3.0",
+  "series": [
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-heatmap",
+          "svgId": "signal-correlation.x-heatmap"
+        }
+      ],
+      "data": {},
+      "field": {
+        "cmap": "flux-correlation",
+        "controlKey": "axes.1.signal-correlation",
+        "extent": [
+          0.0,
+          143.0,
+          143.0,
+          0.0
+        ],
+        "kind": "heatmap",
+        "maskedIndices": [],
+        "missingColor": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "normalization": {
+          "clip": false,
+          "kind": "Normalize",
+          "vmax": 0.8,
+          "vmin": -0.8
+        },
+        "origin": "upper",
+        "overColor": [
+          0.6509803921568628,
+          0.23529411764705882,
+          0.1843137254901961,
+          1.0
+        ],
+        "shape": [
+          143,
+          143
+        ],
+        "underColor": [
+          0.12549019607843137,
+          0.3686274509803922,
+          0.6509803921568628,
+          1.0
+        ]
+      },
+      "id": "signal-correlation",
+      "kind": "heatmap",
+      "name": "signal-correlation",
+      "roles": [
+        "x-heatmap"
+      ],
+      "svg": {
+        "x-heatmap": "signal-correlation.x-heatmap"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-preference-group",
+          "svgId": "rows-preferred-0.x-preference-group"
+        }
+      ],
+      "data": {},
+      "id": "rows-preferred-0",
+      "kind": "x-preference-group",
+      "name": "rows-preferred-0",
+      "roles": [
+        "x-preference-group"
+      ],
+      "svg": {
+        "x-preference-group": "rows-preferred-0.x-preference-group"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-preference-group",
+          "svgId": "columns-preferred-0.x-preference-group"
+        }
+      ],
+      "data": {},
+      "id": "columns-preferred-0",
+      "kind": "x-preference-group",
+      "name": "columns-preferred-0",
+      "roles": [
+        "x-preference-group"
+      ],
+      "svg": {
+        "x-preference-group": "columns-preferred-0.x-preference-group"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-preference-group",
+          "svgId": "rows-preferred-45.x-preference-group"
+        }
+      ],
+      "data": {},
+      "id": "rows-preferred-45",
+      "kind": "x-preference-group",
+      "name": "rows-preferred-45",
+      "roles": [
+        "x-preference-group"
+      ],
+      "svg": {
+        "x-preference-group": "rows-preferred-45.x-preference-group"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-preference-group",
+          "svgId": "columns-preferred-45.x-preference-group"
+        }
+      ],
+      "data": {},
+      "id": "columns-preferred-45",
+      "kind": "x-preference-group",
+      "name": "columns-preferred-45",
+      "roles": [
+        "x-preference-group"
+      ],
+      "svg": {
+        "x-preference-group": "columns-preferred-45.x-preference-group"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-preference-group",
+          "svgId": "rows-preferred-90.x-preference-group"
+        }
+      ],
+      "data": {},
+      "id": "rows-preferred-90",
+      "kind": "x-preference-group",
+      "name": "rows-preferred-90",
+      "roles": [
+        "x-preference-group"
+      ],
+      "svg": {
+        "x-preference-group": "rows-preferred-90.x-preference-group"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-preference-group",
+          "svgId": "columns-preferred-90.x-preference-group"
+        }
+      ],
+      "data": {},
+      "id": "columns-preferred-90",
+      "kind": "x-preference-group",
+      "name": "columns-preferred-90",
+      "roles": [
+        "x-preference-group"
+      ],
+      "svg": {
+        "x-preference-group": "columns-preferred-90.x-preference-group"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-preference-group",
+          "svgId": "rows-preferred-135.x-preference-group"
+        }
+      ],
+      "data": {},
+      "id": "rows-preferred-135",
+      "kind": "x-preference-group",
+      "name": "rows-preferred-135",
+      "roles": [
+        "x-preference-group"
+      ],
+      "svg": {
+        "x-preference-group": "rows-preferred-135.x-preference-group"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-preference-group",
+          "svgId": "columns-preferred-135.x-preference-group"
+        }
+      ],
+      "data": {},
+      "id": "columns-preferred-135",
+      "kind": "x-preference-group",
+      "name": "columns-preferred-135",
+      "roles": [
+        "x-preference-group"
+      ],
+      "svg": {
+        "x-preference-group": "columns-preferred-135.x-preference-group"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-preference-group",
+          "svgId": "rows-preferred-180.x-preference-group"
+        }
+      ],
+      "data": {},
+      "id": "rows-preferred-180",
+      "kind": "x-preference-group",
+      "name": "rows-preferred-180",
+      "roles": [
+        "x-preference-group"
+      ],
+      "svg": {
+        "x-preference-group": "rows-preferred-180.x-preference-group"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-preference-group",
+          "svgId": "columns-preferred-180.x-preference-group"
+        }
+      ],
+      "data": {},
+      "id": "columns-preferred-180",
+      "kind": "x-preference-group",
+      "name": "columns-preferred-180",
+      "roles": [
+        "x-preference-group"
+      ],
+      "svg": {
+        "x-preference-group": "columns-preferred-180.x-preference-group"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-preference-group",
+          "svgId": "rows-preferred-225.x-preference-group"
+        }
+      ],
+      "data": {},
+      "id": "rows-preferred-225",
+      "kind": "x-preference-group",
+      "name": "rows-preferred-225",
+      "roles": [
+        "x-preference-group"
+      ],
+      "svg": {
+        "x-preference-group": "rows-preferred-225.x-preference-group"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-preference-group",
+          "svgId": "columns-preferred-225.x-preference-group"
+        }
+      ],
+      "data": {},
+      "id": "columns-preferred-225",
+      "kind": "x-preference-group",
+      "name": "columns-preferred-225",
+      "roles": [
+        "x-preference-group"
+      ],
+      "svg": {
+        "x-preference-group": "columns-preferred-225.x-preference-group"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-preference-group",
+          "svgId": "rows-preferred-270.x-preference-group"
+        }
+      ],
+      "data": {},
+      "id": "rows-preferred-270",
+      "kind": "x-preference-group",
+      "name": "rows-preferred-270",
+      "roles": [
+        "x-preference-group"
+      ],
+      "svg": {
+        "x-preference-group": "rows-preferred-270.x-preference-group"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-preference-group",
+          "svgId": "columns-preferred-270.x-preference-group"
+        }
+      ],
+      "data": {},
+      "id": "columns-preferred-270",
+      "kind": "x-preference-group",
+      "name": "columns-preferred-270",
+      "roles": [
+        "x-preference-group"
+      ],
+      "svg": {
+        "x-preference-group": "columns-preferred-270.x-preference-group"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-preference-group",
+          "svgId": "rows-preferred-315.x-preference-group"
+        }
+      ],
+      "data": {},
+      "id": "rows-preferred-315",
+      "kind": "x-preference-group",
+      "name": "rows-preferred-315",
+      "roles": [
+        "x-preference-group"
+      ],
+      "svg": {
+        "x-preference-group": "rows-preferred-315.x-preference-group"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-preference-group",
+          "svgId": "columns-preferred-315.x-preference-group"
+        }
+      ],
+      "data": {},
+      "id": "columns-preferred-315",
+      "kind": "x-preference-group",
+      "name": "columns-preferred-315",
+      "roles": [
+        "x-preference-group"
+      ],
+      "svg": {
+        "x-preference-group": "columns-preferred-315.x-preference-group"
+      }
+    }
+  ],
+  "size": {
+    "height": 216.0,
+    "unit": "pt",
+    "width": 194.4
+  },
+  "spec": "fluxplot/manifest",
+  "svg": "26-similarity-matrix.svg"
+}

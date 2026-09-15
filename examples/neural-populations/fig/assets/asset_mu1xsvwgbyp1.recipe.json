@@ -1,0 +1,43 @@
+{
+  "args": [
+    "run",
+    "--project",
+    "scripts/advanced",
+    "python",
+    "scripts/advanced/population.py"
+  ],
+  "command": "uv",
+  "cwd": "../..",
+  "env": null,
+  "generatedAt": "2026-09-14T04:51:32Z",
+  "inputs": [
+    {
+      "bytes": 320196,
+      "path": "data/allen/responses.json",
+      "role": "data",
+      "sha256": "b7f97edaa82619781a9075751c5596f85cd2cb7551650e5d24f8f2e048d1d85f"
+    }
+  ],
+  "output": "14-response-geometry-15hz.svg",
+  "outputs": {
+    "manifest": "14-response-geometry-15hz.fluxplot.json",
+    "svg": "14-response-geometry-15hz.svg"
+  },
+  "params": {},
+  "plot": "14-response-geometry-15hz",
+  "provenance": {
+    "packages": {
+      "fluxplot": "0.1.0",
+      "matplotlib": "3.11.2"
+    },
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.12",
+    "scriptDiscovery": "explicit",
+    "scriptSha256": "b86359b943253e714a0c1edfc0d1f6d79eaa7965ef7ff425dfc2dc86c7b7f3da"
+  },
+  "schemaVersion": "0.3.0",
+  "script": {
+    "path": "scripts/advanced/population.py"
+  },
+  "spec": "fluxplot/recipe"
+}

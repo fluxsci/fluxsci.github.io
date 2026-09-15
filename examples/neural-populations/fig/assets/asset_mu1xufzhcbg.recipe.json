@@ -1,0 +1,51 @@
+{
+  "args": [
+    "run",
+    "--project",
+    "scripts/advanced",
+    "python",
+    "scripts/advanced/tuning.py",
+    "--project",
+    "."
+  ],
+  "command": "uv",
+  "cwd": "../..",
+  "env": null,
+  "generatedAt": "2026-09-14T04:51:34Z",
+  "inputs": [
+    {
+      "bytes": 943153,
+      "path": "data/allen/trials.json",
+      "role": "data",
+      "sha256": "f67330c47b68d5ee8d02bebcc8231554b65cde56d769453eff6552bf4b1e909e"
+    },
+    {
+      "bytes": 320196,
+      "path": "data/allen/responses.json",
+      "role": "data",
+      "sha256": "b7f97edaa82619781a9075751c5596f85cd2cb7551650e5d24f8f2e048d1d85f"
+    }
+  ],
+  "output": "17-trial-response-raincloud.svg",
+  "outputs": {
+    "manifest": "17-trial-response-raincloud.fluxplot.json",
+    "svg": "17-trial-response-raincloud.svg"
+  },
+  "params": {},
+  "plot": "17-trial-response-raincloud",
+  "provenance": {
+    "packages": {
+      "fluxplot": "0.1.0",
+      "matplotlib": "3.11.2"
+    },
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.12",
+    "scriptDiscovery": "explicit",
+    "scriptSha256": "32fc00b42fa1d5e79357184b3b5378345dc3fa112aaa79e4edbef55944949faf"
+  },
+  "schemaVersion": "0.3.0",
+  "script": {
+    "path": "scripts/advanced/tuning.py"
+  },
+  "spec": "fluxplot/recipe"
+}

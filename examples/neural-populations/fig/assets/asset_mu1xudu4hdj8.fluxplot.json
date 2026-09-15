@@ -1,0 +1,1944 @@
+{
+  "artifact": {
+    "svgSha256": "d569b3b19c2a08bd307788299b4a4e0d7091d3b5992f2f7693cc02fefc64a82a"
+  },
+  "axes": [
+    {
+      "id": "plot-area",
+      "pixelBox": {
+        "x0": 45.62012903225805,
+        "x1": 196.58787096774194,
+        "y0": 15.119999999999965,
+        "y1": 155.51999999999998
+      },
+      "projection": "rectilinear",
+      "svgId": "plot-area",
+      "x": {
+        "anchors": [
+          {
+            "data": -4.0,
+            "svg": 45.62012903225805
+          },
+          {
+            "data": 6.0,
+            "svg": 196.58787096774196
+          }
+        ],
+        "domain": [
+          -4.0,
+          6.0
+        ],
+        "label": "PC 1 (22.3%)",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "−2",
+            "value": -2.0
+          },
+          {
+            "label": "0",
+            "value": 0.0
+          },
+          {
+            "label": "2",
+            "value": 2.0
+          },
+          {
+            "label": "4",
+            "value": 4.0
+          },
+          {
+            "label": "6",
+            "value": 6.0
+          }
+        ]
+      },
+      "y": {
+        "anchors": [
+          {
+            "data": -3.9,
+            "svg": 155.51999999999998
+          },
+          {
+            "data": 5.4,
+            "svg": 15.11999999999994
+          }
+        ],
+        "domain": [
+          -3.9,
+          5.4
+        ],
+        "label": "PC 2 (19.7%)",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "−2",
+            "value": -2.0
+          },
+          {
+            "label": "0",
+            "value": 0.0
+          },
+          {
+            "label": "2",
+            "value": 2.0
+          },
+          {
+            "label": "4",
+            "value": 4.0
+          }
+        ]
+      }
+    }
+  ],
+  "build": {
+    "order": [
+      "axis.x",
+      "axis.y",
+      "gridlines",
+      "cell-profiles.points",
+      "legend",
+      "annotation.0",
+      "extra.line.0",
+      "extra.line.1",
+      "extra.collection.0"
+    ],
+    "presets": {
+      "axis": {
+        "animation": "draw-on",
+        "durationMs": 400
+      },
+      "extra": {
+        "animation": "fade-in",
+        "durationMs": 400
+      },
+      "gridline": {
+        "animation": "fade-in",
+        "durationMs": 300
+      },
+      "point": {
+        "animation": "stagger-in",
+        "durationMs": 240,
+        "staggerMs": 40
+      }
+    }
+  },
+  "generator": {
+    "matplotlib": "3.11.2",
+    "name": "fluxplot",
+    "version": "0.1.0"
+  },
+  "guides": [
+    {
+      "axis": "x",
+      "id": "axis.x",
+      "role": "axis",
+      "svgId": "axis.x"
+    },
+    {
+      "axis": "y",
+      "id": "axis.y",
+      "role": "axis",
+      "svgId": "axis.y"
+    },
+    {
+      "entries": [
+        {
+          "label": "legend.entry.0.label",
+          "swatch": "legend.entry.0.swatch",
+          "text": "0°"
+        },
+        {
+          "label": "legend.entry.1.label",
+          "swatch": "legend.entry.1.swatch",
+          "text": "45°"
+        },
+        {
+          "label": "legend.entry.2.label",
+          "swatch": "legend.entry.2.swatch",
+          "text": "90°"
+        },
+        {
+          "label": "legend.entry.3.label",
+          "swatch": "legend.entry.3.swatch",
+          "text": "135°"
+        },
+        {
+          "label": "legend.entry.4.label",
+          "swatch": "legend.entry.4.swatch",
+          "text": "180°"
+        },
+        {
+          "label": "legend.entry.5.label",
+          "swatch": "legend.entry.5.swatch",
+          "text": "225°"
+        },
+        {
+          "label": "legend.entry.6.label",
+          "swatch": "legend.entry.6.swatch",
+          "text": "270°"
+        },
+        {
+          "label": "legend.entry.7.label",
+          "swatch": "legend.entry.7.swatch",
+          "text": "315°"
+        }
+      ],
+      "id": "legend",
+      "role": "legend",
+      "svgId": "legend"
+    }
+  ],
+  "overlays": [
+    {
+      "id": "annotation.0",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.0",
+      "text": "4 Hz"
+    },
+    {
+      "id": "extra.line.0",
+      "kind": "line",
+      "role": "extra",
+      "svgId": "extra.line.0"
+    },
+    {
+      "id": "extra.line.1",
+      "kind": "line",
+      "role": "extra",
+      "svgId": "extra.line.1"
+    },
+    {
+      "id": "extra.collection.0",
+      "kind": "shape",
+      "role": "extra",
+      "svgId": "extra.collection.0"
+    }
+  ],
+  "parts": {
+    "children": [
+      {
+        "children": [
+          {
+            "axis": "x",
+            "children": [
+              {
+                "kind": "line",
+                "ref": "axis.x.spine"
+              },
+              {
+                "groupRole": "tick",
+                "id": "axis.x.ticks",
+                "kind": "line",
+                "members": [
+                  "axis.x.tick.0",
+                  "axis.x.tick.1",
+                  "axis.x.tick.2",
+                  "axis.x.tick.3",
+                  "axis.x.tick.4"
+                ],
+                "role": "group"
+              },
+              {
+                "groupRole": "tick-label",
+                "id": "axis.x.tick-labels",
+                "kind": "text",
+                "members": [
+                  "axis.x.ticklabel.0",
+                  "axis.x.ticklabel.1",
+                  "axis.x.ticklabel.2",
+                  "axis.x.ticklabel.3",
+                  "axis.x.ticklabel.4"
+                ],
+                "role": "group"
+              },
+              {
+                "kind": "text",
+                "ref": "axis.x.title"
+              }
+            ],
+            "id": "axis.x",
+            "kind": "container",
+            "role": "axis"
+          },
+          {
+            "axis": "y",
+            "children": [
+              {
+                "kind": "line",
+                "ref": "axis.y.spine"
+              },
+              {
+                "groupRole": "tick",
+                "id": "axis.y.ticks",
+                "kind": "line",
+                "members": [
+                  "axis.y.tick.0",
+                  "axis.y.tick.1",
+                  "axis.y.tick.2",
+                  "axis.y.tick.3"
+                ],
+                "role": "group"
+              },
+              {
+                "groupRole": "tick-label",
+                "id": "axis.y.tick-labels",
+                "kind": "text",
+                "members": [
+                  "axis.y.ticklabel.0",
+                  "axis.y.ticklabel.1",
+                  "axis.y.ticklabel.2",
+                  "axis.y.ticklabel.3"
+                ],
+                "role": "group"
+              },
+              {
+                "kind": "text",
+                "ref": "axis.y.title"
+              }
+            ],
+            "id": "axis.y",
+            "kind": "container",
+            "role": "axis"
+          },
+          {
+            "children": [
+              {
+                "groupRole": "point",
+                "id": "cell-profiles.points",
+                "kind": "shape",
+                "members": [
+                  "cell-profiles.point.0",
+                  "cell-profiles.point.1",
+                  "cell-profiles.point.2",
+                  "cell-profiles.point.3",
+                  "cell-profiles.point.4",
+                  "cell-profiles.point.5",
+                  "cell-profiles.point.6",
+                  "cell-profiles.point.7",
+                  "cell-profiles.point.8",
+                  "cell-profiles.point.9",
+                  "cell-profiles.point.10",
+                  "cell-profiles.point.11",
+                  "cell-profiles.point.12",
+                  "cell-profiles.point.13",
+                  "cell-profiles.point.14",
+                  "cell-profiles.point.15",
+                  "cell-profiles.point.16",
+                  "cell-profiles.point.17",
+                  "cell-profiles.point.18",
+                  "cell-profiles.point.19",
+                  "cell-profiles.point.20",
+                  "cell-profiles.point.21",
+                  "cell-profiles.point.22",
+                  "cell-profiles.point.23",
+                  "cell-profiles.point.24",
+                  "cell-profiles.point.25",
+                  "cell-profiles.point.26",
+                  "cell-profiles.point.27",
+                  "cell-profiles.point.28",
+                  "cell-profiles.point.29",
+                  "cell-profiles.point.30",
+                  "cell-profiles.point.31",
+                  "cell-profiles.point.32",
+                  "cell-profiles.point.33",
+                  "cell-profiles.point.34",
+                  "cell-profiles.point.35",
+                  "cell-profiles.point.36",
+                  "cell-profiles.point.37",
+                  "cell-profiles.point.38",
+                  "cell-profiles.point.39",
+                  "cell-profiles.point.40",
+                  "cell-profiles.point.41",
+                  "cell-profiles.point.42",
+                  "cell-profiles.point.43",
+                  "cell-profiles.point.44",
+                  "cell-profiles.point.45",
+                  "cell-profiles.point.46",
+                  "cell-profiles.point.47",
+                  "cell-profiles.point.48",
+                  "cell-profiles.point.49",
+                  "cell-profiles.point.50",
+                  "cell-profiles.point.51",
+                  "cell-profiles.point.52",
+                  "cell-profiles.point.53",
+                  "cell-profiles.point.54",
+                  "cell-profiles.point.55",
+                  "cell-profiles.point.56",
+                  "cell-profiles.point.57",
+                  "cell-profiles.point.58",
+                  "cell-profiles.point.59",
+                  "cell-profiles.point.60",
+                  "cell-profiles.point.61",
+                  "cell-profiles.point.62",
+                  "cell-profiles.point.63",
+                  "cell-profiles.point.64",
+                  "cell-profiles.point.65",
+                  "cell-profiles.point.66",
+                  "cell-profiles.point.67",
+                  "cell-profiles.point.68",
+                  "cell-profiles.point.69",
+                  "cell-profiles.point.70",
+                  "cell-profiles.point.71",
+                  "cell-profiles.point.72",
+                  "cell-profiles.point.73",
+                  "cell-profiles.point.74",
+                  "cell-profiles.point.75",
+                  "cell-profiles.point.76",
+                  "cell-profiles.point.77",
+                  "cell-profiles.point.78",
+                  "cell-profiles.point.79",
+                  "cell-profiles.point.80",
+                  "cell-profiles.point.81",
+                  "cell-profiles.point.82",
+                  "cell-profiles.point.83",
+                  "cell-profiles.point.84",
+                  "cell-profiles.point.85",
+                  "cell-profiles.point.86",
+                  "cell-profiles.point.87",
+                  "cell-profiles.point.88",
+                  "cell-profiles.point.89",
+                  "cell-profiles.point.90",
+                  "cell-profiles.point.91",
+                  "cell-profiles.point.92",
+                  "cell-profiles.point.93",
+                  "cell-profiles.point.94",
+                  "cell-profiles.point.95",
+                  "cell-profiles.point.96",
+                  "cell-profiles.point.97",
+                  "cell-profiles.point.98",
+                  "cell-profiles.point.99",
+                  "cell-profiles.point.100",
+                  "cell-profiles.point.101",
+                  "cell-profiles.point.102",
+                  "cell-profiles.point.103",
+                  "cell-profiles.point.104",
+                  "cell-profiles.point.105",
+                  "cell-profiles.point.106",
+                  "cell-profiles.point.107",
+                  "cell-profiles.point.108",
+                  "cell-profiles.point.109",
+                  "cell-profiles.point.110",
+                  "cell-profiles.point.111",
+                  "cell-profiles.point.112",
+                  "cell-profiles.point.113",
+                  "cell-profiles.point.114",
+                  "cell-profiles.point.115",
+                  "cell-profiles.point.116",
+                  "cell-profiles.point.117",
+                  "cell-profiles.point.118",
+                  "cell-profiles.point.119",
+                  "cell-profiles.point.120",
+                  "cell-profiles.point.121",
+                  "cell-profiles.point.122",
+                  "cell-profiles.point.123",
+                  "cell-profiles.point.124",
+                  "cell-profiles.point.125",
+                  "cell-profiles.point.126",
+                  "cell-profiles.point.127",
+                  "cell-profiles.point.128",
+                  "cell-profiles.point.129",
+                  "cell-profiles.point.130",
+                  "cell-profiles.point.131",
+                  "cell-profiles.point.132",
+                  "cell-profiles.point.133",
+                  "cell-profiles.point.134",
+                  "cell-profiles.point.135",
+                  "cell-profiles.point.136",
+                  "cell-profiles.point.137",
+                  "cell-profiles.point.138",
+                  "cell-profiles.point.139",
+                  "cell-profiles.point.140",
+                  "cell-profiles.point.141",
+                  "cell-profiles.point.142"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "cell-profiles",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.0"
+          },
+          {
+            "groupRole": "extra",
+            "id": "extras",
+            "members": [
+              "extra.line.0",
+              "extra.line.1",
+              "extra.collection.0"
+            ],
+            "role": "group"
+          }
+        ],
+        "id": "plot-area",
+        "kind": "container",
+        "role": "plot-area"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "legend.entry.0.swatch"
+              },
+              {
+                "kind": "text",
+                "ref": "legend.entry.0.label"
+              }
+            ],
+            "id": "legend.entry.0",
+            "kind": "container",
+            "role": "legend-entry"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "legend.entry.1.swatch"
+              },
+              {
+                "kind": "text",
+                "ref": "legend.entry.1.label"
+              }
+            ],
+            "id": "legend.entry.1",
+            "kind": "container",
+            "role": "legend-entry"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "legend.entry.2.swatch"
+              },
+              {
+                "kind": "text",
+                "ref": "legend.entry.2.label"
+              }
+            ],
+            "id": "legend.entry.2",
+            "kind": "container",
+            "role": "legend-entry"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "legend.entry.3.swatch"
+              },
+              {
+                "kind": "text",
+                "ref": "legend.entry.3.label"
+              }
+            ],
+            "id": "legend.entry.3",
+            "kind": "container",
+            "role": "legend-entry"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "legend.entry.4.swatch"
+              },
+              {
+                "kind": "text",
+                "ref": "legend.entry.4.label"
+              }
+            ],
+            "id": "legend.entry.4",
+            "kind": "container",
+            "role": "legend-entry"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "legend.entry.5.swatch"
+              },
+              {
+                "kind": "text",
+                "ref": "legend.entry.5.label"
+              }
+            ],
+            "id": "legend.entry.5",
+            "kind": "container",
+            "role": "legend-entry"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "legend.entry.6.swatch"
+              },
+              {
+                "kind": "text",
+                "ref": "legend.entry.6.label"
+              }
+            ],
+            "id": "legend.entry.6",
+            "kind": "container",
+            "role": "legend-entry"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "legend.entry.7.swatch"
+              },
+              {
+                "kind": "text",
+                "ref": "legend.entry.7.label"
+              }
+            ],
+            "id": "legend.entry.7",
+            "kind": "container",
+            "role": "legend-entry"
+          }
+        ],
+        "id": "legend",
+        "kind": "container",
+        "role": "legend"
+      }
+    ],
+    "id": "figure",
+    "kind": "container",
+    "role": "figure"
+  },
+  "plotType": "scatter",
+  "schemaVersion": "0.3.0",
+  "series": [
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "members": [
+            "cell-profiles.point.0",
+            "cell-profiles.point.1",
+            "cell-profiles.point.2",
+            "cell-profiles.point.3",
+            "cell-profiles.point.4",
+            "cell-profiles.point.5",
+            "cell-profiles.point.6",
+            "cell-profiles.point.7",
+            "cell-profiles.point.8",
+            "cell-profiles.point.9",
+            "cell-profiles.point.10",
+            "cell-profiles.point.11",
+            "cell-profiles.point.12",
+            "cell-profiles.point.13",
+            "cell-profiles.point.14",
+            "cell-profiles.point.15",
+            "cell-profiles.point.16",
+            "cell-profiles.point.17",
+            "cell-profiles.point.18",
+            "cell-profiles.point.19",
+            "cell-profiles.point.20",
+            "cell-profiles.point.21",
+            "cell-profiles.point.22",
+            "cell-profiles.point.23",
+            "cell-profiles.point.24",
+            "cell-profiles.point.25",
+            "cell-profiles.point.26",
+            "cell-profiles.point.27",
+            "cell-profiles.point.28",
+            "cell-profiles.point.29",
+            "cell-profiles.point.30",
+            "cell-profiles.point.31",
+            "cell-profiles.point.32",
+            "cell-profiles.point.33",
+            "cell-profiles.point.34",
+            "cell-profiles.point.35",
+            "cell-profiles.point.36",
+            "cell-profiles.point.37",
+            "cell-profiles.point.38",
+            "cell-profiles.point.39",
+            "cell-profiles.point.40",
+            "cell-profiles.point.41",
+            "cell-profiles.point.42",
+            "cell-profiles.point.43",
+            "cell-profiles.point.44",
+            "cell-profiles.point.45",
+            "cell-profiles.point.46",
+            "cell-profiles.point.47",
+            "cell-profiles.point.48",
+            "cell-profiles.point.49",
+            "cell-profiles.point.50",
+            "cell-profiles.point.51",
+            "cell-profiles.point.52",
+            "cell-profiles.point.53",
+            "cell-profiles.point.54",
+            "cell-profiles.point.55",
+            "cell-profiles.point.56",
+            "cell-profiles.point.57",
+            "cell-profiles.point.58",
+            "cell-profiles.point.59",
+            "cell-profiles.point.60",
+            "cell-profiles.point.61",
+            "cell-profiles.point.62",
+            "cell-profiles.point.63",
+            "cell-profiles.point.64",
+            "cell-profiles.point.65",
+            "cell-profiles.point.66",
+            "cell-profiles.point.67",
+            "cell-profiles.point.68",
+            "cell-profiles.point.69",
+            "cell-profiles.point.70",
+            "cell-profiles.point.71",
+            "cell-profiles.point.72",
+            "cell-profiles.point.73",
+            "cell-profiles.point.74",
+            "cell-profiles.point.75",
+            "cell-profiles.point.76",
+            "cell-profiles.point.77",
+            "cell-profiles.point.78",
+            "cell-profiles.point.79",
+            "cell-profiles.point.80",
+            "cell-profiles.point.81",
+            "cell-profiles.point.82",
+            "cell-profiles.point.83",
+            "cell-profiles.point.84",
+            "cell-profiles.point.85",
+            "cell-profiles.point.86",
+            "cell-profiles.point.87",
+            "cell-profiles.point.88",
+            "cell-profiles.point.89",
+            "cell-profiles.point.90",
+            "cell-profiles.point.91",
+            "cell-profiles.point.92",
+            "cell-profiles.point.93",
+            "cell-profiles.point.94",
+            "cell-profiles.point.95",
+            "cell-profiles.point.96",
+            "cell-profiles.point.97",
+            "cell-profiles.point.98",
+            "cell-profiles.point.99",
+            "cell-profiles.point.100",
+            "cell-profiles.point.101",
+            "cell-profiles.point.102",
+            "cell-profiles.point.103",
+            "cell-profiles.point.104",
+            "cell-profiles.point.105",
+            "cell-profiles.point.106",
+            "cell-profiles.point.107",
+            "cell-profiles.point.108",
+            "cell-profiles.point.109",
+            "cell-profiles.point.110",
+            "cell-profiles.point.111",
+            "cell-profiles.point.112",
+            "cell-profiles.point.113",
+            "cell-profiles.point.114",
+            "cell-profiles.point.115",
+            "cell-profiles.point.116",
+            "cell-profiles.point.117",
+            "cell-profiles.point.118",
+            "cell-profiles.point.119",
+            "cell-profiles.point.120",
+            "cell-profiles.point.121",
+            "cell-profiles.point.122",
+            "cell-profiles.point.123",
+            "cell-profiles.point.124",
+            "cell-profiles.point.125",
+            "cell-profiles.point.126",
+            "cell-profiles.point.127",
+            "cell-profiles.point.128",
+            "cell-profiles.point.129",
+            "cell-profiles.point.130",
+            "cell-profiles.point.131",
+            "cell-profiles.point.132",
+            "cell-profiles.point.133",
+            "cell-profiles.point.134",
+            "cell-profiles.point.135",
+            "cell-profiles.point.136",
+            "cell-profiles.point.137",
+            "cell-profiles.point.138",
+            "cell-profiles.point.139",
+            "cell-profiles.point.140",
+            "cell-profiles.point.141",
+            "cell-profiles.point.142"
+          ],
+          "role": "point",
+          "svgId": "cell-profiles.points"
+        }
+      ],
+      "data": {
+        "x": [
+          -0.5776757102606713,
+          0.23494853419393552,
+          1.332950006568245,
+          -1.4614878564627225,
+          3.199260385318019,
+          -0.4263969126134846,
+          -0.4840291046547942,
+          -1.5388978375949707,
+          -0.9459200387334423,
+          0.7066160605426642,
+          -0.43318432457446254,
+          0.7103998440083779,
+          -0.9619501799881282,
+          1.182643073709313,
+          0.043892970890579065,
+          0.7213393741768108,
+          -0.19265618381807798,
+          1.1087788875437343,
+          1.495496095601075,
+          -1.8191856384285232,
+          0.2370817145206305,
+          0.1544460461733353,
+          1.2504407728340332,
+          1.074568023020151,
+          0.7424656487004342,
+          0.22943618787447062,
+          -1.2428339212982997,
+          0.3760937978718524,
+          -0.09943809530108952,
+          0.059765359810488895,
+          -1.1372080895990628,
+          -0.5245472324589762,
+          -0.6003368412396385,
+          0.7130998346497794,
+          0.4125114626660178,
+          2.8799143184372227,
+          -0.35187724957241445,
+          1.2151607204258839,
+          0.5353697918098362,
+          0.00015012776380014066,
+          -0.9146017026312018,
+          0.8849899474912563,
+          -0.355837833497032,
+          -1.5027398281495046,
+          0.33561267352100793,
+          -0.5079239142718447,
+          0.08425828048231622,
+          1.2021973768065584,
+          3.178849310676185,
+          0.25133069223149995,
+          -0.9805355730666272,
+          -0.3141553358551394,
+          1.6861529258362027,
+          0.4339019908904182,
+          -0.8867359343629283,
+          -1.168589289247697,
+          -1.1315815953805426,
+          -1.455693052023896,
+          -1.2002519119010526,
+          0.07927936822914025,
+          -1.1197058596707339,
+          -0.5966708474821798,
+          0.5082716503604503,
+          0.25943798047677685,
+          -0.47572854041002827,
+          0.7125353561246964,
+          -0.5812558224196994,
+          -1.0848326614420616,
+          1.5804168592910792,
+          -0.7081202525277746,
+          0.45465837814668414,
+          -0.9273940495073816,
+          -1.064622088825026,
+          0.513123122019484,
+          -0.36834693384081363,
+          -0.4276629852513677,
+          -0.9265214834296117,
+          -0.49638623553691447,
+          1.8895499820229475,
+          0.007612464746627976,
+          1.619104142296312,
+          -1.9792589575891373,
+          -0.33050534207937887,
+          -0.8654922678183627,
+          -0.09936733217070114,
+          0.8097315321738562,
+          -0.2313511648958993,
+          -0.7988177498798831,
+          -0.02551596003132971,
+          -0.8015471100894007,
+          -0.31077479856291035,
+          -1.0192318111258627,
+          -0.8684861810662493,
+          -0.5299427885880763,
+          -1.3728163899920933,
+          0.2694589561414588,
+          -1.996657085426192,
+          0.008863497680101395,
+          0.5444788566176392,
+          -1.1823738277422318,
+          -0.8512991797392157,
+          -0.753414731370463,
+          3.0723220675425416,
+          -2.563352052915593,
+          -0.2287452021507001,
+          -0.6321212466270669,
+          -0.7978360273613034,
+          0.9507345083269266,
+          -0.7202943633057305,
+          0.44211021447774645,
+          -0.9697973148495465,
+          -0.8397179276818632,
+          0.556115513572029,
+          -2.336568586323429,
+          0.9385442197806733,
+          -0.5669479455625672,
+          0.02436823204065544,
+          -0.8976475648426067,
+          -0.07756139780423077,
+          0.2699312261851608,
+          1.108476308291831,
+          -0.7672876280773571,
+          -0.2115940327600739,
+          -0.9395130661457091,
+          -1.2323984495350742,
+          -1.427590055233265,
+          2.1710530891071227,
+          0.25131652493630335,
+          1.2215889525754153,
+          0.4318066922150187,
+          -1.7209851669037826,
+          -0.5454921888806973,
+          -0.2279113796426718,
+          -1.6997767970497186,
+          -0.9250906443031349,
+          -1.2372282795315492,
+          2.518458897469512,
+          0.8915859232138109,
+          -0.9094869033666962,
+          -1.3419939087825967,
+          -0.23783181056704847,
+          -0.03005798421040791,
+          -0.317065015143149
+        ],
+        "y": [
+          -1.6462895513838454,
+          1.8256101040374009,
+          -0.9809266992484154,
+          -0.8284042636113996,
+          0.20907868689948364,
+          -1.9173940081452936,
+          -2.07230116431421,
+          -1.2190364517455319,
+          -0.536799485855102,
+          0.5296585855483765,
+          -0.3318431048633473,
+          -1.4819966433636167,
+          -1.7452318261459552,
+          -0.3870982753811396,
+          -1.2114050729240815,
+          -0.3139845597065614,
+          -1.2597842340136662,
+          0.2639430918907007,
+          -0.30234272539884416,
+          -0.9551413696925496,
+          2.0119746666919784,
+          1.9068929086624191,
+          1.6579395583831698,
+          1.169848951248519,
+          -0.7496960372737147,
+          -1.6352844398660376,
+          1.2349000923244091,
+          1.3236539956960858,
+          -1.1434539942278785,
+          2.8254702908998235,
+          -0.7547115296426029,
+          1.9472007143199386,
+          0.3534582806917125,
+          -0.002537106412009902,
+          -0.7263484948108645,
+          0.6368744465396075,
+          2.8238197875780755,
+          -1.1518246790311917,
+          2.1427315284814883,
+          -1.0878810822554765,
+          1.865635554663394,
+          0.792493684246204,
+          -0.040292225544065564,
+          -0.5970225672069288,
+          1.9761749603316299,
+          -1.5627561992184837,
+          0.7662082416493021,
+          0.3727228645663306,
+          0.13057562674849332,
+          -1.595999601716657,
+          -0.04194705607027272,
+          0.4542733287358806,
+          -0.43079069812560095,
+          -0.7344447956497341,
+          -1.189414332629787,
+          -0.18570747383584474,
+          0.36540294444584337,
+          1.189021551596896,
+          0.8093198412471209,
+          0.5230527050336342,
+          -1.2404268070694078,
+          -0.9222059878663837,
+          2.7071238497300016,
+          -1.1300423195565699,
+          -0.0803482045785164,
+          -0.41387415229162733,
+          0.5353346681413073,
+          -0.011994586629298894,
+          -0.6500177735739427,
+          2.6729518552844818,
+          -0.9952000082398671,
+          0.7018569478194149,
+          -1.7482995394847556,
+          -0.17162329834774845,
+          1.1433817962052009,
+          -0.13469568873256985,
+          1.8322444387020234,
+          -0.5943443984950578,
+          -0.4418971396711378,
+          -0.5702298159508652,
+          -1.3246804918567867,
+          -0.6333083786875657,
+          -0.3793490898990635,
+          -0.17300547479986345,
+          -0.19891960969426845,
+          -0.10420021941236819,
+          0.9448235431381116,
+          0.7918770518698919,
+          1.0026622461653054,
+          -0.060148214529019854,
+          -0.5132476598902155,
+          -1.866756499452941,
+          0.9706173669781155,
+          1.936102902574137,
+          -0.9375452207812112,
+          0.8954261969726367,
+          2.1676062476777878,
+          -0.5526021669971698,
+          1.611489384191247,
+          0.1109641547793858,
+          0.9701939992734866,
+          -0.3548731451684955,
+          -0.3989047941133596,
+          0.25873502830774514,
+          0.29271309728489237,
+          -0.9652108744286753,
+          -0.32699886265765554,
+          -0.4057729526562918,
+          0.25810077975087725,
+          -1.174100225143038,
+          0.05000250374788676,
+          -0.3113521843426417,
+          -0.23537036272600173,
+          -1.0009895248722223,
+          0.20854774357154218,
+          -1.1746744533170992,
+          1.8204058152123233,
+          0.5108820599477037,
+          0.5008690029235513,
+          0.8236503810017842,
+          1.4834028507852643,
+          0.8887119155343913,
+          -1.0381428708028513,
+          0.939106850996272,
+          1.330177460848627,
+          -1.4695259918488697,
+          -0.982801337942072,
+          -0.0938391453558411,
+          0.6668724653261359,
+          -0.6614933546905766,
+          -1.0669902412961745,
+          -0.307107764224612,
+          -0.7580734963395362,
+          -0.9888076988768937,
+          -1.5752410433297799,
+          0.2413607425501482,
+          2.2265804055055445,
+          -2.0815753948117948,
+          0.2634262435548525,
+          -1.0535612145710245,
+          -0.30935528987532707,
+          -1.1235961381849198,
+          -1.6579757704322498
+        ]
+      },
+      "id": "cell-profiles",
+      "kind": "scatter",
+      "name": "cell-profiles",
+      "points": [
+        {
+          "index": 0,
+          "svgId": "cell-profiles.point.0",
+          "x": -0.5776757102606713,
+          "y": -1.6462895513838454
+        },
+        {
+          "index": 1,
+          "svgId": "cell-profiles.point.1",
+          "x": 0.23494853419393552,
+          "y": 1.8256101040374009
+        },
+        {
+          "index": 2,
+          "svgId": "cell-profiles.point.2",
+          "x": 1.332950006568245,
+          "y": -0.9809266992484154
+        },
+        {
+          "index": 3,
+          "svgId": "cell-profiles.point.3",
+          "x": -1.4614878564627225,
+          "y": -0.8284042636113996
+        },
+        {
+          "index": 4,
+          "svgId": "cell-profiles.point.4",
+          "x": 3.199260385318019,
+          "y": 0.20907868689948364
+        },
+        {
+          "index": 5,
+          "svgId": "cell-profiles.point.5",
+          "x": -0.4263969126134846,
+          "y": -1.9173940081452936
+        },
+        {
+          "index": 6,
+          "svgId": "cell-profiles.point.6",
+          "x": -0.4840291046547942,
+          "y": -2.07230116431421
+        },
+        {
+          "index": 7,
+          "svgId": "cell-profiles.point.7",
+          "x": -1.5388978375949707,
+          "y": -1.2190364517455319
+        },
+        {
+          "index": 8,
+          "svgId": "cell-profiles.point.8",
+          "x": -0.9459200387334423,
+          "y": -0.536799485855102
+        },
+        {
+          "index": 9,
+          "svgId": "cell-profiles.point.9",
+          "x": 0.7066160605426642,
+          "y": 0.5296585855483765
+        },
+        {
+          "index": 10,
+          "svgId": "cell-profiles.point.10",
+          "x": -0.43318432457446254,
+          "y": -0.3318431048633473
+        },
+        {
+          "index": 11,
+          "svgId": "cell-profiles.point.11",
+          "x": 0.7103998440083779,
+          "y": -1.4819966433636167
+        },
+        {
+          "index": 12,
+          "svgId": "cell-profiles.point.12",
+          "x": -0.9619501799881282,
+          "y": -1.7452318261459552
+        },
+        {
+          "index": 13,
+          "svgId": "cell-profiles.point.13",
+          "x": 1.182643073709313,
+          "y": -0.3870982753811396
+        },
+        {
+          "index": 14,
+          "svgId": "cell-profiles.point.14",
+          "x": 0.043892970890579065,
+          "y": -1.2114050729240815
+        },
+        {
+          "index": 15,
+          "svgId": "cell-profiles.point.15",
+          "x": 0.7213393741768108,
+          "y": -0.3139845597065614
+        },
+        {
+          "index": 16,
+          "svgId": "cell-profiles.point.16",
+          "x": -0.19265618381807798,
+          "y": -1.2597842340136662
+        },
+        {
+          "index": 17,
+          "svgId": "cell-profiles.point.17",
+          "x": 1.1087788875437343,
+          "y": 0.2639430918907007
+        },
+        {
+          "index": 18,
+          "svgId": "cell-profiles.point.18",
+          "x": 1.495496095601075,
+          "y": -0.30234272539884416
+        },
+        {
+          "index": 19,
+          "svgId": "cell-profiles.point.19",
+          "x": -1.8191856384285232,
+          "y": -0.9551413696925496
+        },
+        {
+          "index": 20,
+          "svgId": "cell-profiles.point.20",
+          "x": 0.2370817145206305,
+          "y": 2.0119746666919784
+        },
+        {
+          "index": 21,
+          "svgId": "cell-profiles.point.21",
+          "x": 0.1544460461733353,
+          "y": 1.9068929086624191
+        },
+        {
+          "index": 22,
+          "svgId": "cell-profiles.point.22",
+          "x": 1.2504407728340332,
+          "y": 1.6579395583831698
+        },
+        {
+          "index": 23,
+          "svgId": "cell-profiles.point.23",
+          "x": 1.074568023020151,
+          "y": 1.169848951248519
+        },
+        {
+          "index": 24,
+          "svgId": "cell-profiles.point.24",
+          "x": 0.7424656487004342,
+          "y": -0.7496960372737147
+        },
+        {
+          "index": 25,
+          "svgId": "cell-profiles.point.25",
+          "x": 0.22943618787447062,
+          "y": -1.6352844398660376
+        },
+        {
+          "index": 26,
+          "svgId": "cell-profiles.point.26",
+          "x": -1.2428339212982997,
+          "y": 1.2349000923244091
+        },
+        {
+          "index": 27,
+          "svgId": "cell-profiles.point.27",
+          "x": 0.3760937978718524,
+          "y": 1.3236539956960858
+        },
+        {
+          "index": 28,
+          "svgId": "cell-profiles.point.28",
+          "x": -0.09943809530108952,
+          "y": -1.1434539942278785
+        },
+        {
+          "index": 29,
+          "svgId": "cell-profiles.point.29",
+          "x": 0.059765359810488895,
+          "y": 2.8254702908998235
+        },
+        {
+          "index": 30,
+          "svgId": "cell-profiles.point.30",
+          "x": -1.1372080895990628,
+          "y": -0.7547115296426029
+        },
+        {
+          "index": 31,
+          "svgId": "cell-profiles.point.31",
+          "x": -0.5245472324589762,
+          "y": 1.9472007143199386
+        },
+        {
+          "index": 32,
+          "svgId": "cell-profiles.point.32",
+          "x": -0.6003368412396385,
+          "y": 0.3534582806917125
+        },
+        {
+          "index": 33,
+          "svgId": "cell-profiles.point.33",
+          "x": 0.7130998346497794,
+          "y": -0.002537106412009902
+        },
+        {
+          "index": 34,
+          "svgId": "cell-profiles.point.34",
+          "x": 0.4125114626660178,
+          "y": -0.7263484948108645
+        },
+        {
+          "index": 35,
+          "svgId": "cell-profiles.point.35",
+          "x": 2.8799143184372227,
+          "y": 0.6368744465396075
+        },
+        {
+          "index": 36,
+          "svgId": "cell-profiles.point.36",
+          "x": -0.35187724957241445,
+          "y": 2.8238197875780755
+        },
+        {
+          "index": 37,
+          "svgId": "cell-profiles.point.37",
+          "x": 1.2151607204258839,
+          "y": -1.1518246790311917
+        },
+        {
+          "index": 38,
+          "svgId": "cell-profiles.point.38",
+          "x": 0.5353697918098362,
+          "y": 2.1427315284814883
+        },
+        {
+          "index": 39,
+          "svgId": "cell-profiles.point.39",
+          "x": 0.00015012776380014066,
+          "y": -1.0878810822554765
+        },
+        {
+          "index": 40,
+          "svgId": "cell-profiles.point.40",
+          "x": -0.9146017026312018,
+          "y": 1.865635554663394
+        },
+        {
+          "index": 41,
+          "svgId": "cell-profiles.point.41",
+          "x": 0.8849899474912563,
+          "y": 0.792493684246204
+        },
+        {
+          "index": 42,
+          "svgId": "cell-profiles.point.42",
+          "x": -0.355837833497032,
+          "y": -0.040292225544065564
+        },
+        {
+          "index": 43,
+          "svgId": "cell-profiles.point.43",
+          "x": -1.5027398281495046,
+          "y": -0.5970225672069288
+        },
+        {
+          "index": 44,
+          "svgId": "cell-profiles.point.44",
+          "x": 0.33561267352100793,
+          "y": 1.9761749603316299
+        },
+        {
+          "index": 45,
+          "svgId": "cell-profiles.point.45",
+          "x": -0.5079239142718447,
+          "y": -1.5627561992184837
+        },
+        {
+          "index": 46,
+          "svgId": "cell-profiles.point.46",
+          "x": 0.08425828048231622,
+          "y": 0.7662082416493021
+        },
+        {
+          "index": 47,
+          "svgId": "cell-profiles.point.47",
+          "x": 1.2021973768065584,
+          "y": 0.3727228645663306
+        },
+        {
+          "index": 48,
+          "svgId": "cell-profiles.point.48",
+          "x": 3.178849310676185,
+          "y": 0.13057562674849332
+        },
+        {
+          "index": 49,
+          "svgId": "cell-profiles.point.49",
+          "x": 0.25133069223149995,
+          "y": -1.595999601716657
+        },
+        {
+          "index": 50,
+          "svgId": "cell-profiles.point.50",
+          "x": -0.9805355730666272,
+          "y": -0.04194705607027272
+        },
+        {
+          "index": 51,
+          "svgId": "cell-profiles.point.51",
+          "x": -0.3141553358551394,
+          "y": 0.4542733287358806
+        },
+        {
+          "index": 52,
+          "svgId": "cell-profiles.point.52",
+          "x": 1.6861529258362027,
+          "y": -0.43079069812560095
+        },
+        {
+          "index": 53,
+          "svgId": "cell-profiles.point.53",
+          "x": 0.4339019908904182,
+          "y": -0.7344447956497341
+        },
+        {
+          "index": 54,
+          "svgId": "cell-profiles.point.54",
+          "x": -0.8867359343629283,
+          "y": -1.189414332629787
+        },
+        {
+          "index": 55,
+          "svgId": "cell-profiles.point.55",
+          "x": -1.168589289247697,
+          "y": -0.18570747383584474
+        },
+        {
+          "index": 56,
+          "svgId": "cell-profiles.point.56",
+          "x": -1.1315815953805426,
+          "y": 0.36540294444584337
+        },
+        {
+          "index": 57,
+          "svgId": "cell-profiles.point.57",
+          "x": -1.455693052023896,
+          "y": 1.189021551596896
+        },
+        {
+          "index": 58,
+          "svgId": "cell-profiles.point.58",
+          "x": -1.2002519119010526,
+          "y": 0.8093198412471209
+        },
+        {
+          "index": 59,
+          "svgId": "cell-profiles.point.59",
+          "x": 0.07927936822914025,
+          "y": 0.5230527050336342
+        },
+        {
+          "index": 60,
+          "svgId": "cell-profiles.point.60",
+          "x": -1.1197058596707339,
+          "y": -1.2404268070694078
+        },
+        {
+          "index": 61,
+          "svgId": "cell-profiles.point.61",
+          "x": -0.5966708474821798,
+          "y": -0.9222059878663837
+        },
+        {
+          "index": 62,
+          "svgId": "cell-profiles.point.62",
+          "x": 0.5082716503604503,
+          "y": 2.7071238497300016
+        },
+        {
+          "index": 63,
+          "svgId": "cell-profiles.point.63",
+          "x": 0.25943798047677685,
+          "y": -1.1300423195565699
+        },
+        {
+          "index": 64,
+          "svgId": "cell-profiles.point.64",
+          "x": -0.47572854041002827,
+          "y": -0.0803482045785164
+        },
+        {
+          "index": 65,
+          "svgId": "cell-profiles.point.65",
+          "x": 0.7125353561246964,
+          "y": -0.41387415229162733
+        },
+        {
+          "index": 66,
+          "svgId": "cell-profiles.point.66",
+          "x": -0.5812558224196994,
+          "y": 0.5353346681413073
+        },
+        {
+          "index": 67,
+          "svgId": "cell-profiles.point.67",
+          "x": -1.0848326614420616,
+          "y": -0.011994586629298894
+        },
+        {
+          "index": 68,
+          "svgId": "cell-profiles.point.68",
+          "x": 1.5804168592910792,
+          "y": -0.6500177735739427
+        },
+        {
+          "index": 69,
+          "svgId": "cell-profiles.point.69",
+          "x": -0.7081202525277746,
+          "y": 2.6729518552844818
+        },
+        {
+          "index": 70,
+          "svgId": "cell-profiles.point.70",
+          "x": 0.45465837814668414,
+          "y": -0.9952000082398671
+        },
+        {
+          "index": 71,
+          "svgId": "cell-profiles.point.71",
+          "x": -0.9273940495073816,
+          "y": 0.7018569478194149
+        },
+        {
+          "index": 72,
+          "svgId": "cell-profiles.point.72",
+          "x": -1.064622088825026,
+          "y": -1.7482995394847556
+        },
+        {
+          "index": 73,
+          "svgId": "cell-profiles.point.73",
+          "x": 0.513123122019484,
+          "y": -0.17162329834774845
+        },
+        {
+          "index": 74,
+          "svgId": "cell-profiles.point.74",
+          "x": -0.36834693384081363,
+          "y": 1.1433817962052009
+        },
+        {
+          "index": 75,
+          "svgId": "cell-profiles.point.75",
+          "x": -0.4276629852513677,
+          "y": -0.13469568873256985
+        },
+        {
+          "index": 76,
+          "svgId": "cell-profiles.point.76",
+          "x": -0.9265214834296117,
+          "y": 1.8322444387020234
+        },
+        {
+          "index": 77,
+          "svgId": "cell-profiles.point.77",
+          "x": -0.49638623553691447,
+          "y": -0.5943443984950578
+        },
+        {
+          "index": 78,
+          "svgId": "cell-profiles.point.78",
+          "x": 1.8895499820229475,
+          "y": -0.4418971396711378
+        },
+        {
+          "index": 79,
+          "svgId": "cell-profiles.point.79",
+          "x": 0.007612464746627976,
+          "y": -0.5702298159508652
+        },
+        {
+          "index": 80,
+          "svgId": "cell-profiles.point.80",
+          "x": 1.619104142296312,
+          "y": -1.3246804918567867
+        },
+        {
+          "index": 81,
+          "svgId": "cell-profiles.point.81",
+          "x": -1.9792589575891373,
+          "y": -0.6333083786875657
+        },
+        {
+          "index": 82,
+          "svgId": "cell-profiles.point.82",
+          "x": -0.33050534207937887,
+          "y": -0.3793490898990635
+        },
+        {
+          "index": 83,
+          "svgId": "cell-profiles.point.83",
+          "x": -0.8654922678183627,
+          "y": -0.17300547479986345
+        },
+        {
+          "index": 84,
+          "svgId": "cell-profiles.point.84",
+          "x": -0.09936733217070114,
+          "y": -0.19891960969426845
+        },
+        {
+          "index": 85,
+          "svgId": "cell-profiles.point.85",
+          "x": 0.8097315321738562,
+          "y": -0.10420021941236819
+        },
+        {
+          "index": 86,
+          "svgId": "cell-profiles.point.86",
+          "x": -0.2313511648958993,
+          "y": 0.9448235431381116
+        },
+        {
+          "index": 87,
+          "svgId": "cell-profiles.point.87",
+          "x": -0.7988177498798831,
+          "y": 0.7918770518698919
+        },
+        {
+          "index": 88,
+          "svgId": "cell-profiles.point.88",
+          "x": -0.02551596003132971,
+          "y": 1.0026622461653054
+        },
+        {
+          "index": 89,
+          "svgId": "cell-profiles.point.89",
+          "x": -0.8015471100894007,
+          "y": -0.060148214529019854
+        },
+        {
+          "index": 90,
+          "svgId": "cell-profiles.point.90",
+          "x": -0.31077479856291035,
+          "y": -0.5132476598902155
+        },
+        {
+          "index": 91,
+          "svgId": "cell-profiles.point.91",
+          "x": -1.0192318111258627,
+          "y": -1.866756499452941
+        },
+        {
+          "index": 92,
+          "svgId": "cell-profiles.point.92",
+          "x": -0.8684861810662493,
+          "y": 0.9706173669781155
+        },
+        {
+          "index": 93,
+          "svgId": "cell-profiles.point.93",
+          "x": -0.5299427885880763,
+          "y": 1.936102902574137
+        },
+        {
+          "index": 94,
+          "svgId": "cell-profiles.point.94",
+          "x": -1.3728163899920933,
+          "y": -0.9375452207812112
+        },
+        {
+          "index": 95,
+          "svgId": "cell-profiles.point.95",
+          "x": 0.2694589561414588,
+          "y": 0.8954261969726367
+        },
+        {
+          "index": 96,
+          "svgId": "cell-profiles.point.96",
+          "x": -1.996657085426192,
+          "y": 2.1676062476777878
+        },
+        {
+          "index": 97,
+          "svgId": "cell-profiles.point.97",
+          "x": 0.008863497680101395,
+          "y": -0.5526021669971698
+        },
+        {
+          "index": 98,
+          "svgId": "cell-profiles.point.98",
+          "x": 0.5444788566176392,
+          "y": 1.611489384191247
+        },
+        {
+          "index": 99,
+          "svgId": "cell-profiles.point.99",
+          "x": -1.1823738277422318,
+          "y": 0.1109641547793858
+        },
+        {
+          "index": 100,
+          "svgId": "cell-profiles.point.100",
+          "x": -0.8512991797392157,
+          "y": 0.9701939992734866
+        },
+        {
+          "index": 101,
+          "svgId": "cell-profiles.point.101",
+          "x": -0.753414731370463,
+          "y": -0.3548731451684955
+        },
+        {
+          "index": 102,
+          "svgId": "cell-profiles.point.102",
+          "x": 3.0723220675425416,
+          "y": -0.3989047941133596
+        },
+        {
+          "index": 103,
+          "svgId": "cell-profiles.point.103",
+          "x": -2.563352052915593,
+          "y": 0.25873502830774514
+        },
+        {
+          "index": 104,
+          "svgId": "cell-profiles.point.104",
+          "x": -0.2287452021507001,
+          "y": 0.29271309728489237
+        },
+        {
+          "index": 105,
+          "svgId": "cell-profiles.point.105",
+          "x": -0.6321212466270669,
+          "y": -0.9652108744286753
+        },
+        {
+          "index": 106,
+          "svgId": "cell-profiles.point.106",
+          "x": -0.7978360273613034,
+          "y": -0.32699886265765554
+        },
+        {
+          "index": 107,
+          "svgId": "cell-profiles.point.107",
+          "x": 0.9507345083269266,
+          "y": -0.4057729526562918
+        },
+        {
+          "index": 108,
+          "svgId": "cell-profiles.point.108",
+          "x": -0.7202943633057305,
+          "y": 0.25810077975087725
+        },
+        {
+          "index": 109,
+          "svgId": "cell-profiles.point.109",
+          "x": 0.44211021447774645,
+          "y": -1.174100225143038
+        },
+        {
+          "index": 110,
+          "svgId": "cell-profiles.point.110",
+          "x": -0.9697973148495465,
+          "y": 0.05000250374788676
+        },
+        {
+          "index": 111,
+          "svgId": "cell-profiles.point.111",
+          "x": -0.8397179276818632,
+          "y": -0.3113521843426417
+        },
+        {
+          "index": 112,
+          "svgId": "cell-profiles.point.112",
+          "x": 0.556115513572029,
+          "y": -0.23537036272600173
+        },
+        {
+          "index": 113,
+          "svgId": "cell-profiles.point.113",
+          "x": -2.336568586323429,
+          "y": -1.0009895248722223
+        },
+        {
+          "index": 114,
+          "svgId": "cell-profiles.point.114",
+          "x": 0.9385442197806733,
+          "y": 0.20854774357154218
+        },
+        {
+          "index": 115,
+          "svgId": "cell-profiles.point.115",
+          "x": -0.5669479455625672,
+          "y": -1.1746744533170992
+        },
+        {
+          "index": 116,
+          "svgId": "cell-profiles.point.116",
+          "x": 0.02436823204065544,
+          "y": 1.8204058152123233
+        },
+        {
+          "index": 117,
+          "svgId": "cell-profiles.point.117",
+          "x": -0.8976475648426067,
+          "y": 0.5108820599477037
+        },
+        {
+          "index": 118,
+          "svgId": "cell-profiles.point.118",
+          "x": -0.07756139780423077,
+          "y": 0.5008690029235513
+        },
+        {
+          "index": 119,
+          "svgId": "cell-profiles.point.119",
+          "x": 0.2699312261851608,
+          "y": 0.8236503810017842
+        },
+        {
+          "index": 120,
+          "svgId": "cell-profiles.point.120",
+          "x": 1.108476308291831,
+          "y": 1.4834028507852643
+        },
+        {
+          "index": 121,
+          "svgId": "cell-profiles.point.121",
+          "x": -0.7672876280773571,
+          "y": 0.8887119155343913
+        },
+        {
+          "index": 122,
+          "svgId": "cell-profiles.point.122",
+          "x": -0.2115940327600739,
+          "y": -1.0381428708028513
+        },
+        {
+          "index": 123,
+          "svgId": "cell-profiles.point.123",
+          "x": -0.9395130661457091,
+          "y": 0.939106850996272
+        },
+        {
+          "index": 124,
+          "svgId": "cell-profiles.point.124",
+          "x": -1.2323984495350742,
+          "y": 1.330177460848627
+        },
+        {
+          "index": 125,
+          "svgId": "cell-profiles.point.125",
+          "x": -1.427590055233265,
+          "y": -1.4695259918488697
+        },
+        {
+          "index": 126,
+          "svgId": "cell-profiles.point.126",
+          "x": 2.1710530891071227,
+          "y": -0.982801337942072
+        },
+        {
+          "index": 127,
+          "svgId": "cell-profiles.point.127",
+          "x": 0.25131652493630335,
+          "y": -0.0938391453558411
+        },
+        {
+          "index": 128,
+          "svgId": "cell-profiles.point.128",
+          "x": 1.2215889525754153,
+          "y": 0.6668724653261359
+        },
+        {
+          "index": 129,
+          "svgId": "cell-profiles.point.129",
+          "x": 0.4318066922150187,
+          "y": -0.6614933546905766
+        },
+        {
+          "index": 130,
+          "svgId": "cell-profiles.point.130",
+          "x": -1.7209851669037826,
+          "y": -1.0669902412961745
+        },
+        {
+          "index": 131,
+          "svgId": "cell-profiles.point.131",
+          "x": -0.5454921888806973,
+          "y": -0.307107764224612
+        },
+        {
+          "index": 132,
+          "svgId": "cell-profiles.point.132",
+          "x": -0.2279113796426718,
+          "y": -0.7580734963395362
+        },
+        {
+          "index": 133,
+          "svgId": "cell-profiles.point.133",
+          "x": -1.6997767970497186,
+          "y": -0.9888076988768937
+        },
+        {
+          "index": 134,
+          "svgId": "cell-profiles.point.134",
+          "x": -0.9250906443031349,
+          "y": -1.5752410433297799
+        },
+        {
+          "index": 135,
+          "svgId": "cell-profiles.point.135",
+          "x": -1.2372282795315492,
+          "y": 0.2413607425501482
+        },
+        {
+          "index": 136,
+          "svgId": "cell-profiles.point.136",
+          "x": 2.518458897469512,
+          "y": 2.2265804055055445
+        },
+        {
+          "index": 137,
+          "svgId": "cell-profiles.point.137",
+          "x": 0.8915859232138109,
+          "y": -2.0815753948117948
+        },
+        {
+          "index": 138,
+          "svgId": "cell-profiles.point.138",
+          "x": -0.9094869033666962,
+          "y": 0.2634262435548525
+        },
+        {
+          "index": 139,
+          "svgId": "cell-profiles.point.139",
+          "x": -1.3419939087825967,
+          "y": -1.0535612145710245
+        },
+        {
+          "index": 140,
+          "svgId": "cell-profiles.point.140",
+          "x": -0.23783181056704847,
+          "y": -0.30935528987532707
+        },
+        {
+          "index": 141,
+          "svgId": "cell-profiles.point.141",
+          "x": -0.03005798421040791,
+          "y": -1.1235961381849198
+        },
+        {
+          "index": 142,
+          "svgId": "cell-profiles.point.142",
+          "x": -0.317065015143149,
+          "y": -1.6579757704322498
+        }
+      ],
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "cell-profiles.points"
+      }
+    }
+  ],
+  "size": {
+    "height": 216.0,
+    "unit": "pt",
+    "width": 208.79999999999998
+  },
+  "spec": "fluxplot/manifest",
+  "svg": "14-response-geometry-04hz.svg"
+}

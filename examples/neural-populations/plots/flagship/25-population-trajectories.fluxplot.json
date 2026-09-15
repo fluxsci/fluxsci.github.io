@@ -1,0 +1,1898 @@
+{
+  "artifact": {
+    "svgSha256": "2d4dad1c752c2cd8842430448529caa0ceeadfa77bc1fc5d3099e03b96ba61ea"
+  },
+  "axes": [
+    {
+      "id": "plot-area",
+      "pixelBox": {
+        "x0": -4.32,
+        "x1": 198.71999999999997,
+        "y0": 0.0,
+        "y1": 203.04
+      },
+      "projection": "3d",
+      "svgId": "plot-area",
+      "x": {
+        "anchors": [],
+        "domain": [
+          -10.597242015889977,
+          15.874120216520545
+        ],
+        "label": "PC 1 · 16%",
+        "scale": "linear",
+        "supported": false,
+        "ticks": [
+          {
+            "label": "−10",
+            "value": -10.0
+          },
+          {
+            "label": "0",
+            "value": 0.0
+          },
+          {
+            "label": "10",
+            "value": 10.0
+          }
+        ]
+      },
+      "y": {
+        "anchors": [],
+        "domain": [
+          -8.952151547822446,
+          18.111130830704848
+        ],
+        "label": "PC 2 · 14%",
+        "scale": "linear",
+        "supported": false,
+        "ticks": [
+          {
+            "label": "−10",
+            "value": -10.0
+          },
+          {
+            "label": "0",
+            "value": 0.0
+          },
+          {
+            "label": "10",
+            "value": 10.0
+          }
+        ]
+      }
+    }
+  ],
+  "build": {
+    "order": [
+      "axis.x",
+      "axis.y",
+      "axis.z",
+      "gridlines",
+      "direction-0-projection.x-trajectory-projection",
+      "direction-0-baseline.x-population-trajectory",
+      "direction-0-recovery.x-population-trajectory",
+      "direction-0-stimulus.x-population-trajectory",
+      "direction-0-onset.x-stimulus-onset",
+      "direction-0-offset.x-stimulus-offset",
+      "direction-45-projection.x-trajectory-projection",
+      "direction-45-baseline.x-population-trajectory",
+      "direction-45-recovery.x-population-trajectory",
+      "direction-45-stimulus.x-population-trajectory",
+      "direction-45-onset.x-stimulus-onset",
+      "direction-45-offset.x-stimulus-offset",
+      "direction-90-projection.x-trajectory-projection",
+      "direction-90-baseline.x-population-trajectory",
+      "direction-90-recovery.x-population-trajectory",
+      "direction-90-stimulus.x-population-trajectory",
+      "direction-90-onset.x-stimulus-onset",
+      "direction-90-offset.x-stimulus-offset",
+      "direction-135-projection.x-trajectory-projection",
+      "direction-135-baseline.x-population-trajectory",
+      "direction-135-recovery.x-population-trajectory",
+      "direction-135-stimulus.x-population-trajectory",
+      "direction-135-onset.x-stimulus-onset",
+      "direction-135-offset.x-stimulus-offset",
+      "direction-180-projection.x-trajectory-projection",
+      "direction-180-baseline.x-population-trajectory",
+      "direction-180-recovery.x-population-trajectory",
+      "direction-180-stimulus.x-population-trajectory",
+      "direction-180-onset.x-stimulus-onset",
+      "direction-180-offset.x-stimulus-offset",
+      "direction-225-projection.x-trajectory-projection",
+      "direction-225-baseline.x-population-trajectory",
+      "direction-225-recovery.x-population-trajectory",
+      "direction-225-stimulus.x-population-trajectory",
+      "direction-225-onset.x-stimulus-onset",
+      "direction-225-offset.x-stimulus-offset",
+      "direction-270-projection.x-trajectory-projection",
+      "direction-270-baseline.x-population-trajectory",
+      "direction-270-recovery.x-population-trajectory",
+      "direction-270-stimulus.x-population-trajectory",
+      "direction-270-onset.x-stimulus-onset",
+      "direction-270-offset.x-stimulus-offset",
+      "direction-315-projection.x-trajectory-projection",
+      "direction-315-baseline.x-population-trajectory",
+      "direction-315-recovery.x-population-trajectory",
+      "direction-315-stimulus.x-population-trajectory",
+      "direction-315-onset.x-stimulus-onset",
+      "direction-315-offset.x-stimulus-offset",
+      "annotation.0",
+      "annotation.1",
+      "annotation.2"
+    ],
+    "presets": {
+      "axis": {
+        "animation": "draw-on",
+        "durationMs": 400
+      },
+      "gridline": {
+        "animation": "fade-in",
+        "durationMs": 300
+      }
+    }
+  },
+  "generator": {
+    "matplotlib": "3.11.2",
+    "name": "fluxplot",
+    "version": "0.1.0"
+  },
+  "guides": [
+    {
+      "axis": "x",
+      "id": "axis.x",
+      "role": "axis"
+    },
+    {
+      "axis": "y",
+      "id": "axis.y",
+      "role": "axis"
+    },
+    {
+      "axis": "z",
+      "id": "axis.z",
+      "role": "axis"
+    }
+  ],
+  "overlays": [
+    {
+      "id": "annotation.0",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.0",
+      "text": "PC 3 · 8%"
+    },
+    {
+      "id": "annotation.1",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.1",
+      "text": "● onset   ■ offset   faint: pre-stimulus and recovery"
+    },
+    {
+      "id": "annotation.2",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.2",
+      "text": "143 cells · 2 Hz"
+    }
+  ],
+  "parts": {
+    "children": [
+      {
+        "children": [
+          {
+            "axis": "x",
+            "children": [
+              {
+                "kind": "line",
+                "ref": "axis.x.spine"
+              },
+              {
+                "kind": "line",
+                "ref": "axis.x.background"
+              },
+              {
+                "groupRole": "tick",
+                "id": "axis.x.ticks",
+                "kind": "line",
+                "members": [
+                  "axis.x.tick.0",
+                  "axis.x.tick.1",
+                  "axis.x.tick.2"
+                ],
+                "role": "group"
+              },
+              {
+                "groupRole": "tick-label",
+                "id": "axis.x.tick-labels",
+                "kind": "text",
+                "members": [
+                  "axis.x.ticklabel.0",
+                  "axis.x.ticklabel.1",
+                  "axis.x.ticklabel.2"
+                ],
+                "role": "group"
+              },
+              {
+                "groupRole": "gridline",
+                "id": "axis.x.gridlines",
+                "kind": "line",
+                "members": [
+                  "axis.x.gridline"
+                ],
+                "role": "group"
+              },
+              {
+                "kind": "text",
+                "ref": "axis.x.title"
+              }
+            ],
+            "id": "axis.x",
+            "kind": "container",
+            "role": "axis"
+          },
+          {
+            "axis": "y",
+            "children": [
+              {
+                "kind": "line",
+                "ref": "axis.y.spine"
+              },
+              {
+                "kind": "line",
+                "ref": "axis.y.background"
+              },
+              {
+                "groupRole": "tick",
+                "id": "axis.y.ticks",
+                "kind": "line",
+                "members": [
+                  "axis.y.tick.1",
+                  "axis.y.tick.2"
+                ],
+                "role": "group"
+              },
+              {
+                "groupRole": "tick-label",
+                "id": "axis.y.tick-labels",
+                "kind": "text",
+                "members": [
+                  "axis.y.ticklabel.1",
+                  "axis.y.ticklabel.2"
+                ],
+                "role": "group"
+              },
+              {
+                "groupRole": "gridline",
+                "id": "axis.y.gridlines",
+                "kind": "line",
+                "members": [
+                  "axis.y.gridline"
+                ],
+                "role": "group"
+              },
+              {
+                "kind": "text",
+                "ref": "axis.y.title"
+              }
+            ],
+            "id": "axis.y",
+            "kind": "container",
+            "role": "axis"
+          },
+          {
+            "axis": "z",
+            "children": [
+              {
+                "kind": "line",
+                "ref": "axis.z.spine"
+              },
+              {
+                "kind": "line",
+                "ref": "axis.z.background"
+              },
+              {
+                "groupRole": "tick",
+                "id": "axis.z.ticks",
+                "kind": "line",
+                "members": [
+                  "axis.z.tick.1",
+                  "axis.z.tick.2"
+                ],
+                "role": "group"
+              },
+              {
+                "groupRole": "tick-label",
+                "id": "axis.z.tick-labels",
+                "kind": "text",
+                "members": [
+                  "axis.z.ticklabel.1",
+                  "axis.z.ticklabel.2"
+                ],
+                "role": "group"
+              },
+              {
+                "groupRole": "gridline",
+                "id": "axis.z.gridlines",
+                "kind": "line",
+                "members": [
+                  "axis.z.gridline"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "axis.z",
+            "kind": "container",
+            "role": "axis"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-0-projection.x-trajectory-projection"
+              }
+            ],
+            "id": "direction-0-projection",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-0-baseline.x-population-trajectory"
+              }
+            ],
+            "id": "direction-0-baseline",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-0-recovery.x-population-trajectory"
+              }
+            ],
+            "id": "direction-0-recovery",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-0-stimulus.x-population-trajectory"
+              }
+            ],
+            "id": "direction-0-stimulus",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "direction-0-onset.x-stimulus-onset"
+              }
+            ],
+            "id": "direction-0-onset",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "direction-0-offset.x-stimulus-offset"
+              }
+            ],
+            "id": "direction-0-offset",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-45-projection.x-trajectory-projection"
+              }
+            ],
+            "id": "direction-45-projection",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-45-baseline.x-population-trajectory"
+              }
+            ],
+            "id": "direction-45-baseline",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-45-recovery.x-population-trajectory"
+              }
+            ],
+            "id": "direction-45-recovery",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-45-stimulus.x-population-trajectory"
+              }
+            ],
+            "id": "direction-45-stimulus",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "direction-45-onset.x-stimulus-onset"
+              }
+            ],
+            "id": "direction-45-onset",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "direction-45-offset.x-stimulus-offset"
+              }
+            ],
+            "id": "direction-45-offset",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-90-projection.x-trajectory-projection"
+              }
+            ],
+            "id": "direction-90-projection",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-90-baseline.x-population-trajectory"
+              }
+            ],
+            "id": "direction-90-baseline",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-90-recovery.x-population-trajectory"
+              }
+            ],
+            "id": "direction-90-recovery",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-90-stimulus.x-population-trajectory"
+              }
+            ],
+            "id": "direction-90-stimulus",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "direction-90-onset.x-stimulus-onset"
+              }
+            ],
+            "id": "direction-90-onset",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "direction-90-offset.x-stimulus-offset"
+              }
+            ],
+            "id": "direction-90-offset",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-135-projection.x-trajectory-projection"
+              }
+            ],
+            "id": "direction-135-projection",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-135-baseline.x-population-trajectory"
+              }
+            ],
+            "id": "direction-135-baseline",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-135-recovery.x-population-trajectory"
+              }
+            ],
+            "id": "direction-135-recovery",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-135-stimulus.x-population-trajectory"
+              }
+            ],
+            "id": "direction-135-stimulus",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "direction-135-onset.x-stimulus-onset"
+              }
+            ],
+            "id": "direction-135-onset",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "direction-135-offset.x-stimulus-offset"
+              }
+            ],
+            "id": "direction-135-offset",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-180-projection.x-trajectory-projection"
+              }
+            ],
+            "id": "direction-180-projection",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-180-baseline.x-population-trajectory"
+              }
+            ],
+            "id": "direction-180-baseline",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-180-recovery.x-population-trajectory"
+              }
+            ],
+            "id": "direction-180-recovery",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-180-stimulus.x-population-trajectory"
+              }
+            ],
+            "id": "direction-180-stimulus",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "direction-180-onset.x-stimulus-onset"
+              }
+            ],
+            "id": "direction-180-onset",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "direction-180-offset.x-stimulus-offset"
+              }
+            ],
+            "id": "direction-180-offset",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-225-projection.x-trajectory-projection"
+              }
+            ],
+            "id": "direction-225-projection",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-225-baseline.x-population-trajectory"
+              }
+            ],
+            "id": "direction-225-baseline",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-225-recovery.x-population-trajectory"
+              }
+            ],
+            "id": "direction-225-recovery",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-225-stimulus.x-population-trajectory"
+              }
+            ],
+            "id": "direction-225-stimulus",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "direction-225-onset.x-stimulus-onset"
+              }
+            ],
+            "id": "direction-225-onset",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "direction-225-offset.x-stimulus-offset"
+              }
+            ],
+            "id": "direction-225-offset",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-270-projection.x-trajectory-projection"
+              }
+            ],
+            "id": "direction-270-projection",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-270-baseline.x-population-trajectory"
+              }
+            ],
+            "id": "direction-270-baseline",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-270-recovery.x-population-trajectory"
+              }
+            ],
+            "id": "direction-270-recovery",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-270-stimulus.x-population-trajectory"
+              }
+            ],
+            "id": "direction-270-stimulus",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "direction-270-onset.x-stimulus-onset"
+              }
+            ],
+            "id": "direction-270-onset",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "direction-270-offset.x-stimulus-offset"
+              }
+            ],
+            "id": "direction-270-offset",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-315-projection.x-trajectory-projection"
+              }
+            ],
+            "id": "direction-315-projection",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-315-baseline.x-population-trajectory"
+              }
+            ],
+            "id": "direction-315-baseline",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-315-recovery.x-population-trajectory"
+              }
+            ],
+            "id": "direction-315-recovery",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-315-stimulus.x-population-trajectory"
+              }
+            ],
+            "id": "direction-315-stimulus",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "direction-315-onset.x-stimulus-onset"
+              }
+            ],
+            "id": "direction-315-onset",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "direction-315-offset.x-stimulus-offset"
+              }
+            ],
+            "id": "direction-315-offset",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.0"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.1"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.2"
+          }
+        ],
+        "id": "plot-area",
+        "kind": "container",
+        "role": "plot-area"
+      }
+    ],
+    "id": "figure",
+    "kind": "container",
+    "role": "figure"
+  },
+  "plotType": "plot",
+  "schemaVersion": "0.3.0",
+  "series": [
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-trajectory-projection",
+          "svgId": "direction-0-projection.x-trajectory-projection"
+        }
+      ],
+      "data": {},
+      "id": "direction-0-projection",
+      "kind": "x-trajectory-projection",
+      "name": "direction-0-projection",
+      "roles": [
+        "x-trajectory-projection"
+      ],
+      "svg": {
+        "x-trajectory-projection": "direction-0-projection.x-trajectory-projection"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-population-trajectory",
+          "svgId": "direction-0-baseline.x-population-trajectory"
+        }
+      ],
+      "data": {},
+      "id": "direction-0-baseline",
+      "kind": "x-population-trajectory",
+      "name": "direction-0-baseline",
+      "roles": [
+        "x-population-trajectory"
+      ],
+      "svg": {
+        "x-population-trajectory": "direction-0-baseline.x-population-trajectory"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-population-trajectory",
+          "svgId": "direction-0-recovery.x-population-trajectory"
+        }
+      ],
+      "data": {},
+      "id": "direction-0-recovery",
+      "kind": "x-population-trajectory",
+      "name": "direction-0-recovery",
+      "roles": [
+        "x-population-trajectory"
+      ],
+      "svg": {
+        "x-population-trajectory": "direction-0-recovery.x-population-trajectory"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-population-trajectory",
+          "svgId": "direction-0-stimulus.x-population-trajectory"
+        }
+      ],
+      "data": {},
+      "id": "direction-0-stimulus",
+      "kind": "x-population-trajectory",
+      "name": "direction-0-stimulus",
+      "roles": [
+        "x-population-trajectory"
+      ],
+      "svg": {
+        "x-population-trajectory": "direction-0-stimulus.x-population-trajectory"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-stimulus-onset",
+          "svgId": "direction-0-onset.x-stimulus-onset"
+        }
+      ],
+      "data": {},
+      "id": "direction-0-onset",
+      "kind": "x-stimulus-onset",
+      "name": "direction-0-onset",
+      "roles": [
+        "x-stimulus-onset"
+      ],
+      "svg": {
+        "x-stimulus-onset": "direction-0-onset.x-stimulus-onset"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-stimulus-offset",
+          "svgId": "direction-0-offset.x-stimulus-offset"
+        }
+      ],
+      "data": {},
+      "id": "direction-0-offset",
+      "kind": "x-stimulus-offset",
+      "name": "direction-0-offset",
+      "roles": [
+        "x-stimulus-offset"
+      ],
+      "svg": {
+        "x-stimulus-offset": "direction-0-offset.x-stimulus-offset"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-trajectory-projection",
+          "svgId": "direction-45-projection.x-trajectory-projection"
+        }
+      ],
+      "data": {},
+      "id": "direction-45-projection",
+      "kind": "x-trajectory-projection",
+      "name": "direction-45-projection",
+      "roles": [
+        "x-trajectory-projection"
+      ],
+      "svg": {
+        "x-trajectory-projection": "direction-45-projection.x-trajectory-projection"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-population-trajectory",
+          "svgId": "direction-45-baseline.x-population-trajectory"
+        }
+      ],
+      "data": {},
+      "id": "direction-45-baseline",
+      "kind": "x-population-trajectory",
+      "name": "direction-45-baseline",
+      "roles": [
+        "x-population-trajectory"
+      ],
+      "svg": {
+        "x-population-trajectory": "direction-45-baseline.x-population-trajectory"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-population-trajectory",
+          "svgId": "direction-45-recovery.x-population-trajectory"
+        }
+      ],
+      "data": {},
+      "id": "direction-45-recovery",
+      "kind": "x-population-trajectory",
+      "name": "direction-45-recovery",
+      "roles": [
+        "x-population-trajectory"
+      ],
+      "svg": {
+        "x-population-trajectory": "direction-45-recovery.x-population-trajectory"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-population-trajectory",
+          "svgId": "direction-45-stimulus.x-population-trajectory"
+        }
+      ],
+      "data": {},
+      "id": "direction-45-stimulus",
+      "kind": "x-population-trajectory",
+      "name": "direction-45-stimulus",
+      "roles": [
+        "x-population-trajectory"
+      ],
+      "svg": {
+        "x-population-trajectory": "direction-45-stimulus.x-population-trajectory"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-stimulus-onset",
+          "svgId": "direction-45-onset.x-stimulus-onset"
+        }
+      ],
+      "data": {},
+      "id": "direction-45-onset",
+      "kind": "x-stimulus-onset",
+      "name": "direction-45-onset",
+      "roles": [
+        "x-stimulus-onset"
+      ],
+      "svg": {
+        "x-stimulus-onset": "direction-45-onset.x-stimulus-onset"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-stimulus-offset",
+          "svgId": "direction-45-offset.x-stimulus-offset"
+        }
+      ],
+      "data": {},
+      "id": "direction-45-offset",
+      "kind": "x-stimulus-offset",
+      "name": "direction-45-offset",
+      "roles": [
+        "x-stimulus-offset"
+      ],
+      "svg": {
+        "x-stimulus-offset": "direction-45-offset.x-stimulus-offset"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-trajectory-projection",
+          "svgId": "direction-90-projection.x-trajectory-projection"
+        }
+      ],
+      "data": {},
+      "id": "direction-90-projection",
+      "kind": "x-trajectory-projection",
+      "name": "direction-90-projection",
+      "roles": [
+        "x-trajectory-projection"
+      ],
+      "svg": {
+        "x-trajectory-projection": "direction-90-projection.x-trajectory-projection"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-population-trajectory",
+          "svgId": "direction-90-baseline.x-population-trajectory"
+        }
+      ],
+      "data": {},
+      "id": "direction-90-baseline",
+      "kind": "x-population-trajectory",
+      "name": "direction-90-baseline",
+      "roles": [
+        "x-population-trajectory"
+      ],
+      "svg": {
+        "x-population-trajectory": "direction-90-baseline.x-population-trajectory"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-population-trajectory",
+          "svgId": "direction-90-recovery.x-population-trajectory"
+        }
+      ],
+      "data": {},
+      "id": "direction-90-recovery",
+      "kind": "x-population-trajectory",
+      "name": "direction-90-recovery",
+      "roles": [
+        "x-population-trajectory"
+      ],
+      "svg": {
+        "x-population-trajectory": "direction-90-recovery.x-population-trajectory"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-population-trajectory",
+          "svgId": "direction-90-stimulus.x-population-trajectory"
+        }
+      ],
+      "data": {},
+      "id": "direction-90-stimulus",
+      "kind": "x-population-trajectory",
+      "name": "direction-90-stimulus",
+      "roles": [
+        "x-population-trajectory"
+      ],
+      "svg": {
+        "x-population-trajectory": "direction-90-stimulus.x-population-trajectory"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-stimulus-onset",
+          "svgId": "direction-90-onset.x-stimulus-onset"
+        }
+      ],
+      "data": {},
+      "id": "direction-90-onset",
+      "kind": "x-stimulus-onset",
+      "name": "direction-90-onset",
+      "roles": [
+        "x-stimulus-onset"
+      ],
+      "svg": {
+        "x-stimulus-onset": "direction-90-onset.x-stimulus-onset"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-stimulus-offset",
+          "svgId": "direction-90-offset.x-stimulus-offset"
+        }
+      ],
+      "data": {},
+      "id": "direction-90-offset",
+      "kind": "x-stimulus-offset",
+      "name": "direction-90-offset",
+      "roles": [
+        "x-stimulus-offset"
+      ],
+      "svg": {
+        "x-stimulus-offset": "direction-90-offset.x-stimulus-offset"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-trajectory-projection",
+          "svgId": "direction-135-projection.x-trajectory-projection"
+        }
+      ],
+      "data": {},
+      "id": "direction-135-projection",
+      "kind": "x-trajectory-projection",
+      "name": "direction-135-projection",
+      "roles": [
+        "x-trajectory-projection"
+      ],
+      "svg": {
+        "x-trajectory-projection": "direction-135-projection.x-trajectory-projection"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-population-trajectory",
+          "svgId": "direction-135-baseline.x-population-trajectory"
+        }
+      ],
+      "data": {},
+      "id": "direction-135-baseline",
+      "kind": "x-population-trajectory",
+      "name": "direction-135-baseline",
+      "roles": [
+        "x-population-trajectory"
+      ],
+      "svg": {
+        "x-population-trajectory": "direction-135-baseline.x-population-trajectory"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-population-trajectory",
+          "svgId": "direction-135-recovery.x-population-trajectory"
+        }
+      ],
+      "data": {},
+      "id": "direction-135-recovery",
+      "kind": "x-population-trajectory",
+      "name": "direction-135-recovery",
+      "roles": [
+        "x-population-trajectory"
+      ],
+      "svg": {
+        "x-population-trajectory": "direction-135-recovery.x-population-trajectory"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-population-trajectory",
+          "svgId": "direction-135-stimulus.x-population-trajectory"
+        }
+      ],
+      "data": {},
+      "id": "direction-135-stimulus",
+      "kind": "x-population-trajectory",
+      "name": "direction-135-stimulus",
+      "roles": [
+        "x-population-trajectory"
+      ],
+      "svg": {
+        "x-population-trajectory": "direction-135-stimulus.x-population-trajectory"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-stimulus-onset",
+          "svgId": "direction-135-onset.x-stimulus-onset"
+        }
+      ],
+      "data": {},
+      "id": "direction-135-onset",
+      "kind": "x-stimulus-onset",
+      "name": "direction-135-onset",
+      "roles": [
+        "x-stimulus-onset"
+      ],
+      "svg": {
+        "x-stimulus-onset": "direction-135-onset.x-stimulus-onset"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-stimulus-offset",
+          "svgId": "direction-135-offset.x-stimulus-offset"
+        }
+      ],
+      "data": {},
+      "id": "direction-135-offset",
+      "kind": "x-stimulus-offset",
+      "name": "direction-135-offset",
+      "roles": [
+        "x-stimulus-offset"
+      ],
+      "svg": {
+        "x-stimulus-offset": "direction-135-offset.x-stimulus-offset"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-trajectory-projection",
+          "svgId": "direction-180-projection.x-trajectory-projection"
+        }
+      ],
+      "data": {},
+      "id": "direction-180-projection",
+      "kind": "x-trajectory-projection",
+      "name": "direction-180-projection",
+      "roles": [
+        "x-trajectory-projection"
+      ],
+      "svg": {
+        "x-trajectory-projection": "direction-180-projection.x-trajectory-projection"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-population-trajectory",
+          "svgId": "direction-180-baseline.x-population-trajectory"
+        }
+      ],
+      "data": {},
+      "id": "direction-180-baseline",
+      "kind": "x-population-trajectory",
+      "name": "direction-180-baseline",
+      "roles": [
+        "x-population-trajectory"
+      ],
+      "svg": {
+        "x-population-trajectory": "direction-180-baseline.x-population-trajectory"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-population-trajectory",
+          "svgId": "direction-180-recovery.x-population-trajectory"
+        }
+      ],
+      "data": {},
+      "id": "direction-180-recovery",
+      "kind": "x-population-trajectory",
+      "name": "direction-180-recovery",
+      "roles": [
+        "x-population-trajectory"
+      ],
+      "svg": {
+        "x-population-trajectory": "direction-180-recovery.x-population-trajectory"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-population-trajectory",
+          "svgId": "direction-180-stimulus.x-population-trajectory"
+        }
+      ],
+      "data": {},
+      "id": "direction-180-stimulus",
+      "kind": "x-population-trajectory",
+      "name": "direction-180-stimulus",
+      "roles": [
+        "x-population-trajectory"
+      ],
+      "svg": {
+        "x-population-trajectory": "direction-180-stimulus.x-population-trajectory"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-stimulus-onset",
+          "svgId": "direction-180-onset.x-stimulus-onset"
+        }
+      ],
+      "data": {},
+      "id": "direction-180-onset",
+      "kind": "x-stimulus-onset",
+      "name": "direction-180-onset",
+      "roles": [
+        "x-stimulus-onset"
+      ],
+      "svg": {
+        "x-stimulus-onset": "direction-180-onset.x-stimulus-onset"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-stimulus-offset",
+          "svgId": "direction-180-offset.x-stimulus-offset"
+        }
+      ],
+      "data": {},
+      "id": "direction-180-offset",
+      "kind": "x-stimulus-offset",
+      "name": "direction-180-offset",
+      "roles": [
+        "x-stimulus-offset"
+      ],
+      "svg": {
+        "x-stimulus-offset": "direction-180-offset.x-stimulus-offset"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-trajectory-projection",
+          "svgId": "direction-225-projection.x-trajectory-projection"
+        }
+      ],
+      "data": {},
+      "id": "direction-225-projection",
+      "kind": "x-trajectory-projection",
+      "name": "direction-225-projection",
+      "roles": [
+        "x-trajectory-projection"
+      ],
+      "svg": {
+        "x-trajectory-projection": "direction-225-projection.x-trajectory-projection"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-population-trajectory",
+          "svgId": "direction-225-baseline.x-population-trajectory"
+        }
+      ],
+      "data": {},
+      "id": "direction-225-baseline",
+      "kind": "x-population-trajectory",
+      "name": "direction-225-baseline",
+      "roles": [
+        "x-population-trajectory"
+      ],
+      "svg": {
+        "x-population-trajectory": "direction-225-baseline.x-population-trajectory"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-population-trajectory",
+          "svgId": "direction-225-recovery.x-population-trajectory"
+        }
+      ],
+      "data": {},
+      "id": "direction-225-recovery",
+      "kind": "x-population-trajectory",
+      "name": "direction-225-recovery",
+      "roles": [
+        "x-population-trajectory"
+      ],
+      "svg": {
+        "x-population-trajectory": "direction-225-recovery.x-population-trajectory"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-population-trajectory",
+          "svgId": "direction-225-stimulus.x-population-trajectory"
+        }
+      ],
+      "data": {},
+      "id": "direction-225-stimulus",
+      "kind": "x-population-trajectory",
+      "name": "direction-225-stimulus",
+      "roles": [
+        "x-population-trajectory"
+      ],
+      "svg": {
+        "x-population-trajectory": "direction-225-stimulus.x-population-trajectory"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-stimulus-onset",
+          "svgId": "direction-225-onset.x-stimulus-onset"
+        }
+      ],
+      "data": {},
+      "id": "direction-225-onset",
+      "kind": "x-stimulus-onset",
+      "name": "direction-225-onset",
+      "roles": [
+        "x-stimulus-onset"
+      ],
+      "svg": {
+        "x-stimulus-onset": "direction-225-onset.x-stimulus-onset"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-stimulus-offset",
+          "svgId": "direction-225-offset.x-stimulus-offset"
+        }
+      ],
+      "data": {},
+      "id": "direction-225-offset",
+      "kind": "x-stimulus-offset",
+      "name": "direction-225-offset",
+      "roles": [
+        "x-stimulus-offset"
+      ],
+      "svg": {
+        "x-stimulus-offset": "direction-225-offset.x-stimulus-offset"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-trajectory-projection",
+          "svgId": "direction-270-projection.x-trajectory-projection"
+        }
+      ],
+      "data": {},
+      "id": "direction-270-projection",
+      "kind": "x-trajectory-projection",
+      "name": "direction-270-projection",
+      "roles": [
+        "x-trajectory-projection"
+      ],
+      "svg": {
+        "x-trajectory-projection": "direction-270-projection.x-trajectory-projection"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-population-trajectory",
+          "svgId": "direction-270-baseline.x-population-trajectory"
+        }
+      ],
+      "data": {},
+      "id": "direction-270-baseline",
+      "kind": "x-population-trajectory",
+      "name": "direction-270-baseline",
+      "roles": [
+        "x-population-trajectory"
+      ],
+      "svg": {
+        "x-population-trajectory": "direction-270-baseline.x-population-trajectory"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-population-trajectory",
+          "svgId": "direction-270-recovery.x-population-trajectory"
+        }
+      ],
+      "data": {},
+      "id": "direction-270-recovery",
+      "kind": "x-population-trajectory",
+      "name": "direction-270-recovery",
+      "roles": [
+        "x-population-trajectory"
+      ],
+      "svg": {
+        "x-population-trajectory": "direction-270-recovery.x-population-trajectory"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-population-trajectory",
+          "svgId": "direction-270-stimulus.x-population-trajectory"
+        }
+      ],
+      "data": {},
+      "id": "direction-270-stimulus",
+      "kind": "x-population-trajectory",
+      "name": "direction-270-stimulus",
+      "roles": [
+        "x-population-trajectory"
+      ],
+      "svg": {
+        "x-population-trajectory": "direction-270-stimulus.x-population-trajectory"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-stimulus-onset",
+          "svgId": "direction-270-onset.x-stimulus-onset"
+        }
+      ],
+      "data": {},
+      "id": "direction-270-onset",
+      "kind": "x-stimulus-onset",
+      "name": "direction-270-onset",
+      "roles": [
+        "x-stimulus-onset"
+      ],
+      "svg": {
+        "x-stimulus-onset": "direction-270-onset.x-stimulus-onset"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-stimulus-offset",
+          "svgId": "direction-270-offset.x-stimulus-offset"
+        }
+      ],
+      "data": {},
+      "id": "direction-270-offset",
+      "kind": "x-stimulus-offset",
+      "name": "direction-270-offset",
+      "roles": [
+        "x-stimulus-offset"
+      ],
+      "svg": {
+        "x-stimulus-offset": "direction-270-offset.x-stimulus-offset"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-trajectory-projection",
+          "svgId": "direction-315-projection.x-trajectory-projection"
+        }
+      ],
+      "data": {},
+      "id": "direction-315-projection",
+      "kind": "x-trajectory-projection",
+      "name": "direction-315-projection",
+      "roles": [
+        "x-trajectory-projection"
+      ],
+      "svg": {
+        "x-trajectory-projection": "direction-315-projection.x-trajectory-projection"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-population-trajectory",
+          "svgId": "direction-315-baseline.x-population-trajectory"
+        }
+      ],
+      "data": {},
+      "id": "direction-315-baseline",
+      "kind": "x-population-trajectory",
+      "name": "direction-315-baseline",
+      "roles": [
+        "x-population-trajectory"
+      ],
+      "svg": {
+        "x-population-trajectory": "direction-315-baseline.x-population-trajectory"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-population-trajectory",
+          "svgId": "direction-315-recovery.x-population-trajectory"
+        }
+      ],
+      "data": {},
+      "id": "direction-315-recovery",
+      "kind": "x-population-trajectory",
+      "name": "direction-315-recovery",
+      "roles": [
+        "x-population-trajectory"
+      ],
+      "svg": {
+        "x-population-trajectory": "direction-315-recovery.x-population-trajectory"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-population-trajectory",
+          "svgId": "direction-315-stimulus.x-population-trajectory"
+        }
+      ],
+      "data": {},
+      "id": "direction-315-stimulus",
+      "kind": "x-population-trajectory",
+      "name": "direction-315-stimulus",
+      "roles": [
+        "x-population-trajectory"
+      ],
+      "svg": {
+        "x-population-trajectory": "direction-315-stimulus.x-population-trajectory"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-stimulus-onset",
+          "svgId": "direction-315-onset.x-stimulus-onset"
+        }
+      ],
+      "data": {},
+      "id": "direction-315-onset",
+      "kind": "x-stimulus-onset",
+      "name": "direction-315-onset",
+      "roles": [
+        "x-stimulus-onset"
+      ],
+      "svg": {
+        "x-stimulus-onset": "direction-315-onset.x-stimulus-onset"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-stimulus-offset",
+          "svgId": "direction-315-offset.x-stimulus-offset"
+        }
+      ],
+      "data": {},
+      "id": "direction-315-offset",
+      "kind": "x-stimulus-offset",
+      "name": "direction-315-offset",
+      "roles": [
+        "x-stimulus-offset"
+      ],
+      "svg": {
+        "x-stimulus-offset": "direction-315-offset.x-stimulus-offset"
+      }
+    }
+  ],
+  "size": {
+    "height": 216.0,
+    "unit": "pt",
+    "width": 216.0
+  },
+  "spec": "fluxplot/manifest",
+  "svg": "25-population-trajectories.svg"
+}

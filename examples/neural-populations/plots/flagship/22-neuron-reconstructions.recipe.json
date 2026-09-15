@@ -1,0 +1,61 @@
+{
+  "args": [
+    "run",
+    "--project",
+    "scripts/advanced",
+    "python",
+    "scripts/advanced/flagship.py",
+    "--project",
+    "."
+  ],
+  "command": "uv",
+  "cwd": "../..",
+  "env": null,
+  "generatedAt": "2026-09-15T00:29:14Z",
+  "inputs": [
+    {
+      "bytes": 177665,
+      "path": "data/allen/cell-480114344.swc",
+      "role": "data",
+      "sha256": "e14442b6184082fcad2e1358887b388e9561c96b1b9c0eae79d2200f39419ac6"
+    },
+    {
+      "bytes": 114591,
+      "path": "data/allen/cell-464212183.swc",
+      "role": "data",
+      "sha256": "3618b3c5f55bcbf0df7ee5187e1cbcae0d59fa01a19f603f3be49158bde37d89"
+    },
+    {
+      "bytes": 57028,
+      "path": "data/allen/cell-464198958.swc",
+      "role": "data",
+      "sha256": "dc2cec74c1d7b28251194fa7a424d32d0af461ad915d91d023312f6bed06a833"
+    }
+  ],
+  "output": "22-neuron-reconstructions.svg",
+  "outputs": {
+    "manifest": "22-neuron-reconstructions.fluxplot.json",
+    "svg": "22-neuron-reconstructions.svg"
+  },
+  "params": {},
+  "plot": "22-neuron-reconstructions",
+  "provenance": {
+    "git": {
+      "commit": "4629d4961c92983be250f2449f5baff13fea96a7",
+      "dirty": true
+    },
+    "packages": {
+      "fluxplot": "0.1.0",
+      "matplotlib": "3.11.2"
+    },
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.12",
+    "scriptDiscovery": "explicit",
+    "scriptSha256": "bf08f66a428ce912dc52adc3b90671d9a45aec4b5c393665fe09f2c86139f749"
+  },
+  "schemaVersion": "0.3.0",
+  "script": {
+    "path": "scripts/advanced/flagship.py"
+  },
+  "spec": "fluxplot/recipe"
+}

@@ -2,20 +2,5 @@
   "schemaVersion": "0.1.0",
   "id": "canvas_mu1vwcyuwae6_3",
   "name": "Example_figures",
-  "figures": [
-    {
-      "id": "fig_mu1vwcyuwae6_4",
-      "name": "Figure 3",
-      "canvasId": "canvas_mu1vwcyuwae6_3",
-      "x": 0,
-      "y": 0,
-      "width": 680,
-      "height": 850,
-      "background": "#ffffff",
-      "elements": [],
-      "family": "figure",
-      "number": 3,
-      "referenceKey": "fig-fig-mu1vwcyuwae6-4"
-    }
-  ]
+  "figures": []
 }

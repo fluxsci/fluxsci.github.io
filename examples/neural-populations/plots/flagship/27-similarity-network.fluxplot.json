@@ -1,0 +1,1184 @@
+{
+  "artifact": {
+    "svgSha256": "d956ba1580b15263939ccc1b064028d8fd60249a65d8b2f6f514984128bfa55f"
+  },
+  "axes": [
+    {
+      "id": "plot-area",
+      "pixelBox": {
+        "x0": 5.832,
+        "x1": 188.568,
+        "y0": 8.53200000000002,
+        "y1": 191.268
+      },
+      "projection": "rectilinear",
+      "svgId": "plot-area",
+      "x": {
+        "anchors": [
+          {
+            "data": -1.3,
+            "svg": 5.832000000000008
+          },
+          {
+            "data": 1.3,
+            "svg": 188.56799999999998
+          }
+        ],
+        "domain": [
+          -1.3,
+          1.3
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "−1.5",
+            "value": -1.5
+          },
+          {
+            "label": "−1.0",
+            "value": -1.0
+          },
+          {
+            "label": "−0.5",
+            "value": -0.5
+          },
+          {
+            "label": "0.0",
+            "value": 0.0
+          },
+          {
+            "label": "0.5",
+            "value": 0.5
+          },
+          {
+            "label": "1.0",
+            "value": 1.0
+          },
+          {
+            "label": "1.5",
+            "value": 1.5
+          }
+        ]
+      },
+      "y": {
+        "anchors": [
+          {
+            "data": -1.3,
+            "svg": 191.268
+          },
+          {
+            "data": 1.3,
+            "svg": 8.531999999999972
+          }
+        ],
+        "domain": [
+          -1.3,
+          1.3
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "−1.5",
+            "value": -1.5
+          },
+          {
+            "label": "−1.0",
+            "value": -1.0
+          },
+          {
+            "label": "−0.5",
+            "value": -0.5
+          },
+          {
+            "label": "0.0",
+            "value": 0.0
+          },
+          {
+            "label": "0.5",
+            "value": 0.5
+          },
+          {
+            "label": "1.0",
+            "value": 1.0
+          },
+          {
+            "label": "1.5",
+            "value": 1.5
+          }
+        ]
+      }
+    }
+  ],
+  "build": {
+    "order": [
+      "gridlines",
+      "measured-response-links.x-response-similarity",
+      "preference-0.points",
+      "sector-0.x-preference-sector",
+      "preference-45.points",
+      "sector-45.x-preference-sector",
+      "preference-90.points",
+      "sector-90.x-preference-sector",
+      "preference-135.points",
+      "sector-135.x-preference-sector",
+      "preference-180.points",
+      "sector-180.x-preference-sector",
+      "preference-225.points",
+      "sector-225.x-preference-sector",
+      "preference-270.points",
+      "sector-270.x-preference-sector",
+      "preference-315.points",
+      "sector-315.x-preference-sector",
+      "annotation.0",
+      "annotation.1",
+      "annotation.2",
+      "annotation.3",
+      "annotation.4",
+      "annotation.5",
+      "annotation.6",
+      "annotation.7",
+      "annotation.8",
+      "annotation.9"
+    ],
+    "presets": {
+      "axis": {
+        "animation": "draw-on",
+        "durationMs": 400
+      },
+      "gridline": {
+        "animation": "fade-in",
+        "durationMs": 300
+      },
+      "point": {
+        "animation": "stagger-in",
+        "durationMs": 240,
+        "staggerMs": 40
+      }
+    }
+  },
+  "generator": {
+    "matplotlib": "3.11.2",
+    "name": "fluxplot",
+    "version": "0.1.0"
+  },
+  "guides": [],
+  "overlays": [
+    {
+      "id": "annotation.0",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.0",
+      "text": "0°"
+    },
+    {
+      "id": "annotation.1",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.1",
+      "text": "45°"
+    },
+    {
+      "id": "annotation.2",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.2",
+      "text": "90°"
+    },
+    {
+      "id": "annotation.3",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.3",
+      "text": "135°"
+    },
+    {
+      "id": "annotation.4",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.4",
+      "text": "180°"
+    },
+    {
+      "id": "annotation.5",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.5",
+      "text": "225°"
+    },
+    {
+      "id": "annotation.6",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.6",
+      "text": "270°"
+    },
+    {
+      "id": "annotation.7",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.7",
+      "text": "315°"
+    },
+    {
+      "id": "annotation.8",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.8",
+      "text": "143 cells · 117 links with r ≥ 0.6"
+    },
+    {
+      "id": "annotation.9",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "annotation.9",
+      "text": "node area: √peak response"
+    }
+  ],
+  "parts": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "measured-response-links.x-response-similarity"
+              }
+            ],
+            "id": "measured-response-links",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "preference-0.points"
+              }
+            ],
+            "id": "preference-0",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "sector-0.x-preference-sector"
+              }
+            ],
+            "id": "sector-0",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "preference-45.points"
+              }
+            ],
+            "id": "preference-45",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "sector-45.x-preference-sector"
+              }
+            ],
+            "id": "sector-45",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "preference-90.points"
+              }
+            ],
+            "id": "preference-90",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "sector-90.x-preference-sector"
+              }
+            ],
+            "id": "sector-90",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "preference-135.points"
+              }
+            ],
+            "id": "preference-135",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "sector-135.x-preference-sector"
+              }
+            ],
+            "id": "sector-135",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "preference-180.points"
+              }
+            ],
+            "id": "preference-180",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "sector-180.x-preference-sector"
+              }
+            ],
+            "id": "sector-180",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "preference-225.points"
+              }
+            ],
+            "id": "preference-225",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "sector-225.x-preference-sector"
+              }
+            ],
+            "id": "sector-225",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "preference-270.points"
+              }
+            ],
+            "id": "preference-270",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "sector-270.x-preference-sector"
+              }
+            ],
+            "id": "sector-270",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "preference-315.points"
+              }
+            ],
+            "id": "preference-315",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "sector-315.x-preference-sector"
+              }
+            ],
+            "id": "sector-315",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.0"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.1"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.2"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.3"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.4"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.5"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.6"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.7"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.8"
+          },
+          {
+            "kind": "text",
+            "ref": "annotation.9"
+          }
+        ],
+        "id": "plot-area",
+        "kind": "container",
+        "role": "plot-area"
+      }
+    ],
+    "id": "figure",
+    "kind": "container",
+    "role": "figure"
+  },
+  "plotType": "scatter",
+  "schemaVersion": "0.3.0",
+  "series": [
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-response-similarity",
+          "svgId": "measured-response-links.x-response-similarity"
+        }
+      ],
+      "data": {},
+      "id": "measured-response-links",
+      "kind": "x-response-similarity",
+      "name": "measured-response-links",
+      "roles": [
+        "x-response-similarity"
+      ],
+      "svg": {
+        "x-response-similarity": "measured-response-links.x-response-similarity"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "members": [],
+          "role": "point",
+          "svgId": "preference-0.points"
+        }
+      ],
+      "data": {
+        "x": [
+          0.0205691272923403,
+          0.06167257159123288,
+          0.10267164394415744,
+          0.1434969593254218,
+          0.18407942676798572,
+          0.22435036628997262,
+          0.2642416251256485,
+          0.3036856930641633,
+          0.34261581670086044,
+          0.38096611240780126,
+          0.41867167783231735,
+          0.4556687017348959,
+          0.49189457198051295,
+          0.5272879815006555,
+          0.5617890320467059,
+          0.5953393355591019,
+          0.6278821129807186,
+          0.6593622903472466,
+          0.6897265919919446,
+          0.7189236307070338,
+          0.7469039947091465,
+          0.7736203312616535,
+          0.7990274268123523,
+          0.8230822835108919
+        ],
+        "y": [
+          0.9997884331209436,
+          0.9980964351771447,
+          0.9947153027524027,
+          0.9896507579264304,
+          0.9829113717120022,
+          0.9745085495497487,
+          0.9644565120060916,
+          0.9527722707069821,
+          0.9394755995481747,
+          0.9245890012307558,
+          0.9081376691785625,
+          0.8901494449019415,
+          0.8706547708800015,
+          0.8496866390411022,
+          0.827280534928766,
+          0.8034743776475061,
+          0.7783084556902026,
+          0.751825358755631,
+          0.7240699056715295,
+          0.6950890685451875,
+          0.6649318932699192,
+          0.6336494165219514,
+          0.601294579388199,
+          0.5679221377710997
+        ]
+      },
+      "id": "preference-0",
+      "kind": "scatter",
+      "name": "preference-0",
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "preference-0.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-preference-sector",
+          "svgId": "sector-0.x-preference-sector"
+        }
+      ],
+      "data": {},
+      "id": "sector-0",
+      "kind": "x-preference-sector",
+      "name": "sector-0",
+      "roles": [
+        "x-preference-sector"
+      ],
+      "svg": {
+        "x-preference-sector": "sector-0.x-preference-sector"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "members": [],
+          "role": "point",
+          "svgId": "preference-45.points"
+        }
+      ],
+      "data": {
+        "x": [
+          0.8713555454110449,
+          0.8907985254059408,
+          0.908733957180239,
+          0.9251314875985377,
+          0.939963366202008,
+          0.9532044921720483,
+          0.964832456809805,
+          0.9748275814596691,
+          0.9831729508125654,
+          0.9898544415326789,
+          0.9948607461591652,
+          0.9981833922424006,
+          0.9998167566823826,
+          0.9997580752450168,
+          0.9980074472401853,
+          0.9945678353536789,
+          0.9894450606332779,
+          0.9826477926374672,
+          0.9741875347634569,
+          0.9640786047793394,
+          0.9523381105933286,
+          0.9389859213010892,
+          0.9240446335601528,
+          0.9075395333483303,
+          0.8894985531708354,
+          0.8699522247885417,
+          0.848933627547375,
+          0.8264783323962835,
+          0.8026243416885296,
+          0.7774120248681793,
+          0.7508840501506323
+        ],
+        "y": [
+          0.4906521308232754,
+          0.4543984893621471,
+          0.41737584389557525,
+          0.379646849919391,
+          0.3412753583225571,
+          0.3023263073287331,
+          0.262865612597684,
+          0.22296005567251806,
+          0.18267717096154293,
+          0.14208513144600474,
+          0.10125263330713502,
+          0.06024877966775697,
+          0.019142963645201492,
+          -0.021995249086550542,
+          -0.06309623802675339,
+          -0.1040904456705679,
+          -0.14490849522512156,
+          -0.18548130801973936,
+          -0.2257402204116461,
+          -0.26561709998929345,
+          -0.30504446087665466,
+          -0.3439555779433514,
+          -0.3822845997273276,
+          -0.4199666598789657,
+          -0.45693798693804233,
+          -0.4931360122577407,
+          -0.5284994758930748,
+          -0.5629685302745245,
+          -0.5964848414914284,
+          -0.6289916880137267,
+          -0.6604340566849826
+        ]
+      },
+      "id": "preference-45",
+      "kind": "scatter",
+      "name": "preference-45",
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "preference-45.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-preference-sector",
+          "svgId": "sector-45.x-preference-sector"
+        }
+      ],
+      "data": {},
+      "id": "sector-45",
+      "kind": "x-preference-sector",
+      "name": "sector-45",
+      "roles": [
+        "x-preference-sector"
+      ],
+      "svg": {
+        "x-preference-sector": "sector-45.x-preference-sector"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "members": [],
+          "role": "point",
+          "svgId": "preference-90.points"
+        }
+      ],
+      "data": {
+        "x": [
+          0.6876580961772374,
+          0.6572147349529575,
+          0.6256591324350835,
+          0.5930446919365635,
+          0.5594266087011445,
+          0.5248617764933714,
+          0.4894086913140838,
+          0.45312735240435875,
+          0.4160791607054351,
+          0.3783268149464635,
+          0.3399342055359359,
+          0.30096630643637057,
+          0.261489065205237,
+          0.22156929138821221,
+          0.1812745434536458,
+          0.14067301445958147,
+          0.09983341664682653,
+          0.058824865153379834,
+          0.017716761047013755,
+          -0.023421326126038495,
+          -0.06451977607752118
+        ],
+        "y": [
+          -0.7260346704957672,
+          -0.7537033847348132,
+          -0.7800965645358134,
+          -0.8051695432428293,
+          -0.828879888450152,
+          -0.8511874738130385,
+          -0.8720545469557714,
+          -0.891445793362118,
+          -0.9093283961400638,
+          -0.9256720915596756,
+          -0.9404492202701069,
+          -0.9536347741090656,
+          -0.9652064384255273,
+          -0.9751446298440686,
+          -0.9834325294069097,
+          -0.9900561110375787,
+          -0.9950041652780259,
+          -0.9982683182590173,
+          -0.9998430458717024,
+          -0.9997256831163726,
+          -0.99791642861259
+        ]
+      },
+      "id": "preference-90",
+      "kind": "scatter",
+      "name": "preference-90",
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "preference-90.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-preference-sector",
+          "svgId": "sector-90.x-preference-sector"
+        }
+      ],
+      "data": {},
+      "id": "sector-90",
+      "kind": "x-preference-sector",
+      "name": "sector-90",
+      "roles": [
+        "x-preference-sector"
+      ],
+      "svg": {
+        "x-preference-sector": "sector-90.x-preference-sector"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "members": [],
+          "role": "point",
+          "svgId": "preference-135.points"
+        }
+      ],
+      "data": {
+        "x": [
+          -0.15507737953278117,
+          -0.1955781356716854,
+          -0.235747903981119,
+          -0.27551870291305564,
+          -0.3148232261176849,
+          -0.35359495634971644,
+          -0.39176827803923886,
+          -0.4292785883366221,
+          -0.4660624064435377
+        ],
+        "y": [
+          -0.9879023263244427,
+          -0.9806881221097703,
+          -0.9718142444770549,
+          -0.9612957111862652,
+          -0.9491503233402246,
+          -0.9353986352588088,
+          -0.9200639196937187,
+          -0.9031721284427,
+          -0.8847518484298627
+        ]
+      },
+      "id": "preference-135",
+      "kind": "scatter",
+      "name": "preference-135",
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "preference-135.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-preference-sector",
+          "svgId": "sector-135.x-preference-sector"
+        }
+      ],
+      "data": {},
+      "id": "sector-135",
+      "kind": "x-preference-sector",
+      "name": "sector-135",
+      "roles": [
+        "x-preference-sector"
+      ],
+      "svg": {
+        "x-preference-sector": "sector-135.x-preference-sector"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "members": [],
+          "role": "point",
+          "svgId": "preference-180.points"
+        }
+      ],
+      "data": {
+        "x": [
+          -0.5446537374650837,
+          -0.5786866147239339,
+          -0.6117401482238647,
+          -0.6437583996194577,
+          -0.6746871826311656,
+          -0.7044741547477864,
+          -0.7330689058086267,
+          -0.7604230433154382,
+          -0.7864902743297524,
+          -0.8112264838170125,
+          -0.8345898093049158,
+          -0.8565407117296204,
+          -0.8770420423499159
+        ],
+        "y": [
+          -0.8386610198794956,
+          -0.815549999656277,
+          -0.791058778505772,
+          -0.765228804292804,
+          -0.738103790528961,
+          -0.7097296423937722,
+          -0.6801543790468034,
+          -0.6494280523621436,
+          -0.6176026622228169,
+          -0.5847320685184682,
+          -0.5508718999952569,
+          -0.516079460112215,
+          -0.4804136300633948
+        ]
+      },
+      "id": "preference-180",
+      "kind": "scatter",
+      "name": "preference-180",
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "preference-180.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-preference-sector",
+          "svgId": "sector-180.x-preference-sector"
+        }
+      ],
+      "data": {},
+      "id": "sector-180",
+      "kind": "x-preference-sector",
+      "name": "sector-180",
+      "roles": [
+        "x-preference-sector"
+      ],
+      "svg": {
+        "x-preference-sector": "sector-180.x-preference-sector"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "members": [],
+          "role": "point",
+          "svgId": "preference-225.points"
+        }
+      ],
+      "data": {
+        "x": [
+          -0.9171267560348628,
+          -0.9327447647991186,
+          -0.9467842373732699,
+          -0.9592214139718056,
+          -0.970035246464407,
+          -0.9792074339968774,
+          -0.9867224539627024,
+          -0.9925675882728259,
+          -0.996732944879184,
+          -0.9992114745155722,
+          -0.9999989826275137,
+          -0.9990941364709376
+        ],
+        "y": [
+          -0.39859567655077405,
+          -0.3605373818896412,
+          -0.3218689296305497,
+          -0.28265576056031483,
+          -0.2429642373205103,
+          -0.20286153209825408,
+          -0.1624155129469552,
+          -0.12169462892940712,
+          -0.08076779427760619,
+          -0.039704271765338334,
+          0.0014264445090910575,
+          0.0425547467316107
+        ]
+      },
+      "id": "preference-225",
+      "kind": "scatter",
+      "name": "preference-225",
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "preference-225.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-preference-sector",
+          "svgId": "sector-225.x-preference-sector"
+        }
+      ],
+      "data": {},
+      "id": "sector-225",
+      "kind": "x-preference-sector",
+      "name": "sector-225",
+      "roles": [
+        "x-preference-sector"
+      ],
+      "svg": {
+        "x-preference-sector": "sector-225.x-preference-sector"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "members": [],
+          "role": "point",
+          "svgId": "preference-270.points"
+        }
+      ],
+      "data": {
+        "x": [
+          -0.991074293886712,
+          -0.9847526591860953,
+          -0.9767644724237668,
+          -0.9671232524554452,
+          -0.9558453156574973,
+          -0.9429497483138211,
+          -0.9284583743150587,
+          -0.9123957182248041,
+          -0.8947889637753115,
+          -0.8756679078629427,
+          -0.8550649101212113,
+          -0.8330148381567632,
+          -0.8095550085409734,
+          -0.784725123657023,
+          -0.7585672045093331,
+          -0.7311255196090665,
+          -0.7024465100560473,
+          -0.6725787109438877,
+          -0.6415726692213314
+        ],
+        "y": [
+          0.13331070473504866,
+          0.17396034095711027,
+          0.21431557435408302,
+          0.2543081095049886,
+          0.29387026480339823,
+          0.33293508699880436,
+          0.37143646450535567,
+          0.4093092392861952,
+          0.4464893171240542,
+          0.482913776091485,
+          0.5185209730371616,
+          0.5532506479080359,
+          0.5870440257308003,
+          0.6198439160800644,
+          0.6515948098649157,
+          0.6822429732700606,
+          0.7117365386925695,
+          0.7400255925203252,
+          0.7670622596036232
+        ]
+      },
+      "id": "preference-270",
+      "kind": "scatter",
+      "name": "preference-270",
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "preference-270.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-preference-sector",
+          "svgId": "sector-270.x-preference-sector"
+        }
+      ],
+      "data": {},
+      "id": "sector-270",
+      "kind": "x-preference-sector",
+      "name": "sector-270",
+      "roles": [
+        "x-preference-sector"
+      ],
+      "svg": {
+        "x-preference-sector": "sector-270.x-preference-sector"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "members": [],
+          "role": "point",
+          "svgId": "preference-315.points"
+        }
+      ],
+      "data": {
+        "x": [
+          -0.5690956411865792,
+          -0.5347944340225376,
+          -0.4995881642945127,
+          -0.46353641354397407,
+          -0.4267001941672642,
+          -0.3891418461609043,
+          -0.3509249316201277,
+          -0.31211412716918735,
+          -0.2727751145054831,
+          -0.23297446924274778,
+          -0.19277954824140864,
+          -0.15225837561680083,
+          -0.11147952761814857,
+          -0.07051201657313882
+        ],
+        "y": [
+          0.8222713367146129,
+          0.8449821970541828,
+          0.8662630467108932,
+          0.8860778709113494,
+          0.9043931359191195,
+          0.9211778457857543,
+          0.9364035948069661,
+          0.9500446155951922,
+          0.9620778226871881,
+          0.9724828516128498,
+          0.9812420933591457,
+          0.9883407241708363,
+          0.9937667306375447,
+          0.9975109300247238
+        ]
+      },
+      "id": "preference-315",
+      "kind": "scatter",
+      "name": "preference-315",
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "preference-315.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-preference-sector",
+          "svgId": "sector-315.x-preference-sector"
+        }
+      ],
+      "data": {},
+      "id": "sector-315",
+      "kind": "x-preference-sector",
+      "name": "sector-315",
+      "roles": [
+        "x-preference-sector"
+      ],
+      "svg": {
+        "x-preference-sector": "sector-315.x-preference-sector"
+      }
+    }
+  ],
+  "size": {
+    "height": 216.0,
+    "unit": "pt",
+    "width": 194.4
+  },
+  "spec": "fluxplot/manifest",
+  "svg": "27-similarity-network.svg"
+}

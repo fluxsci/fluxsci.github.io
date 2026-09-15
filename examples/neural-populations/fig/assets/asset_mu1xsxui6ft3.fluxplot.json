@@ -1,0 +1,6723 @@
+{
+  "artifact": {
+    "svgSha256": "f738008ba23fa3625de5d2e9c49ed51d45ebba0756b90f30efdc93e26ba3926c"
+  },
+  "axes": [
+    {
+      "id": "plot-area",
+      "pixelBox": {
+        "x0": 40.32,
+        "x1": 243.17999999999998,
+        "y0": 5.940000000000005,
+        "y1": 203.148
+      },
+      "projection": "rectilinear",
+      "svgId": "plot-area",
+      "x": {
+        "anchors": [
+          {
+            "data": -61.30206122947979,
+            "svg": 40.32
+          },
+          {
+            "data": 153.55766277632048,
+            "svg": 243.17999999999998
+          }
+        ],
+        "domain": [
+          -61.30206122947979,
+          153.55766277632048
+        ],
+        "label": "Trial response, ΔF/F (%)",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "0",
+            "value": 0.0
+          },
+          {
+            "label": "50",
+            "value": 50.0
+          },
+          {
+            "label": "100",
+            "value": 100.0
+          },
+          {
+            "label": "150",
+            "value": 150.0
+          }
+        ]
+      },
+      "y": {
+        "anchors": [
+          {
+            "data": -0.5,
+            "svg": 203.148
+          },
+          {
+            "data": 7.67,
+            "svg": 5.9400000000000315
+          }
+        ],
+        "domain": [
+          -0.5,
+          7.67
+        ],
+        "label": "Drift direction (°)",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "0",
+            "value": 7.0
+          },
+          {
+            "label": "45",
+            "value": 6.0
+          },
+          {
+            "label": "90",
+            "value": 5.0
+          },
+          {
+            "label": "135",
+            "value": 4.0
+          },
+          {
+            "label": "180",
+            "value": 3.0
+          },
+          {
+            "label": "225",
+            "value": 2.0
+          },
+          {
+            "label": "270",
+            "value": 1.0
+          },
+          {
+            "label": "315",
+            "value": 0.0
+          }
+        ]
+      }
+    }
+  ],
+  "build": {
+    "order": [
+      "axis.x",
+      "axis.y",
+      "gridlines",
+      "direction-0-density-outline.line",
+      "direction-0-mean-ci.line",
+      "direction-45-density-outline.line",
+      "direction-45-mean-ci.line",
+      "direction-90-density-outline.line",
+      "direction-90-mean-ci.line",
+      "direction-135-density-outline.line",
+      "direction-135-mean-ci.line",
+      "direction-180-density-outline.line",
+      "direction-180-mean-ci.line",
+      "direction-225-density-outline.line",
+      "direction-225-mean-ci.line",
+      "direction-270-density-outline.line",
+      "direction-270-mean-ci.line",
+      "direction-315-density-outline.line",
+      "direction-315-mean-ci.line",
+      "direction-0-density.x-trial-density",
+      "direction-0-trials.points",
+      "direction-0-mean.points",
+      "direction-45-density.x-trial-density",
+      "direction-45-trials.points",
+      "direction-45-mean.points",
+      "direction-90-density.x-trial-density",
+      "direction-90-trials.points",
+      "direction-90-mean.points",
+      "direction-135-density.x-trial-density",
+      "direction-135-trials.points",
+      "direction-135-mean.points",
+      "direction-180-density.x-trial-density",
+      "direction-180-trials.points",
+      "direction-180-mean.points",
+      "direction-225-density.x-trial-density",
+      "direction-225-trials.points",
+      "direction-225-mean.points",
+      "direction-270-density.x-trial-density",
+      "direction-270-trials.points",
+      "direction-270-mean.points",
+      "direction-315-density.x-trial-density",
+      "direction-315-trials.points",
+      "direction-315-mean.points",
+      "extra.line.0"
+    ],
+    "presets": {
+      "axis": {
+        "animation": "draw-on",
+        "durationMs": 400
+      },
+      "extra": {
+        "animation": "fade-in",
+        "durationMs": 400
+      },
+      "gridline": {
+        "animation": "fade-in",
+        "durationMs": 300
+      },
+      "line": {
+        "animation": "draw-on",
+        "durationMs": 800
+      },
+      "point": {
+        "animation": "stagger-in",
+        "durationMs": 240,
+        "staggerMs": 40
+      }
+    }
+  },
+  "generator": {
+    "matplotlib": "3.11.2",
+    "name": "fluxplot",
+    "version": "0.1.0"
+  },
+  "guides": [
+    {
+      "axis": "x",
+      "id": "axis.x",
+      "role": "axis",
+      "svgId": "axis.x"
+    },
+    {
+      "axis": "y",
+      "id": "axis.y",
+      "role": "axis",
+      "svgId": "axis.y"
+    }
+  ],
+  "overlays": [
+    {
+      "id": "extra.line.0",
+      "kind": "line",
+      "role": "extra",
+      "svgId": "extra.line.0"
+    }
+  ],
+  "parts": {
+    "children": [
+      {
+        "children": [
+          {
+            "axis": "x",
+            "children": [
+              {
+                "kind": "line",
+                "ref": "axis.x.spine"
+              },
+              {
+                "groupRole": "tick",
+                "id": "axis.x.ticks",
+                "kind": "line",
+                "members": [
+                  "axis.x.tick.0",
+                  "axis.x.tick.1",
+                  "axis.x.tick.2",
+                  "axis.x.tick.3"
+                ],
+                "role": "group"
+              },
+              {
+                "groupRole": "tick-label",
+                "id": "axis.x.tick-labels",
+                "kind": "text",
+                "members": [
+                  "axis.x.ticklabel.0",
+                  "axis.x.ticklabel.1",
+                  "axis.x.ticklabel.2",
+                  "axis.x.ticklabel.3"
+                ],
+                "role": "group"
+              },
+              {
+                "kind": "text",
+                "ref": "axis.x.title"
+              }
+            ],
+            "id": "axis.x",
+            "kind": "container",
+            "role": "axis"
+          },
+          {
+            "axis": "y",
+            "children": [
+              {
+                "groupRole": "tick",
+                "id": "axis.y.ticks",
+                "kind": "line",
+                "members": [
+                  "axis.y.tick.0",
+                  "axis.y.tick.1",
+                  "axis.y.tick.2",
+                  "axis.y.tick.3",
+                  "axis.y.tick.4",
+                  "axis.y.tick.5",
+                  "axis.y.tick.6",
+                  "axis.y.tick.7"
+                ],
+                "role": "group"
+              },
+              {
+                "groupRole": "tick-label",
+                "id": "axis.y.tick-labels",
+                "kind": "text",
+                "members": [
+                  "axis.y.ticklabel.0",
+                  "axis.y.ticklabel.1",
+                  "axis.y.ticklabel.2",
+                  "axis.y.ticklabel.3",
+                  "axis.y.ticklabel.4",
+                  "axis.y.ticklabel.5",
+                  "axis.y.ticklabel.6",
+                  "axis.y.ticklabel.7"
+                ],
+                "role": "group"
+              },
+              {
+                "kind": "text",
+                "ref": "axis.y.title"
+              }
+            ],
+            "id": "axis.y",
+            "kind": "container",
+            "role": "axis"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "direction-0-density.x-trial-density"
+              }
+            ],
+            "id": "direction-0-density",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-0-density-outline.line"
+              }
+            ],
+            "id": "direction-0-density-outline",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "groupRole": "point",
+                "id": "direction-0-trials.points",
+                "kind": "shape",
+                "members": [
+                  "direction-0-trials.point.0",
+                  "direction-0-trials.point.1",
+                  "direction-0-trials.point.2",
+                  "direction-0-trials.point.3",
+                  "direction-0-trials.point.4",
+                  "direction-0-trials.point.5",
+                  "direction-0-trials.point.6",
+                  "direction-0-trials.point.7",
+                  "direction-0-trials.point.8",
+                  "direction-0-trials.point.9",
+                  "direction-0-trials.point.10",
+                  "direction-0-trials.point.11",
+                  "direction-0-trials.point.12",
+                  "direction-0-trials.point.13",
+                  "direction-0-trials.point.14"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "direction-0-trials",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-0-mean-ci.line"
+              }
+            ],
+            "id": "direction-0-mean-ci",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "groupRole": "point",
+                "id": "direction-0-mean.points",
+                "kind": "shape",
+                "members": [
+                  "direction-0-mean.point.0"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "direction-0-mean",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "direction-45-density.x-trial-density"
+              }
+            ],
+            "id": "direction-45-density",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-45-density-outline.line"
+              }
+            ],
+            "id": "direction-45-density-outline",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "groupRole": "point",
+                "id": "direction-45-trials.points",
+                "kind": "shape",
+                "members": [
+                  "direction-45-trials.point.0",
+                  "direction-45-trials.point.1",
+                  "direction-45-trials.point.2",
+                  "direction-45-trials.point.3",
+                  "direction-45-trials.point.4",
+                  "direction-45-trials.point.5",
+                  "direction-45-trials.point.6",
+                  "direction-45-trials.point.7",
+                  "direction-45-trials.point.8",
+                  "direction-45-trials.point.9",
+                  "direction-45-trials.point.10",
+                  "direction-45-trials.point.11",
+                  "direction-45-trials.point.12",
+                  "direction-45-trials.point.13",
+                  "direction-45-trials.point.14"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "direction-45-trials",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-45-mean-ci.line"
+              }
+            ],
+            "id": "direction-45-mean-ci",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "groupRole": "point",
+                "id": "direction-45-mean.points",
+                "kind": "shape",
+                "members": [
+                  "direction-45-mean.point.0"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "direction-45-mean",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "direction-90-density.x-trial-density"
+              }
+            ],
+            "id": "direction-90-density",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-90-density-outline.line"
+              }
+            ],
+            "id": "direction-90-density-outline",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "groupRole": "point",
+                "id": "direction-90-trials.points",
+                "kind": "shape",
+                "members": [
+                  "direction-90-trials.point.0",
+                  "direction-90-trials.point.1",
+                  "direction-90-trials.point.2",
+                  "direction-90-trials.point.3",
+                  "direction-90-trials.point.4",
+                  "direction-90-trials.point.5",
+                  "direction-90-trials.point.6",
+                  "direction-90-trials.point.7",
+                  "direction-90-trials.point.8",
+                  "direction-90-trials.point.9",
+                  "direction-90-trials.point.10",
+                  "direction-90-trials.point.11",
+                  "direction-90-trials.point.12",
+                  "direction-90-trials.point.13",
+                  "direction-90-trials.point.14"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "direction-90-trials",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-90-mean-ci.line"
+              }
+            ],
+            "id": "direction-90-mean-ci",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "groupRole": "point",
+                "id": "direction-90-mean.points",
+                "kind": "shape",
+                "members": [
+                  "direction-90-mean.point.0"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "direction-90-mean",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "direction-135-density.x-trial-density"
+              }
+            ],
+            "id": "direction-135-density",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-135-density-outline.line"
+              }
+            ],
+            "id": "direction-135-density-outline",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "groupRole": "point",
+                "id": "direction-135-trials.points",
+                "kind": "shape",
+                "members": [
+                  "direction-135-trials.point.0",
+                  "direction-135-trials.point.1",
+                  "direction-135-trials.point.2",
+                  "direction-135-trials.point.3",
+                  "direction-135-trials.point.4",
+                  "direction-135-trials.point.5",
+                  "direction-135-trials.point.6",
+                  "direction-135-trials.point.7",
+                  "direction-135-trials.point.8",
+                  "direction-135-trials.point.9",
+                  "direction-135-trials.point.10",
+                  "direction-135-trials.point.11",
+                  "direction-135-trials.point.12",
+                  "direction-135-trials.point.13",
+                  "direction-135-trials.point.14"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "direction-135-trials",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-135-mean-ci.line"
+              }
+            ],
+            "id": "direction-135-mean-ci",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "groupRole": "point",
+                "id": "direction-135-mean.points",
+                "kind": "shape",
+                "members": [
+                  "direction-135-mean.point.0"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "direction-135-mean",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "direction-180-density.x-trial-density"
+              }
+            ],
+            "id": "direction-180-density",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-180-density-outline.line"
+              }
+            ],
+            "id": "direction-180-density-outline",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "groupRole": "point",
+                "id": "direction-180-trials.points",
+                "kind": "shape",
+                "members": [
+                  "direction-180-trials.point.0",
+                  "direction-180-trials.point.1",
+                  "direction-180-trials.point.2",
+                  "direction-180-trials.point.3",
+                  "direction-180-trials.point.4",
+                  "direction-180-trials.point.5",
+                  "direction-180-trials.point.6",
+                  "direction-180-trials.point.7",
+                  "direction-180-trials.point.8",
+                  "direction-180-trials.point.9",
+                  "direction-180-trials.point.10",
+                  "direction-180-trials.point.11",
+                  "direction-180-trials.point.12",
+                  "direction-180-trials.point.13",
+                  "direction-180-trials.point.14"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "direction-180-trials",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-180-mean-ci.line"
+              }
+            ],
+            "id": "direction-180-mean-ci",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "groupRole": "point",
+                "id": "direction-180-mean.points",
+                "kind": "shape",
+                "members": [
+                  "direction-180-mean.point.0"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "direction-180-mean",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "direction-225-density.x-trial-density"
+              }
+            ],
+            "id": "direction-225-density",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-225-density-outline.line"
+              }
+            ],
+            "id": "direction-225-density-outline",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "groupRole": "point",
+                "id": "direction-225-trials.points",
+                "kind": "shape",
+                "members": [
+                  "direction-225-trials.point.0",
+                  "direction-225-trials.point.1",
+                  "direction-225-trials.point.2",
+                  "direction-225-trials.point.3",
+                  "direction-225-trials.point.4",
+                  "direction-225-trials.point.5",
+                  "direction-225-trials.point.6",
+                  "direction-225-trials.point.7",
+                  "direction-225-trials.point.8",
+                  "direction-225-trials.point.9",
+                  "direction-225-trials.point.10",
+                  "direction-225-trials.point.11",
+                  "direction-225-trials.point.12",
+                  "direction-225-trials.point.13",
+                  "direction-225-trials.point.14"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "direction-225-trials",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-225-mean-ci.line"
+              }
+            ],
+            "id": "direction-225-mean-ci",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "groupRole": "point",
+                "id": "direction-225-mean.points",
+                "kind": "shape",
+                "members": [
+                  "direction-225-mean.point.0"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "direction-225-mean",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "direction-270-density.x-trial-density"
+              }
+            ],
+            "id": "direction-270-density",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-270-density-outline.line"
+              }
+            ],
+            "id": "direction-270-density-outline",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "groupRole": "point",
+                "id": "direction-270-trials.points",
+                "kind": "shape",
+                "members": [
+                  "direction-270-trials.point.0",
+                  "direction-270-trials.point.1",
+                  "direction-270-trials.point.2",
+                  "direction-270-trials.point.3",
+                  "direction-270-trials.point.4",
+                  "direction-270-trials.point.5",
+                  "direction-270-trials.point.6",
+                  "direction-270-trials.point.7",
+                  "direction-270-trials.point.8",
+                  "direction-270-trials.point.9",
+                  "direction-270-trials.point.10",
+                  "direction-270-trials.point.11",
+                  "direction-270-trials.point.12",
+                  "direction-270-trials.point.13",
+                  "direction-270-trials.point.14"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "direction-270-trials",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-270-mean-ci.line"
+              }
+            ],
+            "id": "direction-270-mean-ci",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "groupRole": "point",
+                "id": "direction-270-mean.points",
+                "kind": "shape",
+                "members": [
+                  "direction-270-mean.point.0"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "direction-270-mean",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "shape",
+                "ref": "direction-315-density.x-trial-density"
+              }
+            ],
+            "id": "direction-315-density",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-315-density-outline.line"
+              }
+            ],
+            "id": "direction-315-density-outline",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "groupRole": "point",
+                "id": "direction-315-trials.points",
+                "kind": "shape",
+                "members": [
+                  "direction-315-trials.point.0",
+                  "direction-315-trials.point.1",
+                  "direction-315-trials.point.2",
+                  "direction-315-trials.point.3",
+                  "direction-315-trials.point.4",
+                  "direction-315-trials.point.5",
+                  "direction-315-trials.point.6",
+                  "direction-315-trials.point.7",
+                  "direction-315-trials.point.8",
+                  "direction-315-trials.point.9",
+                  "direction-315-trials.point.10",
+                  "direction-315-trials.point.11",
+                  "direction-315-trials.point.12",
+                  "direction-315-trials.point.13",
+                  "direction-315-trials.point.14"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "direction-315-trials",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "kind": "line",
+                "ref": "direction-315-mean-ci.line"
+              }
+            ],
+            "id": "direction-315-mean-ci",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "children": [
+              {
+                "groupRole": "point",
+                "id": "direction-315-mean.points",
+                "kind": "shape",
+                "members": [
+                  "direction-315-mean.point.0"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "direction-315-mean",
+            "kind": "container",
+            "role": "series"
+          },
+          {
+            "groupRole": "extra",
+            "id": "extras",
+            "members": [
+              "extra.line.0"
+            ],
+            "role": "group"
+          }
+        ],
+        "id": "plot-area",
+        "kind": "container",
+        "role": "plot-area"
+      }
+    ],
+    "id": "figure",
+    "kind": "container",
+    "role": "figure"
+  },
+  "plotType": "line",
+  "schemaVersion": "0.3.0",
+  "series": [
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-trial-density",
+          "svgId": "direction-0-density.x-trial-density"
+        }
+      ],
+      "data": {},
+      "id": "direction-0-density",
+      "kind": "x-trial-density",
+      "name": "direction-0-density",
+      "roles": [
+        "x-trial-density"
+      ],
+      "svg": {
+        "x-trial-density": "direction-0-density.x-trial-density"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "role": "line",
+          "svgId": "direction-0-density-outline.line"
+        }
+      ],
+      "data": {
+        "x": [
+          -61.30206122947979,
+          -60.32096659931632,
+          -59.339871969152846,
+          -58.35877733898938,
+          -57.3776827088259,
+          -56.39658807866243,
+          -55.415493448498964,
+          -54.43439881833549,
+          -53.45330418817202,
+          -52.472209558008544,
+          -51.491114927845075,
+          -50.510020297681606,
+          -49.52892566751813,
+          -48.54783103735466,
+          -47.566736407191186,
+          -46.58564177702772,
+          -45.60454714686425,
+          -44.62345251670077,
+          -43.6423578865373,
+          -42.66126325637383,
+          -41.68016862621036,
+          -40.69907399604689,
+          -39.717979365883416,
+          -38.73688473571994,
+          -37.75579010555647,
+          -36.774695475393,
+          -35.793600845229534,
+          -34.81250621506606,
+          -33.83141158490258,
+          -32.850316954739114,
+          -31.869222324575645,
+          -30.888127694412173,
+          -29.9070330642487,
+          -28.925938434085232,
+          -27.944843803921756,
+          -26.963749173758288,
+          -25.982654543594812,
+          -25.001559913431343,
+          -24.020465283267875,
+          -23.0393706531044,
+          -22.05827602294093,
+          -21.077181392777455,
+          -20.096086762613986,
+          -19.114992132450517,
+          -18.13389750228704,
+          -17.152802872123573,
+          -16.171708241960097,
+          -15.190613611796628,
+          -14.209518981633153,
+          -13.228424351469684,
+          -12.247329721306215,
+          -11.26623509114274,
+          -10.285140460979271,
+          -9.304045830815795,
+          -8.322951200652327,
+          -7.341856570488858,
+          -6.360761940325382,
+          -5.3796673101619135,
+          -4.398572679998438,
+          -3.417478049834969,
+          -2.4363834196715004,
+          -1.4552887895080246,
+          -0.474194159344556,
+          0.5069004708189198,
+          1.4879951009823884,
+          2.469089731145857,
+          3.4501843613093257,
+          4.431278991472809,
+          5.412373621636277,
+          6.393468251799746,
+          7.3745628819632145,
+          8.355657512126683,
+          9.336752142290166,
+          10.317846772453635,
+          11.298941402617103,
+          12.280036032780572,
+          13.26113066294404,
+          14.242225293107523,
+          15.223319923270992,
+          16.20441455343446,
+          17.18550918359793,
+          18.166603813761398,
+          19.14769844392488,
+          20.12879307408835,
+          21.10988770425182,
+          22.090982334415287,
+          23.072076964578756,
+          24.05317159474224,
+          25.034266224905707,
+          26.015360855069176,
+          26.996455485232644,
+          27.977550115396113,
+          28.958644745559596,
+          29.939739375723065,
+          30.920834005886533,
+          31.901928636050002,
+          32.883023266213485,
+          33.86411789637695,
+          34.84521252654042,
+          35.82630715670389,
+          36.80740178686736,
+          37.78849641703084,
+          38.76959104719431,
+          39.75068567735778,
+          40.73178030752125,
+          41.71287493768472,
+          42.6939695678482,
+          43.67506419801167,
+          44.65615882817514,
+          45.637253458338606,
+          46.618348088502074,
+          47.59944271866556,
+          48.580537348829026,
+          49.561631978992494,
+          50.54272660915596,
+          51.52382123931943,
+          52.504915869482915,
+          53.48601049964638,
+          54.46710512980985,
+          55.44819975997332,
+          56.42929439013679,
+          57.41038902030027,
+          58.39148365046374,
+          59.37257828062721,
+          60.35367291079068,
+          61.33476754095415,
+          62.31586217111763,
+          63.2969568012811,
+          64.27805143144457,
+          65.25914606160804,
+          66.2402406917715,
+          67.22133532193499,
+          68.20242995209844,
+          69.18352458226192,
+          70.16461921242541,
+          71.14571384258886,
+          72.12680847275234,
+          73.1079031029158,
+          74.08899773307928,
+          75.07009236324276,
+          76.05118699340622,
+          77.0322816235697,
+          78.01337625373316,
+          78.99447088389664,
+          79.97556551406012,
+          80.95666014422358,
+          81.93775477438706,
+          82.91884940455051,
+          83.899944034714,
+          84.88103866487748,
+          85.86213329504093,
+          86.84322792520442,
+          87.82432255536787,
+          88.80541718553135,
+          89.78651181569484,
+          90.76760644585829,
+          91.74870107602177,
+          92.72979570618523,
+          93.71089033634871,
+          94.6919849665122,
+          95.67307959667565,
+          96.65417422683913,
+          97.63526885700259,
+          98.61636348716607,
+          99.59745811732955,
+          100.578552747493,
+          101.55964737765649,
+          102.54074200781994,
+          103.52183663798343,
+          104.50293126814691,
+          105.48402589831036,
+          106.46512052847385,
+          107.4462151586373,
+          108.42730978880078,
+          109.40840441896427,
+          110.38949904912772,
+          111.3705936792912,
+          112.35168830945466,
+          113.33278293961814,
+          114.31387756978162,
+          115.29497219994508,
+          116.27606683010856,
+          117.25716146027202,
+          118.2382560904355,
+          119.21935072059898,
+          120.20044535076244,
+          121.18153998092592,
+          122.16263461108937,
+          123.14372924125286,
+          124.12482387141634,
+          125.1059185015798,
+          126.08701313174328,
+          127.06810776190676,
+          128.0492023920702,
+          129.0302970222337,
+          130.01139165239715,
+          130.99248628256063,
+          131.97358091272412,
+          132.95467554288757,
+          133.93577017305105,
+          134.9168648032145,
+          135.897959433378,
+          136.87905406354147,
+          137.86014869370493,
+          138.8412433238684,
+          139.82233795403187,
+          140.80343258419535,
+          141.78452721435883,
+          142.7656218445223,
+          143.74671647468577,
+          144.72781110484922,
+          145.7089057350127,
+          146.6900003651762,
+          147.67109499533964,
+          148.65218962550313,
+          149.63328425566658,
+          150.61437888583006,
+          151.59547351599355,
+          152.576568146157,
+          153.55766277632048
+        ],
+        "y": [
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035000000000001,
+          7.035000000000006,
+          7.035000000000057,
+          7.035000000000453,
+          7.035000000003349,
+          7.035000000022825,
+          7.035000000143489,
+          7.0350000008319,
+          7.035000004448578,
+          7.035000021944134,
+          7.035000099867003,
+          7.035000419371014,
+          7.035001625261494,
+          7.035005814105295,
+          7.03501920332871,
+          7.0350585758588675,
+          7.035165060242883,
+          7.035429836846677,
+          7.03603486850377,
+          7.03730464007365,
+          7.039750212791883,
+          7.044068121682842,
+          7.051046199021309,
+          7.061344756859503,
+          7.07517581737937,
+          7.091981037950874,
+          7.110265973062578,
+          7.127732185664139,
+          7.141742675376411,
+          7.150006043687595,
+          7.151258124442269,
+          7.145723462634363,
+          7.135247404933482,
+          7.123127222321352,
+          7.11374659770314,
+          7.112087345432302,
+          7.123088117295943,
+          7.150741239292916,
+          7.196880069273771,
+          7.2598556570823325,
+          7.333630371312191,
+          7.407981963937593,
+          7.470269968600778,
+          7.508545395307022,
+          7.515000000000001,
+          7.48835891990784,
+          7.434158661403367,
+          7.362798251264851,
+          7.28626189371525,
+          7.21490056685623,
+          7.155407643814188,
+          7.110386714374813,
+          7.07917726693635,
+          7.059239109069864,
+          7.0474530729505105,
+          7.040989173814282,
+          7.037694844534497,
+          7.036133426427629,
+          7.035445101128228,
+          7.0351629945496255,
+          7.035055583499454,
+          7.035017627272878,
+          7.035005191866027,
+          7.035001418523206,
+          7.035000359131114,
+          7.035000084170537,
+          7.035000018247445,
+          7.0350000036566,
+          7.035000000676915,
+          7.035000000115708,
+          7.035000000018256,
+          7.035000000002658,
+          7.035000000000357,
+          7.0350000000000446,
+          7.0350000000000055,
+          7.035000000000001,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035,
+          7.035
+        ]
+      },
+      "id": "direction-0-density-outline",
+      "kind": "line",
+      "name": "direction-0-density-outline",
+      "roles": [
+        "line"
+      ],
+      "svg": {
+        "line": "direction-0-density-outline.line"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "members": [
+            "direction-0-trials.point.0",
+            "direction-0-trials.point.1",
+            "direction-0-trials.point.2",
+            "direction-0-trials.point.3",
+            "direction-0-trials.point.4",
+            "direction-0-trials.point.5",
+            "direction-0-trials.point.6",
+            "direction-0-trials.point.7",
+            "direction-0-trials.point.8",
+            "direction-0-trials.point.9",
+            "direction-0-trials.point.10",
+            "direction-0-trials.point.11",
+            "direction-0-trials.point.12",
+            "direction-0-trials.point.13",
+            "direction-0-trials.point.14"
+          ],
+          "role": "point",
+          "svgId": "direction-0-trials.points"
+        }
+      ],
+      "data": {
+        "x": [
+          0.951834,
+          0.950174,
+          0.764831,
+          -13.873804,
+          -0.201749,
+          -1.45168,
+          3.465975,
+          -15.30777,
+          -1.739037,
+          -1.250168,
+          0.719674,
+          -11.416061,
+          0.636755,
+          -0.547521,
+          0.82225
+        ],
+        "y": [
+          6.8,
+          6.895,
+          6.8,
+          6.8,
+          6.8,
+          6.8,
+          6.704999999999999,
+          6.895,
+          6.895,
+          6.704999999999999,
+          6.895,
+          6.704999999999999,
+          6.704999999999999,
+          6.895,
+          6.704999999999999
+        ]
+      },
+      "id": "direction-0-trials",
+      "kind": "scatter",
+      "name": "direction-0-trials",
+      "points": [
+        {
+          "index": 0,
+          "svgId": "direction-0-trials.point.0",
+          "x": 0.951834,
+          "y": 6.8
+        },
+        {
+          "index": 1,
+          "svgId": "direction-0-trials.point.1",
+          "x": 0.950174,
+          "y": 6.895
+        },
+        {
+          "index": 2,
+          "svgId": "direction-0-trials.point.2",
+          "x": 0.764831,
+          "y": 6.8
+        },
+        {
+          "index": 3,
+          "svgId": "direction-0-trials.point.3",
+          "x": -13.873804,
+          "y": 6.8
+        },
+        {
+          "index": 4,
+          "svgId": "direction-0-trials.point.4",
+          "x": -0.201749,
+          "y": 6.8
+        },
+        {
+          "index": 5,
+          "svgId": "direction-0-trials.point.5",
+          "x": -1.45168,
+          "y": 6.8
+        },
+        {
+          "index": 6,
+          "svgId": "direction-0-trials.point.6",
+          "x": 3.465975,
+          "y": 6.704999999999999
+        },
+        {
+          "index": 7,
+          "svgId": "direction-0-trials.point.7",
+          "x": -15.30777,
+          "y": 6.895
+        },
+        {
+          "index": 8,
+          "svgId": "direction-0-trials.point.8",
+          "x": -1.739037,
+          "y": 6.895
+        },
+        {
+          "index": 9,
+          "svgId": "direction-0-trials.point.9",
+          "x": -1.250168,
+          "y": 6.704999999999999
+        },
+        {
+          "index": 10,
+          "svgId": "direction-0-trials.point.10",
+          "x": 0.719674,
+          "y": 6.895
+        },
+        {
+          "index": 11,
+          "svgId": "direction-0-trials.point.11",
+          "x": -11.416061,
+          "y": 6.704999999999999
+        },
+        {
+          "index": 12,
+          "svgId": "direction-0-trials.point.12",
+          "x": 0.636755,
+          "y": 6.704999999999999
+        },
+        {
+          "index": 13,
+          "svgId": "direction-0-trials.point.13",
+          "x": -0.547521,
+          "y": 6.895
+        },
+        {
+          "index": 14,
+          "svgId": "direction-0-trials.point.14",
+          "x": 0.82225,
+          "y": 6.704999999999999
+        }
+      ],
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "direction-0-trials.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "role": "line",
+          "svgId": "direction-0-mean-ci.line"
+        }
+      ],
+      "data": {
+        "x": [
+          -5.615578111666667,
+          0.17036269499999923
+        ],
+        "y": [
+          7.0,
+          7.0
+        ]
+      },
+      "id": "direction-0-mean-ci",
+      "kind": "line",
+      "name": "direction-0-mean-ci",
+      "roles": [
+        "line"
+      ],
+      "svg": {
+        "line": "direction-0-mean-ci.line"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "members": [
+            "direction-0-mean.point.0"
+          ],
+          "role": "point",
+          "svgId": "direction-0-mean.points"
+        }
+      ],
+      "data": {
+        "x": [
+          -2.4984197999999997
+        ],
+        "y": [
+          7.0
+        ]
+      },
+      "id": "direction-0-mean",
+      "kind": "scatter",
+      "name": "direction-0-mean",
+      "points": [
+        {
+          "index": 0,
+          "svgId": "direction-0-mean.point.0",
+          "x": -2.4984197999999997,
+          "y": 7.0
+        }
+      ],
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "direction-0-mean.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-trial-density",
+          "svgId": "direction-45-density.x-trial-density"
+        }
+      ],
+      "data": {},
+      "id": "direction-45-density",
+      "kind": "x-trial-density",
+      "name": "direction-45-density",
+      "roles": [
+        "x-trial-density"
+      ],
+      "svg": {
+        "x-trial-density": "direction-45-density.x-trial-density"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "role": "line",
+          "svgId": "direction-45-density-outline.line"
+        }
+      ],
+      "data": {
+        "x": [
+          -61.30206122947979,
+          -60.32096659931632,
+          -59.339871969152846,
+          -58.35877733898938,
+          -57.3776827088259,
+          -56.39658807866243,
+          -55.415493448498964,
+          -54.43439881833549,
+          -53.45330418817202,
+          -52.472209558008544,
+          -51.491114927845075,
+          -50.510020297681606,
+          -49.52892566751813,
+          -48.54783103735466,
+          -47.566736407191186,
+          -46.58564177702772,
+          -45.60454714686425,
+          -44.62345251670077,
+          -43.6423578865373,
+          -42.66126325637383,
+          -41.68016862621036,
+          -40.69907399604689,
+          -39.717979365883416,
+          -38.73688473571994,
+          -37.75579010555647,
+          -36.774695475393,
+          -35.793600845229534,
+          -34.81250621506606,
+          -33.83141158490258,
+          -32.850316954739114,
+          -31.869222324575645,
+          -30.888127694412173,
+          -29.9070330642487,
+          -28.925938434085232,
+          -27.944843803921756,
+          -26.963749173758288,
+          -25.982654543594812,
+          -25.001559913431343,
+          -24.020465283267875,
+          -23.0393706531044,
+          -22.05827602294093,
+          -21.077181392777455,
+          -20.096086762613986,
+          -19.114992132450517,
+          -18.13389750228704,
+          -17.152802872123573,
+          -16.171708241960097,
+          -15.190613611796628,
+          -14.209518981633153,
+          -13.228424351469684,
+          -12.247329721306215,
+          -11.26623509114274,
+          -10.285140460979271,
+          -9.304045830815795,
+          -8.322951200652327,
+          -7.341856570488858,
+          -6.360761940325382,
+          -5.3796673101619135,
+          -4.398572679998438,
+          -3.417478049834969,
+          -2.4363834196715004,
+          -1.4552887895080246,
+          -0.474194159344556,
+          0.5069004708189198,
+          1.4879951009823884,
+          2.469089731145857,
+          3.4501843613093257,
+          4.431278991472809,
+          5.412373621636277,
+          6.393468251799746,
+          7.3745628819632145,
+          8.355657512126683,
+          9.336752142290166,
+          10.317846772453635,
+          11.298941402617103,
+          12.280036032780572,
+          13.26113066294404,
+          14.242225293107523,
+          15.223319923270992,
+          16.20441455343446,
+          17.18550918359793,
+          18.166603813761398,
+          19.14769844392488,
+          20.12879307408835,
+          21.10988770425182,
+          22.090982334415287,
+          23.072076964578756,
+          24.05317159474224,
+          25.034266224905707,
+          26.015360855069176,
+          26.996455485232644,
+          27.977550115396113,
+          28.958644745559596,
+          29.939739375723065,
+          30.920834005886533,
+          31.901928636050002,
+          32.883023266213485,
+          33.86411789637695,
+          34.84521252654042,
+          35.82630715670389,
+          36.80740178686736,
+          37.78849641703084,
+          38.76959104719431,
+          39.75068567735778,
+          40.73178030752125,
+          41.71287493768472,
+          42.6939695678482,
+          43.67506419801167,
+          44.65615882817514,
+          45.637253458338606,
+          46.618348088502074,
+          47.59944271866556,
+          48.580537348829026,
+          49.561631978992494,
+          50.54272660915596,
+          51.52382123931943,
+          52.504915869482915,
+          53.48601049964638,
+          54.46710512980985,
+          55.44819975997332,
+          56.42929439013679,
+          57.41038902030027,
+          58.39148365046374,
+          59.37257828062721,
+          60.35367291079068,
+          61.33476754095415,
+          62.31586217111763,
+          63.2969568012811,
+          64.27805143144457,
+          65.25914606160804,
+          66.2402406917715,
+          67.22133532193499,
+          68.20242995209844,
+          69.18352458226192,
+          70.16461921242541,
+          71.14571384258886,
+          72.12680847275234,
+          73.1079031029158,
+          74.08899773307928,
+          75.07009236324276,
+          76.05118699340622,
+          77.0322816235697,
+          78.01337625373316,
+          78.99447088389664,
+          79.97556551406012,
+          80.95666014422358,
+          81.93775477438706,
+          82.91884940455051,
+          83.899944034714,
+          84.88103866487748,
+          85.86213329504093,
+          86.84322792520442,
+          87.82432255536787,
+          88.80541718553135,
+          89.78651181569484,
+          90.76760644585829,
+          91.74870107602177,
+          92.72979570618523,
+          93.71089033634871,
+          94.6919849665122,
+          95.67307959667565,
+          96.65417422683913,
+          97.63526885700259,
+          98.61636348716607,
+          99.59745811732955,
+          100.578552747493,
+          101.55964737765649,
+          102.54074200781994,
+          103.52183663798343,
+          104.50293126814691,
+          105.48402589831036,
+          106.46512052847385,
+          107.4462151586373,
+          108.42730978880078,
+          109.40840441896427,
+          110.38949904912772,
+          111.3705936792912,
+          112.35168830945466,
+          113.33278293961814,
+          114.31387756978162,
+          115.29497219994508,
+          116.27606683010856,
+          117.25716146027202,
+          118.2382560904355,
+          119.21935072059898,
+          120.20044535076244,
+          121.18153998092592,
+          122.16263461108937,
+          123.14372924125286,
+          124.12482387141634,
+          125.1059185015798,
+          126.08701313174328,
+          127.06810776190676,
+          128.0492023920702,
+          129.0302970222337,
+          130.01139165239715,
+          130.99248628256063,
+          131.97358091272412,
+          132.95467554288757,
+          133.93577017305105,
+          134.9168648032145,
+          135.897959433378,
+          136.87905406354147,
+          137.86014869370493,
+          138.8412433238684,
+          139.82233795403187,
+          140.80343258419535,
+          141.78452721435883,
+          142.7656218445223,
+          143.74671647468577,
+          144.72781110484922,
+          145.7089057350127,
+          146.6900003651762,
+          147.67109499533964,
+          148.65218962550313,
+          149.63328425566658,
+          150.61437888583006,
+          151.59547351599355,
+          152.576568146157,
+          153.55766277632048
+        ],
+        "y": [
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.03500000000001,
+          6.035000000000264,
+          6.035000000005784,
+          6.035000000104265,
+          6.035000001544243,
+          6.035000018791356,
+          6.035000187874592,
+          6.03500154328223,
+          6.035010415737779,
+          6.035057756663267,
+          6.035263136762718,
+          6.035984982092151,
+          6.038029301619574,
+          6.042654627735745,
+          6.050891797052354,
+          6.062107492555414,
+          6.072990350654854,
+          6.07874484487196,
+          6.076387460694999,
+          6.067186568067496,
+          6.05565406713658,
+          6.046332268131501,
+          6.041952445272735,
+          6.044665737864328,
+          6.058825035936727,
+          6.09222529111168,
+          6.153060695448202,
+          6.242553653672631,
+          6.348175033069883,
+          6.44482349135267,
+          6.505689580621345,
+          6.515000000000001,
+          6.4732051585310275,
+          6.393649774569573,
+          6.296420425674082,
+          6.20254712571859,
+          6.1280079194487405,
+          6.07909668656392,
+          6.052656216874739,
+          6.040920885271981,
+          6.036653300492774,
+          6.035382898169582,
+          6.0350733564673344,
+          6.035011605316672,
+          6.03500151437074,
+          6.035000162863376,
+          6.035000014427755,
+          6.03500000105244,
+          6.0350000000631985,
+          6.035000000003124,
+          6.035000000000127,
+          6.035000000000005,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035,
+          6.035
+        ]
+      },
+      "id": "direction-45-density-outline",
+      "kind": "line",
+      "name": "direction-45-density-outline",
+      "roles": [
+        "line"
+      ],
+      "svg": {
+        "line": "direction-45-density-outline.line"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "members": [
+            "direction-45-trials.point.0",
+            "direction-45-trials.point.1",
+            "direction-45-trials.point.2",
+            "direction-45-trials.point.3",
+            "direction-45-trials.point.4",
+            "direction-45-trials.point.5",
+            "direction-45-trials.point.6",
+            "direction-45-trials.point.7",
+            "direction-45-trials.point.8",
+            "direction-45-trials.point.9",
+            "direction-45-trials.point.10",
+            "direction-45-trials.point.11",
+            "direction-45-trials.point.12",
+            "direction-45-trials.point.13",
+            "direction-45-trials.point.14"
+          ],
+          "role": "point",
+          "svgId": "direction-45-trials.points"
+        }
+      ],
+      "data": {
+        "x": [
+          0.610526,
+          -1.722189,
+          0.431555,
+          2.823816,
+          -1.251961,
+          2.500019,
+          -13.01475,
+          -0.524257,
+          0.602522,
+          -2.177758,
+          0.262066,
+          2.135998,
+          -0.593288,
+          -1.414023,
+          2.579066
+        ],
+        "y": [
+          5.8,
+          5.704999999999999,
+          5.704999999999999,
+          5.704999999999999,
+          5.8,
+          5.895,
+          5.895,
+          5.895,
+          5.895,
+          5.8,
+          5.8,
+          5.704999999999999,
+          5.704999999999999,
+          5.895,
+          5.8
+        ]
+      },
+      "id": "direction-45-trials",
+      "kind": "scatter",
+      "name": "direction-45-trials",
+      "points": [
+        {
+          "index": 0,
+          "svgId": "direction-45-trials.point.0",
+          "x": 0.610526,
+          "y": 5.8
+        },
+        {
+          "index": 1,
+          "svgId": "direction-45-trials.point.1",
+          "x": -1.722189,
+          "y": 5.704999999999999
+        },
+        {
+          "index": 2,
+          "svgId": "direction-45-trials.point.2",
+          "x": 0.431555,
+          "y": 5.704999999999999
+        },
+        {
+          "index": 3,
+          "svgId": "direction-45-trials.point.3",
+          "x": 2.823816,
+          "y": 5.704999999999999
+        },
+        {
+          "index": 4,
+          "svgId": "direction-45-trials.point.4",
+          "x": -1.251961,
+          "y": 5.8
+        },
+        {
+          "index": 5,
+          "svgId": "direction-45-trials.point.5",
+          "x": 2.500019,
+          "y": 5.895
+        },
+        {
+          "index": 6,
+          "svgId": "direction-45-trials.point.6",
+          "x": -13.01475,
+          "y": 5.895
+        },
+        {
+          "index": 7,
+          "svgId": "direction-45-trials.point.7",
+          "x": -0.524257,
+          "y": 5.895
+        },
+        {
+          "index": 8,
+          "svgId": "direction-45-trials.point.8",
+          "x": 0.602522,
+          "y": 5.895
+        },
+        {
+          "index": 9,
+          "svgId": "direction-45-trials.point.9",
+          "x": -2.177758,
+          "y": 5.8
+        },
+        {
+          "index": 10,
+          "svgId": "direction-45-trials.point.10",
+          "x": 0.262066,
+          "y": 5.8
+        },
+        {
+          "index": 11,
+          "svgId": "direction-45-trials.point.11",
+          "x": 2.135998,
+          "y": 5.704999999999999
+        },
+        {
+          "index": 12,
+          "svgId": "direction-45-trials.point.12",
+          "x": -0.593288,
+          "y": 5.704999999999999
+        },
+        {
+          "index": 13,
+          "svgId": "direction-45-trials.point.13",
+          "x": -1.414023,
+          "y": 5.895
+        },
+        {
+          "index": 14,
+          "svgId": "direction-45-trials.point.14",
+          "x": 2.579066,
+          "y": 5.8
+        }
+      ],
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "direction-45-trials.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "role": "line",
+          "svgId": "direction-45-mean-ci.line"
+        }
+      ],
+      "data": {
+        "x": [
+          -2.6869501983333333,
+          0.9023687099999991
+        ],
+        "y": [
+          6.0,
+          6.0
+        ]
+      },
+      "id": "direction-45-mean-ci",
+      "kind": "line",
+      "name": "direction-45-mean-ci",
+      "roles": [
+        "line"
+      ],
+      "svg": {
+        "line": "direction-45-mean-ci.line"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "members": [
+            "direction-45-mean.point.0"
+          ],
+          "role": "point",
+          "svgId": "direction-45-mean.points"
+        }
+      ],
+      "data": {
+        "x": [
+          -0.5835105333333331
+        ],
+        "y": [
+          6.0
+        ]
+      },
+      "id": "direction-45-mean",
+      "kind": "scatter",
+      "name": "direction-45-mean",
+      "points": [
+        {
+          "index": 0,
+          "svgId": "direction-45-mean.point.0",
+          "x": -0.5835105333333331,
+          "y": 6.0
+        }
+      ],
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "direction-45-mean.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-trial-density",
+          "svgId": "direction-90-density.x-trial-density"
+        }
+      ],
+      "data": {},
+      "id": "direction-90-density",
+      "kind": "x-trial-density",
+      "name": "direction-90-density",
+      "roles": [
+        "x-trial-density"
+      ],
+      "svg": {
+        "x-trial-density": "direction-90-density.x-trial-density"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "role": "line",
+          "svgId": "direction-90-density-outline.line"
+        }
+      ],
+      "data": {
+        "x": [
+          -61.30206122947979,
+          -60.32096659931632,
+          -59.339871969152846,
+          -58.35877733898938,
+          -57.3776827088259,
+          -56.39658807866243,
+          -55.415493448498964,
+          -54.43439881833549,
+          -53.45330418817202,
+          -52.472209558008544,
+          -51.491114927845075,
+          -50.510020297681606,
+          -49.52892566751813,
+          -48.54783103735466,
+          -47.566736407191186,
+          -46.58564177702772,
+          -45.60454714686425,
+          -44.62345251670077,
+          -43.6423578865373,
+          -42.66126325637383,
+          -41.68016862621036,
+          -40.69907399604689,
+          -39.717979365883416,
+          -38.73688473571994,
+          -37.75579010555647,
+          -36.774695475393,
+          -35.793600845229534,
+          -34.81250621506606,
+          -33.83141158490258,
+          -32.850316954739114,
+          -31.869222324575645,
+          -30.888127694412173,
+          -29.9070330642487,
+          -28.925938434085232,
+          -27.944843803921756,
+          -26.963749173758288,
+          -25.982654543594812,
+          -25.001559913431343,
+          -24.020465283267875,
+          -23.0393706531044,
+          -22.05827602294093,
+          -21.077181392777455,
+          -20.096086762613986,
+          -19.114992132450517,
+          -18.13389750228704,
+          -17.152802872123573,
+          -16.171708241960097,
+          -15.190613611796628,
+          -14.209518981633153,
+          -13.228424351469684,
+          -12.247329721306215,
+          -11.26623509114274,
+          -10.285140460979271,
+          -9.304045830815795,
+          -8.322951200652327,
+          -7.341856570488858,
+          -6.360761940325382,
+          -5.3796673101619135,
+          -4.398572679998438,
+          -3.417478049834969,
+          -2.4363834196715004,
+          -1.4552887895080246,
+          -0.474194159344556,
+          0.5069004708189198,
+          1.4879951009823884,
+          2.469089731145857,
+          3.4501843613093257,
+          4.431278991472809,
+          5.412373621636277,
+          6.393468251799746,
+          7.3745628819632145,
+          8.355657512126683,
+          9.336752142290166,
+          10.317846772453635,
+          11.298941402617103,
+          12.280036032780572,
+          13.26113066294404,
+          14.242225293107523,
+          15.223319923270992,
+          16.20441455343446,
+          17.18550918359793,
+          18.166603813761398,
+          19.14769844392488,
+          20.12879307408835,
+          21.10988770425182,
+          22.090982334415287,
+          23.072076964578756,
+          24.05317159474224,
+          25.034266224905707,
+          26.015360855069176,
+          26.996455485232644,
+          27.977550115396113,
+          28.958644745559596,
+          29.939739375723065,
+          30.920834005886533,
+          31.901928636050002,
+          32.883023266213485,
+          33.86411789637695,
+          34.84521252654042,
+          35.82630715670389,
+          36.80740178686736,
+          37.78849641703084,
+          38.76959104719431,
+          39.75068567735778,
+          40.73178030752125,
+          41.71287493768472,
+          42.6939695678482,
+          43.67506419801167,
+          44.65615882817514,
+          45.637253458338606,
+          46.618348088502074,
+          47.59944271866556,
+          48.580537348829026,
+          49.561631978992494,
+          50.54272660915596,
+          51.52382123931943,
+          52.504915869482915,
+          53.48601049964638,
+          54.46710512980985,
+          55.44819975997332,
+          56.42929439013679,
+          57.41038902030027,
+          58.39148365046374,
+          59.37257828062721,
+          60.35367291079068,
+          61.33476754095415,
+          62.31586217111763,
+          63.2969568012811,
+          64.27805143144457,
+          65.25914606160804,
+          66.2402406917715,
+          67.22133532193499,
+          68.20242995209844,
+          69.18352458226192,
+          70.16461921242541,
+          71.14571384258886,
+          72.12680847275234,
+          73.1079031029158,
+          74.08899773307928,
+          75.07009236324276,
+          76.05118699340622,
+          77.0322816235697,
+          78.01337625373316,
+          78.99447088389664,
+          79.97556551406012,
+          80.95666014422358,
+          81.93775477438706,
+          82.91884940455051,
+          83.899944034714,
+          84.88103866487748,
+          85.86213329504093,
+          86.84322792520442,
+          87.82432255536787,
+          88.80541718553135,
+          89.78651181569484,
+          90.76760644585829,
+          91.74870107602177,
+          92.72979570618523,
+          93.71089033634871,
+          94.6919849665122,
+          95.67307959667565,
+          96.65417422683913,
+          97.63526885700259,
+          98.61636348716607,
+          99.59745811732955,
+          100.578552747493,
+          101.55964737765649,
+          102.54074200781994,
+          103.52183663798343,
+          104.50293126814691,
+          105.48402589831036,
+          106.46512052847385,
+          107.4462151586373,
+          108.42730978880078,
+          109.40840441896427,
+          110.38949904912772,
+          111.3705936792912,
+          112.35168830945466,
+          113.33278293961814,
+          114.31387756978162,
+          115.29497219994508,
+          116.27606683010856,
+          117.25716146027202,
+          118.2382560904355,
+          119.21935072059898,
+          120.20044535076244,
+          121.18153998092592,
+          122.16263461108937,
+          123.14372924125286,
+          124.12482387141634,
+          125.1059185015798,
+          126.08701313174328,
+          127.06810776190676,
+          128.0492023920702,
+          129.0302970222337,
+          130.01139165239715,
+          130.99248628256063,
+          131.97358091272412,
+          132.95467554288757,
+          133.93577017305105,
+          134.9168648032145,
+          135.897959433378,
+          136.87905406354147,
+          137.86014869370493,
+          138.8412433238684,
+          139.82233795403187,
+          140.80343258419535,
+          141.78452721435883,
+          142.7656218445223,
+          143.74671647468577,
+          144.72781110484922,
+          145.7089057350127,
+          146.6900003651762,
+          147.67109499533964,
+          148.65218962550313,
+          149.63328425566658,
+          150.61437888583006,
+          151.59547351599355,
+          152.576568146157,
+          153.55766277632048
+        ],
+        "y": [
+          5.035000104644662,
+          5.035000146248524,
+          5.035000203530417,
+          5.035000282053165,
+          5.0350003892215645,
+          5.035000534844512,
+          5.03500073185229,
+          5.035000997206544,
+          5.035001353047954,
+          5.035001828135088,
+          5.035002459637456,
+          5.035003295356296,
+          5.035004396458026,
+          5.035005840817429,
+          5.035007727080232,
+          5.035010179567386,
+          5.035013354155648,
+          5.035017445280238,
+          5.035022694214759,
+          5.035029398790171,
+          5.035037924717438,
+          5.035048718676141,
+          5.03506232332278,
+          5.0350793943559955,
+          5.035100719750379,
+          5.035127241234325,
+          5.035160078039425,
+          5.035200552888169,
+          5.035250220112578,
+          5.035310895708759,
+          5.035384689031607,
+          5.035474035721466,
+          5.035581731332205,
+          5.035710965001435,
+          5.03586535237206,
+          5.036048966845651,
+          5.036266368128032,
+          5.036522626923268,
+          5.0368233445516335,
+          5.037174666218418,
+          5.037583286651807,
+          5.038056446867818,
+          5.038601920915354,
+          5.039227991610809,
+          5.0399434144932735,
+          5.040757369519402,
+          5.041679400369977,
+          5.042719341652692,
+          5.043887234748707,
+          5.045193233550973,
+          5.046647501862956,
+          5.048260104746508,
+          5.050040896602926,
+          5.051999409215379,
+          5.054144743345791,
+          5.05648546773698,
+          5.059029529494667,
+          5.061784179790085,
+          5.064755918613229,
+          5.067950461906247,
+          5.071372733810716,
+          5.075026885975052,
+          5.078916344902226,
+          5.083043887196587,
+          5.087411741325247,
+          5.09202171318695,
+          5.096875331430667,
+          5.101974007144757,
+          5.107319201307366,
+          5.112912592313157,
+          5.118756235032715,
+          5.1248527022769395,
+          5.131205199279782,
+          5.13781764191904,
+          5.144694689893725,
+          5.151841726980167,
+          5.159264781793411,
+          5.166970384164208,
+          5.174965354266741,
+          5.183256523943168,
+          5.191850392198663,
+          5.200752719502467,
+          5.209968068234733,
+          5.219499299267139,
+          5.229347037155976,
+          5.239509118659522,
+          5.249980041171071,
+          5.260750429097816,
+          5.271806537138144,
+          5.283129809754837,
+          5.294696515865364,
+          5.306477476848379,
+          5.318437904393556,
+          5.330537362517534,
+          5.3427298652709645,
+          5.354964118330667,
+          5.367183908887267,
+          5.379328644101305,
+          5.391334034025222,
+          5.403132910403702,
+          5.414656168309746,
+          5.425833813293916,
+          5.436596092766485,
+          5.446874686840898,
+          5.456603930977718,
+          5.465722040603595,
+          5.474172306543182,
+          5.4819042296733596,
+          5.488874563740198,
+          5.495048236789766,
+          5.500399124139486,
+          5.504910649206963,
+          5.5085761927319945,
+          5.511399295854908,
+          5.513393648000007,
+          5.514582856380927,
+          5.515,
+          5.514686977050147,
+          5.513693660436095,
+          5.512076881508884,
+          5.509899266865691,
+          5.507227957041592,
+          5.504133238977304,
+          5.500687126190674,
+          5.496961921553835,
+          5.493028797470117,
+          5.48895642708514,
+          5.484809698026097,
+          5.48064853714929,
+          5.476526871025687,
+          5.472491742567722,
+          5.4685825994716515,
+          5.46483076519806,
+          5.461259098214792,
+          5.4578818403467375,
+          5.454704650462738,
+          5.451724815505475,
+          5.448931627132842,
+          5.446306909058,
+          5.443825677590803,
+          5.441456915909708,
+          5.4391644412216005,
+          5.436907843168661,
+          5.4346434715735965,
+          5.432325451824784,
+          5.4299067068335765,
+          5.427339965488915,
+          5.424578738833662,
+          5.421578246741317,
+          5.418296279635668,
+          5.414693981729841,
+          5.410736544330773,
+          5.406393799929617,
+          5.401640710049186,
+          5.396457742117339,
+          5.390831132949486,
+          5.384753038720171,
+          5.378221573545405,
+          5.371240740942428,
+          5.36382026443757,
+          5.355975325410084,
+          5.3477262178452785,
+          5.339097930982602,
+          5.330119671847902,
+          5.320824340327557,
+          5.311247969759564,
+          5.3014291459802125,
+          5.291408417385128,
+          5.281227707864276,
+          5.270929743489055,
+          5.260557502613437,
+          5.250153697656818,
+          5.239760295325499,
+          5.229418080466514,
+          5.219166267194505,
+          5.209042159447324,
+          5.1990808617595095,
+          5.189315039835102,
+          5.1797747294813785,
+          5.170487191649722,
+          5.161476810723242,
+          5.152765032785899,
+          5.144370340387781,
+          5.136308260260686,
+          5.128591400506964,
+          5.121229513949035,
+          5.114229584553242,
+          5.107595934097509,
+          5.1013303465094415,
+          5.095432207536973,
+          5.089898657610613,
+          5.0847247559049515,
+          5.07990365370357,
+          5.075426775218732,
+          5.0712840040224885,
+          5.0674638732207455,
+          5.063953757460032,
+          5.060740064813099,
+          5.057808426558497,
+          5.055143882863843,
+          5.052731062413096,
+          5.050554354092103,
+          5.0485980689677366,
+          5.046846590964453,
+          5.0452845148547105,
+          5.043896770430476,
+          5.042668732003324,
+          5.041586312680341,
+          5.040636043171015,
+          5.039805135185288,
+          5.039081529774127,
+          5.038453931231779,
+          5.037911827415058,
+          5.037445497533446,
+          5.037046008620227,
+          5.036705202007245,
+          5.03641567119411,
+          5.036170732528419,
+          5.035964390100201,
+          5.035791296205614
+        ]
+      },
+      "id": "direction-90-density-outline",
+      "kind": "line",
+      "name": "direction-90-density-outline",
+      "roles": [
+        "line"
+      ],
+      "svg": {
+        "line": "direction-90-density-outline.line"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "members": [
+            "direction-90-trials.point.0",
+            "direction-90-trials.point.1",
+            "direction-90-trials.point.2",
+            "direction-90-trials.point.3",
+            "direction-90-trials.point.4",
+            "direction-90-trials.point.5",
+            "direction-90-trials.point.6",
+            "direction-90-trials.point.7",
+            "direction-90-trials.point.8",
+            "direction-90-trials.point.9",
+            "direction-90-trials.point.10",
+            "direction-90-trials.point.11",
+            "direction-90-trials.point.12",
+            "direction-90-trials.point.13",
+            "direction-90-trials.point.14"
+          ],
+          "role": "point",
+          "svgId": "direction-90-trials.points"
+        }
+      ],
+      "data": {
+        "x": [
+          16.589857,
+          69.804916,
+          80.234337,
+          52.916832,
+          51.959682,
+          92.408524,
+          108.361488,
+          93.91832,
+          49.49192,
+          89.030891,
+          33.003742,
+          55.883461,
+          44.907639,
+          73.634872,
+          39.762882
+        ],
+        "y": [
+          4.895,
+          4.704999999999999,
+          4.8,
+          4.895,
+          4.704999999999999,
+          4.895,
+          4.704999999999999,
+          4.8,
+          4.8,
+          4.704999999999999,
+          4.8,
+          4.8,
+          4.895,
+          4.895,
+          4.704999999999999
+        ]
+      },
+      "id": "direction-90-trials",
+      "kind": "scatter",
+      "name": "direction-90-trials",
+      "points": [
+        {
+          "index": 0,
+          "svgId": "direction-90-trials.point.0",
+          "x": 16.589857,
+          "y": 4.895
+        },
+        {
+          "index": 1,
+          "svgId": "direction-90-trials.point.1",
+          "x": 69.804916,
+          "y": 4.704999999999999
+        },
+        {
+          "index": 2,
+          "svgId": "direction-90-trials.point.2",
+          "x": 80.234337,
+          "y": 4.8
+        },
+        {
+          "index": 3,
+          "svgId": "direction-90-trials.point.3",
+          "x": 52.916832,
+          "y": 4.895
+        },
+        {
+          "index": 4,
+          "svgId": "direction-90-trials.point.4",
+          "x": 51.959682,
+          "y": 4.704999999999999
+        },
+        {
+          "index": 5,
+          "svgId": "direction-90-trials.point.5",
+          "x": 92.408524,
+          "y": 4.895
+        },
+        {
+          "index": 6,
+          "svgId": "direction-90-trials.point.6",
+          "x": 108.361488,
+          "y": 4.704999999999999
+        },
+        {
+          "index": 7,
+          "svgId": "direction-90-trials.point.7",
+          "x": 93.91832,
+          "y": 4.8
+        },
+        {
+          "index": 8,
+          "svgId": "direction-90-trials.point.8",
+          "x": 49.49192,
+          "y": 4.8
+        },
+        {
+          "index": 9,
+          "svgId": "direction-90-trials.point.9",
+          "x": 89.030891,
+          "y": 4.704999999999999
+        },
+        {
+          "index": 10,
+          "svgId": "direction-90-trials.point.10",
+          "x": 33.003742,
+          "y": 4.8
+        },
+        {
+          "index": 11,
+          "svgId": "direction-90-trials.point.11",
+          "x": 55.883461,
+          "y": 4.8
+        },
+        {
+          "index": 12,
+          "svgId": "direction-90-trials.point.12",
+          "x": 44.907639,
+          "y": 4.895
+        },
+        {
+          "index": 13,
+          "svgId": "direction-90-trials.point.13",
+          "x": 73.634872,
+          "y": 4.895
+        },
+        {
+          "index": 14,
+          "svgId": "direction-90-trials.point.14",
+          "x": 39.762882,
+          "y": 4.704999999999999
+        }
+      ],
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "direction-90-trials.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "role": "line",
+          "svgId": "direction-90-mean-ci.line"
+        }
+      ],
+      "data": {
+        "x": [
+          51.029530980000004,
+          75.81985880166667
+        ],
+        "y": [
+          5.0,
+          5.0
+        ]
+      },
+      "id": "direction-90-mean-ci",
+      "kind": "line",
+      "name": "direction-90-mean-ci",
+      "roles": [
+        "line"
+      ],
+      "svg": {
+        "line": "direction-90-mean-ci.line"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "members": [
+            "direction-90-mean.point.0"
+          ],
+          "role": "point",
+          "svgId": "direction-90-mean.points"
+        }
+      ],
+      "data": {
+        "x": [
+          63.4606242
+        ],
+        "y": [
+          5.0
+        ]
+      },
+      "id": "direction-90-mean",
+      "kind": "scatter",
+      "name": "direction-90-mean",
+      "points": [
+        {
+          "index": 0,
+          "svgId": "direction-90-mean.point.0",
+          "x": 63.4606242,
+          "y": 5.0
+        }
+      ],
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "direction-90-mean.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-trial-density",
+          "svgId": "direction-135-density.x-trial-density"
+        }
+      ],
+      "data": {},
+      "id": "direction-135-density",
+      "kind": "x-trial-density",
+      "name": "direction-135-density",
+      "roles": [
+        "x-trial-density"
+      ],
+      "svg": {
+        "x-trial-density": "direction-135-density.x-trial-density"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "role": "line",
+          "svgId": "direction-135-density-outline.line"
+        }
+      ],
+      "data": {
+        "x": [
+          -61.30206122947979,
+          -60.32096659931632,
+          -59.339871969152846,
+          -58.35877733898938,
+          -57.3776827088259,
+          -56.39658807866243,
+          -55.415493448498964,
+          -54.43439881833549,
+          -53.45330418817202,
+          -52.472209558008544,
+          -51.491114927845075,
+          -50.510020297681606,
+          -49.52892566751813,
+          -48.54783103735466,
+          -47.566736407191186,
+          -46.58564177702772,
+          -45.60454714686425,
+          -44.62345251670077,
+          -43.6423578865373,
+          -42.66126325637383,
+          -41.68016862621036,
+          -40.69907399604689,
+          -39.717979365883416,
+          -38.73688473571994,
+          -37.75579010555647,
+          -36.774695475393,
+          -35.793600845229534,
+          -34.81250621506606,
+          -33.83141158490258,
+          -32.850316954739114,
+          -31.869222324575645,
+          -30.888127694412173,
+          -29.9070330642487,
+          -28.925938434085232,
+          -27.944843803921756,
+          -26.963749173758288,
+          -25.982654543594812,
+          -25.001559913431343,
+          -24.020465283267875,
+          -23.0393706531044,
+          -22.05827602294093,
+          -21.077181392777455,
+          -20.096086762613986,
+          -19.114992132450517,
+          -18.13389750228704,
+          -17.152802872123573,
+          -16.171708241960097,
+          -15.190613611796628,
+          -14.209518981633153,
+          -13.228424351469684,
+          -12.247329721306215,
+          -11.26623509114274,
+          -10.285140460979271,
+          -9.304045830815795,
+          -8.322951200652327,
+          -7.341856570488858,
+          -6.360761940325382,
+          -5.3796673101619135,
+          -4.398572679998438,
+          -3.417478049834969,
+          -2.4363834196715004,
+          -1.4552887895080246,
+          -0.474194159344556,
+          0.5069004708189198,
+          1.4879951009823884,
+          2.469089731145857,
+          3.4501843613093257,
+          4.431278991472809,
+          5.412373621636277,
+          6.393468251799746,
+          7.3745628819632145,
+          8.355657512126683,
+          9.336752142290166,
+          10.317846772453635,
+          11.298941402617103,
+          12.280036032780572,
+          13.26113066294404,
+          14.242225293107523,
+          15.223319923270992,
+          16.20441455343446,
+          17.18550918359793,
+          18.166603813761398,
+          19.14769844392488,
+          20.12879307408835,
+          21.10988770425182,
+          22.090982334415287,
+          23.072076964578756,
+          24.05317159474224,
+          25.034266224905707,
+          26.015360855069176,
+          26.996455485232644,
+          27.977550115396113,
+          28.958644745559596,
+          29.939739375723065,
+          30.920834005886533,
+          31.901928636050002,
+          32.883023266213485,
+          33.86411789637695,
+          34.84521252654042,
+          35.82630715670389,
+          36.80740178686736,
+          37.78849641703084,
+          38.76959104719431,
+          39.75068567735778,
+          40.73178030752125,
+          41.71287493768472,
+          42.6939695678482,
+          43.67506419801167,
+          44.65615882817514,
+          45.637253458338606,
+          46.618348088502074,
+          47.59944271866556,
+          48.580537348829026,
+          49.561631978992494,
+          50.54272660915596,
+          51.52382123931943,
+          52.504915869482915,
+          53.48601049964638,
+          54.46710512980985,
+          55.44819975997332,
+          56.42929439013679,
+          57.41038902030027,
+          58.39148365046374,
+          59.37257828062721,
+          60.35367291079068,
+          61.33476754095415,
+          62.31586217111763,
+          63.2969568012811,
+          64.27805143144457,
+          65.25914606160804,
+          66.2402406917715,
+          67.22133532193499,
+          68.20242995209844,
+          69.18352458226192,
+          70.16461921242541,
+          71.14571384258886,
+          72.12680847275234,
+          73.1079031029158,
+          74.08899773307928,
+          75.07009236324276,
+          76.05118699340622,
+          77.0322816235697,
+          78.01337625373316,
+          78.99447088389664,
+          79.97556551406012,
+          80.95666014422358,
+          81.93775477438706,
+          82.91884940455051,
+          83.899944034714,
+          84.88103866487748,
+          85.86213329504093,
+          86.84322792520442,
+          87.82432255536787,
+          88.80541718553135,
+          89.78651181569484,
+          90.76760644585829,
+          91.74870107602177,
+          92.72979570618523,
+          93.71089033634871,
+          94.6919849665122,
+          95.67307959667565,
+          96.65417422683913,
+          97.63526885700259,
+          98.61636348716607,
+          99.59745811732955,
+          100.578552747493,
+          101.55964737765649,
+          102.54074200781994,
+          103.52183663798343,
+          104.50293126814691,
+          105.48402589831036,
+          106.46512052847385,
+          107.4462151586373,
+          108.42730978880078,
+          109.40840441896427,
+          110.38949904912772,
+          111.3705936792912,
+          112.35168830945466,
+          113.33278293961814,
+          114.31387756978162,
+          115.29497219994508,
+          116.27606683010856,
+          117.25716146027202,
+          118.2382560904355,
+          119.21935072059898,
+          120.20044535076244,
+          121.18153998092592,
+          122.16263461108937,
+          123.14372924125286,
+          124.12482387141634,
+          125.1059185015798,
+          126.08701313174328,
+          127.06810776190676,
+          128.0492023920702,
+          129.0302970222337,
+          130.01139165239715,
+          130.99248628256063,
+          131.97358091272412,
+          132.95467554288757,
+          133.93577017305105,
+          134.9168648032145,
+          135.897959433378,
+          136.87905406354147,
+          137.86014869370493,
+          138.8412433238684,
+          139.82233795403187,
+          140.80343258419535,
+          141.78452721435883,
+          142.7656218445223,
+          143.74671647468577,
+          144.72781110484922,
+          145.7089057350127,
+          146.6900003651762,
+          147.67109499533964,
+          148.65218962550313,
+          149.63328425566658,
+          150.61437888583006,
+          151.59547351599355,
+          152.576568146157,
+          153.55766277632048
+        ],
+        "y": [
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035000000000001,
+          4.035000000000005,
+          4.0350000000000295,
+          4.035000000000191,
+          4.035000000001149,
+          4.035000000006493,
+          4.035000000034429,
+          4.03500000017127,
+          4.035000000799303,
+          4.0350000034995235,
+          4.035000014373884,
+          4.035000055386896,
+          4.035000200220076,
+          4.035000679009587,
+          4.0350021602891575,
+          4.03500644785954,
+          4.035018054562519,
+          4.035047427051181,
+          4.035116878087267,
+          4.035270214111236,
+          4.035586072293873,
+          4.036192513109883,
+          4.037276381766799,
+          4.039076611837083,
+          4.041849056686649,
+          4.04579565740427,
+          4.050965198197278,
+          4.057153740001086,
+          4.063850279469772,
+          4.070273733791707,
+          4.075522167698896,
+          4.078809021213288,
+          4.079714147037014,
+          4.0783558689508075,
+          4.075409936086085,
+          4.071956393305658,
+          4.0692011264679095,
+          4.0681662063685,
+          4.069454937542536,
+          4.0731736344087,
+          4.079043645604777,
+          4.086677683277088,
+          4.095937516401134,
+          4.107250661581315,
+          4.1217577153411105,
+          4.141198480911552,
+          4.167517789913986,
+          4.202259096936877,
+          4.245888165718389,
+          4.297229492429152,
+          4.353194481182831,
+          4.408930772721569,
+          4.458430477817679,
+          4.495515502641217,
+          4.515000000000001,
+          4.513753336677811,
+          4.491386363868726,
+          4.450369623070845,
+          4.395542674322287,
+          4.3331421060092135,
+          4.269606879801014,
+          4.210469517816272,
+          4.1595937384414166,
+          4.118892707302919,
+          4.088506535164037,
+          4.0672920553386875,
+          4.0534237906542705,
+          4.044928524647263,
+          4.040049882807506,
+          4.037422570062871,
+          4.036095504301853,
+          4.035466736792818,
+          4.035187265306903,
+          4.035070729893105,
+          4.035025139955608,
+          4.035008406523974,
+          4.035002643928855,
+          4.035000781932284,
+          4.035000217415729,
+          4.035000056825257,
+          4.035000013959022,
+          4.035000003222354,
+          4.035000000698946,
+          4.0350000001424355,
+          4.035000000027268,
+          4.035000000004904,
+          4.035000000000829,
+          4.035000000000132,
+          4.03500000000002,
+          4.035000000000003,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035,
+          4.035
+        ]
+      },
+      "id": "direction-135-density-outline",
+      "kind": "line",
+      "name": "direction-135-density-outline",
+      "roles": [
+        "line"
+      ],
+      "svg": {
+        "line": "direction-135-density-outline.line"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "members": [
+            "direction-135-trials.point.0",
+            "direction-135-trials.point.1",
+            "direction-135-trials.point.2",
+            "direction-135-trials.point.3",
+            "direction-135-trials.point.4",
+            "direction-135-trials.point.5",
+            "direction-135-trials.point.6",
+            "direction-135-trials.point.7",
+            "direction-135-trials.point.8",
+            "direction-135-trials.point.9",
+            "direction-135-trials.point.10",
+            "direction-135-trials.point.11",
+            "direction-135-trials.point.12",
+            "direction-135-trials.point.13",
+            "direction-135-trials.point.14"
+          ],
+          "role": "point",
+          "svgId": "direction-135-trials.points"
+        }
+      ],
+      "data": {
+        "x": [
+          0.741233,
+          -2.023364,
+          -2.083401,
+          2.439705,
+          -4.08402,
+          1.254042,
+          -6.407484,
+          1.796944,
+          -1.559035,
+          -12.479077,
+          0.427148,
+          -3.005939,
+          -23.407713,
+          -2.086711,
+          -0.623307
+        ],
+        "y": [
+          3.705,
+          3.8,
+          3.895,
+          3.705,
+          3.895,
+          3.895,
+          3.705,
+          3.8,
+          3.705,
+          3.8,
+          3.8,
+          3.8,
+          3.895,
+          3.705,
+          3.895
+        ]
+      },
+      "id": "direction-135-trials",
+      "kind": "scatter",
+      "name": "direction-135-trials",
+      "points": [
+        {
+          "index": 0,
+          "svgId": "direction-135-trials.point.0",
+          "x": 0.741233,
+          "y": 3.705
+        },
+        {
+          "index": 1,
+          "svgId": "direction-135-trials.point.1",
+          "x": -2.023364,
+          "y": 3.8
+        },
+        {
+          "index": 2,
+          "svgId": "direction-135-trials.point.2",
+          "x": -2.083401,
+          "y": 3.895
+        },
+        {
+          "index": 3,
+          "svgId": "direction-135-trials.point.3",
+          "x": 2.439705,
+          "y": 3.705
+        },
+        {
+          "index": 4,
+          "svgId": "direction-135-trials.point.4",
+          "x": -4.08402,
+          "y": 3.895
+        },
+        {
+          "index": 5,
+          "svgId": "direction-135-trials.point.5",
+          "x": 1.254042,
+          "y": 3.895
+        },
+        {
+          "index": 6,
+          "svgId": "direction-135-trials.point.6",
+          "x": -6.407484,
+          "y": 3.705
+        },
+        {
+          "index": 7,
+          "svgId": "direction-135-trials.point.7",
+          "x": 1.796944,
+          "y": 3.8
+        },
+        {
+          "index": 8,
+          "svgId": "direction-135-trials.point.8",
+          "x": -1.559035,
+          "y": 3.705
+        },
+        {
+          "index": 9,
+          "svgId": "direction-135-trials.point.9",
+          "x": -12.479077,
+          "y": 3.8
+        },
+        {
+          "index": 10,
+          "svgId": "direction-135-trials.point.10",
+          "x": 0.427148,
+          "y": 3.8
+        },
+        {
+          "index": 11,
+          "svgId": "direction-135-trials.point.11",
+          "x": -3.005939,
+          "y": 3.8
+        },
+        {
+          "index": 12,
+          "svgId": "direction-135-trials.point.12",
+          "x": -23.407713,
+          "y": 3.895
+        },
+        {
+          "index": 13,
+          "svgId": "direction-135-trials.point.13",
+          "x": -2.086711,
+          "y": 3.705
+        },
+        {
+          "index": 14,
+          "svgId": "direction-135-trials.point.14",
+          "x": -0.623307,
+          "y": 3.895
+        }
+      ],
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "direction-135-trials.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "role": "line",
+          "svgId": "direction-135-mean-ci.line"
+        }
+      ],
+      "data": {
+        "x": [
+          -7.047849556666666,
+          -0.6018018266666666
+        ],
+        "y": [
+          4.0,
+          4.0
+        ]
+      },
+      "id": "direction-135-mean-ci",
+      "kind": "line",
+      "name": "direction-135-mean-ci",
+      "roles": [
+        "line"
+      ],
+      "svg": {
+        "line": "direction-135-mean-ci.line"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "members": [
+            "direction-135-mean.point.0"
+          ],
+          "role": "point",
+          "svgId": "direction-135-mean.points"
+        }
+      ],
+      "data": {
+        "x": [
+          -3.4067319333333335
+        ],
+        "y": [
+          4.0
+        ]
+      },
+      "id": "direction-135-mean",
+      "kind": "scatter",
+      "name": "direction-135-mean",
+      "points": [
+        {
+          "index": 0,
+          "svgId": "direction-135-mean.point.0",
+          "x": -3.4067319333333335,
+          "y": 4.0
+        }
+      ],
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "direction-135-mean.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-trial-density",
+          "svgId": "direction-180-density.x-trial-density"
+        }
+      ],
+      "data": {},
+      "id": "direction-180-density",
+      "kind": "x-trial-density",
+      "name": "direction-180-density",
+      "roles": [
+        "x-trial-density"
+      ],
+      "svg": {
+        "x-trial-density": "direction-180-density.x-trial-density"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "role": "line",
+          "svgId": "direction-180-density-outline.line"
+        }
+      ],
+      "data": {
+        "x": [
+          -61.30206122947979,
+          -60.32096659931632,
+          -59.339871969152846,
+          -58.35877733898938,
+          -57.3776827088259,
+          -56.39658807866243,
+          -55.415493448498964,
+          -54.43439881833549,
+          -53.45330418817202,
+          -52.472209558008544,
+          -51.491114927845075,
+          -50.510020297681606,
+          -49.52892566751813,
+          -48.54783103735466,
+          -47.566736407191186,
+          -46.58564177702772,
+          -45.60454714686425,
+          -44.62345251670077,
+          -43.6423578865373,
+          -42.66126325637383,
+          -41.68016862621036,
+          -40.69907399604689,
+          -39.717979365883416,
+          -38.73688473571994,
+          -37.75579010555647,
+          -36.774695475393,
+          -35.793600845229534,
+          -34.81250621506606,
+          -33.83141158490258,
+          -32.850316954739114,
+          -31.869222324575645,
+          -30.888127694412173,
+          -29.9070330642487,
+          -28.925938434085232,
+          -27.944843803921756,
+          -26.963749173758288,
+          -25.982654543594812,
+          -25.001559913431343,
+          -24.020465283267875,
+          -23.0393706531044,
+          -22.05827602294093,
+          -21.077181392777455,
+          -20.096086762613986,
+          -19.114992132450517,
+          -18.13389750228704,
+          -17.152802872123573,
+          -16.171708241960097,
+          -15.190613611796628,
+          -14.209518981633153,
+          -13.228424351469684,
+          -12.247329721306215,
+          -11.26623509114274,
+          -10.285140460979271,
+          -9.304045830815795,
+          -8.322951200652327,
+          -7.341856570488858,
+          -6.360761940325382,
+          -5.3796673101619135,
+          -4.398572679998438,
+          -3.417478049834969,
+          -2.4363834196715004,
+          -1.4552887895080246,
+          -0.474194159344556,
+          0.5069004708189198,
+          1.4879951009823884,
+          2.469089731145857,
+          3.4501843613093257,
+          4.431278991472809,
+          5.412373621636277,
+          6.393468251799746,
+          7.3745628819632145,
+          8.355657512126683,
+          9.336752142290166,
+          10.317846772453635,
+          11.298941402617103,
+          12.280036032780572,
+          13.26113066294404,
+          14.242225293107523,
+          15.223319923270992,
+          16.20441455343446,
+          17.18550918359793,
+          18.166603813761398,
+          19.14769844392488,
+          20.12879307408835,
+          21.10988770425182,
+          22.090982334415287,
+          23.072076964578756,
+          24.05317159474224,
+          25.034266224905707,
+          26.015360855069176,
+          26.996455485232644,
+          27.977550115396113,
+          28.958644745559596,
+          29.939739375723065,
+          30.920834005886533,
+          31.901928636050002,
+          32.883023266213485,
+          33.86411789637695,
+          34.84521252654042,
+          35.82630715670389,
+          36.80740178686736,
+          37.78849641703084,
+          38.76959104719431,
+          39.75068567735778,
+          40.73178030752125,
+          41.71287493768472,
+          42.6939695678482,
+          43.67506419801167,
+          44.65615882817514,
+          45.637253458338606,
+          46.618348088502074,
+          47.59944271866556,
+          48.580537348829026,
+          49.561631978992494,
+          50.54272660915596,
+          51.52382123931943,
+          52.504915869482915,
+          53.48601049964638,
+          54.46710512980985,
+          55.44819975997332,
+          56.42929439013679,
+          57.41038902030027,
+          58.39148365046374,
+          59.37257828062721,
+          60.35367291079068,
+          61.33476754095415,
+          62.31586217111763,
+          63.2969568012811,
+          64.27805143144457,
+          65.25914606160804,
+          66.2402406917715,
+          67.22133532193499,
+          68.20242995209844,
+          69.18352458226192,
+          70.16461921242541,
+          71.14571384258886,
+          72.12680847275234,
+          73.1079031029158,
+          74.08899773307928,
+          75.07009236324276,
+          76.05118699340622,
+          77.0322816235697,
+          78.01337625373316,
+          78.99447088389664,
+          79.97556551406012,
+          80.95666014422358,
+          81.93775477438706,
+          82.91884940455051,
+          83.899944034714,
+          84.88103866487748,
+          85.86213329504093,
+          86.84322792520442,
+          87.82432255536787,
+          88.80541718553135,
+          89.78651181569484,
+          90.76760644585829,
+          91.74870107602177,
+          92.72979570618523,
+          93.71089033634871,
+          94.6919849665122,
+          95.67307959667565,
+          96.65417422683913,
+          97.63526885700259,
+          98.61636348716607,
+          99.59745811732955,
+          100.578552747493,
+          101.55964737765649,
+          102.54074200781994,
+          103.52183663798343,
+          104.50293126814691,
+          105.48402589831036,
+          106.46512052847385,
+          107.4462151586373,
+          108.42730978880078,
+          109.40840441896427,
+          110.38949904912772,
+          111.3705936792912,
+          112.35168830945466,
+          113.33278293961814,
+          114.31387756978162,
+          115.29497219994508,
+          116.27606683010856,
+          117.25716146027202,
+          118.2382560904355,
+          119.21935072059898,
+          120.20044535076244,
+          121.18153998092592,
+          122.16263461108937,
+          123.14372924125286,
+          124.12482387141634,
+          125.1059185015798,
+          126.08701313174328,
+          127.06810776190676,
+          128.0492023920702,
+          129.0302970222337,
+          130.01139165239715,
+          130.99248628256063,
+          131.97358091272412,
+          132.95467554288757,
+          133.93577017305105,
+          134.9168648032145,
+          135.897959433378,
+          136.87905406354147,
+          137.86014869370493,
+          138.8412433238684,
+          139.82233795403187,
+          140.80343258419535,
+          141.78452721435883,
+          142.7656218445223,
+          143.74671647468577,
+          144.72781110484922,
+          145.7089057350127,
+          146.6900003651762,
+          147.67109499533964,
+          148.65218962550313,
+          149.63328425566658,
+          150.61437888583006,
+          151.59547351599355,
+          152.576568146157,
+          153.55766277632048
+        ],
+        "y": [
+          3.0350000000000583,
+          3.0350000000002506,
+          3.035000000001033,
+          3.0350000000040915,
+          3.0350000000155752,
+          3.0350000000569697,
+          3.035000000200224,
+          3.0350000006761735,
+          3.035000002194196,
+          3.035000006841873,
+          3.035000020500545,
+          3.035000059027833,
+          3.035000163328403,
+          3.0350004343051227,
+          3.035001109876149,
+          3.0350027259759913,
+          3.0350064352206805,
+          3.035014602591574,
+          3.03503185362458,
+          3.0350668028335424,
+          3.035134707373206,
+          3.035261223262622,
+          3.0354872275089684,
+          3.035874259914708,
+          3.0365095361351924,
+          3.0375087903178932,
+          3.039014649887641,
+          3.0411881584053813,
+          3.04419177994343,
+          3.048163911927561,
+          3.0531874376168373,
+          3.0592575786469114,
+          3.066256353655356,
+          3.0739413745044777,
+          3.081954949703729,
+          3.089855630891406,
+          3.0971692850273618,
+          3.1034518320055557,
+          3.1083523100708192,
+          3.111663885054666,
+          3.113352183224773,
+          3.113554729190624,
+          3.1125516975706815,
+          3.110715606897185,
+          3.108454461039691,
+          3.106167154377794,
+          3.104229555070192,
+          3.103023071313478,
+          3.1030047782449097,
+          3.10480162579607,
+          3.1092952302432986,
+          3.117653786623079,
+          3.131268867035201,
+          3.151570389498492,
+          3.1797224486846503,
+          3.2162411409132776,
+          3.2606136418682152,
+          3.3110231378508086,
+          3.3642843951757637,
+          3.416062242231682,
+          3.4613821217184837,
+          3.495362214351287,
+          3.5140241595036272,
+          3.515,
+          3.4979644398353464,
+          3.464684908515257,
+          3.418679331426156,
+          3.3645718034471983,
+          3.3073071998230783,
+          3.2514061707907893,
+          3.2004099147670613,
+          3.156595728738263,
+          3.120965788176063,
+          3.0934481169021426,
+          3.073215609679261,
+          3.0590284016733253,
+          3.0495281944114074,
+          3.0434467619258943,
+          3.039722263201432,
+          3.0375385235316137,
+          3.036312119143364,
+          3.0356521037379047,
+          3.035311603247143,
+          3.035143159416188,
+          3.0350632355906684,
+          3.035026854574994,
+          3.035010964318057,
+          3.0350043037146373,
+          3.0350016240370707,
+          3.035000589157528,
+          3.0350002054672447,
+          3.0350000688846324,
+          3.0350000222005553,
+          3.035000006877973,
+          3.035000002048358,
+          3.0350000005864,
+          3.035000000161369,
+          3.035000000042685,
+          3.0350000000108532,
+          3.0350000000026527,
+          3.035000000000623,
+          3.035000000000141,
+          3.035000000000031,
+          3.0350000000000064,
+          3.0350000000000015,
+          3.0350000000000006,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035,
+          3.035
+        ]
+      },
+      "id": "direction-180-density-outline",
+      "kind": "line",
+      "name": "direction-180-density-outline",
+      "roles": [
+        "line"
+      ],
+      "svg": {
+        "line": "direction-180-density-outline.line"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "members": [
+            "direction-180-trials.point.0",
+            "direction-180-trials.point.1",
+            "direction-180-trials.point.2",
+            "direction-180-trials.point.3",
+            "direction-180-trials.point.4",
+            "direction-180-trials.point.5",
+            "direction-180-trials.point.6",
+            "direction-180-trials.point.7",
+            "direction-180-trials.point.8",
+            "direction-180-trials.point.9",
+            "direction-180-trials.point.10",
+            "direction-180-trials.point.11",
+            "direction-180-trials.point.12",
+            "direction-180-trials.point.13",
+            "direction-180-trials.point.14"
+          ],
+          "role": "point",
+          "svgId": "direction-180-trials.points"
+        }
+      ],
+      "data": {
+        "x": [
+          0.560966,
+          -1.046289,
+          -0.368393,
+          0.099282,
+          -20.405897,
+          -12.575135,
+          0.87114,
+          0.230521,
+          1.240997,
+          -0.671122,
+          -1.62593,
+          0.618447,
+          -25.061756,
+          0.262326,
+          1.054011
+        ],
+        "y": [
+          2.8,
+          2.8,
+          2.895,
+          2.8,
+          2.8,
+          2.705,
+          2.895,
+          2.705,
+          2.705,
+          2.705,
+          2.895,
+          2.705,
+          2.895,
+          2.895,
+          2.8
+        ]
+      },
+      "id": "direction-180-trials",
+      "kind": "scatter",
+      "name": "direction-180-trials",
+      "points": [
+        {
+          "index": 0,
+          "svgId": "direction-180-trials.point.0",
+          "x": 0.560966,
+          "y": 2.8
+        },
+        {
+          "index": 1,
+          "svgId": "direction-180-trials.point.1",
+          "x": -1.046289,
+          "y": 2.8
+        },
+        {
+          "index": 2,
+          "svgId": "direction-180-trials.point.2",
+          "x": -0.368393,
+          "y": 2.895
+        },
+        {
+          "index": 3,
+          "svgId": "direction-180-trials.point.3",
+          "x": 0.099282,
+          "y": 2.8
+        },
+        {
+          "index": 4,
+          "svgId": "direction-180-trials.point.4",
+          "x": -20.405897,
+          "y": 2.8
+        },
+        {
+          "index": 5,
+          "svgId": "direction-180-trials.point.5",
+          "x": -12.575135,
+          "y": 2.705
+        },
+        {
+          "index": 6,
+          "svgId": "direction-180-trials.point.6",
+          "x": 0.87114,
+          "y": 2.895
+        },
+        {
+          "index": 7,
+          "svgId": "direction-180-trials.point.7",
+          "x": 0.230521,
+          "y": 2.705
+        },
+        {
+          "index": 8,
+          "svgId": "direction-180-trials.point.8",
+          "x": 1.240997,
+          "y": 2.705
+        },
+        {
+          "index": 9,
+          "svgId": "direction-180-trials.point.9",
+          "x": -0.671122,
+          "y": 2.705
+        },
+        {
+          "index": 10,
+          "svgId": "direction-180-trials.point.10",
+          "x": -1.62593,
+          "y": 2.895
+        },
+        {
+          "index": 11,
+          "svgId": "direction-180-trials.point.11",
+          "x": 0.618447,
+          "y": 2.705
+        },
+        {
+          "index": 12,
+          "svgId": "direction-180-trials.point.12",
+          "x": -25.061756,
+          "y": 2.895
+        },
+        {
+          "index": 13,
+          "svgId": "direction-180-trials.point.13",
+          "x": 0.262326,
+          "y": 2.895
+        },
+        {
+          "index": 14,
+          "svgId": "direction-180-trials.point.14",
+          "x": 1.054011,
+          "y": 2.8
+        }
+      ],
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "direction-180-trials.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "role": "line",
+          "svgId": "direction-180-mean-ci.line"
+        }
+      ],
+      "data": {
+        "x": [
+          -8.384266556666669,
+          -0.015213753333334164
+        ],
+        "y": [
+          3.0,
+          3.0
+        ]
+      },
+      "id": "direction-180-mean-ci",
+      "kind": "line",
+      "name": "direction-180-mean-ci",
+      "roles": [
+        "line"
+      ],
+      "svg": {
+        "line": "direction-180-mean-ci.line"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "members": [
+            "direction-180-mean.point.0"
+          ],
+          "role": "point",
+          "svgId": "direction-180-mean.points"
+        }
+      ],
+      "data": {
+        "x": [
+          -3.7877887999999995
+        ],
+        "y": [
+          3.0
+        ]
+      },
+      "id": "direction-180-mean",
+      "kind": "scatter",
+      "name": "direction-180-mean",
+      "points": [
+        {
+          "index": 0,
+          "svgId": "direction-180-mean.point.0",
+          "x": -3.7877887999999995,
+          "y": 3.0
+        }
+      ],
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "direction-180-mean.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-trial-density",
+          "svgId": "direction-225-density.x-trial-density"
+        }
+      ],
+      "data": {},
+      "id": "direction-225-density",
+      "kind": "x-trial-density",
+      "name": "direction-225-density",
+      "roles": [
+        "x-trial-density"
+      ],
+      "svg": {
+        "x-trial-density": "direction-225-density.x-trial-density"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "role": "line",
+          "svgId": "direction-225-density-outline.line"
+        }
+      ],
+      "data": {
+        "x": [
+          -61.30206122947979,
+          -60.32096659931632,
+          -59.339871969152846,
+          -58.35877733898938,
+          -57.3776827088259,
+          -56.39658807866243,
+          -55.415493448498964,
+          -54.43439881833549,
+          -53.45330418817202,
+          -52.472209558008544,
+          -51.491114927845075,
+          -50.510020297681606,
+          -49.52892566751813,
+          -48.54783103735466,
+          -47.566736407191186,
+          -46.58564177702772,
+          -45.60454714686425,
+          -44.62345251670077,
+          -43.6423578865373,
+          -42.66126325637383,
+          -41.68016862621036,
+          -40.69907399604689,
+          -39.717979365883416,
+          -38.73688473571994,
+          -37.75579010555647,
+          -36.774695475393,
+          -35.793600845229534,
+          -34.81250621506606,
+          -33.83141158490258,
+          -32.850316954739114,
+          -31.869222324575645,
+          -30.888127694412173,
+          -29.9070330642487,
+          -28.925938434085232,
+          -27.944843803921756,
+          -26.963749173758288,
+          -25.982654543594812,
+          -25.001559913431343,
+          -24.020465283267875,
+          -23.0393706531044,
+          -22.05827602294093,
+          -21.077181392777455,
+          -20.096086762613986,
+          -19.114992132450517,
+          -18.13389750228704,
+          -17.152802872123573,
+          -16.171708241960097,
+          -15.190613611796628,
+          -14.209518981633153,
+          -13.228424351469684,
+          -12.247329721306215,
+          -11.26623509114274,
+          -10.285140460979271,
+          -9.304045830815795,
+          -8.322951200652327,
+          -7.341856570488858,
+          -6.360761940325382,
+          -5.3796673101619135,
+          -4.398572679998438,
+          -3.417478049834969,
+          -2.4363834196715004,
+          -1.4552887895080246,
+          -0.474194159344556,
+          0.5069004708189198,
+          1.4879951009823884,
+          2.469089731145857,
+          3.4501843613093257,
+          4.431278991472809,
+          5.412373621636277,
+          6.393468251799746,
+          7.3745628819632145,
+          8.355657512126683,
+          9.336752142290166,
+          10.317846772453635,
+          11.298941402617103,
+          12.280036032780572,
+          13.26113066294404,
+          14.242225293107523,
+          15.223319923270992,
+          16.20441455343446,
+          17.18550918359793,
+          18.166603813761398,
+          19.14769844392488,
+          20.12879307408835,
+          21.10988770425182,
+          22.090982334415287,
+          23.072076964578756,
+          24.05317159474224,
+          25.034266224905707,
+          26.015360855069176,
+          26.996455485232644,
+          27.977550115396113,
+          28.958644745559596,
+          29.939739375723065,
+          30.920834005886533,
+          31.901928636050002,
+          32.883023266213485,
+          33.86411789637695,
+          34.84521252654042,
+          35.82630715670389,
+          36.80740178686736,
+          37.78849641703084,
+          38.76959104719431,
+          39.75068567735778,
+          40.73178030752125,
+          41.71287493768472,
+          42.6939695678482,
+          43.67506419801167,
+          44.65615882817514,
+          45.637253458338606,
+          46.618348088502074,
+          47.59944271866556,
+          48.580537348829026,
+          49.561631978992494,
+          50.54272660915596,
+          51.52382123931943,
+          52.504915869482915,
+          53.48601049964638,
+          54.46710512980985,
+          55.44819975997332,
+          56.42929439013679,
+          57.41038902030027,
+          58.39148365046374,
+          59.37257828062721,
+          60.35367291079068,
+          61.33476754095415,
+          62.31586217111763,
+          63.2969568012811,
+          64.27805143144457,
+          65.25914606160804,
+          66.2402406917715,
+          67.22133532193499,
+          68.20242995209844,
+          69.18352458226192,
+          70.16461921242541,
+          71.14571384258886,
+          72.12680847275234,
+          73.1079031029158,
+          74.08899773307928,
+          75.07009236324276,
+          76.05118699340622,
+          77.0322816235697,
+          78.01337625373316,
+          78.99447088389664,
+          79.97556551406012,
+          80.95666014422358,
+          81.93775477438706,
+          82.91884940455051,
+          83.899944034714,
+          84.88103866487748,
+          85.86213329504093,
+          86.84322792520442,
+          87.82432255536787,
+          88.80541718553135,
+          89.78651181569484,
+          90.76760644585829,
+          91.74870107602177,
+          92.72979570618523,
+          93.71089033634871,
+          94.6919849665122,
+          95.67307959667565,
+          96.65417422683913,
+          97.63526885700259,
+          98.61636348716607,
+          99.59745811732955,
+          100.578552747493,
+          101.55964737765649,
+          102.54074200781994,
+          103.52183663798343,
+          104.50293126814691,
+          105.48402589831036,
+          106.46512052847385,
+          107.4462151586373,
+          108.42730978880078,
+          109.40840441896427,
+          110.38949904912772,
+          111.3705936792912,
+          112.35168830945466,
+          113.33278293961814,
+          114.31387756978162,
+          115.29497219994508,
+          116.27606683010856,
+          117.25716146027202,
+          118.2382560904355,
+          119.21935072059898,
+          120.20044535076244,
+          121.18153998092592,
+          122.16263461108937,
+          123.14372924125286,
+          124.12482387141634,
+          125.1059185015798,
+          126.08701313174328,
+          127.06810776190676,
+          128.0492023920702,
+          129.0302970222337,
+          130.01139165239715,
+          130.99248628256063,
+          131.97358091272412,
+          132.95467554288757,
+          133.93577017305105,
+          134.9168648032145,
+          135.897959433378,
+          136.87905406354147,
+          137.86014869370493,
+          138.8412433238684,
+          139.82233795403187,
+          140.80343258419535,
+          141.78452721435883,
+          142.7656218445223,
+          143.74671647468577,
+          144.72781110484922,
+          145.7089057350127,
+          146.6900003651762,
+          147.67109499533964,
+          148.65218962550313,
+          149.63328425566658,
+          150.61437888583006,
+          151.59547351599355,
+          152.576568146157,
+          153.55766277632048
+        ],
+        "y": [
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035000000000001,
+          2.035000000000004,
+          2.0350000000000223,
+          2.0350000000001183,
+          2.0350000000005926,
+          2.0350000000028308,
+          2.035000000012859,
+          2.035000000055557,
+          2.0350000002282798,
+          2.0350000008920603,
+          2.0350000033152718,
+          2.0350000117177056,
+          2.035000039388116,
+          2.0350001259180273,
+          2.0350003828352827,
+          2.035001106978463,
+          2.035003044193007,
+          2.035007961864321,
+          2.0350198048869474,
+          2.03504685465836,
+          2.0351054307301335,
+          2.0352256481624913,
+          2.0354593774670766,
+          2.035889639622993,
+          2.036639127680972,
+          2.037873651327745,
+          2.0397948595855433,
+          2.0426168989595923,
+          2.046524987971149,
+          2.0516205777711027,
+          2.057866276824549,
+          2.06505037653159,
+          2.07279100770611,
+          2.080590671701713,
+          2.087934451230325,
+          2.0944062318004937,
+          2.0997863376166803,
+          2.1040984964032186,
+          2.107593993806171,
+          2.110687333691026,
+          2.113876961562373,
+          2.117686138596132,
+          2.122642519093104,
+          2.1292908926003395,
+          2.13821654254532,
+          2.1500554815766852,
+          2.1654791270778846,
+          2.185152219910613,
+          2.209662711368081,
+          2.2394116833470457,
+          2.2744447916102817,
+          2.314222657246508,
+          2.3573717754453605,
+          2.401512115413897,
+          2.4432865975996467,
+          2.47868764518684,
+          2.5036810100595686,
+          2.515,
+          2.510883836555562,
+          2.4915174801887336,
+          2.4590153532590513,
+          2.416946252655214,
+          2.3695542515221124,
+          2.320922640850783,
+          2.274320371428423,
+          2.231876213260662,
+          2.19459451732617,
+          2.1626158859178197,
+          2.1355746841043235,
+          2.112918961883522,
+          2.09411495271814,
+          2.078724337861998,
+          2.0663902009269246,
+          2.0567850690337486,
+          2.0495655504021446,
+          2.0443558557452235,
+          2.0407605991314366,
+          2.0383941556004133,
+          2.036911170449046,
+          2.0360273711947117,
+          2.0355268342780564,
+          2.0352575578362835,
+          2.0351199839945155,
+          2.035053242393236,
+          2.035022498271185,
+          2.035009050980061,
+          2.035003465888832,
+          2.035001263105545,
+          2.035000438042782,
+          2.0350001445443393,
+          2.0350000453792254,
+          2.035000013553601,
+          2.0350000038509632,
+          2.0350000010408325,
+          2.0350000002675914,
+          2.035000000065438,
+          2.035000000015221,
+          2.0350000000033677,
+          2.035000000000709,
+          2.035000000000142,
+          2.0350000000000272,
+          2.035000000000005,
+          2.035000000000001,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035,
+          2.035
+        ]
+      },
+      "id": "direction-225-density-outline",
+      "kind": "line",
+      "name": "direction-225-density-outline",
+      "roles": [
+        "line"
+      ],
+      "svg": {
+        "line": "direction-225-density-outline.line"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "members": [
+            "direction-225-trials.point.0",
+            "direction-225-trials.point.1",
+            "direction-225-trials.point.2",
+            "direction-225-trials.point.3",
+            "direction-225-trials.point.4",
+            "direction-225-trials.point.5",
+            "direction-225-trials.point.6",
+            "direction-225-trials.point.7",
+            "direction-225-trials.point.8",
+            "direction-225-trials.point.9",
+            "direction-225-trials.point.10",
+            "direction-225-trials.point.11",
+            "direction-225-trials.point.12",
+            "direction-225-trials.point.13",
+            "direction-225-trials.point.14"
+          ],
+          "role": "point",
+          "svgId": "direction-225-trials.points"
+        }
+      ],
+      "data": {
+        "x": [
+          -19.459387,
+          -5.115858,
+          -5.532278,
+          1.322397,
+          3.280336,
+          1.53298,
+          3.25145,
+          -1.11153,
+          1.329135,
+          1.811045,
+          1.135588,
+          -12.363699,
+          10.771441,
+          3.009178,
+          7.204496
+        ],
+        "y": [
+          1.895,
+          1.895,
+          1.705,
+          1.895,
+          1.895,
+          1.705,
+          1.705,
+          1.8,
+          1.8,
+          1.895,
+          1.705,
+          1.8,
+          1.705,
+          1.8,
+          1.8
+        ]
+      },
+      "id": "direction-225-trials",
+      "kind": "scatter",
+      "name": "direction-225-trials",
+      "points": [
+        {
+          "index": 0,
+          "svgId": "direction-225-trials.point.0",
+          "x": -19.459387,
+          "y": 1.895
+        },
+        {
+          "index": 1,
+          "svgId": "direction-225-trials.point.1",
+          "x": -5.115858,
+          "y": 1.895
+        },
+        {
+          "index": 2,
+          "svgId": "direction-225-trials.point.2",
+          "x": -5.532278,
+          "y": 1.705
+        },
+        {
+          "index": 3,
+          "svgId": "direction-225-trials.point.3",
+          "x": 1.322397,
+          "y": 1.895
+        },
+        {
+          "index": 4,
+          "svgId": "direction-225-trials.point.4",
+          "x": 3.280336,
+          "y": 1.895
+        },
+        {
+          "index": 5,
+          "svgId": "direction-225-trials.point.5",
+          "x": 1.53298,
+          "y": 1.705
+        },
+        {
+          "index": 6,
+          "svgId": "direction-225-trials.point.6",
+          "x": 3.25145,
+          "y": 1.705
+        },
+        {
+          "index": 7,
+          "svgId": "direction-225-trials.point.7",
+          "x": -1.11153,
+          "y": 1.8
+        },
+        {
+          "index": 8,
+          "svgId": "direction-225-trials.point.8",
+          "x": 1.329135,
+          "y": 1.8
+        },
+        {
+          "index": 9,
+          "svgId": "direction-225-trials.point.9",
+          "x": 1.811045,
+          "y": 1.895
+        },
+        {
+          "index": 10,
+          "svgId": "direction-225-trials.point.10",
+          "x": 1.135588,
+          "y": 1.705
+        },
+        {
+          "index": 11,
+          "svgId": "direction-225-trials.point.11",
+          "x": -12.363699,
+          "y": 1.8
+        },
+        {
+          "index": 12,
+          "svgId": "direction-225-trials.point.12",
+          "x": 10.771441,
+          "y": 1.705
+        },
+        {
+          "index": 13,
+          "svgId": "direction-225-trials.point.13",
+          "x": 3.009178,
+          "y": 1.8
+        },
+        {
+          "index": 14,
+          "svgId": "direction-225-trials.point.14",
+          "x": 7.204496,
+          "y": 1.8
+        }
+      ],
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "direction-225-trials.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "role": "line",
+          "svgId": "direction-225-mean-ci.line"
+        }
+      ],
+      "data": {
+        "x": [
+          -4.628271988333333,
+          2.816501623333333
+        ],
+        "y": [
+          2.0,
+          2.0
+        ]
+      },
+      "id": "direction-225-mean-ci",
+      "kind": "line",
+      "name": "direction-225-mean-ci",
+      "roles": [
+        "line"
+      ],
+      "svg": {
+        "line": "direction-225-mean-ci.line"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "members": [
+            "direction-225-mean.point.0"
+          ],
+          "role": "point",
+          "svgId": "direction-225-mean.points"
+        }
+      ],
+      "data": {
+        "x": [
+          -0.5956470666666668
+        ],
+        "y": [
+          2.0
+        ]
+      },
+      "id": "direction-225-mean",
+      "kind": "scatter",
+      "name": "direction-225-mean",
+      "points": [
+        {
+          "index": 0,
+          "svgId": "direction-225-mean.point.0",
+          "x": -0.5956470666666668,
+          "y": 2.0
+        }
+      ],
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "direction-225-mean.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-trial-density",
+          "svgId": "direction-270-density.x-trial-density"
+        }
+      ],
+      "data": {},
+      "id": "direction-270-density",
+      "kind": "x-trial-density",
+      "name": "direction-270-density",
+      "roles": [
+        "x-trial-density"
+      ],
+      "svg": {
+        "x-trial-density": "direction-270-density.x-trial-density"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "role": "line",
+          "svgId": "direction-270-density-outline.line"
+        }
+      ],
+      "data": {
+        "x": [
+          -61.30206122947979,
+          -60.32096659931632,
+          -59.339871969152846,
+          -58.35877733898938,
+          -57.3776827088259,
+          -56.39658807866243,
+          -55.415493448498964,
+          -54.43439881833549,
+          -53.45330418817202,
+          -52.472209558008544,
+          -51.491114927845075,
+          -50.510020297681606,
+          -49.52892566751813,
+          -48.54783103735466,
+          -47.566736407191186,
+          -46.58564177702772,
+          -45.60454714686425,
+          -44.62345251670077,
+          -43.6423578865373,
+          -42.66126325637383,
+          -41.68016862621036,
+          -40.69907399604689,
+          -39.717979365883416,
+          -38.73688473571994,
+          -37.75579010555647,
+          -36.774695475393,
+          -35.793600845229534,
+          -34.81250621506606,
+          -33.83141158490258,
+          -32.850316954739114,
+          -31.869222324575645,
+          -30.888127694412173,
+          -29.9070330642487,
+          -28.925938434085232,
+          -27.944843803921756,
+          -26.963749173758288,
+          -25.982654543594812,
+          -25.001559913431343,
+          -24.020465283267875,
+          -23.0393706531044,
+          -22.05827602294093,
+          -21.077181392777455,
+          -20.096086762613986,
+          -19.114992132450517,
+          -18.13389750228704,
+          -17.152802872123573,
+          -16.171708241960097,
+          -15.190613611796628,
+          -14.209518981633153,
+          -13.228424351469684,
+          -12.247329721306215,
+          -11.26623509114274,
+          -10.285140460979271,
+          -9.304045830815795,
+          -8.322951200652327,
+          -7.341856570488858,
+          -6.360761940325382,
+          -5.3796673101619135,
+          -4.398572679998438,
+          -3.417478049834969,
+          -2.4363834196715004,
+          -1.4552887895080246,
+          -0.474194159344556,
+          0.5069004708189198,
+          1.4879951009823884,
+          2.469089731145857,
+          3.4501843613093257,
+          4.431278991472809,
+          5.412373621636277,
+          6.393468251799746,
+          7.3745628819632145,
+          8.355657512126683,
+          9.336752142290166,
+          10.317846772453635,
+          11.298941402617103,
+          12.280036032780572,
+          13.26113066294404,
+          14.242225293107523,
+          15.223319923270992,
+          16.20441455343446,
+          17.18550918359793,
+          18.166603813761398,
+          19.14769844392488,
+          20.12879307408835,
+          21.10988770425182,
+          22.090982334415287,
+          23.072076964578756,
+          24.05317159474224,
+          25.034266224905707,
+          26.015360855069176,
+          26.996455485232644,
+          27.977550115396113,
+          28.958644745559596,
+          29.939739375723065,
+          30.920834005886533,
+          31.901928636050002,
+          32.883023266213485,
+          33.86411789637695,
+          34.84521252654042,
+          35.82630715670389,
+          36.80740178686736,
+          37.78849641703084,
+          38.76959104719431,
+          39.75068567735778,
+          40.73178030752125,
+          41.71287493768472,
+          42.6939695678482,
+          43.67506419801167,
+          44.65615882817514,
+          45.637253458338606,
+          46.618348088502074,
+          47.59944271866556,
+          48.580537348829026,
+          49.561631978992494,
+          50.54272660915596,
+          51.52382123931943,
+          52.504915869482915,
+          53.48601049964638,
+          54.46710512980985,
+          55.44819975997332,
+          56.42929439013679,
+          57.41038902030027,
+          58.39148365046374,
+          59.37257828062721,
+          60.35367291079068,
+          61.33476754095415,
+          62.31586217111763,
+          63.2969568012811,
+          64.27805143144457,
+          65.25914606160804,
+          66.2402406917715,
+          67.22133532193499,
+          68.20242995209844,
+          69.18352458226192,
+          70.16461921242541,
+          71.14571384258886,
+          72.12680847275234,
+          73.1079031029158,
+          74.08899773307928,
+          75.07009236324276,
+          76.05118699340622,
+          77.0322816235697,
+          78.01337625373316,
+          78.99447088389664,
+          79.97556551406012,
+          80.95666014422358,
+          81.93775477438706,
+          82.91884940455051,
+          83.899944034714,
+          84.88103866487748,
+          85.86213329504093,
+          86.84322792520442,
+          87.82432255536787,
+          88.80541718553135,
+          89.78651181569484,
+          90.76760644585829,
+          91.74870107602177,
+          92.72979570618523,
+          93.71089033634871,
+          94.6919849665122,
+          95.67307959667565,
+          96.65417422683913,
+          97.63526885700259,
+          98.61636348716607,
+          99.59745811732955,
+          100.578552747493,
+          101.55964737765649,
+          102.54074200781994,
+          103.52183663798343,
+          104.50293126814691,
+          105.48402589831036,
+          106.46512052847385,
+          107.4462151586373,
+          108.42730978880078,
+          109.40840441896427,
+          110.38949904912772,
+          111.3705936792912,
+          112.35168830945466,
+          113.33278293961814,
+          114.31387756978162,
+          115.29497219994508,
+          116.27606683010856,
+          117.25716146027202,
+          118.2382560904355,
+          119.21935072059898,
+          120.20044535076244,
+          121.18153998092592,
+          122.16263461108937,
+          123.14372924125286,
+          124.12482387141634,
+          125.1059185015798,
+          126.08701313174328,
+          127.06810776190676,
+          128.0492023920702,
+          129.0302970222337,
+          130.01139165239715,
+          130.99248628256063,
+          131.97358091272412,
+          132.95467554288757,
+          133.93577017305105,
+          134.9168648032145,
+          135.897959433378,
+          136.87905406354147,
+          137.86014869370493,
+          138.8412433238684,
+          139.82233795403187,
+          140.80343258419535,
+          141.78452721435883,
+          142.7656218445223,
+          143.74671647468577,
+          144.72781110484922,
+          145.7089057350127,
+          146.6900003651762,
+          147.67109499533964,
+          148.65218962550313,
+          149.63328425566658,
+          150.61437888583006,
+          151.59547351599355,
+          152.576568146157,
+          153.55766277632048
+        ],
+        "y": [
+          1.0350000003516824,
+          1.0350000005717928,
+          1.0350000009241211,
+          1.0350000014846439,
+          1.035000002370936,
+          1.0350000037637648,
+          1.0350000059392455,
+          1.0350000093163834,
+          1.0350000145268634,
+          1.0350000225167655,
+          1.0350000346937374,
+          1.035000053138398,
+          1.03500008090578,
+          1.0350001224519947,
+          1.035000184233664,
+          1.0350002755437706,
+          1.0350004096683842,
+          1.0350006054752598,
+          1.0350008895787788,
+          1.0350012992674174,
+          1.0350018864312278,
+          1.0350027227890473,
+          1.0350039067895476,
+          1.035005572647729,
+          1.0350079020795764,
+          1.0350111394121329,
+          1.035015610873064,
+          1.035021749000468,
+          1.0350301232561865,
+          1.0350414780681894,
+          1.0350567796614523,
+          1.0350772731512496,
+          1.03510455145436,
+          1.0351406376059704,
+          1.0351880820341595,
+          1.0352500762186914,
+          1.03533058392413,
+          1.035434490826362,
+          1.035567772825294,
+          1.0357376826366382,
+          1.0359529533697147,
+          1.0362240167212897,
+          1.0365632321533678,
+          1.0369851219942696,
+          1.0375066058412115,
+          1.0381472259998155,
+          1.0389293540401998,
+          1.03987836696666,
+          1.0410227800906149,
+          1.0423943225793073,
+          1.044027940948657,
+          1.0459617156021253,
+          1.048236676006763,
+          1.050896501345809,
+          1.0539870955725223,
+          1.0575560287562102,
+          1.0616518404591762,
+          1.0663232055625296,
+          1.0716179683638898,
+          1.077582056737977,
+          1.0842582944634314,
+          1.0916851362077138,
+          1.0998953558188413,
+          1.1089147241644814,
+          1.1187607174435859,
+          1.129441300342489,
+          1.1409538303173898,
+          1.1532841294122422,
+          1.1664057681908606,
+          1.180279602487726,
+          1.194853597776008,
+          1.2100629681315946,
+          1.2258306472618545,
+          1.242068098190182,
+          1.2586764563519697,
+          1.2755479885435532,
+          1.292567837899174,
+          1.3096160133999906,
+          1.3265695718862762,
+          1.3433049316592538,
+          1.3597002499741357,
+          1.3756377924108822,
+          1.391006220532675,
+          1.4057027255568628,
+          1.4196349399959747,
+          1.432722566274102,
+          1.4448986709545415,
+          1.4561106050742458,
+          1.4663205247059266,
+          1.4755055007038045,
+          1.4836572220076674,
+          1.4907813122110998,
+          1.4968962936569905,
+          1.5020322464362912,
+          1.5062292207128978,
+          1.509535469238339,
+          1.5120055723268042,
+          1.5136985296453804,
+          1.5146758918087788,
+          1.515,
+          1.5147323938967285,
+          1.5139324374716328,
+          1.5126561993171754,
+          1.510955609719326,
+          1.5088779015643878,
+          1.506465327156355,
+          1.5037551289989384,
+          1.5007797303568093,
+          1.4975671016533707,
+          1.4941412520376423,
+          1.4905227921237991,
+          1.4867295141223495,
+          1.4827769392632681,
+          1.4786787892544755,
+          1.4744473480122162,
+          1.4700936913565497,
+          1.4656277749697448,
+          1.4610583837786948,
+          1.4563929581435813,
+          1.4516373229643713,
+          1.446795354316232,
+          1.4418686239206953,
+          1.4368560642822676,
+          1.4317536965321014,
+          1.4265544590231205,
+          1.4212481678476492,
+          1.4158216312372411,
+          1.4102589289568874,
+          1.4045418561339913,
+          1.3986505193266445,
+          1.3925640618793356,
+          1.3862614865008258,
+          1.3797225361557532,
+          1.372928590234315,
+          1.3658635317869963,
+          1.3585145433926251,
+          1.3508727937566505,
+          1.3429339840031602,
+          1.334698731258996,
+          1.326172776850855,
+          1.3173670165121616,
+          1.3082973596975935,
+          1.2989844337646863,
+          1.2894531558525977,
+          1.2797322003689466,
+          1.269853392864141,
+          1.2598510616917498,
+          1.2497613773638023,
+          1.2396217062076085,
+          1.2294700002333603,
+          1.2193442395253715,
+          1.2092819375020272,
+          1.1993197135625548,
+          1.1894929324071262,
+          1.179835405042729,
+          1.1703791434166049,
+          1.161154158869632,
+          1.1521882941639516,
+          1.1435070795866475,
+          1.1351336053443442,
+          1.1270884048556788,
+          1.119389346298909,
+          1.112051532557217,
+          1.1050872122287148,
+          1.0985057063876622,
+          1.0923133571230839,
+          1.0865135044448233,
+          1.0811064979192873,
+          1.0760897484362522,
+          1.0714578239348584,
+          1.0672025908976392,
+          1.0633134011492102,
+          1.0597773211714496,
+          1.0565793989592867,
+          1.053702961554476,
+          1.051129934935692,
+          1.0488411769949038,
+          1.0468168139291034,
+          1.0450365705156988,
+          1.0434800853731008,
+          1.042127203358238,
+          1.0409582386214808,
+          1.039954203416992,
+          1.0390969994411337,
+          1.038369570138152,
+          1.0377560139790685,
+          1.037241660112626,
+          1.036813108952961,
+          1.0364582411754026,
+          1.0361661992276292,
+          1.0359273458345144,
+          1.0357332041020824,
+          1.0355763837407104,
+          1.0354504976685819,
+          1.0353500728652782,
+          1.0352704588641048,
+          1.0352077367395696,
+          1.035158630898041,
+          1.0351204254439228,
+          1.0350908863931991,
+          1.0350681905569858,
+          1.035050861529759,
+          1.0350377128948942,
+          1.035027798504213,
+          1.0350203694951414,
+          1.0350148375731216,
+          1.0350107440007101,
+          1.0350077336903307,
+          1.0350055337866393,
+          1.0350039361390988,
+          1.0350027830985002,
+          1.0350019561165893,
+          1.035001366680487,
+          1.0350009491690921,
+          1.0350006552739486,
+          1.0350004496798775,
+          1.0350003067495133,
+          1.0350002079998104,
+          1.035000140197245,
+          1.0350000939317583
+        ]
+      },
+      "id": "direction-270-density-outline",
+      "kind": "line",
+      "name": "direction-270-density-outline",
+      "roles": [
+        "line"
+      ],
+      "svg": {
+        "line": "direction-270-density-outline.line"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "members": [
+            "direction-270-trials.point.0",
+            "direction-270-trials.point.1",
+            "direction-270-trials.point.2",
+            "direction-270-trials.point.3",
+            "direction-270-trials.point.4",
+            "direction-270-trials.point.5",
+            "direction-270-trials.point.6",
+            "direction-270-trials.point.7",
+            "direction-270-trials.point.8",
+            "direction-270-trials.point.9",
+            "direction-270-trials.point.10",
+            "direction-270-trials.point.11",
+            "direction-270-trials.point.12",
+            "direction-270-trials.point.13",
+            "direction-270-trials.point.14"
+          ],
+          "role": "point",
+          "svgId": "direction-270-trials.points"
+        }
+      ],
+      "data": {
+        "x": [
+          27.862688,
+          31.026331,
+          44.288704,
+          33.878624,
+          87.87365,
+          18.300591,
+          71.947533,
+          18.177172,
+          51.886589,
+          59.170372,
+          42.475918,
+          51.027763,
+          25.125364,
+          74.91256,
+          66.895279
+        ],
+        "y": [
+          0.895,
+          0.8,
+          0.8,
+          0.7050000000000001,
+          0.7050000000000001,
+          0.8,
+          0.895,
+          0.895,
+          0.895,
+          0.8,
+          0.895,
+          0.7050000000000001,
+          0.7050000000000001,
+          0.8,
+          0.7050000000000001
+        ]
+      },
+      "id": "direction-270-trials",
+      "kind": "scatter",
+      "name": "direction-270-trials",
+      "points": [
+        {
+          "index": 0,
+          "svgId": "direction-270-trials.point.0",
+          "x": 27.862688,
+          "y": 0.895
+        },
+        {
+          "index": 1,
+          "svgId": "direction-270-trials.point.1",
+          "x": 31.026331,
+          "y": 0.8
+        },
+        {
+          "index": 2,
+          "svgId": "direction-270-trials.point.2",
+          "x": 44.288704,
+          "y": 0.8
+        },
+        {
+          "index": 3,
+          "svgId": "direction-270-trials.point.3",
+          "x": 33.878624,
+          "y": 0.7050000000000001
+        },
+        {
+          "index": 4,
+          "svgId": "direction-270-trials.point.4",
+          "x": 87.87365,
+          "y": 0.7050000000000001
+        },
+        {
+          "index": 5,
+          "svgId": "direction-270-trials.point.5",
+          "x": 18.300591,
+          "y": 0.8
+        },
+        {
+          "index": 6,
+          "svgId": "direction-270-trials.point.6",
+          "x": 71.947533,
+          "y": 0.895
+        },
+        {
+          "index": 7,
+          "svgId": "direction-270-trials.point.7",
+          "x": 18.177172,
+          "y": 0.895
+        },
+        {
+          "index": 8,
+          "svgId": "direction-270-trials.point.8",
+          "x": 51.886589,
+          "y": 0.895
+        },
+        {
+          "index": 9,
+          "svgId": "direction-270-trials.point.9",
+          "x": 59.170372,
+          "y": 0.8
+        },
+        {
+          "index": 10,
+          "svgId": "direction-270-trials.point.10",
+          "x": 42.475918,
+          "y": 0.895
+        },
+        {
+          "index": 11,
+          "svgId": "direction-270-trials.point.11",
+          "x": 51.027763,
+          "y": 0.7050000000000001
+        },
+        {
+          "index": 12,
+          "svgId": "direction-270-trials.point.12",
+          "x": 25.125364,
+          "y": 0.7050000000000001
+        },
+        {
+          "index": 13,
+          "svgId": "direction-270-trials.point.13",
+          "x": 74.91256,
+          "y": 0.8
+        },
+        {
+          "index": 14,
+          "svgId": "direction-270-trials.point.14",
+          "x": 66.895279,
+          "y": 0.7050000000000001
+        }
+      ],
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "direction-270-trials.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "role": "line",
+          "svgId": "direction-270-mean-ci.line"
+        }
+      ],
+      "data": {
+        "x": [
+          36.85047022833333,
+          58.11208407166667
+        ],
+        "y": [
+          1.0,
+          1.0
+        ]
+      },
+      "id": "direction-270-mean-ci",
+      "kind": "line",
+      "name": "direction-270-mean-ci",
+      "roles": [
+        "line"
+      ],
+      "svg": {
+        "line": "direction-270-mean-ci.line"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "members": [
+            "direction-270-mean.point.0"
+          ],
+          "role": "point",
+          "svgId": "direction-270-mean.points"
+        }
+      ],
+      "data": {
+        "x": [
+          46.98994253333333
+        ],
+        "y": [
+          1.0
+        ]
+      },
+      "id": "direction-270-mean",
+      "kind": "scatter",
+      "name": "direction-270-mean",
+      "points": [
+        {
+          "index": 0,
+          "svgId": "direction-270-mean.point.0",
+          "x": 46.98994253333333,
+          "y": 1.0
+        }
+      ],
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "direction-270-mean.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-trial-density",
+          "svgId": "direction-315-density.x-trial-density"
+        }
+      ],
+      "data": {},
+      "id": "direction-315-density",
+      "kind": "x-trial-density",
+      "name": "direction-315-density",
+      "roles": [
+        "x-trial-density"
+      ],
+      "svg": {
+        "x-trial-density": "direction-315-density.x-trial-density"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "role": "line",
+          "svgId": "direction-315-density-outline.line"
+        }
+      ],
+      "data": {
+        "x": [
+          -61.30206122947979,
+          -60.32096659931632,
+          -59.339871969152846,
+          -58.35877733898938,
+          -57.3776827088259,
+          -56.39658807866243,
+          -55.415493448498964,
+          -54.43439881833549,
+          -53.45330418817202,
+          -52.472209558008544,
+          -51.491114927845075,
+          -50.510020297681606,
+          -49.52892566751813,
+          -48.54783103735466,
+          -47.566736407191186,
+          -46.58564177702772,
+          -45.60454714686425,
+          -44.62345251670077,
+          -43.6423578865373,
+          -42.66126325637383,
+          -41.68016862621036,
+          -40.69907399604689,
+          -39.717979365883416,
+          -38.73688473571994,
+          -37.75579010555647,
+          -36.774695475393,
+          -35.793600845229534,
+          -34.81250621506606,
+          -33.83141158490258,
+          -32.850316954739114,
+          -31.869222324575645,
+          -30.888127694412173,
+          -29.9070330642487,
+          -28.925938434085232,
+          -27.944843803921756,
+          -26.963749173758288,
+          -25.982654543594812,
+          -25.001559913431343,
+          -24.020465283267875,
+          -23.0393706531044,
+          -22.05827602294093,
+          -21.077181392777455,
+          -20.096086762613986,
+          -19.114992132450517,
+          -18.13389750228704,
+          -17.152802872123573,
+          -16.171708241960097,
+          -15.190613611796628,
+          -14.209518981633153,
+          -13.228424351469684,
+          -12.247329721306215,
+          -11.26623509114274,
+          -10.285140460979271,
+          -9.304045830815795,
+          -8.322951200652327,
+          -7.341856570488858,
+          -6.360761940325382,
+          -5.3796673101619135,
+          -4.398572679998438,
+          -3.417478049834969,
+          -2.4363834196715004,
+          -1.4552887895080246,
+          -0.474194159344556,
+          0.5069004708189198,
+          1.4879951009823884,
+          2.469089731145857,
+          3.4501843613093257,
+          4.431278991472809,
+          5.412373621636277,
+          6.393468251799746,
+          7.3745628819632145,
+          8.355657512126683,
+          9.336752142290166,
+          10.317846772453635,
+          11.298941402617103,
+          12.280036032780572,
+          13.26113066294404,
+          14.242225293107523,
+          15.223319923270992,
+          16.20441455343446,
+          17.18550918359793,
+          18.166603813761398,
+          19.14769844392488,
+          20.12879307408835,
+          21.10988770425182,
+          22.090982334415287,
+          23.072076964578756,
+          24.05317159474224,
+          25.034266224905707,
+          26.015360855069176,
+          26.996455485232644,
+          27.977550115396113,
+          28.958644745559596,
+          29.939739375723065,
+          30.920834005886533,
+          31.901928636050002,
+          32.883023266213485,
+          33.86411789637695,
+          34.84521252654042,
+          35.82630715670389,
+          36.80740178686736,
+          37.78849641703084,
+          38.76959104719431,
+          39.75068567735778,
+          40.73178030752125,
+          41.71287493768472,
+          42.6939695678482,
+          43.67506419801167,
+          44.65615882817514,
+          45.637253458338606,
+          46.618348088502074,
+          47.59944271866556,
+          48.580537348829026,
+          49.561631978992494,
+          50.54272660915596,
+          51.52382123931943,
+          52.504915869482915,
+          53.48601049964638,
+          54.46710512980985,
+          55.44819975997332,
+          56.42929439013679,
+          57.41038902030027,
+          58.39148365046374,
+          59.37257828062721,
+          60.35367291079068,
+          61.33476754095415,
+          62.31586217111763,
+          63.2969568012811,
+          64.27805143144457,
+          65.25914606160804,
+          66.2402406917715,
+          67.22133532193499,
+          68.20242995209844,
+          69.18352458226192,
+          70.16461921242541,
+          71.14571384258886,
+          72.12680847275234,
+          73.1079031029158,
+          74.08899773307928,
+          75.07009236324276,
+          76.05118699340622,
+          77.0322816235697,
+          78.01337625373316,
+          78.99447088389664,
+          79.97556551406012,
+          80.95666014422358,
+          81.93775477438706,
+          82.91884940455051,
+          83.899944034714,
+          84.88103866487748,
+          85.86213329504093,
+          86.84322792520442,
+          87.82432255536787,
+          88.80541718553135,
+          89.78651181569484,
+          90.76760644585829,
+          91.74870107602177,
+          92.72979570618523,
+          93.71089033634871,
+          94.6919849665122,
+          95.67307959667565,
+          96.65417422683913,
+          97.63526885700259,
+          98.61636348716607,
+          99.59745811732955,
+          100.578552747493,
+          101.55964737765649,
+          102.54074200781994,
+          103.52183663798343,
+          104.50293126814691,
+          105.48402589831036,
+          106.46512052847385,
+          107.4462151586373,
+          108.42730978880078,
+          109.40840441896427,
+          110.38949904912772,
+          111.3705936792912,
+          112.35168830945466,
+          113.33278293961814,
+          114.31387756978162,
+          115.29497219994508,
+          116.27606683010856,
+          117.25716146027202,
+          118.2382560904355,
+          119.21935072059898,
+          120.20044535076244,
+          121.18153998092592,
+          122.16263461108937,
+          123.14372924125286,
+          124.12482387141634,
+          125.1059185015798,
+          126.08701313174328,
+          127.06810776190676,
+          128.0492023920702,
+          129.0302970222337,
+          130.01139165239715,
+          130.99248628256063,
+          131.97358091272412,
+          132.95467554288757,
+          133.93577017305105,
+          134.9168648032145,
+          135.897959433378,
+          136.87905406354147,
+          137.86014869370493,
+          138.8412433238684,
+          139.82233795403187,
+          140.80343258419535,
+          141.78452721435883,
+          142.7656218445223,
+          143.74671647468577,
+          144.72781110484922,
+          145.7089057350127,
+          146.6900003651762,
+          147.67109499533964,
+          148.65218962550313,
+          149.63328425566658,
+          150.61437888583006,
+          151.59547351599355,
+          152.576568146157,
+          153.55766277632048
+        ],
+        "y": [
+          0.035526675841870844,
+          0.0357791194759395,
+          0.03613242174583989,
+          0.036617222072657996,
+          0.037269370859070554,
+          0.03812922353254433,
+          0.03924022337014204,
+          0.040646684178017485,
+          0.04239076818757388,
+          0.04450876996075915,
+          0.0470269527860402,
+          0.04995732099727396,
+          0.053293824323513414,
+          0.057009550453517965,
+          0.06105544401540028,
+          0.06536097819390144,
+          0.0698369990190078,
+          0.07438068144003274,
+          0.0788822199669311,
+          0.08323257941294027,
+          0.0873314134514982,
+          0.09109417390432097,
+          0.09445751550917209,
+          0.09738235230846594,
+          0.0998543100286206,
+          0.10188177828164162,
+          0.1034922095209912,
+          0.10472764611659371,
+          0.10564060577631186,
+          0.10629137567833223,
+          0.10674745970289747,
+          0.10708544184592424,
+          0.10739496288763599,
+          0.10778396952660654,
+          0.10838399734506683,
+          0.10935407834820123,
+          0.11088196402683233,
+          0.11318171593418239,
+          0.11648727507914619,
+          0.12104227566589153,
+          0.12708699370481172,
+          0.13484379599302213,
+          0.1445026861130867,
+          0.15620848337348747,
+          0.1700508262727545,
+          0.18605762917373753,
+          0.20419195139994065,
+          0.224351601738764,
+          0.24637034041126635,
+          0.2700193708605334,
+          0.295007998652803,
+          0.3209828662136628,
+          0.3475259632674387,
+          0.37415250686490376,
+          0.4003105797348414,
+          0.42538490268488527,
+          0.44870712626059217,
+          0.46957447165021815,
+          0.4872774566195295,
+          0.5011359561298143,
+          0.5105412190255476,
+          0.515,
+          0.5141759746069027,
+          0.5079233191342772,
+          0.4963078665630265,
+          0.4796125498488911,
+          0.45832571879038364,
+          0.4331130577244241,
+          0.4047758784361626,
+          0.3742001787725655,
+          0.34230179458352417,
+          0.30997311702843766,
+          0.27803623326301885,
+          0.24720614002759178,
+          0.21806612650147097,
+          0.19105580354187335,
+          0.16647082231710614,
+          0.1444722574059965,
+          0.12510301647715075,
+          0.10830847759121404,
+          0.09395876972981915,
+          0.0818705825196395,
+          0.071826985720851,
+          0.06359434126943983,
+          0.056935915844105865,
+          0.05162220345839409,
+          0.04743823365679203,
+          0.04418828531512425,
+          0.04169847679446348,
+          0.03981769203739461,
+          0.03841725722807235,
+          0.03738972446402594,
+          0.036647059928051944,
+          0.03611847997384489,
+          0.03574813063131868,
+          0.03549276351019003,
+          0.035319522779055534,
+          0.03520392319791439,
+          0.03512806819394409,
+          0.03507913029971619,
+          0.03504809462434181,
+          0.03502874984955678,
+          0.03501690052750034,
+          0.03500976871731968,
+          0.035005551372969713,
+          0.03500310132501235,
+          0.03500170310526461,
+          0.035000919286182056,
+          0.035000487693081055,
+          0.03500025427526835,
+          0.03500013028709829,
+          0.03500006560232914,
+          0.03500003245942551,
+          0.03500001578161249,
+          0.035000007539420765,
+          0.035000003539071504,
+          0.03500000163228331,
+          0.035000000739686885,
+          0.035000000329335756,
+          0.035000000144066096,
+          0.03500000006191713,
+          0.03500000002614453,
+          0.035000000010845946,
+          0.03500000000442045,
+          0.03500000000177001,
+          0.035000000000696294,
+          0.0350000000002691,
+          0.03500000000010217,
+          0.03500000000003811,
+          0.03500000000001397,
+          0.035000000000005034,
+          0.03500000000000178,
+          0.03500000000000062,
+          0.03500000000000021,
+          0.03500000000000007,
+          0.035000000000000024,
+          0.03500000000000001,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035
+        ]
+      },
+      "id": "direction-315-density-outline",
+      "kind": "line",
+      "name": "direction-315-density-outline",
+      "roles": [
+        "line"
+      ],
+      "svg": {
+        "line": "direction-315-density-outline.line"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "members": [
+            "direction-315-trials.point.0",
+            "direction-315-trials.point.1",
+            "direction-315-trials.point.2",
+            "direction-315-trials.point.3",
+            "direction-315-trials.point.4",
+            "direction-315-trials.point.5",
+            "direction-315-trials.point.6",
+            "direction-315-trials.point.7",
+            "direction-315-trials.point.8",
+            "direction-315-trials.point.9",
+            "direction-315-trials.point.10",
+            "direction-315-trials.point.11",
+            "direction-315-trials.point.12",
+            "direction-315-trials.point.13",
+            "direction-315-trials.point.14"
+          ],
+          "role": "point",
+          "svgId": "direction-315-trials.points"
+        }
+      ],
+      "data": {
+        "x": [
+          3.269753,
+          1.668076,
+          -27.590813,
+          -0.408576,
+          -6.060729,
+          -13.522749,
+          9.345995,
+          -1.349187,
+          -9.197499,
+          0.94063,
+          -39.2206,
+          -9.283107,
+          -0.487426,
+          -0.799554,
+          1.394931
+        ],
+        "y": [
+          -0.2,
+          -0.105,
+          -0.2,
+          -0.105,
+          -0.295,
+          -0.295,
+          -0.295,
+          -0.105,
+          -0.2,
+          -0.2,
+          -0.105,
+          -0.105,
+          -0.295,
+          -0.2,
+          -0.295
+        ]
+      },
+      "id": "direction-315-trials",
+      "kind": "scatter",
+      "name": "direction-315-trials",
+      "points": [
+        {
+          "index": 0,
+          "svgId": "direction-315-trials.point.0",
+          "x": 3.269753,
+          "y": -0.2
+        },
+        {
+          "index": 1,
+          "svgId": "direction-315-trials.point.1",
+          "x": 1.668076,
+          "y": -0.105
+        },
+        {
+          "index": 2,
+          "svgId": "direction-315-trials.point.2",
+          "x": -27.590813,
+          "y": -0.2
+        },
+        {
+          "index": 3,
+          "svgId": "direction-315-trials.point.3",
+          "x": -0.408576,
+          "y": -0.105
+        },
+        {
+          "index": 4,
+          "svgId": "direction-315-trials.point.4",
+          "x": -6.060729,
+          "y": -0.295
+        },
+        {
+          "index": 5,
+          "svgId": "direction-315-trials.point.5",
+          "x": -13.522749,
+          "y": -0.295
+        },
+        {
+          "index": 6,
+          "svgId": "direction-315-trials.point.6",
+          "x": 9.345995,
+          "y": -0.295
+        },
+        {
+          "index": 7,
+          "svgId": "direction-315-trials.point.7",
+          "x": -1.349187,
+          "y": -0.105
+        },
+        {
+          "index": 8,
+          "svgId": "direction-315-trials.point.8",
+          "x": -9.197499,
+          "y": -0.2
+        },
+        {
+          "index": 9,
+          "svgId": "direction-315-trials.point.9",
+          "x": 0.94063,
+          "y": -0.2
+        },
+        {
+          "index": 10,
+          "svgId": "direction-315-trials.point.10",
+          "x": -39.2206,
+          "y": -0.105
+        },
+        {
+          "index": 11,
+          "svgId": "direction-315-trials.point.11",
+          "x": -9.283107,
+          "y": -0.105
+        },
+        {
+          "index": 12,
+          "svgId": "direction-315-trials.point.12",
+          "x": -0.487426,
+          "y": -0.295
+        },
+        {
+          "index": 13,
+          "svgId": "direction-315-trials.point.13",
+          "x": -0.799554,
+          "y": -0.2
+        },
+        {
+          "index": 14,
+          "svgId": "direction-315-trials.point.14",
+          "x": 1.394931,
+          "y": -0.295
+        }
+      ],
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "direction-315-trials.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "role": "line",
+          "svgId": "direction-315-mean-ci.line"
+        }
+      ],
+      "data": {
+        "x": [
+          -12.697882244999995,
+          -0.4408557550000009
+        ],
+        "y": [
+          0.0,
+          0.0
+        ]
+      },
+      "id": "direction-315-mean-ci",
+      "kind": "line",
+      "name": "direction-315-mean-ci",
+      "roles": [
+        "line"
+      ],
+      "svg": {
+        "line": "direction-315-mean-ci.line"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "members": [
+            "direction-315-mean.point.0"
+          ],
+          "role": "point",
+          "svgId": "direction-315-mean.points"
+        }
+      ],
+      "data": {
+        "x": [
+          -6.086723666666667
+        ],
+        "y": [
+          0.0
+        ]
+      },
+      "id": "direction-315-mean",
+      "kind": "scatter",
+      "name": "direction-315-mean",
+      "points": [
+        {
+          "index": 0,
+          "svgId": "direction-315-mean.point.0",
+          "x": -6.086723666666667,
+          "y": 0.0
+        }
+      ],
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "direction-315-mean.points"
+      }
+    }
+  ],
+  "size": {
+    "height": 237.6,
+    "unit": "pt",
+    "width": 252.0
+  },
+  "spec": "fluxplot/manifest",
+  "svg": "17-trial-response-raincloud.svg"
+}
