@@ -82,7 +82,6 @@ description: "Figures, presentations, literature, and papers in one connected wo
       aria-label="Main navigation"
     >
       <a href="#explore">Explore</a>
-      <a href="#only-flux">Only in Flux</a>
       <a href="#connected">How it connects</a>
       <a href="https://github.com/fluxsci/flux/blob/main/docs/index.qmd"
         >User guide<svg class="icon external-icon" aria-hidden="true">
@@ -305,195 +304,6 @@ description: "Figures, presentations, literature, and papers in one connected wo
   </section>
 
   <section
-    id="only-flux"
-    class="signature-section section-space"
-    aria-labelledby="signature-title"
-  >
-    <div class="content-width">
-      <div class="signature-heading">
-        <p class="eyebrow">Only in Flux</p>
-        <h2 id="signature-title">
-          Your work stays connected.<br /><em>Down to the last detail.</em>
-        </h2>
-        <p>
-          Refine a curve. Animate a result. Ask an agent to adjust a label.
-          Flux understands the parts of your work, so the same plot can become
-          a figure, a presentation, and a paper without losing its meaning.
-        </p>
-      </div>
-      <div
-        class="xray"
-        id="semantic-plot"
-        data-xray
-        data-figure="fig-neural-structure"
-        data-initial="1"
-        data-states="1 Hz|assets/media/xray/tuning-landscape-1hz.svg|plots/advanced/16-tuning-landscape-1hz.svg;2 Hz|assets/media/xray/tuning-landscape-2hz.svg|plots/advanced/16-tuning-landscape-2hz.svg;4 Hz|assets/media/xray/tuning-landscape-4hz.svg|plots/advanced/16-tuning-landscape-4hz.svg"
-        data-reveal
-      >
-        <div class="xray-stage-wrap">
-          <div class="xray-topline">
-            <span
-              ><span class="status-dot"></span>Try it: one plot, every part editable</span
-            ><code data-xray-file>plots/advanced/16-tuning-landscape-2hz.svg</code>
-          </div>
-          <div class="xray-stage" data-xray-stage>
-            <img
-              src="assets/media/xray/tuning-landscape-2hz.svg"
-              alt="Direction tuning of six identified neurons at 2 Hz: eight measured means per cell with a smooth guide curve, one row per cell."
-              width="331"
-              height="312"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-          <div
-            class="xray-states"
-            role="group"
-            aria-label="Regenerate the plot at another temporal frequency"
-          >
-            <span class="xray-states-label">Rerun the analysis at</span>
-            <button type="button" data-xray-state="0" aria-pressed="false">1 Hz</button>
-            <button type="button" data-xray-state="1" aria-pressed="true">2 Hz</button>
-            <button type="button" data-xray-state="2" aria-pressed="false">4 Hz</button>
-          </div>
-        </div>
-        <aside class="xray-panel" aria-label="X-ray of the plot">
-          <p class="xray-panel-label">X-ray</p>
-          <div class="xray-readout" data-xray-readout aria-live="polite">
-            <p class="xray-hint">
-              Every curve, point, tick and title in this file carries a stable
-              name. With scripts on, move over the plot to read them.
-            </p>
-          </div>
-          <ul class="xray-parts" data-xray-parts aria-label="Named series in this plot"></ul>
-          <div class="xray-command">
-            <span class="xray-command-label">The same name, from the terminal</span
-            ><code data-xray-command
-              >flux restyle fig-neural-structure cell-587375741-guide.line --stroke '#205ea6'</code
-            >
-          </div>
-        </aside>
-        <p class="xray-caption">
-          Select a curve to change its color, then choose another frequency.
-          The data change; your styling stays. This is a real plot from the
-          <a href="#example-project">downloadable example project</a>.
-        </p>
-      </div>
-      <div class="signature-stories">
-        <article class="story" data-reveal>
-          <div class="story-media story-media--diagram">
-            <svg
-              class="surfaces-diagram"
-              viewBox="0 0 600 236"
-              role="img"
-              aria-labelledby="surfaces-title surfaces-desc"
-            >
-              <title id="surfaces-title">One plot, three surfaces</title>
-              <desc id="surfaces-desc">
-                The same named plot panel in a figure, sent to a slide where it
-                gains animation steps, and inserted into a paper where it stays
-                interactive.
-              </desc>
-              <defs>
-                <pattern id="surfaces-heat" width="6" height="6" patternUnits="userSpaceOnUse">
-                  <rect width="6" height="6" fill="#dce6e3" />
-                  <rect width="3" height="3" fill="#8fbfba" />
-                  <rect x="3" y="3" width="3" height="3" fill="#2f7f79" />
-                </pattern>
-              </defs>
-              <g class="surface">
-                <rect x="14" y="26" width="160" height="112" rx="4" />
-                <text x="26" y="47" class="letter">c</text>
-                <rect x="44" y="44" width="112" height="72" fill="url(#surfaces-heat)" class="panel" />
-                <path d="M44 116h112M44 44v72" class="axis" />
-                <text x="14" y="164" class="label">Figure 1 · panel c</text>
-                <text x="14" y="180" class="sub">selected: cell-responses.x-heatmap</text>
-              </g>
-              <g class="link">
-                <path d="M180 82h34" />
-                <path d="M210 77l6 5-6 5" />
-                <text x="197" y="68" class="link-label" text-anchor="middle">Send to deck</text>
-              </g>
-              <g class="surface">
-                <rect x="222" y="26" width="160" height="86" rx="4" class="stage" />
-                <rect x="248" y="38" width="96" height="60" fill="url(#surfaces-heat)" class="panel" />
-                <path d="M248 98h96M248 38v60" class="axis" />
-                <text x="356" y="94" class="letter" text-anchor="end">c</text>
-                <g class="beats">
-                  <rect x="222" y="120" width="46" height="16" rx="3" />
-                  <rect x="274" y="120" width="46" height="16" rx="3" class="beat-active" />
-                  <rect x="326" y="120" width="56" height="16" rx="3" />
-                  <text x="245" y="131" text-anchor="middle">1</text>
-                  <text x="297" y="131" text-anchor="middle" class="beat-active-label">2</text>
-                  <text x="354" y="131" text-anchor="middle">3</text>
-                </g>
-                <text x="222" y="164" class="label">Slide · step 2 of 3</text>
-                <text x="222" y="180" class="sub">same parts, plus a timeline</text>
-              </g>
-              <g class="link">
-                <path d="M388 82h34" />
-                <path d="M418 77l6 5-6 5" />
-                <text x="405" y="68" class="link-label" text-anchor="middle">Insert slide</text>
-              </g>
-              <g class="surface">
-                <rect x="430" y="26" width="156" height="112" rx="4" />
-                <path d="M444 44h128M444 54h104M444 64h118" class="prose" />
-                <rect x="470" y="74" width="76" height="46" fill="url(#surfaces-heat)" class="panel" />
-                <path d="M470 120h76M470 74v46" class="axis" />
-                <path d="M444 130h128" class="prose" />
-                <text x="430" y="164" class="label">Paper · still interactive</text>
-                <text x="430" y="180" class="sub">HTML plays the steps; PDF keeps step 0</text>
-              </g>
-              <text x="14" y="222" class="foot">One object, three surfaces. Every part keeps its name across all of them.</text>
-            </svg>
-          </div>
-          <div class="story-copy">
-            <span class="story-index">01</span>
-            <h3>A slide is a figure with a timeline.</h3>
-            <p>
-              Send a figure to a deck and you are still on the same canvas, with
-              the same tools and the same named parts; Flux adds steps. Reveal
-              the heatmap, draw the network edges on, bring in the
-              interpretation, then place that slide back into the paper, where
-              it keeps playing.
-            </p>
-            <a class="text-link" href="#slides"
-              >Step through a real slide below<svg class="icon" aria-hidden="true">
-                <use href="#i-arrow" /></svg
-            ></a>
-          </div>
-        </article>
-        <article class="story" data-reveal style="--reveal-delay: 120ms">
-          <div
-            class="story-media story-terminal"
-            role="img"
-            aria-label="Three Flux commands: restyle a named series in a figure, animate a named network part so its edges draw on during a slide step, and render the figure to PNG."
-          >
-            <div><span class="comment"># the same names an agent or a script can use</span></div>
-            <div><span class="prompt">$</span> flux restyle fig-neural-populations direction-90-cells.points --fill '#205ea6'</div>
-            <div><span class="prompt">$</span> flux set-animation neural-populations results relationships --target response-network --part signal-correlation-edges.x-similarity-edges --preset drawOn</div>
-            <div><span class="prompt">$</span> flux render-figure fig-neural-populations --png</div>
-          </div>
-          <div class="story-copy">
-            <span class="story-index">02</span>
-            <h3>Point at the part you mean, from anywhere.</h3>
-            <p>
-              The ids in the file are the ids in the app, on the command line,
-              and over MCP. An agent working in your project restyles the
-              series you name, animates the edges you name, and renders the
-              result for you to review in the same workspace where you write.
-            </p>
-            <a class="text-link" href="#agents"
-              >How agents work in Flux<svg class="icon" aria-hidden="true">
-                <use href="#i-arrow" /></svg
-            ></a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section
     id="paper"
     class="module-section paper-section content-width section-space"
     aria-labelledby="paper-title"
@@ -606,6 +416,64 @@ description: "Figures, presentations, literature, and papers in one connected wo
           >
         </figcaption>
       </figure>
+      <div
+        class="xray"
+        id="semantic-plot"
+        data-xray
+        data-figure="fig-neural-structure"
+        data-initial="1"
+        data-states="1 Hz|assets/media/xray/tuning-landscape-1hz.svg|plots/advanced/16-tuning-landscape-1hz.svg;2 Hz|assets/media/xray/tuning-landscape-2hz.svg|plots/advanced/16-tuning-landscape-2hz.svg;4 Hz|assets/media/xray/tuning-landscape-4hz.svg|plots/advanced/16-tuning-landscape-4hz.svg"
+        data-reveal
+      >
+        <div class="xray-stage-wrap">
+          <div class="xray-topline">
+            <span
+              ><span class="status-dot"></span>Try it: one plot, every part editable</span
+            ><code data-xray-file>plots/advanced/16-tuning-landscape-2hz.svg</code>
+          </div>
+          <div class="xray-stage" data-xray-stage>
+            <img
+              src="assets/media/xray/tuning-landscape-2hz.svg"
+              alt="Direction tuning of six identified neurons at 2 Hz: eight measured means per cell with a smooth guide curve, one row per cell."
+              width="331"
+              height="312"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div
+            class="xray-states"
+            role="group"
+            aria-label="Regenerate the plot at another temporal frequency"
+          >
+            <span class="xray-states-label">Rerun the analysis at</span>
+            <button type="button" data-xray-state="0" aria-pressed="false">1 Hz</button>
+            <button type="button" data-xray-state="1" aria-pressed="true">2 Hz</button>
+            <button type="button" data-xray-state="2" aria-pressed="false">4 Hz</button>
+          </div>
+        </div>
+        <aside class="xray-panel" aria-label="X-ray of the plot">
+          <p class="xray-panel-label">X-ray</p>
+          <div class="xray-readout" data-xray-readout aria-live="polite">
+            <p class="xray-hint">
+              Every curve, point, tick and title in this file carries a stable
+              name. With scripts on, move over the plot to read them.
+            </p>
+          </div>
+          <ul class="xray-parts" data-xray-parts aria-label="Named series in this plot"></ul>
+          <div class="xray-command">
+            <span class="xray-command-label">The same name, from the terminal</span
+            ><code data-xray-command
+              >flux restyle fig-neural-structure cell-587375741-guide.line --stroke '#205ea6'</code
+            >
+          </div>
+        </aside>
+        <p class="xray-caption">
+          Select a curve to change its color, then choose another frequency.
+          The data change; your styling stays. This is a real plot from the
+          <a href="#example-project">downloadable example project</a>.
+        </p>
+      </div>
       <figure class="science-plate module-visual" data-reveal>
         <a class="media-enlarge" href="assets/media/neural-figure.webp" data-enlarge
           data-caption="Neuronal networks flexibly encode diverse stimuli. An original eleven-panel Flux composition of public Allen Institute data: brain anatomy, reconstructed neurons, a 143-cell response atlas, example cells, population trajectories, similarity structure and tuning statistics. The anatomy and response recordings come from separate datasets."
@@ -635,9 +503,9 @@ description: "Figures, presentations, literature, and papers in one connected wo
         </div>
         <div class="module-copy">
           <p>
-            Build the explanation as carefully as the figure. Reveal a series,
-            draw attention to a change, and let the audience follow one step at
-            a time.
+            Send a figure to your deck and give it a timeline. Reveal a series,
+            draw on network edges, and guide the audience through your result
+            one step at a time.
           </p>
           <p>
             Then insert the slide into a document. The explanation stays
@@ -1069,9 +937,10 @@ description: "Figures, presentations, literature, and papers in one connected wo
         </div>
         <div class="module-copy">
           <p>
-            Give an agent the project’s mission, working notes, and rules. Let
-            it work through Flux’s tools and files, then review the result in
-            the same workspace where you write and compose.
+            An agent can read your project’s mission, working notes, and rules,
+            then work with the same figures, slides, and files you use. Ask it
+            to restyle a series or animate a plot, and review the result in
+            your workspace.
           </p>
           <p>
             You choose whether to bring an agent into the work, and which

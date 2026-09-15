@@ -106,7 +106,7 @@ then checks Paper, Figure and Slides. Its screenshots and results stay under `.c
 
 ## Semantic-plot explorer assets
 
-The homepage's "Only in Flux" section inlines a real fluxplot file and lets the visitor read
+The homepage's Figure section inlines a real fluxplot file and lets the visitor read
 its named parts, restyle a series and switch between regenerated states. The three files it
 reads are byte copies of the project's Data Morph trio,
 `examples/neural-populations/plots/advanced/16-tuning-landscape-{1,2,4}hz.svg`, kept under

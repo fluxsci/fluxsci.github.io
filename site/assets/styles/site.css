@@ -2834,28 +2834,13 @@ html.intro .site-header {
 }
 
 /* ------------------------------------------------------------------ */
-/* Only in Flux: named parts, one object across surfaces, the terminal. */
+/* Interactive plot detail within the Figure workspace section.       */
 /* ------------------------------------------------------------------ */
-.signature-section {
-  border-bottom: 1px solid var(--rule);
-}
-.signature-heading {
-  max-width: 760px;
-}
-.signature-heading h2 em {
-  color: var(--blue);
-}
-.signature-heading > p:last-child {
-  max-width: 640px;
-  margin-top: 26px;
-  font-size: 19px;
-  line-height: 1.7;
-}
 .xray {
+  grid-column: 1 / -1;
   display: grid;
   grid-template-columns: minmax(0, 1.45fr) minmax(280px, 1fr);
   gap: 36px 44px;
-  margin-top: 64px;
   align-items: start;
 }
 .xray-topline {
@@ -2995,7 +2980,7 @@ html.intro .site-header {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--blue);
-  border: 1px solid #205ea655;
+  border: 1px solid color-mix(in srgb, var(--blue) 35%, transparent);
   border-radius: 3px;
   padding: 4px 7px;
   margin-bottom: 10px;
@@ -3094,129 +3079,23 @@ html.intro .site-header {
   background: none;
   padding: 0;
 }
-.signature-stories {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 56px 8%;
-  margin-top: 88px;
-}
-.story {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-.story-media {
-  border: 1px solid var(--rule);
-  border-radius: 10px;
-  overflow: hidden;
-  background: var(--inset);
-}
-.story-media--pair {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1px;
-  background: var(--rule);
-}
-.story-media--pair > figure {
-  position: relative;
-  aspect-ratio: 5 / 4;
-  overflow: hidden;
-  background: var(--inset);
-}
-.story-media--pair img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.story-media--pair figcaption {
-  position: absolute;
-  left: 10px;
-  bottom: 10px;
-  font: 10px/1.4 var(--sans);
-  font-weight: 550;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #100f0f;
-  background: #fffcf0e6;
-  border: 1px solid #dad8ce;
-  border-radius: 3px;
-  padding: 5px 8px;
-}
-.story-terminal {
-  padding: 22px 24px;
-  background: #100f0f;
-  color: #e6e4d9;
-  font: 12px/1.9 var(--mono);
-  border-color: #403e3c;
-}
-.story-terminal .prompt {
-  color: #83b5d4;
-}
-.story-terminal .comment {
-  color: #878580;
-}
-.story-terminal > div {
-  overflow-wrap: anywhere;
-}
-.story-terminal > div + div {
-  margin-top: 4px;
-}
-.story-copy .story-index {
-  font: 10px var(--mono);
-  color: var(--blue);
-}
-.story-copy h3 {
-  font-size: 27px;
-  margin-top: 12px;
-}
-.story-copy p {
-  font-size: 16px;
-  line-height: 1.7;
-  margin-top: 14px;
-  max-width: 480px;
-}
-.story-copy .text-link {
-  margin-top: 8px;
-  font-size: 12px;
-}
 @media (max-width: 1100px) {
   .xray {
     gap: 28px 32px;
   }
-  .signature-stories {
-    gap: 44px 6%;
-  }
 }
 @media (max-width: 800px) {
-  .signature-heading > p:last-child {
-    font-size: 17px;
-    margin-top: 22px;
-  }
   .xray {
     grid-template-columns: 1fr;
-    margin-top: 44px;
   }
   .xray-panel {
     padding: 18px 18px 16px;
-  }
-  .signature-stories {
-    grid-template-columns: 1fr;
-    gap: 44px;
-    margin-top: 60px;
-  }
-  .story-copy h3 {
-    font-size: 24px;
   }
 }
 @media (max-width: 560px) {
   .hero-mark {
     width: 86px;
     height: 86px;
-  }
-  .signature-heading h2 {
-    font-size: 36px;
   }
   .xray-stage {
     border-radius: 6px;
@@ -3231,19 +3110,6 @@ html.intro .site-header {
   .xray-states-label {
     flex-basis: 100%;
   }
-  .story-media--pair {
-    grid-template-columns: 1fr;
-  }
-  .story-media--pair > figure {
-    aspect-ratio: 16 / 10;
-  }
-  .story-terminal {
-    padding: 16px 16px;
-    font-size: 11px;
-  }
-  .story-copy p {
-    font-size: 15px;
-  }
 }
 @media print {
   .xray-states,
@@ -3251,88 +3117,4 @@ html.intro .site-header {
   .xray-command {
     display: none;
   }
-  .story-terminal {
-    background: #fff;
-    color: #100f0f;
-  }
-}
-
-/* The one-object-three-surfaces diagram (story 01). Selectable text, theme-aware. */
-.story-media--diagram {
-  padding: 18px 16px 10px;
-  background: var(--paper);
-}
-.surfaces-diagram {
-  width: 100%;
-  height: auto;
-  font-family: var(--sans);
-}
-.surfaces-diagram .surface > rect {
-  fill: var(--inset);
-  stroke: var(--rule);
-  stroke-width: 1;
-}
-.surfaces-diagram .surface > rect.stage {
-  fill: #fff;
-  stroke: #575653;
-}
-.surfaces-diagram .panel {
-  stroke: none;
-}
-.surfaces-diagram .axis,
-.surfaces-diagram .prose {
-  fill: none;
-  stroke: var(--muted);
-  stroke-width: 1;
-  stroke-linecap: round;
-}
-.surfaces-diagram .prose {
-  stroke: var(--rule);
-  stroke-width: 2;
-}
-.surfaces-diagram .letter {
-  font-size: 11px;
-  font-weight: 700;
-  fill: var(--ink);
-}
-.surfaces-diagram .label {
-  font-size: 11px;
-  font-weight: 550;
-  fill: var(--ink);
-}
-.surfaces-diagram .sub {
-  font-size: 9px;
-  fill: var(--muted);
-}
-.surfaces-diagram .foot {
-  font-size: 9.5px;
-  fill: var(--muted);
-}
-.surfaces-diagram .link path {
-  fill: none;
-  stroke: var(--blue);
-  stroke-width: 1.2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-.surfaces-diagram .link-label {
-  font-size: 8.5px;
-  fill: var(--blue);
-}
-.surfaces-diagram .beats rect {
-  fill: var(--paper);
-  stroke: var(--rule);
-  stroke-width: 1;
-}
-.surfaces-diagram .beats rect.beat-active {
-  fill: var(--blue);
-  stroke: var(--blue);
-}
-.surfaces-diagram .beats text {
-  font-size: 9px;
-  font-family: var(--mono);
-  fill: var(--ink);
-}
-.surfaces-diagram .beats text.beat-active-label {
-  fill: var(--button-ink);
 }
