@@ -37,6 +37,7 @@ format:
       text: |
         <meta name="color-scheme" content="light dark">
         <script>try{const theme=localStorage.getItem('flux-site-appearance');if(theme==='light'||theme==='dark')document.documentElement.setAttribute('data-theme',theme)}catch{}</script>
+        <script>(function(){var h=document.documentElement;h.classList.add('js');try{if(!sessionStorage.getItem('flux-intro')){sessionStorage.setItem('flux-intro','1');h.classList.add('intro')}}catch(e){h.classList.add('intro')}})()</script>
         <link rel="canonical" href="https://fluxsci.github.io/">
         <meta property="og:type" content="website">
         <meta property="og:url" content="https://fluxsci.github.io/">

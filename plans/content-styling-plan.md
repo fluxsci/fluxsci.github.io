@@ -121,7 +121,7 @@ Aim for roughly 900–1,200 words across the homepage, with substantial visual s
 | Order / anchor | Message and content | Composition and media |
 | --- | --- | --- |
 | 1. Hero | The studio, the five kinds of work, files you own; two entry actions | Warm paper, large serif title, one wide `S01` screenshot beneath the copy. Avoid a tiny collage of five unreadable windows. |
-| 2. Principles | Connected work, owned files, meaningful plots, immediate editing, optional agent collaboration | Five short statements in a quiet two-column editorial list; one small connection diagram. No decorative scorecards. |
+| 2. Only in Flux | The signature capabilities: named plot parts (fluxplot), one object across Figure/Slides/Paper, addressability from the terminal and agents | A browser-side semantic-plot explorer on a real project file (hover names parts, click restyles, regenerated states morph by id), a three-surface diagram and a terminal block. Replaces the earlier generic principles list. |
 | 3. `#paper` | Write with citations, figures, and the margin close at hand | `S02` with readable prose and a figure/citation detail; links to Paper showcase and writing guide |
 | 4. `#figure` | Compose at publication size and edit meaningful plot parts | Large dark-framed `S03`; a small numbered annotation points to the selected series and its properties |
 | 5. `#slides` | Turn a result into a paced explanation; put that explanation in a document | `E01`, the homepage's single live player, with a nearby `S04` authoring still and a short instruction to advance |

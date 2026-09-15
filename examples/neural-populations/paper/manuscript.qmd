@@ -9,9 +9,9 @@ bibliography: ../references/library.bib
 
 A stimulus can recruit many neurons without producing the same response in every cell. We explore this simple idea through public neuronal recordings, reconstructed cell shapes and anatomical surfaces. Each view offers a different scale for the same question: how does activity across a population make information visible?
 
-![](../fig/renders/fig-neural-populations.svg){#fig-neural-populations}
+![](../fig/renders/fig-neural-populations.svg){#fig-neural-populations width=75%}
 
-The visual story moves from anatomy to activity. Individual response profiles show preferences; a heatmap brings those profiles together; network and population-space views expose relationships between them. All panels were designed for this demonstration. They are exploratory illustrations, rather than evidence for the paper's intentionally broad working title.
+The visual story moves from anatomy to activity: the recorded area on the brain surface and reconstructed cortical neurons; the whole population's responses to eight drift directions; four example cells with their tuning; population trajectories; the similarity structure among cells; and the distributions of selectivity, temporal-frequency tuning and preferred direction. All panels were designed for this demonstration. They are exploratory illustrations, rather than evidence for the paper's intentionally broad working title.
 
 ## From a response map to a connected result
 
@@ -21,7 +21,7 @@ A single summary cannot show every relationship in a dataset. The figure combine
 
 ## Variation is part of the pattern
 
-Neurons differ in their response profiles, selectivity and shared activity. Looking at the individual measurements alongside the population summaries makes this variation visible. Distribution and paired-comparison panels preserve that detail, while the larger heatmap establishes the overall structure.
+Neurons differ in their response profiles, their selectivity and the way they share activity. Looking at individual measurements alongside population summaries makes that variation visible: the same cells drift through a common response space as temporal frequency changes, single cells show their trial-by-trial spread and their joint tuning, and an independent reconstruction recalls the anatomy behind the signal.
 
 ![](../fig/renders/fig-neural-structure.svg){#fig-neural-structure}
 

@@ -82,6 +82,7 @@ description: "Write papers, compose figures, build talks, and keep your reading 
       aria-label="Main navigation"
     >
       <a href="#explore">Explore</a>
+      <a href="#only-flux">Only in Flux</a>
       <a href="#connected">How it connects</a>
       <a href="https://github.com/fluxsci/flux/blob/main/docs/index.qmd"
         >User guide<svg class="icon external-icon" aria-hidden="true">
@@ -109,17 +110,107 @@ description: "Write papers, compose figures, build talks, and keep your reading 
 <main id="main-content" class="flux-home">
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-copy content-width">
-      <p class="eyebrow">
+      <svg class="hero-mark" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="46.94" cy="52.8" r="1.39" fill="#d14d41" style="--i:0" />
+        <circle cx="50.51" cy="44.15" r="1.42" fill="#da702c" style="--i:1" />
+        <circle cx="54.37" cy="55.7" r="1.46" fill="#da702c" style="--i:2" />
+        <circle cx="41.83" cy="48.55" r="1.49" fill="#da702c" style="--i:3" />
+        <circle cx="57.83" cy="45.02" r="1.53" fill="#da702c" style="--i:4" />
+        <circle cx="47.36" cy="59.82" r="1.57" fill="#d0a215" style="--i:5" />
+        <circle cx="44.94" cy="40.26" r="1.6" fill="#d0a215" style="--i:6" />
+        <circle cx="61.03" cy="54.03" r="1.64" fill="#d0a215" style="--i:7" />
+        <circle cx="38.49" cy="54.75" r="1.67" fill="#d0a215" style="--i:8" />
+        <circle cx="55.56" cy="38.11" r="1.71" fill="#d0a215" style="--i:9" />
+        <circle cx="54.12" cy="63.13" r="1.75" fill="#d0a215" style="--i:10" />
+        <circle cx="37.56" cy="42.79" r="1.78" fill="#d0a215" style="--i:11" />
+        <circle cx="64.61" cy="46.79" r="1.82" fill="#35ab49" style="--i:12" />
+        <circle cx="41.07" cy="62.7" r="1.85" fill="#35ab49" style="--i:13" />
+        <circle cx="47.94" cy="34.06" r="1.89" fill="#35ab49" style="--i:14" />
+        <circle cx="62.69" cy="60.7" r="1.93" fill="#35ab49" style="--i:15" />
+        <circle cx="32.9" cy="50.71" r="1.96" fill="#35ab49" style="--i:16" />
+        <circle cx="62.48" cy="37.58" r="2" fill="#35ab49" style="--i:17" />
+        <circle cx="49.16" cy="68.07" r="2.03" fill="#35ab49" style="--i:18" />
+        <circle cx="38.11" cy="35.75" r="2.07" fill="#35ab49" style="--i:19" />
+        <circle cx="68.85" cy="52.54" r="2.11" fill="#35ab49" style="--i:20" />
+        <circle cx="34.02" cy="61.12" r="2.14" fill="#35ab49" style="--i:21" />
+        <circle cx="54.37" cy="30.58" r="2.18" fill="#3aa99f" style="--i:22" />
+        <circle cx="60.11" cy="67.64" r="2.21" fill="#3aa99f" style="--i:23" />
+        <circle cx="30.23" cy="43.69" r="2.25" fill="#3aa99f" style="--i:24" />
+        <circle cx="69.21" cy="41.13" r="2.29" fill="#3aa99f" style="--i:25" />
+        <circle cx="41.67" cy="69.89" r="2.32" fill="#3aa99f" style="--i:26" />
+        <circle cx="42.57" cy="29.34" r="2.36" fill="#3aa99f" style="--i:27" />
+        <circle cx="69.78" cy="60.4" r="2.39" fill="#3aa99f" style="--i:28" />
+        <circle cx="28.02" cy="55.79" r="2.43" fill="#3aa99f" style="--i:29" />
+        <circle cx="62.5" cy="30.57" r="2.47" fill="#3aa99f" style="--i:30" />
+        <circle cx="53.97" cy="73.14" r="2.5" fill="#3aa99f" style="--i:31" />
+        <circle cx="31.15" cy="35.4" r="2.54" fill="#3aa99f" style="--i:32" />
+        <circle cx="74.12" cy="48.01" r="2.57" fill="#3aa99f" style="--i:33" />
+        <circle cx="33.32" cy="68.02" r="2.61" fill="#3aa99f" style="--i:34" />
+        <circle cx="50.13" cy="25.1" r="2.65" fill="#4385be" style="--i:35" />
+        <circle cx="66.96" cy="68.7" r="2.68" fill="#4385be" style="--i:36" />
+        <circle cx="24.53" cy="47.64" r="2.72" fill="#4385be" style="--i:37" />
+        <circle cx="70.65" cy="34.34" r="2.75" fill="#4385be" style="--i:38" />
+        <circle cx="45.3" cy="75.82" r="2.79" fill="#4385be" style="--i:39" />
+        <circle cx="35.85" cy="27.51" r="2.83" fill="#4385be" style="--i:40" />
+        <circle cx="75.94" cy="57.11" r="2.86" fill="#4385be" style="--i:41" />
+        <circle cx="25.79" cy="62.42" r="2.9" fill="#4385be" style="--i:42" />
+        <circle cx="59.57" cy="24.19" r="2.93" fill="#4385be" style="--i:43" />
+        <circle cx="60.49" cy="75.79" r="2.97" fill="#4385be" style="--i:44" />
+        <circle cx="24.57" cy="37.94" r="3.01" fill="#4385be" style="--i:45" />
+        <circle cx="77.19" cy="41.62" r="3.04" fill="#4385be" style="--i:46" />
+        <circle cx="35.46" cy="74.8" r="3.08" fill="#4385be" style="--i:47" />
+        <circle cx="43.91" cy="21.6" r="3.11" fill="#4385be" style="--i:48" />
+        <circle cx="73.92" cy="67" r="3.15" fill="#4385be" style="--i:49" />
+        <circle cx="20.59" cy="53.66" r="3.19" fill="#8b7ec8" style="--i:50" />
+        <circle cx="69.4" cy="27.22" r="3.22" fill="#8b7ec8" style="--i:51" />
+        <circle cx="51.09" cy="80.19" r="3.26" fill="#8b7ec8" style="--i:52" />
+        <circle cx="28.6" cy="28.27" r="3.29" fill="#8b7ec8" style="--i:53" />
+        <circle cx="80.74" cy="51.58" r="3.33" fill="#8b7ec8" style="--i:54" />
+        <circle cx="26.05" cy="69.78" r="3.37" fill="#8b7ec8" style="--i:55" />
+        <circle cx="54.34" cy="18.97" r="3.4" fill="#8b7ec8" style="--i:56" />
+        <circle cx="67.92" cy="76.04" r="3.44" fill="#8b7ec8" style="--i:57" />
+        <circle cx="18.94" cy="42.84" r="3.47" fill="#8b7ec8" style="--i:58" />
+        <circle cx="77.97" cy="34.16" r="3.51" fill="#8b7ec8" style="--i:59" />
+        <circle cx="39.99" cy="80.83" r="3.55" fill="#8b7ec8" style="--i:60" />
+        <circle cx="36.45" cy="20.27" r="3.58" fill="#8b7ec8" style="--i:61" />
+        <circle cx="80.32" cy="62.87" r="3.62" fill="#8b7ec8" style="--i:62" />
+        <circle cx="18.7" cy="61.08" r="3.65" fill="#8b7ec8" style="--i:63" />
+        <circle cx="65.72" cy="20.46" r="3.69" fill="#8b7ec8" style="--i:64" />
+        <circle cx="58.43" cy="82.64" r="3.73" fill="#8b7ec8" style="--i:65" />
+        <circle cx="21.52" cy="31.48" r="3.76" fill="#8b7ec8" style="--i:66" />
+        <circle cx="83.76" cy="44.38" r="3.8" fill="#8b7ec8" style="--i:67" />
+        <circle cx="28.75" cy="77.15" r="3.83" fill="#8b7ec8" style="--i:68" />
+        <circle cx="47.31" cy="15.38" r="3.87" fill="#ce5d97" style="--i:69" />
+        <circle cx="75.55" cy="73.88" r="3.91" fill="#ce5d97" style="--i:70" />
+        <circle cx="14.79" cy="49.65" r="3.94" fill="#ce5d97" style="--i:71" />
+        <circle cx="76.38" cy="26.31" r="3.98" fill="#ce5d97" style="--i:72" />
+        <circle cx="46.52" cy="85.53" r="4.01" fill="#ce5d97" style="--i:73" />
+        <circle cx="28.42" cy="21.26" r="4.05" fill="#ce5d97" style="--i:74" />
+        <circle cx="85.56" cy="56.66" r="4.09" fill="#ce5d97" style="--i:75" />
+        <circle cx="19.08" cy="69.24" r="4.12" fill="#ce5d97" style="--i:76" />
+        <circle cx="59.87" cy="14.7" r="4.16" fill="#ce5d97" style="--i:77" />
+        <circle cx="66.67" cy="82.9" r="4.19" fill="#ce5d97" style="--i:78" />
+        <circle cx="15.26" cy="36.92" r="4.23" fill="#ce5d97" style="--i:79" />
+        <circle cx="84.67" cy="36.1" r="4.27" fill="#ce5d97" style="--i:80" />
+        <circle cx="33.73" cy="83.87" r="4.3" fill="#ce5d97" style="--i:81" />
+        <circle cx="39.05" cy="13.81" r="4.34" fill="#ce5d97" style="--i:82" />
+        <circle cx="82.71" cy="69.4" r="4.37" fill="#ce5d97" style="--i:83" />
+        <circle cx="12.55" cy="57.84" r="4.41" fill="#ce5d97" style="--i:84" />
+        <circle cx="72.45" cy="18.74" r="4.45" fill="#ce5d97" style="--i:85" />
+        <circle cx="54.59" cy="88.44" r="4.48" fill="#ce5d97" style="--i:86" />
+        <circle cx="20.49" cy="24.61" r="4.52" fill="#ce5d97" style="--i:87" />
+      </svg>
+      <p class="eyebrow intro-rise" style="--intro-delay: 260ms">
         <span class="eyebrow-line"></span>A desktop studio for scientific work
       </p>
-      <h1 id="hero-title">
+      <h1 id="hero-title" class="intro-rise" style="--intro-delay: 340ms">
         One studio for your<br /><em>scientific work.</em>
       </h1>
-      <p class="hero-description">
+      <p class="hero-description intro-rise" style="--intro-delay: 430ms">
         Write papers, compose figures, build talks, and keep your reading
         connected. A thoughtful workspace built around files you own.
       </p>
-      <div class="hero-actions">
+      <div class="hero-actions intro-rise" style="--intro-delay: 520ms">
         <a
           class="button button-primary"
           href="https://github.com/fluxsci/flux/blob/main/docs/installation.qmd"
@@ -130,7 +221,7 @@ description: "Write papers, compose figures, build talks, and keep your reading 
         >
       </div>
     </div>
-    <figure class="hero-figure wide-width">
+    <figure class="hero-figure wide-width intro-rise" style="--intro-delay: 640ms">
       <div class="figure-overline">
         <span><span class="status-dot"></span>The work, brought together</span
         ><span>One project. Five perspectives.</span>
@@ -159,7 +250,8 @@ description: "Write papers, compose figures, build talks, and keep your reading 
     </figure>
     <nav
       id="explore"
-      class="module-navigation content-width"
+      class="module-navigation content-width intro-rise"
+      style="--intro-delay: 780ms"
       aria-label="Explore the five modules"
     >
       <a href="#paper"
@@ -186,41 +278,195 @@ description: "Write papers, compose figures, build talks, and keep your reading 
   </section>
 
   <section
-    class="principles content-width section-space"
-    aria-labelledby="principles-title"
+    id="only-flux"
+    class="signature-section section-space"
+    aria-labelledby="signature-title"
   >
-    <div class="principles-heading">
-      <p class="eyebrow">A little less between you and the work</p>
-      <h2 id="principles-title">Made for the way<br />ideas take shape.</h2>
-      <p>
-        Research moves between reading, making, writing, and explaining. Your
-        tools should move with it.
-      </p>
-    </div>
-    <div class="principles-list">
-      <div>
-        <span class="principle-number">01</span>
-        <h3>Keep the work connected.</h3>
+    <div class="content-width">
+      <div class="signature-heading">
+        <p class="eyebrow">Only in Flux</p>
+        <h2 id="signature-title">
+          Every mark has a name.<br /><em>Everything else follows.</em>
+        </h2>
         <p>
-          A reference becomes a citation. A figure belongs in a paper. A slide
-          can explain a result right inside a document.
+          A plot made with fluxplot keeps its meaning: each series, point, axis
+          and label is a named part of the file. That one idea is what lets
+          Flux edit a figure without touching the analysis, animate it part by
+          part in a slide, keep your styling when the data regenerate, and let
+          an agent point at exactly the part you mean.
         </p>
       </div>
-      <div>
-        <span class="principle-number">02</span>
-        <h3>Keep the files yours.</h3>
-        <p>
-          Plain-text documents, BibTeX references, and readable project files.
-          Familiar sources you can inspect and carry with you.
+      <div
+        class="xray"
+        id="semantic-plot"
+        data-xray
+        data-figure="fig-neural-structure"
+        data-initial="1"
+        data-states="1 Hz|assets/media/xray/tuning-landscape-1hz.svg|plots/advanced/16-tuning-landscape-1hz.svg;2 Hz|assets/media/xray/tuning-landscape-2hz.svg|plots/advanced/16-tuning-landscape-2hz.svg;4 Hz|assets/media/xray/tuning-landscape-4hz.svg|plots/advanced/16-tuning-landscape-4hz.svg"
+        data-reveal
+      >
+        <div class="xray-stage-wrap">
+          <div class="xray-topline">
+            <span
+              ><span class="status-dot"></span>A real plot file from the example
+              project, read by your browser</span
+            ><code data-xray-file>plots/advanced/16-tuning-landscape-2hz.svg</code>
+          </div>
+          <div class="xray-stage" data-xray-stage>
+            <img
+              src="assets/media/xray/tuning-landscape-2hz.svg"
+              alt="Direction tuning of six identified neurons at 2 Hz: eight measured means per cell with a smooth guide curve, one row per cell."
+              width="331"
+              height="312"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div
+            class="xray-states"
+            role="group"
+            aria-label="Regenerate the plot at another temporal frequency"
+          >
+            <span class="xray-states-label">Rerun the analysis at</span>
+            <button type="button" data-xray-state="0" aria-pressed="false">1 Hz</button>
+            <button type="button" data-xray-state="1" aria-pressed="true">2 Hz</button>
+            <button type="button" data-xray-state="2" aria-pressed="false">4 Hz</button>
+          </div>
+        </div>
+        <aside class="xray-panel" aria-label="X-ray of the plot">
+          <p class="xray-panel-label">X-ray</p>
+          <div class="xray-readout" data-xray-readout aria-live="polite">
+            <p class="xray-hint">
+              Every curve, point, tick and title in this file carries a stable
+              name. With scripts on, move over the plot to read them.
+            </p>
+          </div>
+          <ul class="xray-parts" data-xray-parts aria-label="Named series in this plot"></ul>
+          <div class="xray-command">
+            <span class="xray-command-label">The same name, from the terminal</span
+            ><code data-xray-command
+              >flux restyle fig-neural-structure cell-587375741-guide.line --stroke '#205ea6'</code
+            >
+          </div>
+        </aside>
+        <p class="xray-caption">
+          Nothing here is staged: the page loads the project’s own SVG and reads
+          its <code>data-role</code> and <code>data-series</code> attributes.
+          Rerun the analysis at another frequency and the same named points and
+          curves move to their new values while your restyle stays attached,
+          which is exactly how a Flux figure treats a regenerated plot.
         </p>
       </div>
-      <div>
-        <span class="principle-number">03</span>
-        <h3>Stay close to the details.</h3>
-        <p>
-          Edit a plot’s individual parts, shape an explanation step by step, and
-          keep the evidence beside the words.
-        </p>
+      <div class="signature-stories">
+        <article class="story" data-reveal>
+          <div class="story-media story-media--diagram">
+            <svg
+              class="surfaces-diagram"
+              viewBox="0 0 600 236"
+              role="img"
+              aria-labelledby="surfaces-title surfaces-desc"
+            >
+              <title id="surfaces-title">One plot, three surfaces</title>
+              <desc id="surfaces-desc">
+                The same named plot panel in a figure, sent to a slide where it
+                gains animation steps, and inserted into a paper where it stays
+                interactive.
+              </desc>
+              <defs>
+                <pattern id="surfaces-heat" width="6" height="6" patternUnits="userSpaceOnUse">
+                  <rect width="6" height="6" fill="#dce6e3" />
+                  <rect width="3" height="3" fill="#8fbfba" />
+                  <rect x="3" y="3" width="3" height="3" fill="#2f7f79" />
+                </pattern>
+              </defs>
+              <g class="surface">
+                <rect x="14" y="26" width="160" height="112" rx="4" />
+                <text x="26" y="47" class="letter">c</text>
+                <rect x="44" y="44" width="112" height="72" fill="url(#surfaces-heat)" class="panel" />
+                <path d="M44 116h112M44 44v72" class="axis" />
+                <text x="14" y="164" class="label">Figure 1 · panel c</text>
+                <text x="14" y="180" class="sub">selected: cell-responses.x-heatmap</text>
+              </g>
+              <g class="link">
+                <path d="M180 82h34" />
+                <path d="M210 77l6 5-6 5" />
+                <text x="197" y="68" class="link-label" text-anchor="middle">Send to deck</text>
+              </g>
+              <g class="surface">
+                <rect x="222" y="26" width="160" height="86" rx="4" class="stage" />
+                <rect x="248" y="38" width="96" height="60" fill="url(#surfaces-heat)" class="panel" />
+                <path d="M248 98h96M248 38v60" class="axis" />
+                <text x="356" y="94" class="letter" text-anchor="end">c</text>
+                <g class="beats">
+                  <rect x="222" y="120" width="46" height="16" rx="3" />
+                  <rect x="274" y="120" width="46" height="16" rx="3" class="beat-active" />
+                  <rect x="326" y="120" width="56" height="16" rx="3" />
+                  <text x="245" y="131" text-anchor="middle">1</text>
+                  <text x="297" y="131" text-anchor="middle" class="beat-active-label">2</text>
+                  <text x="354" y="131" text-anchor="middle">3</text>
+                </g>
+                <text x="222" y="164" class="label">Slide · step 2 of 3</text>
+                <text x="222" y="180" class="sub">same parts, plus a timeline</text>
+              </g>
+              <g class="link">
+                <path d="M388 82h34" />
+                <path d="M418 77l6 5-6 5" />
+                <text x="405" y="68" class="link-label" text-anchor="middle">Insert slide</text>
+              </g>
+              <g class="surface">
+                <rect x="430" y="26" width="156" height="112" rx="4" />
+                <path d="M444 44h128M444 54h104M444 64h118" class="prose" />
+                <rect x="470" y="74" width="76" height="46" fill="url(#surfaces-heat)" class="panel" />
+                <path d="M470 120h76M470 74v46" class="axis" />
+                <path d="M444 130h128" class="prose" />
+                <text x="430" y="164" class="label">Paper · still interactive</text>
+                <text x="430" y="180" class="sub">HTML plays the steps; PDF keeps step 0</text>
+              </g>
+              <text x="14" y="222" class="foot">One object, three surfaces. Every part keeps its name across all of them.</text>
+            </svg>
+          </div>
+          <div class="story-copy">
+            <span class="story-index">01</span>
+            <h3>A slide is a figure with a timeline.</h3>
+            <p>
+              Send a figure to a deck and you are still on the same canvas, with
+              the same tools and the same named parts; Flux adds steps. Reveal
+              the heatmap, draw the network edges on, bring in the
+              interpretation, then place that slide back into the paper, where
+              it keeps playing.
+            </p>
+            <a class="text-link" href="#slides"
+              >Step through a real slide below<svg class="icon" aria-hidden="true">
+                <use href="#i-arrow" /></svg
+            ></a>
+          </div>
+        </article>
+        <article class="story" data-reveal style="--reveal-delay: 120ms">
+          <div
+            class="story-media story-terminal"
+            role="img"
+            aria-label="Three Flux commands: restyle a named series in a figure, animate a named network part so its edges draw on during a slide step, and render the figure to PNG."
+          >
+            <div><span class="comment"># the same names an agent or a script can use</span></div>
+            <div><span class="prompt">$</span> flux restyle fig-neural-populations direction-90-cells.points --fill '#205ea6'</div>
+            <div><span class="prompt">$</span> flux set-animation neural-populations results relationships --target response-network --part signal-correlation-edges.x-similarity-edges --preset drawOn</div>
+            <div><span class="prompt">$</span> flux render-figure fig-neural-populations --png</div>
+          </div>
+          <div class="story-copy">
+            <span class="story-index">02</span>
+            <h3>Point at the part you mean, from anywhere.</h3>
+            <p>
+              The ids in the file are the ids in the app, on the command line,
+              and over MCP. An agent working in your project restyles the
+              series you name, animates the edges you name, and renders the
+              result for you to review in the same workspace where you write.
+            </p>
+            <a class="text-link" href="#agents"
+              >How agents work in Flux<svg class="icon" aria-hidden="true">
+                <use href="#i-arrow" /></svg
+            ></a>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -255,7 +501,7 @@ description: "Write papers, compose figures, build talks, and keep your reading 
           <use href="#i-arrow" /></svg
       ></a>
     </div>
-    <figure class="module-visual">
+    <figure class="module-visual" data-reveal>
       <a
         class="media-enlarge"
         href="assets/media/paper-detail.webp"
@@ -312,7 +558,7 @@ description: "Write papers, compose figures, build talks, and keep your reading 
             <use href="#i-arrow" /></svg
         ></a>
       </div>
-      <figure class="module-visual">
+      <figure class="module-visual" data-reveal>
         <a
           class="media-enlarge"
           href="assets/media/figure.webp"
@@ -338,17 +584,17 @@ description: "Write papers, compose figures, build talks, and keep your reading 
           >
         </figcaption>
       </figure>
-      <figure class="science-plate module-visual">
+      <figure class="science-plate module-visual" data-reveal>
         <a class="media-enlarge" href="assets/media/neural-figure.webp" data-enlarge
-          data-caption="Neuronal networks flexibly encode diverse stimuli. An original Flux composition of public Allen Institute data: anatomical context, response patterns, tuning, and population structure. The anatomy and response recordings come from separate datasets."
+          data-caption="Neuronal networks flexibly encode diverse stimuli. An original eleven-panel Flux composition of public Allen Institute data: brain anatomy, reconstructed neurons, a 143-cell response atlas, example cells, population trajectories, similarity structure and tuning statistics. The anatomy and response recordings come from separate datasets."
           aria-label="Enlarge the complete neuroscience figure">
           <img src="assets/media/neural-figure.webp"
-            alt="A large scientific figure combining a mouse-brain mesh, reconstructed neurons, a response-similarity network, stimulus-response heatmap, tuning curves, population statistics, and population response geometry."
-            width="1800" height="875" loading="lazy" decoding="async" />
+            alt="An eleven-panel scientific figure: a shaded mouse-brain surface with the visual areas painted on, three reconstructed neurons, a 143-cell response atlas across eight directions, example-cell traces with tuning roses, three-dimensional population trajectories, a similarity matrix, a ring network, response geometry, selectivity, frequency tuning and a rose of preferred directions."
+            width="1800" height="1150" loading="lazy" decoding="async" />
           <span class="zoom-hint"><svg class="icon" aria-hidden="true"><use href="#i-zoom" /></svg>Inspect every panel</span>
         </a>
         <figcaption><span class="caption-index">Inside the example</span>
-          From anatomy to population activity.<span class="caption-note">One editable composition. Many views of the data.</span></figcaption>
+          From anatomy to population activity.<span class="caption-note">One editable composition. Eleven panels, every part named.</span></figcaption>
       </figure>
     </section>
 
@@ -383,7 +629,7 @@ description: "Write papers, compose figures, build talks, and keep your reading 
           ></a>
         </div>
       </div>
-      <div class="slide-demo-wrap">
+      <div class="slide-demo-wrap" data-reveal>
         <div class="demo-topline">
           <span class="demo-label"
             ><span class="status-dot"></span>A real Flux slide</span
@@ -442,7 +688,7 @@ description: "Write papers, compose figures, build talks, and keep your reading 
           </p>
         </details>
       </div>
-      <figure class="slide-authoring">
+      <figure class="slide-authoring" data-reveal>
         <a
           class="media-enlarge"
           href="assets/media/slides.webp"
@@ -510,7 +756,7 @@ description: "Write papers, compose figures, build talks, and keep your reading 
           <use href="#i-arrow" /></svg
       ></a>
     </div>
-    <figure class="module-visual">
+    <figure class="module-visual" data-reveal>
       <a
         class="media-enlarge"
         href="assets/media/library.webp"
@@ -568,7 +814,7 @@ description: "Write papers, compose figures, build talks, and keep your reading 
           <use href="#i-arrow" /></svg
       ></a>
     </div>
-    <figure class="module-visual">
+    <figure class="module-visual" data-reveal>
       <a
         class="media-enlarge"
         href="assets/media/reader.webp"
@@ -610,7 +856,7 @@ description: "Write papers, compose figures, build talks, and keep your reading 
           into a figure, a manuscript, and a talk.
         </p>
       </div>
-      <div
+      <div data-reveal
         class="connection-paths"
         aria-label="Connections between Flux modules"
       >
@@ -650,7 +896,7 @@ description: "Write papers, compose figures, build talks, and keep your reading 
           </p>
         </div>
       </div>
-      <div id="projects" class="project-story">
+      <div id="projects" class="project-story" data-reveal>
         <div class="project-copy">
           <p class="eyebrow">A project is a folder</p>
           <h3>Familiar files.<br />Lasting work.</h3>
@@ -703,8 +949,8 @@ description: "Write papers, compose figures, build talks, and keep your reading 
           <p class="eyebrow">Open the work behind the website</p>
           <h3>Meet the example project.</h3>
           <p><em>Neuronal networks flexibly encode diverse stimuli.</em>
-            A complete Flux project with the manuscript, source plots, composed
-            figure, four animated slides, and public data. Download it, unzip it,
+            A complete Flux project with the manuscript, thirty-three source
+            plots, two composed figures, four animated slides, and public data. Download it, unzip it,
             and open the <code>neural-populations</code> folder in Flux.</p>
         </div>
         <a class="button button-primary" href="downloads/neural-populations.zip" download>
@@ -736,7 +982,7 @@ description: "Write papers, compose figures, build talks, and keep your reading 
           <use href="#i-arrow" /></svg
       ></a>
     </div>
-    <div
+    <div data-reveal
       class="config-diagram"
       aria-label="FluxConfig contains your shared library, context, and reusable presets. Individual projects keep their own files and context."
     >
@@ -811,7 +1057,7 @@ description: "Write papers, compose figures, build talks, and keep your reading 
           </p>
         </div>
       </div>
-      <ol class="agent-loop">
+      <ol class="agent-loop" data-reveal>
         <li>
           <span class="agent-step">01</span>
           <h3>Set the direction.</h3>

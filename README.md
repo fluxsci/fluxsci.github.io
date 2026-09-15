@@ -1,9 +1,12 @@
 # Flux website
 
 A custom Quarto website for [Flux](https://github.com/fluxsci/flux), maintained separately
-from the application. The first version is the public homepage, with real application
-screenshots, twelve featured neuroscience plots, and four native interactive slides. The bundled project also includes twelve advanced plot SVGs across eight additional families. The public guide stays in the application
-repository until its planned migration; there are no unfinished guide pages here.
+from the application. The first version is the public homepage: a staged entrance built on
+the phyllotaxis mark, an "Only in Flux" section with a browser-side semantic-plot explorer,
+real application screenshots, an eleven-panel flagship neuroscience figure composed from the
+bundled project's thirty-three plots, and four native interactive slides. The public guide
+stays in the application repository until its planned migration; there are no unfinished
+guide pages here.
 
 Repository: **[`fluxsci/fluxsci.github.io`](https://github.com/fluxsci/fluxsci.github.io)**  
 Website: **<https://fluxsci.github.io/>**
@@ -42,7 +45,7 @@ After changes, run `npm test` to produce and verify the actual publication artif
 | `site/index.qmd` | Homepage content and semantic markup |
 | `site/assets/styles/site.css` | Flux visual system and responsive layouts |
 | `site/assets/scripts/site.js` | Navigation, theme, media viewing and demo behavior |
-| `site/assets/media/` | Reviewed, publishable screenshots and slide poster |
+| `site/assets/media/` | Reviewed, publishable screenshots and slide poster; `xray/` holds the three plot files the semantic-plot explorer reads |
 | `site/assets/brand/`, `site/assets/fonts/` | Flux mark, sharing image and licensed fonts |
 | `site/demos/` | Static exports from the native Flux slide runtime |
 | `site/_quarto.yml` | Explicit public page list, metadata and asset configuration |
@@ -85,8 +88,9 @@ from `npm run build` and the publication workflow.
 Everything behind the neuroscience demonstration lives in
 [`examples/neural-populations/`](examples/neural-populations/README.md). In Flux, choose
 **Open project** and select that directory (the folder containing `project.json`). It includes
-an original manuscript, twenty-four source SVGs (twenty plot families), two editable figure compositions, four animated
-slides, public datasets, source notes, and regeneration scripts. No separate example repository
+an original manuscript, thirty-seven source SVGs (thirty-three plot families, including the
+thirteen journal-style flagship panels), two editable figure compositions rebuilt through the
+Flux CLI, four animated slides, public datasets, source notes, and regeneration scripts. No separate example repository
 or folder under a maintainer's home directory is required.
 
 The homepage's **Download the Flux project** link supplies that same directory as a ZIP.

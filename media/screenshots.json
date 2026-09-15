@@ -12,26 +12,26 @@
     "site/assets/media/paper.webp": {
       "width": 1500,
       "height": 950,
-      "bytes": 114804,
-      "sha256": "fb55a7b2ca2708628da794753309c7cd1d72c0da6dc9cb1cc0164ce0b9e8c41d"
+      "bytes": 162758,
+      "sha256": "e6e9b0c58961138c5af006785e29857efb11f61561fd24ea9e585a74d1b837a0"
     },
     "site/assets/media/paper-detail.webp": {
       "width": 1158,
       "height": 760,
-      "bytes": 81962,
-      "sha256": "20328e97e2156e29bfcc9083cbc12b4843ee64a5ead371eacb72ef10b811b6c7"
+      "bytes": 118530,
+      "sha256": "e8866a0096bb0856fae54dd5439cfcd952d5025e74939f30526e88d7d556d694"
     },
     "site/assets/media/figure.webp": {
       "width": 1500,
       "height": 950,
-      "bytes": 86030,
-      "sha256": "597067efd54631f655c864d32da4ff5a2ca1c33a947ac29bfe8b403ef61bbc4d"
+      "bytes": 161714,
+      "sha256": "f3441f53ce824cd78141f0e8ee2b6062e5ee81b77bf3a20ddcd2d066ddb19398"
     },
     "site/assets/media/slides.webp": {
       "width": 1500,
       "height": 950,
-      "bytes": 82146,
-      "sha256": "b7b01ef9abe521615acd7291dbac1c25a995520562c6e22b427a60c220fc658a"
+      "bytes": 82164,
+      "sha256": "065e9a6d4ae2244e920a0156acfc8167caa6a27a4daa7ce88e121ac197a185bc"
     },
     "site/assets/media/library.webp": {
       "width": 1500,
@@ -42,14 +42,14 @@
     "site/assets/media/reader.webp": {
       "width": 1500,
       "height": 950,
-      "bytes": 79106,
-      "sha256": "7f4f43525305343a0c5338ee17f668861f95b385a7c5d053d9731e314c5e7477"
+      "bytes": 97220,
+      "sha256": "0fc9d4b329ca86f243d5bde1fca5ed93c4c06e4c82120405926ab6a644e8c584"
     },
     "site/assets/media/neural-figure.webp": {
       "width": 1800,
-      "height": 875,
-      "bytes": 141112,
-      "sha256": "e9955a4f5f3a1aa3a2d9d9e242ed4dfc1e9e9afa0daf0607cb6ece8d89a57dfe"
+      "height": 1150,
+      "bytes": 387032,
+      "sha256": "5c9e0b29695f55291563c3263faedf8ced86f4dc38b29399869f70bcc9417653"
     }
   }
 }

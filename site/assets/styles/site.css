@@ -2653,3 +2653,570 @@ html[data-theme="dark"] .data-credit { color: #b7b5ac; -webkit-text-fill-color: 
     color: inherit;
   }
 }
+
+/* ------------------------------------------------------------------ */
+/* Entrance: the mark blooms, the studio unfolds from it (one-shot).    */
+/* Base styles are the resting state; html.intro adds the choreography, */
+/* so no-JS visitors and reduced-motion visitors see the page at once.  */
+/* ------------------------------------------------------------------ */
+.hero-mark {
+  display: block;
+  width: clamp(76px, 8.4vw, 118px);
+  height: auto;
+  margin: 0 auto 30px;
+  overflow: visible;
+}
+.hero-mark circle {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+html.intro .hero-mark {
+  animation: mark-settle 950ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+html.intro .hero-mark circle {
+  animation: mark-bloom 420ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: calc(var(--i) * 8ms);
+}
+html.intro .intro-rise {
+  animation: intro-rise 760ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: var(--intro-delay, 0ms);
+}
+html.intro .site-header {
+  animation: intro-fade 520ms ease-out both;
+  animation-delay: 900ms;
+}
+@keyframes mark-settle {
+  from { transform: rotate(-26deg) scale(0.82); }
+  to { transform: none; }
+}
+@keyframes mark-bloom {
+  from { opacity: 0; transform: scale(0); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes intro-rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes intro-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Sections settle into place as they are scrolled to (JS-only, motion-only). */
+@media (prefers-reduced-motion: no-preference) {
+  html.js [data-reveal] {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  html.js [data-reveal].is-in {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Only in Flux: named parts, one object across surfaces, the terminal. */
+/* ------------------------------------------------------------------ */
+.signature-section {
+  border-bottom: 1px solid var(--rule);
+}
+.signature-heading {
+  max-width: 760px;
+}
+.signature-heading h2 em {
+  color: var(--blue);
+}
+.signature-heading > p:last-child {
+  max-width: 640px;
+  margin-top: 26px;
+  font-size: 19px;
+  line-height: 1.7;
+}
+.xray {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(280px, 1fr);
+  gap: 36px 44px;
+  margin-top: 64px;
+  align-items: start;
+}
+.xray-topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font: 11px/1.5 var(--sans);
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+.xray-topline > span:first-child {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.xray-topline code {
+  font: 10px/1.5 var(--mono);
+  background: none;
+  color: var(--muted);
+  padding: 0;
+  overflow-wrap: anywhere;
+}
+.xray-stage {
+  position: relative;
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: clamp(10px, 2.2vw, 26px);
+  box-shadow: var(--shadow);
+}
+.xray-stage img,
+.xray-stage svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 640px;
+  margin: auto;
+}
+.xray-stage svg [data-role] {
+  cursor: crosshair;
+}
+.xray-stage svg [data-role="figure"],
+.xray-stage svg [data-role="plot-area"] {
+  cursor: default;
+}
+.xray-stage svg .xray-dim {
+  opacity: 0.28;
+  transition: opacity 0.16s;
+}
+.xray-stage svg .xray-hot {
+  filter: drop-shadow(0 0 1px #205ea6) drop-shadow(0 0 5px #205ea680);
+}
+.xray-stage svg .xray-hot path,
+.xray-stage svg .xray-hot text {
+  transition: stroke 0.15s, fill 0.15s;
+}
+.xray-states {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+  font: 12px/1.5 var(--sans);
+  color: var(--muted);
+}
+.xray-states-label {
+  margin-right: 6px;
+}
+.xray-states button {
+  min-height: 38px;
+  padding: 6px 14px;
+  border: 1px solid var(--rule);
+  border-radius: 5px;
+  background: transparent;
+  font: 12px/1.4 var(--sans);
+  color: var(--ink);
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+.xray-states button:hover {
+  border-color: var(--muted);
+  background: var(--inset);
+}
+.xray-states button[aria-pressed="true"] {
+  background: var(--button);
+  border-color: var(--button);
+  color: var(--button-ink);
+}
+.xray-states button:disabled {
+  opacity: 0.5;
+}
+.xray-panel {
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  background: var(--inset);
+  padding: 22px 24px 20px;
+  font: 12px/1.6 var(--sans);
+  color: var(--muted);
+}
+.xray-panel-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font: 11px var(--sans);
+  font-weight: 550;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.xray-panel-label::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid var(--blue);
+  border-radius: 3px;
+  background:
+    linear-gradient(var(--blue), var(--blue)) center/6px 1.5px no-repeat,
+    linear-gradient(var(--blue), var(--blue)) center/1.5px 6px no-repeat;
+}
+.xray-readout {
+  min-height: 122px;
+  margin-top: 18px;
+  padding: 16px 18px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 7px;
+  color: var(--ink);
+}
+.xray-hint {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+.xray-role {
+  display: inline-block;
+  font: 10px/1.2 var(--sans);
+  font-weight: 550;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue);
+  border: 1px solid #205ea655;
+  border-radius: 3px;
+  padding: 4px 7px;
+  margin-bottom: 10px;
+}
+.xray-id {
+  display: block;
+  font: 12px/1.5 var(--mono);
+  color: var(--ink);
+  background: none;
+  padding: 0;
+  overflow-wrap: anywhere;
+}
+.xray-facts {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 3px 14px;
+  margin: 12px 0 0;
+  font: 11px/1.6 var(--sans);
+}
+.xray-facts dt {
+  color: var(--muted);
+}
+.xray-facts dd {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+.xray-parts {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 18px 0 0;
+  padding: 0;
+}
+.xray-parts button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 30px;
+  padding: 4px 9px;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  background: var(--paper);
+  font: 10px/1.4 var(--mono);
+  color: var(--ink);
+  transition: border-color 0.15s;
+}
+.xray-parts button:hover,
+.xray-parts button:focus-visible {
+  border-color: var(--blue);
+}
+.xray-parts i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--swatch, var(--muted));
+  flex-shrink: 0;
+}
+.xray-command {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--rule);
+}
+.xray-command-label {
+  display: block;
+  font: 11px/1.5 var(--sans);
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.xray-command code {
+  display: block;
+  font: 11px/1.6 var(--mono);
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 5px;
+  padding: 10px 12px;
+  overflow-wrap: anywhere;
+}
+.xray-command code::before {
+  content: "$ ";
+  color: var(--blue);
+}
+.xray-caption {
+  grid-column: 1 / -1;
+  max-width: 900px;
+  font: 13px/1.7 var(--sans);
+  color: var(--muted);
+}
+.xray-caption code {
+  font: 12px var(--mono);
+  color: var(--ink);
+  background: none;
+  padding: 0;
+}
+.signature-stories {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px 8%;
+  margin-top: 88px;
+}
+.story {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.story-media {
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--inset);
+}
+.story-media--pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--rule);
+}
+.story-media--pair > figure {
+  position: relative;
+  aspect-ratio: 5 / 4;
+  overflow: hidden;
+  background: var(--inset);
+}
+.story-media--pair img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.story-media--pair figcaption {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  font: 10px/1.4 var(--sans);
+  font-weight: 550;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #100f0f;
+  background: #fffcf0e6;
+  border: 1px solid #dad8ce;
+  border-radius: 3px;
+  padding: 5px 8px;
+}
+.story-terminal {
+  padding: 22px 24px;
+  background: #100f0f;
+  color: #e6e4d9;
+  font: 12px/1.9 var(--mono);
+  border-color: #403e3c;
+}
+.story-terminal .prompt {
+  color: #83b5d4;
+}
+.story-terminal .comment {
+  color: #878580;
+}
+.story-terminal > div {
+  overflow-wrap: anywhere;
+}
+.story-terminal > div + div {
+  margin-top: 4px;
+}
+.story-copy .story-index {
+  font: 10px var(--mono);
+  color: var(--blue);
+}
+.story-copy h3 {
+  font-size: 27px;
+  margin-top: 12px;
+}
+.story-copy p {
+  font-size: 16px;
+  line-height: 1.7;
+  margin-top: 14px;
+  max-width: 480px;
+}
+.story-copy .text-link {
+  margin-top: 8px;
+  font-size: 12px;
+}
+@media (max-width: 1100px) {
+  .xray {
+    gap: 28px 32px;
+  }
+  .signature-stories {
+    gap: 44px 6%;
+  }
+}
+@media (max-width: 800px) {
+  .signature-heading > p:last-child {
+    font-size: 17px;
+    margin-top: 22px;
+  }
+  .xray {
+    grid-template-columns: 1fr;
+    margin-top: 44px;
+  }
+  .xray-panel {
+    padding: 18px 18px 16px;
+  }
+  .signature-stories {
+    grid-template-columns: 1fr;
+    gap: 44px;
+    margin-top: 60px;
+  }
+  .story-copy h3 {
+    font-size: 24px;
+  }
+}
+@media (max-width: 560px) {
+  .hero-mark {
+    margin-bottom: 22px;
+  }
+  .signature-heading h2 {
+    font-size: 36px;
+  }
+  .xray-stage {
+    border-radius: 6px;
+  }
+  .xray-topline {
+    flex-direction: column;
+    gap: 4px;
+  }
+  .xray-states {
+    gap: 6px;
+  }
+  .xray-states-label {
+    flex-basis: 100%;
+  }
+  .story-media--pair {
+    grid-template-columns: 1fr;
+  }
+  .story-media--pair > figure {
+    aspect-ratio: 16 / 10;
+  }
+  .story-terminal {
+    padding: 16px 16px;
+    font-size: 11px;
+  }
+  .story-copy p {
+    font-size: 15px;
+  }
+}
+@media print {
+  .xray-states,
+  .xray-parts,
+  .xray-command {
+    display: none;
+  }
+  .story-terminal {
+    background: #fff;
+    color: #100f0f;
+  }
+}
+
+/* The one-object-three-surfaces diagram (story 01). Selectable text, theme-aware. */
+.story-media--diagram {
+  padding: 18px 16px 10px;
+  background: var(--paper);
+}
+.surfaces-diagram {
+  width: 100%;
+  height: auto;
+  font-family: var(--sans);
+}
+.surfaces-diagram .surface > rect {
+  fill: var(--inset);
+  stroke: var(--rule);
+  stroke-width: 1;
+}
+.surfaces-diagram .surface > rect.stage {
+  fill: #fff;
+  stroke: #575653;
+}
+.surfaces-diagram .panel {
+  stroke: none;
+}
+.surfaces-diagram .axis,
+.surfaces-diagram .prose {
+  fill: none;
+  stroke: var(--muted);
+  stroke-width: 1;
+  stroke-linecap: round;
+}
+.surfaces-diagram .prose {
+  stroke: var(--rule);
+  stroke-width: 2;
+}
+.surfaces-diagram .letter {
+  font-size: 11px;
+  font-weight: 700;
+  fill: var(--ink);
+}
+.surfaces-diagram .label {
+  font-size: 11px;
+  font-weight: 550;
+  fill: var(--ink);
+}
+.surfaces-diagram .sub {
+  font-size: 9px;
+  fill: var(--muted);
+}
+.surfaces-diagram .foot {
+  font-size: 9.5px;
+  fill: var(--muted);
+}
+.surfaces-diagram .link path {
+  fill: none;
+  stroke: var(--blue);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.surfaces-diagram .link-label {
+  font-size: 8.5px;
+  fill: var(--blue);
+}
+.surfaces-diagram .beats rect {
+  fill: var(--paper);
+  stroke: var(--rule);
+  stroke-width: 1;
+}
+.surfaces-diagram .beats rect.beat-active {
+  fill: var(--blue);
+  stroke: var(--blue);
+}
+.surfaces-diagram .beats text {
+  font-size: 9px;
+  font-family: var(--mono);
+  fill: var(--ink);
+}
+.surfaces-diagram .beats text.beat-active-label {
+  fill: var(--button-ink);
+}

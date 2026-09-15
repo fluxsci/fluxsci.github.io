@@ -3,9 +3,9 @@
 This is the real, editable Flux project used for the website demonstration. Open this folder in Flux. It contains no private research.
 
 - **Paper:** `paper/manuscript.qmd` is the main manuscript; `methods.qmd` explains data boundaries; `presentation.qmd` embeds all four native slides.
-- **Figure:** `fig-neural-populations` is the large eight-panel composition; `fig-neural-structure` holds four supporting views. Every panel and label is individually selectable.
+- **Figure:** `fig-neural-populations` is the dense eleven-panel flagship plate (anatomy, example cells, population dynamics, similarity structure and tuning statistics); `fig-neural-structure` holds six supporting panels, including a three-state Data Morph trio. Every panel and label is individually selectable.
 - **Slides:** `slides/neural-populations/deck.json` contains four editable slides with native reveal steps. Plot assets are shared by ID with the Figure compositions.
-- **Plots:** `plots/` contains the twelve original SVG panels. [`plots/advanced/README.md`](plots/advanced/README.md) describes eight additional plot families (twelve SVGs including two matched Data Morph sets), with semantic sidecars and portable regeneration recipes. Accepted asset copies live in `fig/assets/`.
+- **Plots:** `plots/` contains the twelve original SVG panels, still used by the slides. [`plots/advanced/README.md`](plots/advanced/README.md) describes eight further families (twelve SVGs including two matched Data Morph sets) and the thirteen journal-style flagship panels in `plots/flagship/`, all with semantic sidecars and portable regeneration recipes. The two figures are rebuilt from those panels by `scripts/advanced/compose-flagship.sh` and `compose-structure.sh` through the Flux command line. Accepted asset copies live in `fig/assets/`.
 - **Data:** `data/allen/` holds public-source records, identifiers, source files and provenance.
 - **References:** `references/library.bib` contains dataset records and original project-note records. It does not claim fictional journal publications. Flux Library itself uses the user's global collection; opening this project does not import entries into that collection.
 - **Context:** `Context/` describes the purpose, rules and remaining work.

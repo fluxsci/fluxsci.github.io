@@ -104,6 +104,17 @@ For an additional native disk-open check, run the pinned app's Electron executab
 arguments. It opens the actual project using a disposable native profile and real preload,
 then checks Paper, Figure and Slides. Its screenshots and results stay under `.cache/neural-native/` (or an explicit `--artifacts` directory).
 
+## Semantic-plot explorer assets
+
+The homepage's "Only in Flux" section inlines a real fluxplot file and lets the visitor read
+its named parts, restyle a series and switch between regenerated states. The three files it
+reads are byte copies of the project's Data Morph trio,
+`examples/neural-populations/plots/advanced/16-tuning-landscape-{1,2,4}hz.svg`, kept under
+`site/assets/media/xray/`. `site/assets/scripts/site.js` fetches them on demand, prefixes
+their ids so they cannot collide with page anchors, scopes their stylesheet and tweens the
+same-named points and curves between states in the browser. Copy the files again whenever
+those source plots are regenerated; nothing in the app or its player is reproduced.
+
 ## Licenses
 
 Data credit: **Allen Institute for Brain Science**. The dataset terms are documented beside

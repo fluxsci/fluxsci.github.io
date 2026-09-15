@@ -179,6 +179,40 @@ test('the editable project has a usable download and the large scientific plate 
   await expect(page.locator('#media-dialog-image')).toHaveAttribute('src', /neural-figure.webp$/);
 });
 
+test('the entrance plays once per session and the mark blooms from 88 dots', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.locator('html')).toHaveClass(/\bintro\b/);
+  expect(await page.locator('.hero-mark circle').count()).toBe(88);
+  await expect(page.getByRole('heading', { level:1 })).toBeVisible();
+  await page.reload();
+  await expect(page.locator('html')).not.toHaveClass(/\bintro\b/);
+});
+
+test('the semantic-plot explorer names parts, restyles a series, and keeps the restyle across a regenerated state', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion:'reduce' });
+  await page.goto('/');
+  const explorer = page.locator('#semantic-plot');
+  await explorer.scrollIntoViewIfNeeded();
+  await expect.poll(() => page.evaluate(() => document.querySelector('#semantic-plot')?.xray?.ready() ?? false)).toBe(true);
+  const hit = explorer.locator('svg [data-series="cell-587375741-guide"][data-role="line"] path.xray-hit');
+  await hit.dispatchEvent('pointerover');
+  await expect(explorer.locator('[data-xray-readout]')).toContainText('cell-587375741-guide.line');
+  await hit.dispatchEvent('click');
+  await expect(explorer.locator('[data-xray-command]')).toContainText('flux restyle fig-neural-structure cell-587375741-guide.line --stroke');
+  const line = explorer.locator('svg [data-series="cell-587375741-guide"][data-role="line"] > path').first();
+  const stroke = await line.evaluate(element => element.style.stroke);
+  expect(stroke).not.toBe('');
+  const point = explorer.locator('svg [id$="cell-587375741-means.point.2"]');
+  const before = await point.getAttribute('y');
+  await page.getByRole('button', { name:'4 Hz', exact:true }).click();
+  await expect(page.getByRole('button', { name:'4 Hz', exact:true })).toHaveAttribute('aria-pressed', 'true');
+  await expect.poll(() => point.getAttribute('y')).not.toBe(before);
+  expect(await line.evaluate(element => element.style.stroke)).toBe(stroke);
+  await expect(explorer.locator('[data-xray-file]')).toHaveText('plots/advanced/16-tuning-landscape-4hz.svg');
+  expect(await page.locator('#figure').count()).toBe(1);
+  expect(await page.locator('[id="figure"], [id="plot-area"]').count()).toBe(1);
+});
+
 test('missing nested paths return a styled and accessible 404', async ({ page }) => {
   const response = await page.goto('/unknown/nested/page');
   expect(response.status()).toBe(404);
@@ -200,6 +234,10 @@ test.describe('without JavaScript', () => {
     await navigation.getByRole('link', { name:'Explore', exact:true }).click();
     await expect(page).toHaveURL(/#explore$/);
     await expect(page.locator('[data-enlarge]').first()).toHaveAttribute('href', /assets\/media\/paper\.webp$/);
+    const fallback = page.locator('#semantic-plot img');
+    await fallback.scrollIntoViewIfNeeded();
+    await expect(fallback).toBeVisible();
+    expect(await fallback.evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);
     await page.goto('/demos/neural-populations/');
     await expect(page.locator('img.fallback')).toBeVisible();
     expect(await page.locator('img.fallback').evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);

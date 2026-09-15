@@ -9,10 +9,11 @@
     "id": "proj_flux_neural_population_demo",
     "title": "Neuronal networks flexibly encode diverse stimuli",
     "inputHashes": {
-      "project.json": "0f18ae32b1dba7e94c2180533f7cdc7452e53f2b524a035d7df0e7a0af25d67f",
+      "project.json": "a3844cbee0530ccd72fc80e21ef9d0622d26b2c9b26dc20e27c09e49f35a9e84",
       "slides/neural-populations/deck.json": "2ce931b76c2edc9b16576b841bfd4e31bb54e1094d52e58605af151755af50b2",
-      "fig/index.json": "3fe619135fca4bebbb07fc31b68d131f192754967b2665cd64ae162ec66120fa",
-      "fig/canvases/canvas-1.json": "a7c615b42ceeacb1be33a0248930f290b467b7d082b9961a4e45c35dae3aa267"
+      "fig/index.json": "7a37a5a2d0751fbd29fbd8c7b0ade0c0ff46ee98d239bf59d2067d793810ddbc",
+      "fig/canvases/canvas-1.json": "6e6108843d8b7ca5c35e44247bf03eb0c9a80ed6bef27eec9d126132fe36af68",
+      "fig/canvases/canvas_mu1vwcyuwae6_3.json": "ac03a177d101a5d8d10080627f5a7b5ef6c33b5b4fb3bc1fac27c96e09665846"
     }
   },
   "bundledPackages": [
