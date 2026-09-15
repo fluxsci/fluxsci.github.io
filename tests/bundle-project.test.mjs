@@ -30,7 +30,7 @@ test('project download excludes transient local artifacts and retains its depend
 
 test('reviewed project exports survive a clean Git checkout with their license notices', async () => {
   const files = await projectFiles();
-  assert.equal(REVIEWED_EXPORTS.size, 45);
+  assert.equal(REVIEWED_EXPORTS.size, 58);
   for (const file of REVIEWED_EXPORTS) assert(files.includes(file), `Reviewed export missing: ${file}`);
   assert(files.includes('scripts/advanced/uv.lock'));
   assert(!files.some(file => file.endsWith('generation-verification.json')));
