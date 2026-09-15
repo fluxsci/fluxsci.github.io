@@ -12,7 +12,7 @@ project:
 
 website:
   title: Flux
-  description: A connected workspace for scientific work. Write papers, build figures, make slides, and stay close to your sources.
+  description: Figures, presentations, literature, and papers in one connected workspace. Built for you and your AI collaborators, around files you own.
   site-url: https://fluxsci.github.io/
   image: assets/brand/social-card.png
   repo-url: https://github.com/fluxsci/fluxsci.github.io

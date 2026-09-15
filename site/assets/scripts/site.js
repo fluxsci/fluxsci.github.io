@@ -5,6 +5,94 @@
   root.classList.add("js");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
+  // A visitor chooses the pace. Each view is a photograph of the actual app,
+  // loaded before it replaces the current view; rapid choices cannot race.
+  const preview = document.querySelector("[data-workspace-preview]");
+  if (preview) {
+    const choices = preview.querySelector(".workspace-choices");
+    const buttons = [...choices.querySelectorAll("button")];
+    const link = preview.querySelector(".hero-image");
+    const image = link.querySelector("img");
+    const caption = preview.querySelector("[data-workspace-caption]");
+    const guide = preview.querySelector("[data-workspace-guide]");
+    const prompt = preview.querySelector(".workspace-prompt");
+    const workspaces = {
+      paper: ["Paper", "Write with your figures, citations, and working notes in reach.", "Flux Paper workspace with the neural-populations manuscript, project documents, and its composed neuroscience figure."],
+      figure: ["Figure", "Compose the whole figure. Refine every individual part.", "Flux Figure workspace with the editable multi-panel neuroscience composition and its layers."],
+      slides: ["Slides", "Give the same figures a timeline. Build the explanation step by step.", "Flux Slides workspace with the neural-populations deck and its editable animation steps."],
+      library: ["Library", "A lasting collection of references, ready for every project.", "Flux Library workspace with the public neuroscience collection, paper metadata, and organization controls."],
+      reader: ["Reader", "Read closely. Keep your notes connected to the evidence.", "Flux Reader workspace displaying the original neuroscience manuscript and its reading tools."],
+    };
+    const loads = new Map();
+    let request = 0;
+    let selected = "paper";
+    const preload = (name) => {
+      if (!loads.has(name)) {
+        const next = new Image();
+        next.src = `assets/media/${name}.webp`;
+        const loading = next.decode().then(() => next).catch(error => {
+          loads.delete(name);
+          throw error;
+        });
+        loads.set(name, loading);
+      }
+      return loads.get(name);
+    };
+    async function show(name) {
+      const token = ++request;
+      preview.setAttribute("aria-busy", "true");
+      prompt.textContent = `Loading ${workspaces[name][0]}…`;
+      try {
+        const next = await preload(name);
+        if (token !== request) return;
+        const [title, description, alt] = workspaces[name];
+        if (selected !== name && !reducedMotion.matches) {
+          image.getAnimations().forEach(animation => animation.cancel());
+          image.animate([{ opacity: .65 }, { opacity: 1 }], { duration: 260, easing: "ease-out" });
+        }
+        image.src = next.src;
+        image.alt = alt;
+        link.href = next.src;
+        link.dataset.caption = `${title} in Flux. ${description}`;
+        link.setAttribute("aria-label", `Enlarge the Flux ${title} workspace`);
+        caption.textContent = description;
+        guide.href = `#${name}`;
+        guide.replaceChildren(document.createTextNode(`Explore ${title}`));
+        const arrow = document.createElement("span");
+        arrow.setAttribute("aria-hidden", "true");
+        arrow.textContent = "↓";
+        guide.append(arrow);
+        for (const button of buttons) button.setAttribute("aria-pressed", String(button.dataset.workspace === name));
+        selected = name;
+      } catch {
+        if (token === request) caption.textContent = "This preview could not load. Explore the modules below.";
+      } finally {
+        if (token === request) {
+          preview.removeAttribute("aria-busy");
+          prompt.textContent = "Explore the workspace";
+        }
+      }
+    }
+    for (const [index, button] of buttons.entries()) {
+      const name = button.dataset.workspace;
+      button.addEventListener("click", () => show(name));
+      for (const event of ["pointerenter", "focus"]) button.addEventListener(event, () => preload(name).catch(() => {}));
+      button.addEventListener("keydown", event => {
+        const offsets = { ArrowRight: 1, ArrowLeft: -1, Home: -index, End: buttons.length - 1 - index };
+        if (!(event.key in offsets)) return;
+        event.preventDefault();
+        const next = buttons[(index + offsets[event.key] + buttons.length) % buttons.length];
+        next.focus();
+        show(next.dataset.workspace);
+      });
+    }
+    choices.hidden = false;
+    preview.classList.add("has-workspace-choices");
+    reducedMotion.addEventListener("change", () => {
+      if (reducedMotion.matches) image.getAnimations().forEach(animation => animation.cancel());
+    });
+  }
+
   const appearance = document.getElementById("appearance");
   const allowedThemes = new Set(["light", "dark", "system"]);
   let preference = "system";

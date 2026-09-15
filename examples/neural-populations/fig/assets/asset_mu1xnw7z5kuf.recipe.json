@@ -6,12 +6,14 @@
     "python",
     "scripts/advanced/flagship.py",
     "--project",
-    "."
+    ".",
+    "--only",
+    "23-population-atlas"
   ],
   "command": "uv",
   "cwd": "../..",
   "env": null,
-  "generatedAt": "2026-09-15T00:25:22Z",
+  "generatedAt": "2026-09-15T05:27:43Z",
   "inputs": [
     {
       "bytes": 1298700,
@@ -34,16 +36,16 @@
   "params": {
     "__fluxplot__": {
       "axes.1.direction-response-blocks": {
-        "cmap": "fusion_r",
-        "vmax": 2.5,
-        "vmin": -2.5
+        "cmap": "atlas-response",
+        "vmax": 3,
+        "vmin": -3
       }
     }
   },
   "plot": "23-population-atlas",
   "provenance": {
     "git": {
-      "commit": "4629d4961c92983be250f2449f5baff13fea96a7",
+      "commit": "16d9cbcc90ddea955b62f2c3f7ab8393eee10a93",
       "dirty": true
     },
     "packages": {
@@ -53,7 +55,7 @@
     "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
     "python": "3.13.12",
     "scriptDiscovery": "explicit",
-    "scriptSha256": "f47da7e753f0f94315c4347e0fe66e64a1fd57b554a6d52b269a77b3ebfda7fb"
+    "scriptSha256": "3e7ed06fa790bf6c4966ca0af832961f00190b3192de3777c56d64b52e97307a"
   },
   "schemaVersion": "0.3.0",
   "script": {

@@ -28,3 +28,9 @@ Added eight original neuroscience plot families (twelve SVGs including matched f
 ### 2026-09-14 22:28 — Flagship panels and dense figures
 
 Generated thirteen journal-style panels with scripts/advanced/flagship.py (plots/flagship/21–33) and rebuilt both figures through the CLI: Figure 1 is now an eleven-panel plate and Figure 2 pairs the Data Morph trio with single-cell views. The empty leftover Figure 3 was removed. The original twelve panels and the four slides are unchanged.
+
+### 2026-09-15 — Four focused visual refinements
+
+Refined flagship panels 21, 22, 23 and 25 in the existing generator. The brain study now includes complete CCF coronal sections; larger staggered neuron reconstructions share a Sholl profile; the response atlas aligns cohort summaries with its individual cells; population trajectories use a compact orthographic frame and clearer onset/offset markers. Intrinsic plot dimensions and linked asset identities are preserved. Added axes in 22/23 use FluxPlot's native component namespaces; these placements had no saved component overrides or deck animation targets to migrate. Methods and source notes describe the new summaries.
+
+The homepage now leads with the unified-workspace premise, a finite phyllotaxis/connection entrance, and manual choices between five real app workspaces. Scientific sources remain public and illustrative. The existing figure compositions and four-slide deck remain the editable source of truth; media are refreshed from the pinned app.

@@ -129,7 +129,7 @@ class Publisher:
         portable = json.loads(recipe_path.read_text())
         portable.update(command="uv", cwd="../..",
                         args=["run", "--project", "scripts/advanced", "python",
-                              "scripts/advanced/flagship.py", "--project", "."],
+                              "scripts/advanced/flagship.py", "--project", ".", "--only", name],
                         script={"path": "scripts/advanced/flagship.py"})
         for item in portable.get("inputs", []):
             item["path"] = "data/allen/" + Path(item["path"]).name
@@ -229,8 +229,9 @@ def shade(points, faces, base, *, smooth=None, light=(-0.4, 0.5, 0.75), ambient=
     lambert = np.clip(normals @ light, 0, 1)
     spec = np.clip(normals @ half, 0, 1) ** shininess
     fresnel = (1 - np.clip(normals[:, 2], 0, 1)) ** 2.0
-    base = np.asarray(to_rgb(base))
-    rgb = base[None, :] * (ambient + diffuse * lambert)[:, None] * (1 - rim * fresnel)[:, None] + specular * spec[:, None]
+    base = np.asarray(to_rgb(base)) if isinstance(base, str) else np.asarray(base)
+    base = base[None, :] if base.ndim == 1 else base[facing]
+    rgb = base * (ambient + diffuse * lambert)[:, None] * (1 - rim * fresnel)[:, None] + specular * spec[:, None]
     rgba = np.column_stack([np.clip(rgb, 0, 1), np.full(len(rgb), alpha)])
     order = np.argsort(tri[:, :, 2].mean(axis=1))
     return tri[order, :, :2], rgba[order], facing
@@ -241,6 +242,49 @@ def read_swc(path):
     by_id = {int(r[0]): r for r in data}
     soma = data[data[:, 1] == 1][0]
     return data, by_id, soma
+
+
+def coronal_segments(mesh, anterior_posterior_um):
+    """Exact line/triangle intersections with a coronal CCF plane, in mm.
+
+    The sections are derived from the bundled surface geometry, rather than a
+    decorative brain outline or an inferred tissue segmentation.
+    """
+    triangles = mesh.vertices[mesh.faces]
+    signed = triangles[:, :, 0] - anterior_posterior_um
+    crosses = (signed.min(axis=1) < 0) & (signed.max(axis=1) >= 0)
+    segments = []
+    for tri, values in zip(triangles[crosses], signed[crosses]):
+        hits = []
+        for a, b in ((0, 1), (1, 2), (2, 0)):
+            if (values[a] < 0) != (values[b] < 0):
+                t = values[a] / (values[a] - values[b])
+                p = tri[a] + t * (tri[b] - tri[a])
+                hits.append([(p[2] - 5700) / 1000, (3700 - p[1]) / 1000])
+        if len(hits) == 2:
+            segments.append(hits)
+    return np.asarray(segments)
+
+
+def sholl_counts(data, soma, radii):
+    """Count exact intersections of reconstructed dendrites with 3D spheres."""
+    by_id = {int(r[0]): r for r in data}
+    segments = np.asarray([[by_id[int(r[6])][2:5] - soma[2:5], r[2:5] - soma[2:5]]
+                           for r in data if int(r[6]) in by_id and int(r[1]) in (3, 4)])
+    start, delta = segments[:, 0], segments[:, 1] - segments[:, 0]
+    a = np.einsum("ij,ij->i", delta, delta)
+    b = 2 * np.einsum("ij,ij->i", start, delta)
+    squared = np.einsum("ij,ij->i", start, start)
+    counts = []
+    for radius in radii:
+        discriminant = b * b - 4 * a * (squared - radius * radius)
+        valid = (discriminant >= 0) & (a > 1e-12)
+        root = np.sqrt(np.maximum(discriminant[valid], 0))
+        t1 = (-b[valid] - root) / (2 * a[valid])
+        t2 = (-b[valid] + root) / (2 * a[valid])
+        counts.append(np.count_nonzero((t1 >= 0) & (t1 < 1)) +
+                      np.count_nonzero((t2 >= 0) & (t2 < 1) & (root > 1e-12)))
+    return np.asarray(counts)
 
 
 def circular_metrics(responses):
@@ -279,6 +323,7 @@ def anatomy(pub: Publisher):
     cortex = meshes[315]
     cortex_v, cortex_f = cortex.vertices, cortex.faces
     membership = np.zeros(len(cortex_f), dtype=int)
+    cortical_paint = np.tile(to_rgb("#dce4e1"), (len(cortex_f), 1))
     for code, structure in ((1, 385), (2, 409)):
         # A cortical face belongs to an area when most of its corners lie close to
         # that area's volume boundary; the vertex vote closes the coarse-mesh holes
@@ -286,26 +331,24 @@ def anatomy(pub: Publisher):
         distance, _ = cKDTree(meshes[structure].vertices).query(cortex_v)
         votes = (distance[cortex_f] < 150).sum(axis=1)
         membership[votes >= 2] = code
+        # Blend the boundary over 90 µm in vertex space. This avoids a staircase
+        # of painted triangles while retaining the same area-proximity rule.
+        weight = np.clip((195 - distance[cortex_f]) / 90, 0, 1).mean(axis=1)
+        area_color = to_rgb("#82b9b2" if code == 1 else fx.FLEXOKI["cyan"])
+        cortical_paint = cortical_paint * (1 - weight[:, None]) + area_color * weight[:, None]
     fig = plt.figure(figsize=(4.55, 3.35))
-    main = fig.add_axes([0.0, 0.03, 0.64, 0.97])
-    side = fig.add_axes([0.6, 0.4, 0.4, 0.58])
+    main = fig.add_axes([0.0, 0.065, 0.60, 0.925])
+    side = fig.add_axes([0.61, 0.56, 0.385, 0.425])
     fp.panel(main, "dorsal")
     fp.panel(side, "lateral")
     root = meshes[997]
     layers = [
-        (root, np.ones(len(root.faces), bool), "brain-surface", "#ebe8de", dict(ambient=0.5, diffuse=0.42, specular=0.12, rim=0.34)),
-        (cortex, membership == 0, "isocortex", "#d3dbd8", dict(ambient=0.5, diffuse=0.46, specular=0.16, rim=0.3)),
-        (cortex, membership == 1, "primary-visual-area", "#7fb8b3", dict(ambient=0.55, diffuse=0.45, specular=0.2, rim=0.2)),
-        (cortex, membership == 2, "lateral-visual-area", fx.FLEXOKI["cyan"], dict(ambient=0.62, diffuse=0.42, specular=0.25, rim=0.12)),
+        (root, np.ones(len(root.faces), bool), "brain-surface", "#e8e7df", dict(ambient=0.62, diffuse=0.34, specular=0.07, rim=0.14)),
+        (cortex, membership == 0, "isocortex", cortical_paint[membership == 0], dict(ambient=0.62, diffuse=0.35, specular=0.09, rim=0.13)),
+        (cortex, membership == 1, "primary-visual-area", cortical_paint[membership == 1], dict(ambient=0.62, diffuse=0.35, specular=0.09, rim=0.13)),
+        (cortex, membership == 2, "lateral-visual-area", cortical_paint[membership == 2], dict(ambient=0.62, diffuse=0.35, specular=0.09, rim=0.13)),
     ]
     for ax, view in ((main, "dorsal"), (side, "lateral")):
-        if view == "dorsal":
-            # A soft ground shadow beneath the surface gives the render depth.
-            envelope = ccf_to_view(root.vertices, view)
-            cx, cy = envelope[:, 0].mean(), envelope[:, 1].min() - 0.1
-            rx, ry = (envelope[:, 0].max() - envelope[:, 0].min()) * 0.5, 0.6
-            for grow, alpha in ((1.35, 0.035), (1.18, 0.05), (1.03, 0.06)):
-                ax.add_patch(Ellipse((cx, cy), 2 * rx * grow, 2 * ry * grow, facecolor="#100f0f", alpha=alpha, linewidth=0, zorder=0))
         for mesh, mask, series, color, style in layers:
             faces = mesh.faces[mask]
             points = ccf_to_view(mesh.vertices, view)
@@ -323,38 +366,62 @@ def anatomy(pub: Publisher):
         ax.set_axis_off()
     x0, x1 = main.get_xlim()
     y0, y1 = main.get_ylim()
-    main.set_xlim(x0 - 0.35, x1 + 0.35)
-    main.set_ylim(y0 - 0.75, y1 + 0.15)
-    bar_x, bar_y = x0 - 0.2, y0 - 0.5
+    main.set_xlim(x0 - 0.15, x1 + 0.15)
+    main.set_ylim(y0 - 0.50, y1 + 0.05)
+    bar_x, bar_y = x0 + 0.2, y0 - 0.3
     main.plot([bar_x, bar_x + 2], [bar_y, bar_y], color=INK, lw=1.1, solid_capstyle="butt")
     main.text(bar_x + 1, bar_y + 0.14, "2 mm", ha="center", va="bottom", fontsize=5.2, color=INK)
     main.annotate("", xy=(x1 + 0.15, y1 - 0.2), xytext=(x1 + 0.15, y1 - 1.3),
                   arrowprops=dict(arrowstyle="-|>", color=MUTED, lw=0.7, mutation_scale=6))
     main.text(x1 + 0.3, y1 - 0.75, "A", fontsize=5.2, color=MUTED, va="center")
-    side.text(0.04, 0.95, "lateral", transform=side.transAxes, fontsize=5.2, color=MUTED, va="top")
+    side.text(0.00, 1.0, "lateral", transform=side.transAxes, fontsize=5.2, color=MUTED, va="bottom")
+    # Original coronal sections of the same meshes reveal the cortical shell and
+    # regional volumes. Every segment is a triangle-plane intersection.
+    sections = [(8500, 0.292), (9500, 0.057)]
+    for plane, bottom in sections:
+        section = fig.add_axes([0.625, bottom, 0.34, 0.225])
+        fp.panel(section, f"coronal-{plane}")
+        for structure, color, width in [(997, "#aaa99e", 0.55), (315, "#627d78", 0.65),
+                                         (385, "#82b9b2", 1.1), (409, fx.FLEXOKI["cyan"], 1.35)]:
+            segments = coronal_segments(meshes[structure], plane)
+            if len(segments):
+                contours = LineCollection(segments, colors=color, linewidths=width, capstyle="round")
+                section.add_collection(contours)
+                fp.tag(contours, role="x-anatomical-section", series=f"coronal-{plane}-structure-{structure}")
+        section.set_xlim(-5.6, 5.6)
+        section.set_ylim(-3.9, 3.9)
+        section.set_aspect("equal")
+        section.set_axis_off()
+        section.text(1.015, 0.48, f"{plane / 1000:g}", transform=section.transAxes,
+                     fontsize=4.6, color=MUTED, ha="left", va="center")
+    fig.text(0.80, 0.54, "coronal sections · CCF A–P (mm)", fontsize=4.6, color=MUTED, ha="center")
     handles = [Line2D([], [], marker="s", linestyle="none", markersize=4.2, markerfacecolor=c, markeredgecolor="none", label=t)
                for c, t in [(fx.FLEXOKI["cyan"], "VISl · recorded area"), ("#7fb8b3", "VISp · primary visual"), ("#d3dbd8", "Isocortex")]]
-    fig.legend(handles=handles, loc="lower right", bbox_to_anchor=(0.995, 0.135), handletextpad=0.5, labelspacing=0.4, borderpad=0)
-    note(fig, "Allen CCFv3 2017 surfaces · imaging plane 175 µm deep", x=0.995, y=0.025)
+    fig.legend(handles=handles, loc="lower left", bbox_to_anchor=(0.025, 0.006), ncol=3,
+               columnspacing=1.15, handletextpad=0.4, borderpad=0, fontsize=4.8)
     pub.save(fig, name, title="Visual cortical areas in the mouse brain",
              sources=[f"ccf-2017-{k}.obj" for k in (997, 315, 385, 409)],
-             description="Smooth-shaded Allen CCFv3 surfaces in an oblique dorsal view with a lateral inset. Cortical faces whose corners lie within 150 µm of the VISp or VISl volume boundary are painted with that area's colour; VISl is the recorded area. Illumination is geometric only.",
+             description="Smooth-shaded Allen CCFv3 surfaces in oblique dorsal and lateral views, with exact mesh-derived coronal sections at CCF anterior–posterior coordinates 8.5 and 9.5 mm. Cortical area paint uses nearest area-mesh vertex distance with a 90 µm transition around 150 µm; VISl is the recorded area. Section contours show the whole brain, isocortex, VISp and VISl at one shared physical scale. Illumination is geometric only; this reference brain is not the recorded specimen.",
              raster_dpi=420)
 
 
 # ---------------------------------------------------------------------------
-# 22 · Three reconstructed neurons at a shared scale, compartments coloured.
+# 22 · Three reconstructions at one scale, with measured radial arbor profiles.
 # ---------------------------------------------------------------------------
 def neurons(pub: Publisher):
     name = "22-neuron-reconstructions"
     if not pub.wants(name):
         return pub.keep_previous(name)
-    specs = [(480114344, "Rorb", "L5 pyramidal · VISp", 0), (464212183, "Sst", "L5 interneuron · VISp", 1), (464198958, "Sst", "L5 interneuron · VISpor", 2)]
+    specs = [(480114344, "Rorb", "VISp", (0, 25)),
+             (464212183, "Sst", "VISp", (525, 450)),
+             (464198958, "Sst", "VISpor", (470, -135))]
     fig, ax = plt.subplots(figsize=(3.7, 3.35))
-    fig.subplots_adjust(left=0.01, right=0.99, bottom=0.115, top=0.99)
-    gap = 415.0
+    fig.subplots_adjust(left=0.01, right=0.99, bottom=0.04, top=0.985)
     extents = []
-    for cell_id, kind, caption, column in specs:
+    profile = fig.add_axes([0.075, 0.102, 0.355, 0.18])
+    fp.panel(profile, "radial-arbor-profile")
+    radii = np.arange(15, 451, 10)
+    for index, (cell_id, kind, region, offset) in enumerate(specs):
         data, by_id, soma = read_swc(pub.data / f"cell-{cell_id}.swc")
         base = np.asarray(to_rgb(CELL_TYPE_COLORS[kind]))
         # Compartments: basal dendrite saturated, apical dendrite lighter, axon a fine grey.
@@ -366,11 +433,11 @@ def neurons(pub: Publisher):
                 continue
             kind_id = int(r[1]) if int(r[1]) in tone else 3
             color, alpha, base_width = tone[kind_id]
-            a = (r[2:4] - soma[2:4]) * [1, -1] + [column * gap, 0]
-            b = (parent[2:4] - soma[2:4]) * [1, -1] + [column * gap, 0]
+            a = (r[2:4] - soma[2:4]) * [1, -1] + offset
+            b = (parent[2:4] - soma[2:4]) * [1, -1] + offset
             segments.append([a, b])
             colors.append((*color, alpha))
-            widths.append(min(1.6, base_width + 0.42 * np.sqrt(max(r[5], 0.05))))
+            widths.append(min(1.6, base_width + 0.36 * np.sqrt(max(r[5], 0.05))))
             depth.append(r[4])
         order = np.argsort(depth)
         col = LineCollection(np.asarray(segments)[order], colors=np.asarray(colors)[order],
@@ -378,29 +445,46 @@ def neurons(pub: Publisher):
         ax.add_collection(col)
         fp.tag(col, role="x-neuron-morphology", series=f"cell-{cell_id}")
         radius = max(float(soma[5]), 4.0)
-        body = Circle((column * gap, 0), radius * 1.15, facecolor=base * 0.85, edgecolor=PAPER, linewidth=0.5, zorder=5)
+        body = Circle(offset, radius * 1.15, facecolor=base * 0.85, edgecolor=PAPER, linewidth=0.5, zorder=5)
         ax.add_patch(body)
         fp.tag(body, role="x-soma", series=f"cell-{cell_id}-soma")
         extents.append(np.asarray(segments).reshape(-1, 2))
-        ax.text(column * gap, -330, kind, ha="center", va="top", fontsize=6.4, color=CELL_TYPE_COLORS[kind], fontweight="bold")
-        ax.text(column * gap, -382, caption, ha="center", va="top", fontsize=4.9, color=MUTED)
-        ax.text(column * gap, -425, str(cell_id), ha="center", va="top", fontsize=4.4, color=FAINT)
+        lx, ly = [(-65, 468), (365, 156), (470, -268)][index]
+        ax.text(lx, ly, f"{kind} · {region}", ha="center", va="top", fontsize=6.0,
+                color=CELL_TYPE_COLORS[kind], fontweight="bold")
+        ax.text(lx, ly - 27, f"{cell_id}", ha="center", va="top", fontsize=4.4, color=MUTED)
+        counts = sholl_counts(data, soma, radii)
+        fp.line(profile, radii, counts, series=f"cell-{cell_id}-sholl", color=base,
+                linewidth=0.8, linestyle="--" if index == 2 else "-", alpha=0.8 if index == 2 else 1)
+        fp.scatter(profile, radii[::4], counts[::4], series=f"cell-{cell_id}-sholl-samples",
+                   s=3.5, color=base, edgecolors=PAPER, linewidths=0.2, zorder=3)
     pts = np.vstack(extents)
-    ax.set_xlim(pts[:, 0].min() - 40, pts[:, 0].max() + 40)
-    ax.set_ylim(-460, pts[:, 1].max() + 20)
+    ax.set_xlim(-330, 690)
+    ax.set_ylim(-360, 510)
     ax.set_aspect("equal")
     ax.set_axis_off()
-    x0, y0 = pts[:, 0].max() - 160, -300
-    ax.plot([x0, x0 + 200], [y0, y0], color=INK, lw=1.1, solid_capstyle="butt")
-    ax.text(x0 + 100, y0 + 14, "200 µm", ha="center", va="bottom", fontsize=5.2, color=INK)
+    x0, y0 = 530, 90
+    ax.plot([x0, x0 + 100], [y0, y0], color=INK, lw=1.0, solid_capstyle="butt")
+    ax.text(x0 + 50, y0 + 14, "100 µm", ha="center", va="bottom", fontsize=5.0, color=INK)
+    profile.set_xlim(0, 450)
+    profile.set_ylim(bottom=0)
+    profile.set_xticks([0, 200, 400])
+    profile.set_yticks([0, 20, 40])
+    profile.tick_params(labelsize=4.4, pad=1, length=1.7)
+    profile.set_xlabel("Distance from soma (µm)", fontsize=4.8, labelpad=1.5)
+    profile.set_ylabel("Intersections", fontsize=4.8, labelpad=1.5)
+    profile.set_title("Dendritic arbor · 3D Sholl profile", fontsize=4.8, loc="left", pad=3)
+    profile.spines["left"].set_linewidth(0.45)
+    profile.spines["bottom"].set_linewidth(0.45)
     apical = np.asarray(to_rgb(fx.FLEXOKI["orange"])) * 0.55 + 0.45
     handles = [Line2D([], [], color=c, lw=w, label=t) for c, w, t in
                [(fx.FLEXOKI["orange"], 1.4, "basal dendrite"), (apical, 1.2, "apical dendrite"), ("#8d8c89", 0.7, "axon")]]
-    fig.legend(handles=handles, loc="lower left", bbox_to_anchor=(0.01, 0.005), ncol=3, columnspacing=1.0, handletextpad=0.5, borderpad=0)
-    note(fig, "Allen Cell Types · independent specimens", x=0.99, y=0.012)
+    fig.legend(handles=handles, loc="lower left", bbox_to_anchor=(0.02, 0.003), ncol=3,
+               columnspacing=0.95, handletextpad=0.4, borderpad=0, fontsize=4.6)
+    note(fig, "L5 · independent specimens", x=0.985, y=0.011, size=4.1)
     pub.save(fig, name, title="Reconstructed neurons from the visual cortex",
              sources=[f"cell-{c}.swc" for c, *_ in specs],
-             description="Three actual SWC reconstructions drawn at one scale, pia upward, with basal and apical dendrites and axon distinguished; line width follows recorded radius. These Cell Types specimens are independent of the imaged population.",
+             description="Three actual SWC reconstructions staggered at one physical scale, pia upward, with basal and apical dendrites and axon distinguished; line width follows recorded radius. The inset gives exact dendritic segment intersections with concentric 3D spheres (15–445 µm radius, 10 µm steps); the dashed purple line is specimen 464198958. These Cell Types specimens are independent of the imaged population.",
              raster_dpi=420)
 
 
@@ -418,7 +502,10 @@ def atlas(pub: Publisher):
     z = (smooth - baseline[None, :, None]) / scale[None, :, None]
     two_hz = np.asarray(pub.responses["mean_response_pct"], float)[:, 1, :]
     preferred = np.argmax(two_hz, axis=0)
-    latency = np.argmax(smooth[preferred, np.arange(143), 30:90], axis=-1)
+    # Response-weighted latency orders broad transients more stably than one
+    # noisy peak frame. The same cell ordering is used in all eight blocks.
+    active = np.maximum(z[preferred, np.arange(143), 30:90], 0)
+    latency = (active * np.arange(60)).sum(axis=1) / np.maximum(active.sum(axis=1), 1e-9)
     order = np.lexsort((latency, preferred))
     gap = 5
     width = 8 * 120 + 7 * gap
@@ -426,15 +513,16 @@ def atlas(pub: Publisher):
     for d in range(8):
         matrix[:, d * (120 + gap):d * (120 + gap) + 120] = z[d, order]
     fig, ax = plt.subplots(figsize=(6.0, 3.35))
-    fig.subplots_adjust(left=0.065, right=0.945, bottom=0.13, top=0.905)
-    cmap = ACTIVITY_CMAP.copy()
+    fig.subplots_adjust(left=0.065, right=0.945, bottom=0.135, top=0.76)
+    cmap = LinearSegmentedColormap.from_list("atlas-response", [
+        "#293c69", "#638faa", "#c3d8da", "#f7f5ef", "#dfaa84", "#b75942", "#742c38"])
     cmap.set_bad(PAPER)
-    image = fp.heatmap(ax, matrix, series="direction-response-blocks", cmap=cmap, vmin=-2.5, vmax=2.5,
+    image = fp.heatmap(ax, matrix, series="direction-response-blocks", cmap=cmap, vmin=-3, vmax=3,
                        aspect="auto", interpolation="nearest", origin="upper", extent=(0, width, 143, 0))
     ax.set_yticks([])
-    ax.set_ylabel("143 cells, grouped by preferred direction", labelpad=9)
+    ax.set_ylabel("Cells, grouped by preferred direction", labelpad=9)
     ax.set_xticks([d * (120 + gap) + 60 for d in range(8)], [f"{d * 45}°" for d in range(8)])
-    ax.set_xlabel("Drift direction")
+    ax.set_xlabel("Drift direction", labelpad=4)
     ax.tick_params(axis="x", length=0, pad=4)
     ax.tick_params(axis="y", length=2, pad=2)
     for spine in ax.spines.values():
@@ -451,19 +539,45 @@ def atlas(pub: Publisher):
         start = d * (120 + gap)
         bar, = ax.plot([start + 30, start + 90], [-3.5, -3.5], color=DIRECTION_COLORS[d], linewidth=1.8, solid_capstyle="butt", clip_on=False)
         fp.tag(bar, role="x-stimulus-window", series=f"stimulus-{d * 45}")
+        # A small aligned distribution view gives the heatmap a time-domain
+        # reading: gray is the middle 80% of all cells, colour is the mean and
+        # SEM across cells preferring this direction (descriptive, not a test).
+        left = 0.065 + start / width * 0.88
+        trace = fig.add_axes([left, 0.805, 120 / width * 0.88, 0.145])
+        fp.panel(trace, f"direction-{d * 45}-population-profile")
+        time = np.asarray(pub.traces["sample_frames_relative_to_onset"], float) / 30
+        low, high = np.quantile(z[d], [0.1, 0.9], axis=0)
+        envelope = trace.fill_between(time, low, high, color="#e2e4e1", linewidth=0)
+        fp.tag(envelope, role="x-population-response-interval", series=f"direction-{d * 45}-population-80pct")
+        cohort = z[d, preferred == d]
+        mean = cohort.mean(axis=0)
+        sem = cohort.std(axis=0, ddof=1) / np.sqrt(len(cohort)) if len(cohort) > 1 else np.zeros(120)
+        interval = trace.fill_between(time, mean - sem, mean + sem, color=DIRECTION_COLORS[d], alpha=0.16, linewidth=0)
+        fp.tag(interval, role="error-band", series=f"direction-{d * 45}-cohort-sem")
+        fp.line(trace, time, mean, series=f"direction-{d * 45}-cohort-mean", color=DIRECTION_COLORS[d], linewidth=0.9)
+        trace.axhline(0, color=RULE, lw=0.4, zorder=0)
+        trace.axvline(0, color=RULE, lw=0.4, linestyle=(0, (2, 2)), zorder=0)
+        trace.axvline(2, color=RULE, lw=0.4, linestyle=(0, (2, 2)), zorder=0)
+        trace.set_xlim(-1, 89 / 30)
+        trace.set_ylim(-1.5, 4.5)
+        trace.set_axis_off()
+        trace.text(0.98, 0.98, f"n = {len(cohort)}", transform=trace.transAxes,
+                   fontsize=4.2, color=MUTED, ha="right", va="top")
     ax.set_xlim(0, width)
     ax.set_ylim(143, 0)
-    cax = fig.add_axes([0.957, 0.34, 0.013, 0.34])
+    cax = fig.add_axes([0.957, 0.34, 0.013, 0.29])
     bar = fp.colorbar(image, cax=cax, name="response", label="Response (s.d.)", ticks=[-2, 0, 2])
     bar.ax.tick_params(labelsize=5, width=0.5, length=2, pad=1.5)
     bar.set_label("")
     bar.outline.set_visible(False)
-    fig.text(0.9635, 0.70, "s.d.", fontsize=5, color=MUTED, ha="center", va="bottom")
-    fig.text(0.075, 0.955, "Bars: 2 s grating · trial-averaged ΔF/F, baseline-subtracted and scaled per cell", fontsize=5, color=MUTED, va="top")
-    fig.text(0.945, 0.955, "143 cells · 2 Hz · 120 frames per direction", fontsize=5, color=MUTED, va="top", ha="right")
+    fig.text(0.9635, 0.65, "s.d.", fontsize=5, color=MUTED, ha="center", va="bottom")
+    fig.text(0.065, 0.987, "Preferred cohort: mean ± s.e.m.     Gray: population 10–90%", fontsize=4.8, color=MUTED, va="top")
+    fig.text(0.945, 0.987, "143 cells · 2 Hz", fontsize=4.8, color=MUTED, va="top", ha="right")
+    fig.text(0.065, 0.022, "Each block: −1 to +3 s from onset     Bars: 2 s grating", fontsize=4.8, color=MUTED, va="bottom")
+    fig.text(0.945, 0.022, "Trial-averaged ΔF/F · standardized per cell", fontsize=4.8, color=MUTED, va="bottom", ha="right")
     pub.save(fig, name, title="Population response dynamics across eight directions",
              sources=["traces.json", "responses.json"],
-             description="One 143-row response atlas with eight consecutive drift-direction blocks of the same 120 source frames (−30 to +89 relative to onset). Cells are grouped by preferred direction at 2 Hz and ordered by peak latency in the preferred block. Traces are Gaussian-smoothed (σ 1.5 frames), baseline-subtracted and divided by each cell's pooled standard deviation; colour saturates at ±2.5 s.d.",
+             description="One 143-row response atlas with eight consecutive drift-direction blocks of the same 120 source frames (−30 to +89 relative to onset). Cells are grouped by preferred direction at 2 Hz and ordered by positive-response-weighted latency during the preferred stimulus. Traces are Gaussian-smoothed (σ 1.5 frames), baseline-subtracted and divided by each cell's pooled standard deviation; colour saturates at ±3 s.d. Aligned upper profiles show the mean and SEM across the cells preferring each direction, with the 10th–90th percentiles across all cells in gray. Time assumes the documented nominal 30 Hz sampling rate.",
              raster_dpi=300)
 
 
@@ -552,7 +666,8 @@ def gallery(pub: Publisher):
 # ---------------------------------------------------------------------------
 # 25 · Population trajectories in a shared three-dimensional PCA basis.
 # ---------------------------------------------------------------------------
-def trajectories(pub: Publisher):
+def trajectories(pub):
+    """The existing shared PCA, drawn in a compact orthographic coordinate frame."""
     name = "25-population-trajectories"
     if not pub.wants(name):
         return pub.keep_previous(name)
@@ -569,46 +684,124 @@ def trajectories(pub: Publisher):
         row *= 1 if row[np.argmax(np.abs(row))] >= 0 else -1
     scores = ((observations - center) @ basis.T).reshape(8, 120, 3)
     explained = singular[:3] ** 2 / np.sum(singular ** 2)
-    fig = plt.figure(figsize=(3.0, 3.0))
-    ax = fig.add_axes([-0.02, 0.04, 0.94, 0.98], projection="3d")
-    ax.view_init(elev=27, azim=-49)
-    ax.set_proj_type("ortho")
-    ax.set_box_aspect((1.25, 1.0, 0.8), zoom=1.06)
+
+    # Explicit orthographic projection gives every axis and tick an intentional
+    # place in the small panel. Scores remain in the same three-dimensional basis.
     minima, maxima = scores.min(axis=(0, 1)), scores.max(axis=(0, 1))
     span = maxima - minima
-    limits = np.column_stack([minima - 0.08 * span, maxima + 0.08 * span])
-    for axis, bounds, text in zip((ax.xaxis, ax.yaxis, ax.zaxis), limits,
-                                  [f"PC {i + 1} · {x * 100:.0f}%" for i, x in enumerate(explained)]):
-        axis.set_pane_color((1, 1, 1, 0))
-        axis.line.set_color(RULE)
-        axis.line.set_linewidth(0.6)
-        axis._axinfo["grid"].update(color=mcolors.to_rgba(RULE, 0.7), linewidth=0.35)
-        axis._axinfo["tick"].update(inward_factor=0.0, outward_factor=0.1)
-        axis.set_ticks([-10, 0, 10] if bounds[0] < -9 or bounds[1] > 9 else [-5, 0, 5])
-        axis.set_tick_params(labelsize=4.8, pad=-2, colors=MUTED)
-        axis.set_label_text(text, fontsize=5.4)
-        axis.labelpad = -3
-    ax.set_xlim(*limits[0])
-    ax.set_ylim(*limits[1])
-    ax.set_zlim(*limits[2])
+    limits = np.column_stack([minima - .07 * span, maxima + .07 * span])
+    azimuth, elevation = np.deg2rad(-54), np.deg2rad(30)
+    right = np.array([-np.sin(azimuth), np.cos(azimuth), 0])
+    up = np.array([-np.sin(elevation) * np.cos(azimuth),
+                   -np.sin(elevation) * np.sin(azimuth), np.cos(elevation)])
+    depth = np.cross(right, up)
+    midpoint = limits.mean(axis=1)
+    unit = np.array([1.18, 1., 1.16]) / np.diff(limits, axis=1).ravel()
+
+    def project(points):
+        coordinates = (np.asarray(points) - midpoint) * unit
+        return np.stack([coordinates @ right, coordinates @ up], axis=-1)
+
+    fig = plt.figure(figsize=(3., 3.))
+    ax = fig.add_axes([.07, .125, .88, .81])
+    ax.set_aspect("equal")
+    ax.set_axis_off()
+    low, high = limits[:, 0], limits[:, 1]
+    floor = np.array([[low[0], low[1], low[2]], [high[0], low[1], low[2]],
+                      [high[0], high[1], low[2]], [low[0], high[1], low[2]]])
+    projected_floor = project(floor)
+    ax.add_patch(Polygon(projected_floor, closed=True, facecolor="#f7f6f2", edgecolor=RULE,
+                         linewidth=.45, zorder=0))
+    for axis in (0, 1):
+        for tick in (-5, 0, 5, 10, 15):
+            if not low[axis] < tick < high[axis]:
+                continue
+            segment = np.array([low.copy(), low.copy()])
+            segment[:, axis] = tick
+            segment[1, 1 - axis] = high[1 - axis]
+            xy = project(segment)
+            ax.plot(*xy.T, color=RULE, linewidth=.28, alpha=.75, zorder=.1)
+
+    # Floor projections remain subordinate to the measured trajectories above.
     for d, color in enumerate(DIRECTION_COLORS):
-        pts = scores[d]
-        shadow, = ax.plot(pts[:, 0], pts[:, 1], np.full(120, limits[2, 0]), color=color, linewidth=0.55, alpha=0.14, zorder=1)
+        pts = scores[d].copy()
+        pts[:, 2] = low[2]
+        shadow, = ax.plot(*project(pts).T, color=color, linewidth=.42, alpha=.19, zorder=.3)
         fp.tag(shadow, role="x-trajectory-projection", series=f"direction-{d * 45}-projection")
-        before, = ax.plot(*pts[:31].T, color=color, linewidth=0.6, alpha=0.3, zorder=2)
-        after, = ax.plot(*pts[89:].T, color=color, linewidth=0.6, alpha=0.4, zorder=2)
+
+    # Draw from back to front, with quieter pre-stimulus and recovery paths.
+    ordering = np.argsort([(((pts[30:91] - midpoint) * unit) @ depth).mean() for pts in scores])
+    for order, d in enumerate(ordering):
+        color = DIRECTION_COLORS[d]
+        pts = scores[d]
+        xy = project(pts)
+        before, = ax.plot(*xy[:31].T, color=color, linewidth=.5, alpha=.30,
+                          linestyle=(0, (1.4, 1.5)), zorder=1 + order * .03)
+        after, = ax.plot(*xy[89:].T, color=color, linewidth=.5, alpha=.32, zorder=1 + order * .03)
         fp.tag(before, role="x-population-trajectory", series=f"direction-{d * 45}-baseline")
         fp.tag(after, role="x-population-trajectory", series=f"direction-{d * 45}-recovery")
-        active, = ax.plot(*pts[30:91].T, color=color, linewidth=1.35, solid_capstyle="round", zorder=4)
+    for order, d in enumerate(ordering):
+        color = DIRECTION_COLORS[d]
+        xy = project(scores[d])
+        active, = ax.plot(*xy[30:91].T, color=color, linewidth=.90, alpha=.95,
+                          solid_capstyle="round", zorder=3 + order * .03)
         fp.tag(active, role="x-population-trajectory", series=f"direction-{d * 45}-stimulus")
-        onset = ax.scatter(*pts[30], color=color, edgecolors=PAPER, linewidths=0.4, s=13, depthshade=False, zorder=6)
-        offset = ax.scatter(*pts[90], color=color, edgecolors=PAPER, linewidths=0.35, marker="s", s=10, depthshade=False, zorder=6)
+        onset = ax.scatter(*xy[30], facecolor=PAPER, edgecolor=color, linewidths=.65,
+                           s=12, zorder=5 + order * .03)
+        offset = ax.scatter(*xy[90], color=color, edgecolors=PAPER, linewidths=.4,
+                            marker="s", s=13, zorder=5 + order * .03)
         fp.tag(onset, role="x-stimulus-onset", series=f"direction-{d * 45}-onset")
         fp.tag(offset, role="x-stimulus-offset", series=f"direction-{d * 45}-offset")
-    ax.set_zlabel("")
-    fig.text(0.955, 0.6, f"PC 3 · {explained[2] * 100:.0f}%", rotation=90, fontsize=5.4, ha="center", va="center")
-    fig.text(0.02, 0.02, "● onset   ■ offset   faint: pre-stimulus and recovery", fontsize=4.8, color=MUTED, va="bottom")
-    fig.text(0.975, 0.02, "143 cells · 2 Hz", fontsize=4.8, color=MUTED, va="bottom", ha="right")
+
+    # Three connected scale axes replace the large enclosing cuboid. Tick labels
+    # are offset in panel coordinates so the negative PC 1 tick cannot be cropped.
+    bounds_points = [*projected_floor, *project(scores.reshape(-1, 3))]
+    for axis in range(3):
+        start = low.copy()
+        if axis == 1:
+            start[0] = high[0]
+        end = start.copy()
+        end[axis] = high[axis]
+        start_xy, end_xy = project([start, end])
+        tangent = end_xy - start_xy
+        tangent /= np.linalg.norm(tangent)
+        outward = np.array([tangent[1], -tangent[0]])
+        if axis == 2:
+            outward *= -1
+        ax.plot(*np.stack([start_xy, end_xy]).T, color="#aaa89e", linewidth=.55, zorder=2)
+        for tick in (-5, 0, 5, 10, 15):
+            if not low[axis] <= tick <= high[axis]:
+                continue
+            point = start.copy()
+            point[axis] = tick
+            xy = project(point)
+            tip = xy + outward * .012
+            ax.plot(*np.stack([xy, tip]).T, color=MUTED, linewidth=.45, zorder=2)
+            label = xy + outward * .036
+            ax.text(*label, str(tick).replace("-", "−"), fontsize=4.8, color=MUTED,
+                    ha="center", va="center", clip_on=False)
+            bounds_points.append(label)
+        label = (start_xy + end_xy) / 2 + outward * (.093 if axis != 2 else .090)
+        rotation = np.rad2deg(np.arctan2(tangent[1], tangent[0]))
+        if rotation > 90 or rotation < -90:
+            rotation += 180
+        ax.text(*label, f"PC {axis + 1} · {explained[axis] * 100:.0f}%", fontsize=5.7,
+                color=INK, rotation=rotation, ha="center", va="center", clip_on=False)
+        bounds_points.extend([end_xy, label])
+    extent = np.asarray(bounds_points)
+    ax.set_xlim(extent[:, 0].min() - .055, extent[:, 0].max() + .040)
+    ax.set_ylim(extent[:, 1].min() - .060, extent[:, 1].max() + .070)
+
+    fig.text(.085, .955, "143 cells · eight drift directions · 2 Hz", fontsize=5.1,
+             color=MUTED, va="top")
+    handles = [Line2D([], [], marker="o", markersize=3, markerfacecolor=PAPER,
+                      markeredgecolor=MUTED, markeredgewidth=.7, linestyle="none"),
+               Line2D([], [], marker="s", markersize=3, markerfacecolor=MUTED,
+                      markeredgecolor=PAPER, markeredgewidth=.4, linestyle="none")]
+    fig.legend(handles, ["onset", "offset"], loc="lower left", bbox_to_anchor=(.075, .045),
+               ncol=2, fontsize=5.1, handletextpad=.3, columnspacing=1.1,
+               borderaxespad=0, handlelength=.8)
+    fig.text(.085, .027, "Faint paths: pre-stimulus and recovery", fontsize=4.8, color=MUTED)
     pub.save(fig, name, title="Population trajectories during directional stimulation",
              sources=["traces.json"],
              description="Eight population trajectories in one three-dimensional PCA basis fitted to all 960 population states (smoothed σ 2.5 frames; each cell centred on its pooled baseline and scaled by its pooled standard deviation). Saturated lines are the 60 stimulus frames; circles and squares mark onset and offset; floor projections indicate geometry only.",

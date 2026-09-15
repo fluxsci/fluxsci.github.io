@@ -1,46 +1,38 @@
 {
   "artifact": {
-    "svgSha256": "1990e52e94aa1a3d86e84cbf0518738a8ba1757a61dc47367cbffaa4f9354e6c"
+    "svgSha256": "94966c34f57bd5bc33c65ed372b6d3c59cc56bfdca41a8b19af3c264cd806ca1"
   },
   "axes": [
     {
       "id": "panel.dorsal.plot-area",
       "panelId": "panel.dorsal",
       "pixelBox": {
-        "x0": 0,
-        "x1": 209.664,
-        "y0": 3.1552618611733014,
-        "y1": 230.8087381388267
+        "x0": 17.115685487968378,
+        "x1": 179.4443145120316,
+        "y0": 2.412000000000002,
+        "y1": 225.52200000000002
       },
       "projection": "rectilinear",
       "svgId": "panel.dorsal.plot-area",
       "x": {
         "anchors": [
           {
-            "data": -8.105809285707444,
-            "svg": 0
+            "data": -5.867126530439066,
+            "svg": 17.115685487968378
           },
           {
-            "data": 7.413061491997666,
-            "svg": 209.664
+            "data": 5.409814786379534,
+            "svg": 179.44431451203158
           }
         ],
         "domain": [
-          -8.105809285707444,
-          7.413061491997666
+          -5.867126530439066,
+          5.409814786379534
         ],
         "label": "",
         "scale": "linear",
         "supported": true,
         "ticks": [
-          {
-            "label": "−10",
-            "value": -10
-          },
-          {
-            "label": "−8",
-            "value": -8
-          },
           {
             "label": "−6",
             "value": -6
@@ -68,36 +60,28 @@
           {
             "label": "6",
             "value": 6
-          },
-          {
-            "label": "8",
-            "value": 8
           }
         ]
       },
       "y": {
         "anchors": [
           {
-            "data": -9.132791378723416,
-            "svg": 230.8087381388267
+            "data": -7.927291378723417,
+            "svg": 225.522
           },
           {
-            "data": 7.717621092889538,
-            "svg": 3.155261861173328
+            "data": 7.572121092889538,
+            "svg": 2.412000000000002
           }
         ],
         "domain": [
-          -9.132791378723416,
-          7.717621092889538
+          -7.927291378723417,
+          7.572121092889538
         ],
         "label": "",
         "scale": "linear",
         "supported": true,
         "ticks": [
-          {
-            "label": "−10",
-            "value": -10
-          },
           {
             "label": "−8",
             "value": -8
@@ -141,10 +125,10 @@
       "id": "panel.lateral.plot-area",
       "panelId": "panel.lateral",
       "pixelBox": {
-        "x0": 196.55999999999997,
-        "x1": 327.59999999999997,
-        "y0": 37.9166922548992,
-        "y1": 111.62730774510081
+        "x0": 199.83599999999998,
+        "x1": 325.962,
+        "y0": 19.39976629534048,
+        "y1": 90.34623370465951
       },
       "projection": "rectilinear",
       "svgId": "panel.lateral.plot-area",
@@ -152,11 +136,11 @@
         "anchors": [
           {
             "data": -7.252966485,
-            "svg": 196.55999999999997
+            "svg": 199.83599999999993
           },
           {
             "data": 7.277296185000001,
-            "svg": 327.59999999999997
+            "svg": 325.962
           }
         ],
         "domain": [
@@ -168,40 +152,32 @@
         "supported": true,
         "ticks": [
           {
-            "label": "−8",
-            "value": -8
+            "label": "−7.5",
+            "value": -7.5
           },
           {
-            "label": "−6",
-            "value": -6
+            "label": "−5.0",
+            "value": -5
           },
           {
-            "label": "−4",
-            "value": -4
+            "label": "−2.5",
+            "value": -2.5
           },
           {
-            "label": "−2",
-            "value": -2
-          },
-          {
-            "label": "0",
+            "label": "0.0",
             "value": 0
           },
           {
-            "label": "2",
-            "value": 2
+            "label": "2.5",
+            "value": 2.5
           },
           {
-            "label": "4",
-            "value": 4
+            "label": "5.0",
+            "value": 5
           },
           {
-            "label": "6",
-            "value": 6
-          },
-          {
-            "label": "8",
-            "value": 8
+            "label": "7.5",
+            "value": 7.5
           }
         ]
       },
@@ -209,11 +185,11 @@
         "anchors": [
           {
             "data": -4.2357555,
-            "svg": 111.62730774510081
+            "svg": 90.34623370465951
           },
           {
             "data": 3.9375855000000004,
-            "svg": 37.9166922548992
+            "svg": 19.39976629534048
           }
         ],
         "domain": [
@@ -250,6 +226,194 @@
           }
         ]
       }
+    },
+    {
+      "id": "panel.coronal-8500.plot-area",
+      "panelId": "panel.coronal-8500",
+      "pixelBox": {
+        "x0": 221.47892307692305,
+        "x1": 299.40507692307693,
+        "y0": 116.4996,
+        "y1": 170.7696
+      },
+      "projection": "rectilinear",
+      "svgId": "panel.coronal-8500.plot-area",
+      "x": {
+        "anchors": [
+          {
+            "data": -5.6,
+            "svg": 221.47892307692308
+          },
+          {
+            "data": 5.6,
+            "svg": 299.40507692307693
+          }
+        ],
+        "domain": [
+          -5.6,
+          5.6
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "−10",
+            "value": -10
+          },
+          {
+            "label": "−5",
+            "value": -5
+          },
+          {
+            "label": "0",
+            "value": 0
+          },
+          {
+            "label": "5",
+            "value": 5
+          },
+          {
+            "label": "10",
+            "value": 10
+          }
+        ]
+      },
+      "y": {
+        "anchors": [
+          {
+            "data": -3.9,
+            "svg": 170.7696
+          },
+          {
+            "data": 3.9,
+            "svg": 116.4996
+          }
+        ],
+        "domain": [
+          -3.9,
+          3.9
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "−4",
+            "value": -4
+          },
+          {
+            "label": "−2",
+            "value": -2
+          },
+          {
+            "label": "0",
+            "value": 0
+          },
+          {
+            "label": "2",
+            "value": 2
+          },
+          {
+            "label": "4",
+            "value": 4
+          }
+        ]
+      }
+    },
+    {
+      "id": "panel.coronal-9500.plot-area",
+      "panelId": "panel.coronal-9500",
+      "pixelBox": {
+        "x0": 221.47892307692305,
+        "x1": 299.40507692307693,
+        "y0": 173.1816,
+        "y1": 227.4516
+      },
+      "projection": "rectilinear",
+      "svgId": "panel.coronal-9500.plot-area",
+      "x": {
+        "anchors": [
+          {
+            "data": -5.6,
+            "svg": 221.47892307692308
+          },
+          {
+            "data": 5.6,
+            "svg": 299.40507692307693
+          }
+        ],
+        "domain": [
+          -5.6,
+          5.6
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "−10",
+            "value": -10
+          },
+          {
+            "label": "−5",
+            "value": -5
+          },
+          {
+            "label": "0",
+            "value": 0
+          },
+          {
+            "label": "5",
+            "value": 5
+          },
+          {
+            "label": "10",
+            "value": 10
+          }
+        ]
+      },
+      "y": {
+        "anchors": [
+          {
+            "data": -3.9,
+            "svg": 227.45160000000004
+          },
+          {
+            "data": 3.9,
+            "svg": 173.1816
+          }
+        ],
+        "domain": [
+          -3.9,
+          3.9
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "−4",
+            "value": -4
+          },
+          {
+            "label": "−2",
+            "value": -2
+          },
+          {
+            "label": "0",
+            "value": 0
+          },
+          {
+            "label": "2",
+            "value": 2
+          },
+          {
+            "label": "4",
+            "value": 4
+          }
+        ]
+      }
     }
   ],
   "build": {
@@ -263,14 +427,21 @@
       "panel.dorsal.annotation.1",
       "panel.dorsal.annotation.2",
       "panel.dorsal.extra.line.0",
-      "panel.dorsal.extra.patch.0",
-      "panel.dorsal.extra.patch.1",
-      "panel.dorsal.extra.patch.2",
       "panel.lateral.lateral-brain-surface.x-brain-surface",
       "panel.lateral.lateral-isocortex.x-brain-surface",
       "panel.lateral.lateral-primary-visual-area.x-brain-surface",
       "panel.lateral.lateral-lateral-visual-area.x-brain-surface",
-      "panel.lateral.annotation.0"
+      "panel.lateral.annotation.0",
+      "panel.coronal-8500.coronal-8500-structure-997.x-anatomical-section",
+      "panel.coronal-8500.coronal-8500-structure-315.x-anatomical-section",
+      "panel.coronal-8500.coronal-8500-structure-385.x-anatomical-section",
+      "panel.coronal-8500.coronal-8500-structure-409.x-anatomical-section",
+      "panel.coronal-8500.annotation.0",
+      "panel.coronal-9500.coronal-9500-structure-997.x-anatomical-section",
+      "panel.coronal-9500.coronal-9500-structure-315.x-anatomical-section",
+      "panel.coronal-9500.coronal-9500-structure-385.x-anatomical-section",
+      "panel.coronal-9500.coronal-9500-structure-409.x-anatomical-section",
+      "panel.coronal-9500.annotation.0"
     ],
     "presets": {
       "axis": {
@@ -313,7 +484,7 @@
       "kind": "text",
       "role": "annotation",
       "svgId": "panel.dorsal.annotation.2",
-      "text": "Allen CCFv3 2017 surfaces · imaging plane 175 µm deep"
+      "text": "coronal sections · CCF A–P (mm)"
     },
     {
       "id": "panel.dorsal.extra.line.0",
@@ -322,29 +493,25 @@
       "svgId": "panel.dorsal.extra.line.0"
     },
     {
-      "id": "panel.dorsal.extra.patch.0",
-      "kind": "shape",
-      "role": "extra",
-      "svgId": "panel.dorsal.extra.patch.0"
-    },
-    {
-      "id": "panel.dorsal.extra.patch.1",
-      "kind": "shape",
-      "role": "extra",
-      "svgId": "panel.dorsal.extra.patch.1"
-    },
-    {
-      "id": "panel.dorsal.extra.patch.2",
-      "kind": "shape",
-      "role": "extra",
-      "svgId": "panel.dorsal.extra.patch.2"
-    },
-    {
       "id": "panel.lateral.annotation.0",
       "kind": "text",
       "role": "annotation",
       "svgId": "panel.lateral.annotation.0",
       "text": "lateral"
+    },
+    {
+      "id": "panel.coronal-8500.annotation.0",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "panel.coronal-8500.annotation.0",
+      "text": "8.5"
+    },
+    {
+      "id": "panel.coronal-9500.annotation.0",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "panel.coronal-9500.annotation.0",
+      "text": "9.5"
     }
   ],
   "panels": [
@@ -359,6 +526,18 @@
       "index": 1,
       "label": "lateral",
       "svgId": "panel.lateral.plot-area"
+    },
+    {
+      "id": "panel.coronal-8500",
+      "index": 2,
+      "label": "coronal-8500",
+      "svgId": "panel.coronal-8500.plot-area"
+    },
+    {
+      "id": "panel.coronal-9500",
+      "index": 3,
+      "label": "coronal-9500",
+      "svgId": "panel.coronal-9500.plot-area"
     }
   ],
   "parts": {
@@ -427,10 +606,7 @@
                 "groupRole": "extra",
                 "id": "panel.dorsal.extras",
                 "members": [
-                  "panel.dorsal.extra.line.0",
-                  "panel.dorsal.extra.patch.0",
-                  "panel.dorsal.extra.patch.1",
-                  "panel.dorsal.extra.patch.2"
+                  "panel.dorsal.extra.line.0"
                 ],
                 "role": "group"
               }
@@ -506,6 +682,132 @@
         "id": "panel.lateral",
         "kind": "container",
         "label": "lateral",
+        "role": "panel"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "kind": "line",
+                    "ref": "panel.coronal-8500.coronal-8500-structure-997.x-anatomical-section"
+                  }
+                ],
+                "id": "panel.coronal-8500.coronal-8500-structure-997",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "line",
+                    "ref": "panel.coronal-8500.coronal-8500-structure-315.x-anatomical-section"
+                  }
+                ],
+                "id": "panel.coronal-8500.coronal-8500-structure-315",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "line",
+                    "ref": "panel.coronal-8500.coronal-8500-structure-385.x-anatomical-section"
+                  }
+                ],
+                "id": "panel.coronal-8500.coronal-8500-structure-385",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "line",
+                    "ref": "panel.coronal-8500.coronal-8500-structure-409.x-anatomical-section"
+                  }
+                ],
+                "id": "panel.coronal-8500.coronal-8500-structure-409",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "kind": "text",
+                "ref": "panel.coronal-8500.annotation.0"
+              }
+            ],
+            "id": "panel.coronal-8500.plot-area",
+            "kind": "container",
+            "role": "plot-area"
+          }
+        ],
+        "id": "panel.coronal-8500",
+        "kind": "container",
+        "label": "coronal-8500",
+        "role": "panel"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "kind": "line",
+                    "ref": "panel.coronal-9500.coronal-9500-structure-997.x-anatomical-section"
+                  }
+                ],
+                "id": "panel.coronal-9500.coronal-9500-structure-997",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "line",
+                    "ref": "panel.coronal-9500.coronal-9500-structure-315.x-anatomical-section"
+                  }
+                ],
+                "id": "panel.coronal-9500.coronal-9500-structure-315",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "line",
+                    "ref": "panel.coronal-9500.coronal-9500-structure-385.x-anatomical-section"
+                  }
+                ],
+                "id": "panel.coronal-9500.coronal-9500-structure-385",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "line",
+                    "ref": "panel.coronal-9500.coronal-9500-structure-409.x-anatomical-section"
+                  }
+                ],
+                "id": "panel.coronal-9500.coronal-9500-structure-409",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "kind": "text",
+                "ref": "panel.coronal-9500.annotation.0"
+              }
+            ],
+            "id": "panel.coronal-9500.plot-area",
+            "kind": "container",
+            "role": "plot-area"
+          }
+        ],
+        "id": "panel.coronal-9500",
+        "kind": "container",
+        "label": "coronal-9500",
         "role": "panel"
       }
     ],
@@ -696,6 +998,184 @@
       ],
       "svg": {
         "x-brain-surface": "panel.lateral.lateral-lateral-visual-area.x-brain-surface"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-anatomical-section",
+          "svgId": "panel.coronal-8500.coronal-8500-structure-997.x-anatomical-section"
+        }
+      ],
+      "data": {},
+      "id": "panel.coronal-8500.coronal-8500-structure-997",
+      "kind": "x-anatomical-section",
+      "name": "coronal-8500-structure-997",
+      "panelId": "panel.coronal-8500",
+      "roles": [
+        "x-anatomical-section"
+      ],
+      "svg": {
+        "x-anatomical-section": "panel.coronal-8500.coronal-8500-structure-997.x-anatomical-section"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-anatomical-section",
+          "svgId": "panel.coronal-8500.coronal-8500-structure-315.x-anatomical-section"
+        }
+      ],
+      "data": {},
+      "id": "panel.coronal-8500.coronal-8500-structure-315",
+      "kind": "x-anatomical-section",
+      "name": "coronal-8500-structure-315",
+      "panelId": "panel.coronal-8500",
+      "rasterized": true,
+      "roles": [
+        "x-anatomical-section"
+      ],
+      "svg": {
+        "x-anatomical-section": "panel.coronal-8500.coronal-8500-structure-315.x-anatomical-section"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-anatomical-section",
+          "svgId": "panel.coronal-8500.coronal-8500-structure-385.x-anatomical-section"
+        }
+      ],
+      "data": {},
+      "id": "panel.coronal-8500.coronal-8500-structure-385",
+      "kind": "x-anatomical-section",
+      "name": "coronal-8500-structure-385",
+      "panelId": "panel.coronal-8500",
+      "roles": [
+        "x-anatomical-section"
+      ],
+      "svg": {
+        "x-anatomical-section": "panel.coronal-8500.coronal-8500-structure-385.x-anatomical-section"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-anatomical-section",
+          "svgId": "panel.coronal-8500.coronal-8500-structure-409.x-anatomical-section"
+        }
+      ],
+      "data": {},
+      "id": "panel.coronal-8500.coronal-8500-structure-409",
+      "kind": "x-anatomical-section",
+      "name": "coronal-8500-structure-409",
+      "panelId": "panel.coronal-8500",
+      "roles": [
+        "x-anatomical-section"
+      ],
+      "svg": {
+        "x-anatomical-section": "panel.coronal-8500.coronal-8500-structure-409.x-anatomical-section"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-anatomical-section",
+          "svgId": "panel.coronal-9500.coronal-9500-structure-997.x-anatomical-section"
+        }
+      ],
+      "data": {},
+      "id": "panel.coronal-9500.coronal-9500-structure-997",
+      "kind": "x-anatomical-section",
+      "name": "coronal-9500-structure-997",
+      "panelId": "panel.coronal-9500",
+      "rasterized": true,
+      "roles": [
+        "x-anatomical-section"
+      ],
+      "svg": {
+        "x-anatomical-section": "panel.coronal-9500.coronal-9500-structure-997.x-anatomical-section"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-anatomical-section",
+          "svgId": "panel.coronal-9500.coronal-9500-structure-315.x-anatomical-section"
+        }
+      ],
+      "data": {},
+      "id": "panel.coronal-9500.coronal-9500-structure-315",
+      "kind": "x-anatomical-section",
+      "name": "coronal-9500-structure-315",
+      "panelId": "panel.coronal-9500",
+      "roles": [
+        "x-anatomical-section"
+      ],
+      "svg": {
+        "x-anatomical-section": "panel.coronal-9500.coronal-9500-structure-315.x-anatomical-section"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-anatomical-section",
+          "svgId": "panel.coronal-9500.coronal-9500-structure-385.x-anatomical-section"
+        }
+      ],
+      "data": {},
+      "id": "panel.coronal-9500.coronal-9500-structure-385",
+      "kind": "x-anatomical-section",
+      "name": "coronal-9500-structure-385",
+      "panelId": "panel.coronal-9500",
+      "roles": [
+        "x-anatomical-section"
+      ],
+      "svg": {
+        "x-anatomical-section": "panel.coronal-9500.coronal-9500-structure-385.x-anatomical-section"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-anatomical-section",
+          "svgId": "panel.coronal-9500.coronal-9500-structure-409.x-anatomical-section"
+        }
+      ],
+      "data": {},
+      "id": "panel.coronal-9500.coronal-9500-structure-409",
+      "kind": "x-anatomical-section",
+      "name": "coronal-9500-structure-409",
+      "panelId": "panel.coronal-9500",
+      "roles": [
+        "x-anatomical-section"
+      ],
+      "svg": {
+        "x-anatomical-section": "panel.coronal-9500.coronal-9500-structure-409.x-anatomical-section"
       }
     }
   ],

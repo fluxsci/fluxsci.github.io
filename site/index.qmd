@@ -1,7 +1,7 @@
 ---
 title: ""
-pagetitle: "One studio for your scientific work"
-description: "Write papers, compose figures, build talks, and keep your reading connected. Discover Flux, a desktop studio for scientific work built around files you own."
+pagetitle: "A unified scientific workspace"
+description: "Figures, presentations, literature, and papers in one connected workspace. Built for you and your AI collaborators, around files you own."
 ---
 
 ```{=html}
@@ -110,6 +110,29 @@ description: "Write papers, compose figures, build talks, and keep your reading 
 <main id="main-content" class="flux-home">
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-copy content-width">
+      <div class="hero-emblem" aria-hidden="true">
+        <svg class="hero-connections" viewBox="0 0 600 120" fill="none">
+          <g class="emblem-thread" style="--thread-color:#4385be;--thread-delay:440ms">
+            <path d="M258 51C214 51 215 24 164 24H64" pathLength="1" />
+            <circle cx="64" cy="24" r="3" />
+          </g>
+          <g class="emblem-thread" style="--thread-color:#3aa99f;--thread-delay:540ms">
+            <path d="M257 66C211 66 208 96 156 96H114" pathLength="1" />
+            <circle cx="114" cy="96" r="3" />
+          </g>
+          <g class="emblem-thread" style="--thread-color:#ce5d97;--thread-delay:640ms">
+            <path d="M342 42C382 42 384 18 436 18H503" pathLength="1" />
+            <circle cx="503" cy="18" r="3" />
+          </g>
+          <g class="emblem-thread" style="--thread-color:#8b7ec8;--thread-delay:740ms">
+            <path d="M347 61H548" pathLength="1" />
+            <circle cx="548" cy="61" r="3" />
+          </g>
+          <g class="emblem-thread" style="--thread-color:#d0a215;--thread-delay:840ms">
+            <path d="M339 80C380 80 376 106 428 106H464" pathLength="1" />
+            <circle cx="464" cy="106" r="3" />
+          </g>
+        </svg>
       <svg class="hero-mark" viewBox="0 0 100 100" aria-hidden="true">
         <circle cx="46.94" cy="52.8" r="1.39" fill="#d14d41" style="--i:0" />
         <circle cx="50.51" cy="44.15" r="1.42" fill="#da702c" style="--i:1" />
@@ -200,17 +223,15 @@ description: "Write papers, compose figures, build talks, and keep your reading 
         <circle cx="54.59" cy="88.44" r="4.48" fill="#ce5d97" style="--i:86" />
         <circle cx="20.49" cy="24.61" r="4.52" fill="#ce5d97" style="--i:87" />
       </svg>
-      <p class="eyebrow intro-rise" style="--intro-delay: 260ms">
-        <span class="eyebrow-line"></span>A desktop studio for scientific work
-      </p>
-      <h1 id="hero-title" class="intro-rise" style="--intro-delay: 340ms">
-        One studio for your<br /><em>scientific work.</em>
+      </div>
+      <h1 id="hero-title" class="intro-rise" style="--intro-delay: 100ms">
+        A unified<br /><em>scientific workspace.</em>
       </h1>
-      <p class="hero-description intro-rise" style="--intro-delay: 430ms">
-        Write papers, compose figures, build talks, and keep your reading
-        connected. A thoughtful workspace built around files you own.
+      <p class="hero-description intro-rise" style="--intro-delay: 200ms">
+        Figures, presentations, literature, and papers.<br class="desktop-break" />
+        Connected in one place. Built for you and your AI collaborators.
       </p>
-      <div class="hero-actions intro-rise" style="--intro-delay: 520ms">
+      <div class="hero-actions intro-rise" style="--intro-delay: 300ms">
         <a
           class="button button-primary"
           href="https://github.com/fluxsci/flux/blob/main/docs/installation.qmd"
@@ -221,20 +242,27 @@ description: "Write papers, compose figures, build talks, and keep your reading 
         >
       </div>
     </div>
-    <figure class="hero-figure wide-width intro-rise" style="--intro-delay: 640ms">
+    <figure id="explore" class="hero-figure wide-width intro-rise" style="--intro-delay: 420ms" data-workspace-preview>
       <div class="figure-overline">
-        <span><span class="status-dot"></span>The work, brought together</span
-        ><span>One project. Five perspectives.</span>
+        <span><span class="status-dot"></span>One project. Every part of the work.</span
+        ><span class="workspace-prompt">Explore the workspace</span>
+      </div>
+      <div class="workspace-choices" role="group" aria-label="Choose a Flux workspace" hidden>
+        <button type="button" data-workspace="paper" aria-pressed="true" style="--workspace-color:#4385be"><svg class="icon" aria-hidden="true"><use href="#i-paper" /></svg>Paper<span>Write &amp; publish</span></button>
+        <button type="button" data-workspace="figure" aria-pressed="false" style="--workspace-color:#3aa99f"><svg class="icon" aria-hidden="true"><use href="#i-figure" /></svg>Figure<span>Compose &amp; refine</span></button>
+        <button type="button" data-workspace="slides" aria-pressed="false" style="--workspace-color:#ce5d97"><svg class="icon" aria-hidden="true"><use href="#i-slides" /></svg>Slides<span>Build the explanation</span></button>
+        <button type="button" data-workspace="library" aria-pressed="false" style="--workspace-color:#8b7ec8"><svg class="icon" aria-hidden="true"><use href="#i-library" /></svg>Library<span>Collect &amp; connect</span></button>
+        <button type="button" data-workspace="reader" aria-pressed="false" style="--workspace-color:#d0a215"><svg class="icon" aria-hidden="true"><use href="#i-reader" /></svg>Reader<span>Read &amp; understand</span></button>
       </div>
       <a
         class="media-enlarge hero-image"
         href="assets/media/paper.webp"
         data-enlarge
-        data-caption="Paper in Flux. A real workspace from the illustrative growth-study project."
+        data-caption="Paper in Flux: the example manuscript, with its figures and references in view."
         aria-label="Enlarge the Flux Paper workspace"
         ><img
           src="assets/media/paper.webp"
-          alt="Flux Paper workspace with a scientific manuscript, project documents, and a composed growth figure."
+          alt="Flux Paper workspace with the neural-populations manuscript, project documents, and its composed neuroscience figure."
           width="1500"
           height="950"
           fetchpriority="high"
@@ -244,12 +272,11 @@ description: "Write papers, compose figures, build talks, and keep your reading 
         ></a
       >
       <figcaption>
-        <span>From a first question to a finished paper.</span
-        ><span>Real Flux workspaces · An original neuroscience project</span>
+        <span data-workspace-caption aria-live="polite">Write with your figures, citations, and working notes in reach.</span>
+        <a class="text-link workspace-guide" href="#paper" data-workspace-guide>Explore Paper<span aria-hidden="true">↓</span></a>
       </figcaption>
     </figure>
     <nav
-      id="explore"
       class="module-navigation content-width intro-rise"
       style="--intro-delay: 780ms"
       aria-label="Explore the five modules"
@@ -286,14 +313,12 @@ description: "Write papers, compose figures, build talks, and keep your reading 
       <div class="signature-heading">
         <p class="eyebrow">Only in Flux</p>
         <h2 id="signature-title">
-          Every mark has a name.<br /><em>Everything else follows.</em>
+          Your work stays connected.<br /><em>Down to the last detail.</em>
         </h2>
         <p>
-          A plot made with fluxplot keeps its meaning: each series, point, axis
-          and label is a named part of the file. That one idea is what lets
-          Flux edit a figure without touching the analysis, animate it part by
-          part in a slide, keep your styling when the data regenerate, and let
-          an agent point at exactly the part you mean.
+          Refine a curve. Animate a result. Ask an agent to adjust a label.
+          Flux understands the parts of your work, so the same plot can become
+          a figure, a presentation, and a paper without losing its meaning.
         </p>
       </div>
       <div
@@ -308,8 +333,7 @@ description: "Write papers, compose figures, build talks, and keep your reading 
         <div class="xray-stage-wrap">
           <div class="xray-topline">
             <span
-              ><span class="status-dot"></span>A real plot file from the example
-              project, read by your browser</span
+              ><span class="status-dot"></span>Try it: one plot, every part editable</span
             ><code data-xray-file>plots/advanced/16-tuning-landscape-2hz.svg</code>
           </div>
           <div class="xray-stage" data-xray-stage>
@@ -350,11 +374,9 @@ description: "Write papers, compose figures, build talks, and keep your reading 
           </div>
         </aside>
         <p class="xray-caption">
-          Nothing here is staged: the page loads the project’s own SVG and reads
-          its <code>data-role</code> and <code>data-series</code> attributes.
-          Rerun the analysis at another frequency and the same named points and
-          curves move to their new values while your restyle stays attached,
-          which is exactly how a Flux figure treats a regenerated plot.
+          Select a curve to change its color, then choose another frequency.
+          The data change; your styling stays. This is a real plot from the
+          <a href="#example-project">downloadable example project</a>.
         </p>
       </div>
       <div class="signature-stories">
@@ -1144,7 +1166,7 @@ description: "Write papers, compose figures, build talks, and keep your reading 
           height="38"
         /><span>Flux</span></a
       >
-      <p>A connected studio for scientific work.</p>
+      <p>A unified scientific workspace.</p>
       <nav aria-label="Footer navigation">
         <a href="https://github.com/fluxsci/flux/blob/main/docs/index.qmd"
           >User guide</a

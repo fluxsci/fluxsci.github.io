@@ -18,6 +18,12 @@ Thirty-three editable SVG panels come from three generators: `scripts/generate-p
 
 Brain surfaces, neuronal reconstructions and population measurements provide complementary context. They may come from different public specimens or experiments. The project does not claim a matched multimodal recording.
 
+## Details in the flagship panels
+
+The anatomical insets intersect the bundled CCF surface meshes at two coronal planes (8.5 and 9.5 mm on the CCF anterior–posterior coordinate). They are outlines of the source surfaces, not histological images. The neuron panel pairs the original reconstructions with a three-dimensional Sholl profile: the number of intersections between dendritic segments and spheres at increasing distance from the soma.
+
+In the response atlas, cells are grouped by their preferred drift direction. The colored trace above each stimulus block summarizes its preferred cohort (mean and standard error across cells); the gray envelope shows the 10th–90th percentile of the whole population. The heatmap retains the individual cells. These summaries describe the bundled example recording and do not imply a matched anatomy–activity experiment.
+
 ## Editing and reproducibility
 
 Edit the manuscript in Paper, rearrange panels and labels in Figure, and edit the presentation in Slides. The shared plot sources live in `plots/`; accepted copies in `fig/assets/` are managed by Flux. Editing or regenerating a plot updates its linked placements. The website refresh command reads this project and rebuilds the public exports without replacing its authored documents or compositions.

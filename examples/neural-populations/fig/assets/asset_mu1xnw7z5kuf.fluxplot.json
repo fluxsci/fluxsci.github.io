@@ -1,32 +1,753 @@
 {
   "artifact": {
-    "svgSha256": "3cbb97fd8dcf6240ab1cdbab09b778617d63cb7db67c0e78069b964d607789ec"
+    "svgSha256": "fe10df44a3797a576e574c551e23039afd270916ccc601fe88641855a4a6f015"
   },
   "axes": [
     {
-      "id": "plot-area",
+      "id": "panel.direction-0-population-profile.plot-area",
+      "panelId": "panel.direction-0-population-profile",
       "pixelBox": {
         "x0": 28.080000000000002,
-        "x1": 408.23999999999995,
-        "y0": 22.913999999999994,
-        "y1": 209.84400000000002
+        "x1": 73.92844221105527,
+        "y0": 12.059999999999985,
+        "y1": 47.03399999999999
       },
       "projection": "rectilinear",
-      "svgId": "plot-area",
+      "svgId": "panel.direction-0-population-profile.plot-area",
       "x": {
         "anchors": [
           {
-            "data": 0.0,
+            "data": -1,
+            "svg": 28.080000000000005
+          },
+          {
+            "data": 2.966666666666667,
+            "svg": 73.92844221105528
+          }
+        ],
+        "domain": [
+          -1,
+          2.966666666666667
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "−2",
+            "value": -2
+          },
+          {
+            "label": "0",
+            "value": 0
+          },
+          {
+            "label": "2",
+            "value": 2
+          },
+          {
+            "label": "4",
+            "value": 4
+          }
+        ]
+      },
+      "y": {
+        "anchors": [
+          {
+            "data": -1.5,
+            "svg": 47.03399999999999
+          },
+          {
+            "data": 4.5,
+            "svg": 12.059999999999985
+          }
+        ],
+        "domain": [
+          -1.5,
+          4.5
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "−2",
+            "value": -2
+          },
+          {
+            "label": "0",
+            "value": 0
+          },
+          {
+            "label": "2",
+            "value": 2
+          },
+          {
+            "label": "4",
+            "value": 4
+          },
+          {
+            "label": "6",
+            "value": 6
+          }
+        ]
+      }
+    },
+    {
+      "id": "panel.direction-45-population-profile.plot-area",
+      "panelId": "panel.direction-45-population-profile",
+      "pixelBox": {
+        "x0": 75.83879396984923,
+        "x1": 121.6872361809045,
+        "y0": 12.059999999999985,
+        "y1": 47.03399999999999
+      },
+      "projection": "rectilinear",
+      "svgId": "panel.direction-45-population-profile.plot-area",
+      "x": {
+        "anchors": [
+          {
+            "data": -1,
+            "svg": 75.83879396984923
+          },
+          {
+            "data": 2.966666666666667,
+            "svg": 121.6872361809045
+          }
+        ],
+        "domain": [
+          -1,
+          2.966666666666667
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "−2",
+            "value": -2
+          },
+          {
+            "label": "0",
+            "value": 0
+          },
+          {
+            "label": "2",
+            "value": 2
+          },
+          {
+            "label": "4",
+            "value": 4
+          }
+        ]
+      },
+      "y": {
+        "anchors": [
+          {
+            "data": -1.5,
+            "svg": 47.03399999999999
+          },
+          {
+            "data": 4.5,
+            "svg": 12.059999999999985
+          }
+        ],
+        "domain": [
+          -1.5,
+          4.5
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "−2",
+            "value": -2
+          },
+          {
+            "label": "0",
+            "value": 0
+          },
+          {
+            "label": "2",
+            "value": 2
+          },
+          {
+            "label": "4",
+            "value": 4
+          },
+          {
+            "label": "6",
+            "value": 6
+          }
+        ]
+      }
+    },
+    {
+      "id": "panel.direction-90-population-profile.plot-area",
+      "panelId": "panel.direction-90-population-profile",
+      "pixelBox": {
+        "x0": 123.5975879396985,
+        "x1": 169.44603015075376,
+        "y0": 12.059999999999985,
+        "y1": 47.03399999999999
+      },
+      "projection": "rectilinear",
+      "svgId": "panel.direction-90-population-profile.plot-area",
+      "x": {
+        "anchors": [
+          {
+            "data": -1,
+            "svg": 123.59758793969847
+          },
+          {
+            "data": 2.966666666666667,
+            "svg": 169.44603015075376
+          }
+        ],
+        "domain": [
+          -1,
+          2.966666666666667
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "−2",
+            "value": -2
+          },
+          {
+            "label": "0",
+            "value": 0
+          },
+          {
+            "label": "2",
+            "value": 2
+          },
+          {
+            "label": "4",
+            "value": 4
+          }
+        ]
+      },
+      "y": {
+        "anchors": [
+          {
+            "data": -1.5,
+            "svg": 47.03399999999999
+          },
+          {
+            "data": 4.5,
+            "svg": 12.059999999999985
+          }
+        ],
+        "domain": [
+          -1.5,
+          4.5
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "−2",
+            "value": -2
+          },
+          {
+            "label": "0",
+            "value": 0
+          },
+          {
+            "label": "2",
+            "value": 2
+          },
+          {
+            "label": "4",
+            "value": 4
+          },
+          {
+            "label": "6",
+            "value": 6
+          }
+        ]
+      }
+    },
+    {
+      "id": "panel.direction-135-population-profile.plot-area",
+      "panelId": "panel.direction-135-population-profile",
+      "pixelBox": {
+        "x0": 171.35638190954776,
+        "x1": 217.20482412060304,
+        "y0": 12.059999999999985,
+        "y1": 47.03399999999999
+      },
+      "projection": "rectilinear",
+      "svgId": "panel.direction-135-population-profile.plot-area",
+      "x": {
+        "anchors": [
+          {
+            "data": -1,
+            "svg": 171.35638190954776
+          },
+          {
+            "data": 2.966666666666667,
+            "svg": 217.20482412060304
+          }
+        ],
+        "domain": [
+          -1,
+          2.966666666666667
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "−2",
+            "value": -2
+          },
+          {
+            "label": "0",
+            "value": 0
+          },
+          {
+            "label": "2",
+            "value": 2
+          },
+          {
+            "label": "4",
+            "value": 4
+          }
+        ]
+      },
+      "y": {
+        "anchors": [
+          {
+            "data": -1.5,
+            "svg": 47.03399999999999
+          },
+          {
+            "data": 4.5,
+            "svg": 12.059999999999985
+          }
+        ],
+        "domain": [
+          -1.5,
+          4.5
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "−2",
+            "value": -2
+          },
+          {
+            "label": "0",
+            "value": 0
+          },
+          {
+            "label": "2",
+            "value": 2
+          },
+          {
+            "label": "4",
+            "value": 4
+          },
+          {
+            "label": "6",
+            "value": 6
+          }
+        ]
+      }
+    },
+    {
+      "id": "panel.direction-180-population-profile.plot-area",
+      "panelId": "panel.direction-180-population-profile",
+      "pixelBox": {
+        "x0": 219.115175879397,
+        "x1": 264.96361809045226,
+        "y0": 12.059999999999985,
+        "y1": 47.03399999999999
+      },
+      "projection": "rectilinear",
+      "svgId": "panel.direction-180-population-profile.plot-area",
+      "x": {
+        "anchors": [
+          {
+            "data": -1,
+            "svg": 219.115175879397
+          },
+          {
+            "data": 2.966666666666667,
+            "svg": 264.96361809045226
+          }
+        ],
+        "domain": [
+          -1,
+          2.966666666666667
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "−2",
+            "value": -2
+          },
+          {
+            "label": "0",
+            "value": 0
+          },
+          {
+            "label": "2",
+            "value": 2
+          },
+          {
+            "label": "4",
+            "value": 4
+          }
+        ]
+      },
+      "y": {
+        "anchors": [
+          {
+            "data": -1.5,
+            "svg": 47.03399999999999
+          },
+          {
+            "data": 4.5,
+            "svg": 12.059999999999985
+          }
+        ],
+        "domain": [
+          -1.5,
+          4.5
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "−2",
+            "value": -2
+          },
+          {
+            "label": "0",
+            "value": 0
+          },
+          {
+            "label": "2",
+            "value": 2
+          },
+          {
+            "label": "4",
+            "value": 4
+          },
+          {
+            "label": "6",
+            "value": 6
+          }
+        ]
+      }
+    },
+    {
+      "id": "panel.direction-225-population-profile.plot-area",
+      "panelId": "panel.direction-225-population-profile",
+      "pixelBox": {
+        "x0": 266.8739698492463,
+        "x1": 312.72241206030156,
+        "y0": 12.059999999999985,
+        "y1": 47.03399999999999
+      },
+      "projection": "rectilinear",
+      "svgId": "panel.direction-225-population-profile.plot-area",
+      "x": {
+        "anchors": [
+          {
+            "data": -1,
+            "svg": 266.8739698492463
+          },
+          {
+            "data": 2.966666666666667,
+            "svg": 312.72241206030156
+          }
+        ],
+        "domain": [
+          -1,
+          2.966666666666667
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "−2",
+            "value": -2
+          },
+          {
+            "label": "0",
+            "value": 0
+          },
+          {
+            "label": "2",
+            "value": 2
+          },
+          {
+            "label": "4",
+            "value": 4
+          }
+        ]
+      },
+      "y": {
+        "anchors": [
+          {
+            "data": -1.5,
+            "svg": 47.03399999999999
+          },
+          {
+            "data": 4.5,
+            "svg": 12.059999999999985
+          }
+        ],
+        "domain": [
+          -1.5,
+          4.5
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "−2",
+            "value": -2
+          },
+          {
+            "label": "0",
+            "value": 0
+          },
+          {
+            "label": "2",
+            "value": 2
+          },
+          {
+            "label": "4",
+            "value": 4
+          },
+          {
+            "label": "6",
+            "value": 6
+          }
+        ]
+      }
+    },
+    {
+      "id": "panel.direction-270-population-profile.plot-area",
+      "panelId": "panel.direction-270-population-profile",
+      "pixelBox": {
+        "x0": 314.63276381909554,
+        "x1": 360.4812060301508,
+        "y0": 12.059999999999985,
+        "y1": 47.03399999999999
+      },
+      "projection": "rectilinear",
+      "svgId": "panel.direction-270-population-profile.plot-area",
+      "x": {
+        "anchors": [
+          {
+            "data": -1,
+            "svg": 314.63276381909554
+          },
+          {
+            "data": 2.966666666666667,
+            "svg": 360.4812060301508
+          }
+        ],
+        "domain": [
+          -1,
+          2.966666666666667
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "−2",
+            "value": -2
+          },
+          {
+            "label": "0",
+            "value": 0
+          },
+          {
+            "label": "2",
+            "value": 2
+          },
+          {
+            "label": "4",
+            "value": 4
+          }
+        ]
+      },
+      "y": {
+        "anchors": [
+          {
+            "data": -1.5,
+            "svg": 47.03399999999999
+          },
+          {
+            "data": 4.5,
+            "svg": 12.059999999999985
+          }
+        ],
+        "domain": [
+          -1.5,
+          4.5
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "−2",
+            "value": -2
+          },
+          {
+            "label": "0",
+            "value": 0
+          },
+          {
+            "label": "2",
+            "value": 2
+          },
+          {
+            "label": "4",
+            "value": 4
+          },
+          {
+            "label": "6",
+            "value": 6
+          }
+        ]
+      }
+    },
+    {
+      "id": "panel.direction-315-population-profile.plot-area",
+      "panelId": "panel.direction-315-population-profile",
+      "pixelBox": {
+        "x0": 362.39155778894474,
+        "x1": 408.23999999999995,
+        "y0": 12.059999999999985,
+        "y1": 47.03399999999999
+      },
+      "projection": "rectilinear",
+      "svgId": "panel.direction-315-population-profile.plot-area",
+      "x": {
+        "anchors": [
+          {
+            "data": -1,
+            "svg": 362.39155778894474
+          },
+          {
+            "data": 2.966666666666667,
+            "svg": 408.23999999999995
+          }
+        ],
+        "domain": [
+          -1,
+          2.966666666666667
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "−2",
+            "value": -2
+          },
+          {
+            "label": "0",
+            "value": 0
+          },
+          {
+            "label": "2",
+            "value": 2
+          },
+          {
+            "label": "4",
+            "value": 4
+          }
+        ]
+      },
+      "y": {
+        "anchors": [
+          {
+            "data": -1.5,
+            "svg": 47.03399999999999
+          },
+          {
+            "data": 4.5,
+            "svg": 12.059999999999985
+          }
+        ],
+        "domain": [
+          -1.5,
+          4.5
+        ],
+        "label": "",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "−2",
+            "value": -2
+          },
+          {
+            "label": "0",
+            "value": 0
+          },
+          {
+            "label": "2",
+            "value": 2
+          },
+          {
+            "label": "4",
+            "value": 4
+          },
+          {
+            "label": "6",
+            "value": 6
+          }
+        ]
+      }
+    },
+    {
+      "id": "panel.a.plot-area",
+      "panelId": "panel.a",
+      "pixelBox": {
+        "x0": 28.080000000000002,
+        "x1": 408.23999999999995,
+        "y0": 57.888000000000005,
+        "y1": 208.638
+      },
+      "projection": "rectilinear",
+      "svgId": "panel.a.plot-area",
+      "x": {
+        "anchors": [
+          {
+            "data": 0,
             "svg": 28.080000000000002
           },
           {
-            "data": 995.0,
+            "data": 995,
             "svg": 408.24
           }
         ],
         "domain": [
-          0.0,
-          995.0
+          0,
+          995
         ],
         "label": "Drift direction",
         "scale": "linear",
@@ -34,54 +755,54 @@
         "ticks": [
           {
             "label": "0°",
-            "value": 60.0
+            "value": 60
           },
           {
             "label": "45°",
-            "value": 185.0
+            "value": 185
           },
           {
             "label": "90°",
-            "value": 310.0
+            "value": 310
           },
           {
             "label": "135°",
-            "value": 435.0
+            "value": 435
           },
           {
             "label": "180°",
-            "value": 560.0
+            "value": 560
           },
           {
             "label": "225°",
-            "value": 685.0
+            "value": 685
           },
           {
             "label": "270°",
-            "value": 810.0
+            "value": 810
           },
           {
             "label": "315°",
-            "value": 935.0
+            "value": 935
           }
         ]
       },
       "y": {
         "anchors": [
           {
-            "data": 143.0,
-            "svg": 209.84400000000002
+            "data": 143,
+            "svg": 208.638
           },
           {
-            "data": 0.0,
-            "svg": 22.913999999999994
+            "data": 0,
+            "svg": 57.888000000000005
           }
         ],
         "domain": [
-          143.0,
-          0.0
+          143,
+          0
         ],
-        "label": "143 cells, grouped by preferred direction",
+        "label": "Cells, grouped by preferred direction",
         "scale": "linear",
         "supported": true,
         "ticks": []
@@ -90,37 +811,95 @@
   ],
   "build": {
     "order": [
-      "axis.x",
-      "axis.y",
-      "colorbar.response",
       "gridlines",
-      "direction-response-blocks.x-heatmap",
-      "preferred-0.x-cell-preference-group",
-      "preferred-45.x-cell-preference-group",
-      "preferred-90.x-cell-preference-group",
-      "preferred-135.x-cell-preference-group",
-      "preferred-180.x-cell-preference-group",
-      "preferred-225.x-cell-preference-group",
-      "preferred-270.x-cell-preference-group",
-      "preferred-315.x-cell-preference-group",
-      "stimulus-0.x-stimulus-window",
-      "stimulus-45.x-stimulus-window",
-      "stimulus-90.x-stimulus-window",
-      "stimulus-135.x-stimulus-window",
-      "stimulus-180.x-stimulus-window",
-      "stimulus-225.x-stimulus-window",
-      "stimulus-270.x-stimulus-window",
-      "stimulus-315.x-stimulus-window",
-      "annotation.0",
-      "annotation.1",
-      "annotation.2",
-      "extra.line.0",
-      "extra.line.1",
-      "extra.line.2",
-      "extra.line.3",
-      "extra.line.4",
-      "extra.line.5",
-      "extra.line.6"
+      "panel.direction-0-population-profile.direction-0-cohort-mean.line",
+      "panel.direction-0-population-profile.direction-0-population-80pct.x-population-response-interval",
+      "panel.direction-0-population-profile.direction-0-cohort-sem.x-error-band",
+      "panel.direction-0-population-profile.annotation.0",
+      "panel.direction-0-population-profile.annotation.1",
+      "panel.direction-0-population-profile.annotation.2",
+      "panel.direction-0-population-profile.annotation.3",
+      "panel.direction-0-population-profile.annotation.4",
+      "panel.direction-0-population-profile.annotation.5",
+      "panel.direction-0-population-profile.extra.line.0",
+      "panel.direction-0-population-profile.extra.line.1",
+      "panel.direction-0-population-profile.extra.line.2",
+      "panel.direction-45-population-profile.direction-45-cohort-mean.line",
+      "panel.direction-45-population-profile.direction-45-population-80pct.x-population-response-interval",
+      "panel.direction-45-population-profile.direction-45-cohort-sem.x-error-band",
+      "panel.direction-45-population-profile.annotation.0",
+      "panel.direction-45-population-profile.extra.line.0",
+      "panel.direction-45-population-profile.extra.line.1",
+      "panel.direction-45-population-profile.extra.line.2",
+      "panel.direction-90-population-profile.direction-90-cohort-mean.line",
+      "panel.direction-90-population-profile.direction-90-population-80pct.x-population-response-interval",
+      "panel.direction-90-population-profile.direction-90-cohort-sem.x-error-band",
+      "panel.direction-90-population-profile.annotation.0",
+      "panel.direction-90-population-profile.extra.line.0",
+      "panel.direction-90-population-profile.extra.line.1",
+      "panel.direction-90-population-profile.extra.line.2",
+      "panel.direction-135-population-profile.direction-135-cohort-mean.line",
+      "panel.direction-135-population-profile.direction-135-population-80pct.x-population-response-interval",
+      "panel.direction-135-population-profile.direction-135-cohort-sem.x-error-band",
+      "panel.direction-135-population-profile.annotation.0",
+      "panel.direction-135-population-profile.extra.line.0",
+      "panel.direction-135-population-profile.extra.line.1",
+      "panel.direction-135-population-profile.extra.line.2",
+      "panel.direction-180-population-profile.direction-180-cohort-mean.line",
+      "panel.direction-180-population-profile.direction-180-population-80pct.x-population-response-interval",
+      "panel.direction-180-population-profile.direction-180-cohort-sem.x-error-band",
+      "panel.direction-180-population-profile.annotation.0",
+      "panel.direction-180-population-profile.extra.line.0",
+      "panel.direction-180-population-profile.extra.line.1",
+      "panel.direction-180-population-profile.extra.line.2",
+      "panel.direction-225-population-profile.direction-225-cohort-mean.line",
+      "panel.direction-225-population-profile.direction-225-population-80pct.x-population-response-interval",
+      "panel.direction-225-population-profile.direction-225-cohort-sem.x-error-band",
+      "panel.direction-225-population-profile.annotation.0",
+      "panel.direction-225-population-profile.extra.line.0",
+      "panel.direction-225-population-profile.extra.line.1",
+      "panel.direction-225-population-profile.extra.line.2",
+      "panel.direction-270-population-profile.direction-270-cohort-mean.line",
+      "panel.direction-270-population-profile.direction-270-population-80pct.x-population-response-interval",
+      "panel.direction-270-population-profile.direction-270-cohort-sem.x-error-band",
+      "panel.direction-270-population-profile.annotation.0",
+      "panel.direction-270-population-profile.extra.line.0",
+      "panel.direction-270-population-profile.extra.line.1",
+      "panel.direction-270-population-profile.extra.line.2",
+      "panel.direction-315-population-profile.direction-315-cohort-mean.line",
+      "panel.direction-315-population-profile.direction-315-population-80pct.x-population-response-interval",
+      "panel.direction-315-population-profile.direction-315-cohort-sem.x-error-band",
+      "panel.direction-315-population-profile.annotation.0",
+      "panel.direction-315-population-profile.extra.line.0",
+      "panel.direction-315-population-profile.extra.line.1",
+      "panel.direction-315-population-profile.extra.line.2",
+      "panel.a.axis.x",
+      "panel.a.axis.y",
+      "panel.a.colorbar.response",
+      "panel.a.direction-response-blocks.x-heatmap",
+      "panel.a.preferred-0.x-cell-preference-group",
+      "panel.a.preferred-45.x-cell-preference-group",
+      "panel.a.preferred-90.x-cell-preference-group",
+      "panel.a.preferred-135.x-cell-preference-group",
+      "panel.a.preferred-180.x-cell-preference-group",
+      "panel.a.preferred-225.x-cell-preference-group",
+      "panel.a.preferred-270.x-cell-preference-group",
+      "panel.a.preferred-315.x-cell-preference-group",
+      "panel.a.stimulus-0.x-stimulus-window",
+      "panel.a.stimulus-45.x-stimulus-window",
+      "panel.a.stimulus-90.x-stimulus-window",
+      "panel.a.stimulus-135.x-stimulus-window",
+      "panel.a.stimulus-180.x-stimulus-window",
+      "panel.a.stimulus-225.x-stimulus-window",
+      "panel.a.stimulus-270.x-stimulus-window",
+      "panel.a.stimulus-315.x-stimulus-window",
+      "panel.a.extra.line.0",
+      "panel.a.extra.line.1",
+      "panel.a.extra.line.2",
+      "panel.a.extra.line.3",
+      "panel.a.extra.line.4",
+      "panel.a.extra.line.5",
+      "panel.a.extra.line.6"
     ],
     "presets": {
       "axis": {
@@ -134,6 +913,10 @@
       "gridline": {
         "animation": "fade-in",
         "durationMs": 300
+      },
+      "line": {
+        "animation": "draw-on",
+        "durationMs": 800
       }
     }
   },
@@ -145,118 +928,388 @@
   "guides": [
     {
       "axis": "x",
-      "id": "axis.x",
+      "id": "panel.a.axis.x",
       "role": "axis",
-      "svgId": "axis.x"
+      "svgId": "panel.a.axis.x"
     },
     {
       "axis": "y",
-      "id": "axis.y",
+      "id": "panel.a.axis.y",
       "role": "axis",
-      "svgId": "axis.y"
+      "svgId": "panel.a.axis.y"
     },
     {
-      "cmap": "fusion_r",
-      "id": "colorbar.response",
+      "cmap": "atlas-response",
+      "id": "panel.a.colorbar.response",
       "label": "",
-      "mappable": "direction-response-blocks.x-heatmap",
+      "mappable": "panel.a.direction-response-blocks.x-heatmap",
       "normalization": {
         "clip": false,
         "kind": "Normalize",
-        "vmax": 2.5,
-        "vmin": -2.5
+        "vmax": 3,
+        "vmin": -3
       },
       "orientation": "vertical",
       "parts": [
         {
           "role": "colorbar-tick-label",
-          "svgId": "colorbar.response.tick-label.0"
+          "svgId": "panel.a.colorbar.response.tick-label.0"
         },
         {
           "role": "colorbar-tick-label",
-          "svgId": "colorbar.response.tick-label.1"
+          "svgId": "panel.a.colorbar.response.tick-label.1"
         },
         {
           "role": "colorbar-tick-label",
-          "svgId": "colorbar.response.tick-label.2"
+          "svgId": "panel.a.colorbar.response.tick-label.2"
         },
         {
           "role": "colorbar-solids",
-          "svgId": "colorbar.response.solids"
+          "svgId": "panel.a.colorbar.response.solids"
         }
       ],
       "role": "colorbar",
-      "svgId": "colorbar.response",
+      "svgId": "panel.a.colorbar.response",
       "ticks": [
-        -2.0,
-        0.0,
-        2.0
+        -2,
+        0,
+        2
       ]
     }
   ],
   "overlays": [
     {
-      "id": "annotation.0",
+      "id": "panel.direction-0-population-profile.annotation.0",
       "kind": "text",
       "role": "annotation",
-      "svgId": "annotation.0",
+      "svgId": "panel.direction-0-population-profile.annotation.0",
+      "text": "n = 27"
+    },
+    {
+      "id": "panel.direction-0-population-profile.annotation.1",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "panel.direction-0-population-profile.annotation.1",
       "text": "s.d."
     },
     {
-      "id": "annotation.1",
+      "id": "panel.direction-0-population-profile.annotation.2",
       "kind": "text",
       "role": "annotation",
-      "svgId": "annotation.1",
-      "text": "Bars: 2 s grating · trial-averaged ΔF/F, baseline-subtracted and scaled per cell"
+      "svgId": "panel.direction-0-population-profile.annotation.2",
+      "text": "Preferred cohort: mean ± s.e.m.     Gray: population 10–90%"
     },
     {
-      "id": "annotation.2",
+      "id": "panel.direction-0-population-profile.annotation.3",
       "kind": "text",
       "role": "annotation",
-      "svgId": "annotation.2",
-      "text": "143 cells · 2 Hz · 120 frames per direction"
+      "svgId": "panel.direction-0-population-profile.annotation.3",
+      "text": "143 cells · 2 Hz"
     },
     {
-      "id": "extra.line.0",
-      "kind": "line",
-      "role": "extra",
-      "svgId": "extra.line.0"
+      "id": "panel.direction-0-population-profile.annotation.4",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "panel.direction-0-population-profile.annotation.4",
+      "text": "Each block: −1 to +3 s from onset     Bars: 2 s grating"
     },
     {
-      "id": "extra.line.1",
-      "kind": "line",
-      "role": "extra",
-      "svgId": "extra.line.1"
+      "id": "panel.direction-0-population-profile.annotation.5",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "panel.direction-0-population-profile.annotation.5",
+      "text": "Trial-averaged ΔF/F · standardized per cell"
     },
     {
-      "id": "extra.line.2",
+      "id": "panel.direction-0-population-profile.extra.line.0",
       "kind": "line",
       "role": "extra",
-      "svgId": "extra.line.2"
+      "svgId": "panel.direction-0-population-profile.extra.line.0"
     },
     {
-      "id": "extra.line.3",
+      "id": "panel.direction-0-population-profile.extra.line.1",
       "kind": "line",
       "role": "extra",
-      "svgId": "extra.line.3"
+      "svgId": "panel.direction-0-population-profile.extra.line.1"
     },
     {
-      "id": "extra.line.4",
+      "id": "panel.direction-0-population-profile.extra.line.2",
       "kind": "line",
       "role": "extra",
-      "svgId": "extra.line.4"
+      "svgId": "panel.direction-0-population-profile.extra.line.2"
     },
     {
-      "id": "extra.line.5",
-      "kind": "line",
-      "role": "extra",
-      "svgId": "extra.line.5"
+      "id": "panel.direction-45-population-profile.annotation.0",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "panel.direction-45-population-profile.annotation.0",
+      "text": "n = 24"
     },
     {
-      "id": "extra.line.6",
+      "id": "panel.direction-45-population-profile.extra.line.0",
       "kind": "line",
       "role": "extra",
-      "svgId": "extra.line.6"
+      "svgId": "panel.direction-45-population-profile.extra.line.0"
+    },
+    {
+      "id": "panel.direction-45-population-profile.extra.line.1",
+      "kind": "line",
+      "role": "extra",
+      "svgId": "panel.direction-45-population-profile.extra.line.1"
+    },
+    {
+      "id": "panel.direction-45-population-profile.extra.line.2",
+      "kind": "line",
+      "role": "extra",
+      "svgId": "panel.direction-45-population-profile.extra.line.2"
+    },
+    {
+      "id": "panel.direction-90-population-profile.annotation.0",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "panel.direction-90-population-profile.annotation.0",
+      "text": "n = 11"
+    },
+    {
+      "id": "panel.direction-90-population-profile.extra.line.0",
+      "kind": "line",
+      "role": "extra",
+      "svgId": "panel.direction-90-population-profile.extra.line.0"
+    },
+    {
+      "id": "panel.direction-90-population-profile.extra.line.1",
+      "kind": "line",
+      "role": "extra",
+      "svgId": "panel.direction-90-population-profile.extra.line.1"
+    },
+    {
+      "id": "panel.direction-90-population-profile.extra.line.2",
+      "kind": "line",
+      "role": "extra",
+      "svgId": "panel.direction-90-population-profile.extra.line.2"
+    },
+    {
+      "id": "panel.direction-135-population-profile.annotation.0",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "panel.direction-135-population-profile.annotation.0",
+      "text": "n = 8"
+    },
+    {
+      "id": "panel.direction-135-population-profile.extra.line.0",
+      "kind": "line",
+      "role": "extra",
+      "svgId": "panel.direction-135-population-profile.extra.line.0"
+    },
+    {
+      "id": "panel.direction-135-population-profile.extra.line.1",
+      "kind": "line",
+      "role": "extra",
+      "svgId": "panel.direction-135-population-profile.extra.line.1"
+    },
+    {
+      "id": "panel.direction-135-population-profile.extra.line.2",
+      "kind": "line",
+      "role": "extra",
+      "svgId": "panel.direction-135-population-profile.extra.line.2"
+    },
+    {
+      "id": "panel.direction-180-population-profile.annotation.0",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "panel.direction-180-population-profile.annotation.0",
+      "text": "n = 8"
+    },
+    {
+      "id": "panel.direction-180-population-profile.extra.line.0",
+      "kind": "line",
+      "role": "extra",
+      "svgId": "panel.direction-180-population-profile.extra.line.0"
+    },
+    {
+      "id": "panel.direction-180-population-profile.extra.line.1",
+      "kind": "line",
+      "role": "extra",
+      "svgId": "panel.direction-180-population-profile.extra.line.1"
+    },
+    {
+      "id": "panel.direction-180-population-profile.extra.line.2",
+      "kind": "line",
+      "role": "extra",
+      "svgId": "panel.direction-180-population-profile.extra.line.2"
+    },
+    {
+      "id": "panel.direction-225-population-profile.annotation.0",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "panel.direction-225-population-profile.annotation.0",
+      "text": "n = 17"
+    },
+    {
+      "id": "panel.direction-225-population-profile.extra.line.0",
+      "kind": "line",
+      "role": "extra",
+      "svgId": "panel.direction-225-population-profile.extra.line.0"
+    },
+    {
+      "id": "panel.direction-225-population-profile.extra.line.1",
+      "kind": "line",
+      "role": "extra",
+      "svgId": "panel.direction-225-population-profile.extra.line.1"
+    },
+    {
+      "id": "panel.direction-225-population-profile.extra.line.2",
+      "kind": "line",
+      "role": "extra",
+      "svgId": "panel.direction-225-population-profile.extra.line.2"
+    },
+    {
+      "id": "panel.direction-270-population-profile.annotation.0",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "panel.direction-270-population-profile.annotation.0",
+      "text": "n = 31"
+    },
+    {
+      "id": "panel.direction-270-population-profile.extra.line.0",
+      "kind": "line",
+      "role": "extra",
+      "svgId": "panel.direction-270-population-profile.extra.line.0"
+    },
+    {
+      "id": "panel.direction-270-population-profile.extra.line.1",
+      "kind": "line",
+      "role": "extra",
+      "svgId": "panel.direction-270-population-profile.extra.line.1"
+    },
+    {
+      "id": "panel.direction-270-population-profile.extra.line.2",
+      "kind": "line",
+      "role": "extra",
+      "svgId": "panel.direction-270-population-profile.extra.line.2"
+    },
+    {
+      "id": "panel.direction-315-population-profile.annotation.0",
+      "kind": "text",
+      "role": "annotation",
+      "svgId": "panel.direction-315-population-profile.annotation.0",
+      "text": "n = 17"
+    },
+    {
+      "id": "panel.direction-315-population-profile.extra.line.0",
+      "kind": "line",
+      "role": "extra",
+      "svgId": "panel.direction-315-population-profile.extra.line.0"
+    },
+    {
+      "id": "panel.direction-315-population-profile.extra.line.1",
+      "kind": "line",
+      "role": "extra",
+      "svgId": "panel.direction-315-population-profile.extra.line.1"
+    },
+    {
+      "id": "panel.direction-315-population-profile.extra.line.2",
+      "kind": "line",
+      "role": "extra",
+      "svgId": "panel.direction-315-population-profile.extra.line.2"
+    },
+    {
+      "id": "panel.a.extra.line.0",
+      "kind": "line",
+      "role": "extra",
+      "svgId": "panel.a.extra.line.0"
+    },
+    {
+      "id": "panel.a.extra.line.1",
+      "kind": "line",
+      "role": "extra",
+      "svgId": "panel.a.extra.line.1"
+    },
+    {
+      "id": "panel.a.extra.line.2",
+      "kind": "line",
+      "role": "extra",
+      "svgId": "panel.a.extra.line.2"
+    },
+    {
+      "id": "panel.a.extra.line.3",
+      "kind": "line",
+      "role": "extra",
+      "svgId": "panel.a.extra.line.3"
+    },
+    {
+      "id": "panel.a.extra.line.4",
+      "kind": "line",
+      "role": "extra",
+      "svgId": "panel.a.extra.line.4"
+    },
+    {
+      "id": "panel.a.extra.line.5",
+      "kind": "line",
+      "role": "extra",
+      "svgId": "panel.a.extra.line.5"
+    },
+    {
+      "id": "panel.a.extra.line.6",
+      "kind": "line",
+      "role": "extra",
+      "svgId": "panel.a.extra.line.6"
+    }
+  ],
+  "panels": [
+    {
+      "id": "panel.direction-0-population-profile",
+      "index": 0,
+      "label": "direction-0-population-profile",
+      "svgId": "panel.direction-0-population-profile.plot-area"
+    },
+    {
+      "id": "panel.direction-45-population-profile",
+      "index": 1,
+      "label": "direction-45-population-profile",
+      "svgId": "panel.direction-45-population-profile.plot-area"
+    },
+    {
+      "id": "panel.direction-90-population-profile",
+      "index": 2,
+      "label": "direction-90-population-profile",
+      "svgId": "panel.direction-90-population-profile.plot-area"
+    },
+    {
+      "id": "panel.direction-135-population-profile",
+      "index": 3,
+      "label": "direction-135-population-profile",
+      "svgId": "panel.direction-135-population-profile.plot-area"
+    },
+    {
+      "id": "panel.direction-180-population-profile",
+      "index": 4,
+      "label": "direction-180-population-profile",
+      "svgId": "panel.direction-180-population-profile.plot-area"
+    },
+    {
+      "id": "panel.direction-225-population-profile",
+      "index": 5,
+      "label": "direction-225-population-profile",
+      "svgId": "panel.direction-225-population-profile.plot-area"
+    },
+    {
+      "id": "panel.direction-270-population-profile",
+      "index": 6,
+      "label": "direction-270-population-profile",
+      "svgId": "panel.direction-270-population-profile.plot-area"
+    },
+    {
+      "id": "panel.direction-315-population-profile",
+      "index": 7,
+      "label": "direction-315-population-profile",
+      "svgId": "panel.direction-315-population-profile.plot-area"
+    },
+    {
+      "id": "panel.a",
+      "index": 8,
+      "label": "a",
+      "svgId": "panel.a.plot-area"
     }
   ],
   "parts": {
@@ -264,303 +1317,815 @@
       {
         "children": [
           {
-            "axis": "x",
             "children": [
               {
-                "groupRole": "tick",
-                "id": "axis.x.ticks",
-                "kind": "line",
-                "members": [
-                  "axis.x.tick.0",
-                  "axis.x.tick.1",
-                  "axis.x.tick.2",
-                  "axis.x.tick.3",
-                  "axis.x.tick.4",
-                  "axis.x.tick.5",
-                  "axis.x.tick.6",
-                  "axis.x.tick.7"
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.direction-0-population-profile.direction-0-population-80pct.x-population-response-interval"
+                  }
                 ],
-                "role": "group"
+                "id": "panel.direction-0-population-profile.direction-0-population-80pct",
+                "kind": "container",
+                "role": "series"
               },
               {
-                "groupRole": "tick-label",
-                "id": "axis.x.tick-labels",
-                "kind": "text",
-                "members": [
-                  "axis.x.ticklabel.0",
-                  "axis.x.ticklabel.1",
-                  "axis.x.ticklabel.2",
-                  "axis.x.ticklabel.3",
-                  "axis.x.ticklabel.4",
-                  "axis.x.ticklabel.5",
-                  "axis.x.ticklabel.6",
-                  "axis.x.ticklabel.7"
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.direction-0-population-profile.direction-0-cohort-sem.x-error-band"
+                  }
                 ],
-                "role": "group"
+                "id": "panel.direction-0-population-profile.direction-0-cohort-sem",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "line",
+                    "ref": "panel.direction-0-population-profile.direction-0-cohort-mean.line"
+                  }
+                ],
+                "id": "panel.direction-0-population-profile.direction-0-cohort-mean",
+                "kind": "container",
+                "role": "series"
               },
               {
                 "kind": "text",
-                "ref": "axis.x.title"
-              }
-            ],
-            "id": "axis.x",
-            "kind": "container",
-            "role": "axis"
-          },
-          {
-            "axis": "y",
-            "children": [
+                "ref": "panel.direction-0-population-profile.annotation.0"
+              },
               {
                 "kind": "text",
-                "ref": "axis.y.title"
-              }
-            ],
-            "id": "axis.y",
-            "kind": "container",
-            "role": "axis"
-          },
-          {
-            "children": [
+                "ref": "panel.direction-0-population-profile.annotation.1"
+              },
               {
-                "ref": "direction-response-blocks.x-heatmap"
-              }
-            ],
-            "id": "direction-response-blocks",
-            "kind": "container",
-            "role": "series"
-          },
-          {
-            "children": [
+                "kind": "text",
+                "ref": "panel.direction-0-population-profile.annotation.2"
+              },
               {
-                "kind": "shape",
-                "ref": "preferred-0.x-cell-preference-group"
-              }
-            ],
-            "id": "preferred-0",
-            "kind": "container",
-            "role": "series"
-          },
-          {
-            "children": [
+                "kind": "text",
+                "ref": "panel.direction-0-population-profile.annotation.3"
+              },
               {
-                "kind": "shape",
-                "ref": "preferred-45.x-cell-preference-group"
-              }
-            ],
-            "id": "preferred-45",
-            "kind": "container",
-            "role": "series"
-          },
-          {
-            "children": [
+                "kind": "text",
+                "ref": "panel.direction-0-population-profile.annotation.4"
+              },
               {
-                "kind": "shape",
-                "ref": "preferred-90.x-cell-preference-group"
-              }
-            ],
-            "id": "preferred-90",
-            "kind": "container",
-            "role": "series"
-          },
-          {
-            "children": [
+                "kind": "text",
+                "ref": "panel.direction-0-population-profile.annotation.5"
+              },
               {
-                "kind": "shape",
-                "ref": "preferred-135.x-cell-preference-group"
+                "groupRole": "extra",
+                "id": "panel.direction-0-population-profile.extras",
+                "members": [
+                  "panel.direction-0-population-profile.extra.line.0",
+                  "panel.direction-0-population-profile.extra.line.1",
+                  "panel.direction-0-population-profile.extra.line.2"
+                ],
+                "role": "group"
               }
             ],
-            "id": "preferred-135",
+            "id": "panel.direction-0-population-profile.plot-area",
             "kind": "container",
-            "role": "series"
-          },
-          {
-            "children": [
-              {
-                "kind": "shape",
-                "ref": "preferred-180.x-cell-preference-group"
-              }
-            ],
-            "id": "preferred-180",
-            "kind": "container",
-            "role": "series"
-          },
-          {
-            "children": [
-              {
-                "kind": "shape",
-                "ref": "preferred-225.x-cell-preference-group"
-              }
-            ],
-            "id": "preferred-225",
-            "kind": "container",
-            "role": "series"
-          },
-          {
-            "children": [
-              {
-                "kind": "shape",
-                "ref": "preferred-270.x-cell-preference-group"
-              }
-            ],
-            "id": "preferred-270",
-            "kind": "container",
-            "role": "series"
-          },
-          {
-            "children": [
-              {
-                "kind": "shape",
-                "ref": "preferred-315.x-cell-preference-group"
-              }
-            ],
-            "id": "preferred-315",
-            "kind": "container",
-            "role": "series"
-          },
-          {
-            "children": [
-              {
-                "kind": "line",
-                "ref": "stimulus-0.x-stimulus-window"
-              }
-            ],
-            "id": "stimulus-0",
-            "kind": "container",
-            "role": "series"
-          },
-          {
-            "children": [
-              {
-                "kind": "line",
-                "ref": "stimulus-45.x-stimulus-window"
-              }
-            ],
-            "id": "stimulus-45",
-            "kind": "container",
-            "role": "series"
-          },
-          {
-            "children": [
-              {
-                "kind": "line",
-                "ref": "stimulus-90.x-stimulus-window"
-              }
-            ],
-            "id": "stimulus-90",
-            "kind": "container",
-            "role": "series"
-          },
-          {
-            "children": [
-              {
-                "kind": "line",
-                "ref": "stimulus-135.x-stimulus-window"
-              }
-            ],
-            "id": "stimulus-135",
-            "kind": "container",
-            "role": "series"
-          },
-          {
-            "children": [
-              {
-                "kind": "line",
-                "ref": "stimulus-180.x-stimulus-window"
-              }
-            ],
-            "id": "stimulus-180",
-            "kind": "container",
-            "role": "series"
-          },
-          {
-            "children": [
-              {
-                "kind": "line",
-                "ref": "stimulus-225.x-stimulus-window"
-              }
-            ],
-            "id": "stimulus-225",
-            "kind": "container",
-            "role": "series"
-          },
-          {
-            "children": [
-              {
-                "kind": "line",
-                "ref": "stimulus-270.x-stimulus-window"
-              }
-            ],
-            "id": "stimulus-270",
-            "kind": "container",
-            "role": "series"
-          },
-          {
-            "children": [
-              {
-                "kind": "line",
-                "ref": "stimulus-315.x-stimulus-window"
-              }
-            ],
-            "id": "stimulus-315",
-            "kind": "container",
-            "role": "series"
-          },
-          {
-            "kind": "text",
-            "ref": "annotation.0"
-          },
-          {
-            "kind": "text",
-            "ref": "annotation.1"
-          },
-          {
-            "kind": "text",
-            "ref": "annotation.2"
-          },
-          {
-            "groupRole": "extra",
-            "id": "extras",
-            "members": [
-              "extra.line.0",
-              "extra.line.1",
-              "extra.line.2",
-              "extra.line.3",
-              "extra.line.4",
-              "extra.line.5",
-              "extra.line.6"
-            ],
-            "role": "group"
+            "role": "plot-area"
           }
         ],
-        "id": "plot-area",
+        "id": "panel.direction-0-population-profile",
         "kind": "container",
-        "role": "plot-area"
+        "label": "direction-0-population-profile",
+        "role": "panel"
       },
       {
         "children": [
           {
-            "ref": "colorbar.response.tick-label.0"
-          },
-          {
-            "ref": "colorbar.response.tick-label.1"
-          },
-          {
-            "ref": "colorbar.response.tick-label.2"
-          },
-          {
-            "ref": "colorbar.response.solids"
+            "children": [
+              {
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.direction-45-population-profile.direction-45-population-80pct.x-population-response-interval"
+                  }
+                ],
+                "id": "panel.direction-45-population-profile.direction-45-population-80pct",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.direction-45-population-profile.direction-45-cohort-sem.x-error-band"
+                  }
+                ],
+                "id": "panel.direction-45-population-profile.direction-45-cohort-sem",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "line",
+                    "ref": "panel.direction-45-population-profile.direction-45-cohort-mean.line"
+                  }
+                ],
+                "id": "panel.direction-45-population-profile.direction-45-cohort-mean",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "kind": "text",
+                "ref": "panel.direction-45-population-profile.annotation.0"
+              },
+              {
+                "groupRole": "extra",
+                "id": "panel.direction-45-population-profile.extras",
+                "members": [
+                  "panel.direction-45-population-profile.extra.line.0",
+                  "panel.direction-45-population-profile.extra.line.1",
+                  "panel.direction-45-population-profile.extra.line.2"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "panel.direction-45-population-profile.plot-area",
+            "kind": "container",
+            "role": "plot-area"
           }
         ],
-        "id": "colorbar.response",
+        "id": "panel.direction-45-population-profile",
         "kind": "container",
-        "role": "colorbar"
+        "label": "direction-45-population-profile",
+        "role": "panel"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.direction-90-population-profile.direction-90-population-80pct.x-population-response-interval"
+                  }
+                ],
+                "id": "panel.direction-90-population-profile.direction-90-population-80pct",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.direction-90-population-profile.direction-90-cohort-sem.x-error-band"
+                  }
+                ],
+                "id": "panel.direction-90-population-profile.direction-90-cohort-sem",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "line",
+                    "ref": "panel.direction-90-population-profile.direction-90-cohort-mean.line"
+                  }
+                ],
+                "id": "panel.direction-90-population-profile.direction-90-cohort-mean",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "kind": "text",
+                "ref": "panel.direction-90-population-profile.annotation.0"
+              },
+              {
+                "groupRole": "extra",
+                "id": "panel.direction-90-population-profile.extras",
+                "members": [
+                  "panel.direction-90-population-profile.extra.line.0",
+                  "panel.direction-90-population-profile.extra.line.1",
+                  "panel.direction-90-population-profile.extra.line.2"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "panel.direction-90-population-profile.plot-area",
+            "kind": "container",
+            "role": "plot-area"
+          }
+        ],
+        "id": "panel.direction-90-population-profile",
+        "kind": "container",
+        "label": "direction-90-population-profile",
+        "role": "panel"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.direction-135-population-profile.direction-135-population-80pct.x-population-response-interval"
+                  }
+                ],
+                "id": "panel.direction-135-population-profile.direction-135-population-80pct",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.direction-135-population-profile.direction-135-cohort-sem.x-error-band"
+                  }
+                ],
+                "id": "panel.direction-135-population-profile.direction-135-cohort-sem",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "line",
+                    "ref": "panel.direction-135-population-profile.direction-135-cohort-mean.line"
+                  }
+                ],
+                "id": "panel.direction-135-population-profile.direction-135-cohort-mean",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "kind": "text",
+                "ref": "panel.direction-135-population-profile.annotation.0"
+              },
+              {
+                "groupRole": "extra",
+                "id": "panel.direction-135-population-profile.extras",
+                "members": [
+                  "panel.direction-135-population-profile.extra.line.0",
+                  "panel.direction-135-population-profile.extra.line.1",
+                  "panel.direction-135-population-profile.extra.line.2"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "panel.direction-135-population-profile.plot-area",
+            "kind": "container",
+            "role": "plot-area"
+          }
+        ],
+        "id": "panel.direction-135-population-profile",
+        "kind": "container",
+        "label": "direction-135-population-profile",
+        "role": "panel"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.direction-180-population-profile.direction-180-population-80pct.x-population-response-interval"
+                  }
+                ],
+                "id": "panel.direction-180-population-profile.direction-180-population-80pct",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.direction-180-population-profile.direction-180-cohort-sem.x-error-band"
+                  }
+                ],
+                "id": "panel.direction-180-population-profile.direction-180-cohort-sem",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "line",
+                    "ref": "panel.direction-180-population-profile.direction-180-cohort-mean.line"
+                  }
+                ],
+                "id": "panel.direction-180-population-profile.direction-180-cohort-mean",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "kind": "text",
+                "ref": "panel.direction-180-population-profile.annotation.0"
+              },
+              {
+                "groupRole": "extra",
+                "id": "panel.direction-180-population-profile.extras",
+                "members": [
+                  "panel.direction-180-population-profile.extra.line.0",
+                  "panel.direction-180-population-profile.extra.line.1",
+                  "panel.direction-180-population-profile.extra.line.2"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "panel.direction-180-population-profile.plot-area",
+            "kind": "container",
+            "role": "plot-area"
+          }
+        ],
+        "id": "panel.direction-180-population-profile",
+        "kind": "container",
+        "label": "direction-180-population-profile",
+        "role": "panel"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.direction-225-population-profile.direction-225-population-80pct.x-population-response-interval"
+                  }
+                ],
+                "id": "panel.direction-225-population-profile.direction-225-population-80pct",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.direction-225-population-profile.direction-225-cohort-sem.x-error-band"
+                  }
+                ],
+                "id": "panel.direction-225-population-profile.direction-225-cohort-sem",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "line",
+                    "ref": "panel.direction-225-population-profile.direction-225-cohort-mean.line"
+                  }
+                ],
+                "id": "panel.direction-225-population-profile.direction-225-cohort-mean",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "kind": "text",
+                "ref": "panel.direction-225-population-profile.annotation.0"
+              },
+              {
+                "groupRole": "extra",
+                "id": "panel.direction-225-population-profile.extras",
+                "members": [
+                  "panel.direction-225-population-profile.extra.line.0",
+                  "panel.direction-225-population-profile.extra.line.1",
+                  "panel.direction-225-population-profile.extra.line.2"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "panel.direction-225-population-profile.plot-area",
+            "kind": "container",
+            "role": "plot-area"
+          }
+        ],
+        "id": "panel.direction-225-population-profile",
+        "kind": "container",
+        "label": "direction-225-population-profile",
+        "role": "panel"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.direction-270-population-profile.direction-270-population-80pct.x-population-response-interval"
+                  }
+                ],
+                "id": "panel.direction-270-population-profile.direction-270-population-80pct",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.direction-270-population-profile.direction-270-cohort-sem.x-error-band"
+                  }
+                ],
+                "id": "panel.direction-270-population-profile.direction-270-cohort-sem",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "line",
+                    "ref": "panel.direction-270-population-profile.direction-270-cohort-mean.line"
+                  }
+                ],
+                "id": "panel.direction-270-population-profile.direction-270-cohort-mean",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "kind": "text",
+                "ref": "panel.direction-270-population-profile.annotation.0"
+              },
+              {
+                "groupRole": "extra",
+                "id": "panel.direction-270-population-profile.extras",
+                "members": [
+                  "panel.direction-270-population-profile.extra.line.0",
+                  "panel.direction-270-population-profile.extra.line.1",
+                  "panel.direction-270-population-profile.extra.line.2"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "panel.direction-270-population-profile.plot-area",
+            "kind": "container",
+            "role": "plot-area"
+          }
+        ],
+        "id": "panel.direction-270-population-profile",
+        "kind": "container",
+        "label": "direction-270-population-profile",
+        "role": "panel"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.direction-315-population-profile.direction-315-population-80pct.x-population-response-interval"
+                  }
+                ],
+                "id": "panel.direction-315-population-profile.direction-315-population-80pct",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.direction-315-population-profile.direction-315-cohort-sem.x-error-band"
+                  }
+                ],
+                "id": "panel.direction-315-population-profile.direction-315-cohort-sem",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "line",
+                    "ref": "panel.direction-315-population-profile.direction-315-cohort-mean.line"
+                  }
+                ],
+                "id": "panel.direction-315-population-profile.direction-315-cohort-mean",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "kind": "text",
+                "ref": "panel.direction-315-population-profile.annotation.0"
+              },
+              {
+                "groupRole": "extra",
+                "id": "panel.direction-315-population-profile.extras",
+                "members": [
+                  "panel.direction-315-population-profile.extra.line.0",
+                  "panel.direction-315-population-profile.extra.line.1",
+                  "panel.direction-315-population-profile.extra.line.2"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "panel.direction-315-population-profile.plot-area",
+            "kind": "container",
+            "role": "plot-area"
+          }
+        ],
+        "id": "panel.direction-315-population-profile",
+        "kind": "container",
+        "label": "direction-315-population-profile",
+        "role": "panel"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "axis": "x",
+                "children": [
+                  {
+                    "groupRole": "tick",
+                    "id": "panel.a.axis.x.ticks",
+                    "kind": "line",
+                    "members": [
+                      "panel.a.axis.x.tick.0",
+                      "panel.a.axis.x.tick.1",
+                      "panel.a.axis.x.tick.2",
+                      "panel.a.axis.x.tick.3",
+                      "panel.a.axis.x.tick.4",
+                      "panel.a.axis.x.tick.5",
+                      "panel.a.axis.x.tick.6",
+                      "panel.a.axis.x.tick.7"
+                    ],
+                    "role": "group"
+                  },
+                  {
+                    "groupRole": "tick-label",
+                    "id": "panel.a.axis.x.tick-labels",
+                    "kind": "text",
+                    "members": [
+                      "panel.a.axis.x.ticklabel.0",
+                      "panel.a.axis.x.ticklabel.1",
+                      "panel.a.axis.x.ticklabel.2",
+                      "panel.a.axis.x.ticklabel.3",
+                      "panel.a.axis.x.ticklabel.4",
+                      "panel.a.axis.x.ticklabel.5",
+                      "panel.a.axis.x.ticklabel.6",
+                      "panel.a.axis.x.ticklabel.7"
+                    ],
+                    "role": "group"
+                  },
+                  {
+                    "kind": "text",
+                    "ref": "panel.a.axis.x.title"
+                  }
+                ],
+                "id": "panel.a.axis.x",
+                "kind": "container",
+                "role": "axis"
+              },
+              {
+                "axis": "y",
+                "children": [
+                  {
+                    "kind": "text",
+                    "ref": "panel.a.axis.y.title"
+                  }
+                ],
+                "id": "panel.a.axis.y",
+                "kind": "container",
+                "role": "axis"
+              },
+              {
+                "children": [
+                  {
+                    "ref": "panel.a.direction-response-blocks.x-heatmap"
+                  }
+                ],
+                "id": "panel.a.direction-response-blocks",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.a.preferred-0.x-cell-preference-group"
+                  }
+                ],
+                "id": "panel.a.preferred-0",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.a.preferred-45.x-cell-preference-group"
+                  }
+                ],
+                "id": "panel.a.preferred-45",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.a.preferred-90.x-cell-preference-group"
+                  }
+                ],
+                "id": "panel.a.preferred-90",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.a.preferred-135.x-cell-preference-group"
+                  }
+                ],
+                "id": "panel.a.preferred-135",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.a.preferred-180.x-cell-preference-group"
+                  }
+                ],
+                "id": "panel.a.preferred-180",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.a.preferred-225.x-cell-preference-group"
+                  }
+                ],
+                "id": "panel.a.preferred-225",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.a.preferred-270.x-cell-preference-group"
+                  }
+                ],
+                "id": "panel.a.preferred-270",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.a.preferred-315.x-cell-preference-group"
+                  }
+                ],
+                "id": "panel.a.preferred-315",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "line",
+                    "ref": "panel.a.stimulus-0.x-stimulus-window"
+                  }
+                ],
+                "id": "panel.a.stimulus-0",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "line",
+                    "ref": "panel.a.stimulus-45.x-stimulus-window"
+                  }
+                ],
+                "id": "panel.a.stimulus-45",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "line",
+                    "ref": "panel.a.stimulus-90.x-stimulus-window"
+                  }
+                ],
+                "id": "panel.a.stimulus-90",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "line",
+                    "ref": "panel.a.stimulus-135.x-stimulus-window"
+                  }
+                ],
+                "id": "panel.a.stimulus-135",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "line",
+                    "ref": "panel.a.stimulus-180.x-stimulus-window"
+                  }
+                ],
+                "id": "panel.a.stimulus-180",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "line",
+                    "ref": "panel.a.stimulus-225.x-stimulus-window"
+                  }
+                ],
+                "id": "panel.a.stimulus-225",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "line",
+                    "ref": "panel.a.stimulus-270.x-stimulus-window"
+                  }
+                ],
+                "id": "panel.a.stimulus-270",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "line",
+                    "ref": "panel.a.stimulus-315.x-stimulus-window"
+                  }
+                ],
+                "id": "panel.a.stimulus-315",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "groupRole": "extra",
+                "id": "panel.a.extras",
+                "members": [
+                  "panel.a.extra.line.0",
+                  "panel.a.extra.line.1",
+                  "panel.a.extra.line.2",
+                  "panel.a.extra.line.3",
+                  "panel.a.extra.line.4",
+                  "panel.a.extra.line.5",
+                  "panel.a.extra.line.6"
+                ],
+                "role": "group"
+              }
+            ],
+            "id": "panel.a.plot-area",
+            "kind": "container",
+            "role": "plot-area"
+          },
+          {
+            "children": [
+              {
+                "ref": "panel.a.colorbar.response.tick-label.0"
+              },
+              {
+                "ref": "panel.a.colorbar.response.tick-label.1"
+              },
+              {
+                "ref": "panel.a.colorbar.response.tick-label.2"
+              },
+              {
+                "ref": "panel.a.colorbar.response.solids"
+              }
+            ],
+            "id": "panel.a.colorbar.response",
+            "kind": "container",
+            "role": "colorbar"
+          }
+        ],
+        "id": "panel.a",
+        "kind": "container",
+        "label": "a",
+        "role": "panel"
       }
     ],
     "id": "figure",
     "kind": "container",
     "role": "figure"
   },
-  "plotType": "heatmap",
+  "plotType": "line",
   "schemaVersion": "0.3.0",
   "series": [
     {
@@ -569,19 +2134,2507 @@
       },
       "components": [
         {
+          "role": "x-population-response-interval",
+          "svgId": "panel.direction-0-population-profile.direction-0-population-80pct.x-population-response-interval"
+        }
+      ],
+      "data": {},
+      "id": "panel.direction-0-population-profile.direction-0-population-80pct",
+      "kind": "x-population-response-interval",
+      "name": "direction-0-population-80pct",
+      "panelId": "panel.direction-0-population-profile",
+      "roles": [
+        "x-population-response-interval"
+      ],
+      "svg": {
+        "x-population-response-interval": "panel.direction-0-population-profile.direction-0-population-80pct.x-population-response-interval"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-error-band",
+          "svgId": "panel.direction-0-population-profile.direction-0-cohort-sem.x-error-band"
+        }
+      ],
+      "data": {},
+      "id": "panel.direction-0-population-profile.direction-0-cohort-sem",
+      "kind": "x-error-band",
+      "name": "direction-0-cohort-sem",
+      "panelId": "panel.direction-0-population-profile",
+      "roles": [
+        "x-error-band"
+      ],
+      "svg": {
+        "x-error-band": "panel.direction-0-population-profile.direction-0-cohort-sem.x-error-band"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "role": "line",
+          "svgId": "panel.direction-0-population-profile.direction-0-cohort-mean.line"
+        }
+      ],
+      "data": {
+        "x": [
+          -1,
+          -0.9666666666666667,
+          -0.9333333333333333,
+          -0.9,
+          -0.8666666666666667,
+          -0.8333333333333334,
+          -0.8,
+          -0.7666666666666667,
+          -0.7333333333333333,
+          -0.7,
+          -0.6666666666666666,
+          -0.6333333333333333,
+          -0.6,
+          -0.5666666666666667,
+          -0.5333333333333333,
+          -0.5,
+          -0.4666666666666667,
+          -0.43333333333333335,
+          -0.4,
+          -0.36666666666666664,
+          -0.3333333333333333,
+          -0.3,
+          -0.26666666666666666,
+          -0.23333333333333334,
+          -0.2,
+          -0.16666666666666666,
+          -0.13333333333333333,
+          -0.1,
+          -0.06666666666666667,
+          -0.03333333333333333,
+          0,
+          0.03333333333333333,
+          0.06666666666666667,
+          0.1,
+          0.13333333333333333,
+          0.16666666666666666,
+          0.2,
+          0.23333333333333334,
+          0.26666666666666666,
+          0.3,
+          0.3333333333333333,
+          0.36666666666666664,
+          0.4,
+          0.43333333333333335,
+          0.4666666666666667,
+          0.5,
+          0.5333333333333333,
+          0.5666666666666667,
+          0.6,
+          0.6333333333333333,
+          0.6666666666666666,
+          0.7,
+          0.7333333333333333,
+          0.7666666666666667,
+          0.8,
+          0.8333333333333334,
+          0.8666666666666667,
+          0.9,
+          0.9333333333333333,
+          0.9666666666666667,
+          1,
+          1.0333333333333334,
+          1.0666666666666667,
+          1.1,
+          1.1333333333333333,
+          1.1666666666666667,
+          1.2,
+          1.2333333333333334,
+          1.2666666666666666,
+          1.3,
+          1.3333333333333333,
+          1.3666666666666667,
+          1.4,
+          1.4333333333333333,
+          1.4666666666666666,
+          1.5,
+          1.5333333333333334,
+          1.5666666666666667,
+          1.6,
+          1.6333333333333333,
+          1.6666666666666667,
+          1.7,
+          1.7333333333333334,
+          1.7666666666666666,
+          1.8,
+          1.8333333333333333,
+          1.8666666666666667,
+          1.9,
+          1.9333333333333333,
+          1.9666666666666666,
+          2,
+          2.033333333333333,
+          2.066666666666667,
+          2.1,
+          2.1333333333333333,
+          2.1666666666666665,
+          2.2,
+          2.2333333333333334,
+          2.2666666666666666,
+          2.3,
+          2.3333333333333335,
+          2.3666666666666667,
+          2.4,
+          2.433333333333333,
+          2.466666666666667,
+          2.5,
+          2.533333333333333,
+          2.566666666666667,
+          2.6,
+          2.6333333333333333,
+          2.6666666666666665,
+          2.7,
+          2.7333333333333334,
+          2.7666666666666666,
+          2.8,
+          2.8333333333333335,
+          2.8666666666666667,
+          2.9,
+          2.933333333333333,
+          2.966666666666667
+        ],
+        "y": [
+          -0.03923422762630811,
+          -0.04399398966171392,
+          -0.052682587130033015,
+          -0.06311430431664868,
+          -0.07054781314350154,
+          -0.08727344750166406,
+          -0.12300046650525615,
+          -0.16327065245505454,
+          -0.19095182368343686,
+          -0.19917061343774797,
+          -0.18642746576601496,
+          -0.15108133972924004,
+          -0.09958083048095448,
+          -0.054907540699993866,
+          -0.031062130364965124,
+          -0.020959010121943296,
+          -0.020031899364580306,
+          -0.023651863346801315,
+          -0.007271397226572411,
+          0.04517250409557354,
+          0.11157940764217586,
+          0.17028295213165676,
+          0.22859664458608306,
+          0.2839566798227945,
+          0.2973925286106413,
+          0.236388019653967,
+          0.12899918182092288,
+          0.04391222868585227,
+          0.023515313838978605,
+          0.06563708208291254,
+          0.16417914015115673,
+          0.32706541809211626,
+          0.5502824939138304,
+          0.8022672521080353,
+          1.027086632350647,
+          1.1707569125593127,
+          1.226753462942898,
+          1.2437551995893423,
+          1.2842183526134074,
+          1.3787843826049766,
+          1.5015548515570794,
+          1.5822665236249955,
+          1.5704302199042606,
+          1.4905080895812706,
+          1.4133452793321386,
+          1.3865564816578422,
+          1.4005604363516027,
+          1.4070753701133523,
+          1.367707123560879,
+          1.2841672130677138,
+          1.1928434774402523,
+          1.1438878297304682,
+          1.156679858123152,
+          1.1912020930933211,
+          1.197126114723441,
+          1.1640756002161867,
+          1.1068942381467795,
+          1.0514151838035346,
+          1.030364415719065,
+          1.0541754922130775,
+          1.0979420757410312,
+          1.139613079144839,
+          1.1875807128340568,
+          1.253054116898937,
+          1.3144173975520257,
+          1.3222379520281593,
+          1.2534455165383922,
+          1.149670251841311,
+          1.0817445351851407,
+          1.0892610508951615,
+          1.165131056642928,
+          1.2793780905832688,
+          1.3861791305811808,
+          1.4384384250173694,
+          1.43246573066954,
+          1.4119813393927287,
+          1.4196892658362652,
+          1.4525987895056571,
+          1.4777354851595579,
+          1.480632587221896,
+          1.4626651723931683,
+          1.4369870620164062,
+          1.436995040578797,
+          1.4710053381343993,
+          1.5030339371062682,
+          1.5051635788423583,
+          1.4799368114581186,
+          1.4367849801368435,
+          1.3857424754045597,
+          1.337897077025488,
+          1.2980438557537186,
+          1.2670072292541592,
+          1.2293037867451675,
+          1.144166409070564,
+          0.9815260546336098,
+          0.7633370912483209,
+          0.5471059824693753,
+          0.3857736149742386,
+          0.31240132160498735,
+          0.31060249503724696,
+          0.309814758371794,
+          0.26231406119753486,
+          0.1982754125732606,
+          0.17354572702440316,
+          0.19921020568065514,
+          0.24969144441668936,
+          0.30133546882480616,
+          0.3443024442930941,
+          0.379581624944399,
+          0.40534006731588823,
+          0.41491059120250795,
+          0.41405721488506814,
+          0.4058994160526894,
+          0.3716546107847083,
+          0.2954680278148634,
+          0.1903227182596861,
+          0.0942437212357806,
+          0.04594416931768638,
+          0.05574727002372592,
+          0.09759671120735065
+        ]
+      },
+      "id": "panel.direction-0-population-profile.direction-0-cohort-mean",
+      "kind": "line",
+      "name": "direction-0-cohort-mean",
+      "panelId": "panel.direction-0-population-profile",
+      "roles": [
+        "line"
+      ],
+      "svg": {
+        "line": "panel.direction-0-population-profile.direction-0-cohort-mean.line"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-population-response-interval",
+          "svgId": "panel.direction-45-population-profile.direction-45-population-80pct.x-population-response-interval"
+        }
+      ],
+      "data": {},
+      "id": "panel.direction-45-population-profile.direction-45-population-80pct",
+      "kind": "x-population-response-interval",
+      "name": "direction-45-population-80pct",
+      "panelId": "panel.direction-45-population-profile",
+      "roles": [
+        "x-population-response-interval"
+      ],
+      "svg": {
+        "x-population-response-interval": "panel.direction-45-population-profile.direction-45-population-80pct.x-population-response-interval"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-error-band",
+          "svgId": "panel.direction-45-population-profile.direction-45-cohort-sem.x-error-band"
+        }
+      ],
+      "data": {},
+      "id": "panel.direction-45-population-profile.direction-45-cohort-sem",
+      "kind": "x-error-band",
+      "name": "direction-45-cohort-sem",
+      "panelId": "panel.direction-45-population-profile",
+      "roles": [
+        "x-error-band"
+      ],
+      "svg": {
+        "x-error-band": "panel.direction-45-population-profile.direction-45-cohort-sem.x-error-band"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "role": "line",
+          "svgId": "panel.direction-45-population-profile.direction-45-cohort-mean.line"
+        }
+      ],
+      "data": {
+        "x": [
+          -1,
+          -0.9666666666666667,
+          -0.9333333333333333,
+          -0.9,
+          -0.8666666666666667,
+          -0.8333333333333334,
+          -0.8,
+          -0.7666666666666667,
+          -0.7333333333333333,
+          -0.7,
+          -0.6666666666666666,
+          -0.6333333333333333,
+          -0.6,
+          -0.5666666666666667,
+          -0.5333333333333333,
+          -0.5,
+          -0.4666666666666667,
+          -0.43333333333333335,
+          -0.4,
+          -0.36666666666666664,
+          -0.3333333333333333,
+          -0.3,
+          -0.26666666666666666,
+          -0.23333333333333334,
+          -0.2,
+          -0.16666666666666666,
+          -0.13333333333333333,
+          -0.1,
+          -0.06666666666666667,
+          -0.03333333333333333,
+          0,
+          0.03333333333333333,
+          0.06666666666666667,
+          0.1,
+          0.13333333333333333,
+          0.16666666666666666,
+          0.2,
+          0.23333333333333334,
+          0.26666666666666666,
+          0.3,
+          0.3333333333333333,
+          0.36666666666666664,
+          0.4,
+          0.43333333333333335,
+          0.4666666666666667,
+          0.5,
+          0.5333333333333333,
+          0.5666666666666667,
+          0.6,
+          0.6333333333333333,
+          0.6666666666666666,
+          0.7,
+          0.7333333333333333,
+          0.7666666666666667,
+          0.8,
+          0.8333333333333334,
+          0.8666666666666667,
+          0.9,
+          0.9333333333333333,
+          0.9666666666666667,
+          1,
+          1.0333333333333334,
+          1.0666666666666667,
+          1.1,
+          1.1333333333333333,
+          1.1666666666666667,
+          1.2,
+          1.2333333333333334,
+          1.2666666666666666,
+          1.3,
+          1.3333333333333333,
+          1.3666666666666667,
+          1.4,
+          1.4333333333333333,
+          1.4666666666666666,
+          1.5,
+          1.5333333333333334,
+          1.5666666666666667,
+          1.6,
+          1.6333333333333333,
+          1.6666666666666667,
+          1.7,
+          1.7333333333333334,
+          1.7666666666666666,
+          1.8,
+          1.8333333333333333,
+          1.8666666666666667,
+          1.9,
+          1.9333333333333333,
+          1.9666666666666666,
+          2,
+          2.033333333333333,
+          2.066666666666667,
+          2.1,
+          2.1333333333333333,
+          2.1666666666666665,
+          2.2,
+          2.2333333333333334,
+          2.2666666666666666,
+          2.3,
+          2.3333333333333335,
+          2.3666666666666667,
+          2.4,
+          2.433333333333333,
+          2.466666666666667,
+          2.5,
+          2.533333333333333,
+          2.566666666666667,
+          2.6,
+          2.6333333333333333,
+          2.6666666666666665,
+          2.7,
+          2.7333333333333334,
+          2.7666666666666666,
+          2.8,
+          2.8333333333333335,
+          2.8666666666666667,
+          2.9,
+          2.933333333333333,
+          2.966666666666667
+        ],
+        "y": [
+          0.13377765625571902,
+          0.24687154652620544,
+          0.3124539174826792,
+          0.28246951549617255,
+          0.19822169289248529,
+          0.13285893149223027,
+          0.11343008977019732,
+          0.10858706477323966,
+          0.060505094085396255,
+          -0.053756356352356566,
+          -0.18769476067232996,
+          -0.2683284798594832,
+          -0.2658295884172086,
+          -0.20871505728262177,
+          -0.1427449276642044,
+          -0.08739292851709986,
+          -0.026765407412292764,
+          0.053106167914116965,
+          0.1256421471459241,
+          0.15344410240067788,
+          0.12924929893654166,
+          0.05623718812572422,
+          -0.05240970917753005,
+          -0.1459381506931443,
+          -0.17927027611162916,
+          -0.16701907250924233,
+          -0.14743368589862585,
+          -0.12364388355640359,
+          -0.07238149416004001,
+          0.008331218420784988,
+          0.10149326825106832,
+          0.22256476224350086,
+          0.4092853255373466,
+          0.6566700408784198,
+          0.9260311534219929,
+          1.20635285779479,
+          1.5134099468902813,
+          1.849920885934942,
+          2.1876382634447658,
+          2.46683251002072,
+          2.625366364129713,
+          2.642997041053455,
+          2.5515983949877765,
+          2.4066675425459247,
+          2.2601440220867874,
+          2.145958098615766,
+          2.0579145623209683,
+          1.9564243784688546,
+          1.835346691573152,
+          1.7615625926729959,
+          1.7986228245622515,
+          1.927640322217303,
+          2.0935096326724714,
+          2.2543066525771955,
+          2.355506617503275,
+          2.3449593405284097,
+          2.23427597550304,
+          2.0945410532624007,
+          1.986765422550258,
+          1.9219929350393823,
+          1.8682691871388897,
+          1.7778435440645453,
+          1.6474311923799316,
+          1.5486504238677385,
+          1.55064025907241,
+          1.6419414580887708,
+          1.766818486995511,
+          1.9005065068559943,
+          2.0607664964043964,
+          2.2491203957116332,
+          2.413077118999452,
+          2.4962703230857852,
+          2.4922208301008006,
+          2.436541650327058,
+          2.3650766629855178,
+          2.2797196465697613,
+          2.167307753534001,
+          2.037980005122622,
+          1.9316810373926636,
+          1.886019247644933,
+          1.893949364155042,
+          1.9073483756281864,
+          1.894310099005085,
+          1.8758087134655332,
+          1.8937906382643777,
+          1.9693188208068033,
+          2.089712932909677,
+          2.19590505560534,
+          2.2095174546457206,
+          2.1168609864797325,
+          1.9817565713366834,
+          1.8637509465763735,
+          1.7685897633206837,
+          1.6744669706358373,
+          1.5717569820192505,
+          1.454601253463041,
+          1.3039027129035574,
+          1.1161467665855889,
+          0.9123214981535176,
+          0.7039605371411101,
+          0.5001033189515539,
+          0.331397065459195,
+          0.22701306695388612,
+          0.19873176690762018,
+          0.24572476098775145,
+          0.3335201533453665,
+          0.39869854330513194,
+          0.40019637224541643,
+          0.3523042482830578,
+          0.31414426535861134,
+          0.3355683602301566,
+          0.3980436715096923,
+          0.4232378184696761,
+          0.36099863114264163,
+          0.25213274026136806,
+          0.18015663477380675,
+          0.17767307414110123,
+          0.19400870858536165,
+          0.15254490505582116,
+          0.04245305391741413
+        ]
+      },
+      "id": "panel.direction-45-population-profile.direction-45-cohort-mean",
+      "kind": "line",
+      "name": "direction-45-cohort-mean",
+      "panelId": "panel.direction-45-population-profile",
+      "roles": [
+        "line"
+      ],
+      "svg": {
+        "line": "panel.direction-45-population-profile.direction-45-cohort-mean.line"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-population-response-interval",
+          "svgId": "panel.direction-90-population-profile.direction-90-population-80pct.x-population-response-interval"
+        }
+      ],
+      "data": {},
+      "id": "panel.direction-90-population-profile.direction-90-population-80pct",
+      "kind": "x-population-response-interval",
+      "name": "direction-90-population-80pct",
+      "panelId": "panel.direction-90-population-profile",
+      "roles": [
+        "x-population-response-interval"
+      ],
+      "svg": {
+        "x-population-response-interval": "panel.direction-90-population-profile.direction-90-population-80pct.x-population-response-interval"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-error-band",
+          "svgId": "panel.direction-90-population-profile.direction-90-cohort-sem.x-error-band"
+        }
+      ],
+      "data": {},
+      "id": "panel.direction-90-population-profile.direction-90-cohort-sem",
+      "kind": "x-error-band",
+      "name": "direction-90-cohort-sem",
+      "panelId": "panel.direction-90-population-profile",
+      "roles": [
+        "x-error-band"
+      ],
+      "svg": {
+        "x-error-band": "panel.direction-90-population-profile.direction-90-cohort-sem.x-error-band"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "role": "line",
+          "svgId": "panel.direction-90-population-profile.direction-90-cohort-mean.line"
+        }
+      ],
+      "data": {
+        "x": [
+          -1,
+          -0.9666666666666667,
+          -0.9333333333333333,
+          -0.9,
+          -0.8666666666666667,
+          -0.8333333333333334,
+          -0.8,
+          -0.7666666666666667,
+          -0.7333333333333333,
+          -0.7,
+          -0.6666666666666666,
+          -0.6333333333333333,
+          -0.6,
+          -0.5666666666666667,
+          -0.5333333333333333,
+          -0.5,
+          -0.4666666666666667,
+          -0.43333333333333335,
+          -0.4,
+          -0.36666666666666664,
+          -0.3333333333333333,
+          -0.3,
+          -0.26666666666666666,
+          -0.23333333333333334,
+          -0.2,
+          -0.16666666666666666,
+          -0.13333333333333333,
+          -0.1,
+          -0.06666666666666667,
+          -0.03333333333333333,
+          0,
+          0.03333333333333333,
+          0.06666666666666667,
+          0.1,
+          0.13333333333333333,
+          0.16666666666666666,
+          0.2,
+          0.23333333333333334,
+          0.26666666666666666,
+          0.3,
+          0.3333333333333333,
+          0.36666666666666664,
+          0.4,
+          0.43333333333333335,
+          0.4666666666666667,
+          0.5,
+          0.5333333333333333,
+          0.5666666666666667,
+          0.6,
+          0.6333333333333333,
+          0.6666666666666666,
+          0.7,
+          0.7333333333333333,
+          0.7666666666666667,
+          0.8,
+          0.8333333333333334,
+          0.8666666666666667,
+          0.9,
+          0.9333333333333333,
+          0.9666666666666667,
+          1,
+          1.0333333333333334,
+          1.0666666666666667,
+          1.1,
+          1.1333333333333333,
+          1.1666666666666667,
+          1.2,
+          1.2333333333333334,
+          1.2666666666666666,
+          1.3,
+          1.3333333333333333,
+          1.3666666666666667,
+          1.4,
+          1.4333333333333333,
+          1.4666666666666666,
+          1.5,
+          1.5333333333333334,
+          1.5666666666666667,
+          1.6,
+          1.6333333333333333,
+          1.6666666666666667,
+          1.7,
+          1.7333333333333334,
+          1.7666666666666666,
+          1.8,
+          1.8333333333333333,
+          1.8666666666666667,
+          1.9,
+          1.9333333333333333,
+          1.9666666666666666,
+          2,
+          2.033333333333333,
+          2.066666666666667,
+          2.1,
+          2.1333333333333333,
+          2.1666666666666665,
+          2.2,
+          2.2333333333333334,
+          2.2666666666666666,
+          2.3,
+          2.3333333333333335,
+          2.3666666666666667,
+          2.4,
+          2.433333333333333,
+          2.466666666666667,
+          2.5,
+          2.533333333333333,
+          2.566666666666667,
+          2.6,
+          2.6333333333333333,
+          2.6666666666666665,
+          2.7,
+          2.7333333333333334,
+          2.7666666666666666,
+          2.8,
+          2.8333333333333335,
+          2.8666666666666667,
+          2.9,
+          2.933333333333333,
+          2.966666666666667
+        ],
+        "y": [
+          0.11680376562016254,
+          0.2242366218827242,
+          0.32130112516494586,
+          0.3553170524078981,
+          0.3370163793840373,
+          0.3224586937232921,
+          0.3134636884405039,
+          0.24581998086090137,
+          0.07748852648728834,
+          -0.14886406937918464,
+          -0.3252437334767003,
+          -0.3753014277987898,
+          -0.32909648830062505,
+          -0.26752739682838106,
+          -0.2322663288155103,
+          -0.2152282389583683,
+          -0.20305376476802317,
+          -0.2113657808934305,
+          -0.24935249392395056,
+          -0.27896265430987,
+          -0.2535407903397541,
+          -0.17529601665995645,
+          -0.08652828442246213,
+          -0.00821075242628015,
+          0.06508851830629508,
+          0.12757754656841486,
+          0.17308199188613457,
+          0.20366956544620152,
+          0.2253105299170599,
+          0.26741026797050066,
+          0.3748855228890369,
+          0.5643263338769456,
+          0.80832345084238,
+          1.05687059346089,
+          1.287554242758265,
+          1.5477566989636953,
+          1.8866871032225865,
+          2.2378436790445986,
+          2.469330238991304,
+          2.5456305834494146,
+          2.5202741958908024,
+          2.4166836303618506,
+          2.243394379970631,
+          2.047366453456084,
+          1.8649868287543954,
+          1.6865183533013628,
+          1.503935180816885,
+          1.3480034874590798,
+          1.2709634207333502,
+          1.311415409229208,
+          1.4614421376556486,
+          1.652659529370194,
+          1.781019918346063,
+          1.7890673517344,
+          1.7288606724881141,
+          1.6831282868321438,
+          1.658267683823989,
+          1.627562875321331,
+          1.6159611438847017,
+          1.662390587615772,
+          1.754255489588767,
+          1.8427574124143888,
+          1.884524334702288,
+          1.8748624635762838,
+          1.8620366755302435,
+          1.9126393911280575,
+          2.051569079921744,
+          2.2265090473743103,
+          2.348148453302532,
+          2.3687902763870223,
+          2.2945219408052284,
+          2.155298266955663,
+          2.0078836840739616,
+          1.9129917998349155,
+          1.8650179908178748,
+          1.80507340255077,
+          1.7179667283200637,
+          1.648417908549162,
+          1.6329663566734796,
+          1.6703712170195557,
+          1.7398476248017836,
+          1.8151654889919124,
+          1.8820467470492175,
+          1.934428721467189,
+          1.9402124322927359,
+          1.873077036714758,
+          1.7565904719587415,
+          1.6369551342191884,
+          1.5510456727425248,
+          1.5014558333590164,
+          1.4629708267860957,
+          1.4312775966694362,
+          1.4071602263692509,
+          1.363344185644784,
+          1.2887401337738877,
+          1.1901689496869474,
+          1.060001527727034,
+          0.9127422648199581,
+          0.7830940529845717,
+          0.6694938852496879,
+          0.5520197638701817,
+          0.43449763085356924,
+          0.33150245617759944,
+          0.24546854914756258,
+          0.16688629039310426,
+          0.08580772750592484,
+          0.007484040155717656,
+          -0.043561819166786586,
+          -0.06649872830792532,
+          -0.11555562028672614,
+          -0.21958705948920104,
+          -0.3060464522188363,
+          -0.30992334490546275,
+          -0.28783824808081687,
+          -0.3164702499031907,
+          -0.38326487117670427,
+          -0.4377485393393416,
+          -0.4335500888820674,
+          -0.33525246986127705,
+          -0.1745136235193157
+        ]
+      },
+      "id": "panel.direction-90-population-profile.direction-90-cohort-mean",
+      "kind": "line",
+      "name": "direction-90-cohort-mean",
+      "panelId": "panel.direction-90-population-profile",
+      "roles": [
+        "line"
+      ],
+      "svg": {
+        "line": "panel.direction-90-population-profile.direction-90-cohort-mean.line"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-population-response-interval",
+          "svgId": "panel.direction-135-population-profile.direction-135-population-80pct.x-population-response-interval"
+        }
+      ],
+      "data": {},
+      "id": "panel.direction-135-population-profile.direction-135-population-80pct",
+      "kind": "x-population-response-interval",
+      "name": "direction-135-population-80pct",
+      "panelId": "panel.direction-135-population-profile",
+      "roles": [
+        "x-population-response-interval"
+      ],
+      "svg": {
+        "x-population-response-interval": "panel.direction-135-population-profile.direction-135-population-80pct.x-population-response-interval"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-error-band",
+          "svgId": "panel.direction-135-population-profile.direction-135-cohort-sem.x-error-band"
+        }
+      ],
+      "data": {},
+      "id": "panel.direction-135-population-profile.direction-135-cohort-sem",
+      "kind": "x-error-band",
+      "name": "direction-135-cohort-sem",
+      "panelId": "panel.direction-135-population-profile",
+      "roles": [
+        "x-error-band"
+      ],
+      "svg": {
+        "x-error-band": "panel.direction-135-population-profile.direction-135-cohort-sem.x-error-band"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "role": "line",
+          "svgId": "panel.direction-135-population-profile.direction-135-cohort-mean.line"
+        }
+      ],
+      "data": {
+        "x": [
+          -1,
+          -0.9666666666666667,
+          -0.9333333333333333,
+          -0.9,
+          -0.8666666666666667,
+          -0.8333333333333334,
+          -0.8,
+          -0.7666666666666667,
+          -0.7333333333333333,
+          -0.7,
+          -0.6666666666666666,
+          -0.6333333333333333,
+          -0.6,
+          -0.5666666666666667,
+          -0.5333333333333333,
+          -0.5,
+          -0.4666666666666667,
+          -0.43333333333333335,
+          -0.4,
+          -0.36666666666666664,
+          -0.3333333333333333,
+          -0.3,
+          -0.26666666666666666,
+          -0.23333333333333334,
+          -0.2,
+          -0.16666666666666666,
+          -0.13333333333333333,
+          -0.1,
+          -0.06666666666666667,
+          -0.03333333333333333,
+          0,
+          0.03333333333333333,
+          0.06666666666666667,
+          0.1,
+          0.13333333333333333,
+          0.16666666666666666,
+          0.2,
+          0.23333333333333334,
+          0.26666666666666666,
+          0.3,
+          0.3333333333333333,
+          0.36666666666666664,
+          0.4,
+          0.43333333333333335,
+          0.4666666666666667,
+          0.5,
+          0.5333333333333333,
+          0.5666666666666667,
+          0.6,
+          0.6333333333333333,
+          0.6666666666666666,
+          0.7,
+          0.7333333333333333,
+          0.7666666666666667,
+          0.8,
+          0.8333333333333334,
+          0.8666666666666667,
+          0.9,
+          0.9333333333333333,
+          0.9666666666666667,
+          1,
+          1.0333333333333334,
+          1.0666666666666667,
+          1.1,
+          1.1333333333333333,
+          1.1666666666666667,
+          1.2,
+          1.2333333333333334,
+          1.2666666666666666,
+          1.3,
+          1.3333333333333333,
+          1.3666666666666667,
+          1.4,
+          1.4333333333333333,
+          1.4666666666666666,
+          1.5,
+          1.5333333333333334,
+          1.5666666666666667,
+          1.6,
+          1.6333333333333333,
+          1.6666666666666667,
+          1.7,
+          1.7333333333333334,
+          1.7666666666666666,
+          1.8,
+          1.8333333333333333,
+          1.8666666666666667,
+          1.9,
+          1.9333333333333333,
+          1.9666666666666666,
+          2,
+          2.033333333333333,
+          2.066666666666667,
+          2.1,
+          2.1333333333333333,
+          2.1666666666666665,
+          2.2,
+          2.2333333333333334,
+          2.2666666666666666,
+          2.3,
+          2.3333333333333335,
+          2.3666666666666667,
+          2.4,
+          2.433333333333333,
+          2.466666666666667,
+          2.5,
+          2.533333333333333,
+          2.566666666666667,
+          2.6,
+          2.6333333333333333,
+          2.6666666666666665,
+          2.7,
+          2.7333333333333334,
+          2.7666666666666666,
+          2.8,
+          2.8333333333333335,
+          2.8666666666666667,
+          2.9,
+          2.933333333333333,
+          2.966666666666667
+        ],
+        "y": [
+          0.7765448436831801,
+          0.5150885987183695,
+          0.21948917494588646,
+          -0.007197288968928378,
+          -0.09115270905107312,
+          -0.027989442680241217,
+          0.09120774727255068,
+          0.14146737076921634,
+          0.0890105144138626,
+          0.0019087558337829574,
+          -0.054517073643205294,
+          -0.08461297943794471,
+          -0.11775183698121029,
+          -0.1343437459712455,
+          -0.10227214047114085,
+          -0.05013612783577711,
+          -0.013106919664542574,
+          0.03835888314553977,
+          0.12440125452142445,
+          0.1832194112061699,
+          0.1558384319479453,
+          0.06073784520135445,
+          -0.04239576904839298,
+          -0.10008577341712119,
+          -0.10550386800723566,
+          -0.10926747836750021,
+          -0.16698647485510773,
+          -0.2618240488030999,
+          -0.3082666256447437,
+          -0.2536251988416563,
+          -0.12500988522945122,
+          0.037540059084841565,
+          0.22155100656565424,
+          0.4061912874165975,
+          0.5880952384855123,
+          0.7976722177709398,
+          1.0229814294958164,
+          1.2328962445074811,
+          1.441401991773386,
+          1.6580126410632485,
+          1.850521037854818,
+          1.9776853654425584,
+          2.0052690567270903,
+          1.9350298485309658,
+          1.8358563032584707,
+          1.7679455904378139,
+          1.71145261903709,
+          1.6328782928329368,
+          1.5583730843769805,
+          1.5432752100680383,
+          1.6079917380530946,
+          1.7010051914277062,
+          1.736879541043291,
+          1.6998938217185475,
+          1.6416623909700925,
+          1.5758136053902505,
+          1.4765564177872297,
+          1.3563251840634223,
+          1.2652562652844752,
+          1.2375725253745806,
+          1.260199303695042,
+          1.2755931564739607,
+          1.2438823302207165,
+          1.186923407172652,
+          1.1490738306304504,
+          1.1505282633398612,
+          1.1591776674894525,
+          1.1415126367870185,
+          1.165165512694492,
+          1.3190307003321906,
+          1.5420389926239908,
+          1.6770371283702743,
+          1.6635974592862952,
+          1.5810409317067364,
+          1.5241093390322653,
+          1.5251454177013475,
+          1.5690232004667255,
+          1.5965549771444392,
+          1.5495486551469217,
+          1.4514164233948323,
+          1.3735328540561358,
+          1.3326026126748256,
+          1.3002462078927857,
+          1.2753855593632795,
+          1.258320763834404,
+          1.2231335537974706,
+          1.1706532054578458,
+          1.1319501583244402,
+          1.1043733446218797,
+          1.0538798942858194,
+          0.9784652683664355,
+          0.8912403821891312,
+          0.7798269868521961,
+          0.6504972809330144,
+          0.5537956355706226,
+          0.520500770848838,
+          0.524448229789126,
+          0.5257206183909098,
+          0.50333215611349,
+          0.45081914285150637,
+          0.3775363424183338,
+          0.31642321930548495,
+          0.3026027233479678,
+          0.30843846778345585,
+          0.2509165776833727,
+          0.12763180518144926,
+          0.038435830744184704,
+          0.02697844995907952,
+          0.04226890224797127,
+          0.06598190219474578,
+          0.14152764017758876,
+          0.28303220304375837,
+          0.42010914131049826,
+          0.4490400649884091,
+          0.3515848006949469,
+          0.19890387652781152,
+          0.03804161591023871,
+          -0.12655248456640097,
+          -0.2724777551260635,
+          -0.3662401483253388
+        ]
+      },
+      "id": "panel.direction-135-population-profile.direction-135-cohort-mean",
+      "kind": "line",
+      "name": "direction-135-cohort-mean",
+      "panelId": "panel.direction-135-population-profile",
+      "roles": [
+        "line"
+      ],
+      "svg": {
+        "line": "panel.direction-135-population-profile.direction-135-cohort-mean.line"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-population-response-interval",
+          "svgId": "panel.direction-180-population-profile.direction-180-population-80pct.x-population-response-interval"
+        }
+      ],
+      "data": {},
+      "id": "panel.direction-180-population-profile.direction-180-population-80pct",
+      "kind": "x-population-response-interval",
+      "name": "direction-180-population-80pct",
+      "panelId": "panel.direction-180-population-profile",
+      "roles": [
+        "x-population-response-interval"
+      ],
+      "svg": {
+        "x-population-response-interval": "panel.direction-180-population-profile.direction-180-population-80pct.x-population-response-interval"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-error-band",
+          "svgId": "panel.direction-180-population-profile.direction-180-cohort-sem.x-error-band"
+        }
+      ],
+      "data": {},
+      "id": "panel.direction-180-population-profile.direction-180-cohort-sem",
+      "kind": "x-error-band",
+      "name": "direction-180-cohort-sem",
+      "panelId": "panel.direction-180-population-profile",
+      "roles": [
+        "x-error-band"
+      ],
+      "svg": {
+        "x-error-band": "panel.direction-180-population-profile.direction-180-cohort-sem.x-error-band"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "role": "line",
+          "svgId": "panel.direction-180-population-profile.direction-180-cohort-mean.line"
+        }
+      ],
+      "data": {
+        "x": [
+          -1,
+          -0.9666666666666667,
+          -0.9333333333333333,
+          -0.9,
+          -0.8666666666666667,
+          -0.8333333333333334,
+          -0.8,
+          -0.7666666666666667,
+          -0.7333333333333333,
+          -0.7,
+          -0.6666666666666666,
+          -0.6333333333333333,
+          -0.6,
+          -0.5666666666666667,
+          -0.5333333333333333,
+          -0.5,
+          -0.4666666666666667,
+          -0.43333333333333335,
+          -0.4,
+          -0.36666666666666664,
+          -0.3333333333333333,
+          -0.3,
+          -0.26666666666666666,
+          -0.23333333333333334,
+          -0.2,
+          -0.16666666666666666,
+          -0.13333333333333333,
+          -0.1,
+          -0.06666666666666667,
+          -0.03333333333333333,
+          0,
+          0.03333333333333333,
+          0.06666666666666667,
+          0.1,
+          0.13333333333333333,
+          0.16666666666666666,
+          0.2,
+          0.23333333333333334,
+          0.26666666666666666,
+          0.3,
+          0.3333333333333333,
+          0.36666666666666664,
+          0.4,
+          0.43333333333333335,
+          0.4666666666666667,
+          0.5,
+          0.5333333333333333,
+          0.5666666666666667,
+          0.6,
+          0.6333333333333333,
+          0.6666666666666666,
+          0.7,
+          0.7333333333333333,
+          0.7666666666666667,
+          0.8,
+          0.8333333333333334,
+          0.8666666666666667,
+          0.9,
+          0.9333333333333333,
+          0.9666666666666667,
+          1,
+          1.0333333333333334,
+          1.0666666666666667,
+          1.1,
+          1.1333333333333333,
+          1.1666666666666667,
+          1.2,
+          1.2333333333333334,
+          1.2666666666666666,
+          1.3,
+          1.3333333333333333,
+          1.3666666666666667,
+          1.4,
+          1.4333333333333333,
+          1.4666666666666666,
+          1.5,
+          1.5333333333333334,
+          1.5666666666666667,
+          1.6,
+          1.6333333333333333,
+          1.6666666666666667,
+          1.7,
+          1.7333333333333334,
+          1.7666666666666666,
+          1.8,
+          1.8333333333333333,
+          1.8666666666666667,
+          1.9,
+          1.9333333333333333,
+          1.9666666666666666,
+          2,
+          2.033333333333333,
+          2.066666666666667,
+          2.1,
+          2.1333333333333333,
+          2.1666666666666665,
+          2.2,
+          2.2333333333333334,
+          2.2666666666666666,
+          2.3,
+          2.3333333333333335,
+          2.3666666666666667,
+          2.4,
+          2.433333333333333,
+          2.466666666666667,
+          2.5,
+          2.533333333333333,
+          2.566666666666667,
+          2.6,
+          2.6333333333333333,
+          2.6666666666666665,
+          2.7,
+          2.7333333333333334,
+          2.7666666666666666,
+          2.8,
+          2.8333333333333335,
+          2.8666666666666667,
+          2.9,
+          2.933333333333333,
+          2.966666666666667
+        ],
+        "y": [
+          0.15618105524259565,
+          0.12795448982463592,
+          0.06473491554602077,
+          0.03480908932366186,
+          0.06645863153921211,
+          0.1147079119992635,
+          0.13516333745762077,
+          0.10850380527101368,
+          0.04419861734206043,
+          -0.01741585790429904,
+          -0.0590674680740435,
+          -0.09236647764242907,
+          -0.10507588590168843,
+          -0.07435875707670213,
+          -0.014378178100421808,
+          0.02029258498436897,
+          -0.021729411355267472,
+          -0.12090068364631217,
+          -0.19339519823578566,
+          -0.18564724293310517,
+          -0.12447405518345772,
+          -0.07136847345455456,
+          -0.06122839430569079,
+          -0.0872043764146866,
+          -0.12039081589440151,
+          -0.13567623593306788,
+          -0.10342802313743213,
+          0.008258622649069075,
+          0.1789683027985816,
+          0.33402476308219353,
+          0.414606272167521,
+          0.4392759705605775,
+          0.478612703737175,
+          0.565707408725401,
+          0.6640792531698041,
+          0.7312778522485921,
+          0.7881330240740885,
+          0.8897128929528981,
+          1.0675882022000414,
+          1.308251686964719,
+          1.5361908356845344,
+          1.6480579481773496,
+          1.604194789003791,
+          1.4746660026894551,
+          1.3740416128718873,
+          1.3432903375663625,
+          1.3242192390301213,
+          1.278294841252799,
+          1.2514883238309704,
+          1.2861267698180567,
+          1.3641333915487384,
+          1.4323039118848269,
+          1.4329150590747355,
+          1.3501315597918568,
+          1.242954853662707,
+          1.1850944535132688,
+          1.1826358168295226,
+          1.1978204512338628,
+          1.1896341660385652,
+          1.1273333353672004,
+          1.0423632517351717,
+          1.0056780862685035,
+          1.021622206170322,
+          1.044730736849603,
+          1.0663301875749098,
+          1.1073708434827814,
+          1.1861576109378427,
+          1.3004786641700143,
+          1.411450167025906,
+          1.476074147527766,
+          1.48920071157497,
+          1.4806078803709817,
+          1.4844198328827212,
+          1.4991187612851073,
+          1.4979630203447458,
+          1.5039037409913667,
+          1.6085471423652848,
+          1.837767571702794,
+          2.054482770306689,
+          2.1083879597635526,
+          2.0149250005991197,
+          1.8956154053922525,
+          1.8180609109855697,
+          1.7622409017244232,
+          1.691858851790463,
+          1.6184404580630245,
+          1.589259992819598,
+          1.6142371356969762,
+          1.6490927715132977,
+          1.6781610125362323,
+          1.7206644234533512,
+          1.7341828238619041,
+          1.6510168980900135,
+          1.4731655103548027,
+          1.247359379272262,
+          1.0211079667842826,
+          0.8287904512031552,
+          0.6773863214996664,
+          0.559651203674915,
+          0.4770782540103781,
+          0.4370632644019208,
+          0.42683154282894237,
+          0.40939880752890867,
+          0.3567748831003353,
+          0.28217875835475775,
+          0.24470598705988494,
+          0.28652550525200554,
+          0.3686636121541842,
+          0.4035310642026448,
+          0.3430704305909548,
+          0.22723017716823735,
+          0.1436482321657544,
+          0.13685299523241787,
+          0.18068194630548862,
+          0.22905233857812712,
+          0.2573159750130635,
+          0.2671946553199903,
+          0.27995891927412275,
+          0.31553245729727114,
+          0.36827809567936565
+        ]
+      },
+      "id": "panel.direction-180-population-profile.direction-180-cohort-mean",
+      "kind": "line",
+      "name": "direction-180-cohort-mean",
+      "panelId": "panel.direction-180-population-profile",
+      "roles": [
+        "line"
+      ],
+      "svg": {
+        "line": "panel.direction-180-population-profile.direction-180-cohort-mean.line"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-population-response-interval",
+          "svgId": "panel.direction-225-population-profile.direction-225-population-80pct.x-population-response-interval"
+        }
+      ],
+      "data": {},
+      "id": "panel.direction-225-population-profile.direction-225-population-80pct",
+      "kind": "x-population-response-interval",
+      "name": "direction-225-population-80pct",
+      "panelId": "panel.direction-225-population-profile",
+      "roles": [
+        "x-population-response-interval"
+      ],
+      "svg": {
+        "x-population-response-interval": "panel.direction-225-population-profile.direction-225-population-80pct.x-population-response-interval"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-error-band",
+          "svgId": "panel.direction-225-population-profile.direction-225-cohort-sem.x-error-band"
+        }
+      ],
+      "data": {},
+      "id": "panel.direction-225-population-profile.direction-225-cohort-sem",
+      "kind": "x-error-band",
+      "name": "direction-225-cohort-sem",
+      "panelId": "panel.direction-225-population-profile",
+      "roles": [
+        "x-error-band"
+      ],
+      "svg": {
+        "x-error-band": "panel.direction-225-population-profile.direction-225-cohort-sem.x-error-band"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "role": "line",
+          "svgId": "panel.direction-225-population-profile.direction-225-cohort-mean.line"
+        }
+      ],
+      "data": {
+        "x": [
+          -1,
+          -0.9666666666666667,
+          -0.9333333333333333,
+          -0.9,
+          -0.8666666666666667,
+          -0.8333333333333334,
+          -0.8,
+          -0.7666666666666667,
+          -0.7333333333333333,
+          -0.7,
+          -0.6666666666666666,
+          -0.6333333333333333,
+          -0.6,
+          -0.5666666666666667,
+          -0.5333333333333333,
+          -0.5,
+          -0.4666666666666667,
+          -0.43333333333333335,
+          -0.4,
+          -0.36666666666666664,
+          -0.3333333333333333,
+          -0.3,
+          -0.26666666666666666,
+          -0.23333333333333334,
+          -0.2,
+          -0.16666666666666666,
+          -0.13333333333333333,
+          -0.1,
+          -0.06666666666666667,
+          -0.03333333333333333,
+          0,
+          0.03333333333333333,
+          0.06666666666666667,
+          0.1,
+          0.13333333333333333,
+          0.16666666666666666,
+          0.2,
+          0.23333333333333334,
+          0.26666666666666666,
+          0.3,
+          0.3333333333333333,
+          0.36666666666666664,
+          0.4,
+          0.43333333333333335,
+          0.4666666666666667,
+          0.5,
+          0.5333333333333333,
+          0.5666666666666667,
+          0.6,
+          0.6333333333333333,
+          0.6666666666666666,
+          0.7,
+          0.7333333333333333,
+          0.7666666666666667,
+          0.8,
+          0.8333333333333334,
+          0.8666666666666667,
+          0.9,
+          0.9333333333333333,
+          0.9666666666666667,
+          1,
+          1.0333333333333334,
+          1.0666666666666667,
+          1.1,
+          1.1333333333333333,
+          1.1666666666666667,
+          1.2,
+          1.2333333333333334,
+          1.2666666666666666,
+          1.3,
+          1.3333333333333333,
+          1.3666666666666667,
+          1.4,
+          1.4333333333333333,
+          1.4666666666666666,
+          1.5,
+          1.5333333333333334,
+          1.5666666666666667,
+          1.6,
+          1.6333333333333333,
+          1.6666666666666667,
+          1.7,
+          1.7333333333333334,
+          1.7666666666666666,
+          1.8,
+          1.8333333333333333,
+          1.8666666666666667,
+          1.9,
+          1.9333333333333333,
+          1.9666666666666666,
+          2,
+          2.033333333333333,
+          2.066666666666667,
+          2.1,
+          2.1333333333333333,
+          2.1666666666666665,
+          2.2,
+          2.2333333333333334,
+          2.2666666666666666,
+          2.3,
+          2.3333333333333335,
+          2.3666666666666667,
+          2.4,
+          2.433333333333333,
+          2.466666666666667,
+          2.5,
+          2.533333333333333,
+          2.566666666666667,
+          2.6,
+          2.6333333333333333,
+          2.6666666666666665,
+          2.7,
+          2.7333333333333334,
+          2.7666666666666666,
+          2.8,
+          2.8333333333333335,
+          2.8666666666666667,
+          2.9,
+          2.933333333333333,
+          2.966666666666667
+        ],
+        "y": [
+          -0.056863642792058945,
+          -0.11670604312377562,
+          -0.10470235706980908,
+          -0.04225427923223348,
+          -0.0011879028410405204,
+          0.0016553167240239827,
+          0.00011080502559194826,
+          -0.0017408739856630796,
+          -0.01732369365429843,
+          -0.014781855448057801,
+          0.05463409035080726,
+          0.16489968052846177,
+          0.22058508075132674,
+          0.16791535549489373,
+          0.03873394882673288,
+          -0.09314013663937934,
+          -0.14960746105152326,
+          -0.09809101917014373,
+          0.0052838008734914475,
+          0.050325295903306456,
+          -0.009323016736266163,
+          -0.09206707834819843,
+          -0.10422095071074722,
+          -0.040744776277777,
+          0.050425075796814864,
+          0.09773252754967618,
+          0.06772445209395278,
+          0.027306305468730245,
+          0.05500593828688881,
+          0.14779609137570907,
+          0.24669361672950973,
+          0.29958572864727306,
+          0.3242392448705019,
+          0.3995420165489165,
+          0.5610514014837538,
+          0.7682838061356045,
+          0.9721256835892286,
+          1.134071240556607,
+          1.224645208003084,
+          1.2691660857480414,
+          1.345269278477485,
+          1.483118085289561,
+          1.624448927184107,
+          1.7000658630374257,
+          1.6860058609652548,
+          1.6140124305537473,
+          1.5563775909525277,
+          1.5526788558736175,
+          1.5690580833302836,
+          1.5536474705710561,
+          1.4875696633381659,
+          1.4031048095833445,
+          1.3689685678227728,
+          1.394944292798914,
+          1.4062723550763043,
+          1.3431680325643602,
+          1.2022442116229248,
+          1.03588790691018,
+          0.9511819335101718,
+          1.015903778331823,
+          1.1731176248288298,
+          1.3020445105597567,
+          1.3463374402406036,
+          1.3516425639614065,
+          1.3670889011956078,
+          1.3641244806889028,
+          1.289179307982432,
+          1.1496007828442376,
+          1.0207624770049133,
+          0.9829991963234525,
+          1.065975819841772,
+          1.2332536218339287,
+          1.4128769348940093,
+          1.5651159958965486,
+          1.6972433169500731,
+          1.8041611633020047,
+          1.8465165427913055,
+          1.802479466666928,
+          1.6991914225963405,
+          1.5915421907086773,
+          1.5394885987213867,
+          1.5629654404698652,
+          1.5875172845378012,
+          1.5119578718633404,
+          1.3507459615562536,
+          1.2158728413329163,
+          1.1842410043059834,
+          1.2476430142848192,
+          1.3294201639254746,
+          1.3338619757938641,
+          1.233123894385782,
+          1.0926472659193276,
+          0.9816142819359946,
+          0.9111725011149476,
+          0.8717208480466119,
+          0.8420368265270417,
+          0.7788493185047288,
+          0.680365796602368,
+          0.6127478757021577,
+          0.6244548899636989,
+          0.6746132183690287,
+          0.659784500456288,
+          0.5161012231567657,
+          0.3106884990935845,
+          0.17554194077434027,
+          0.15416201316176373,
+          0.18590682579465495,
+          0.2049465989316405,
+          0.20758357672451322,
+          0.21977701929182167,
+          0.22003163707203935,
+          0.1608009258645366,
+          0.05576635234451531,
+          -0.02373228404453746,
+          -0.03724584867298028,
+          -0.011308022753029605,
+          0.026527807639837968,
+          0.08890721860514152,
+          0.18107691830793793,
+          0.2746699090940653
+        ]
+      },
+      "id": "panel.direction-225-population-profile.direction-225-cohort-mean",
+      "kind": "line",
+      "name": "direction-225-cohort-mean",
+      "panelId": "panel.direction-225-population-profile",
+      "roles": [
+        "line"
+      ],
+      "svg": {
+        "line": "panel.direction-225-population-profile.direction-225-cohort-mean.line"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-population-response-interval",
+          "svgId": "panel.direction-270-population-profile.direction-270-population-80pct.x-population-response-interval"
+        }
+      ],
+      "data": {},
+      "id": "panel.direction-270-population-profile.direction-270-population-80pct",
+      "kind": "x-population-response-interval",
+      "name": "direction-270-population-80pct",
+      "panelId": "panel.direction-270-population-profile",
+      "roles": [
+        "x-population-response-interval"
+      ],
+      "svg": {
+        "x-population-response-interval": "panel.direction-270-population-profile.direction-270-population-80pct.x-population-response-interval"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-error-band",
+          "svgId": "panel.direction-270-population-profile.direction-270-cohort-sem.x-error-band"
+        }
+      ],
+      "data": {},
+      "id": "panel.direction-270-population-profile.direction-270-cohort-sem",
+      "kind": "x-error-band",
+      "name": "direction-270-cohort-sem",
+      "panelId": "panel.direction-270-population-profile",
+      "roles": [
+        "x-error-band"
+      ],
+      "svg": {
+        "x-error-band": "panel.direction-270-population-profile.direction-270-cohort-sem.x-error-band"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "role": "line",
+          "svgId": "panel.direction-270-population-profile.direction-270-cohort-mean.line"
+        }
+      ],
+      "data": {
+        "x": [
+          -1,
+          -0.9666666666666667,
+          -0.9333333333333333,
+          -0.9,
+          -0.8666666666666667,
+          -0.8333333333333334,
+          -0.8,
+          -0.7666666666666667,
+          -0.7333333333333333,
+          -0.7,
+          -0.6666666666666666,
+          -0.6333333333333333,
+          -0.6,
+          -0.5666666666666667,
+          -0.5333333333333333,
+          -0.5,
+          -0.4666666666666667,
+          -0.43333333333333335,
+          -0.4,
+          -0.36666666666666664,
+          -0.3333333333333333,
+          -0.3,
+          -0.26666666666666666,
+          -0.23333333333333334,
+          -0.2,
+          -0.16666666666666666,
+          -0.13333333333333333,
+          -0.1,
+          -0.06666666666666667,
+          -0.03333333333333333,
+          0,
+          0.03333333333333333,
+          0.06666666666666667,
+          0.1,
+          0.13333333333333333,
+          0.16666666666666666,
+          0.2,
+          0.23333333333333334,
+          0.26666666666666666,
+          0.3,
+          0.3333333333333333,
+          0.36666666666666664,
+          0.4,
+          0.43333333333333335,
+          0.4666666666666667,
+          0.5,
+          0.5333333333333333,
+          0.5666666666666667,
+          0.6,
+          0.6333333333333333,
+          0.6666666666666666,
+          0.7,
+          0.7333333333333333,
+          0.7666666666666667,
+          0.8,
+          0.8333333333333334,
+          0.8666666666666667,
+          0.9,
+          0.9333333333333333,
+          0.9666666666666667,
+          1,
+          1.0333333333333334,
+          1.0666666666666667,
+          1.1,
+          1.1333333333333333,
+          1.1666666666666667,
+          1.2,
+          1.2333333333333334,
+          1.2666666666666666,
+          1.3,
+          1.3333333333333333,
+          1.3666666666666667,
+          1.4,
+          1.4333333333333333,
+          1.4666666666666666,
+          1.5,
+          1.5333333333333334,
+          1.5666666666666667,
+          1.6,
+          1.6333333333333333,
+          1.6666666666666667,
+          1.7,
+          1.7333333333333334,
+          1.7666666666666666,
+          1.8,
+          1.8333333333333333,
+          1.8666666666666667,
+          1.9,
+          1.9333333333333333,
+          1.9666666666666666,
+          2,
+          2.033333333333333,
+          2.066666666666667,
+          2.1,
+          2.1333333333333333,
+          2.1666666666666665,
+          2.2,
+          2.2333333333333334,
+          2.2666666666666666,
+          2.3,
+          2.3333333333333335,
+          2.3666666666666667,
+          2.4,
+          2.433333333333333,
+          2.466666666666667,
+          2.5,
+          2.533333333333333,
+          2.566666666666667,
+          2.6,
+          2.6333333333333333,
+          2.6666666666666665,
+          2.7,
+          2.7333333333333334,
+          2.7666666666666666,
+          2.8,
+          2.8333333333333335,
+          2.8666666666666667,
+          2.9,
+          2.933333333333333,
+          2.966666666666667
+        ],
+        "y": [
+          0.06668279678336256,
+          -0.027929074598422105,
+          -0.11474305014952173,
+          -0.1592286946489893,
+          -0.15078376015266962,
+          -0.10283152076877262,
+          -0.04457652819692122,
+          -0.011167985887944851,
+          -0.022000168013068238,
+          -0.05692997942570164,
+          -0.07280694706128338,
+          -0.05125760132878529,
+          -0.015140881743490757,
+          0.003914648213992028,
+          -0.0036032366390528776,
+          -0.026815953119508597,
+          -0.05054390246127515,
+          -0.06529153874895399,
+          -0.06630631399557227,
+          -0.04938610080605483,
+          -0.017460899658685983,
+          0.020516408798415008,
+          0.061159487846987826,
+          0.09686838941916104,
+          0.11779793297130675,
+          0.13562374305742592,
+          0.16244877363671267,
+          0.18591924567665957,
+          0.2010027800366822,
+          0.22346719516250727,
+          0.26085164794191334,
+          0.31183332626640053,
+          0.3898157578276686,
+          0.5183631132690167,
+          0.7125172046760035,
+          0.9678546833819227,
+          1.2630512411694939,
+          1.5792519147579596,
+          1.8828845990602483,
+          2.1033914186048874,
+          2.197771922391427,
+          2.2086863430221935,
+          2.2041298514090673,
+          2.19351399069997,
+          2.142162644482315,
+          2.0409539849930005,
+          1.9190291108620219,
+          1.7965030735481546,
+          1.6744111841036557,
+          1.570802931276169,
+          1.5057452119938992,
+          1.457361342579072,
+          1.3865644278806861,
+          1.2922640365349958,
+          1.2176266905927475,
+          1.2086025874090767,
+          1.2651384254013573,
+          1.342538267400675,
+          1.4072199296150418,
+          1.4609393700057474,
+          1.5019849446696785,
+          1.5069888167367476,
+          1.4674394354338975,
+          1.4047273674885687,
+          1.346335925649881,
+          1.2978369062877555,
+          1.2368740120494421,
+          1.162431946501685,
+          1.1254849360493762,
+          1.1675617858370095,
+          1.278022486562586,
+          1.4371367924830662,
+          1.6299820769366873,
+          1.810487562421893,
+          1.9282128815384354,
+          1.9843272987821174,
+          2.0101313373420626,
+          2.019748224210179,
+          2.006905028217729,
+          1.962391830071025,
+          1.8878618575967236,
+          1.7864017990635506,
+          1.6549454469882647,
+          1.5105853626105692,
+          1.4013594333986226,
+          1.3650878579968604,
+          1.4023894418034106,
+          1.5079141486706447,
+          1.6725185039563961,
+          1.838969276346132,
+          1.918392533260623,
+          1.8565121777529927,
+          1.6669163787689427,
+          1.4084101231282713,
+          1.127754347302816,
+          0.840885792396054,
+          0.5662564849114236,
+          0.34683175009548994,
+          0.22179579404494904,
+          0.16981858033638533,
+          0.13033311492784505,
+          0.08366895286674765,
+          0.04589648020462449,
+          0.020361346124666082,
+          0.0055668159390653334,
+          0.003434679507251868,
+          0.003112930472633192,
+          -0.002254018228773039,
+          0.0019186977359663341,
+          0.01846265341932957,
+          0.017796042455104574,
+          -0.012280616594403812,
+          -0.03191186764358416,
+          -0.012091913498841035,
+          0.022282381395101167,
+          0.05316277476159107,
+          0.09142926670189484,
+          0.12051532237646675,
+          0.10091834656041421,
+          0.03700491051907971
+        ]
+      },
+      "id": "panel.direction-270-population-profile.direction-270-cohort-mean",
+      "kind": "line",
+      "name": "direction-270-cohort-mean",
+      "panelId": "panel.direction-270-population-profile",
+      "roles": [
+        "line"
+      ],
+      "svg": {
+        "line": "panel.direction-270-population-profile.direction-270-cohort-mean.line"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-population-response-interval",
+          "svgId": "panel.direction-315-population-profile.direction-315-population-80pct.x-population-response-interval"
+        }
+      ],
+      "data": {},
+      "id": "panel.direction-315-population-profile.direction-315-population-80pct",
+      "kind": "x-population-response-interval",
+      "name": "direction-315-population-80pct",
+      "panelId": "panel.direction-315-population-profile",
+      "roles": [
+        "x-population-response-interval"
+      ],
+      "svg": {
+        "x-population-response-interval": "panel.direction-315-population-profile.direction-315-population-80pct.x-population-response-interval"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
+          "role": "x-error-band",
+          "svgId": "panel.direction-315-population-profile.direction-315-cohort-sem.x-error-band"
+        }
+      ],
+      "data": {},
+      "id": "panel.direction-315-population-profile.direction-315-cohort-sem",
+      "kind": "x-error-band",
+      "name": "direction-315-cohort-sem",
+      "panelId": "panel.direction-315-population-profile",
+      "roles": [
+        "x-error-band"
+      ],
+      "svg": {
+        "x-error-band": "panel.direction-315-population-profile.direction-315-cohort-sem.x-error-band"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "role": "line",
+          "svgId": "panel.direction-315-population-profile.direction-315-cohort-mean.line"
+        }
+      ],
+      "data": {
+        "x": [
+          -1,
+          -0.9666666666666667,
+          -0.9333333333333333,
+          -0.9,
+          -0.8666666666666667,
+          -0.8333333333333334,
+          -0.8,
+          -0.7666666666666667,
+          -0.7333333333333333,
+          -0.7,
+          -0.6666666666666666,
+          -0.6333333333333333,
+          -0.6,
+          -0.5666666666666667,
+          -0.5333333333333333,
+          -0.5,
+          -0.4666666666666667,
+          -0.43333333333333335,
+          -0.4,
+          -0.36666666666666664,
+          -0.3333333333333333,
+          -0.3,
+          -0.26666666666666666,
+          -0.23333333333333334,
+          -0.2,
+          -0.16666666666666666,
+          -0.13333333333333333,
+          -0.1,
+          -0.06666666666666667,
+          -0.03333333333333333,
+          0,
+          0.03333333333333333,
+          0.06666666666666667,
+          0.1,
+          0.13333333333333333,
+          0.16666666666666666,
+          0.2,
+          0.23333333333333334,
+          0.26666666666666666,
+          0.3,
+          0.3333333333333333,
+          0.36666666666666664,
+          0.4,
+          0.43333333333333335,
+          0.4666666666666667,
+          0.5,
+          0.5333333333333333,
+          0.5666666666666667,
+          0.6,
+          0.6333333333333333,
+          0.6666666666666666,
+          0.7,
+          0.7333333333333333,
+          0.7666666666666667,
+          0.8,
+          0.8333333333333334,
+          0.8666666666666667,
+          0.9,
+          0.9333333333333333,
+          0.9666666666666667,
+          1,
+          1.0333333333333334,
+          1.0666666666666667,
+          1.1,
+          1.1333333333333333,
+          1.1666666666666667,
+          1.2,
+          1.2333333333333334,
+          1.2666666666666666,
+          1.3,
+          1.3333333333333333,
+          1.3666666666666667,
+          1.4,
+          1.4333333333333333,
+          1.4666666666666666,
+          1.5,
+          1.5333333333333334,
+          1.5666666666666667,
+          1.6,
+          1.6333333333333333,
+          1.6666666666666667,
+          1.7,
+          1.7333333333333334,
+          1.7666666666666666,
+          1.8,
+          1.8333333333333333,
+          1.8666666666666667,
+          1.9,
+          1.9333333333333333,
+          1.9666666666666666,
+          2,
+          2.033333333333333,
+          2.066666666666667,
+          2.1,
+          2.1333333333333333,
+          2.1666666666666665,
+          2.2,
+          2.2333333333333334,
+          2.2666666666666666,
+          2.3,
+          2.3333333333333335,
+          2.3666666666666667,
+          2.4,
+          2.433333333333333,
+          2.466666666666667,
+          2.5,
+          2.533333333333333,
+          2.566666666666667,
+          2.6,
+          2.6333333333333333,
+          2.6666666666666665,
+          2.7,
+          2.7333333333333334,
+          2.7666666666666666,
+          2.8,
+          2.8333333333333335,
+          2.8666666666666667,
+          2.9,
+          2.933333333333333,
+          2.966666666666667
+        ],
+        "y": [
+          0.601598996975766,
+          0.48111148194099385,
+          0.32646428795292126,
+          0.17558955555742686,
+          0.06463980708465855,
+          -0.0021366271352934417,
+          -0.04111914036830605,
+          -0.058197608148637676,
+          -0.0571352712457368,
+          -0.06153714468467076,
+          -0.08680898451388887,
+          -0.11897715096408383,
+          -0.1527270473323905,
+          -0.1919287970099569,
+          -0.21276202511524545,
+          -0.19278167945612132,
+          -0.14527921983643666,
+          -0.0879136403395484,
+          -0.025896252168118944,
+          0.01753725442077638,
+          0.012185256720200254,
+          -0.03405701619204741,
+          -0.08872637754903571,
+          -0.14425844640437524,
+          -0.2029244945650955,
+          -0.21966397493020437,
+          -0.13691474023261996,
+          0.022833711733135916,
+          0.18003915900900844,
+          0.27979204150221426,
+          0.3225233858906206,
+          0.3720265369877661,
+          0.5071862223281597,
+          0.7397767400114956,
+          1.0166368420683292,
+          1.2753571587012378,
+          1.4674789252932214,
+          1.5857171452302936,
+          1.6779719140606917,
+          1.7972926191463845,
+          1.9500069824392288,
+          2.089336947953062,
+          2.1571983080685904,
+          2.1454354178825277,
+          2.1082611603030905,
+          2.112074461951501,
+          2.163556031777643,
+          2.1952786127831643,
+          2.156342755726454,
+          2.0836583144973795,
+          2.0383641157685495,
+          2.035118413414356,
+          2.047439607184743,
+          2.030369032136936,
+          1.9618820010956648,
+          1.8716734687355971,
+          1.808653152031389,
+          1.7999345013364463,
+          1.8389242640260501,
+          1.8930422507135067,
+          1.932321979243585,
+          1.949143557671313,
+          1.9476908374425335,
+          1.9374118752508644,
+          1.9358118176693575,
+          1.951549990389188,
+          1.9686238276731676,
+          1.955446280067037,
+          1.904531442681357,
+          1.8549895119668953,
+          1.8425488110976806,
+          1.8531502470883783,
+          1.8551658151635824,
+          1.8460282714316134,
+          1.8475417823219573,
+          1.8807040025434856,
+          1.9572057441571933,
+          2.0763823130494967,
+          2.202303350697115,
+          2.26834873695206,
+          2.2397690549259734,
+          2.1478273322635677,
+          2.052872413630255,
+          1.9938000184695175,
+          1.9812130163750135,
+          2.0083403505784765,
+          2.055223356281065,
+          2.10110030598189,
+          2.116789231264736,
+          2.068530901898754,
+          1.960570016785599,
+          1.8372987598036443,
+          1.7348830588810173,
+          1.6427045771170452,
+          1.5247708270260047,
+          1.3818864110483755,
+          1.2438732844117322,
+          1.1071711256013812,
+          0.9438457599929386,
+          0.7617864939556925,
+          0.5963907418206733,
+          0.4546410170655154,
+          0.3370643201659315,
+          0.26957656538234037,
+          0.25027084400054145,
+          0.22840735524473949,
+          0.16721933163534206,
+          0.09335543232107497,
+          0.0728536047003193,
+          0.12459966931290602,
+          0.1793190302275066,
+          0.17372752333150884,
+          0.1277677506724307,
+          0.09258269936193064,
+          0.09871064961004175,
+          0.15072433634769353,
+          0.2123781556501094,
+          0.22782272847158477,
+          0.18657655343125357,
+          0.12752038064515084
+        ]
+      },
+      "id": "panel.direction-315-population-profile.direction-315-cohort-mean",
+      "kind": "line",
+      "name": "direction-315-cohort-mean",
+      "panelId": "panel.direction-315-population-profile",
+      "roles": [
+        "line"
+      ],
+      "svg": {
+        "line": "panel.direction-315-population-profile.direction-315-cohort-mean.line"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": false
+      },
+      "components": [
+        {
           "role": "x-heatmap",
-          "svgId": "direction-response-blocks.x-heatmap"
+          "svgId": "panel.a.direction-response-blocks.x-heatmap"
         }
       ],
       "data": {},
       "field": {
-        "cmap": "fusion_r",
+        "cmap": "atlas-response",
         "controlKey": "axes.1.direction-response-blocks",
         "extent": [
-          0.0,
-          995.0,
-          143.0,
-          0.0
+          0,
+          995,
+          143,
+          0
         ],
         "kind": "heatmap",
         "maskedIndices": [
@@ -5592,43 +9645,44 @@
           142164
         ],
         "missingColor": [
-          1.0,
-          1.0,
-          1.0,
-          1.0
+          1,
+          1,
+          1,
+          1
         ],
         "normalization": {
           "clip": false,
           "kind": "Normalize",
-          "vmax": 2.5,
-          "vmin": -2.5
+          "vmax": 3,
+          "vmin": -3
         },
         "origin": "upper",
         "overColor": [
-          0.15269566,
-          0.0159421,
-          0.06988881,
-          1.0
+          0.4549019607843137,
+          0.17254901960784313,
+          0.2196078431372549,
+          1
         ],
         "shape": [
           143,
           995
         ],
         "underColor": [
-          0.09537889,
-          0.03791701,
-          0.19486783,
-          1.0
+          0.1607843137254902,
+          0.23529411764705882,
+          0.4117647058823529,
+          1
         ]
       },
-      "id": "direction-response-blocks",
+      "id": "panel.a.direction-response-blocks",
       "kind": "heatmap",
       "name": "direction-response-blocks",
+      "panelId": "panel.a",
       "roles": [
         "x-heatmap"
       ],
       "svg": {
-        "x-heatmap": "direction-response-blocks.x-heatmap"
+        "x-heatmap": "panel.a.direction-response-blocks.x-heatmap"
       }
     },
     {
@@ -5638,18 +9692,19 @@
       "components": [
         {
           "role": "x-cell-preference-group",
-          "svgId": "preferred-0.x-cell-preference-group"
+          "svgId": "panel.a.preferred-0.x-cell-preference-group"
         }
       ],
       "data": {},
-      "id": "preferred-0",
+      "id": "panel.a.preferred-0",
       "kind": "x-cell-preference-group",
       "name": "preferred-0",
+      "panelId": "panel.a",
       "roles": [
         "x-cell-preference-group"
       ],
       "svg": {
-        "x-cell-preference-group": "preferred-0.x-cell-preference-group"
+        "x-cell-preference-group": "panel.a.preferred-0.x-cell-preference-group"
       }
     },
     {
@@ -5659,18 +9714,19 @@
       "components": [
         {
           "role": "x-cell-preference-group",
-          "svgId": "preferred-45.x-cell-preference-group"
+          "svgId": "panel.a.preferred-45.x-cell-preference-group"
         }
       ],
       "data": {},
-      "id": "preferred-45",
+      "id": "panel.a.preferred-45",
       "kind": "x-cell-preference-group",
       "name": "preferred-45",
+      "panelId": "panel.a",
       "roles": [
         "x-cell-preference-group"
       ],
       "svg": {
-        "x-cell-preference-group": "preferred-45.x-cell-preference-group"
+        "x-cell-preference-group": "panel.a.preferred-45.x-cell-preference-group"
       }
     },
     {
@@ -5680,18 +9736,19 @@
       "components": [
         {
           "role": "x-cell-preference-group",
-          "svgId": "preferred-90.x-cell-preference-group"
+          "svgId": "panel.a.preferred-90.x-cell-preference-group"
         }
       ],
       "data": {},
-      "id": "preferred-90",
+      "id": "panel.a.preferred-90",
       "kind": "x-cell-preference-group",
       "name": "preferred-90",
+      "panelId": "panel.a",
       "roles": [
         "x-cell-preference-group"
       ],
       "svg": {
-        "x-cell-preference-group": "preferred-90.x-cell-preference-group"
+        "x-cell-preference-group": "panel.a.preferred-90.x-cell-preference-group"
       }
     },
     {
@@ -5701,18 +9758,19 @@
       "components": [
         {
           "role": "x-cell-preference-group",
-          "svgId": "preferred-135.x-cell-preference-group"
+          "svgId": "panel.a.preferred-135.x-cell-preference-group"
         }
       ],
       "data": {},
-      "id": "preferred-135",
+      "id": "panel.a.preferred-135",
       "kind": "x-cell-preference-group",
       "name": "preferred-135",
+      "panelId": "panel.a",
       "roles": [
         "x-cell-preference-group"
       ],
       "svg": {
-        "x-cell-preference-group": "preferred-135.x-cell-preference-group"
+        "x-cell-preference-group": "panel.a.preferred-135.x-cell-preference-group"
       }
     },
     {
@@ -5722,18 +9780,19 @@
       "components": [
         {
           "role": "x-cell-preference-group",
-          "svgId": "preferred-180.x-cell-preference-group"
+          "svgId": "panel.a.preferred-180.x-cell-preference-group"
         }
       ],
       "data": {},
-      "id": "preferred-180",
+      "id": "panel.a.preferred-180",
       "kind": "x-cell-preference-group",
       "name": "preferred-180",
+      "panelId": "panel.a",
       "roles": [
         "x-cell-preference-group"
       ],
       "svg": {
-        "x-cell-preference-group": "preferred-180.x-cell-preference-group"
+        "x-cell-preference-group": "panel.a.preferred-180.x-cell-preference-group"
       }
     },
     {
@@ -5743,18 +9802,19 @@
       "components": [
         {
           "role": "x-cell-preference-group",
-          "svgId": "preferred-225.x-cell-preference-group"
+          "svgId": "panel.a.preferred-225.x-cell-preference-group"
         }
       ],
       "data": {},
-      "id": "preferred-225",
+      "id": "panel.a.preferred-225",
       "kind": "x-cell-preference-group",
       "name": "preferred-225",
+      "panelId": "panel.a",
       "roles": [
         "x-cell-preference-group"
       ],
       "svg": {
-        "x-cell-preference-group": "preferred-225.x-cell-preference-group"
+        "x-cell-preference-group": "panel.a.preferred-225.x-cell-preference-group"
       }
     },
     {
@@ -5764,18 +9824,19 @@
       "components": [
         {
           "role": "x-cell-preference-group",
-          "svgId": "preferred-270.x-cell-preference-group"
+          "svgId": "panel.a.preferred-270.x-cell-preference-group"
         }
       ],
       "data": {},
-      "id": "preferred-270",
+      "id": "panel.a.preferred-270",
       "kind": "x-cell-preference-group",
       "name": "preferred-270",
+      "panelId": "panel.a",
       "roles": [
         "x-cell-preference-group"
       ],
       "svg": {
-        "x-cell-preference-group": "preferred-270.x-cell-preference-group"
+        "x-cell-preference-group": "panel.a.preferred-270.x-cell-preference-group"
       }
     },
     {
@@ -5785,18 +9846,19 @@
       "components": [
         {
           "role": "x-cell-preference-group",
-          "svgId": "preferred-315.x-cell-preference-group"
+          "svgId": "panel.a.preferred-315.x-cell-preference-group"
         }
       ],
       "data": {},
-      "id": "preferred-315",
+      "id": "panel.a.preferred-315",
       "kind": "x-cell-preference-group",
       "name": "preferred-315",
+      "panelId": "panel.a",
       "roles": [
         "x-cell-preference-group"
       ],
       "svg": {
-        "x-cell-preference-group": "preferred-315.x-cell-preference-group"
+        "x-cell-preference-group": "panel.a.preferred-315.x-cell-preference-group"
       }
     },
     {
@@ -5806,27 +9868,28 @@
       "components": [
         {
           "role": "x-stimulus-window",
-          "svgId": "stimulus-0.x-stimulus-window"
+          "svgId": "panel.a.stimulus-0.x-stimulus-window"
         }
       ],
       "data": {
         "x": [
-          30.0,
-          90.0
+          30,
+          90
         ],
         "y": [
           -3.5,
           -3.5
         ]
       },
-      "id": "stimulus-0",
+      "id": "panel.a.stimulus-0",
       "kind": "x-stimulus-window",
       "name": "stimulus-0",
+      "panelId": "panel.a",
       "roles": [
         "x-stimulus-window"
       ],
       "svg": {
-        "x-stimulus-window": "stimulus-0.x-stimulus-window"
+        "x-stimulus-window": "panel.a.stimulus-0.x-stimulus-window"
       }
     },
     {
@@ -5836,27 +9899,28 @@
       "components": [
         {
           "role": "x-stimulus-window",
-          "svgId": "stimulus-45.x-stimulus-window"
+          "svgId": "panel.a.stimulus-45.x-stimulus-window"
         }
       ],
       "data": {
         "x": [
-          155.0,
-          215.0
+          155,
+          215
         ],
         "y": [
           -3.5,
           -3.5
         ]
       },
-      "id": "stimulus-45",
+      "id": "panel.a.stimulus-45",
       "kind": "x-stimulus-window",
       "name": "stimulus-45",
+      "panelId": "panel.a",
       "roles": [
         "x-stimulus-window"
       ],
       "svg": {
-        "x-stimulus-window": "stimulus-45.x-stimulus-window"
+        "x-stimulus-window": "panel.a.stimulus-45.x-stimulus-window"
       }
     },
     {
@@ -5866,27 +9930,28 @@
       "components": [
         {
           "role": "x-stimulus-window",
-          "svgId": "stimulus-90.x-stimulus-window"
+          "svgId": "panel.a.stimulus-90.x-stimulus-window"
         }
       ],
       "data": {
         "x": [
-          280.0,
-          340.0
+          280,
+          340
         ],
         "y": [
           -3.5,
           -3.5
         ]
       },
-      "id": "stimulus-90",
+      "id": "panel.a.stimulus-90",
       "kind": "x-stimulus-window",
       "name": "stimulus-90",
+      "panelId": "panel.a",
       "roles": [
         "x-stimulus-window"
       ],
       "svg": {
-        "x-stimulus-window": "stimulus-90.x-stimulus-window"
+        "x-stimulus-window": "panel.a.stimulus-90.x-stimulus-window"
       }
     },
     {
@@ -5896,27 +9961,28 @@
       "components": [
         {
           "role": "x-stimulus-window",
-          "svgId": "stimulus-135.x-stimulus-window"
+          "svgId": "panel.a.stimulus-135.x-stimulus-window"
         }
       ],
       "data": {
         "x": [
-          405.0,
-          465.0
+          405,
+          465
         ],
         "y": [
           -3.5,
           -3.5
         ]
       },
-      "id": "stimulus-135",
+      "id": "panel.a.stimulus-135",
       "kind": "x-stimulus-window",
       "name": "stimulus-135",
+      "panelId": "panel.a",
       "roles": [
         "x-stimulus-window"
       ],
       "svg": {
-        "x-stimulus-window": "stimulus-135.x-stimulus-window"
+        "x-stimulus-window": "panel.a.stimulus-135.x-stimulus-window"
       }
     },
     {
@@ -5926,27 +9992,28 @@
       "components": [
         {
           "role": "x-stimulus-window",
-          "svgId": "stimulus-180.x-stimulus-window"
+          "svgId": "panel.a.stimulus-180.x-stimulus-window"
         }
       ],
       "data": {
         "x": [
-          530.0,
-          590.0
+          530,
+          590
         ],
         "y": [
           -3.5,
           -3.5
         ]
       },
-      "id": "stimulus-180",
+      "id": "panel.a.stimulus-180",
       "kind": "x-stimulus-window",
       "name": "stimulus-180",
+      "panelId": "panel.a",
       "roles": [
         "x-stimulus-window"
       ],
       "svg": {
-        "x-stimulus-window": "stimulus-180.x-stimulus-window"
+        "x-stimulus-window": "panel.a.stimulus-180.x-stimulus-window"
       }
     },
     {
@@ -5956,27 +10023,28 @@
       "components": [
         {
           "role": "x-stimulus-window",
-          "svgId": "stimulus-225.x-stimulus-window"
+          "svgId": "panel.a.stimulus-225.x-stimulus-window"
         }
       ],
       "data": {
         "x": [
-          655.0,
-          715.0
+          655,
+          715
         ],
         "y": [
           -3.5,
           -3.5
         ]
       },
-      "id": "stimulus-225",
+      "id": "panel.a.stimulus-225",
       "kind": "x-stimulus-window",
       "name": "stimulus-225",
+      "panelId": "panel.a",
       "roles": [
         "x-stimulus-window"
       ],
       "svg": {
-        "x-stimulus-window": "stimulus-225.x-stimulus-window"
+        "x-stimulus-window": "panel.a.stimulus-225.x-stimulus-window"
       }
     },
     {
@@ -5986,27 +10054,28 @@
       "components": [
         {
           "role": "x-stimulus-window",
-          "svgId": "stimulus-270.x-stimulus-window"
+          "svgId": "panel.a.stimulus-270.x-stimulus-window"
         }
       ],
       "data": {
         "x": [
-          780.0,
-          840.0
+          780,
+          840
         ],
         "y": [
           -3.5,
           -3.5
         ]
       },
-      "id": "stimulus-270",
+      "id": "panel.a.stimulus-270",
       "kind": "x-stimulus-window",
       "name": "stimulus-270",
+      "panelId": "panel.a",
       "roles": [
         "x-stimulus-window"
       ],
       "svg": {
-        "x-stimulus-window": "stimulus-270.x-stimulus-window"
+        "x-stimulus-window": "panel.a.stimulus-270.x-stimulus-window"
       }
     },
     {
@@ -6016,34 +10085,35 @@
       "components": [
         {
           "role": "x-stimulus-window",
-          "svgId": "stimulus-315.x-stimulus-window"
+          "svgId": "panel.a.stimulus-315.x-stimulus-window"
         }
       ],
       "data": {
         "x": [
-          905.0,
-          965.0
+          905,
+          965
         ],
         "y": [
           -3.5,
           -3.5
         ]
       },
-      "id": "stimulus-315",
+      "id": "panel.a.stimulus-315",
       "kind": "x-stimulus-window",
       "name": "stimulus-315",
+      "panelId": "panel.a",
       "roles": [
         "x-stimulus-window"
       ],
       "svg": {
-        "x-stimulus-window": "stimulus-315.x-stimulus-window"
+        "x-stimulus-window": "panel.a.stimulus-315.x-stimulus-window"
       }
     }
   ],
   "size": {
     "height": 241.20000000000002,
     "unit": "pt",
-    "width": 432.0
+    "width": 432
   },
   "spec": "fluxplot/manifest",
   "svg": "23-population-atlas.svg"

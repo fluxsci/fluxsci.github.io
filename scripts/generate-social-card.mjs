@@ -23,8 +23,8 @@ try {
       .site{color:#205ea6}
     </style>
     <header><img alt="" src="data:image/svg+xml;base64,${mark.toString('base64')}">Flux</header>
-    <h1>Your scientific work.<br>Beautifully connected.</h1>
-    <p>One studio for the paper, the figures, and everything behind them.</p>
+    <h1>A unified<br>scientific workspace.</h1>
+    <p>Your figures, papers, and ideas. Connected for you and your AI collaborators.</p>
     <img class="bloom" alt="" src="data:image/svg+xml;base64,${mark.toString('base64')}">
     <div class="modules"><span>Paper &nbsp;·&nbsp; Figure &nbsp;·&nbsp; Slides &nbsp;·&nbsp; Library &nbsp;·&nbsp; Reader</span><span class="site">fluxsci.github.io</span></div>
   </html>`);

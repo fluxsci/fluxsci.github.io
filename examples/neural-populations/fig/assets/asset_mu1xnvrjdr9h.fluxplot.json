@@ -1,32 +1,33 @@
 {
   "artifact": {
-    "svgSha256": "f5aac9e172f18f32773993bd430a7a2073329f84f8d969aec7d1c79794ec2004"
+    "svgSha256": "f9dbcd1359d016eb56e81bb7e92235715e23fe855fea23712a7104bcbd7e1a66"
   },
   "axes": [
     {
-      "id": "plot-area",
+      "id": "panel.a.plot-area",
+      "panelId": "panel.a",
       "pixelBox": {
         "x0": 2.6640000000000006,
         "x1": 263.73600000000005,
-        "y0": 19.920624013947968,
-        "y1": 195.95337598605204
+        "y0": 6.245470588235277,
+        "y1": 228.9245294117647
       },
       "projection": "rectilinear",
-      "svgId": "plot-area",
+      "svgId": "panel.a.plot-area",
       "x": {
         "anchors": [
           {
-            "data": -334.596,
+            "data": -330,
             "svg": 2.6640000000000015
           },
           {
-            "data": 1044.5275000000001,
+            "data": 690,
             "svg": 263.73600000000005
           }
         ],
         "domain": [
-          -334.596,
-          1044.5275000000001
+          -330,
+          690
         ],
         "label": "",
         "scale": "linear",
@@ -59,48 +60,105 @@
           {
             "label": "800",
             "value": 800
-          },
-          {
-            "label": "1000",
-            "value": 1000
-          },
-          {
-            "label": "1200",
-            "value": 1200
           }
         ]
       },
       "y": {
         "anchors": [
           {
-            "data": -460,
-            "svg": 195.95337598605204
+            "data": -360,
+            "svg": 228.92452941176472
           },
           {
-            "data": 469.9002,
-            "svg": 19.920624013947968
+            "data": 510,
+            "svg": 6.245470588235277
           }
         ],
         "domain": [
-          -460,
-          469.9002
+          -360,
+          510
         ],
         "label": "",
         "scale": "linear",
         "supported": true,
         "ticks": [
           {
-            "label": "−600",
-            "value": -600
-          },
-          {
             "label": "−400",
             "value": -400
+          },
+          {
+            "label": "−300",
+            "value": -300
           },
           {
             "label": "−200",
             "value": -200
           },
+          {
+            "label": "−100",
+            "value": -100
+          },
+          {
+            "label": "0",
+            "value": 0
+          },
+          {
+            "label": "100",
+            "value": 100
+          },
+          {
+            "label": "200",
+            "value": 200
+          },
+          {
+            "label": "300",
+            "value": 300
+          },
+          {
+            "label": "400",
+            "value": 400
+          },
+          {
+            "label": "500",
+            "value": 500
+          },
+          {
+            "label": "600",
+            "value": 600
+          }
+        ]
+      }
+    },
+    {
+      "id": "panel.radial-arbor-profile.plot-area",
+      "panelId": "panel.radial-arbor-profile",
+      "pixelBox": {
+        "x0": 19.98,
+        "x1": 114.552,
+        "y0": 173.1816,
+        "y1": 216.59760000000003
+      },
+      "projection": "rectilinear",
+      "svgId": "panel.radial-arbor-profile.plot-area",
+      "x": {
+        "anchors": [
+          {
+            "data": 0,
+            "svg": 19.98
+          },
+          {
+            "data": 450,
+            "svg": 114.552
+          }
+        ],
+        "domain": [
+          0,
+          450
+        ],
+        "label": "Distance from soma (µm)",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
           {
             "label": "0",
             "value": 0
@@ -112,10 +170,39 @@
           {
             "label": "400",
             "value": 400
+          }
+        ]
+      },
+      "y": {
+        "anchors": [
+          {
+            "data": 0,
+            "svg": 216.59760000000003
           },
           {
-            "label": "600",
-            "value": 600
+            "data": 40,
+            "svg": 173.1816
+          }
+        ],
+        "domain": [
+          0,
+          40
+        ],
+        "label": "Intersections",
+        "scale": "linear",
+        "supported": true,
+        "ticks": [
+          {
+            "label": "0",
+            "value": 0
+          },
+          {
+            "label": "20",
+            "value": 20
+          },
+          {
+            "label": "40",
+            "value": 40
           }
         ]
       }
@@ -124,24 +211,30 @@
   "build": {
     "order": [
       "gridlines",
-      "cell-480114344.x-neuron-morphology",
-      "cell-480114344-soma.x-soma",
-      "cell-464212183.x-neuron-morphology",
-      "cell-464212183-soma.x-soma",
-      "cell-464198958.x-neuron-morphology",
-      "cell-464198958-soma.x-soma",
-      "annotation.0",
-      "annotation.1",
-      "annotation.2",
-      "annotation.3",
-      "annotation.4",
-      "annotation.5",
-      "annotation.6",
-      "annotation.7",
-      "annotation.8",
-      "annotation.9",
-      "annotation.10",
-      "extra.line.0"
+      "panel.a.cell-480114344.x-neuron-morphology",
+      "panel.a.cell-480114344-soma.x-soma",
+      "panel.a.cell-464212183.x-neuron-morphology",
+      "panel.a.cell-464212183-soma.x-soma",
+      "panel.a.cell-464198958.x-neuron-morphology",
+      "panel.a.cell-464198958-soma.x-soma",
+      "panel.a.annotation.0",
+      "panel.a.annotation.1",
+      "panel.a.annotation.2",
+      "panel.a.annotation.3",
+      "panel.a.annotation.4",
+      "panel.a.annotation.5",
+      "panel.a.annotation.6",
+      "panel.a.annotation.7",
+      "panel.a.extra.line.0",
+      "panel.radial-arbor-profile.axis.x",
+      "panel.radial-arbor-profile.axis.y",
+      "panel.radial-arbor-profile.figure.title",
+      "panel.radial-arbor-profile.cell-480114344-sholl.line",
+      "panel.radial-arbor-profile.cell-464212183-sholl.line",
+      "panel.radial-arbor-profile.cell-464198958-sholl.line",
+      "panel.radial-arbor-profile.cell-480114344-sholl-samples.points",
+      "panel.radial-arbor-profile.cell-464212183-sholl-samples.points",
+      "panel.radial-arbor-profile.cell-464198958-sholl-samples.points"
     ],
     "presets": {
       "axis": {
@@ -155,6 +248,15 @@
       "gridline": {
         "animation": "fade-in",
         "durationMs": 300
+      },
+      "line": {
+        "animation": "draw-on",
+        "durationMs": 800
+      },
+      "point": {
+        "animation": "stagger-in",
+        "durationMs": 240,
+        "staggerMs": 40
       }
     }
   },
@@ -163,90 +265,96 @@
     "name": "fluxplot",
     "version": "0.1.0"
   },
-  "guides": [],
+  "guides": [
+    {
+      "axis": "x",
+      "id": "panel.radial-arbor-profile.axis.x",
+      "role": "axis",
+      "svgId": "panel.radial-arbor-profile.axis.x"
+    },
+    {
+      "axis": "y",
+      "id": "panel.radial-arbor-profile.axis.y",
+      "role": "axis",
+      "svgId": "panel.radial-arbor-profile.axis.y"
+    }
+  ],
   "overlays": [
     {
-      "id": "annotation.0",
+      "id": "panel.a.annotation.0",
       "kind": "text",
       "role": "annotation",
-      "svgId": "annotation.0",
-      "text": "Rorb"
+      "svgId": "panel.a.annotation.0",
+      "text": "Rorb · VISp"
     },
     {
-      "id": "annotation.1",
+      "id": "panel.a.annotation.1",
       "kind": "text",
       "role": "annotation",
-      "svgId": "annotation.1",
-      "text": "L5 pyramidal · VISp"
-    },
-    {
-      "id": "annotation.2",
-      "kind": "text",
-      "role": "annotation",
-      "svgId": "annotation.2",
+      "svgId": "panel.a.annotation.1",
       "text": "480114344"
     },
     {
-      "id": "annotation.3",
+      "id": "panel.a.annotation.2",
       "kind": "text",
       "role": "annotation",
-      "svgId": "annotation.3",
-      "text": "Sst"
+      "svgId": "panel.a.annotation.2",
+      "text": "Sst · VISp"
     },
     {
-      "id": "annotation.4",
+      "id": "panel.a.annotation.3",
       "kind": "text",
       "role": "annotation",
-      "svgId": "annotation.4",
-      "text": "L5 interneuron · VISp"
-    },
-    {
-      "id": "annotation.5",
-      "kind": "text",
-      "role": "annotation",
-      "svgId": "annotation.5",
+      "svgId": "panel.a.annotation.3",
       "text": "464212183"
     },
     {
-      "id": "annotation.6",
+      "id": "panel.a.annotation.4",
       "kind": "text",
       "role": "annotation",
-      "svgId": "annotation.6",
-      "text": "Sst"
+      "svgId": "panel.a.annotation.4",
+      "text": "Sst · VISpor"
     },
     {
-      "id": "annotation.7",
+      "id": "panel.a.annotation.5",
       "kind": "text",
       "role": "annotation",
-      "svgId": "annotation.7",
-      "text": "L5 interneuron · VISpor"
-    },
-    {
-      "id": "annotation.8",
-      "kind": "text",
-      "role": "annotation",
-      "svgId": "annotation.8",
+      "svgId": "panel.a.annotation.5",
       "text": "464198958"
     },
     {
-      "id": "annotation.9",
+      "id": "panel.a.annotation.6",
       "kind": "text",
       "role": "annotation",
-      "svgId": "annotation.9",
-      "text": "200 µm"
+      "svgId": "panel.a.annotation.6",
+      "text": "100 µm"
     },
     {
-      "id": "annotation.10",
+      "id": "panel.a.annotation.7",
       "kind": "text",
       "role": "annotation",
-      "svgId": "annotation.10",
-      "text": "Allen Cell Types · independent specimens"
+      "svgId": "panel.a.annotation.7",
+      "text": "L5 · independent specimens"
     },
     {
-      "id": "extra.line.0",
+      "id": "panel.a.extra.line.0",
       "kind": "line",
       "role": "extra",
-      "svgId": "extra.line.0"
+      "svgId": "panel.a.extra.line.0"
+    }
+  ],
+  "panels": [
+    {
+      "id": "panel.a",
+      "index": 0,
+      "label": "a",
+      "svgId": "panel.a.plot-area"
+    },
+    {
+      "id": "panel.radial-arbor-profile",
+      "index": 1,
+      "label": "radial-arbor-profile",
+      "svgId": "panel.radial-arbor-profile.plot-area"
     }
   ],
   "parts": {
@@ -256,132 +364,334 @@
           {
             "children": [
               {
-                "kind": "line",
-                "ref": "cell-480114344.x-neuron-morphology"
-              }
-            ],
-            "id": "cell-480114344",
-            "kind": "container",
-            "role": "series"
-          },
-          {
-            "children": [
+                "children": [
+                  {
+                    "kind": "line",
+                    "ref": "panel.a.cell-480114344.x-neuron-morphology"
+                  }
+                ],
+                "id": "panel.a.cell-480114344",
+                "kind": "container",
+                "role": "series"
+              },
               {
-                "kind": "shape",
-                "ref": "cell-480114344-soma.x-soma"
-              }
-            ],
-            "id": "cell-480114344-soma",
-            "kind": "container",
-            "role": "series"
-          },
-          {
-            "children": [
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.a.cell-480114344-soma.x-soma"
+                  }
+                ],
+                "id": "panel.a.cell-480114344-soma",
+                "kind": "container",
+                "role": "series"
+              },
               {
-                "kind": "line",
-                "ref": "cell-464212183.x-neuron-morphology"
-              }
-            ],
-            "id": "cell-464212183",
-            "kind": "container",
-            "role": "series"
-          },
-          {
-            "children": [
+                "children": [
+                  {
+                    "kind": "line",
+                    "ref": "panel.a.cell-464212183.x-neuron-morphology"
+                  }
+                ],
+                "id": "panel.a.cell-464212183",
+                "kind": "container",
+                "role": "series"
+              },
               {
-                "kind": "shape",
-                "ref": "cell-464212183-soma.x-soma"
-              }
-            ],
-            "id": "cell-464212183-soma",
-            "kind": "container",
-            "role": "series"
-          },
-          {
-            "children": [
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.a.cell-464212183-soma.x-soma"
+                  }
+                ],
+                "id": "panel.a.cell-464212183-soma",
+                "kind": "container",
+                "role": "series"
+              },
               {
-                "kind": "line",
-                "ref": "cell-464198958.x-neuron-morphology"
-              }
-            ],
-            "id": "cell-464198958",
-            "kind": "container",
-            "role": "series"
-          },
-          {
-            "children": [
+                "children": [
+                  {
+                    "kind": "line",
+                    "ref": "panel.a.cell-464198958.x-neuron-morphology"
+                  }
+                ],
+                "id": "panel.a.cell-464198958",
+                "kind": "container",
+                "role": "series"
+              },
               {
-                "kind": "shape",
-                "ref": "cell-464198958-soma.x-soma"
+                "children": [
+                  {
+                    "kind": "shape",
+                    "ref": "panel.a.cell-464198958-soma.x-soma"
+                  }
+                ],
+                "id": "panel.a.cell-464198958-soma",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "kind": "text",
+                "ref": "panel.a.annotation.0"
+              },
+              {
+                "kind": "text",
+                "ref": "panel.a.annotation.1"
+              },
+              {
+                "kind": "text",
+                "ref": "panel.a.annotation.2"
+              },
+              {
+                "kind": "text",
+                "ref": "panel.a.annotation.3"
+              },
+              {
+                "kind": "text",
+                "ref": "panel.a.annotation.4"
+              },
+              {
+                "kind": "text",
+                "ref": "panel.a.annotation.5"
+              },
+              {
+                "kind": "text",
+                "ref": "panel.a.annotation.6"
+              },
+              {
+                "kind": "text",
+                "ref": "panel.a.annotation.7"
+              },
+              {
+                "groupRole": "extra",
+                "id": "panel.a.extras",
+                "members": [
+                  "panel.a.extra.line.0"
+                ],
+                "role": "group"
               }
             ],
-            "id": "cell-464198958-soma",
+            "id": "panel.a.plot-area",
             "kind": "container",
-            "role": "series"
-          },
-          {
-            "kind": "text",
-            "ref": "annotation.0"
-          },
-          {
-            "kind": "text",
-            "ref": "annotation.1"
-          },
-          {
-            "kind": "text",
-            "ref": "annotation.2"
-          },
-          {
-            "kind": "text",
-            "ref": "annotation.3"
-          },
-          {
-            "kind": "text",
-            "ref": "annotation.4"
-          },
-          {
-            "kind": "text",
-            "ref": "annotation.5"
-          },
-          {
-            "kind": "text",
-            "ref": "annotation.6"
-          },
-          {
-            "kind": "text",
-            "ref": "annotation.7"
-          },
-          {
-            "kind": "text",
-            "ref": "annotation.8"
-          },
-          {
-            "kind": "text",
-            "ref": "annotation.9"
-          },
-          {
-            "kind": "text",
-            "ref": "annotation.10"
-          },
-          {
-            "groupRole": "extra",
-            "id": "extras",
-            "members": [
-              "extra.line.0"
-            ],
-            "role": "group"
+            "role": "plot-area"
           }
         ],
-        "id": "plot-area",
+        "id": "panel.a",
         "kind": "container",
-        "role": "plot-area"
+        "label": "a",
+        "role": "panel"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "axis": "x",
+                "children": [
+                  {
+                    "kind": "line",
+                    "ref": "panel.radial-arbor-profile.axis.x.spine"
+                  },
+                  {
+                    "groupRole": "tick",
+                    "id": "panel.radial-arbor-profile.axis.x.ticks",
+                    "kind": "line",
+                    "members": [
+                      "panel.radial-arbor-profile.axis.x.tick.0",
+                      "panel.radial-arbor-profile.axis.x.tick.1",
+                      "panel.radial-arbor-profile.axis.x.tick.2"
+                    ],
+                    "role": "group"
+                  },
+                  {
+                    "groupRole": "tick-label",
+                    "id": "panel.radial-arbor-profile.axis.x.tick-labels",
+                    "kind": "text",
+                    "members": [
+                      "panel.radial-arbor-profile.axis.x.ticklabel.0",
+                      "panel.radial-arbor-profile.axis.x.ticklabel.1",
+                      "panel.radial-arbor-profile.axis.x.ticklabel.2"
+                    ],
+                    "role": "group"
+                  },
+                  {
+                    "kind": "text",
+                    "ref": "panel.radial-arbor-profile.axis.x.title"
+                  }
+                ],
+                "id": "panel.radial-arbor-profile.axis.x",
+                "kind": "container",
+                "role": "axis"
+              },
+              {
+                "axis": "y",
+                "children": [
+                  {
+                    "kind": "line",
+                    "ref": "panel.radial-arbor-profile.axis.y.spine"
+                  },
+                  {
+                    "groupRole": "tick",
+                    "id": "panel.radial-arbor-profile.axis.y.ticks",
+                    "kind": "line",
+                    "members": [
+                      "panel.radial-arbor-profile.axis.y.tick.0",
+                      "panel.radial-arbor-profile.axis.y.tick.1",
+                      "panel.radial-arbor-profile.axis.y.tick.2"
+                    ],
+                    "role": "group"
+                  },
+                  {
+                    "groupRole": "tick-label",
+                    "id": "panel.radial-arbor-profile.axis.y.tick-labels",
+                    "kind": "text",
+                    "members": [
+                      "panel.radial-arbor-profile.axis.y.ticklabel.0",
+                      "panel.radial-arbor-profile.axis.y.ticklabel.1",
+                      "panel.radial-arbor-profile.axis.y.ticklabel.2"
+                    ],
+                    "role": "group"
+                  },
+                  {
+                    "kind": "text",
+                    "ref": "panel.radial-arbor-profile.axis.y.title"
+                  }
+                ],
+                "id": "panel.radial-arbor-profile.axis.y",
+                "kind": "container",
+                "role": "axis"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "line",
+                    "ref": "panel.radial-arbor-profile.cell-480114344-sholl.line"
+                  }
+                ],
+                "id": "panel.radial-arbor-profile.cell-480114344-sholl",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "groupRole": "point",
+                    "id": "panel.radial-arbor-profile.cell-480114344-sholl-samples.points",
+                    "kind": "shape",
+                    "members": [
+                      "panel.radial-arbor-profile.cell-480114344-sholl-samples.point.0",
+                      "panel.radial-arbor-profile.cell-480114344-sholl-samples.point.1",
+                      "panel.radial-arbor-profile.cell-480114344-sholl-samples.point.2",
+                      "panel.radial-arbor-profile.cell-480114344-sholl-samples.point.3",
+                      "panel.radial-arbor-profile.cell-480114344-sholl-samples.point.4",
+                      "panel.radial-arbor-profile.cell-480114344-sholl-samples.point.5",
+                      "panel.radial-arbor-profile.cell-480114344-sholl-samples.point.6",
+                      "panel.radial-arbor-profile.cell-480114344-sholl-samples.point.7",
+                      "panel.radial-arbor-profile.cell-480114344-sholl-samples.point.8",
+                      "panel.radial-arbor-profile.cell-480114344-sholl-samples.point.9",
+                      "panel.radial-arbor-profile.cell-480114344-sholl-samples.point.10"
+                    ],
+                    "role": "group"
+                  }
+                ],
+                "id": "panel.radial-arbor-profile.cell-480114344-sholl-samples",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "line",
+                    "ref": "panel.radial-arbor-profile.cell-464212183-sholl.line"
+                  }
+                ],
+                "id": "panel.radial-arbor-profile.cell-464212183-sholl",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "groupRole": "point",
+                    "id": "panel.radial-arbor-profile.cell-464212183-sholl-samples.points",
+                    "kind": "shape",
+                    "members": [
+                      "panel.radial-arbor-profile.cell-464212183-sholl-samples.point.0",
+                      "panel.radial-arbor-profile.cell-464212183-sholl-samples.point.1",
+                      "panel.radial-arbor-profile.cell-464212183-sholl-samples.point.2",
+                      "panel.radial-arbor-profile.cell-464212183-sholl-samples.point.3",
+                      "panel.radial-arbor-profile.cell-464212183-sholl-samples.point.4",
+                      "panel.radial-arbor-profile.cell-464212183-sholl-samples.point.5",
+                      "panel.radial-arbor-profile.cell-464212183-sholl-samples.point.6",
+                      "panel.radial-arbor-profile.cell-464212183-sholl-samples.point.7",
+                      "panel.radial-arbor-profile.cell-464212183-sholl-samples.point.8",
+                      "panel.radial-arbor-profile.cell-464212183-sholl-samples.point.9",
+                      "panel.radial-arbor-profile.cell-464212183-sholl-samples.point.10"
+                    ],
+                    "role": "group"
+                  }
+                ],
+                "id": "panel.radial-arbor-profile.cell-464212183-sholl-samples",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "kind": "line",
+                    "ref": "panel.radial-arbor-profile.cell-464198958-sholl.line"
+                  }
+                ],
+                "id": "panel.radial-arbor-profile.cell-464198958-sholl",
+                "kind": "container",
+                "role": "series"
+              },
+              {
+                "children": [
+                  {
+                    "groupRole": "point",
+                    "id": "panel.radial-arbor-profile.cell-464198958-sholl-samples.points",
+                    "kind": "shape",
+                    "members": [
+                      "panel.radial-arbor-profile.cell-464198958-sholl-samples.point.0",
+                      "panel.radial-arbor-profile.cell-464198958-sholl-samples.point.1",
+                      "panel.radial-arbor-profile.cell-464198958-sholl-samples.point.2",
+                      "panel.radial-arbor-profile.cell-464198958-sholl-samples.point.3",
+                      "panel.radial-arbor-profile.cell-464198958-sholl-samples.point.4",
+                      "panel.radial-arbor-profile.cell-464198958-sholl-samples.point.5",
+                      "panel.radial-arbor-profile.cell-464198958-sholl-samples.point.6",
+                      "panel.radial-arbor-profile.cell-464198958-sholl-samples.point.7",
+                      "panel.radial-arbor-profile.cell-464198958-sholl-samples.point.8",
+                      "panel.radial-arbor-profile.cell-464198958-sholl-samples.point.9",
+                      "panel.radial-arbor-profile.cell-464198958-sholl-samples.point.10"
+                    ],
+                    "role": "group"
+                  }
+                ],
+                "id": "panel.radial-arbor-profile.cell-464198958-sholl-samples",
+                "kind": "container",
+                "role": "series"
+              }
+            ],
+            "id": "panel.radial-arbor-profile.plot-area",
+            "kind": "container",
+            "role": "plot-area"
+          },
+          {
+            "kind": "text",
+            "ref": "panel.radial-arbor-profile.figure.title"
+          }
+        ],
+        "id": "panel.radial-arbor-profile",
+        "kind": "container",
+        "label": "radial-arbor-profile",
+        "role": "panel"
       }
     ],
     "id": "figure",
     "kind": "container",
     "role": "figure"
   },
-  "plotType": "plot",
+  "plotType": "line",
   "schemaVersion": "0.3.0",
   "series": [
     {
@@ -391,19 +701,20 @@
       "components": [
         {
           "role": "x-neuron-morphology",
-          "svgId": "cell-480114344.x-neuron-morphology"
+          "svgId": "panel.a.cell-480114344.x-neuron-morphology"
         }
       ],
       "data": {},
-      "id": "cell-480114344",
+      "id": "panel.a.cell-480114344",
       "kind": "x-neuron-morphology",
       "name": "cell-480114344",
+      "panelId": "panel.a",
       "rasterized": true,
       "roles": [
         "x-neuron-morphology"
       ],
       "svg": {
-        "x-neuron-morphology": "cell-480114344.x-neuron-morphology"
+        "x-neuron-morphology": "panel.a.cell-480114344.x-neuron-morphology"
       }
     },
     {
@@ -413,18 +724,19 @@
       "components": [
         {
           "role": "x-soma",
-          "svgId": "cell-480114344-soma.x-soma"
+          "svgId": "panel.a.cell-480114344-soma.x-soma"
         }
       ],
       "data": {},
-      "id": "cell-480114344-soma",
+      "id": "panel.a.cell-480114344-soma",
       "kind": "x-soma",
       "name": "cell-480114344-soma",
+      "panelId": "panel.a",
       "roles": [
         "x-soma"
       ],
       "svg": {
-        "x-soma": "cell-480114344-soma.x-soma"
+        "x-soma": "panel.a.cell-480114344-soma.x-soma"
       }
     },
     {
@@ -434,19 +746,20 @@
       "components": [
         {
           "role": "x-neuron-morphology",
-          "svgId": "cell-464212183.x-neuron-morphology"
+          "svgId": "panel.a.cell-464212183.x-neuron-morphology"
         }
       ],
       "data": {},
-      "id": "cell-464212183",
+      "id": "panel.a.cell-464212183",
       "kind": "x-neuron-morphology",
       "name": "cell-464212183",
+      "panelId": "panel.a",
       "rasterized": true,
       "roles": [
         "x-neuron-morphology"
       ],
       "svg": {
-        "x-neuron-morphology": "cell-464212183.x-neuron-morphology"
+        "x-neuron-morphology": "panel.a.cell-464212183.x-neuron-morphology"
       }
     },
     {
@@ -456,18 +769,19 @@
       "components": [
         {
           "role": "x-soma",
-          "svgId": "cell-464212183-soma.x-soma"
+          "svgId": "panel.a.cell-464212183-soma.x-soma"
         }
       ],
       "data": {},
-      "id": "cell-464212183-soma",
+      "id": "panel.a.cell-464212183-soma",
       "kind": "x-soma",
       "name": "cell-464212183-soma",
+      "panelId": "panel.a",
       "roles": [
         "x-soma"
       ],
       "svg": {
-        "x-soma": "cell-464212183-soma.x-soma"
+        "x-soma": "panel.a.cell-464212183-soma.x-soma"
       }
     },
     {
@@ -477,19 +791,20 @@
       "components": [
         {
           "role": "x-neuron-morphology",
-          "svgId": "cell-464198958.x-neuron-morphology"
+          "svgId": "panel.a.cell-464198958.x-neuron-morphology"
         }
       ],
       "data": {},
-      "id": "cell-464198958",
+      "id": "panel.a.cell-464198958",
       "kind": "x-neuron-morphology",
       "name": "cell-464198958",
+      "panelId": "panel.a",
       "rasterized": true,
       "roles": [
         "x-neuron-morphology"
       ],
       "svg": {
-        "x-neuron-morphology": "cell-464198958.x-neuron-morphology"
+        "x-neuron-morphology": "panel.a.cell-464198958.x-neuron-morphology"
       }
     },
     {
@@ -499,18 +814,754 @@
       "components": [
         {
           "role": "x-soma",
-          "svgId": "cell-464198958-soma.x-soma"
+          "svgId": "panel.a.cell-464198958-soma.x-soma"
         }
       ],
       "data": {},
-      "id": "cell-464198958-soma",
+      "id": "panel.a.cell-464198958-soma",
       "kind": "x-soma",
       "name": "cell-464198958-soma",
+      "panelId": "panel.a",
       "roles": [
         "x-soma"
       ],
       "svg": {
-        "x-soma": "cell-464198958-soma.x-soma"
+        "x-soma": "panel.a.cell-464198958-soma.x-soma"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "role": "line",
+          "svgId": "panel.radial-arbor-profile.cell-480114344-sholl.line"
+        }
+      ],
+      "data": {
+        "x": [
+          15,
+          25,
+          35,
+          45,
+          55,
+          65,
+          75,
+          85,
+          95,
+          105,
+          115,
+          125,
+          135,
+          145,
+          155,
+          165,
+          175,
+          185,
+          195,
+          205,
+          215,
+          225,
+          235,
+          245,
+          255,
+          265,
+          275,
+          285,
+          295,
+          305,
+          315,
+          325,
+          335,
+          345,
+          355,
+          365,
+          375,
+          385,
+          395,
+          405,
+          415,
+          425,
+          435,
+          445
+        ],
+        "y": [
+          16,
+          27,
+          31,
+          34,
+          31,
+          26,
+          25,
+          23,
+          17,
+          15,
+          15,
+          8,
+          5,
+          4,
+          4,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          4,
+          6,
+          9,
+          10,
+          9,
+          8
+        ]
+      },
+      "id": "panel.radial-arbor-profile.cell-480114344-sholl",
+      "kind": "line",
+      "name": "cell-480114344-sholl",
+      "panelId": "panel.radial-arbor-profile",
+      "roles": [
+        "line"
+      ],
+      "svg": {
+        "line": "panel.radial-arbor-profile.cell-480114344-sholl.line"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "members": [
+            "panel.radial-arbor-profile.cell-480114344-sholl-samples.point.0",
+            "panel.radial-arbor-profile.cell-480114344-sholl-samples.point.1",
+            "panel.radial-arbor-profile.cell-480114344-sholl-samples.point.2",
+            "panel.radial-arbor-profile.cell-480114344-sholl-samples.point.3",
+            "panel.radial-arbor-profile.cell-480114344-sholl-samples.point.4",
+            "panel.radial-arbor-profile.cell-480114344-sholl-samples.point.5",
+            "panel.radial-arbor-profile.cell-480114344-sholl-samples.point.6",
+            "panel.radial-arbor-profile.cell-480114344-sholl-samples.point.7",
+            "panel.radial-arbor-profile.cell-480114344-sholl-samples.point.8",
+            "panel.radial-arbor-profile.cell-480114344-sholl-samples.point.9",
+            "panel.radial-arbor-profile.cell-480114344-sholl-samples.point.10"
+          ],
+          "role": "point",
+          "svgId": "panel.radial-arbor-profile.cell-480114344-sholl-samples.points"
+        }
+      ],
+      "data": {
+        "x": [
+          15,
+          55,
+          95,
+          135,
+          175,
+          215,
+          255,
+          295,
+          335,
+          375,
+          415
+        ],
+        "y": [
+          16,
+          31,
+          17,
+          5,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          9
+        ]
+      },
+      "id": "panel.radial-arbor-profile.cell-480114344-sholl-samples",
+      "kind": "scatter",
+      "name": "cell-480114344-sholl-samples",
+      "panelId": "panel.radial-arbor-profile",
+      "points": [
+        {
+          "index": 0,
+          "svgId": "panel.radial-arbor-profile.cell-480114344-sholl-samples.point.0",
+          "x": 15,
+          "y": 16
+        },
+        {
+          "index": 1,
+          "svgId": "panel.radial-arbor-profile.cell-480114344-sholl-samples.point.1",
+          "x": 55,
+          "y": 31
+        },
+        {
+          "index": 2,
+          "svgId": "panel.radial-arbor-profile.cell-480114344-sholl-samples.point.2",
+          "x": 95,
+          "y": 17
+        },
+        {
+          "index": 3,
+          "svgId": "panel.radial-arbor-profile.cell-480114344-sholl-samples.point.3",
+          "x": 135,
+          "y": 5
+        },
+        {
+          "index": 4,
+          "svgId": "panel.radial-arbor-profile.cell-480114344-sholl-samples.point.4",
+          "x": 175,
+          "y": 1
+        },
+        {
+          "index": 5,
+          "svgId": "panel.radial-arbor-profile.cell-480114344-sholl-samples.point.5",
+          "x": 215,
+          "y": 1
+        },
+        {
+          "index": 6,
+          "svgId": "panel.radial-arbor-profile.cell-480114344-sholl-samples.point.6",
+          "x": 255,
+          "y": 1
+        },
+        {
+          "index": 7,
+          "svgId": "panel.radial-arbor-profile.cell-480114344-sholl-samples.point.7",
+          "x": 295,
+          "y": 1
+        },
+        {
+          "index": 8,
+          "svgId": "panel.radial-arbor-profile.cell-480114344-sholl-samples.point.8",
+          "x": 335,
+          "y": 1
+        },
+        {
+          "index": 9,
+          "svgId": "panel.radial-arbor-profile.cell-480114344-sholl-samples.point.9",
+          "x": 375,
+          "y": 2
+        },
+        {
+          "index": 10,
+          "svgId": "panel.radial-arbor-profile.cell-480114344-sholl-samples.point.10",
+          "x": 415,
+          "y": 9
+        }
+      ],
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "panel.radial-arbor-profile.cell-480114344-sholl-samples.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "role": "line",
+          "svgId": "panel.radial-arbor-profile.cell-464212183-sholl.line"
+        }
+      ],
+      "data": {
+        "x": [
+          15,
+          25,
+          35,
+          45,
+          55,
+          65,
+          75,
+          85,
+          95,
+          105,
+          115,
+          125,
+          135,
+          145,
+          155,
+          165,
+          175,
+          185,
+          195,
+          205,
+          215,
+          225,
+          235,
+          245,
+          255,
+          265,
+          275,
+          285,
+          295,
+          305,
+          315,
+          325,
+          335,
+          345,
+          355,
+          365,
+          375,
+          385,
+          395,
+          405,
+          415,
+          425,
+          435,
+          445
+        ],
+        "y": [
+          5,
+          6,
+          8,
+          9,
+          8,
+          8,
+          9,
+          11,
+          11,
+          12,
+          11,
+          11,
+          10,
+          10,
+          9,
+          12,
+          11,
+          9,
+          8,
+          6,
+          6,
+          6,
+          6,
+          5,
+          5,
+          3,
+          2,
+          2,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "id": "panel.radial-arbor-profile.cell-464212183-sholl",
+      "kind": "line",
+      "name": "cell-464212183-sholl",
+      "panelId": "panel.radial-arbor-profile",
+      "roles": [
+        "line"
+      ],
+      "svg": {
+        "line": "panel.radial-arbor-profile.cell-464212183-sholl.line"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "members": [
+            "panel.radial-arbor-profile.cell-464212183-sholl-samples.point.0",
+            "panel.radial-arbor-profile.cell-464212183-sholl-samples.point.1",
+            "panel.radial-arbor-profile.cell-464212183-sholl-samples.point.2",
+            "panel.radial-arbor-profile.cell-464212183-sholl-samples.point.3",
+            "panel.radial-arbor-profile.cell-464212183-sholl-samples.point.4",
+            "panel.radial-arbor-profile.cell-464212183-sholl-samples.point.5",
+            "panel.radial-arbor-profile.cell-464212183-sholl-samples.point.6",
+            "panel.radial-arbor-profile.cell-464212183-sholl-samples.point.7",
+            "panel.radial-arbor-profile.cell-464212183-sholl-samples.point.8",
+            "panel.radial-arbor-profile.cell-464212183-sholl-samples.point.9",
+            "panel.radial-arbor-profile.cell-464212183-sholl-samples.point.10"
+          ],
+          "role": "point",
+          "svgId": "panel.radial-arbor-profile.cell-464212183-sholl-samples.points"
+        }
+      ],
+      "data": {
+        "x": [
+          15,
+          55,
+          95,
+          135,
+          175,
+          215,
+          255,
+          295,
+          335,
+          375,
+          415
+        ],
+        "y": [
+          5,
+          8,
+          11,
+          10,
+          11,
+          6,
+          5,
+          2,
+          0,
+          0,
+          0
+        ]
+      },
+      "id": "panel.radial-arbor-profile.cell-464212183-sholl-samples",
+      "kind": "scatter",
+      "name": "cell-464212183-sholl-samples",
+      "panelId": "panel.radial-arbor-profile",
+      "points": [
+        {
+          "index": 0,
+          "svgId": "panel.radial-arbor-profile.cell-464212183-sholl-samples.point.0",
+          "x": 15,
+          "y": 5
+        },
+        {
+          "index": 1,
+          "svgId": "panel.radial-arbor-profile.cell-464212183-sholl-samples.point.1",
+          "x": 55,
+          "y": 8
+        },
+        {
+          "index": 2,
+          "svgId": "panel.radial-arbor-profile.cell-464212183-sholl-samples.point.2",
+          "x": 95,
+          "y": 11
+        },
+        {
+          "index": 3,
+          "svgId": "panel.radial-arbor-profile.cell-464212183-sholl-samples.point.3",
+          "x": 135,
+          "y": 10
+        },
+        {
+          "index": 4,
+          "svgId": "panel.radial-arbor-profile.cell-464212183-sholl-samples.point.4",
+          "x": 175,
+          "y": 11
+        },
+        {
+          "index": 5,
+          "svgId": "panel.radial-arbor-profile.cell-464212183-sholl-samples.point.5",
+          "x": 215,
+          "y": 6
+        },
+        {
+          "index": 6,
+          "svgId": "panel.radial-arbor-profile.cell-464212183-sholl-samples.point.6",
+          "x": 255,
+          "y": 5
+        },
+        {
+          "index": 7,
+          "svgId": "panel.radial-arbor-profile.cell-464212183-sholl-samples.point.7",
+          "x": 295,
+          "y": 2
+        },
+        {
+          "index": 8,
+          "svgId": "panel.radial-arbor-profile.cell-464212183-sholl-samples.point.8",
+          "x": 335,
+          "y": 0
+        },
+        {
+          "index": 9,
+          "svgId": "panel.radial-arbor-profile.cell-464212183-sholl-samples.point.9",
+          "x": 375,
+          "y": 0
+        },
+        {
+          "index": 10,
+          "svgId": "panel.radial-arbor-profile.cell-464212183-sholl-samples.point.10",
+          "x": 415,
+          "y": 0
+        }
+      ],
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "panel.radial-arbor-profile.cell-464212183-sholl-samples.points"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "role": "line",
+          "svgId": "panel.radial-arbor-profile.cell-464198958-sholl.line"
+        }
+      ],
+      "data": {
+        "x": [
+          15,
+          25,
+          35,
+          45,
+          55,
+          65,
+          75,
+          85,
+          95,
+          105,
+          115,
+          125,
+          135,
+          145,
+          155,
+          165,
+          175,
+          185,
+          195,
+          205,
+          215,
+          225,
+          235,
+          245,
+          255,
+          265,
+          275,
+          285,
+          295,
+          305,
+          315,
+          325,
+          335,
+          345,
+          355,
+          365,
+          375,
+          385,
+          395,
+          405,
+          415,
+          425,
+          435,
+          445
+        ],
+        "y": [
+          6,
+          8,
+          9,
+          9,
+          9,
+          10,
+          10,
+          8,
+          7,
+          7,
+          9,
+          8,
+          4,
+          4,
+          4,
+          4,
+          4,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "id": "panel.radial-arbor-profile.cell-464198958-sholl",
+      "kind": "line",
+      "name": "cell-464198958-sholl",
+      "panelId": "panel.radial-arbor-profile",
+      "roles": [
+        "line"
+      ],
+      "svg": {
+        "line": "panel.radial-arbor-profile.cell-464198958-sholl.line"
+      }
+    },
+    {
+      "capabilities": {
+        "dataMorph": true
+      },
+      "components": [
+        {
+          "members": [
+            "panel.radial-arbor-profile.cell-464198958-sholl-samples.point.0",
+            "panel.radial-arbor-profile.cell-464198958-sholl-samples.point.1",
+            "panel.radial-arbor-profile.cell-464198958-sholl-samples.point.2",
+            "panel.radial-arbor-profile.cell-464198958-sholl-samples.point.3",
+            "panel.radial-arbor-profile.cell-464198958-sholl-samples.point.4",
+            "panel.radial-arbor-profile.cell-464198958-sholl-samples.point.5",
+            "panel.radial-arbor-profile.cell-464198958-sholl-samples.point.6",
+            "panel.radial-arbor-profile.cell-464198958-sholl-samples.point.7",
+            "panel.radial-arbor-profile.cell-464198958-sholl-samples.point.8",
+            "panel.radial-arbor-profile.cell-464198958-sholl-samples.point.9",
+            "panel.radial-arbor-profile.cell-464198958-sholl-samples.point.10"
+          ],
+          "role": "point",
+          "svgId": "panel.radial-arbor-profile.cell-464198958-sholl-samples.points"
+        }
+      ],
+      "data": {
+        "x": [
+          15,
+          55,
+          95,
+          135,
+          175,
+          215,
+          255,
+          295,
+          335,
+          375,
+          415
+        ],
+        "y": [
+          6,
+          9,
+          7,
+          4,
+          4,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "id": "panel.radial-arbor-profile.cell-464198958-sholl-samples",
+      "kind": "scatter",
+      "name": "cell-464198958-sholl-samples",
+      "panelId": "panel.radial-arbor-profile",
+      "points": [
+        {
+          "index": 0,
+          "svgId": "panel.radial-arbor-profile.cell-464198958-sholl-samples.point.0",
+          "x": 15,
+          "y": 6
+        },
+        {
+          "index": 1,
+          "svgId": "panel.radial-arbor-profile.cell-464198958-sholl-samples.point.1",
+          "x": 55,
+          "y": 9
+        },
+        {
+          "index": 2,
+          "svgId": "panel.radial-arbor-profile.cell-464198958-sholl-samples.point.2",
+          "x": 95,
+          "y": 7
+        },
+        {
+          "index": 3,
+          "svgId": "panel.radial-arbor-profile.cell-464198958-sholl-samples.point.3",
+          "x": 135,
+          "y": 4
+        },
+        {
+          "index": 4,
+          "svgId": "panel.radial-arbor-profile.cell-464198958-sholl-samples.point.4",
+          "x": 175,
+          "y": 4
+        },
+        {
+          "index": 5,
+          "svgId": "panel.radial-arbor-profile.cell-464198958-sholl-samples.point.5",
+          "x": 215,
+          "y": 0
+        },
+        {
+          "index": 6,
+          "svgId": "panel.radial-arbor-profile.cell-464198958-sholl-samples.point.6",
+          "x": 255,
+          "y": 0
+        },
+        {
+          "index": 7,
+          "svgId": "panel.radial-arbor-profile.cell-464198958-sholl-samples.point.7",
+          "x": 295,
+          "y": 0
+        },
+        {
+          "index": 8,
+          "svgId": "panel.radial-arbor-profile.cell-464198958-sholl-samples.point.8",
+          "x": 335,
+          "y": 0
+        },
+        {
+          "index": 9,
+          "svgId": "panel.radial-arbor-profile.cell-464198958-sholl-samples.point.9",
+          "x": 375,
+          "y": 0
+        },
+        {
+          "index": 10,
+          "svgId": "panel.radial-arbor-profile.cell-464198958-sholl-samples.point.10",
+          "x": 415,
+          "y": 0
+        }
+      ],
+      "roles": [
+        "point"
+      ],
+      "svg": {
+        "points": "panel.radial-arbor-profile.cell-464198958-sholl-samples.points"
       }
     }
   ],
