@@ -32,7 +32,6 @@
   --wide: 1344px;
   --header: 84px;
   --shadow: 0 8px 24px #100f0f06, 0 28px 72px #100f0f09;
-  --emblem-glow: .7;
 }
 html[data-theme="dark"] {
   color-scheme: dark;
@@ -46,7 +45,6 @@ html[data-theme="dark"] {
   --button: #66a0c8;
   --button-ink: #100f0f;
   --shadow: 0 12px 42px #0005;
-  --emblem-glow: 1;
 }
 @media (prefers-color-scheme: dark) {
   html:not([data-theme="light"]):not([data-theme="dark"]) {
@@ -61,7 +59,6 @@ html[data-theme="dark"] {
     --button: #66a0c8;
     --button-ink: #100f0f;
     --shadow: 0 12px 42px #0005;
-    --emblem-glow: 1;
   }
 }
 *,
@@ -2664,114 +2661,14 @@ html[data-theme="dark"] .data-credit { color: #b7b5ac; -webkit-text-fill-color: 
 /* ------------------------------------------------------------------ */
 .hero-mark {
   display: block;
-  width: 112px;
-  height: 112px;
-  margin: 0 auto;
-  position: relative;
+  width: clamp(76px, 8.4vw, 118px);
+  height: auto;
+  margin: 0 auto 30px;
   overflow: visible;
 }
 .hero-mark circle {
   transform-box: fill-box;
   transform-origin: center;
-}
-.hero-emblem {
-  position: relative;
-  width: min(600px, 100%);
-  height: 120px;
-  margin: 0 auto 18px;
-}
-.emblem-field {
-  position: relative;
-  height: 100%;
-  transform-origin: 50% 47%;
-}
-.emblem-core {
-  position: relative;
-  width: fit-content;
-  margin-inline: auto;
-}
-.emblem-aura {
-  position: absolute;
-  inset: -25%;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse at 65% 35%, #ce5d9730, transparent 57%),
-    radial-gradient(ellipse at 30% 62%, #3aa99f28, transparent 55%),
-    radial-gradient(ellipse at 50% 50%, #8b7ec824, transparent 67%);
-  filter: blur(9px);
-  opacity: calc(var(--emblem-glow) * .55);
-}
-.emblem-motion {
-  position: absolute;
-  top: 80px;
-  left: calc(50% + 64px);
-  display: grid;
-  place-items: center;
-  width: 28px;
-  height: 28px;
-  padding: 6px;
-  border: 0;
-  border-radius: 50%;
-  background: transparent;
-  color: var(--muted);
-  opacity: 0;
-  transition: opacity .2s, background .2s;
-}
-.emblem-motion[hidden] { display: none; }
-.hero-emblem:hover .emblem-motion,
-.emblem-motion:focus-visible { opacity: 1; }
-.emblem-motion:hover { background: var(--inset); }
-.emblem-motion svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.5; }
-.motion-play, .emblem-motion.is-paused .motion-pause { display: none; }
-.emblem-motion.is-paused .motion-play { display: block; }
-@media (hover: none) {
-  .emblem-motion { opacity: 1; }
-}
-@media (prefers-reduced-motion: no-preference) {
-  html.js .emblem-field {
-    animation: emblem-float 14s cubic-bezier(.45, 0, .55, 1) infinite;
-    animation-play-state: var(--emblem-motion-state, paused);
-  }
-  html.js .emblem-aura {
-    animation: aura-breathe 8.5s ease-in-out infinite;
-    animation-play-state: var(--emblem-motion-state, paused);
-  }
-  html.intro .emblem-field { animation-delay: 1450ms; }
-}
-@keyframes emblem-float {
-  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
-  25% { transform: translate3d(2px, -6px, 0) rotate(.65deg); }
-  50% { transform: translate3d(-1px, -2px, 0) rotate(-.2deg); }
-  75% { transform: translate3d(-2px, 3px, 0) rotate(-.6deg); }
-}
-@keyframes aura-breathe {
-  0%, 100% { opacity: calc(var(--emblem-glow) * .45); transform: scale(.93); }
-  50% { opacity: calc(var(--emblem-glow) * .85); transform: scale(1.09); }
-}
-.hero-connections {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-.emblem-thread { color: var(--thread-color); }
-.emblem-thread path {
-  stroke: currentColor;
-  stroke-width: .75;
-  opacity: .32;
-}
-.emblem-thread circle { fill: currentColor; opacity: .7; }
-html.intro .emblem-thread path {
-  animation: thread-connect 1100ms cubic-bezier(.25, .1, .25, 1) both;
-  animation-delay: var(--thread-delay);
-}
-html.intro .emblem-thread circle {
-  animation: intro-fade 600ms ease-out both;
-  animation-delay: calc(var(--thread-delay) + 600ms);
-}
-@keyframes thread-connect {
-  from { stroke-dasharray: 1; stroke-dashoffset: 1; opacity: 0; }
-  to { stroke-dasharray: 1; stroke-dashoffset: 0; opacity: .32; }
 }
 .workspace-choices:not([hidden]) {
   display: grid;
@@ -2842,9 +2739,6 @@ html.intro .emblem-thread circle {
 }
 @media (max-width: 560px) {
   .hero { padding-top: 22px; }
-  .hero-emblem { height: 88px; margin-bottom: 20px; }
-  .emblem-motion { top: 57px; left: calc(50% + 48px); }
-  .hero-connections { opacity: .65; }
   .hero h1 { font-size: clamp(36px, 9.4vw, 52px); }
   .hero-description { font-size: 16px; line-height: 1.55; margin-top: 20px; }
   .hero-actions { margin-top: 22px; }
@@ -2855,15 +2749,14 @@ html.intro .emblem-thread circle {
   .hero-figure figcaption { font-size: 10px; gap: 18px; }
 }
 @media print {
-  .hero-connections, .workspace-choices, .emblem-motion, .emblem-aura { display: none !important; }
-  .emblem-field { animation: none !important; }
+  .workspace-choices { display: none !important; }
 }
 html.intro .hero-mark {
-  animation: mark-settle 1450ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: mark-settle 950ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 html.intro .hero-mark circle {
-  animation: mark-bloom 720ms cubic-bezier(0.16, 1, 0.3, 1) both;
-  animation-delay: calc(40ms + var(--i) * 6ms);
+  animation: mark-bloom 420ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: calc(var(--i) * 8ms);
 }
 html.intro .intro-rise {
   animation: intro-rise 680ms cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -2874,11 +2767,11 @@ html.intro .site-header {
   animation-delay: 120ms;
 }
 @keyframes mark-settle {
-  from { transform: rotate(-16deg) scale(0.91); }
+  from { transform: rotate(-26deg) scale(0.82); }
   to { transform: none; }
 }
 @keyframes mark-bloom {
-  from { opacity: 0; transform: translateY(5px) scale(0.24); }
+  from { opacity: 0; transform: scale(0); }
   to { opacity: 1; transform: none; }
 }
 @keyframes intro-rise {
@@ -3167,8 +3060,7 @@ html.intro .site-header {
 }
 @media (max-width: 560px) {
   .hero-mark {
-    width: 86px;
-    height: 86px;
+    margin-bottom: 22px;
   }
   .xray-stage {
     border-radius: 6px;

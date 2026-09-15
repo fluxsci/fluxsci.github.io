@@ -5,41 +5,6 @@
   root.classList.add("js");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-  // The ornament drifts as one object. Freeze its phase while it is out of
-  // view, in a background tab, or paused by the visitor.
-  const emblem = document.querySelector(".hero-emblem");
-  if (emblem) {
-    const control = emblem.querySelector(".emblem-motion");
-    let visible = false;
-    let paused = false;
-    try { paused = sessionStorage.getItem("flux-emblem-paused") === "1"; } catch { /* Optional persistence. */ }
-    const updateMotion = () => {
-      const running = visible && !document.hidden && !paused && !reducedMotion.matches;
-      emblem.style.setProperty("--emblem-motion-state", running ? "running" : "paused");
-      control.hidden = reducedMotion.matches;
-      control.classList.toggle("is-paused", paused);
-      const label = paused ? "Resume logo motion" : "Pause logo motion";
-      control.setAttribute("aria-label", label);
-      control.title = label;
-    };
-    control.addEventListener("click", () => {
-      paused = !paused;
-      try { sessionStorage.setItem("flux-emblem-paused", paused ? "1" : "0"); } catch { /* Optional persistence. */ }
-      updateMotion();
-    });
-    if ("IntersectionObserver" in window) {
-      new IntersectionObserver(([entry]) => {
-        visible = entry.isIntersecting;
-        updateMotion();
-      }).observe(emblem);
-    } else {
-      visible = true;
-    }
-    document.addEventListener("visibilitychange", updateMotion);
-    reducedMotion.addEventListener("change", updateMotion);
-    updateMotion();
-  }
-
   // A visitor chooses the pace. Each view is a photograph of the actual app,
   // loaded before it replaces the current view; rapid choices cannot race.
   const preview = document.querySelector("[data-workspace-preview]");

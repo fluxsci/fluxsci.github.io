@@ -2,9 +2,8 @@
 
 A custom Quarto website for [Flux](https://github.com/fluxsci/flux), maintained separately
 from the application. The first version is the public homepage: a staged entrance built on
-the phyllotaxis mark and five connecting strands, a slow ambient float and breathing halo,
-a manual preview of all five real application
-workspaces, a semantic-plot explorer integrated into Figure, an eleven-panel flagship
+the phyllotaxis mark, a manual preview of all five real application workspaces,
+a semantic-plot explorer integrated into Figure, an eleven-panel flagship
 neuroscience figure composed from the bundled project's thirty-three plots, and four
 native interactive slides. The public guide
 stays in the application repository until its planned migration; there are no unfinished

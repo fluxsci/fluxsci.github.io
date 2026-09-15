@@ -3,10 +3,8 @@ import AxeBuilder from '@axe-core/playwright';
 
 // The entrance animation fades the hero in over ~1.6 s; an accessibility scan that
 // samples mid-fade reads blended colors and reports false contrast failures on slow
-// runners. Wait for finite entrances; the decorative ambient float never ends.
-const settle = page => page.evaluate(() => Promise.all(document.getAnimations()
-  .filter(animation => animation.effect.getComputedTiming().iterations !== Infinity)
-  .map(animation => animation.finished.catch(() => {}))));
+// runners. Scans wait for every running animation to finish first.
+const settle = page => page.evaluate(() => Promise.all(document.getAnimations().map(animation => animation.finished.catch(() => {}))));
 
 test('homepage has complete content, working imagery, and responsive geometry', async ({ page }) => {
   const errors = [];
@@ -196,42 +194,6 @@ test('the entrance plays once per session and the mark blooms from 88 dots', asy
   await expect(page.getByRole('heading', { level:1 })).toBeVisible();
   await page.reload();
   await expect(page.locator('html')).not.toHaveClass(/\bintro\b/);
-});
-
-test('the living emblem floats, can be paused, and rests offscreen or with reduced motion', async ({ page }) => {
-  await page.goto('/');
-  await settle(page);
-  const field = page.locator('.emblem-field');
-  const position = () => field.evaluate(element => {
-    const box = element.getBoundingClientRect();
-    return { x:box.x, y:box.y };
-  });
-  const start = await position();
-  await expect.poll(async () => Math.abs((await position()).y - start.y)).toBeGreaterThan(.5);
-
-  // Pausing freezes the current pose rather than snapping the mark home.
-  await page.getByRole('button', { name:'Pause logo motion', exact:true }).click();
-  await expect.poll(() => field.evaluate(element => element.getAnimations()[0]?.playState)).toBe('paused');
-  // Let WebKit's compositor present the paused frame before sampling geometry.
-  await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
-  const paused = await position();
-  await page.waitForTimeout(250);
-  expect(await position()).toEqual(paused);
-  await page.reload();
-  await expect(page.getByRole('button', { name:'Resume logo motion', exact:true })).toBeAttached();
-  await page.getByRole('button', { name:'Resume logo motion', exact:true }).click();
-
-  await page.locator('#figure').scrollIntoViewIfNeeded();
-  await expect.poll(() => field.evaluate(element => element.getAnimations()[0]?.playState)).toBe('paused');
-  await page.evaluate(() => window.scrollTo(0, 0));
-  await expect.poll(() => field.evaluate(element => element.getAnimations()[0]?.playState)).toBe('running');
-
-  await page.emulateMedia({ reducedMotion:'reduce' });
-  await expect(page.getByRole('button', { name:'Pause logo motion', exact:true })).not.toBeVisible();
-  await expect.poll(() => field.evaluate(element => element.getAnimations().length)).toBe(0);
-  const still = await position();
-  await page.waitForTimeout(250);
-  expect(await position()).toEqual(still);
 });
 
 test('the semantic-plot explorer names parts, restyles a series, and keeps the restyle across a regenerated state', async ({ page }) => {

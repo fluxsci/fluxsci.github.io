@@ -10,9 +10,7 @@ const workspaces = [
 
 const preview = page => page.locator('[data-workspace-preview]');
 const choice = (page, name) => preview(page).locator(`[data-workspace="${name}"]`);
-const settle = page => page.evaluate(() => Promise.all(document.getAnimations()
-  .filter(animation => animation.effect.getComputedTiming().iterations !== Infinity)
-  .map(animation => animation.finished.catch(() => {}))));
+const settle = page => page.evaluate(() => Promise.all(document.getAnimations().map(animation => animation.finished.catch(() => {}))));
 
 async function expectWorkspace(page, name) {
   const workspace = workspaces.find(item => item.name === name);
