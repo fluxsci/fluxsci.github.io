@@ -1,6 +1,11 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
+// The entrance animation fades the hero in over ~1.6 s; an accessibility scan that
+// samples mid-fade reads blended colors and reports false contrast failures on slow
+// runners. Scans wait for every running animation to finish first.
+const settle = page => page.evaluate(() => Promise.all(document.getAnimations().map(animation => animation.finished.catch(() => {}))));
+
 test('homepage has complete content, working imagery, and responsive geometry', async ({ page }) => {
   const errors = [];
   const badResponses = [];
@@ -29,6 +34,7 @@ test('homepage has complete content, working imagery, and responsive geometry', 
 
 test('homepage meets automated WCAG AA checks', async ({ page }) => {
   await page.goto('/');
+  await settle(page);
   const result = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
   expect(result.violations).toEqual([]);
 });
@@ -39,6 +45,7 @@ test('appearance selection persists and both color schemes remain accessible', a
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
   await page.reload();
   await expect(page.getByRole('combobox', { name:'Appearance' })).toHaveValue('dark');
+  await settle(page);
   const dark = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
   expect(dark.violations).toEqual([]);
   await page.getByRole('combobox', { name:'Appearance' }).selectOption('light');
@@ -71,6 +78,7 @@ test('navigation works with mobile menu and keyboard dismissal', async ({ page }
 
 test('full-size imagery opens accessibly and restores focus', async ({ page }) => {
   await page.goto('/');
+  await settle(page);
   const opener = page.locator('[data-enlarge]').first();
   await opener.click();
   const dialog = page.getByRole('dialog');
@@ -237,7 +245,7 @@ test.describe('without JavaScript', () => {
     const fallback = page.locator('#semantic-plot img');
     await fallback.scrollIntoViewIfNeeded();
     await expect(fallback).toBeVisible();
-    expect(await fallback.evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);
+    await expect.poll(() => fallback.evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);
     await page.goto('/demos/neural-populations/');
     await expect(page.locator('img.fallback')).toBeVisible();
     expect(await page.locator('img.fallback').evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);
