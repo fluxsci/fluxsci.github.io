@@ -1,7 +1,7 @@
 {
   "source": {
     "repository": "https://github.com/fluxsci/flux.git",
-    "revision": "4bb72d895b7879acc404ca83863cdc385982b0b5",
+    "revision": "7d90525e8ad415d9653d72143fb88325b15eaa7b",
     "version": "0.1.0"
   },
   "description": "Original neural-population project rendered by the pinned Flux native inline-slide player. Four editable slides; first poster shows the completed step 3, interactive playback starts at step 0. Public-source data, original composition and wording.",
@@ -22,8 +22,8 @@
   ],
   "outputs": {
     "site/demos/neural-populations/index.html": {
-      "bytes": 2557846,
-      "sha256": "8b5070a2e0ed8148dd7f9160c8fd74dc92e85c44901f25518a09dad36d872cb8"
+      "bytes": 2585054,
+      "sha256": "e76047706d3282d3b54600e32af59b2052302424e49585970d8d4994f6c06ee9"
     },
     "site/assets/media/slide-poster.svg": {
       "bytes": 322541,

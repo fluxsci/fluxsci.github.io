@@ -350,14 +350,14 @@ description: "Figures, presentations, literature, and papers in one connected wo
       </div>
       <div class="module-copy">
         <p>
-          Compose publication figures on a precise, open canvas. With plots made
-          by fluxplot, the lines, labels, and series remain meaningful parts you
-          can select and refine.
+          Compose plots, images, and annotations on a precise canvas. With
+          fluxplot, X-ray lets you reach into a plot and edit its individual
+          lines, labels, and series.
         </p>
         <ul class="feature-list">
-          <li>Arrange panels at their physical publication size.</li>
-          <li>Style individual plot parts without rerunning the analysis.</li>
-          <li>Keep those styling choices when a linked source updates.</li>
+          <li>Set exact sizes, spacing, and alignment.</li>
+          <li>Tune color and typography beside your selection.</li>
+          <li>Keep your edits when the source plot is regenerated.</li>
         </ul>
         <a
           class="text-link"
@@ -387,9 +387,10 @@ description: "Figures, presentations, literature, and papers in one connected wo
         >
         <figcaption>
           <span class="caption-index">02</span>The whole composition, down to
-          the individual part.<span class="caption-note"
-            >Composed in Flux · Public neuroscience data.</span
-          >
+          the individual part.<a class="text-link caption-note"
+            href="assets/media/figure-properties.webp" data-enlarge
+            data-caption="A single bar in the preferred-direction plot, selected in the real Figure workspace. Its native property menu exposes color, stroke, opacity, and position without rerunning the analysis."
+            aria-label="See plot-part editing in Flux">See part editing<svg class="icon" aria-hidden="true"><use href="#i-zoom" /></svg></a>
         </figcaption>
       </figure>
       <div
@@ -479,13 +480,14 @@ description: "Figures, presentations, literature, and papers in one connected wo
         </div>
         <div class="module-copy">
           <p>
-            Send a figure to your deck and give it a timeline. Reveal a series,
-            draw on network edges, and guide the audience through your result
-            one step at a time.
+            Turn a figure into an explanation. Reveal a series, trace a
+            connection, or smoothly transform one state into the next.
+            Give your audience time to see what changes.
           </p>
           <p>
-            Then insert the slide into a document. The explanation stays
-            interactive in Paper and HTML; PDF and Word carry the opening still.
+            Present your deck, export a video, or embed an interactive slide
+            in Paper. The explanation stays interactive in HTML;
+            PDF and Word carry the opening still.
           </p>
           <a
             class="text-link"
@@ -559,11 +561,11 @@ description: "Figures, presentations, literature, and papers in one connected wo
           class="media-enlarge"
           href="assets/media/slides.webp"
           data-enlarge
-          data-caption="The Slides authoring workspace: compose the scene, then arrange its animation steps."
+          data-caption="The current Slides editor: a selected network, its draw-on animation, and the timeline that controls its reveal."
           aria-label="Enlarge the Slides authoring screenshot"
           ><img
             src="assets/media/slides.webp"
-            alt="Flux Slides authoring workspace with the neuronal-population scene, four-slide navigation, and editable animation steps."
+            alt="Flux Slides editor with a selected response network, its draw-on animation settings, four-slide navigation, and a timeline of editable animation steps."
             width="1500"
             height="950"
             loading="lazy"
@@ -575,11 +577,11 @@ description: "Figures, presentations, literature, and papers in one connected wo
         >
         <figcaption>
           <span class="eyebrow">Behind the explanation</span>
-          <h3>Compose. Sequence. Share.</h3>
+          <h3>Compose. Transform. Present.</h3>
           <p>
-            Bring a figure into your deck, give it its own layout, and author
-            the steps. Reuse the result as an interactive slide inside your
-            writing.
+            Work on the same canvas as Figure. Choose what appears at each
+            step, then adjust its timing and motion in the timeline.
+            Reuse the result inside your writing.
           </p>
           <a
             class="text-link"
@@ -815,7 +817,7 @@ description: "Figures, presentations, literature, and papers in one connected wo
           <p class="eyebrow">Open the work behind the website</p>
           <h3>Meet the example project.</h3>
           <p><em>Neuronal networks flexibly encode diverse stimuli.</em>
-            A complete Flux project with the manuscript, thirty-three source
+            A complete Flux project with the manuscript, more than thirty source
             plots, two composed figures, four animated slides, and public data. Download it, unzip it,
             and open the <code>neural-populations</code> folder in Flux.</p>
         </div>

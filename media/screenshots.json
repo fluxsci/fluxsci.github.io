@@ -1,7 +1,7 @@
 {
   "source": {
     "repository": "https://github.com/fluxsci/flux.git",
-    "revision": "4bb72d895b7879acc404ca83863cdc385982b0b5",
+    "revision": "7d90525e8ad415d9653d72143fb88325b15eaa7b",
     "version": "0.1.0"
   },
   "browser": "Chrome/147.0.7727.137",
@@ -12,26 +12,32 @@
     "site/assets/media/paper.webp": {
       "width": 1500,
       "height": 950,
-      "bytes": 157460,
-      "sha256": "f961588c1f72ec03d4f637a37958240b41fad29972ee2a99a27af2af44dda43f"
+      "bytes": 157482,
+      "sha256": "e12ba432dc8df3f2b7a44098d46206770ebd20b38aa8300cf2f586362cdbb3bb"
     },
     "site/assets/media/paper-detail.webp": {
       "width": 1158,
       "height": 760,
-      "bytes": 113300,
-      "sha256": "f62959f5b10cd942de5d115962e82ed79110a9cb372152e692cffe608f4b75cd"
+      "bytes": 114092,
+      "sha256": "4e768eca75db077c6ed646f09901cc6cd4d66cbf3e534ddb724f6835d94aedce"
     },
     "site/assets/media/figure.webp": {
       "width": 1500,
       "height": 950,
-      "bytes": 153598,
-      "sha256": "14fd4f0232dd8afed3b9e71ec8e6fca9ec640743887029aad3e0feba1977f671"
+      "bytes": 150524,
+      "sha256": "f1c009fd969bd0f9be13fa5d68413b7e6f40558846d41d196c42dd4fad38ba39"
+    },
+    "site/assets/media/figure-properties.webp": {
+      "width": 1500,
+      "height": 950,
+      "bytes": 135618,
+      "sha256": "90269d2e898922335e66973fffe3011b34d5a8e321908c52f6e49f4fbcc2fadf"
     },
     "site/assets/media/slides.webp": {
       "width": 1500,
       "height": 950,
-      "bytes": 82164,
-      "sha256": "065e9a6d4ae2244e920a0156acfc8167caa6a27a4daa7ce88e121ac197a185bc"
+      "bytes": 112164,
+      "sha256": "93b0280357c8b5f5ccb0c26486b9c2eb80eae453584e55b421a0dda73d4c49e3"
     },
     "site/assets/media/library.webp": {
       "width": 1500,
@@ -42,8 +48,8 @@
     "site/assets/media/reader.webp": {
       "width": 1500,
       "height": 950,
-      "bytes": 95570,
-      "sha256": "ace8c0199749136221c513534f3e6217a8eb21227c78bddb980846bc2bef7ecd"
+      "bytes": 95544,
+      "sha256": "c62dd337289cb6dfdb6b533fb1f9a502595e88f9d8b39bff7ffc72c7f2186368"
     },
     "site/assets/media/neural-figure.webp": {
       "width": 1800,

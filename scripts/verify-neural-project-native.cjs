@@ -24,7 +24,7 @@ const clickMode=async name=>{await js(`document.querySelector('button[aria-label
  await wait(()=>js('!!document.querySelector(".cm-editor")'),'Paper with real project');
  check(app.getPath('userData').startsWith(sandboxHome+path.sep),'isolated native profile');check(await js('!window.__flux&&!!window.fig'),'built application with actual preload');
  check(await js(`document.body.innerText.includes('Neuronal networks flexibly encode diverse stimuli')`),'on-disk manuscript discovered');
- await wait(()=>js('document.querySelectorAll(".cm-editor svg").length>0'),'native embedded figure');
+ await wait(()=>js('[...document.querySelectorAll(\'.cm-editor img[data-figure-state="ready"]\')].some(image=>image.complete&&image.naturalWidth>0)'),'native embedded figure');
  fs.writeFileSync(path.join(artifacts,'paper.png'),(await win.webContents.capturePage()).toPNG());
  await clickMode('Figure');await wait(()=>js(`document.body.innerText.includes('From neurons to population codes')`),'native Figure composition');
  check(await js(`document.body.innerText.includes('Response structure and variation')`),'both compositions listed');

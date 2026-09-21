@@ -95,6 +95,10 @@ project through the actual GUI. Library and Reader previews use only that isolat
 no entry is added to the user's global FluxLib. The original manuscript also supplies the
 PDF used by Reader, saved as `exports/manuscript.pdf`. Its figures are rasterized from the
 native SVG at 2× resolution for reliable PDF printing; editable vectors remain in the project.
+Paper capture waits for the current image-based figure renderer to finish decoding.
+Figure is captured both as a complete composition and with a named plot part selected in
+the native property menu (`figure-properties.webp`). The Slides capture selects the
+network's draw-on track so the timeline and effect inspector show the same edit.
 No application interface is fabricated or repainted. Capture also updates homepage image
 dimensions and records screenshot hashes. Then run `npm test` to rebuild the project ZIP and
 verify the complete publication artifact.

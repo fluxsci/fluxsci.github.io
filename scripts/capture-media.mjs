@@ -67,7 +67,7 @@ try {
  },{mirror,bibliography,references,pdfB64:Buffer.from(pdf).toString('base64')});
  await clickMode('Paper');await page.waitForFunction(()=>!!window.__fluxView);
  await page.waitForFunction(()=>document.querySelector('.cm-editor')?.textContent.includes('A population view of neural information'));
- await page.waitForFunction(()=>document.querySelectorAll('.cm-editor svg').length>0,{timeout:25000});
+ await page.waitForFunction(()=>[...document.querySelectorAll('.cm-editor img[data-figure-state="ready"]')].some(image=>image.complete&&image.naturalWidth>0),{timeout:25000});
  await page.evaluate(async()=>{const {paperLayout}=await import('/src/shell/modes/paper/view-mode/paperLayoutStore.ts');paperLayout.update(s=>({...s,dynMarginOpen:false,gutterL:.05,gutterR:.05}));const v=window.__fluxView;v.dispatch({selection:{anchor:v.state.doc.toString().indexOf('A stimulus')}});document.activeElement?.blur();});
  await stable();await page.evaluate(()=>{window.__fluxView.scrollDOM.scrollTop=195;});
  await capture('paper');
@@ -78,8 +78,23 @@ try {
  await page.waitForFunction(id=>window.__flux.get(window.__flux.fig.project).figures.some(f=>f.id===id),{timeout:20000},FIGURE_ID);
  await page.evaluate(id=>{const f=window.__flux,fig=f.get(f.fig.project).figures.find(v=>v.id===id),box=f.get(f.fig.canvasBox);const zoom=Math.min((box.w-70)/fig.width,(box.h-85)/fig.height);f.fig.viewport.set({panX:box.x+(box.w-fig.width*zoom)/2-fig.x*zoom,panY:box.y+(box.h-fig.height*zoom)/2-fig.y*zoom,zoom});f.fig.selection.set(new Set());},FIGURE_ID);
  await capture('figure');
+ // Show the new native property menu beside a selected plot, with room to read it.
+ await page.evaluate(async id=>{
+   const f=window.__flux,figure=f.get(f.fig.project).figures.find(v=>v.id===id);
+   const plot=figure.elements.find(e=>e.type==='plot'&&e.source?.svgPath.endsWith('/32-preferred-directions.svg'));
+   if(!plot)throw Error('The preferred-direction panel is missing from the example figure');
+   const {inspectorHidden}=await import('/src/lib/settings.ts');inspectorHidden.set(true);
+   f.fig.viewport.set({panX:20-figure.x*.53,panY:160-figure.y*.53,zoom:.53});
+   f.fig.selection.set(new Set([plot.id]));
+   f.fig.partSelection.set({elementId:plot.id,partId:'preferred-direction-count.bar.0'});
+ },FIGURE_ID);
+ await stable();await page.keyboard.press('f');
+ await page.waitForSelector('[role="dialog"][aria-label="Properties"]',{visible:true});
+ await capture('figure-properties');
+ await page.keyboard.press('Escape');
+ await page.evaluate(async()=>{const {inspectorHidden}=await import('/src/lib/settings.ts');inspectorHidden.set(false);});
  await clickMode('Slide');await page.waitForFunction(id=>window.__flux.get(window.__flux.slide.deckOverlay)?.id===id,{timeout:20000},DECK_ID);
- await page.evaluate(()=>{[...document.querySelectorAll('.deckbar button')].find(e=>e.textContent.includes('Animate'))?.click();window.__flux.slide.activeBeat.set(3);});
+ await page.evaluate(()=>{[...document.querySelectorAll('.deckbar button')].find(e=>e.textContent.includes('Animate'))?.click();const f=window.__flux;f.slide.activeBeat.set(2);f.fig.selection.set(new Set(['response-network']));f.slide.selTrackIds.set(['network-edges-reveal']);});
  await capture('slides');
  await clickMode('Library');await page.waitForSelector('.lib .grow [aria-label="Toggle details"]',{visible:true});
  await page.evaluate(()=>{[...document.querySelectorAll('.lib .grow')].find(e=>e.textContent.includes('calcium-imaging'))?.querySelector('[aria-label="Toggle details"]')?.click();});
@@ -103,4 +118,4 @@ try {
  await fs.writeFile(home,homeText);
  if(errors.length)throw Error(`Flux page errors: ${errors.join('; ')}`);
  console.log(JSON.stringify({errors,outputs},null,2));
-} catch(error){await page.screenshot({path:path.join(root,'media/masters/capture-error.png')});throw error;} finally {await browser.close();}
+} catch(error){await page.screenshot({path:path.join(root,'media/masters/capture-error.png')});console.error(await page.evaluate(()=>document.body.innerText.slice(0,12000)));throw error;} finally {await browser.close();}
