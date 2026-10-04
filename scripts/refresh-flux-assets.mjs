@@ -36,13 +36,31 @@ const io={readText:p=>fs.readFile(p,'utf8'),readFile:p=>fs.readFile(p),exists,wr
 for(const fig of manifest.figures??[]){const warnings=[];await renderFigureSvg(project,fig.id,{model3dPolicy:'project',warnings});const svg=await renderFigureSvg(project,fig.id,{model3dPolicy:'project',posterSurface:{kind:'raster',dpi:240},warnings});if(warnings.length)throw Error(warnings.join('\n'));await write(`fig/renders/${fig.id}.svg`,svg);}
 const {resolveModelPosters}=await load('flux-core/model3dPosterCache.ts');
 const {partStatesFromOpacity}=await load('src/lib/model3d/appearance.ts');
+const modelPaths=new Map();
 io.modelPoster=async(request,relative)=>{
+ modelPaths.set(request.asset.id,relative);
  const figure={id:'poster',name:'Slide',canvasId:'slide',x:0,y:0,width:request.element.width,height:request.element.height,background:'transparent',elements:[request.element]};
  const rendered=await resolveModelPosters(project,[figure],[{...request.asset,path:relative}],{policy:'project',surface:'slide',assetPrefix:'',manifests:{[request.asset.id]:request.manifest},partStates:()=>partStatesFromOpacity(request.partOpacity)});
  if(rendered.warnings.length)throw Error(rendered.warnings.join('\n'));const url=rendered.urls[request.ref];if(!url)throw Error('Missing native 3D poster');return url;
 };
 const repo=createSlideRepository(project,io),snapshots=[];
 for(const slide of deck.slides){const snap=await repo.materialize({deck:DECK_ID,slide:slide.id});if(snap.warnings.length)throw Error(snap.warnings.join('\n'));snapshots.push(snap);}
+// The native document exporter intentionally saves Design views. Interactive
+// browsers without WebGL also need matching stills for each actual orbit endpoint.
+const {evaluateSlide}=await load('src/lib/slide/embedRender.ts');
+const {staticModelRequest}=await load('src/lib/model3d/static.ts');
+const {modelPartOpacity}=await load('src/lib/model3d/appearance.ts');
+for(const snapshot of snapshots){
+ const single=snapshot.payload,slide=single.deck.slides[0];
+ for(let step=0;step<slide.beats.length;step++){
+  const frame=evaluateSlide(single,step);
+  for(const element of frame.elements.filter(e=>e.type==='model3d')){
+   const asset=single.deck.assets.find(a=>a.id===element.assetId);
+   const request=staticModelRequest(element,asset,single.modelManifests?.[asset.id],'slide',modelPartOpacity(frame.partStates[element.id]));
+   if(!single.assets[request.ref])single.assets[request.ref]=await io.modelPoster(request,modelPaths.get(asset.id)||'fig/'+asset.path);
+  }
+ }
+}
 const first=snapshots[0],firstId=deck.slides[0].id;
 const runtimeAssets=JSON.parse(await fs.readFile(path.join(source,'.generated/slide-embed-assets.json'),'utf8'));
 const completedPoster=renderSlidePosterSvg(first.payload,Math.max(0,deck.slides[0].beats.length-1)).replace('</svg>',`<style>${runtimeAssets.fonts}</style></svg>`);
@@ -56,7 +74,7 @@ const hostSource=`import {payloadModelHost} from ${JSON.stringify(path.join(sour
 import {mountSlideEmbed} from ${JSON.stringify(path.join(source,'src/lib/slide/embedPlayer.ts'))};
 const payload=JSON.parse(document.getElementById('payload').textContent),host=document.getElementById('native-player'),selector=document.getElementById('slide-select');
 const states=new Map();let controller,selected=0,reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
-function mount(index){controller?.destroy();selected=index;const slide=payload.deck.slides[index];controller=mountSlideEmbed(host,{...payload,deck:{...payload.deck,slides:[slide]}},{model3d:payloadModelHost(payload),state:states.get(slide.id)||{beatId:slide.beats[0].id,reduced},onState:state=>{states.set(slide.id,state);reduced=state.reduced}});selector.value=String(index);document.getElementById('selected-slide-status').textContent='Slide '+(index+1)+' of '+payload.deck.slides.length;}
+function mount(index){controller?.destroy();selected=index;const slide=payload.deck.slides[index],modelHost=payloadModelHost(payload),stills=!modelHost&&slide.elements.some(e=>e.type==='model3d');const state=states.get(slide.id)||{beatId:slide.beats[0].id,reduced};controller=mountSlideEmbed(host,{...payload,deck:{...payload.deck,slides:[slide]}},{model3d:modelHost,state:{...state,reduced:stills||state.reduced},onState:state=>{states.set(slide.id,state);if(!stills)reduced=state.reduced}});if(stills){const motion=host.querySelector('[aria-label="Toggle animation"]');motion.disabled=true;motion.title='This browser shows saved 3D views. Use the arrows to change view.';}selector.value=String(index);document.getElementById('selected-slide-status').textContent='Slide '+(index+1)+' of '+payload.deck.slides.length;}
 selector.addEventListener('change',()=>mount(Number(selector.value)));mount(0);document.documentElement.classList.add('enhanced');
 window.fluxWebsiteDemo={pause:()=>controller.pauseOffscreen(),state:()=>controller.player.state(),selectedSlide:()=>payload.deck.slides[selected].id};
 if(parent!==window){let previous=0;new ResizeObserver(()=>{const height=Math.ceil(document.body.getBoundingClientRect().height);if(height>0&&height!==previous){previous=height;parent.postMessage({type:'flux-demo-resize',height},location.origin)}}).observe(document.body);}

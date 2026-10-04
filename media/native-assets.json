@@ -9,8 +9,8 @@
     "id": "proj_website_showcase",
     "title": "Patterns across scales",
     "inputHashes": {
-      "project.json": "8bea50bb1d36749aca65afb07fa6c7ccee4ed4c7de90757f99e8af13411c8663",
-      "slides/website-showcase/deck.json": "6d53a454698f7b75c3b9afc0a6b4e51b98695bb7909f758732e73e04a9db64b3",
+      "project.json": "fa251ad1c153c37839da12bad4c7160a1b5321ebac7f47930c11f2e2283cd7a7",
+      "slides/website-showcase/deck.json": "baa476d21910bfd3d334e39201c5bece7e2d24c5a33ab5d078a557306a63df97",
       "fig/index.json": "74e83de2aaf87c16227d2ff63e59a5aab34242895831ba459c115e12146510d3",
       "fig/canvases/canvas-1.json": "1fef7b109680e9d03d4a9deadc6386e0f982a21f6d1c0d8fda390e8eee4aff95"
     },
@@ -141,12 +141,12 @@
   ],
   "outputs": {
     "site/demos/data-morph/index.html": {
-      "bytes": 8430011,
-      "sha256": "fe92f1227489af4645d4c6546936ed2c9125b55a115b66d54ebca6c808ea7c4b"
+      "bytes": 9266112,
+      "sha256": "8d328054bb4edf7b345bc575ca37dffbd8142c4ac551250a2fd6c5c55a45355a"
     },
     "site/assets/media/slide-poster.svg": {
       "bytes": 704672,
-      "sha256": "0fbc22f2be82daca5b8da05a1acf47a2f7f407b061d37d88592919d87d895dae"
+      "sha256": "ca9a55c1f42c23f8fea398b8794f5ce6a4858544292c5aed4d7585cdb88c1fd2"
     },
     "site/assets/brand/flux-mark.svg": {
       "bytes": 5352,

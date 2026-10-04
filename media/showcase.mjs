@@ -62,7 +62,7 @@ export async function prepareShowcase(source,authored,project){
  const model={...structuredClone(original),id:'fermi-model',x:52,y:220,width:550,height:460};ops.addElement(deck,material.id,model);
  for(const [name,x] of [['section-a',643],['section-gamma',908]]){const a=plots[name];ops.addImageToSlide(deck,material.id,{assetId:name,x,y:287,width:254,height:254*a.naturalHeight/a.naturalWidth});}
  txt(material,'3D GEOMETRY',80,225,500,27,13);txt(material,'TWO CROSS-SECTIONS',668,225,470,27,13);
- txt(material,'Rotate the model to see how the surfaces connect.',653,604,500,70,23,'#100f0f','Georgia');
+ txt(material,'Turn the model. Follow the surfaces.',653,604,500,70,23,'#100f0f','Georgia');
  for(const [i,turns]of [[1,.5],[2,.5]]){const b=ops.addBeat(deck,material.id,{id:`fermi-turn-${i}`,label:i===1?'Turn the structure':'Complete the turn',advance:'click'});ops.addTurntable(deck,{slideId:material.id,beatId:b.id,target:model.id,turns,durationMs:3800});}
  for(const s of deck.slides)ops.setSlide(deck,s.id,{notes:'Original website slides using unchanged plots from the authorized master project. See website visual credits for sources and interpretation.',transition:'fade'});
  const tree=buildScaffoldTree({title:TITLE,author:'Flux demonstration'},deck);

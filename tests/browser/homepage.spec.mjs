@@ -157,13 +157,19 @@ test('all three original native scenes can be explored and retain their manual s
   await page.goto('/demos/data-morph/');
   const select=page.getByRole('combobox', { name:'Explore the deck', exact:true });
   await expect(select.locator('option')).toHaveCount(3);
+  const webgl=await page.evaluate(()=>{const gl=document.createElement('canvas').getContext('webgl2',{antialias:true,alpha:true,preserveDrawingBuffer:true});if(!gl)return false;gl.getExtension('WEBGL_lose_context')?.loseContext();return true;});
   const slides=['population-atlas','response-geometry','fermi-surface'];
   for (let index=0;index<slides.length;index++) {
     await select.selectOption(String(index));
     await expect.poll(()=>page.evaluate(()=>window.fluxWebsiteDemo.selectedSlide())).toBe(slides[index]);
     await page.getByRole('button', { name:'Next animation step', exact:true }).click();
     await expect.poll(()=>page.evaluate(()=>window.fluxWebsiteDemo.state().beat)).toBe(1);
-    expect(await page.evaluate(()=>window.fluxWebsiteDemo.state().issues)).toEqual([]);
+    const issues=await page.evaluate(()=>window.fluxWebsiteDemo.state().issues);
+    if(index===2&&!webgl){
+      expect(issues.map(i=>i.reason)).toEqual(['3D model rendered as a still']);
+      await expect(page.locator('[data-model3d-poster]')).toBeVisible();
+      await expect(page.locator('[data-model3d-placeholder]')).toHaveCount(0);
+    }else expect(issues).toEqual([]);
     expect(await page.locator('#native-player svg').count()).toBeGreaterThan(0);
   }
   await select.selectOption('0');
@@ -221,4 +227,26 @@ test.describe('without JavaScript', () => {
     expect(await page.locator('img.fallback').evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);
     await expect(page.locator('#native-player')).toBeEmpty();
   });
+});
+
+test('3D slides keep accurate saved views at every step when WebGL is unavailable',async({page})=>{
+ await page.addInitScript(()=>{
+  const original=HTMLCanvasElement.prototype.getContext;
+  HTMLCanvasElement.prototype.getContext=function(kind,...options){return kind==='webgl2'?null:original.call(this,kind,...options);};
+ });
+ await page.goto('/demos/data-morph/');
+ await page.getByRole('combobox',{name:'Explore the deck'}).selectOption('2');
+ await expect(page.getByRole('button',{name:'Toggle animation',exact:true})).toBeDisabled();
+ const views=[];
+ for(let beat=0;beat<=2;beat++){
+  if(beat)await page.getByRole('button',{name:'Next animation step',exact:true}).click();
+  await expect.poll(()=>page.evaluate(()=>window.fluxWebsiteDemo.state().beat)).toBe(beat);
+  await expect(page.locator('[data-model3d-placeholder]')).toHaveCount(0);
+  const poster=page.locator('[data-model3d-poster]');await expect(poster).toBeVisible();
+  const src=await poster.getAttribute('href');expect(src).toMatch(/^data:image\/png;base64,/);
+  expect(await page.evaluate(async src=>{const img=new Image();img.src=src;await img.decode();return img.naturalWidth>500&&img.naturalHeight>500;},src)).toBe(true);
+  views.push(src);
+ }
+ expect(views[0]).not.toBe(views[1]);
+ expect(await page.evaluate(()=>window.fluxWebsiteDemo.state().playing)).toBe(false);
 });
