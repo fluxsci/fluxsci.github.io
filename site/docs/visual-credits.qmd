@@ -15,7 +15,9 @@ The showcase uses real Flux compositions: authored scientific figures, public da
 
 The materials and neuroscience figures were composed by Kort Driessen in the master demonstration project. Their plot content, layout, labels and views are preserved. Captions, the demonstration manuscript and the website's three slides were written for this site. Screenshots show the actual Flux interface using an isolated copy of the selected work.
 
-The existing test slides were not used. The library and Reader screenshots use a small demonstration bibliography and an original manuscript; they do not show a personal reference library. Technical animation diagrams in the documentation come from Flux's own user guide.
+The existing test slides were not used. The library and Reader screenshots use a small demonstration bibliography and an original manuscript; they do not show a personal reference library.
+
+The six geometric animation examples in the documentation were made for this site and play through Flux's native slide player. They illustrate controls, not research results. Timeline alignment diagrams use Flux's alignment operations to calculate the bar positions. Close-ups show the real X-ray, property menu and Animator; the easing editor and animation-style screenshots come from Flux's own user guide.
 
 ## Neuroscience {#neuroscience}
 

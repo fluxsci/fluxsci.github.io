@@ -30,6 +30,9 @@ move one step), **Shift+H** / **Shift+V** flip, **Delete** removes, **Escape** c
 you're midway through. The Inspector's Align row lines selections up, distributes them, and
 sets exact gaps.
 
+
+<figure class="doc-figure doc-figure-compact"><a href="/assets/media/docs/figure-property-menu.png" data-enlarge data-caption="Press F for the selected object’s geometry and axis-view controls. The blue key labels let you work without moving the pointer."><img src="/assets/media/docs/figure-property-menu.png" alt="Native property menu with geometry, content scale and axis-view controls." width="906" height="1078" loading="lazy"></a><figcaption>Press F for the selected object’s geometry and axis-view controls. The blue key labels let you work without moving the pointer. Click to enlarge.</figcaption></figure>
+
 Press **F** with anything selected for the **property menu** — the fastest way to edit, built
 for one hand on the keyboard and one on the mouse. It opens **beside the selection**, never on
 top of it (when nothing fits, it takes the side that covers the least), and lays its groups

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800" height="440" viewBox="0 0 800 440"><rect width="800" height="440" fill="#fffefa"/><g>
+  <g id="poster-easing__el:text_mutzxrwo9zf9_36"><text x="32" y="35" font-family="Arial" font-size="11" font-weight="400" fill="#205ea6" text-anchor="start"><tspan x="32" dy="0">FLUX / ANIMATION STUDIES</tspan></text></g>
+  <g id="poster-easing__el:text_mutzxrwo9zf9_37"><text x="32" y="89" font-family="Georgia" font-size="32" font-weight="400" fill="#242a30" text-anchor="start"><tspan x="32" dy="0">The same journey, six different timings.</tspan></text></g>
+  <g id="poster-easing__el:text_mutzxrwo9zf9_38"><text x="33" y="128" font-family="Arial" font-size="16" font-weight="400" fill="#62686b" text-anchor="start"><tspan x="33" dy="0">All six travel the same distance in 2.4 seconds.</tspan></text></g>
+  <g id="poster-easing__el:ease-guide-0"><rect x="184" y="186" width="470" height="1" rx="0" fill="#deded6" stroke="#deded6" stroke-width="0"/></g>
+  <g id="poster-easing__el:text_mutzxrwo9zf9_39"><text x="33" y="188" font-family="Arial" font-size="15" font-weight="400" fill="#242a30" text-anchor="start"><tspan x="33" dy="0">Linear</tspan></text></g>
+  <g id="poster-easing__el:ease-end-0"><ellipse cx="654" cy="186" rx="12" ry="12" fill="transparent" stroke="#bcc6cb" stroke-width="1"/></g>
+  <g id="poster-easing__el:ease-dot-0"><ellipse cx="654" cy="186" rx="12" ry="12" fill="#205ea6" stroke="#205ea6" stroke-width="0"/></g>
+  <g id="poster-easing__el:ease-guide-1"><rect x="184" y="224" width="470" height="1" rx="0" fill="#deded6" stroke="#deded6" stroke-width="0"/></g>
+  <g id="poster-easing__el:text_mutzxrwo9zf9_41"><text x="33" y="226" font-family="Arial" font-size="15" font-weight="400" fill="#242a30" text-anchor="start"><tspan x="33" dy="0">Smooth</tspan></text></g>
+  <g id="poster-easing__el:ease-end-1"><ellipse cx="654" cy="224" rx="12" ry="12" fill="transparent" stroke="#bcc6cb" stroke-width="1"/></g>
+  <g id="poster-easing__el:ease-dot-1"><ellipse cx="654" cy="224" rx="12" ry="12" fill="#24837b" stroke="#24837b" stroke-width="0"/></g>
+  <g id="poster-easing__el:ease-guide-2"><rect x="184" y="262" width="470" height="1" rx="0" fill="#deded6" stroke="#deded6" stroke-width="0"/></g>
+  <g id="poster-easing__el:text_mutzxrwo9zf9_43"><text x="33" y="264" font-family="Arial" font-size="15" font-weight="400" fill="#242a30" text-anchor="start"><tspan x="33" dy="0">Enter</tspan></text></g>
+  <g id="poster-easing__el:ease-end-2"><ellipse cx="654" cy="262" rx="12" ry="12" fill="transparent" stroke="#bcc6cb" stroke-width="1"/></g>
+  <g id="poster-easing__el:ease-dot-2"><ellipse cx="654" cy="262" rx="12" ry="12" fill="#7852aa" stroke="#7852aa" stroke-width="0"/></g>
+  <g id="poster-easing__el:ease-guide-3"><rect x="184" y="300" width="470" height="1" rx="0" fill="#deded6" stroke="#deded6" stroke-width="0"/></g>
+  <g id="poster-easing__el:text_mutzxrwo9zf9_45"><text x="33" y="302" font-family="Arial" font-size="15" font-weight="400" fill="#242a30" text-anchor="start"><tspan x="33" dy="0">Overshoot</tspan></text></g>
+  <g id="poster-easing__el:ease-end-3"><ellipse cx="654" cy="300" rx="12" ry="12" fill="transparent" stroke="#bcc6cb" stroke-width="1"/></g>
+  <g id="poster-easing__el:ease-dot-3"><ellipse cx="654" cy="300" rx="12" ry="12" fill="#ad593c" stroke="#ad593c" stroke-width="0"/></g>
+  <g id="poster-easing__el:ease-guide-4"><rect x="184" y="338" width="470" height="1" rx="0" fill="#deded6" stroke="#deded6" stroke-width="0"/></g>
+  <g id="poster-easing__el:text_mutzxrwo9zf9_47"><text x="33" y="340" font-family="Arial" font-size="15" font-weight="400" fill="#242a30" text-anchor="start"><tspan x="33" dy="0">Bouncy</tspan></text></g>
+  <g id="poster-easing__el:ease-end-4"><ellipse cx="654" cy="338" rx="12" ry="12" fill="transparent" stroke="#bcc6cb" stroke-width="1"/></g>
+  <g id="poster-easing__el:ease-dot-4"><ellipse cx="654" cy="338" rx="12" ry="12" fill="#87620a" stroke="#87620a" stroke-width="0"/></g>
+  <g id="poster-easing__el:ease-guide-5"><rect x="184" y="376" width="470" height="1" rx="0" fill="#deded6" stroke="#deded6" stroke-width="0"/></g>
+  <g id="poster-easing__el:text_mutzxrwo9zf9_49"><text x="33" y="378" font-family="Arial" font-size="15" font-weight="400" fill="#242a30" text-anchor="start"><tspan x="33" dy="0">Steps</tspan></text></g>
+  <g id="poster-easing__el:ease-end-5"><ellipse cx="654" cy="376" rx="12" ry="12" fill="transparent" stroke="#bcc6cb" stroke-width="1"/></g>
+  <g id="poster-easing__el:ease-dot-5"><ellipse cx="654" cy="376" rx="12" ry="12" fill="#526782" stroke="#526782" stroke-width="0"/></g>
+</g></svg>

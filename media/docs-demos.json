@@ -1,0 +1,90 @@
+{
+  "source": {
+    "repository": "https://github.com/fluxsci/flux.git",
+    "revision": "9f5c7ccbe3916107fbcf8b9d53d5cf4cf99bf58e",
+    "version": "0.2.0"
+  },
+  "description": "Original geometric teaching slides, exported with the native Flux player. No research data or owner slides.",
+  "scenes": [
+    {
+      "id": "appear",
+      "title": "Bring the next idea into view.",
+      "steps": 1
+    },
+    {
+      "id": "change",
+      "title": "Same object. A new state.",
+      "steps": 1
+    },
+    {
+      "id": "ghost",
+      "title": "One source. Three destinations.",
+      "steps": 1
+    },
+    {
+      "id": "become",
+      "title": "Let one shape become another.",
+      "steps": 1
+    },
+    {
+      "id": "easing",
+      "title": "The same journey, six different timings.",
+      "steps": 1
+    },
+    {
+      "id": "emphasis",
+      "title": "Keep the context. Direct attention.",
+      "steps": 1
+    }
+  ],
+  "outputs": {
+    "site/demos/techniques/appear.svg": {
+      "bytes": 2406,
+      "sha256": "c1e7cf6e7ae92b7a0c28a9281a1bba5238165da06222f4aa682ac575994a3030"
+    },
+    "site/demos/techniques/change.svg": {
+      "bytes": 1968,
+      "sha256": "eea30823b926b9279b190ea8a65f77f3ca9279cf1b8a33890fcb799b9f294c3c"
+    },
+    "site/demos/techniques/ghost.svg": {
+      "bytes": 2409,
+      "sha256": "6ec1a5f0a057d2db3e053dbeaf8badc8ab910aa4e0b3540242d18ca331e2dc75"
+    },
+    "site/demos/techniques/become.svg": {
+      "bytes": 1649,
+      "sha256": "ce39040cb19ee727d03bba3cd50389eef04adbeb3676d5f674ec58c1deee8d69"
+    },
+    "site/demos/techniques/easing.svg": {
+      "bytes": 4687,
+      "sha256": "1ba594819b04ec6865ac1f21c17a7cec8384e5536d9c91194237af1d08f253cf"
+    },
+    "site/demos/techniques/emphasis.svg": {
+      "bytes": 2048,
+      "sha256": "59bb11b75b0fed252b0bc50b7d409c6b56b629d943a481df8beb6fd63efeff3b"
+    },
+    "site/demos/techniques/timing-start-move.svg": {
+      "bytes": 1548,
+      "sha256": "8d6943a50f4f9532b07874f178b9b6238c335ce68d9360adfda1a9c622dc38d0"
+    },
+    "site/demos/techniques/timing-start-resize.svg": {
+      "bytes": 1564,
+      "sha256": "4210949c20b1951d4f6300e4018ebc45f1bfb1ffc2f7958ea70c8c9e46d32966"
+    },
+    "site/demos/techniques/timing-end-move.svg": {
+      "bytes": 1544,
+      "sha256": "1743ff2bf7bb8d8d9f4d3ecada8b9194a9c6982062071cfbf92dac79db1f312d"
+    },
+    "site/demos/techniques/timing-end-resize.svg": {
+      "bytes": 1560,
+      "sha256": "742376066260d929e402d01fa314111bccd4db8083a28b8156731e3eb0a4cc8f"
+    },
+    "site/demos/techniques/player.js": {
+      "bytes": 483928,
+      "sha256": "bef5dbb2cb52e80e2ccaf8a8c1bcdc612f7760848db38a8223cff7b1b9856556"
+    },
+    "site/demos/techniques/index.html": {
+      "bytes": 29827,
+      "sha256": "a5371a1a543b0306c8ba33c8ffddf7d971550d4bb43e759b50528781128d4163"
+    }
+  }
+}

@@ -28,6 +28,29 @@ Review all five workspaces, plot editing, both plates and every step of the thre
 
 `media/native-assets.json` records product and source input hashes and published runtime hashes. `media/screenshots.json` records capture conditions and image hashes. `media/installer.json` records the reviewed installer's exact bytes. `media/documentation.json` records the revisions used to write the guides and API reference.
 
+## Documentation examples and close-ups
+
+`media/techniques.mjs` authors six original geometric studies: entrance effects, Change, Ghost,
+Become, easing and emphasis. They use no owner slides or research data. The native Flux player
+renders and plays each example; the timeline comparison diagrams use Flux's own alignment
+operations to calculate their before-and-after positions.
+
+```sh
+node scripts/refresh-docs-demos.mjs --flux-source /path/to/pinned/flux
+node scripts/capture-docs.mjs --flux-source /path/to/pinned/flux
+```
+
+The first command exports posters and a shared player to `site/demos/techniques/`, records their
+hashes in `media/docs-demos.json`, and saves the capture deck under `.cache/docs-techniques/`.
+The second needs the isolated visual project from the earlier refresh and the Flux development
+server. It captures the X-ray, property menu and Animator in the native in-memory fixture,
+recording image dimensions and hashes in `media/docs-screenshots.json`.
+
+Review all six examples during playback and at rest, plus all four alignment diagrams. Check
+mobile sizing, reduced motion, keyboard controls, no-script posters and light/dark document
+surroundings. The browser suite covers these interactions. Normal builds audit both manifests
+without reading the source project or starting Flux.
+
 ## Licenses and credit
 
 Runtime dependency licenses are under `site/assets/licenses/`; Gelasio's SIL OFL notice is in `site/assets/fonts/OFL.txt`. Scientific assets retain their own source terms. The website's visual credits page identifies Allen Institute, MICrONS, FermiSurfer and Crystallography Open Database sources and distinguishes measured, computed and illustrative content. Website licensing does not relicense source datasets.

@@ -37,7 +37,7 @@ export async function checkSource() {
   const pin = JSON.parse(await readFile(path.join(ROOT, 'flux-source.json'), 'utf8'));
   assert(/^[a-f0-9]{40}$/.test(pin.revision), 'flux-source.json must pin a full commit hash.');
   assert.equal(pin.repository, 'https://github.com/fluxsci/flux.git');
-  for (const manifestFile of ['media/native-assets.json', 'media/screenshots.json']) {
+  for (const manifestFile of ['media/native-assets.json', 'media/screenshots.json', 'media/docs-demos.json', 'media/docs-screenshots.json']) {
     const manifest = JSON.parse(await readFile(path.join(ROOT, manifestFile), 'utf8'));
     assert.deepEqual(manifest.source, pin, `${manifestFile} does not match the pinned Flux source.`);
     assert(Object.keys(manifest.outputs).length, `${manifestFile} has no output provenance.`);
@@ -116,7 +116,7 @@ export async function checkOutput() {
   const installer = JSON.parse(await readFile(path.join(ROOT,'media/installer.json'),'utf8'));
   assert.equal(createHash('sha256').update(await readFile(path.join(OUTPUT,'install.sh'))).digest('hex'),installer.sha256,'Published installer differs from reviewed upstream script');
   assert(bytes <= 150 * 1024 * 1024, 'Site exceeds 150 MB publication budget.');
-  for (const manifestFile of ['media/native-assets.json', 'media/screenshots.json']) {
+  for (const manifestFile of ['media/native-assets.json', 'media/screenshots.json', 'media/docs-demos.json', 'media/docs-screenshots.json']) {
     const manifest = JSON.parse(await readFile(path.join(ROOT, manifestFile), 'utf8'));
     for (const [file, expected] of Object.entries(manifest.outputs)) {
       const published = await readFile(path.join(OUTPUT, file.slice(5)));

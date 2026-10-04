@@ -59,6 +59,9 @@ what they all share, so hiding the x-axis of four plots is one row and one keypr
 keeps the active row in view. You can inspect another plot while a recipe runs; its result
 still belongs to the plot you regenerated.
 
+
+<figure class="doc-figure doc-figure-compact"><a href="/assets/media/docs/figure-xray.png" data-enlarge data-caption="X-ray separates the stiffness–density plot into axes, material families and individual marks."><img src="/assets/media/docs/figure-xray.png" alt="The native X-ray panel lists X axis, Y axis, metals, ceramics, polymers and other named plot parts." width="922" height="1482" loading="lazy"></a><figcaption>X-ray separates the stiffness–density plot into axes, material families and individual marks. Click to enlarge.</figcaption></figure>
+
 ## Dissecting a plot {#dissecting-a-plot}
 
 A summary plot usually hides a story — twenty subjects behind one regression line, a table

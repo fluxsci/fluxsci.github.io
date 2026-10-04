@@ -10,6 +10,40 @@
    setTimeout(()=>{button.textContent='Copy';button.setAttribute('aria-label','Copy command or code');},2200);
   });
  }
+ // Focused teaching examples load only after an intentional click.
+ const studies=[...document.querySelectorAll('[data-doc-study]')];
+ const frames=new Map();
+ const pause=box=>frames.get(box)?.contentWindow?.postMessage({type:'flux-demo-pause'},location.origin);
+ for(const box of studies){
+  const button=box.querySelector('[data-study-start]');button.hidden=false;
+  button.addEventListener('click',()=>{
+   if(frames.has(box))return;
+   const iframe=document.createElement('iframe');iframe.src=box.dataset.docStudy;
+   iframe.title=button.dataset.title;iframe.setAttribute('allow','fullscreen');
+   const stage=box.querySelector('.doc-study-stage');
+   iframe.style.height=Math.ceil(stage.clientWidth*440/800+64)+'px';
+   stage.querySelector('img').hidden=true;button.hidden=true;stage.append(iframe);frames.set(box,iframe);
+   iframe.addEventListener('load',()=>iframe.focus({preventScroll:true}),{once:true});
+  });
+ }
+ window.addEventListener('message',e=>{
+  if(e.origin!==location.origin||e.data?.type!=='flux-docs-resize')return;
+  const height=e.data.height;if(!Number.isFinite(height)||height<100||height>2000)return;
+  for(const frame of frames.values())if(e.source===frame.contentWindow)frame.style.height=Math.ceil(height)+'px';
+ });
+ if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{for(const entry of entries)if(!entry.isIntersecting)pause(entry.target);});studies.forEach(box=>observer.observe(box));}
+ document.addEventListener('visibilitychange',()=>{if(document.hidden)studies.forEach(pause);});
+ for(const lab of document.querySelectorAll('.timing-lab')){
+  const options=lab.querySelector('.timing-options');options.hidden=false;
+  const buttons=[...options.querySelectorAll('button')],panels=[...lab.querySelectorAll('.timing-panel')];
+  const select=button=>{buttons.forEach(b=>b.setAttribute('aria-pressed',String(b===button)));panels.forEach(p=>p.hidden=p.id!==button.getAttribute('aria-controls'));};
+  buttons.forEach(button=>button.addEventListener('click',()=>select(button)));select(buttons[0]);
+ }
+ // Mark the current section without moving focus or changing the URL.
+ const toc=[...document.querySelectorAll('.doc-toc a')],sections=toc.map(a=>document.getElementById(decodeURIComponent(a.hash.slice(1))));
+ let scheduled=false;
+ function updateSection(){scheduled=false;let index=0;sections.forEach((section,i)=>{if(section?.getBoundingClientRect().top<150)index=i;});toc.forEach((a,i)=>{if(i===index)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});}
+ if(toc.length){window.addEventListener('scroll',()=>{if(!scheduled){scheduled=true;requestAnimationFrame(updateSection);}},{passive:true});updateSection();}
  const dialog=document.getElementById('docs-search'),input=document.getElementById('search-query');
  if(!dialog||!input)return;
  let index,opener,active=-1;

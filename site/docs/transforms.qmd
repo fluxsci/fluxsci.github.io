@@ -11,22 +11,40 @@ description: "Move between views, change a plot’s data, or turn one object int
 Move between views, change a plot’s data, or turn one object into another.
 :::
 
+<nav class="quick-path" aria-label="Choose a transform"><a href="#change">Change an object ↓</a><a href="#ghost">Create copies ↓</a><a href="#become">Become another object ↓</a></nav>
+
 ## Transforms {#transforms}
 
-Every object can be **transformed** at a step in exactly three ways. They share one lane kind in
-the timeline (**Transform · Change**, **Transform · Ghost**, **Transform · Become**), one set of
-timing and easing controls, and the same rules: one transform per complete source target per step
-(a whole object or a particular part set), chained across steps, with the **Before** / **After** buttons choosing which endpoint you edit.
+Choose a transform to match what you want to show:
+
+| Transform | Use it to… |
+|---|---|
+| [Change](#change) | Move, resize, recolour or edit an object |
+| [Ghost](#ghost) | Send independent copies out from one source |
+| [Become](#become) | Turn an object into another object or plot parts |
+
+All three use the same [timing and easing controls](/docs/animation.html). A whole object or
+specific set of plot parts can have one transform per step, with further changes in later steps.
+**Before** and **After** choose which endpoint you edit.
 
 ### Change {#change}
 
-A **Change** tweens an object into a different version of itself. Choose **Transform ▸ Change**
-(or **Ctrl+Shift+C**) and its **After** state appears on the canvas. Use the ordinary editor tools
-to shape it; the animator records a sparse property change. **Before** selects the immediately
-previous step (or Design for the first change), while **After** selects this step. The destination
-above the stage always identifies where subsequent edits will go. Chained changes compose across
-steps; colors blend perceptually and rewritten numbers digit-tween. Drop a captured property in the
-Animation inspector's **Δ** row to let it inherit from earlier steps.
+<div class="doc-study" data-doc-study="/demos/techniques/index.html#change">
+<div class="doc-study-stage"><img src="/demos/techniques/change.svg" alt="Change an object’s position, size and colour" width="800" height="440" loading="lazy"><button class="doc-study-launch" type="button" data-study-start data-title="Change an object’s position, size and colour" hidden><span aria-hidden="true">▶</span> Try this example</button></div>
+<div class="doc-study-caption"><span class="study-label">Interactive example</span><p><strong>Keep the object; change its state.</strong> The dotted frames mark its original and final bounds. Use the next-step arrow to play; reset to compare again. Reduced motion shows the finished step.</p></div>
+</div>
+
+
+A **Change** animates an object into a different version of itself.
+
+1. Select the object and choose **Transform ▸ Change** (**Ctrl+Shift+C**).
+2. Edit its **After** state with the ordinary tools: move, resize, recolour or rewrite it.
+3. Preview the step, then adjust its duration and easing in the Animator.
+
+The bar above the stage tells you where edits go. **Before** selects the preceding step
+(or Design for the first change); **After** selects the current step. Only the properties
+you edit are recorded, so later changes build on earlier ones. To stop overriding a property,
+remove it from the Animation inspector’s **Δ** row.
 
 **Rewriting text** plays a *text morph*. Words the old and new text share glide from where
 they were to where they land, even when they change order, case or style; a word that grows
@@ -46,6 +64,12 @@ flux set-transform talk slide1 step1 object1 --state '{"x":420,"y":160}' --arc 0
 ```
 
 ### Ghost {#ghost}
+
+<div class="doc-study" data-doc-study="/demos/techniques/index.html#ghost">
+<div class="doc-study-stage"><img src="/demos/techniques/ghost.svg" alt="Three Ghost copies leave the same source" width="800" height="440" loading="lazy"><button class="doc-study-launch" type="button" data-study-start data-title="Three Ghost copies leave the same source" hidden><span aria-hidden="true">▶</span> Try this example</button></div>
+<div class="doc-study-caption"><span class="study-label">Interactive example</span><p><strong>One source, independent copies.</strong> Three objects leave one source and retain their own destinations. Use the next-step arrow to play; reset to compare again. Reduced motion shows the finished step.</p></div>
+</div>
+
 
 **Transform ▸ Ghost…** creates independent copies that move out from an object. For example,
 one arrow can split into three arrows pointing to three new results.
@@ -72,9 +96,21 @@ ghost's creation lane removes that copy and its later effects; Undo restores the
 
 ### Become {#become}
 
+<div class="doc-study" data-doc-study="/demos/techniques/index.html#become">
+<div class="doc-study-stage"><img src="/demos/techniques/become.svg" alt="A circle becomes a rectangle" width="800" height="440" loading="lazy"><button class="doc-study-launch" type="button" data-study-start data-title="A circle becomes a rectangle" hidden><span aria-hidden="true">▶</span> Try this example</button></div>
+<div class="doc-study-caption"><span class="study-label">Interactive example</span><p><strong>An outline becomes another outline.</strong> The circle hands off to the rectangle; its dashed outline is only a guide. Use the next-step arrow to play; reset to compare again. Reduced motion shows the finished step.</p></div>
+</div>
+
+
 **Transform ▸ Become** (or just **B** with something selected) makes an object
 become another object or part of a plot. Select the source first. To start from plot parts,
 **Ctrl+click** a part or pick several rows in the **X-ray** before arming Become.
+
+1. Select the source, then press **B**.
+2. Pick what it should become. Double-click for a single destination, or select several and press **Enter**.
+3. Preview the step. Adjust its duration and easing in the Animation inspector.
+
+<details class="doc-details"><summary>Picker shortcuts and selecting several targets</summary>
 
 Choosing Become enters the **Become picker**, a temporary mode. The slide wears a soft green
 outline, the canvas around it dims slightly, the source gets a dashed green outline, and the bar
@@ -115,6 +151,8 @@ picking: every click on the canvas is a pick.
   whole group). The source's outline splits into one piece per destination, and each piece lands
   exactly on its own object. The lane and the Destination row name the set (**Rect → 3 ellipses**)
   and list its members; a set cannot be swapped — author the reverse hand-offs from each object.
+
+</details>
 
 A loose drawn destination between whole objects uses **Consume**: its appearance becomes the source's After state
 and the destination is removed. The source keeps its identity; one Undo restores both.

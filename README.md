@@ -30,6 +30,7 @@ The preview is at **http://127.0.0.1:1430**. It serves only `dist/`, with a real
 | `site/assets/scripts/site.js`, `docs.js` | Accessible progressive interactions, search, and copy controls |
 | `site/assets/media/` | Reviewed app screenshots and original plot derivatives |
 | `site/demos/data-morph/` | Native Flux inline-slide player export |
+| `site/demos/techniques/` | Six native teaching slides and timeline alignment diagrams |
 | `site/install.sh` | Byte-for-byte copy of the reviewed upstream installer |
 | `flux-source.json` | Exact Flux revision used for product assets and installer |
 | `media/` | Provenance, refresh code, and website manuscript; never published |

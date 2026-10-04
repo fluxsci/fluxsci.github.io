@@ -11,12 +11,17 @@ description: "Reveal the right information at the right moment. Control steps, e
 Reveal the right information at the right moment. Control steps, effects, timing and reusable styles.
 :::
 
+<nav class="quick-path" aria-label="Jump to a technique"><a href="#entrance-examples">Entrance effects ↓</a><a href="#align-starts-and-ends">Align timing ↓</a><a href="#easing-and-springs">Compare easing ↓</a></nav>
+
 ## The Animator {#the-animator}
 
 **Animate ⏱** opens a resizable dock with a named step strip, millisecond ruler, and timing lanes.
 Object and semantic-part names stay readable in the fixed left column, even for short effects.
 Select a lane to select and outline its stage target. Hovering a lane outlines the exact object or
 plot parts. Selecting an object identifies its effects in the current step.
+
+
+<figure class="doc-figure"><a href="/assets/media/docs/slides-timeline.png" data-enlarge data-caption="The Animator gives each effect a lane. These six Change tracks share a duration, while their faint curves show different timing."><img src="/assets/media/docs/slides-timeline.png" alt="The native animation timeline, with Linear, Smooth, Enter, Overshoot, Bouncy and Steps lanes." width="1956" height="720" loading="lazy"></a><figcaption>The Animator gives each effect a lane. These six Change tracks share a duration, while their faint curves show different timing. Click to enlarge.</figcaption></figure>
 
 To animate something, select it on the stage (**Ctrl/Cmd+click** drills to a plot part), then use:
 
@@ -27,65 +32,101 @@ To animate something, select it on the stage (**Ctrl/Cmd+click** drills to a plo
 - **Emphasize** — add a highlight.
 - **Disappear** / **Ctrl+Shift+D** — add an exit.
 
-Text rises in, shapes pop, and lines and paths draw on. Adding another appearance keeps the existing
-effects; successive effects on the same target start after its existing effects by default.
-**Auto-animate** builds a plot's entrance sequence from its semantic anatomy and the plot's own
-hints: axes and their colour key first, then gridlines, then the data (lines draw on, bars grow from
-their baseline, points and hexagons stagger in), and last the legend, annotations and brackets,
-each after the short delay the plot suggests. A multi-panel plot offers **panel by panel**: the
-same four phases for each panel in turn (an inset right after its host), with the figure's title
-first and its shared legend last.
+Flux chooses an entrance suited to the object: text rises, shapes pop, and lines draw on.
+Adding another effect keeps the existing ones. Effects on the same target start after its
+existing effects by default.
 
-Drag a box from empty timing-grid space to select the effects it intersects. Hold **Shift**
-(or Ctrl/Cmd) to add to the selection. Crossing a collapsed group span selects its members.
-Scroll while dragging, or hold near the grid edge to scroll; **Escape** cancels the selection.
-Click empty grid space to clear it. Selection alone does not change timing or add an Undo entry.
+**Auto-animate** builds a plot in four phases: axes and colour key, gridlines, data, then
+legend and annotations. Lines draw on, bars grow from their baseline, and points stagger in.
+For multi-panel plots, choose **panel by panel** to run that sequence for each panel, with
+the title first and shared legend last.
 
-Drag a timing bar to change its start, its right edge to change duration, or drag it vertically to
-reorder. Drag onto a step to move it; hold **Alt** to copy between steps. Shift or Ctrl/Cmd-click
-selects several lanes; **Ctrl/Cmd+A** selects this step's effects. **Ctrl/Cmd+G** groups the selection,
-**Ctrl/Cmd+Shift+G** ungroups it, and **Ctrl/Cmd+D** duplicates it. Groups can collapse without changing
-timing. Double-click a group name to rename it; drag its span to retime or move the whole group. Right-click a lane for these actions and moves to named steps. Ctrl/Cmd-wheel zooms timing;
-**fit ⟲** restores automatic scaling. The ruler and its vertical grid lines fill the whole
-visible time axis at every zoom, even past the step's last effect; while you drag, a guide follows the edge you are moving and runs the full
-height of the ruler when it snaps to another effect's edge or to a grid line — every major and
-minor line drawn is a snap target (the 50 ms round-number grid still catches drags between
-them), and a resize snaps the effect's *end* onto the line — and a single
-selected effect shows its start and end across all lanes so alignment reads at a glance.
+### See an entrance {#entrance-examples}
+
+Use **Fade** for a quiet reveal, **Pop** to bring attention to a shape, or **Wipe** to uncover it across the frame. The three examples below use the same duration.
+
+<div class="doc-study" data-doc-study="/demos/techniques/index.html#appear">
+<div class="doc-study-stage"><img src="/demos/techniques/appear.svg" alt="Compare Fade, Pop and Wipe entrances" width="800" height="440" loading="lazy"><button class="doc-study-launch" type="button" data-study-start data-title="Compare Fade, Pop and Wipe entrances" hidden><span aria-hidden="true">▶</span> Try this example</button></div>
+<div class="doc-study-caption"><span class="study-label">Interactive example</span><p><strong>One action, different entrances.</strong> The outlined frames mark the final positions. Use the next-step arrow to play; reset to compare again. Reduced motion shows the finished step.</p></div>
+</div>
+
+### Select and arrange effects {#select-and-arrange-effects}
+
+Drag a box from empty grid space to select several effects. **Shift** or **Ctrl/Cmd** adds
+to the selection; **Escape** cancels. Click empty space to clear it. Selecting effects does
+not change their timing.
+
+| To… | Do this |
+|---|---|
+| Change when an effect starts | Drag its timing bar |
+| Change its duration | Drag the bar’s right edge |
+| Reorder lanes | Drag a bar vertically |
+| Move an effect to another step | Drag it onto that step; hold **Alt** to copy |
+| Select several lanes | **Shift** or **Ctrl/Cmd+click**; **Ctrl/Cmd+A** selects the step’s effects |
+| Group or ungroup | **Ctrl/Cmd+G** or **Ctrl/Cmd+Shift+G** |
+| Duplicate selected effects | **Ctrl/Cmd+D** |
+| Zoom or fit the timeline | **Ctrl/Cmd+wheel** or **fit ⟲** |
+
+<details class="doc-details"><summary>Groups, scrolling and snapping while you drag</summary>
+
+Groups collapse without changing timing. Double-click a group name to rename it; drag its
+span to retime or move the whole group. A selection box that crosses a collapsed group
+selects its members. Scroll while drawing the box, or hold near the grid edge to scroll.
+Right-click a lane for grouping, duplication and moves to named steps.
+
+The ruler and grid fill the visible time axis at every zoom. While you drag, a guide follows
+the moving edge. It spans the ruler when the edge snaps to another effect or a grid line.
+Every visible major and minor grid line is a snap target; a 50 ms grid also catches drags
+between them. Resizing snaps the effect’s end. A single selected effect shows its start and
+end across all lanes.
+
+</details>
 
 ### Align starts and ends {#align-starts-and-ends}
 
-Select effects and press **Alt+A** to align their starts, or **Alt+D** to align their ends —
-the same keys align objects left and right on the canvas. Press again to step through the
-choices, nearest first: with several effects selected whose edges differ, the first press lines
-them up with the selection's own earliest start or latest end; after that each press moves them
-to the start or end of the next lane *above* the selection, and after the last one the
-effects return to where they were. A full-height line and a ruler label (**→ ‹rect 2› end ·
-1.95 s**) show what each press aligned to. With four effects under a 1 s draw-on and a
-0.95 s rise starting at 1 s, **Alt+D** ends them at 1.00 s, again at 1.95 s, and a third time
-restores them.
+<div class="timing-lab">
+<div class="timing-options" role="group" aria-label="Compare alignment shortcuts" hidden><button type="button" aria-controls="timing-start-move" aria-pressed="false">Align starts</button><button type="button" aria-controls="timing-end-move" aria-pressed="false">Align ends</button><button type="button" aria-controls="timing-start-resize" aria-pressed="false">Resize starts</button><button type="button" aria-controls="timing-end-resize" aria-pressed="false">Resize ends</button></div><figure class="timing-panel" id="timing-start-move"><img src="/demos/techniques/timing-start-move.svg" alt="Align starts: before and after for two selected tracks and a reference track" width="680" height="344" loading="lazy"><figcaption><kbd>Alt</kbd> + <kbd>A</kbd> · Move the bars without changing their duration. The two lower tracks are selected. The upper track supplies the alignment edge.</figcaption></figure><figure class="timing-panel" id="timing-end-move"><img src="/demos/techniques/timing-end-move.svg" alt="Align ends: before and after for two selected tracks and a reference track" width="680" height="344" loading="lazy"><figcaption><kbd>Alt</kbd> + <kbd>D</kbd> · Move the bars without changing their duration. The two lower tracks are selected. The upper track supplies the alignment edge.</figcaption></figure><figure class="timing-panel" id="timing-start-resize"><img src="/demos/techniques/timing-start-resize.svg" alt="Resize starts: before and after for two selected tracks and a reference track" width="680" height="344" loading="lazy"><figcaption><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>A</kbd> · Resize the bars, keeping their opposite edge fixed. The two lower tracks are selected. The upper track supplies the alignment edge.</figcaption></figure><figure class="timing-panel" id="timing-end-resize"><img src="/demos/techniques/timing-end-resize.svg" alt="Resize ends: before and after for two selected tracks and a reference track" width="680" height="344" loading="lazy"><figcaption><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>D</kbd> · Resize the bars, keeping their opposite edge fixed. The two lower tracks are selected. The upper track supplies the alignment edge.</figcaption></figure></div>
 
-Aligning moves each effect and keeps its duration. Add **Shift** (**Alt+Shift+A**,
-**Alt+Shift+D**) to resize instead: the opposite edge stays put. The presses of one cycle are a
-single **Undo**. A moved start detaches a [Follow timing](/docs/animation.html#follow-timing) link, as a drag does,
-and the toast names the former lane. **Align starts** and **Align ends** are also on a bar's
-right-click menu. `align-tracks` does the same from the CLI and MCP:
+On macOS, **Alt** is **Option (⌥)**. Focus the Animator before using these keys.
+
+Select effects and press **Alt+A** to align their starts, or **Alt+D** to align their ends.
+Their durations stay the same. Add **Shift** to resize instead, keeping the opposite edge fixed.
+These actions are also available on a bar’s right-click menu.
+
+Press the shortcut again to try the next alignment:
+
+1. If the selected edges differ, the first press aligns them to their own earliest start or latest end.
+2. Later presses use each lane above the selection, nearest first. A guide and ruler label identify the target.
+3. After the last choice, the effects return to their original timing. One **Undo** also reverses the entire cycle.
+
+Moving a start detaches its [Follow timing](/docs/animation.html#follow-timing) link, as dragging does.
+A toast names the former source lane.
+
+<details class="doc-details"><summary>Align tracks from the command line or an agent</summary>
+
+`align-tracks` performs the same edit from the CLI and MCP. Name a reference track, or give
+an exact time in milliseconds:
 
 ```bash
-flux align-tracks talk slide1 --tracks e3,e4,e5 --edge end --to rect2      # rect2's end
-flux align-tracks talk slide1 --tracks e3,e4 --edge start --to 250 --resize  # starts at 250 ms
+flux align-tracks talk slide1 --tracks e3,e4,e5 --edge end --to rect2
+flux align-tracks talk slide1 --tracks e3,e4 --edge start --to 250 --resize
 ```
+
+See the [slide command reference](/docs/commands.html#slide-commands) for more commands.
+
+</details>
 
 ### Inherit an effect's animation {#inherit-an-effects-animation}
 
-To give several effects exactly the animation of another one, select them, hold **Ctrl+Alt**
-(**⌘+⌥** on macOS) and drag one of their bars onto the other effect's lane. The bars stay where
-they are; a dashed line runs from the selection to the pointer, the lane under it lights, and a
-label reads **Inherit from ‹rect 2›**. Release to apply; release anywhere else or press
-**Escape** to cancel. The effects keep their own start times unless you hold **Shift** as you
-release, which copies the start too. One **Undo** reverts the whole drop, and a toast names
-what was inherited (**4 effects inherit ‹rect 2› · 953 ms · spring**). **Inherit animation
-from…** on a bar's right-click menu does the same with one click on the source lane.
+Use **Inherit animation** to copy another effect’s settings:
+
+1. Select the effects you want to change.
+2. Hold **Ctrl+Alt** (**⌘+⌥** on macOS) and drag a bar onto the source lane.
+3. Release when **Inherit from ‹name›** appears. Hold **Shift** as you release to copy the start time too.
+
+A dashed guide identifies the source. Release elsewhere or press **Escape** to cancel;
+**Undo** reverses the entire drop. You can also right-click a bar, choose **Inherit animation
+from…**, and click the source lane.
 
 Inherit copies the source's duration, easing or spring and stagger. Between two entrances (or two
 exits, or two transforms) the effect itself and its options come too — four pops become four
@@ -123,6 +164,12 @@ them. **P** focuses Effect/Action, **D** Duration, **T** Start/Offset, **G** Sta
 opens Easing. Inputs retain normal text editing; **Ctrl/Cmd+Z** undoes one edit or gesture.
 
 ### Easing and springs {#easing-and-springs}
+
+
+<div class="doc-study" data-doc-study="/demos/techniques/index.html#easing">
+<div class="doc-study-stage"><img src="/demos/techniques/easing.svg" alt="Compare six easing methods" width="800" height="440" loading="lazy"><button class="doc-study-launch" type="button" data-study-start data-title="Compare six easing methods" hidden><span aria-hidden="true">▶</span> Try this example</button></div>
+<div class="doc-study-caption"><span class="study-label">Interactive example</span><p><strong>Same distance. Same duration.</strong> Watch the moving dots: Linear is steady, Smooth changes speed, and Bouncy passes the endpoint before settling. Use the next-step arrow to play; reset to compare again. Reduced motion shows the finished step.</p></div>
+</div>
 
 Select an effect and click **Easing**, or press **E** while the Animator has focus.
 The field shows the curve, when the motion first arrives at 90% of its travel, and when it
