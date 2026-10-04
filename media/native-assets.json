@@ -1,33 +1,81 @@
 {
   "source": {
     "repository": "https://github.com/fluxsci/flux.git",
-    "revision": "7d90525e8ad415d9653d72143fb88325b15eaa7b",
-    "version": "0.1.0"
+    "revision": "9f5c7ccbe3916107fbcf8b9d53d5cf4cf99bf58e",
+    "version": "0.2.0"
   },
-  "description": "Original neural-population project rendered by the pinned Flux native inline-slide player. Four editable slides; first poster shows the completed step 3, interactive playback starts at step 0. Public-source data, original composition and wording.",
+  "description": "New website slides, composed from unchanged source plots in the owner-provided visual project. Synthetic demonstration data. No owner test slides or canvases are included.",
   "project": {
-    "id": "proj_flux_neural_population_demo",
-    "title": "Neuronal networks flexibly encode diverse stimuli",
+    "id": "proj_website_showcase",
+    "title": "Patterns in a changing population",
     "inputHashes": {
-      "project.json": "05b7d94bcb33e9f4667e2c5536c861deaa08a60e2ea419de7215deac4ccd1786",
-      "slides/neural-populations/deck.json": "2ce931b76c2edc9b16576b841bfd4e31bb54e1094d52e58605af151755af50b2",
-      "fig/index.json": "7a37a5a2d0751fbd29fbd8c7b0ade0c0ff46ee98d239bf59d2067d793810ddbc",
-      "fig/canvases/canvas-1.json": "6e6108843d8b7ca5c35e44247bf03eb0c9a80ed6bef27eec9d126132fe36af68",
-      "fig/canvases/canvas_mu1vwcyuwae6_3.json": "ac03a177d101a5d8d10080627f5a7b5ef6c33b5b4fb3bc1fac27c96e09665846"
+      "project.json": "6c0cbd3a60e34bca8079fdc986b85e76292641171efd4f8f4fb309315555f306",
+      "slides/website-showcase/deck.json": "2640dff86bac3036a8c30238a2b66693c79bf351b40d752e1a6bcf89b2f90127",
+      "fig/index.json": "45008451c5ed748b4ec3716a4e91ee80c8ba0930557710330337bf780657fcef",
+      "fig/canvases/canvas-1.json": "cfa40870a640e1677fe2d99043c52f500aa95f85abbf252b47e7c5a3731cb3ad"
+    },
+    "plotInputHashes": {
+      "plots/data_morph/tuning_baseline.svg": "c85b7ce2d2949abcbb9bd1bbfc1840d144664a808c1155abfbb008787a0dffb5",
+      "plots/data_morph/tuning_baseline.fluxplot.json": "29685d42ec3d2b9adf39f9d4281ec0614fb8a85178400a237f06fb8919d5c600",
+      "plots/data_morph/tuning_baseline.recipe.json": "644dae4f946917e2568b33e335b67e188ced32e48890f81fdc81791cee6a7959",
+      "plots/data_morph/tuning_sharpened.svg": "290283fc56f5b8e223fb27e0a3dabbf1ab38c4bff631fdb0ee5b308d8a7e75de",
+      "plots/data_morph/tuning_sharpened.fluxplot.json": "cf08c207aa18f92b9e803d40f16e80d177f102a171020d168e42a558c7187856",
+      "plots/data_morph/tuning_sharpened.recipe.json": "02e06f74a62c633d7f5f20ad9cb30eb4494fea43acb8f1dafecdd4983c290b92",
+      "plots/data_morph/tuning_rebalanced.svg": "89903cf62487fcca394b10425b4b46663be398940ece7cbfa16651f52627b79f",
+      "plots/data_morph/tuning_rebalanced.fluxplot.json": "fb84bdf5be2a6fe11f160ba687f9ab3c192131914d1805a3e8e55174b9e49c2e",
+      "plots/data_morph/tuning_rebalanced.recipe.json": "26481e8152c439927aa8cf067cf6ece9c2646791dac5fcf3219cd1444fa64ef3",
+      "plots/data_morph/neurons_mixed.svg": "8307900b0544c139337d7d1a8460f7b0a5021e64c05c01f1ef91e6e9df760278",
+      "plots/data_morph/neurons_mixed.fluxplot.json": "b6e4ce5382eb2ad5ce7d7269204ac64edf9e26a6046657ca73f280c025b9e6bf",
+      "plots/data_morph/neurons_mixed.recipe.json": "c55ccbed21929bc91496c26ecf94e954ff6fced9fed26c62bf4bb96a89c64ba9",
+      "plots/data_morph/neurons_clustered.svg": "b77d54257a0c049b482e2ab9af562d5057b52b86e0668c83a5d576a274b79db3",
+      "plots/data_morph/neurons_clustered.fluxplot.json": "d7764c3dc77e6639c7ccd4dcf6c51aeb5b450ef21b4616dd570b85610a1849f8",
+      "plots/data_morph/neurons_clustered.recipe.json": "0b57ace4c4cb1decedf85cb19359a7ad2988d32aab27f81311373da64df96f91",
+      "plots/data_morph/neurons_reconfigured.svg": "4b8a2c321613be493e162575d5fee5208a78ebe33191fb88c6e89a8fe2c7ccd9",
+      "plots/data_morph/neurons_reconfigured.fluxplot.json": "898c6d1706977a8e81bf264bee5604ba3c3b4e2bb91ddea2eef6661816ecadf4",
+      "plots/data_morph/neurons_reconfigured.recipe.json": "cb4a69a620deef0d8c8372c9f7cd88b44a44c444760d9ee2b4227668a3b852d8",
+      "plots/surfaces/lorenz_attractor.svg": "578115c99710947f9a52ec22134718591a6a6325dd1dbb2607df0381fd538b1d",
+      "plots/matrices/spectrogram_night.svg": "9b813b3cbb29c6e0d290d5cd13bfbd98bc4a672afeeec0f31aeef18d91eed8ee",
+      "plots/stats/forest_effects.svg": "7453baade3dda9003a48d2f1978006bfdce98c0ca652d9f32601594301d0659c"
     }
   },
   "bundledPackages": [
+    "css-tree",
+    "source-map-js",
     "esm-env",
     "svelte"
   ],
   "outputs": {
-    "site/demos/neural-populations/index.html": {
-      "bytes": 2585054,
-      "sha256": "e76047706d3282d3b54600e32af59b2052302424e49585970d8d4994f6c06ee9"
+    "site/assets/media/plot-lorenz.svg": {
+      "bytes": 1032928,
+      "sha256": "578115c99710947f9a52ec22134718591a6a6325dd1dbb2607df0381fd538b1d"
+    },
+    "site/assets/media/plot-spectrum.svg": {
+      "bytes": 957800,
+      "sha256": "9b813b3cbb29c6e0d290d5cd13bfbd98bc4a672afeeec0f31aeef18d91eed8ee"
+    },
+    "site/assets/media/plot-effects.svg": {
+      "bytes": 15784,
+      "sha256": "7453baade3dda9003a48d2f1978006bfdce98c0ca652d9f32601594301d0659c"
+    },
+    "site/assets/media/xray/baseline.svg": {
+      "bytes": 13444,
+      "sha256": "c85b7ce2d2949abcbb9bd1bbfc1840d144664a808c1155abfbb008787a0dffb5"
+    },
+    "site/assets/media/xray/sharpened.svg": {
+      "bytes": 13685,
+      "sha256": "290283fc56f5b8e223fb27e0a3dabbf1ab38c4bff631fdb0ee5b308d8a7e75de"
+    },
+    "site/assets/media/xray/rebalanced.svg": {
+      "bytes": 15634,
+      "sha256": "89903cf62487fcca394b10425b4b46663be398940ece7cbfa16651f52627b79f"
+    },
+    "site/demos/data-morph/index.html": {
+      "bytes": 1237834,
+      "sha256": "c2f1e0d331003543a996d6800686557f930bf9789e2f9c2b12db479d40bf5882"
     },
     "site/assets/media/slide-poster.svg": {
-      "bytes": 322541,
-      "sha256": "7f95265c5cc9caf822f3b8d6f9d502da0183ee0733a8ea06355cfcae57706221"
+      "bytes": 94460,
+      "sha256": "7d46bb9ad3e85440fa79ee548aa2fbca3418998e57d1e090fb11be714dc63975"
     },
     "site/assets/brand/flux-mark.svg": {
       "bytes": 5352,
@@ -44,6 +92,14 @@
     "site/assets/licenses/Flux-MIT.txt": {
       "bytes": 1070,
       "sha256": "9cb484ed57e4668339b0dfd500e41ffc986e352a96f0601a2d4b44517d0296d1"
+    },
+    "site/assets/licenses/css-tree-LICENSE.txt": {
+      "bytes": 1065,
+      "sha256": "719a251ceca49c057ea90a1152af6546b767ec88e6d573bb6324454267b32c22"
+    },
+    "site/assets/licenses/source-map-js-LICENSE.txt": {
+      "bytes": 1526,
+      "sha256": "6cb0631f71c7749763fd3dd1d5bee52dd1070ec17f2edc1710079ad070bd2fbd"
     },
     "site/assets/licenses/esm-env-LICENSE.txt": {
       "bytes": 1063,

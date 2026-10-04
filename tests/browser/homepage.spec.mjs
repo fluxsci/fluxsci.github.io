@@ -95,7 +95,7 @@ test('full-size imagery opens accessibly and restores focus', async ({ page }) =
 test('homepage loads its native slide only on request and pauses offscreen', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('#slide-demo iframe')).toHaveCount(0);
-  await page.getByRole('button', { name:'Load the interactive neuroscience slides', exact:true }).click();
+  await page.getByRole('button', { name:'Load the interactive population slides', exact:true }).click();
   const iframe = page.locator('#slide-demo iframe');
   await expect(iframe).toHaveCount(1);
   const frame = page.frameLocator('#slide-demo iframe');
@@ -112,7 +112,7 @@ test('homepage loads its native slide only on request and pauses offscreen', asy
 
 test('native slide is a real independent player with manual steps and reduced motion', async ({ page }) => {
   await page.emulateMedia({ reducedMotion:'reduce' });
-  await page.goto('/demos/neural-populations/');
+  await page.goto('/demos/data-morph/');
   await expect.poll(() => page.evaluate(() => window.fluxWebsiteDemo?.state()?.beat)).toBe(0);
   await expect(page.getByRole('button', { name:'Toggle animation', exact:true })).toHaveAttribute('aria-pressed', 'false');
   await page.getByRole('button', { name:'Next animation step', exact:true }).click();
@@ -134,7 +134,7 @@ test('native slide is a real independent player with manual steps and reduced mo
 test('a narrow phone keeps every native slide control inside the frame', async ({ page }) => {
   await page.setViewportSize({ width:320, height:800 });
   await page.goto('/');
-  await page.getByRole('button', { name:'Load the interactive neuroscience slides', exact:true }).click();
+  await page.getByRole('button', { name:'Load the interactive population slides', exact:true }).click();
   const iframe = page.locator('#slide-demo iframe');
   const frame = page.frameLocator('#slide-demo iframe');
   await expect(frame.getByRole('button', { name:'Toggle animation', exact:true })).toBeVisible();
@@ -150,13 +150,13 @@ test('a narrow phone keeps every native slide control inside the frame', async (
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(320);
 });
 
-test('all four native scenes can be explored and retain their manual step', async ({ page }) => {
+test('both original native scenes can be explored and retain their manual step', async ({ page }) => {
   const errors=[];page.on('pageerror',error=>errors.push(error.message));
   await page.emulateMedia({ reducedMotion:'reduce' });
-  await page.goto('/demos/neural-populations/');
+  await page.goto('/demos/data-morph/');
   const select=page.getByRole('combobox', { name:'Explore the deck', exact:true });
-  await expect(select.locator('option')).toHaveCount(4);
-  const slides=['results','anatomy','tuning','population'];
+  await expect(select.locator('option')).toHaveCount(2);
+  const slides=['response-shapes','population-patterns'];
   for (let index=0;index<slides.length;index++) {
     await select.selectOption(String(index));
     await expect.poll(()=>page.evaluate(()=>window.fluxWebsiteDemo.selectedSlide())).toBe(slides[index]);
@@ -170,21 +170,15 @@ test('all four native scenes can be explored and retain their manual step', asyn
   expect(errors).toEqual([]);
 });
 
-test('the editable project has a usable download and the large scientific plate loads', async ({ page, request }) => {
+test('the curated plot survey loads and opens the unchanged source image', async ({ page }) => {
   await page.goto('/');
-  const download=page.getByRole('link', { name:'Download the Flux project', exact:true });
-  await expect(download).toHaveAttribute('download', '');
-  const response=await request.get(await download.getAttribute('href'));
-  expect(response.status()).toBe(200);
-  const bytes=await response.body();
-  expect(bytes.subarray(0,4).toString('hex')).toBe('504b0304');
-  expect(bytes.length).toBeGreaterThan(1_000_000);
-  const plate=page.locator('.science-plate img');
+  const plate=page.locator('.plot-range img').first();
   await plate.scrollIntoViewIfNeeded();
-  await expect.poll(()=>plate.evaluate(image=>image.complete&&image.naturalWidth>=1800)).toBe(true);
-  await page.getByRole('link', { name:'Enlarge the complete neuroscience figure', exact:true }).click();
+  await expect.poll(()=>plate.evaluate(image=>image.complete&&image.naturalWidth>0)).toBe(true);
+  await page.locator('.plot-range [data-enlarge]').first().click();
   await expect(page.getByRole('dialog')).toBeVisible();
-  await expect(page.locator('#media-dialog-image')).toHaveAttribute('src', /neural-figure.webp$/);
+  await expect(page.locator('#media-dialog-image')).toHaveAttribute('src', /plot-lorenz.svg$/);
+  await expect(page.locator('a[download]')).toHaveCount(0);
 });
 
 test('the entrance plays once per session and the mark blooms from 88 dots', async ({ page }) => {
@@ -202,21 +196,20 @@ test('the semantic-plot explorer names parts, restyles a series, and keeps the r
   const explorer = page.locator('#semantic-plot');
   await explorer.scrollIntoViewIfNeeded();
   await expect.poll(() => page.evaluate(() => document.querySelector('#semantic-plot')?.xray?.ready() ?? false)).toBe(true);
-  const hit = explorer.locator('svg [data-series="cell-587375741-guide"][data-role="line"] path.xray-hit');
+  const hit = explorer.locator('svg [data-series="population-a"][data-role="line"] path.xray-hit');
   await hit.dispatchEvent('pointerover');
-  await expect(explorer.locator('[data-xray-readout]')).toContainText('cell-587375741-guide.line');
+  await expect(explorer.locator('[data-xray-readout]')).toContainText('population-a.line');
   await hit.dispatchEvent('click');
-  await expect(explorer.locator('[data-xray-command]')).toContainText('flux restyle fig-neural-structure cell-587375741-guide.line --stroke');
-  const line = explorer.locator('svg [data-series="cell-587375741-guide"][data-role="line"] > path').first();
+  await expect(explorer.locator('[data-xray-command]')).toContainText('flux restyle fig-population panel.tuning.population-a.line --stroke');
+  const line = explorer.locator('svg [data-series="population-a"][data-role="line"] > path').first();
   const stroke = await line.evaluate(element => element.style.stroke);
   expect(stroke).not.toBe('');
-  const point = explorer.locator('svg [id$="cell-587375741-means.point.2"]');
-  const before = await point.getAttribute('y');
-  await page.getByRole('button', { name:'4 Hz', exact:true }).click();
-  await expect(page.getByRole('button', { name:'4 Hz', exact:true })).toHaveAttribute('aria-pressed', 'true');
-  await expect.poll(() => point.getAttribute('y')).not.toBe(before);
+  const before = await line.getAttribute('d');
+  await page.getByRole('button', { name:'Rebalanced', exact:true }).click();
+  await expect(page.getByRole('button', { name:'Rebalanced', exact:true })).toHaveAttribute('aria-pressed', 'true');
+  await expect.poll(() => line.getAttribute('d')).not.toBe(before);
   expect(await line.evaluate(element => element.style.stroke)).toBe(stroke);
-  await expect(explorer.locator('[data-xray-file]')).toHaveText('plots/advanced/16-tuning-landscape-4hz.svg');
+  await expect(explorer.locator('[data-xray-file]')).toHaveText('plots/data_morph/tuning_rebalanced.svg');
   expect(await page.locator('#figure').count()).toBe(1);
   expect(await page.locator('[id="figure"], [id="plot-area"]').count()).toBe(1);
 });
@@ -238,7 +231,7 @@ test.describe('without JavaScript', () => {
     await page.goto('/');
     await expect(page.getByRole('heading', { level:1 })).toBeVisible();
     const navigation = page.getByRole('navigation', { name:'Main navigation', exact:true });
-    await expect(navigation.getByRole('link', { name:/User guide/ })).toBeVisible();
+    await expect(navigation.getByRole('link', { name:/Documentation/ })).toBeVisible();
     await navigation.getByRole('link', { name:'Explore', exact:true }).click();
     await expect(page).toHaveURL(/#explore$/);
     await expect(page.locator('[data-enlarge]').first()).toHaveAttribute('href', /assets\/media\/paper\.webp$/);
@@ -246,7 +239,7 @@ test.describe('without JavaScript', () => {
     await fallback.scrollIntoViewIfNeeded();
     await expect(fallback).toBeVisible();
     await expect.poll(() => fallback.evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);
-    await page.goto('/demos/neural-populations/');
+    await page.goto('/demos/data-morph/');
     await expect(page.locator('img.fallback')).toBeVisible();
     expect(await page.locator('img.fallback').evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);
     await expect(page.locator('#native-player')).toBeEmpty();

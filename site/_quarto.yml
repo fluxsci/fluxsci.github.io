@@ -4,10 +4,14 @@ project:
   render:
     - index.qmd
     - 404.qmd
+    - install/index.qmd
+    - docs/index.qmd
+    - docs/first-project.qmd
+    - docs/projects-and-files.qmd
   resources:
     - assets/**
     - demos/**
-    - downloads/**
+    - install.sh
     - robots.txt
 
 website:
@@ -32,17 +36,20 @@ format:
     anchor-sections: false
     smooth-scroll: false
     lang: en
-    css: assets/styles/site.css
+    css:
+      - assets/styles/site.css
+      - assets/styles/docs.css
     include-in-header:
       text: |
         <meta name="color-scheme" content="light dark">
         <script>try{const theme=localStorage.getItem('flux-site-appearance');if(theme==='light'||theme==='dark')document.documentElement.setAttribute('data-theme',theme)}catch{}</script>
-        <script>(function(){var h=document.documentElement;h.classList.add('js');try{if(!sessionStorage.getItem('flux-intro')){sessionStorage.setItem('flux-intro','1');h.classList.add('intro')}}catch(e){h.classList.add('intro')}})()</script>
+        <script>(function(){var h=document.documentElement;h.classList.add('js');try{if(location.pathname==='/'&&!sessionStorage.getItem('flux-intro')){sessionStorage.setItem('flux-intro','1');h.classList.add('intro')}}catch(e){h.classList.add('intro')}})()</script>
         <link rel="canonical" href="https://fluxsci.github.io/">
         <meta property="og:type" content="website">
         <meta property="og:url" content="https://fluxsci.github.io/">
         <link rel="icon" href="/assets/brand/flux-mark.svg" type="image/svg+xml">
         <script src="/assets/scripts/site.js" defer></script>
+        <script src="/assets/scripts/docs.js" defer></script>
 
 execute:
   enabled: false

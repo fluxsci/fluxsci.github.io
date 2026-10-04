@@ -9,8 +9,3 @@ playwright-report/
 .env.*
 .cache/
 tmp/
-site/downloads/*.zip
-media/project-bundle.json
-examples/**/__pycache__/
-examples/**/.venv/
-examples/**/.meta/

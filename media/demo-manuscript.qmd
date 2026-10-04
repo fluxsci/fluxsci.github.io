@@ -1,0 +1,28 @@
+---
+title: "Patterns in a changing population"
+subtitle: "An illustrative study of response profiles and population geometry"
+author: Flux demonstration
+bibliography: ../references/library.bib
+---
+
+## One input, a range of responses
+
+A shared input need not produce a uniform response. Here, three synthetic populations respond across the same stimulus coordinate. Each curve has its own preferred input, width and strength. Alongside them, 108 model neurons form three groups in an illustrative response space.
+
+![](../fig/renders/fig-population.svg){#fig-population}
+
+The curves are a visual model, not experimental measurements. Their purpose is to make a relationship visible: an individual response has a shape, and a population contains many such shapes. The original plot keeps each curve's identity alongside the values that define it.
+
+## A result can hold an explanation
+
+A still figure makes comparison possible. A sequence makes the change itself visible. In the slide below, response profiles sharpen, shift and redistribute their strength. The curves keep their names as their values change, letting the reader follow a population through successive states.
+
+![](../slides/website-showcase/renders/response-shapes-step-0.svg){#slide-response-story .flux-slide deck="website-showcase" slide="response-shapes" width=100%}
+
+## Follow the same points
+
+A second illustration follows 108 synthetic neurons through three arrangements: a mixed population, separated clusters and a reorganized geometry. Color and point identity remain fixed. The movement describes a constructed example of changing coordinates; it does not imply a measured biological transition.
+
+## About this demonstration
+
+All numerical examples are synthetic. Source plots were supplied by the project's author and are shown without altering their content. Captions, writing and presentation composition were created for this website. These examples demonstrate a scientific workflow, rather than report a research finding.

@@ -1,0 +1,141 @@
+---
+title: "Your first project"
+description: "A practical first workflow in Flux: create a project, make a semantic plot, compose a figure, write and cite, present, and export."
+---
+
+<p class="eyebrow">Learn Flux / Start here</p>
+
+# Your first project {#your-first-project}
+
+::: {.doc-lead}
+Bring a plot into a figure. Give it a caption, a place in your manuscript, and a moment in your presentation. The same work stays connected throughout.
+:::
+
+<div class="guide-meta"><span>About 20 minutes</span><span>All five workspaces</span><span>Beginner</span></div>
+
+You’ll need [Flux installed](/install/). The plotting step uses Python and fluxplot; you can also begin with an SVG or PNG you already have. All numbers in the small example below are **synthetic**.
+
+## 1. Give the work a home {#create}
+
+Create a working folder called `growth-study`. In Flux, choose **New project** from Home and create a project named `paper` inside that folder.
+
+```text
+growth-study/
+└── paper/         ← your Flux project
+```
+
+Your analysis code will live in `growth-study`; the project holds the writing, plots, figures, references, and slides. Flux autosaves your work. If saving reports an error, resolve it before closing the app.
+
+You can return to the folder from Home, or open it from a terminal with `flux /path/to/growth-study/paper`. [Learn how projects and files fit together](projects-and-files.qmd).
+
+## 2. Make a plot with named parts {#plot}
+
+In a terminal, move to `growth-study` and create a Python environment:
+
+```bash
+uv init
+uv add fluxplot
+```
+
+Save the following as `make_growth.py` beside the `paper` folder. You use ordinary matplotlib axes; fluxplot adds a stable name to each series and saves the semantic files.
+
+```python
+from pathlib import Path
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+import fluxplot as fp
+
+time = [0, 4, 8, 12, 16, 20, 24]
+control = [0.02, 0.05, 0.13, 0.41, 0.95, 1.60, 1.90]
+treatment = [0.02, 0.07, 0.25, 0.80, 1.50, 1.95, 2.10]
+
+fig, ax = plt.subplots(figsize=(4.8, 3.2))
+fp.line(ax, time, control, series="control",
+        marker="o", label="Control")
+fp.line(ax, time, treatment, series="treatment",
+        marker="s", label="Treatment")
+ax.set(xlabel="Time (h)", ylabel="Illustrative response",
+       title="Two synthetic growth profiles")
+ax.legend(frameon=False)
+fig.tight_layout()
+
+output = Path(__file__).parent / "paper" / "plots" / "growth.svg"
+output.parent.mkdir(parents=True, exist_ok=True)
+fp.save(fig, output,
+        recipe={"script": str(Path(__file__).resolve()),
+                "params": {}, "inputs": []})
+```
+
+Run it:
+
+```bash
+uv run python make_growth.py
+```
+
+You now have three neighboring files in `paper/plots/`: `growth.svg`, `growth.fluxplot.json`, and `growth.recipe.json`. Keep them together. The SVG is the visible plot; the manifest describes its parts and data; the recipe records its producing script.
+
+::: {.doc-note}
+**Already have a plot?** Import any SVG or PNG to continue. Per-part editing and data morphs require semantic information, which fluxplot records when it creates a plot.
+:::
+
+## 3. Compose and refine in Figure {#figure}
+
+Switch to **Figure** in the titlebar. Open the **Plot gallery** with **Alt+G**, select `growth.svg`, and choose **Insert**. Flux imports at the plot’s physical size; the gallery marks semantic plots with a **◆** badge.
+
+Select a plot part with **Ctrl+click** (**⌘+click** on macOS). Press **F** to open its properties and change a line’s stroke color. **Alt+R** opens X-ray, where you can inspect the plot’s named parts and regeneration recipe.
+
+Try changing a number in `make_growth.py` and rerunning it. Flux refreshes the linked plot, retaining styling attached to stable series identities such as `control`. Source status in the figure catalog tells you whether the link is current, missing, or needs attention.
+
+Open **Figure-Meta** with **Alt+M** and add a caption. For this example: “Synthetic growth profiles for two illustrative conditions. Points show constructed values at seven time points; lines connect successive observations.”
+
+<figure class="doc-figure">
+<a href="/assets/media/figure-properties.webp" data-enlarge data-caption="A named response curve selected in Flux. The native property menu edits the selected part; the source plot remains linked."><img src="/assets/media/figure-properties.webp" alt="Flux Figure with one semantic curve selected and its native Properties menu open." width="1500" height="950" loading="lazy"></a>
+<figcaption>A named part has its own properties. This screenshot uses a separate synthetic response study.</figcaption>
+</figure>
+
+## 4. Collect and read a reference {#read}
+
+Open **Library** and paste a paper’s DOI into the add field, or import a BibTeX file. The reference joins your shared library, where it is available across projects. Use **Enrich** for additional metadata and the download control for an available open-access PDF.
+
+Open the paper in **Reader** from its Library row. Select a sentence and choose a highlight color, then attach a note to the highlight. Reader also supports tabs, side-by-side reading, and figure snips that retain their source provenance.
+
+A reference in your Library becomes part of a project’s bibliography when you cite it. [Library and project references](projects-and-files.qmd#library) explains the distinction.
+
+## 5. Write with the figure in view {#write}
+
+Switch to **Paper** and write a short paragraph. Three insertions connect the document to your work:
+
+- Type **`/figure`** and choose your figure to embed it with its caption.
+- Type **`@@`** to insert a cross-reference to the figure in your prose.
+- Type **`@`** and an author’s name to choose a citation from your library.
+
+Figure numbering follows the designation you choose in Figure. Reordering paragraphs does not renumber your figures. The permanent reference stays attached when you rename a figure or move it between canvases.
+
+Your manuscript remains a `.qmd` file. You can write equations, add tables, keep working notes, and review comments alongside the prose.
+
+## 6. Let the explanation unfold {#present}
+
+In **Slides**, compose a slide from the same plot sources. Add a beat for the next part of your explanation, then use the animation tools to reveal an element or transform it into a later state. Present at your own pace.
+
+An interactive slide can also live inside a Paper document. HTML preserves its steps; PDF and Word use a still. The example below uses Flux’s native player with newly composed website slides and unchanged synthetic plots.
+
+```{=html}
+<div class="slide-demo" id="slide-demo" data-demo-src="/demos/data-morph/index.html">
+<button type="button" class="demo-launch" aria-label="Load the interactive population slides" data-demo-start><img src="/assets/media/slide-poster.svg" alt="A synthetic response-profile slide. Load it to explore changes in curve shape." width="1100" height="720" loading="lazy"><span class="demo-launch-prompt"><span class="play-disc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 6 9 6-9 6Z" /></svg></span><span>Explore the explanation<small>You control the next step.</small></span></span></button>
+</div>
+```
+
+Use the arrows to advance. Choose **Population geometry** to follow the same 108 points through changing arrangements. These are synthetic illustrations, not experimental results. [Read the Slides guide](https://github.com/fluxsci/flux/blob/main/docs/modes/slide.qmd) for beats, transitions, video, and embedding.
+
+## 7. Export and keep the sources {#export}
+
+In Paper, choose **Export** and select PDF. Flux’s built-in PDF export does not require Quarto. Word export uses Quarto; install it through **Set up Flux** if needed. The separate `flux compile --to pdf` workflow also requires TeX.
+
+Check the exported figures, captions, and references, then keep your project folder alongside the result. It contains the editable work you will want for the next revision.
+
+::: {.next-reading}
+**Next: know what you’re keeping.**
+
+[Projects and files →](projects-and-files.qmd)
+:::

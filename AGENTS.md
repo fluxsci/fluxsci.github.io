@@ -3,22 +3,23 @@
 This is the independent Quarto website for Flux, intended for the GitHub repository
 `fluxsci/fluxsci.github.io` and `https://fluxsci.github.io/`.
 
-- Current scope is a polished homepage plus the infrastructure to build, test, preview and
-  publish it. Do not create empty guide pages. Link to current upstream documentation until
-  guide migration is implemented.
-- `site/` is the public Quarto source; `plans/` is internal; `dist/` is generated output.
-- The canonical editable demo lives in `examples/neural-populations/` in this repository.
-  Never overwrite user edits with a scaffold. Builds package it into an audited download ZIP;
-  refreshes read its actual authored figure/deck/doc files. Preserve public data attribution
-  and source terms. The original narrative is illustrative; never copy paper prose or figures.
+- Current scope is the homepage, installation, and documentation migration. The first review
+  milestone has two finished guides and a complete topic directory; remaining topics link to
+  current upstream guides. Do not publish empty guide pages.
+- `site/` is public Quarto source; `plans/` and `media/` are internal; `dist/` is generated.
+- Visual source plots come from the owner-authorized external project passed explicitly to
+  refresh tools. Preserve plot bytes. Never reuse its test slides, test figure canvases,
+  manuscript instructions, personal context, or library. Create original website slides,
+  captions and illustrative writing in the isolated temporary capture project.
 - Use real Flux screenshots and its native inline slide runtime. Never fabricate app UI or
-  reproduce its animation engine. Never use personal research or the user's FluxConfig.
+  reproduce its animation engine. Never read the user's FluxConfig.
 - Product dependency is pinned in `flux-source.json`. Ordinary site builds use reviewed,
   checked-in assets; refreshing product assets uses the pinned Flux checkout and records
   provenance. Do not silently read an arbitrary sibling app checkout during normal builds.
 - Match Flux: warm paper, near-black ink, Georgia/Gelasio, quiet blue controls, the current
   phyllotaxis mark, generous whitespace, scientific content with labeled illustrative data.
-- Main source is `site/index.qmd`. Theme CSS: `site/assets/styles/site.css`; browser behavior:
+- Homepage source is `site/index.qmd`; guides are `site/docs/`, installation is `site/install/`.
+  Routes and navigation live in `scripts/routes.mjs`. Theme CSS: `site/assets/styles/site.css`; browser behavior:
   `site/assets/scripts/site.js`. Use accessible native controls and respect reduced motion.
 - Run the site build and meaningful browser/asset checks before delivery. Inspect desktop,
   mobile, light/dark appearance and actual slide playback. Do not publish plans, test outputs,

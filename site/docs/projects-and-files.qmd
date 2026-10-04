@@ -1,0 +1,110 @@
+---
+title: "Projects and files"
+description: "How Flux stores documents, figures, slides and references, keeps linked plots current, and shares ordinary files with your tools and collaborators."
+---
+
+<p class="eyebrow">Learn Flux / Core concepts</p>
+
+# Projects and files {#projects-and-files}
+
+::: {.doc-lead}
+A Flux project is a folder you can open, inspect, back up, and share. Knowing what lives there makes the rest of the workspace easier to understand.
+:::
+
+<div class="guide-meta"><span>6 minute read</span><span>Core concepts</span></div>
+
+Your documents are plain-text Quarto files. Bibliographic entries live in BibTeX. Figure compositions and slide decks use readable JSON, with their accepted assets kept in the project. The application connects these files into a working environment.
+
+## A quick tour {#folder-tour}
+
+```text
+my-project/
+├── project.json       Project identity and registered documents
+├── paper/             Manuscripts and working notes (.qmd)
+├── plots/             Plots produced by your analysis
+├── fig/               Figure compositions, captions, accepted assets
+├── slides/            Decks, animation steps, accepted assets
+├── references/        The bibliography cited by this project
+├── Context/           Mission, notebook, and project rules
+└── exports/           Generated documents and presentations
+```
+
+Older projects may use `manuscript/` for documents; Flux supports that layout too. The [complete layout reference](https://github.com/fluxsci/flux/blob/main/docs/reference/project-layout.qmd) describes indexes, metadata, and additional folders.
+
+## Sources, compositions, and exports {#sources}
+
+These three kinds of files play different roles:
+
+| Kind | Examples | How to work with it |
+|:---|:---|:---|
+| **Source material** | `.qmd` documents, plot outputs, `references/library.bib` | Edit with Flux, a text editor, or the analysis script that produces them. |
+| **Managed composition** | Figure and deck JSON, captions, accepted SVG or GLB assets | Inspect freely. Make structural changes through Flux or its CLI so indexes and references stay coherent. |
+| **Generated output** | `fig/renders/`, exported PDF and Word files, previews | Regenerate from sources. Keep a final export when it records a submitted or shared version. |
+
+A rendered preview is replaceable. An accepted plot or mesh in `fig/assets/` or a deck’s `assets/` is part of the saved composition: retain it when sharing or backing up a project.
+
+## One plot, several uses {#linked-plots}
+
+Your analysis writes a source plot into `plots/`. Inserting it into Figure stores an accepted copy and the link to its source. The composition records placement, styling, and captions separately from the original data visualization.
+
+When the source changes, Flux refreshes the accepted SVG, manifest, and recipe. Figure, Paper, and Slides read that accepted version. Stable part identities let Flux retain edits to a named series while its data change.
+
+The figure catalog makes the link visible:
+
+- **Linked · current** — the accepted copy matches the source.
+- **Updating** — a source change is being processed.
+- **Source missing** or **Update failed** — the last good version is retained; review the error and retry **Reload sources** when ready.
+- **Frozen version** — the figure deliberately keeps an independent saved version.
+
+Use **Relink…** for a source that moved, or **Resume updates** to reconnect a frozen version. A slide copy has its own layout and annotations even when it shares source assets.
+
+::: {.doc-note}
+**A title is not a file path.** Figure titles, publication numbers, and permanent reference keys serve different purposes. Renaming a figure leaves its permanent reference intact. Moving an embedded figure in Paper does not change its designation.
+:::
+
+## Saving and outside edits {#saving}
+
+Flux autosaves as you work. A successful file replacement writes a temporary file before renaming it into place. Figure and deck saves also retain recovery information while related files change.
+
+Edits still waiting to save are not yet on disk. If a save fails, Flux keeps the editor dirty and reports the problem. Resolve it before closing; autosave is not a substitute for a backup.
+
+Flux also watches for edits made by another tool. If the affected file has no unsaved changes, the app reloads it. If you are mid-edit, it shows a conflict banner. Read the choices before deciding which version to keep. Figure’s **Overwrite with mine** preserves both versions in its conflict records before saving; newer or unreadable formats can refuse an overwrite.
+
+Undo remains available in the editors, including for supported external edits brought into the live workspace.
+
+## Your library and a project’s references {#library}
+
+**FluxLib** is your shared reference library. It contains the papers and attachments you collect across projects and lives inside your personal FluxConfig folder.
+
+Each project keeps its own `references/library.bib`: real copies of the entries it cites. This means the manuscript’s bibliography can travel with the project. Your entire personal library does not have to travel with it.
+
+Library PDFs and annotations may live outside the project. If a collaborator needs those attachments, share them separately or include the appropriate files deliberately. A project’s bibliography alone is not a copy of every PDF in FluxLib.
+
+## Working alongside an agent {#agents}
+
+Humans and agents work with the same project folder. The project’s `Context/` records its mission, running notebook, and rules. Personal guidance belongs in your shared environment and applies across projects.
+
+Flux’s commands coordinate edits with the app. An advisory lock can defer a command while the app is writing; supported project mutations are journaled so you can inspect who changed what. Use the CLI or connected tools for managed figures and decks, and keep comments attached to the passage, figure, or slide they concern.
+
+[Connect an agent](https://github.com/fluxsci/flux/blob/main/docs/agents/connect.qmd) · [Understand context](https://github.com/fluxsci/flux/blob/main/docs/agents/context.qmd) · [Comments and Inbox](https://github.com/fluxsci/flux/blob/main/docs/agents/annotations.qmd)
+
+## Share, back up, and return {#portability}
+
+Keep the complete project folder, including composition files and accepted assets. Plain text and JSON work well with version control. Generated previews and caches can usually be excluded; exported deliverables are worth retaining when their exact published state matters.
+
+An external analysis environment is a separate dependency. The accepted plot remains viewable when shared, but regenerating it may need the original script, data inputs, and Python environment. Share those alongside the project when reproducibility is part of the handoff.
+
+For a clean handoff:
+
+1. Let pending saves finish and resolve any reported errors.
+2. Copy the project folder with its accepted assets.
+3. Include source scripts, inputs, and an environment lockfile when regeneration is needed.
+4. Open the copy and check the documents, figure links, and presentation.
+
+Local save transactions do not make a cloud-sync snapshot atomic. Keep a separate backup, and check synchronization has finished before switching machines.
+
+::: {.next-reading}
+**Find the next tool for the job.**
+
+[Explore the documentation →](/docs/)
+:::

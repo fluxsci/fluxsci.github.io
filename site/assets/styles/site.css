@@ -3095,3 +3095,16 @@ html.intro .site-header {
     display: none;
   }
 }
+/* A quiet three-plot survey, preserving each authored source plot. */
+.plot-range {margin-top:90px;padding-top:45px;border-top:1px solid #ffffff24}
+.plot-range-heading {display:grid;grid-template-columns:1fr 1fr;column-gap:80px;margin-bottom:34px;align-items:start}
+.plot-range-heading .eyebrow {grid-column:1/-1;color:#b7b5ac}
+.plot-range-heading h3 {font-size:37px;line-height:1.2;font-weight:400;margin:12px 0 0}
+.plot-range-heading p:not(.eyebrow) {color:#b7b5ac;font-size:18px;margin:12px 0 20px}
+.plot-range-heading .text-link {grid-column:2;color:#83b5d4}
+.plot-range-grid {display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px}
+.plot-range-grid figure {margin:0;min-width:0}
+.plot-range-grid img {width:100%;height:250px;display:block;object-fit:contain;background:#fff;padding:20px;border-radius:5px}
+.plot-range-grid figcaption {font:11px var(--sans);letter-spacing:1px;color:#b7b5ac;padding-top:14px}
+@media(max-width:800px){.plot-range-heading {display:block}.plot-range-heading h3 {font-size:30px}.plot-range-grid {gap:12px}.plot-range-grid img {height:180px;padding:12px}}
+@media(max-width:560px){.plot-range-grid {grid-template-columns:1fr}.plot-range-grid img {height:270px;padding:22px}.plot-range-grid figcaption {margin-bottom:18px}.plot-range {margin-top:60px}.plot-range-heading h3 {font-size:28px}}

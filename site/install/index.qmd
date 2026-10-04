@@ -1,0 +1,152 @@
+---
+title: "Install Flux"
+description: "Install Flux on macOS or Debian and Ubuntu Linux. One command, optional companions, and a clear path to your first project."
+---
+
+<p class="eyebrow">Get started / Installation</p>
+
+# Install Flux. {#install-flux}
+
+::: {.doc-lead}
+One command puts the workspace on your machine. A short setup window takes care of the extras you need.
+:::
+
+::: {.availability-note role="note"}
+**The first desktop release is being prepared.** Flux v0.2.0 is currently a draft. The command below is ready for the public release, but **cannot install Flux until that release is published**. Follow [GitHub Releases](https://github.com/fluxsci/flux/releases) for availability. Developers can [run Flux from source](#from-source) today.
+:::
+
+## One line to install {#install-command}
+
+Open **Terminal** on macOS, or your terminal on Linux, and paste:
+
+```bash
+curl -fsSL https://fluxsci.github.io/install.sh | bash
+```
+
+<div class="platform-line"><span>macOS · Apple Silicon &amp; Intel</span><span>Debian / Ubuntu · x86-64</span></div>
+
+The installer downloads the latest public release, verifies its SHA-256 checksum, installs Flux, and opens it. On macOS, it uses `/Applications` or your user Applications folder. On Linux, it installs a `.deb` through `apt`, which may ask for your password. It adds one marked line to your shell profile so new terminals can find the `flux` command.
+
+[Read the installer](/install.sh){.text-link} · [View its source on GitHub](https://github.com/fluxsci/flux/blob/main/install.sh){.text-link}
+
+Windows and other Linux distributions do not yet have a supported installer.
+
+## Set up what you need {#setup}
+
+The first launch opens **Set up Flux**. You can return to it through **Settings → General → Setup**, or search **Set up Flux…** in the command palette.
+
+| What you want to do | What to set up |
+|:---|:---|
+| Compose figures, present slides, read PDFs, or export a PDF from Flux | Ready in the app. |
+| Export a Word document or use `flux compile` | Install **Quarto** from the setup window. |
+| Build a PDF through Quarto or `flux compile --to pdf` | Add **TinyTeX** from the setup window. |
+| Make semantic plots in Python | Add **fluxplot** to your analysis environment. |
+| Work with Claude Code or Codex | Install and sign in to your agent, then connect it through the **AI agents** row. |
+
+Quarto and TinyTeX are optional. Flux's own PDF export works without either. The setup window installs companions in your user folders and checks for tools you already have.
+
+### Add fluxplot to an analysis environment
+
+In an existing [uv](https://docs.astral.sh/uv/) project:
+
+```bash
+uv add fluxplot
+```
+
+For 3D mesh exports:
+
+```bash
+uv add "fluxplot[mesh]"
+```
+
+Using another Python environment? Run `pip install fluxplot` there. For a new uv project, run `uv init` first. Fluxplot belongs beside your analysis code; each plot's recipe records how to regenerate it.
+
+### Connect your AI collaborator
+
+Open **AI** in the Flux titlebar, choose **Connect** for your agent, review any proposed replacements, then restart open agent sessions. The connection panel provides the command to start working with a particular project. [Read the agent connection guide](https://github.com/fluxsci/flux/blob/main/docs/agents/connect.qmd).
+
+## Check the installation {#verify}
+
+Open a **new terminal** after installing:
+
+```bash
+flux version
+```
+
+This prints the installed build. If you connected an agent, check its setup with:
+
+```bash
+flux connect doctor
+```
+
+To check fluxplot from your analysis project:
+
+```bash
+uv run python -c "import fluxplot; print('fluxplot is ready')"
+```
+
+## Keep Flux up to date {#updates}
+
+Run the installation command again to update to the latest public release. Flux can also check for updates once a day; turn that check on or off in Settings.
+
+On macOS, **Update now** waits for Flux to close, replaces the app, and reopens it. On Linux, Flux offers the update command to copy, because `apt` may need your password.
+
+To choose a specific **published** release:
+
+```bash
+curl -fsSL https://fluxsci.github.io/install.sh | bash -s -- --version v0.2.0
+```
+
+The v0.2.0 example becomes usable once that release is public.
+
+## If something needs attention {#troubleshooting}
+
+<details class="doc-details"><summary>The command cannot find a public release</summary>
+
+The first release is still in draft. The installer cannot download draft assets anonymously. Check [GitHub Releases](https://github.com/fluxsci/flux/releases) and try again when a release appears there.
+
+</details>
+
+<details class="doc-details"><summary>My terminal says “flux: command not found”</summary>
+
+Open a new terminal so the installer’s PATH change takes effect. If the command is still unavailable, open **Set up Flux → flux in the terminal** to install the launcher.
+
+</details>
+
+<details class="doc-details"><summary>Word export or a Quarto PDF will not build</summary>
+
+For Word, install Quarto in the setup window. For `flux compile --to pdf`, add TinyTeX too. Journal PDF styles may also need TeX packages or an SVG converter; the [companion-tool reference](https://github.com/fluxsci/flux/blob/main/docs/installation.qmd#extras-for-journal-styled-pdf) lists those requirements. Flux’s own PDF export remains available without this setup.
+
+</details>
+
+<details class="doc-details"><summary>The installer reports a checksum mismatch</summary>
+
+No app was installed. Run the command again to download a fresh copy. If it persists, check the release’s published checksums and report the problem in [Flux issues](https://github.com/fluxsci/flux/issues).
+
+</details>
+
+<details class="doc-details"><summary>I want to uninstall Flux</summary>
+
+On macOS, delete Flux from the Applications folder where it was installed. On Linux, run `sudo apt remove flux`. Your projects and `~/FluxConfig` remain in place. Keep that folder if you want to retain your library, context, and reusable plots.
+
+</details>
+
+## Run from source {#from-source}
+
+Contributors and early testers can run the current source checkout with **Node.js 22.15 or newer**:
+
+```bash
+git clone https://github.com/fluxsci/flux
+cd flux
+npm ci
+node node_modules/electron/install.js
+npm run electron:dev
+```
+
+The Electron download is a separate step. A source checkout is also needed for the separate [Lighttable companion](https://github.com/fluxsci/flux/blob/main/docs/lighttable.qmd).
+
+::: {.next-reading}
+**Next: make something.**
+
+[Create your first project →](/docs/first-project.html)
+:::

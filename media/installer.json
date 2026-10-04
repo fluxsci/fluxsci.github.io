@@ -1,0 +1,10 @@
+{
+  "source": {
+    "repository": "https://github.com/fluxsci/flux.git",
+    "revision": "9f5c7ccbe3916107fbcf8b9d53d5cf4cf99bf58e",
+    "version": "0.2.0"
+  },
+  "upstreamPath": "install.sh",
+  "sha256": "0aa230d9724371ebbea9e7e04f1fbeb5cebadc416c5cd72fcc765ea10e4ddb54",
+  "bytes": 8522
+}

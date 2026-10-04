@@ -17,11 +17,11 @@
     const guide = preview.querySelector("[data-workspace-guide]");
     const prompt = preview.querySelector(".workspace-prompt");
     const workspaces = {
-      paper: ["Paper", "Write with your figures, citations, and working notes in reach.", "Flux Paper workspace with the neural-populations manuscript, project documents, and its composed neuroscience figure."],
-      figure: ["Figure", "Compose the whole figure. Refine every individual part.", "Flux Figure workspace with the editable multi-panel neuroscience composition and its layers."],
-      slides: ["Slides", "Give the same figures a timeline. Build the explanation step by step.", "Flux Slides workspace with the neural-populations deck and its editable animation steps."],
-      library: ["Library", "A lasting collection of references, ready for every project.", "Flux Library workspace with the public neuroscience collection, paper metadata, and organization controls."],
-      reader: ["Reader", "Read closely. Keep your notes connected to the evidence.", "Flux Reader workspace displaying the original neuroscience manuscript and its reading tools."],
+      paper: ["Paper", "Write with your figures, citations, and working notes in reach.", "Flux Paper workspace with the synthetic population study, project documents, and a connected scientific figure."],
+      figure: ["Figure", "Compose the whole figure. Refine every individual part.", "Flux Figure workspace with the editable response-profile composition and its layers."],
+      slides: ["Slides", "Give the same figures a timeline. Build the explanation step by step.", "Flux Slides workspace with the new website showcase deck and its editable animation steps."],
+      library: ["Library", "A lasting collection of references, ready for every project.", "Flux Library workspace with the illustrative study collection, paper metadata, and organization controls."],
+      reader: ["Reader", "Read closely. Keep your notes connected to the evidence.", "Flux Reader workspace displaying the original synthetic-population manuscript and its reading tools."],
     };
     const loads = new Map();
     let request = 0;
@@ -250,7 +250,7 @@
     let current = Number(container.dataset.initial || 0);
     let svg = null;
     let hot = null;
-    let tweening = false;
+    let stateRequest = 0;
     let started = false;
 
     const originalId = (element) => (element?.id || "").replace(PREFIX, "");
@@ -267,7 +267,7 @@
     const seriesPartId = (part) => {
       const series = seriesOf(part);
       if (!series) return originalId(part);
-      return `${series}.${part.dataset.role === "point" ? "points" : part.dataset.role}`;
+      return originalId(part);
     };
     const colorOf = (part) => {
       const element = part.matches("use") ? part : part.querySelector("path, text") || part;
@@ -472,112 +472,19 @@
       renderParts();
     }
 
-    function polyline(d) {
-      const numbers = d.match(/-?\d*\.?\d+(?:e-?\d+)?/g)?.map(Number) || [];
-      const points = [];
-      for (let k = 0; k + 1 < numbers.length; k += 2) points.push([numbers[k], numbers[k + 1]]);
-      return points;
-    }
-
-    function sampleY(points, x) {
-      if (x <= points[0][0]) return points[0][1];
-      for (let k = 1; k < points.length; k++) {
-        if (x <= points[k][0]) {
-          const [x0, y0] = points[k - 1];
-          const [x1, y1] = points[k];
-          const t = x1 === x0 ? 0 : (x - x0) / (x1 - x0);
-          return y0 + (y1 - y0) * t;
-        }
-      }
-      return points[points.length - 1][1];
-    }
-
-    function blendPath(a, b, t) {
-      const x0 = Math.min(a[0][0], b[0][0]);
-      const x1 = Math.max(a[a.length - 1][0], b[b.length - 1][0]);
-      const steps = 96;
-      let d = "";
-      for (let k = 0; k <= steps; k++) {
-        const x = x0 + ((x1 - x0) * k) / steps;
-        const y = sampleY(a, x) + (sampleY(b, x) - sampleY(a, x)) * t;
-        d += `${k ? " L " : "M "}${x.toFixed(3)} ${y.toFixed(3)}`;
-      }
-      return d;
-    }
-
     async function goTo(index) {
-      if (index === current || tweening || index < 0 || index >= states.length) return;
+      if (index === current || index < 0 || index >= states.length) return;
+      const token = ++stateRequest;
       let next;
       try {
         next = parse(await load(index));
+        if(token !== stateRequest) return;
       } catch {
         return;
       }
-      if (!svg || reducedMotion.matches) {
-        mount(next, index);
-        return;
-      }
-      const moves = [];
-      next.querySelectorAll('use[data-role="point"]').forEach((target) => {
-        const source = svg.querySelector(`[id="${target.id}"]`);
-        if (!source) return;
-        moves.push({
-          kind: "point",
-          element: source,
-          hit: source.nextElementSibling?.classList.contains("xray-hit") ? source.nextElementSibling : null,
-          x0: Number(source.getAttribute("x")),
-          y0: Number(source.getAttribute("y")),
-          x1: Number(target.getAttribute("x")),
-          y1: Number(target.getAttribute("y")),
-        });
-      });
-      next.querySelectorAll('[data-role="line"] > path').forEach((target) => {
-        const source = svg.querySelector(`[id="${target.parentNode.id}"] > path`);
-        if (!source) return;
-        moves.push({
-          kind: "line",
-          element: source,
-          hit: source.nextElementSibling?.classList.contains("xray-hit") ? source.nextElementSibling : null,
-          a: polyline(source.getAttribute("d")),
-          b: polyline(target.getAttribute("d")),
-        });
-      });
-      tweening = true;
-      stateButtons.forEach((button) => {
-        button.disabled = true;
-      });
       highlight(null);
       describe(null);
-      const duration = 760;
-      const start = performance.now();
-      const ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
-      const frame = (now) => {
-        const t = Math.min(1, (now - start) / duration);
-        const e = ease(t);
-        for (const move of moves) {
-          if (move.kind === "point") {
-            const x = (move.x0 + (move.x1 - move.x0) * e).toFixed(3);
-            const y = (move.y0 + (move.y1 - move.y0) * e).toFixed(3);
-            move.element.setAttribute("x", x);
-            move.element.setAttribute("y", y);
-            move.hit?.setAttribute("cx", x);
-            move.hit?.setAttribute("cy", y);
-          } else {
-            const d = blendPath(move.a, move.b, e);
-            move.element.setAttribute("d", d);
-            move.hit?.setAttribute("d", d);
-          }
-        }
-        if (t < 1) requestAnimationFrame(frame);
-        else {
-          mount(next, index);
-          tweening = false;
-          stateButtons.forEach((button) => {
-            button.disabled = false;
-          });
-        }
-      };
-      requestAnimationFrame(frame);
+      mount(next, index);
     }
 
     function start() {

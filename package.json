@@ -12,14 +12,13 @@
     "dev": "node scripts/dev.mjs",
     "preview": "node scripts/serve.mjs",
     "check": "node scripts/check.mjs",
-    "test": "npm run build && node --test tests/server.test.mjs tests/bundle-project.test.mjs && playwright test",
+    "test": "npm run build && node --test tests/server.test.mjs && playwright test",
     "test:browser": "playwright test",
     "test:install": "playwright install chromium firefox webkit"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.13.0",
     "@playwright/test": "1.63.0",
-    "cheerio": "1.2.0",
-    "fflate": "0.8.3"
+    "cheerio": "1.2.0"
   }
 }

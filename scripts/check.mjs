@@ -5,12 +5,13 @@ import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { load } from 'cheerio';
 import { ROOT, SOURCE, OUTPUT, isInside } from './paths.mjs';
+import {routes,ORIGIN} from './routes.mjs';
 
 const PUBLIC_ASSET = /^(?:assets|demos)\/(?:[\w@().-]+\/)*[\w@().-]+\.(?:html|css|js|svg|png|webp|jpg|jpeg|avif|woff2?|ttf|mp4|webm|vtt)$/;
 const FONT_LICENSE = /^assets\/fonts\/(?:OFL|LICENSE)[\w.-]*\.txt$/;
 const RUNTIME_LICENSE = /^assets\/licenses\/[\w.-]+\.txt$/;
-const SOURCE_FILES = new Set(['index.qmd', '404.qmd', '_quarto.yml', 'robots.txt']);
-const OUTPUT_FILES = new Set(['index.html', '404.html', 'robots.txt', 'sitemap.xml', '.nojekyll']);
+const SOURCE_FILES = new Set([...routes.map(r=>r.source), '_quarto.yml', 'robots.txt','install.sh']);
+const OUTPUT_FILES = new Set([...routes.map(r=>r.output),'robots.txt','sitemap.xml','.nojekyll','install.sh','search-index.json']);
 
 async function filesIn(directory, prefix = '') {
   const entries = await readdir(directory, { withFileTypes:true });
@@ -26,7 +27,7 @@ async function filesIn(directory, prefix = '') {
 }
 
 function allowedAsset(file) {
-  return file === 'downloads/neural-populations.zip' || (PUBLIC_ASSET.test(file) && (!file.endsWith('.html') || file.startsWith('demos/'))) || FONT_LICENSE.test(file) || RUNTIME_LICENSE.test(file);
+  return (PUBLIC_ASSET.test(file) && (!file.endsWith('.html') || file.startsWith('demos/'))) || FONT_LICENSE.test(file) || RUNTIME_LICENSE.test(file);
 }
 
 export async function checkSource() {
@@ -48,6 +49,8 @@ export async function checkSource() {
       assert.equal(createHash('sha256').update(bytes).digest('hex'), expected.sha256, `Asset hash changed; refresh provenance for ${file}`);
     }
   }
+  const installer=JSON.parse(await readFile(path.join(ROOT,'media/installer.json'),'utf8'));
+  assert.equal(createHash('sha256').update(await readFile(path.join(SOURCE,'install.sh'))).digest('hex'),installer.sha256,'Installer differs from reviewed upstream script');
   return files;
 }
 
@@ -75,7 +78,7 @@ export async function checkOutput() {
   for (const file of files) {
     assert(OUTPUT_FILES.has(file) || allowedAsset(file), `Unexpected output: ${file}. The publication allowlist must be deliberately reviewed.`);
     const stat = await lstat(path.join(OUTPUT, file)); bytes += stat.size;
-    const limitMB = file === 'downloads/neural-populations.zip' ? 40 : 15;
+    const limitMB = 15;
     assert(stat.size <= limitMB * 1024 * 1024, `Oversized public asset (>${limitMB} MB): ${file}`);
     if (!/\.(?:html|css|js|svg|xml|txt)$/.test(file)) continue;
     const text = await readFile(path.join(OUTPUT, file), 'utf8');
@@ -102,18 +105,17 @@ export async function checkOutput() {
         if (reference) await resolveLocal(reference, file, file);
       }
     }
-    if (file === 'index.html') {
-      assert.equal($('h1').length, 1, 'Homepage needs exactly one h1.');
-      assert($('meta[name="description"]').attr('content')?.trim(), 'Homepage needs a description.');
-      assert.equal($('link[rel="canonical"]').attr('href'), 'https://fluxsci.github.io/');
-      for (const image of $('img').toArray()) assert($(image).attr('alt') !== undefined, 'Every homepage image needs alt text (empty for decoration).');
+    if (routes.some(r=>r.output===file)) {
+      assert.equal($('h1').length, 1, `${file} needs exactly one h1.`);
+      assert($('meta[name="description"]').attr('content')?.trim(), `${file} needs a description.`);
+      assert.equal($('link[rel="canonical"]').attr('href'),ORIGIN+routes.find(r=>r.output===file).url);
+      for (const image of $('img').toArray()) assert($(image).attr('alt') !== undefined, `Every image in ${file} needs alt text (empty for decoration).`);
       for (const iframe of $('iframe').toArray()) assert($(iframe).attr('title')?.trim(), 'Every iframe needs a title.');
     }
   }
+  const installer = JSON.parse(await readFile(path.join(ROOT,'media/installer.json'),'utf8'));
+  assert.equal(createHash('sha256').update(await readFile(path.join(OUTPUT,'install.sh'))).digest('hex'),installer.sha256,'Published installer differs from reviewed upstream script');
   assert(bytes <= 150 * 1024 * 1024, 'Site exceeds 150 MB publication budget.');
-  const bundle = JSON.parse(await readFile(path.join(ROOT, 'media/project-bundle.json'), 'utf8'));
-  const download = await readFile(path.join(OUTPUT, 'downloads/neural-populations.zip'));
-  assert.equal(createHash('sha256').update(download).digest('hex'), bundle.sha256, 'Published project download differs from the verified bundle.');
   for (const manifestFile of ['media/native-assets.json', 'media/screenshots.json']) {
     const manifest = JSON.parse(await readFile(path.join(ROOT, manifestFile), 'utf8'));
     for (const [file, expected] of Object.entries(manifest.outputs)) {

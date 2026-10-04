@@ -83,10 +83,8 @@ description: "Figures, presentations, literature, and papers in one connected wo
     >
       <a href="#explore">Explore</a>
       <a href="#connected">How it connects</a>
-      <a href="https://github.com/fluxsci/flux/blob/main/docs/index.qmd"
-        >User guide<svg class="icon external-icon" aria-hidden="true">
-          <use href="#i-external" /></svg
-      ></a>
+      <a href="/docs/"
+        >Documentation</a>
     </nav>
     <div class="header-actions">
       <label class="theme-select"
@@ -98,8 +96,8 @@ description: "Figures, presentations, literature, and papers in one connected wo
           <option value="dark">Dark</option>
         </select></label
       >
-      <a class="header-start" href="#get-started"
-        >Get started<svg class="icon" aria-hidden="true">
+      <a class="header-start" href="/install/"
+        >Install Flux<svg class="icon" aria-hidden="true">
           <use href="#i-arrow" /></svg
       ></a>
     </div>
@@ -209,7 +207,7 @@ description: "Figures, presentations, literature, and papers in one connected wo
       <div class="hero-actions intro-rise" style="--intro-delay: 300ms">
         <a
           class="button button-primary"
-          href="https://github.com/fluxsci/flux/blob/main/docs/installation.qmd"
+          href="/install/"
           >Get started with Flux<svg class="icon" aria-hidden="true">
             <use href="#i-arrow" /></svg></a
         ><a class="text-link" href="#explore"
@@ -237,7 +235,7 @@ description: "Figures, presentations, literature, and papers in one connected wo
         aria-label="Enlarge the Flux Paper workspace"
         ><img
           src="assets/media/paper.webp"
-          alt="Flux Paper workspace with the neural-populations manuscript, project documents, and its composed neuroscience figure."
+          alt="Flux Paper workspace with the synthetic population study, project documents, and a connected scientific figure."
           width="1500"
           height="950"
           fetchpriority="high"
@@ -318,7 +316,7 @@ description: "Figures, presentations, literature, and papers in one connected wo
         aria-label="Enlarge the Paper screenshot"
         ><img
           src="assets/media/paper-detail.webp"
-          alt="A close view of the Paper document, with an original neuroscience manuscript and its multi-panel population-response figure."
+          alt="A close view of the Paper document, with an illustrative manuscript and its response-profile figure."
           width="1158"
           height="760"
           loading="lazy"
@@ -389,7 +387,7 @@ description: "Figures, presentations, literature, and papers in one connected wo
           <span class="caption-index">02</span>The whole composition, down to
           the individual part.<a class="text-link caption-note"
             href="assets/media/figure-properties.webp" data-enlarge
-            data-caption="A single bar in the preferred-direction plot, selected in the real Figure workspace. Its native property menu exposes color, stroke, opacity, and position without rerunning the analysis."
+            data-caption="A named response curve selected in the real Figure workspace. Its native property menu exposes stroke, opacity, and position without rerunning the analysis."
             aria-label="See plot-part editing in Flux">See part editing<svg class="icon" aria-hidden="true"><use href="#i-zoom" /></svg></a>
         </figcaption>
       </figure>
@@ -397,23 +395,23 @@ description: "Figures, presentations, literature, and papers in one connected wo
         class="xray"
         id="semantic-plot"
         data-xray
-        data-figure="fig-neural-structure"
-        data-initial="1"
-        data-states="1 Hz|assets/media/xray/tuning-landscape-1hz.svg|plots/advanced/16-tuning-landscape-1hz.svg;2 Hz|assets/media/xray/tuning-landscape-2hz.svg|plots/advanced/16-tuning-landscape-2hz.svg;4 Hz|assets/media/xray/tuning-landscape-4hz.svg|plots/advanced/16-tuning-landscape-4hz.svg"
+        data-figure="fig-population"
+        data-initial="0"
+        data-states="Broad|assets/media/xray/baseline.svg|plots/data_morph/tuning_baseline.svg;Sharper|assets/media/xray/sharpened.svg|plots/data_morph/tuning_sharpened.svg;Rebalanced|assets/media/xray/rebalanced.svg|plots/data_morph/tuning_rebalanced.svg"
         data-reveal
       >
         <div class="xray-stage-wrap">
           <div class="xray-topline">
             <span
               ><span class="status-dot"></span>Try it: one plot, every part editable</span
-            ><code data-xray-file>plots/advanced/16-tuning-landscape-2hz.svg</code>
+            ><code data-xray-file>plots/data_morph/tuning_baseline.svg</code>
           </div>
           <div class="xray-stage" data-xray-stage>
             <img
-              src="assets/media/xray/tuning-landscape-2hz.svg"
-              alt="Direction tuning of six identified neurons at 2 Hz: eight measured means per cell with a smooth guide curve, one row per cell."
-              width="331"
-              height="312"
+              src="assets/media/xray/baseline.svg"
+              alt="Three synthetic neural response profiles, each with a persistent series identity."
+              width="460"
+              height="211"
               loading="lazy"
               decoding="async"
             />
@@ -421,12 +419,12 @@ description: "Figures, presentations, literature, and papers in one connected wo
           <div
             class="xray-states"
             role="group"
-            aria-label="Regenerate the plot at another temporal frequency"
+            aria-label="Choose a synthetic response state"
           >
-            <span class="xray-states-label">Rerun the analysis at</span>
-            <button type="button" data-xray-state="0" aria-pressed="false">1 Hz</button>
-            <button type="button" data-xray-state="1" aria-pressed="true">2 Hz</button>
-            <button type="button" data-xray-state="2" aria-pressed="false">4 Hz</button>
+            <span class="xray-states-label">Compare states</span>
+            <button type="button" data-xray-state="0" aria-pressed="true">Broad</button>
+            <button type="button" data-xray-state="1" aria-pressed="false">Sharper</button>
+            <button type="button" data-xray-state="2" aria-pressed="false">Rebalanced</button>
           </div>
         </div>
         <aside class="xray-panel" aria-label="X-ray of the plot">
@@ -441,28 +439,24 @@ description: "Figures, presentations, literature, and papers in one connected wo
           <div class="xray-command">
             <span class="xray-command-label">The same name, from the terminal</span
             ><code data-xray-command
-              >flux restyle fig-neural-structure cell-587375741-guide.line --stroke '#205ea6'</code
+              >flux restyle fig-population panel.tuning.population-a.line --stroke '#205ea6'</code
             >
           </div>
         </aside>
         <p class="xray-caption">
-          Select a curve to change its color, then choose another frequency.
-          The data change; your styling stays. This is a real plot from the
-          <a href="#example-project">downloadable example project</a>.
+          Select a curve to change its color, then choose another state.
+          The data change; your styling stays. Original source plots, synthetic data.
+          <a href="/docs/#plots">Explore fluxplot →</a>
         </p>
       </div>
-      <figure class="science-plate module-visual" data-reveal>
-        <a class="media-enlarge" href="assets/media/neural-figure.webp" data-enlarge
-          data-caption="Neuronal networks flexibly encode diverse stimuli. An original eleven-panel Flux composition of public Allen Institute data: brain anatomy, reconstructed neurons, a 143-cell response atlas, example cells, population trajectories, similarity structure and tuning statistics. The anatomy and response recordings come from separate datasets."
-          aria-label="Enlarge the complete neuroscience figure">
-          <img src="assets/media/neural-figure.webp"
-            alt="An eleven-panel scientific figure: a shaded mouse-brain surface with the visual areas painted on, three reconstructed neurons, a 143-cell response atlas across eight directions, example-cell traces with tuning roses, three-dimensional population trajectories, a similarity matrix, a ring network, response geometry, selectivity, frequency tuning and a rose of preferred directions."
-            width="1800" height="1150" loading="lazy" decoding="async" />
-          <span class="zoom-hint"><svg class="icon" aria-hidden="true"><use href="#i-zoom" /></svg>Inspect every panel</span>
-        </a>
-        <figcaption><span class="caption-index">Inside the example</span>
-          From anatomy to population activity.<span class="caption-note">One editable composition. Eleven panels, every part named.</span></figcaption>
-      </figure>
+      <div class="plot-range" data-reveal>
+        <div class="plot-range-heading"><p class="eyebrow">Made with fluxplot</p><h3>Different questions.<br />The same attention to detail.</h3><p>Geometry, structure, and uncertainty. Ordinary Python, with meaning carried into every figure.</p><a class="text-link" href="/docs/#plots">Meet the plotting ecosystem →</a></div>
+        <div class="plot-range-grid">
+          <figure><a href="assets/media/plot-lorenz.svg" data-enlarge data-caption="A Lorenz attractor from the supplied visual library. A mathematical illustration rendered as an unchanged source plot."><img src="assets/media/plot-lorenz.svg" alt="A colored three-dimensional Lorenz attractor tracing a butterfly-shaped trajectory." width="432" height="336" loading="lazy"></a><figcaption>01 / Geometry</figcaption></figure>
+          <figure><a href="assets/media/plot-spectrum.svg" data-enlarge data-caption="A synthetic overnight spectrogram, preserved from the supplied plot library. Color represents power across time and frequency."><img src="assets/media/plot-spectrum.svg" alt="A heatmap of synthetic spectral power through an illustrative night." width="480" height="300" loading="lazy"></a><figcaption>02 / Structure</figcaption></figure>
+          <figure><a href="assets/media/plot-effects.svg" data-enlarge data-caption="A forest plot of illustrative effect estimates and their uncertainty. Synthetic demonstration data, with the original plot content preserved."><img src="assets/media/plot-effects.svg" alt="A forest plot showing synthetic effect estimates with horizontal uncertainty intervals." width="384" height="336" loading="lazy"></a><figcaption>03 / Uncertainty</figcaption></figure>
+        </div>
+      </div>
     </section>
 
     <section
@@ -506,19 +500,19 @@ description: "Figures, presentations, literature, and papers in one connected wo
         <div
           class="slide-demo"
           id="slide-demo"
-          data-demo-src="demos/neural-populations/index.html"
+          data-demo-src="demos/data-morph/index.html"
         >
           <button
             type="button"
             class="demo-launch"
-            aria-label="Load the interactive neuroscience slides"
+            aria-label="Load the interactive population slides"
             data-demo-start
           >
             <img
               src="assets/media/slide-poster.svg"
-              alt="Neuronal population responses and a network of response similarities. Load the native Flux slides to explore anatomy, tuning, and population activity step by step."
-              width="960"
-              height="540"
+              alt="Three synthetic response profiles. Explore how curves change shape and how a population changes geometry."
+              width="1100"
+              height="720"
               loading="lazy"
             /><span class="demo-launch-prompt"
               ><span class="play-disc" aria-hidden="true"
@@ -534,10 +528,10 @@ description: "Figures, presentations, literature, and papers in one connected wo
         <div class="demo-caption">
           <p>
             <strong>Follow the population.</strong> Choose a scene, then use
-            the arrows to reveal its explanation. Four editable slides,
+            the arrows to follow the changing data. Two original website slides,
             presented with Flux’s own player.
           </p>
-          <a href="demos/neural-populations/index.html" class="text-link"
+          <a href="demos/data-morph/index.html" class="text-link"
             >Open on its own<svg class="icon" aria-hidden="true">
               <use href="#i-external" /></svg
           ></a>
@@ -545,14 +539,12 @@ description: "Figures, presentations, literature, and papers in one connected wo
         <details class="demo-description">
           <summary>Read the demonstration without playing it</summary>
           <p>
-            The opening scene introduces responses from a neuronal population.
-            Its steps reveal a stimulus-response heatmap, a network connecting
-            cells with similar response profiles, and a short interpretation.
-            The other scenes explore brain and cell anatomy, stimulus tuning,
-            and low-dimensional population activity. All designs and prose
-            are original; the underlying data are public Allen Institute data.
-            This is an illustrative project, with anatomical context drawn
-            from separate specimens and no claim of a new research finding.
+            The first scene follows three synthetic response curves as they sharpen,
+            shift, and redistribute their strength. The second follows 108 synthetic
+            points through changing population geometries. Plot identities remain
+            stable as their coordinates change. The slides and writing were created
+            for this website from the author’s original plot files. All data are
+            illustrative and do not establish an experimental finding.
           </p>
         </details>
       </div>
@@ -561,11 +553,11 @@ description: "Figures, presentations, literature, and papers in one connected wo
           class="media-enlarge"
           href="assets/media/slides.webp"
           data-enlarge
-          data-caption="The current Slides editor: a selected network, its draw-on animation, and the timeline that controls its reveal."
+          data-caption="The current Slides editor: the new response-profile presentation and the timeline that controls its transforms."
           aria-label="Enlarge the Slides authoring screenshot"
           ><img
             src="assets/media/slides.webp"
-            alt="Flux Slides editor with a selected response network, its draw-on animation settings, four-slide navigation, and a timeline of editable animation steps."
+            alt="Flux Slides editor with a response-profile plot, two original website slides, and a timeline of editable animation steps."
             width="1500"
             height="950"
             loading="lazy"
@@ -687,11 +679,11 @@ description: "Figures, presentations, literature, and papers in one connected wo
         class="media-enlarge"
         href="assets/media/reader.webp"
         data-enlarge
-        data-caption="The Reader displays the original neuroscience demonstration manuscript, with reading notes anchored to the text."
+        data-caption="The Reader displays the original synthetic-population demonstration manuscript, with reading notes anchored to the text."
         aria-label="Enlarge the Reader screenshot"
         ><img
           src="assets/media/reader.webp"
-          alt="Flux Reader displaying the original neuroscience example paper, with navigation and annotation tools alongside the page."
+          alt="Flux Reader displaying the original synthetic-population example paper, with navigation and annotation tools alongside the page."
           width="1500"
           height="950"
           loading="lazy"
@@ -775,7 +767,7 @@ description: "Figures, presentations, literature, and papers in one connected wo
           </p>
           <a
             class="text-link"
-            href="https://github.com/fluxsci/flux/blob/main/docs/concepts/projects-and-files.qmd"
+            href="/docs/projects-and-files.html"
             >Understand the project model<svg class="icon" aria-hidden="true">
               <use href="#i-arrow" /></svg
           ></a>
@@ -787,7 +779,7 @@ description: "Figures, presentations, literature, and papers in one connected wo
         >
           <div class="tree-heading">
             <svg class="icon" aria-hidden="true"><use href="#i-folder" /></svg
-            ><span>neural-populations/</span
+            ><span>my-project/</span
             ><span class="tree-label">Your project</span>
           </div>
           <ul>
@@ -809,20 +801,12 @@ description: "Figures, presentations, literature, and papers in one connected wo
               <code>exports/</code><span>Generated output</span>
             </li>
           </ul>
-          <p>The example behind this page. Yours to explore.</p>
+          <p>A folder you can inspect, back up, and share.</p>
         </div>
       </div>
-      <div class="example-download" id="example-project">
-        <div>
-          <p class="eyebrow">Open the work behind the website</p>
-          <h3>Meet the example project.</h3>
-          <p><em>Neuronal networks flexibly encode diverse stimuli.</em>
-            A complete Flux project with the manuscript, more than thirty source
-            plots, two composed figures, four animated slides, and public data. Download it, unzip it,
-            and open the <code>neural-populations</code> folder in Flux.</p>
-        </div>
-        <a class="button button-primary" href="downloads/neural-populations.zip" download>
-          Download the Flux project<svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a>
+      <div class="example-download" id="learn-flux">
+        <div><p class="eyebrow">A connected first project</p><h3>Start with one plot.</h3><p>Make a semantic plot, compose a figure, bring it into your writing, and give it a place in a presentation. Learn the workflow one useful step at a time.</p></div>
+        <a class="button button-primary" href="/docs/first-project.html">Create your first project <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a>
       </div>
     </div>
   </section>
@@ -885,7 +869,7 @@ description: "Figures, presentations, literature, and papers in one connected wo
       <div class="config-projects">
         <div>
           <svg class="icon" aria-hidden="true"><use href="#i-folder" /></svg
-          ><span>Neural populations<small>Files · context · citations</small></span>
+          ><span>Your current project<small>Files · context · citations</small></span>
         </div>
         <div>
           <svg class="icon" aria-hidden="true"><use href="#i-folder" /></svg
@@ -942,11 +926,11 @@ description: "Figures, presentations, literature, and papers in one connected wo
           <span class="agent-step">02</span>
           <h3>Work alongside it.</h3>
           <p>
-            Launch a principal agent in your terminal. It reads the project
-            context and uses the available Flux tools.
+            Connect your preferred agent through AI status. Start a project
+            session with its tools and context in reach.
           </p>
           <div class="terminal-command">
-            <span aria-hidden="true">$</span><code>flux principal</code>
+            <span aria-hidden="true">$</span><code>flux connect doctor</code>
           </div>
         </li>
         <li>
@@ -958,7 +942,7 @@ description: "Figures, presentations, literature, and papers in one connected wo
           </p>
           <a
             class="text-link"
-            href="https://github.com/fluxsci/flux/blob/main/docs/agents/collaboration.qmd"
+            href="https://github.com/fluxsci/flux/blob/main/docs/agents/connect.qmd"
             >Explore agent collaboration<svg class="icon" aria-hidden="true">
               <use href="#i-arrow" /></svg
           ></a>
@@ -991,7 +975,7 @@ description: "Figures, presentations, literature, and papers in one connected wo
     <div class="closing-actions">
       <a
         class="button button-primary"
-        href="https://github.com/fluxsci/flux/blob/main/docs/installation.qmd"
+        href="/install/"
         >Get started with Flux<svg class="icon" aria-hidden="true">
           <use href="#i-arrow" /></svg></a
       ><a class="button button-secondary" href="https://github.com/fluxsci/flux"
@@ -1015,8 +999,8 @@ description: "Figures, presentations, literature, and papers in one connected wo
       >
       <p>A unified scientific workspace.</p>
       <nav aria-label="Footer navigation">
-        <a href="https://github.com/fluxsci/flux/blob/main/docs/index.qmd"
-          >User guide</a
+        <a href="/docs/"
+          >Documentation</a
         ><a
           href="https://github.com/fluxsci/flux/blob/main/docs/reference/shortcuts.qmd"
           >Shortcuts</a
@@ -1028,16 +1012,11 @@ description: "Figures, presentations, literature, and papers in one connected wo
     </div>
     <div class="footer-bottom">
       <span>Built around the work. Built around you.</span
-      ><span>Original demo content · Public neuroscience data</span
+      ><span>Original visual studies · Synthetic demonstration data</span
       ><a href="#main-content">Back to top ↑</a>
     </div>
-    <p class="data-credit">Example data: Allen Institute,
-      <a href="https://brain-map.org/our-research/circuits-behavior/visual-coding">Visual Coding</a>,
-      <a href="https://celltypes.brain-map.org/">Cell Types Database</a>, and
-      <a href="https://download.alleninstitute.org/informatics-archive/current-release/mouse_ccf/">Common Coordinate Framework</a>.
-      Original visualizations and writing for Flux. Dataset attribution and
-      <a href="https://alleninstitute.org/legal/terms-of-use">noncommercial use terms</a>
-      are included in the project.</p>
+    <p class="data-credit">Real Flux workspaces, original source plots, and newly written visual studies.
+      Demonstration data are synthetic. The slides on this site use Flux’s native interactive player.</p>
   </div>
 </footer>
 

@@ -1,11 +1,11 @@
 import { test, expect } from '@playwright/test';
 
 const workspaces = [
-  { name:'paper', title:'Paper', caption:'Write with your figures, citations, and working notes in reach.', alt:/Paper workspace.*neural-populations manuscript/ },
-  { name:'figure', title:'Figure', caption:'Compose the whole figure. Refine every individual part.', alt:/Figure workspace.*editable multi-panel neuroscience composition/ },
+  { name:'paper', title:'Paper', caption:'Write with your figures, citations, and working notes in reach.', alt:/Paper workspace.*synthetic population study/ },
+  { name:'figure', title:'Figure', caption:'Compose the whole figure. Refine every individual part.', alt:/Figure workspace.*editable response-profile composition/ },
   { name:'slides', title:'Slides', caption:'Give the same figures a timeline. Build the explanation step by step.', alt:/Slides workspace.*editable animation steps/ },
-  { name:'library', title:'Library', caption:'A lasting collection of references, ready for every project.', alt:/Library workspace.*public neuroscience collection/ },
-  { name:'reader', title:'Reader', caption:'Read closely. Keep your notes connected to the evidence.', alt:/Reader workspace.*original neuroscience manuscript/ },
+  { name:'library', title:'Library', caption:'A lasting collection of references, ready for every project.', alt:/Library workspace.*illustrative study collection/ },
+  { name:'reader', title:'Reader', caption:'Read closely. Keep your notes connected to the evidence.', alt:/Reader workspace.*original synthetic-population manuscript/ },
 ];
 
 const preview = page => page.locator('[data-workspace-preview]');

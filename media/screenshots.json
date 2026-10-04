@@ -1,61 +1,61 @@
 {
   "source": {
     "repository": "https://github.com/fluxsci/flux.git",
-    "revision": "7d90525e8ad415d9653d72143fb88325b15eaa7b",
-    "version": "0.1.0"
+    "revision": "9f5c7ccbe3916107fbcf8b9d53d5cf4cf99bf58e",
+    "version": "0.2.0"
   },
-  "browser": "Chrome/147.0.7727.137",
-  "project": "examples/neural-populations",
-  "note": "Unmodified Flux GUI captured from an exact FileBridge copy of the bundled editable project. Original manuscript and plot designs; public Allen Institute numerical and anatomical data. No personal library was accessed.",
+  "browser": "Chrome/154.0.8037.98",
+  "project": "Owner-authorized source plots; isolated website presentation",
+  "note": "Real Flux GUI in an isolated FileBridge. Unchanged synthetic source plots from the owner-authorized project, with newly authored website slides, composition, captions and manuscript. The owner test slides and figure canvases are excluded. No personal library or context was accessed.",
   "errors": [],
   "outputs": {
     "site/assets/media/paper.webp": {
       "width": 1500,
       "height": 950,
-      "bytes": 157482,
-      "sha256": "e12ba432dc8df3f2b7a44098d46206770ebd20b38aa8300cf2f586362cdbb3bb"
+      "bytes": 209566,
+      "sha256": "4b85968e88e68e1217de9391e148c80ade5b6772f3251c18e9994d1d064956fd"
     },
     "site/assets/media/paper-detail.webp": {
       "width": 1158,
       "height": 760,
-      "bytes": 114092,
-      "sha256": "4e768eca75db077c6ed646f09901cc6cd4d66cbf3e534ddb724f6835d94aedce"
+      "bytes": 146244,
+      "sha256": "d18892809d1db7ef616ba1cdbfce03a2ebbbf4a7136ac0f274167d577ec1f917"
     },
     "site/assets/media/figure.webp": {
       "width": 1500,
       "height": 950,
-      "bytes": 150524,
-      "sha256": "f1c009fd969bd0f9be13fa5d68413b7e6f40558846d41d196c42dd4fad38ba39"
+      "bytes": 142508,
+      "sha256": "a05cf935ab19d7d14d0b241a8d3745e6eaabb2e4a40e554b48d3dc493890302b"
     },
     "site/assets/media/figure-properties.webp": {
       "width": 1500,
       "height": 950,
-      "bytes": 135618,
-      "sha256": "90269d2e898922335e66973fffe3011b34d5a8e321908c52f6e49f4fbcc2fadf"
+      "bytes": 140694,
+      "sha256": "11d99e6d7f99e5bbd6b8e9dc00d04106d5c8e703a2e014590bc7b6a32389bd1a"
     },
     "site/assets/media/slides.webp": {
       "width": 1500,
       "height": 950,
-      "bytes": 112164,
-      "sha256": "93b0280357c8b5f5ccb0c26486b9c2eb80eae453584e55b421a0dda73d4c49e3"
+      "bytes": 162874,
+      "sha256": "21da8a7049166da47f42904fa4efe0185b821afefb63e831f5894126439f6fc1"
     },
     "site/assets/media/library.webp": {
       "width": 1500,
       "height": 950,
-      "bytes": 63978,
-      "sha256": "65164540b9f44a710f9c0f4926fe0388aee65ea635da2fb449c2dc77e4dcf4b8"
+      "bytes": 102356,
+      "sha256": "86877f28ed3df61c8851c3d4f95fbb8c28e196ae4e785a621b612b0b2d03f595"
     },
     "site/assets/media/reader.webp": {
       "width": 1500,
       "height": 950,
-      "bytes": 95544,
-      "sha256": "c62dd337289cb6dfdb6b533fb1f9a502595e88f9d8b39bff7ffc72c7f2186368"
+      "bytes": 211762,
+      "sha256": "783c5b483413e5790779833ea956da1f8d9bc3fe0255b4b587f24a5ca7abdf14"
     },
-    "site/assets/media/neural-figure.webp": {
+    "site/assets/media/response-figure.webp": {
       "width": 1800,
-      "height": 1150,
-      "bytes": 362848,
-      "sha256": "e986a36de99cb431fd584e9bd682279739e3376c786b1526378bafb9118e7164"
+      "height": 802,
+      "bytes": 138526,
+      "sha256": "4c96cc2f043fd6545d6a4396b1afda9da1e346ce25fb3b0bb3b739f0aaa642f8"
     }
   }
 }
