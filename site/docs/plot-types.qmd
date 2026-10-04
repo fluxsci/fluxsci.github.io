@@ -1,0 +1,95 @@
+---
+title: "Lines, points and distributions"
+description: "Choose a plotting helper, name the series, and keep its parts editable."
+---
+
+<p class="eyebrow">Plotting / fluxplot</p>
+
+# Lines, points and distributions
+
+::: {.doc-lead}
+Choose a plotting helper, name the series, and keep its parts editable.
+:::
+
+## Choose a helper
+
+The helpers return ordinary Matplotlib artists. Every series gets a stable name. Use `label=` for the text you want in a legend.
+
+| What you need | Function |
+|---|---|
+| Connected observations | `fp.line`, `fp.step`, `fp.stem` |
+| Individual points | `fp.scatter` |
+| Vertical or horizontal bars | `fp.bar`, `fp.barh` |
+| Uncertainty | `fp.errorbar`, `fp.band` |
+| A filled region | `fp.area` |
+| A distribution | `fp.hist`, `fp.box`, `fp.violin`, `fp.kde` |
+| A fitted relationship | `fp.regression` |
+| Reference marks and labels | `fp.reference_line`, `fp.annotation`, `fp.legend` |
+
+See the [API reference](/docs/fluxplot-api.html) for each signature. All examples below assume you have imported Matplotlib and fluxplot and created the variables being plotted.
+
+## Lines and uncertainty
+
+```python
+fp.line(ax, x, mean, series="control", label="Control")
+fp.band(ax, x, lower, upper, series="control", what="95% CI")
+fp.legend(ax)
+```
+
+The band and line share a series identity. The band records its bounds and what they mean; it does not calculate a confidence interval for you. `fp.errorbar` records scalar, symmetric or asymmetric errors and separately names its line, points, caps and bars. `fp.area` records the two boundaries of a filled region.
+
+## Points and categories
+
+`fp.scatter` gives individual points identities. Supply stable point IDs when row order may change; see [identity](/docs/plot-format.html#per-point-addressability). Categorical and date axes retain display labels alongside numeric coordinates. Bar plots record centres, widths, baselines, lengths and category keys.
+
+On a log axis, use a positive baseline. A horizontal bar starting at zero can create invalid geometry; for counts at least one, a pattern is `ax.barh(y, counts - 1, left=1)` followed by `fp.tag` on each bar.
+
+## Distributions and fits
+
+`fp.hist` records its actual bin edges and heights, including density, weights and cumulative settings. `fp.box` and `fp.violin` name their components. These helpers include raw sample values only when you choose `include_values=True`.
+
+`fp.regression` supports linear, polynomial and LOWESS fits. Its optional band is a confidence interval for the mean response, using a seeded bootstrap for LOWESS. The manifest records the fit, coefficients, grid, sample size and interval. `fp.kde` records a Gaussian kernel-density estimate and its bandwidth.
+
+For individual observations alongside summaries, use [glowbar or fluxbox](/docs/signature-plots.html). For inferential comparisons, see [statistics](/docs/statistics.html).
+
+## Axes, insets and legends
+
+Name multi-panel axes with `fp.panel(ax, name="response")`. Insets retain their host panel. `fp.secondary_axis` records the sampled parent-to-secondary transform. A normal `twinx()` or `twiny()` remains part of its parent panel, with a second value axis; explicitly naming the twin makes it a separate panel.
+
+Figure titles, shared axis labels, figure legends and figure annotations receive figure-level identities. `fp.legend` keeps a legend entry connected to the artist it represents, including hand-picked handles.
+
+## Existing Matplotlib artists
+
+```python
+line, = ax.plot(x, prediction, "--", color="black")
+fp.tag(line, role="reference-line", name="model")
+points = ax.scatter(x, observations)
+fp.tag_points(points, series="observations")
+```
+
+A public, unique Matplotlib label can also become a series at save time. Unlabeled or ambiguously labeled artists remain generic parts. Fluxplot does not infer scientific meaning from colour or geometry: name an uncertainty band, fit or threshold explicitly.
+
+## Seaborn
+
+```python
+sns.lineplot(data=df, x="time", y="signal", hue="region", ax=ax)
+fp.tag_seaborn(ax, plot="lineplot")
+```
+
+Supported adapters include line, scatter, bar, histogram, KDE and regression plots, plus box, violin, strip, swarm and point plots. For categorical plots, pass the original frame and column names so identity follows the data:
+
+```python
+sns.swarmplot(data=df, x="group", y="value", hue="sex", ax=ax)
+fp.tag_seaborn(ax, plot="swarmplot", data=df,
+               x="group", y="value", hue="sex")
+```
+
+With a hue, each hue level becomes a series and categories become named parts. Without a hue, each category becomes a series. Mixed scatter collections can retain the original artist while assigning the appropriate point identities to each group.
+
+## Other plot types
+
+`fp.tag` covers any Matplotlib artist. Tag stackplot layers as areas, hexbin collections as a field, or each ridge's fill and outline under one series. Custom roles can use an `x-` prefix. For live matrix cells and colour controls, prefer the dedicated [field helpers](/docs/matrices-and-scales.html).
+
+::: {.next-reading}
+[fluxplot quickstart](/docs/fluxplot.html) · [Python API reference](/docs/fluxplot-api.html) · [Edit plots in Flux](/docs/plot-editing.html)
+:::

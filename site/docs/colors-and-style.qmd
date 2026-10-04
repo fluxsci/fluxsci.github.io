@@ -1,0 +1,224 @@
+---
+title: "Colour and style"
+description: "Choose a theme, keep colours consistent, and define scales that travel with the plot."
+---
+
+<p class="eyebrow">Plotting / fluxplot</p>
+
+# Colour and style
+
+::: {.doc-lead}
+Choose a theme, keep colours consistent, and define scales that travel with the plot.
+:::
+
+## Start with a theme
+
+Use `fp.use_light()` for a white publication background, `fp.use_paper()` for warm paper, or `fp.use_dark()` for a dark background. Call it before creating the figure. These change Matplotlib's style settings; existing artists keep their values.
+
+## Colormap and palette collections
+
+Use a **colormap** for numerical values and a **palette** for named categories. Map names are registered with Matplotlib when you import fluxplot.
+
+```python
+import fluxplot as fp
+
+fp.use_paper()
+# These names work in cmap= on fluxplot and Matplotlib calls.
+sequential = fp.colors.maps.get("crameri.batlow")
+diverging = fp.colors.maps.get("tol.sunset")
+category_colours = fp.colors.palettes.get("tol", "bright")
+```
+
+| Collection | Use |
+|---|---|
+| `flexoki` | Flux's house maps and colour ramps. |
+| `mpl` | Matplotlib's built-in colormaps. |
+| `crameri` | Fabio Crameri's Scientific colour maps. |
+| `tol` | Paul Tol's maps and categorical palettes. |
+| `cmasher` | CMasher colormaps. |
+| `brewer` palettes | ColorBrewer sequential, diverging and qualitative sets. |
+
+`fp.colors.maps.names("crameri")` lists a collection. `fp.colors.maps.info("tol.sunset")` describes a map's type and colour table. Add `_r` to reverse a registered map. `fp.colors.maps.truncate("batlow", 0.2, 0.8)` selects part of a map; `fp.colors.maps.discretize("viridis", [0, 2, 5, 10])` returns a colormap and normalization for bins.
+
+House themes use `cmasher.rainforest` as the default sequential map. You can override it for any plot with `cmap=`. In a signature plot's `palette=`, `"red"` selects a ramp of one hue, while `"flexoki.red"` selects the 13-step Flexoki ramp.
+
+<details><summary>Collection data and reproducibility</summary>
+
+Every colormap and palette fluxplot knows is plain data in the package —
+`src/fluxplot/definitions/colormaps.json` and `palettes.json` — so nothing beyond
+matplotlib is imported at runtime and Flux bundles the very same files for its pickers:
+
+| `fp.colors.maps` collection | what | maps |
+| --- | --- | --- |
+| `flexoki` | fluxplot's own maps (`flexoki_diverging`, …) | 5 |
+| `mpl` | matplotlib's built-ins, in its documented groups | 86 |
+| `crameri` | Fabio Crameri's Scientific colour maps | 60 |
+| `tol` | Paul Tol's continuous and discrete maps | 20 |
+| `cmasher` | cmasher | 57 |
+
+Every shipped map is registered with matplotlib under its qualified name and its
+reverse from `import fluxplot` on, so `cmap="crameri.batlow"` (or `"tol.sunset_r"`)
+works in any matplotlib call; `fp.colors.maps.get("batlow")` resolves a bare name through the
+collections in that order, `fp.colors.maps.names("crameri")` lists a collection and
+`fp.colors.maps.info("tol.sunset")` tells you its type (`sequential` / `diverging` / `cyclic` /
+`qualitative` / `misc`), family, table size `N`, whether it is `discrete` (a listed map of at
+most `fp.colors.DISCRETE_MAX` = 32 colours — a set of classes to pick from) and whether it is
+perceptually `uniform` (`True` / `False` / `None` = not assessed). Each definition's `colors`
+is the map's exact lookup table, so a consumer reproduces it colour for colour.
+
+The house maps are the `flexoki` collection — `flexoki.sequential`, `.warm`, `.diverging`,
+`.terrain`, `.spectrum`, linear ramps through palette anchors (`fp.colors.FLEXOKI_MAP_ANCHORS`) and
+therefore *not* uniform (`info()["uniform"] is False`); their historical bare names
+(`flexoki_diverging`) are aliases of the same tables.
+
+Two derived maps: `fp.colors.maps.truncate("batlow", 0.2, 0.8)` is the stretch of a map as a map of its
+own, named `crameri.batlow[0.2:0.8]` — a name `fp.colors.maps.get` (and so a recipe) resolves again —
+and `fp.colors.maps.discretize("viridis", [0, 2, 5, 10], extend="both")` returns a `(ListedColormap,
+BoundaryNorm)` pair, one colour per bin, that any helper takes as `cmap=` / `norm=` (the colour
+scale is then recorded as `kind: "binned"`).
+
+In a signature plot's `palette=`, a colour *name* is the colour (`"red"` → a pale → red → deep
+ramp of one hue); the 13-step Flexoki ramp is `"flexoki.red"`.
+
+Palettes live beside them under `fp.colors.palettes`: `flexoki` (the default), `brewer`
+(ColorBrewer — 9-class sequential, 11-class diverging and the qualitative sets) and
+`tol` (Paul Tol's colour sets). `fp.colors.palettes.brewer["Blues"]` and
+`fp.colors.palettes.get("tol", "bright")` are lists of hex strings.
+
+The JSON is built by `tools/build_color_definitions.py` from the upstream packages
+(matplotlib, cmcrameri, tol-colors, cmasher) — a build-time input only, re-run when a
+collection should be refreshed (`uv run --with cmcrameri --with tol-colors python
+tools/build_color_definitions.py`; without a package its shipped definition is kept). The
+Flexoki palette itself has one canonical source, the design-token export
+`src/fluxplot/definitions/flexoki.tokens.json`: `fp.colors.flex` is built from it at import and the
+`flexoki` palette collection is generated from it (fluxplot's "green" is the tokens' custom
+`GRN` hue; Flexoki's original green is `olive`).
+
+Every `fp.use_*` theme installs the house sequential map (`cmasher.rainforest`, `fp.style.SEQUENTIAL`)
+as matplotlib's default `image.cmap`, so a heatmap without `cmap=` is in the house style;
+`fp.style.DEFAULT_DIVERGING` names the diverging default.
+
+
+</details>
+
+## Theme metadata {#themes-a-consumer-can-follow}
+
+The manifest records the theme in force at save — `style = {"theme": "light" | "dark" | …, "tokens":
+{"ink", "label", "tick", "axis", "grid", "plot", "paper"}}`, the scaffold colours by role as
+lowercase hex (`theme` is `null` once an rcParam was changed by hand) — and every scaffold element
+painted with one of them carries `data-ink-fill` / `data-ink-stroke` naming the token: tick labels
+and titles `ink`, axis titles `label`, ticks `tick`, spines `axis`, gridlines `grid`, the axes and
+figure backgrounds (`axes.background`, `figure.background`, now parts of their own) `plot` and
+`paper`. Overlays a helper drew in the theme's ink (the significance bracket) say so outright.
+Data colours are never tagged, so Flux can restyle a light plot's furniture onto a dark deck and
+leave the science alone. `fp.save(..., theme_vars=True)` additionally rewrites those paints to
+`var(--fx-<token>, <hex>)` for a CSS-aware host (off by default until checked in Illustrator and
+Inkscape; browsers and rsvg honour the fallback). A rerun with
+`FLUX_PARAMS={"__fluxplot__": {"theme": "dark"}}` makes every `fp.use_*` call apply that theme,
+and the recipe records the theme in force under `__fluxplot__.theme`.
+
+## Consistent category colours {#series-colours-and-the-same-colour-for-the-same-thing-everywhere}
+
+Every series records its primary paint in the manifest — `series[].color = {"hex": "#35ab49",
+"alpha": 1.0, "token": "flexoki.green-400", "palette": {"name": "flexoki.light", "index": 2}}`:
+the exact palette token that names it when one does, its slot in the active cycle when it came
+from there (`"varies"` for a colour-mapped collection, whose `scale` names the colour scale).
+The glowbar and fluxbox payloads record the `palette` spec each category's shades came from.
+
+`fp.colors.categories` keeps categories consistent across figures: `get("SD")` returns the colour
+pinned to a category, else assigns the next unused slot of the palette (default: the theme's
+cycle) in first-request order and remembers it, so `"b"` is the same colour whether or not `"a"`
+is on the plot — `categorical_colors` (surface maps), glowbar and fluxbox group colours and
+`tag_seaborn`'s hue levels all consult it. `assign({...})` pins colours, `save()` / `load()`
+write and read a project file, `fluxplot.colors.json`
+(`{"spec": "fluxplot/colors", "version": 1, "categories": {"SD": "#bc5215"}, "palette": "flexoki"}`),
+which the first use auto-loads from `$FLUXPLOT_COLORS` or the nearest one between the working
+directory and the Git root; nothing is ever written implicitly. `categories.auto_series = True`
+colours `fp.line` / `fp.scatter` series by their name when the call gives no colour (off by
+default). Two more recipe controls follow: `__fluxplot__.palette = "tol.bright"` makes every
+`fp.use_*` install that palette as the prop cycle (and glowbar categories draw from it), and
+`__fluxplot__.series = {"<series id>": {"color": "#…"}}` recolours a series on a rerun — the
+helpers and the signature plots check it before drawing.
+
+## Signature plots on dark grounds
+
+The glowbar, fluxbox and hexmatrix judge every ink against the ground they are drawn on. On a
+dark theme the point rims lighten instead of darkening, the shades stay at least 20 lightness
+units above the ground, the mean and median inks lift off their marks instead of deepening
+(`_colour.median_ink`, shared by both plots), connectors take the theme's grid neutral, a
+qualitative palette's group ink is the light neutral, and a hexmatrix's single-colour ramp turns
+(deep near the ground → pale at the top, named `hexmatrix.mono-dark:#…` so a rerun rebuilds it).
+`tests/test_dark_ground.py` pins WCAG contrast ≥ 1.5 for every mark and ≥ 3 for bracket and
+identity lines under the light, paper and dark themes.
+
+## Value × confidence
+
+A colour-mapped mark can carry a second, opacity channel: `alpha_by=` on `fp.hexmatrix`
+(`"count"`, a column, a per-point or per-hexagon array, or a matrix in matrix mode), `fp.heatmap`
+(a matrix of the same shape — p-values, n) and `fp.scatter` (one value per point), with
+`alpha_range=(0.25, 1.0)` and `alpha_norm="linear"|"log"`. Each element's alpha runs over the
+range with its value (a missing value takes the low end), set as per-element alpha so matplotlib
+renders it; the manifest records the channel as `colorScales[].alpha = {source, range, norm}` and
+every element carries `data-alpha-value`, so a consumer can recompute `fill-opacity` live. For example, use observation counts as `alpha_by` to make sparsely sampled regions lighter. Higher channel values receive higher opacity; transform an uncertainty measure explicitly if lower values should be more prominent.
+
+`fp.hexmatrix` also keeps its hexagons individually addressable up to `vector_limit=5000` (a
+per-mark raster threshold; `None` falls back to the save's generic 800), and on axes that share x
+or y it leaves the box aspect unlocked with a warning instead of distorting the siblings.
+
+## Accessibility lint
+
+`fp.colorcheck` asks what a plot's colours do for the reader: `simulate(colors, "deuteranomaly")`
+applies the Machado (2009) colour-vision-deficiency matrices (embedded at every published
+severity; protanomaly / deuteranomaly / tritanomaly), `greyscale` shows the black-and-white print,
+`delta_e` is CIEDE2000 and `contrast` the WCAG 2 ratio. `check_palette(colors, bg, text=…)` finds
+pairs that collapse under a deficiency (`cvd-confusable`, ΔE < 10) or in greyscale
+(`greyscale-confusable`, ΔL* < 10) and marks (`low-contrast-mark`, < 3:1) or text
+(`low-contrast-text`, < 4.5:1) too faint against the ground; `check_colormap` flags a map whose
+ΔE steps vary too much (`non-uniform`) or a sequential map whose lightness reverses
+(`non-monotone`). `fp.save(..., lint="warn")` runs `check_figure` on the tagged series and text
+inks: findings go to `SaveResult.warnings` and the manifest's `quality.color`; `lint="error"`
+refuses the save. Off by default.
+
+Measured with it, the house cycles were reordered (2026-09-30) so that no two *adjacent* colours
+collapse for a colour-deficient reader: `fp.CYCLE_ORDER` is now blue, orange, purple, green,
+magenta, yellow, cyan, red (the smallest adjacent distance under any deficiency is ΔE 20 in the
+light cycle, 15 in the dark one; cyan next to magenta used to be 5.6). Plots that let the cycle
+pick their colours get different colours from the third series on. Greyscale separation cannot
+be fixed by order alone at one weight — vary marker or line style for a print-safe figure.
+
+## Colour controls in the recipe
+
+Every colour scale is a recipe control: `fp.save` writes its complete state under
+`recipe.params.__fluxplot__[<key>]`, and Flux's **Color scales** editor edits it and regenerates:
+
+```jsonc
+{"cmap": "magma" | {"lut": ["#…"], "under": "#…", "over": "#…", "bad": "#…"},
+ "reversed": false,
+ "vmin": 1, "vmax": 50,
+ "norm": {"kind": "linear" | "log" | "symlog" | "power" | "twoslope" | "centered",
+          "vcenter": 0, "gamma": 0.5, "linthresh": 1, "linscale": 1},
+ "extend": "neither" | "min" | "max" | "both"}
+```
+
+The helpers read the controls from `FLUX_PARAMS` automatically. A control that merely restates
+what the script asked for (the replay of a recorded save) keeps the script's own objects — a
+`ListedColormap` with no resolvable name included — so regeneration never fails on its own
+output; a control that differs is applied, and an impossible one (an unknown map, a log norm with
+`vmin <= 0`, a twoslope centre outside the limits) raises a `ValueError` naming the key.
+`extend` reaches the colour key drawn with `fp.colorbar`. The old flat `{cmap, vmin, vmax}` is
+still understood.
+
+The key names the **series** (`rates`), never the axes' position, so adding a subplot cannot
+orphan an edit; a second colour-mapped series with the same name gets `panel.<name>.rates` or
+`axes.<n>.rates`, and `key=` names it explicitly. Controls saved by an older Flux under the
+positional key are still honoured. `recipe={"args": ..., "cwd": ..., "output": ...}` overrides
+are honored; cwd/output resolve relative to the recipe directory. `FLUXPLOT_ONLY` skips
+unselected saves before layout or file I/O.
+
+## Share a scale across panels
+
+Use `fp.color_scale` to give multiple plots a common range and colour map. The [matrices and colour scales guide](/docs/matrices-and-scales.html#shared-scales) gives the pattern and explains how limits are combined.
+
+::: {.next-reading}
+[fluxplot quickstart](/docs/fluxplot.html) · [Python API reference](/docs/fluxplot-api.html) · [Edit plots in Flux](/docs/plot-editing.html)
+:::

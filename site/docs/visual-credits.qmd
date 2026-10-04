@@ -1,0 +1,55 @@
+---
+title: "Visual and data credits"
+description: "Sources, interpretation and attribution for the scientific figures, native slides and screenshots shown on the Flux website."
+---
+
+<p class="eyebrow">Around Flux</p>
+
+# Visual and data credits
+
+::: {.doc-lead}
+The showcase uses real Flux compositions: authored scientific figures, public datasets and calculated examples. This page identifies their sources and what the views represent.
+:::
+
+## The figures and screenshots {#figures}
+
+The materials and neuroscience figures were composed by Kort Driessen in the master demonstration project. Their plot content, layout, labels and views are preserved. Captions, the demonstration manuscript and the website's three slides were written for this site. Screenshots show the actual Flux interface using an isolated copy of the selected work.
+
+The existing test slides were not used. The library and Reader screenshots use a small demonstration bibliography and an original manuscript; they do not show a personal reference library. Technical animation diagrams in the documentation come from Flux's own user guide.
+
+## Neuroscience {#neuroscience}
+
+**Data and anatomical models: Allen Institute for Brain Science.** The response plots use [Allen Brain Observatory Visual Coding](https://brain-map.org/our-research/circuits-behavior/visual-coding) experiment **501940850**, container **511510688**: 143 cells in mouse lateral visual cortex (VISl), with eight drift directions and five temporal frequencies. The source [analysis file](https://api.brain-map.org/api/v2/well_known_file_download/515078316) provides the response arrays used by the demonstration analyses.
+
+The brain geometry and coronal view use the [Allen Mouse Common Coordinate Framework, CCF2017](https://download.alleninstitute.org/informatics-archive/current-release/mouse_ccf/). Neuronal silhouettes and the small mesh reconstruction use [MICrONS](https://www.microns-explorer.org/) reconstructions. These anatomical examples are separate from the functionally recorded cells.
+
+The circular network connects similar response profiles; it is not a map of anatomical synapses. The animated scatter views use the same 143 cells and a common PCA basis at 1, 4 and 15 Hz. Movement between those states is a visual interpolation, not additional experimental observations.
+
+Relevant publications:
+
+- de Vries et al. (2020), [A large-scale standardized physiological survey reveals functional organization of the mouse visual cortex](https://doi.org/10.1038/s41593-019-0550-9).
+- Wang et al. (2020), [The Allen Mouse Brain Common Coordinate Framework: A 3D Reference Atlas](https://doi.org/10.1016/j.cell.2020.04.007).
+- MICrONS Consortium (2025), [Functional connectomics spanning multiple areas of mouse visual cortex](https://doi.org/10.1038/s41586-025-08790-w).
+
+Allen resources retain the [Allen Institute terms](https://alleninstitute.org/legal/terms-of-use) and [citation policy](https://alleninstitute.org/legal/citation-policy). MICrONS resources retain the terms linked by the source project. The website's software license does not relicense these datasets. No endorsement by the data providers is implied.
+
+## Materials and electronic structure {#materials}
+
+The materials plate combines several kinds of information:
+
+| View | Source and interpretation |
+|---|---|
+| Stiffness–density chart | Typed typical material values and hand-fitted family envelopes; a reference illustration. |
+| Bracket stress field | A finite-element calculation using Gmsh and scikit-fem. |
+| Stress around a circular hole | The analytic Kirsch solution, with stress concentration factor 3. |
+| MgB₂ Fermi surface and sections | The `mgb2_vfz.frmsf` example from [FermiSurfer](https://github.com/mitsuaki1987/fermisurfer/tree/master/examples). |
+| Density of states | An illustrative model calculation. |
+| Crystal structures | Public crystallographic records listed below. |
+
+Crystal models use the [Crystallography Open Database](https://www.crystallography.net/cod/): [CaTiO₃, 1000022](https://www.crystallography.net/cod/1000022.html), [YBa₂Cu₃O₇, 1001452](https://www.crystallography.net/cod/1001452.html), [NaCl, 9000629](https://www.crystallography.net/cod/9000629.html), and [silicon, 9011998](https://www.crystallography.net/cod/9011998.html). Their original publication citations are included in the linked records; COD data are available under CC0.
+
+FermiSurfer: M. Kawamura (2019), [Fermi-surface viewer providing multiple representation schemes](https://doi.org/10.1016/j.cpc.2019.01.017). The demonstration renders derived geometry and sections from the example input; it does not redistribute the original input dataset as a download.
+
+## Fonts, colours and software {#software}
+
+Flux supplies the phyllotaxis mark, the real application UI and the native slide player. The website uses Georgia and Gelasio, a warm paper palette and quiet blue controls. Fluxplot's palettes and colormaps retain their upstream notices in the [fluxplot repository](https://github.com/fluxsci/fluxplot/blob/main/THIRD_PARTY_NOTICES.md). Bundled player dependency notices accompany the website assets.

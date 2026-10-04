@@ -90,8 +90,8 @@ Try changing a number in `make_growth.py` and rerunning it. Flux refreshes the l
 Open **Figure-Meta** with **Alt+M** and add a caption. For this example: “Synthetic growth profiles for two illustrative conditions. Points show constructed values at seven time points; lines connect successive observations.”
 
 <figure class="doc-figure">
-<a href="/assets/media/figure-properties.webp" data-enlarge data-caption="A named response curve selected in Flux. The native property menu edits the selected part; the source plot remains linked."><img src="/assets/media/figure-properties.webp" alt="Flux Figure with one semantic curve selected and its native Properties menu open." width="1500" height="950" loading="lazy"></a>
-<figcaption>A named part has its own properties. This screenshot uses a separate synthetic response study.</figcaption>
+<a href="/assets/media/figure-properties.webp" data-enlarge data-caption="A plot selected in the authored materials figure, with the native property menu open."><img src="/assets/media/figure-properties.webp" alt="Flux Figure with a stress-field plot selected and its native Properties menu open." width="1500" height="950" loading="lazy"></a>
+<figcaption>The property menu opens beside the selection. This screenshot uses the separate materials showcase; see its <a href="/docs/visual-credits.html#materials">sources</a>.</figcaption>
 </figure>
 
 ## 4. Collect and read a reference {#read}
@@ -118,15 +118,15 @@ Your manuscript remains a `.qmd` file. You can write equations, add tables, keep
 
 In **Slides**, compose a slide from the same plot sources. Add a beat for the next part of your explanation, then use the animation tools to reveal an element or transform it into a later state. Present at your own pace.
 
-An interactive slide can also live inside a Paper document. HTML preserves its steps; PDF and Word use a still. The example below uses Flux’s native player with newly composed website slides and unchanged synthetic plots.
+An interactive slide can also live inside a Paper document. HTML preserves its steps; PDF and Word use a still. The example below uses Flux’s native player with newly composed website slides and unchanged plots from the master showcase.
 
 ```{=html}
 <div class="slide-demo" id="slide-demo" data-demo-src="/demos/data-morph/index.html">
-<button type="button" class="demo-launch" aria-label="Load the interactive population slides" data-demo-start><img src="/assets/media/slide-poster.svg" alt="A synthetic response-profile slide. Load it to explore changes in curve shape." width="1100" height="720" loading="lazy"><span class="demo-launch-prompt"><span class="play-disc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 6 9 6-9 6Z" /></svg></span><span>Explore the explanation<small>You control the next step.</small></span></span></button>
+<button type="button" class="demo-launch" aria-label="Load the interactive population slides" data-demo-start><img src="/assets/media/slide-poster.svg" alt="A response atlas of 143 visual neurons. Load the native slides to explore the study." width="1200" height="760" loading="lazy"><span class="demo-launch-prompt"><span class="play-disc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 6 9 6-9 6Z" /></svg></span><span>Explore the explanation<small>You control the next step.</small></span></span></button>
 </div>
 ```
 
-Use the arrows to advance. Choose **Population geometry** to follow the same 108 points through changing arrangements. These are synthetic illustrations, not experimental results. [Read the Slides guide](https://github.com/fluxsci/flux/blob/main/docs/modes/slide.qmd) for beats, transitions, video, and embedding.
+Use the arrows to advance. Choose **Follow the same cells** to explore 143 recorded cells at three stimulus frequencies. Data: [Allen Institute for Brain Science](https://brain-map.org/our-research/circuits-behavior/visual-coding); the movement between states is illustrative interpolation. [Visual credits](/docs/visual-credits.html) · [Slides guide](/docs/slides.html).
 
 ## 7. Export and keep the sources {#export}
 

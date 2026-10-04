@@ -1,0 +1,38 @@
+---
+title: "Contributing and support"
+description: "Report an issue, improve the documentation, or work on the Flux and fluxplot source repositories."
+---
+
+<p class="eyebrow">Around Flux</p>
+
+# Contributing and support
+
+::: {.doc-lead}
+A useful report shows what you expected, what happened, and the smallest example that reproduces it.
+:::
+
+## Report a problem {#issues}
+
+Use [Flux issues](https://github.com/fluxsci/flux/issues) for the desktop app and [fluxplot issues](https://github.com/fluxsci/fluxplot/issues) for Python plotting. Include the application or package version, operating system, steps to reproduce, and relevant error text. A screenshot helps with a layout problem; a small script and its output bundle help with a plot problem.
+
+For a linked plot, include the SVG or GLB and its manifest. Include the recipe and a small sample of input data only when needed to reproduce regeneration. Replace private or unpublished material with a minimal example.
+
+For agent setup, **AI → Copy diagnostics** runs the connection checks and copies their results. See [connection troubleshooting](/docs/connect.html#troubleshooting).
+
+## Improve a guide {#docs}
+
+Every guide has an **Improve this page** link. Website sources live in [fluxsci.github.io](https://github.com/fluxsci/fluxsci.github.io), independently of the application. Report unclear instructions, broken links or an example that does not run. State which step and version you used.
+
+## Work on the source {#source}
+
+| Repository | Contains |
+|---|---|
+| [flux](https://github.com/fluxsci/flux) | Desktop workspaces, native slide player, CLI and agent tools. |
+| [fluxplot](https://github.com/fluxsci/fluxplot) | Python plotting, schemas and regeneration recipes. |
+| [fluxsci.github.io](https://github.com/fluxsci/fluxsci.github.io) | Public website, documentation, reviewed media and publishing checks. |
+
+Follow each repository's current README and contributor instructions for its development environment and checks. Keep changes focused, explain the behavior they change, and include a reproducible validation result.
+
+## Licenses and visual sources {#licenses}
+
+Flux and fluxplot are open-source software under their repository licenses. Bundled fonts, palettes, dependencies and scientific data retain their own terms. The website's [visual credits](/docs/visual-credits.html) identify the data and models shown in the showcase.

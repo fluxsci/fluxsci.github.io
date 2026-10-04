@@ -3,14 +3,15 @@
 This is the independent Quarto website for Flux, intended for the GitHub repository
 `fluxsci/fluxsci.github.io` and `https://fluxsci.github.io/`.
 
-- Current scope is the homepage, installation, and documentation migration. The first review
-  milestone has two finished guides and a complete topic directory; remaining topics link to
-  current upstream guides. Do not publish empty guide pages.
+- Current scope is the complete public website and documentation, approved after the first
+  review milestone. Keep guides clear and concise, link detailed reference, and publish no empty pages.
 - `site/` is public Quarto source; `plans/` and `media/` are internal; `dist/` is generated.
 - Visual source plots come from the owner-authorized external project passed explicitly to
-  refresh tools. Preserve plot bytes. Never reuse its test slides, test figure canvases,
-  manuscript instructions, personal context, or library. Create original website slides,
-  captions and illustrative writing in the isolated temporary capture project.
+  refresh tools. Preserve plot bytes and the owner's authored figure layouts. The selected
+  materials and neuroscience compositions in MASTER_DEMO_FluxProj are authorized showcase
+  material. Never reuse its test slides, manuscript instructions, personal context, or library.
+  Create new website slides, captions and writing in the isolated temporary capture project.
+  Credit public data sources accurately; distinguish measured, computed and illustrative material.
 - Use real Flux screenshots and its native inline slide runtime. Never fabricate app UI or
   reproduce its animation engine. Never read the user's FluxConfig.
 - Product dependency is pinned in `flux-source.json`. Ordinary site builds use reviewed,

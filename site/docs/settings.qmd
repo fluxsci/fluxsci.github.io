@@ -1,0 +1,51 @@
+---
+title: "Settings and setup"
+description: "Adjust Flux's general settings, Figure controls, Paper margins, correction tools and external dependencies."
+---
+
+<p class="eyebrow">Reference</p>
+
+# Settings and setup
+
+::: {.doc-lead}
+Open the gear in the titlebar to adjust the workspace. Use Set up Flux for tools that need installation.
+:::
+
+## General {#general}
+
+**Set up Flux…** checks the terminal launcher, Python plotting, Word export through Quarto, PDF through Quarto, and AI integrations. See [Installation](/install/) for requirements and commands.
+
+**FluxConfig folder** shows where your shared library and context live. Use **Reveal** to open it or **Move…** to relocate it through Flux. Projects remain separate folders. See [Library and configuration](/docs/configuration.html).
+
+**Agents** controls access to the current Flux window and the agent runners used by Ask. Window access applies to that project's Flux window. [Connect an agent](/docs/connect.html) describes setup; [Comments and Inbox](/docs/comments.html) describes Ask, watching and live pairing.
+
+**Updates** controls checking for a newer desktop version on launch. **Palette** controls whether new projects include the Flexoki palette.
+
+## Figure {#figure}
+
+| Setting | Effect |
+|---|---|
+| Rulers | Show rulers; drag from a ruler to place a guide. Shortcut: **Shift+R**. |
+| Background grid | Show the grid. While visible, pen nodes use its vertices. Shortcut: **Shift+G**. |
+| Snap to grid / grid size | Set alignment to a regular interval. |
+| Snap to pixel | Round coordinates when an edit is committed. |
+| Figure-Meta font size | Change the caption editor's typing size, from 9 to 28 px. |
+| Plot gallery search scope | Choose whether search reaches project plots, global plots, or both. |
+| Folder click behavior | Choose whether a gallery folder click also expands its subtree. |
+| Palette and colormap collection | Choose which collection a colour picker opens first. |
+
+Inside a colour picker, **Tab** changes between palettes and colormaps; **Shift+Tab** cycles collections. Press **F** with objects selected to open the property menu. See [Layout and drawing](/docs/figure-layout.html) and [Plot editing](/docs/plot-editing.html).
+
+## Paper {#paper}
+
+Choose the dynamic margin's background, set the maximum number of open panes (1–6), and enable **Clean dynamic margin** to close panes when focus returns to the editor.
+
+Caret motion has its own feel setting. **Chase** settles toward the target; **Smooth** uses a short, constant-pace glide. Document text size is adjusted in Paper and is independent of export typography. See [Writing tools](/docs/writing-tools.html).
+
+## Corrections {#corrections}
+
+Configure local spelling and punctuation corrections, dictionaries and aliases. Optional sentence judgment has a separate provider choice and setup. The local managed model and cloud provider are explicit choices; see [Writing tools](/docs/writing-tools.html#local-corrections) for behavior, downloads and data handling.
+
+## Where to find other preferences {#other-preferences}
+
+Some controls belong beside the work: slide themes and animation styles live in [Slides](/docs/slides.html); library services and Zotero settings live in [Library](/docs/library.html); export styles are chosen when [exporting a document](/docs/export-documents.html).

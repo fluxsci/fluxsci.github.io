@@ -6,56 +6,68 @@
   },
   "browser": "Chrome/154.0.8037.98",
   "project": "Owner-authorized source plots; isolated website presentation",
-  "note": "Real Flux GUI in an isolated FileBridge. Unchanged synthetic source plots from the owner-authorized project, with newly authored website slides, composition, captions and manuscript. The owner test slides and figure canvases are excluded. No personal library or context was accessed.",
+  "note": "Real Flux GUI in an isolated FileBridge. Two reviewed master figures retain their authored layout and plot content. Captions, website slides and manuscript are new. Public data and source terms are documented in visual credits. No owner test slides, personal library or context were used.",
   "errors": [],
   "outputs": {
     "site/assets/media/paper.webp": {
       "width": 1500,
       "height": 950,
-      "bytes": 209566,
-      "sha256": "4b85968e88e68e1217de9391e148c80ade5b6772f3251c18e9994d1d064956fd"
+      "bytes": 299434,
+      "sha256": "20b22d01301d61e1d6d72194bd885f7356a874f2fcf55cb72c42b8d3e819f2d1"
     },
     "site/assets/media/paper-detail.webp": {
       "width": 1158,
       "height": 760,
-      "bytes": 146244,
-      "sha256": "d18892809d1db7ef616ba1cdbfce03a2ebbbf4a7136ac0f274167d577ec1f917"
+      "bytes": 250156,
+      "sha256": "9498eb234e410f66f4b85b50fb7ac035c15633d87a33cff799774483066b087a"
     },
     "site/assets/media/figure.webp": {
       "width": 1500,
       "height": 950,
-      "bytes": 142508,
-      "sha256": "a05cf935ab19d7d14d0b241a8d3745e6eaabb2e4a40e554b48d3dc493890302b"
+      "bytes": 487098,
+      "sha256": "6a53e56bdbe16308b20ab801028a736b3918ac5d86b470412a3d47c0c9f265ab"
+    },
+    "site/assets/media/figure-materials.webp": {
+      "width": 1500,
+      "height": 950,
+      "bytes": 398510,
+      "sha256": "ceead5940fb0b0aafe0e6879347e7fe104fc77e13ccc82ec25aba4b9aab22fe7"
     },
     "site/assets/media/figure-properties.webp": {
       "width": 1500,
       "height": 950,
-      "bytes": 140694,
-      "sha256": "11d99e6d7f99e5bbd6b8e9dc00d04106d5c8e703a2e014590bc7b6a32389bd1a"
+      "bytes": 250430,
+      "sha256": "25ea680c78f5c98784fc4eff70b21f79aaaf9c3bdeb73d8630e767aa585b5d19"
     },
     "site/assets/media/slides.webp": {
       "width": 1500,
       "height": 950,
-      "bytes": 162874,
-      "sha256": "21da8a7049166da47f42904fa4efe0185b821afefb63e831f5894126439f6fc1"
+      "bytes": 299738,
+      "sha256": "500d634372c1ed15dd6e24850917f7fe33093313f079a3c0ec9e882cd81d2e54"
     },
     "site/assets/media/library.webp": {
       "width": 1500,
       "height": 950,
-      "bytes": 102356,
-      "sha256": "86877f28ed3df61c8851c3d4f95fbb8c28e196ae4e785a621b612b0b2d03f595"
+      "bytes": 112054,
+      "sha256": "3a20ad5a2afb08325d4e6874dc7c7861d9c09a2e7802af0729098a730b40cc5e"
     },
     "site/assets/media/reader.webp": {
       "width": 1500,
       "height": 950,
-      "bytes": 211762,
-      "sha256": "783c5b483413e5790779833ea956da1f8d9bc3fe0255b4b587f24a5ca7abdf14"
+      "bytes": 260786,
+      "sha256": "eade14376c89f0345ee6b791c2745d451c0f470c88b3d418d6ab3a0e43f45381"
     },
     "site/assets/media/response-figure.webp": {
       "width": 1800,
-      "height": 802,
-      "bytes": 138526,
-      "sha256": "4c96cc2f043fd6545d6a4396b1afda9da1e346ce25fb3b0bb3b739f0aaa642f8"
+      "height": 2086,
+      "bytes": 1737394,
+      "sha256": "c3a167f474c6bb7336bb51c1044357e077e48efd7b08cae2b77b6af4e0677233"
+    },
+    "site/assets/media/materials-figure.webp": {
+      "width": 1800,
+      "height": 1486,
+      "bytes": 808714,
+      "sha256": "200cee88e85a1b47402f5637a68cd6577ac329402419662e7afdbb274c09e99f"
     }
   }
 }

@@ -1,0 +1,92 @@
+---
+title: "3D and video in slides"
+description: "Present moving models and video clips with the same step controls as the rest of your talk."
+---
+
+<p class="eyebrow">Presentations</p>
+
+# 3D and video in slides
+
+::: {.doc-lead}
+Present moving models and video clips with the same step controls as the rest of your talk.
+:::
+
+## 3D models {#3d-models}
+
+Drop a binary **GLB** onto the slide, or import a **3D fluxplot** saved from Python.
+Keep its `.fluxplot.json` beside the GLB to retain named mesh parts, colorbars, legends,
+value fields and shape states. Models use the same **3D view** and **Appearance** controls
+as Figures. **From file** shows the mesh's colors; **Uniform** uses one chosen fill.
+
+Double-click a model to orbit. Enter accepts the view and Escape cancels it. In **Design**,
+this changes the original camera. In **Edit after step N**, it writes that step's Change
+endpoint; the original view stays available. Picking a Become destination temporarily
+blocks orbit and tells you why, so a drag cannot accidentally change both actions.
+
+Select a model and choose **Turntable** to add a full, constant-speed turn. It is an ordinary
+Change effect: edit its duration or combine it with a Shape change. If the step already has a
+Change for that model, Turntable joins it and sets its timing to 6 seconds, linear, and Flux
+tells you when that re-times it. Complete turns remain complete turns, even when the starting
+and ending views look identical. Zoom changes smoothly in proportion, and projection changes
+at the endpoint.
+
+For a scene with shape states, use the **Shape** sliders or **Frame** scrubber at the desired
+editing destination. To reveal a named mesh or furniture part independently, select it in
+**X-ray** and use **Animate selected**. Orbit, shape, colors and part visibility travel with
+the slide and use the same playback in Present and portable HTML.
+
+**Ghost** creates independent views that share the same mesh. While you pick a Become
+destination, the pick bar shows **Vertex morph** for a compatible pair and **Crossfade**
+otherwise, and the Animation inspector's Destination row repeats it; hover either for the
+reason. A vertex morph needs the same mesh structure: matching mesh pieces, triangles and
+vertex order. Export both shapes together or use fluxplot's shared-topology workflow. A
+crossfade is a valid result, not an animation issue. Hand-off keeps both objects and reveals
+the destination at landing. A mesh part cannot start a Become (it has no outline to fly); use
+the whole model, or its labels and axes. A Become **into** a mesh part crossfades in place:
+the source fades out while the part fades in over the effect's duration, so the part never
+pops in at landing. A model cannot become one of its own parts; use **Appear** on the part
+instead. Consume replaces the source's content and removes the
+destination in one undoable edit. To replace a model's mesh in the same frame, choose
+**Model from gallery…** in the Animation inspector (or **From gallery…** on the pick bar);
+**Keep own content** drops that choice.
+
+HTML and MP4 preserve the moving model. PDF and PowerPoint export a **Design-view still**,
+shown and placed where each build step leaves it, with only the parts and labels that step
+shows (a part that appears later is absent from earlier pages); PowerPoint does not contain an
+editable 3D object. Command-line exports and a portable HTML deck's stills follow the same
+rule. If a GLB is missing, Flux shows a placeholder and refuses to save an incomplete deck:
+restore the named file or remove the model. A WebGL fallback is a still or placeholder with an
+issue, not a simulated animation.
+
+Whole-slide presets explicitly embed model bytes for another project. Their picker uses a
+saved preview. Newer or mismatched metadata remains preserved and inactive. In the rare
+case that importing prepared bytes would silently activate previously inactive metadata,
+insertion refuses and asks for a matching re-export; the saved preset stays unchanged.
+
+## Video clips {#video-clips}
+
+Keep **`.mp4` and `.mov`** files in **`plots/_videos`**. Open **Plots & videos** in Slide mode (or press **Alt+G**),
+choose a clip by its poster thumbnail, and import it onto the current slide. Drag, resize,
+rotate, group, and duplicate it with the same tools used for images. The inspector includes
+**Muted** and **Loop** options. Imported clips keep their originals; the deck stores a
+compatible MP4 playback copy and a poster frame. Longer imports show progress and can be cancelled.
+
+A clip starts on its poster frame. **Appear** reveals it, and **Start video** begins playback.
+These are separate actions: put Appear on step 1 and Start video on step 2 to show the poster
+first, then start the clip on the next advance. They can also share a step. Playback continues
+while the presenter waits between steps. **Pause video** holds the current frame;
+**Stop video** returns to the poster. **Start video** always restarts from the beginning.
+The command's start offset controls when it runs within its step.
+
+Preview and Present support pausing video after a step's animations finish. Leaving a slide,
+blanking the presentation, or hiding the player pauses its media. Portable HTML includes the
+clips and audio; a browser that requires a gesture for sound shows a **Play video** button.
+Continuous MP4 export includes moving clip frames and mixes unmuted audio. The last active
+clip finishes before the final hold; looping clips end with the export's configured timeline.
+Video clips belong to Slide mode; Figure canvases continue to support static content.
+
+::: {.next-reading}
+**Related guides**
+
+[Slides](/docs/slides.html) · [Animation and timing](/docs/animation.html) · [Transforms and data morphs](/docs/transforms.html) · [Present and export](/docs/present-and-export.html)
+:::

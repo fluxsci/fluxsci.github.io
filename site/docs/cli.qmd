@@ -1,0 +1,125 @@
+---
+title: "Command line"
+description: "Inspect projects, make precise edits, and export work from a terminal."
+---
+
+<p class="eyebrow">Reference</p>
+
+# Command line
+
+::: {.doc-lead}
+Inspect projects, make precise edits, and export work from a terminal.
+:::
+
+Scripts and agents can work on the same project as the app. Flux ships three headless
+surfaces over one shared core:
+
+- **The `flux` CLI** — around a hundred typed commands ("verbs") that operate on a project's
+  files directly: compose figures, restyle plot parts, manage references, compile the
+  manuscript, build slide decks.
+- **The MCP server** — the same verbs exposed as typed tools for AI agents, plus a few
+  agent-only niceties (inline figure PNGs so an agent can *look* at its work).
+- **The live bridge** — while the app is open, commands can act on the *running* GUI: read
+  what you have selected, apply an edit as an undoable action you watch happen.
+
+You never have to use any of this — the app is complete on its own. But it's what makes the
+[flux-connect workflow](/docs/connect.html) possible, and it's handy for scripting.
+
+## Invoking {#invoking}
+
+On first run Flux creates a stable launcher at `~/.local/share/flux/bin/flux`
+(Linux/macOS), or `%LOCALAPPDATA%\flux\bin\flux.cmd` (Windows). Add that folder to
+PATH or use the full path. Optional `~/.local/bin` shims delegate to it. Then:
+
+```bash
+flux help                 # every verb, always current
+flux config               # this machine's resolved paths (FluxConfig, FluxLib, …)
+flux list                 # figures + references of the current project
+```
+
+Commands find their project as: an explicit `--root`, else the `FLUX_PROJECT` environment
+variable, else the current directory. `cd` into a project (or export `FLUX_PROJECT`) and go.
+
+## Connect an agent {#connect-an-agent}
+
+Run `flux connect /path/to/project` in the agent's shell, or invoke its installed
+flux-connect skill. The command returns the reading plan for a pack; the agent reads
+it, views its images, returns a receipt and waits for your request. `global` connects
+without choosing a project; `--refresh`, `--depth full` and `--live` control refresh,
+reading depth and live pairing. [Working with AI agents](/docs/connect.html)
+explains setup and the receipt.
+
+## Common tasks {#a-taste}
+
+The installed app includes the PNG renderer used by the CLI and MCP. An agent can
+view figures and canvas overviews without a source checkout or a separate renderer install.
+
+```bash
+flux compose-figure plots/*.svg --id fig1 --rows 2   # plots → one labeled multi-panel figure
+flux render-figure fig1 --png --out /tmp/fig1.png    # render it to look at
+flux restyle fig1 control.line --stroke '#205EA6'    # restyle one part (survives regeneration)
+flux set-series-color fig1 control '#205EA6'         # one colour for a whole series + its legend swatch
+flux get-plot-data fig1 --series control --limit 50  # the plot's DATA: exact x/y, bins, stats, brackets
+flux cite-doi 10.1038/nature12373                    # fetch a reference into the project
+flux compile --to pdf                                # compile the manuscript via Quarto
+```
+
+Edits made headless show up **live** in the open app, and if you're mid-edit in the app when a
+command arrives, it defers politely instead of clobbering ([how coexistence
+works](/docs/projects-and-files.html)).
+
+## Full command reference {#command-reference}
+
+The [CLI and MCP command reference](/docs/commands.html) lists the project, figure, plot, document, library, slide and agent commands. It is based on the command reference shipped with the reviewed Flux version.
+
+Use `flux help` for the list in your installed version, or `flux help <verb>` for a command's flags. `flux version` identifies the installation. The same reference is available locally in `FluxConfig/Context/FluxContext/CLI-REFERENCE.md`.
+
+For example, `flux help read-log` prints:
+
+```text
+  read-log [--tail <value>] [--since-checkpoint] [--titles] [--json] [--root R]
+      Read the project Log: the latest entries, from the latest checkpoint, or titles only.
+```
+
+### Connecting an MCP client {#connecting-an-mcp-client}
+
+Flux installs a stable launcher at `~/.local/share/flux/bin/flux` on Linux and
+macOS, or `%LOCALAPPDATA%\flux\bin\flux.cmd` on Windows. Point an MCP client at
+that executable with `args = ["mcp"]`; add a project path after `mcp` for a fixed
+default. The optional `~/.local/bin/flux` and `flux-connect` shims delegate there.
+
+`flux mcp` starts with the compact `core` toolset. Use `flux_verbs` to discover
+commands and `flux_verb` to run them, or `flux mcp --toolset full` for every dedicated
+tool. Ask the agent for `flux-connect /path/to/project` to bind it. Finding a
+project from cwd only supplies a default for tools; it does not load context.
+Project tools can also take a `project` argument for one call.
+
+Relative filesystem inputs use the shell cwd on the CLI and the project root over
+MCP. Absolute paths are honoured. Document identifiers remain project-relative.
+
+### Agent setup and diagnostics {#agent-setup-and-diagnostics}
+
+`flux connect setup --dry-run` previews installation. Apply with `flux connect setup`;
+`--agents claude,codex` selects vendors, `--yes` confirms replacing an existing Flux
+registration, and `--create-local-bin` creates the optional convenience shims.
+Flux prints the macOS PATH instruction; it never edits shell startup files.
+
+`flux connect doctor` checks the launcher, full MCP handshake, PNG rendering,
+context files, published skills, hooks, registrations and known projects.
+`--json` returns the same checks as the read-only MCP tool `connect_doctor`.
+Setup and removal are CLI actions and cannot be invoked over MCP.
+
+On Windows, setup registers the pinned runtime and CLI script directly; MCP
+hosts do not have to execute a `.cmd` shim. Run setup again after relocating Flux.
+
+### Troubleshooting {#troubleshooting}
+
+Use `flux connect doctor` for launcher, tools and integration errors. After moving an
+installation, rerun setup and restart agent sessions. A missing `flux` command usually
+means the launcher directory is not on PATH; use its full path above.
+
+::: {.next-reading}
+**Related guides**
+
+[Keyboard shortcuts](/docs/shortcuts.html) · [Project layout](/docs/project-layout.html) · [Library and configuration](/docs/configuration.html) · [Lighttable](/docs/lighttable.html)
+:::

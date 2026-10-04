@@ -5,9 +5,7 @@ project:
     - index.qmd
     - 404.qmd
     - install/index.qmd
-    - docs/index.qmd
-    - docs/first-project.qmd
-    - docs/projects-and-files.qmd
+    - docs/*.qmd
   resources:
     - assets/**
     - demos/**

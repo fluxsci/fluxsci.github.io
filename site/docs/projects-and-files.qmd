@@ -25,11 +25,11 @@ my-project/
 ├── fig/               Figure compositions, captions, accepted assets
 ├── slides/            Decks, animation steps, accepted assets
 ├── references/        The bibliography cited by this project
-├── Context/           Mission, notebook, and project rules
+├── Context/           ProjectContext, Log, and project rules
 └── exports/           Generated documents and presentations
 ```
 
-Older projects may use `manuscript/` for documents; Flux supports that layout too. The [complete layout reference](https://github.com/fluxsci/flux/blob/main/docs/reference/project-layout.qmd) describes indexes, metadata, and additional folders.
+Older projects may use `manuscript/` for documents; Flux supports that layout too. The [complete layout reference](/docs/project-layout.html) describes indexes, metadata, and additional folders.
 
 ## Sources, compositions, and exports {#sources}
 
@@ -47,7 +47,7 @@ A rendered preview is replaceable. An accepted plot or mesh in `fig/assets/` or 
 
 Your analysis writes a source plot into `plots/`. Inserting it into Figure stores an accepted copy and the link to its source. The composition records placement, styling, and captions separately from the original data visualization.
 
-When the source changes, Flux refreshes the accepted SVG, manifest, and recipe. Figure, Paper, and Slides read that accepted version. Stable part identities let Flux retain edits to a named series while its data change.
+When a linked SVG source changes, Flux refreshes the accepted SVG, manifest, and recipe. A 3D model instead offers an explicit **Update from source** action; its saved mesh stays in place until you accept that update. Figure, Paper, and Slides read that accepted version. Stable part identities let Flux retain edits to a named series while its data change.
 
 The figure catalog makes the link visible:
 
@@ -82,11 +82,11 @@ Library PDFs and annotations may live outside the project. If a collaborator nee
 
 ## Working alongside an agent {#agents}
 
-Humans and agents work with the same project folder. The project’s `Context/` records its mission, running notebook, and rules. Personal guidance belongs in your shared environment and applies across projects.
+Humans and agents work with the same project folder. The project’s `Context/` records its background, Log, and rules. Personal guidance belongs in your shared environment and applies across projects.
 
 Flux’s commands coordinate edits with the app. An advisory lock can defer a command while the app is writing; supported project mutations are journaled so you can inspect who changed what. Use the CLI or connected tools for managed figures and decks, and keep comments attached to the passage, figure, or slide they concern.
 
-[Connect an agent](https://github.com/fluxsci/flux/blob/main/docs/agents/connect.qmd) · [Understand context](https://github.com/fluxsci/flux/blob/main/docs/agents/context.qmd) · [Comments and Inbox](https://github.com/fluxsci/flux/blob/main/docs/agents/annotations.qmd)
+[Connect an agent](/docs/connect.html) · [Understand context](/docs/context.html) · [Comments and Inbox](/docs/comments.html)
 
 ## Share, back up, and return {#portability}
 

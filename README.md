@@ -2,7 +2,7 @@
 
 The public Flux website at **https://fluxsci.github.io/**, built with Quarto and maintained independently from the application.
 
-The current review milestone includes the homepage, installation, a searchable documentation directory, and two finished guides: **Your first project** and **Projects and files**. Remaining topics link to current upstream documentation while their new editions are prepared. The installation page reflects the current public desktop release.
+The site includes a concise visual homepage, installation instructions, and 46 searchable guides and references covering all five workspaces, fluxplot, the command line, agent connections and integrations. Every documentation topic is local. The installation page reflects the current public desktop release.
 
 ## Develop and verify
 
@@ -36,13 +36,15 @@ The preview is at **http://127.0.0.1:1430**. It serves only `dist/`, with a real
 | `plans/` | Internal planning; never published |
 | `dist/` | Generated publication artifact; never committed |
 
-Add a route to `scripts/routes.mjs` and `site/_quarto.yml`. The build generates route-specific canonical URLs, the sitemap, shared document navigation, and a local search index. It checks every local link and fragment, unique IDs, image descriptions, publication allowlists, asset hashes, and accidental personal paths.
+Add a route and navigation entry to `scripts/routes.mjs`; `site/_quarto.yml` renders all documentation QMD files. The build generates route-specific canonical URLs, the sitemap, shared document navigation, and a local search index. It checks every local link and fragment, unique IDs, image descriptions, publication allowlists, asset hashes, and accidental personal paths.
 
 ## Visual material
 
-The previous bundled example and download have been retired. The owner's separately maintained visual project supplies only authorized plot files. Refreshing assets creates an isolated temporary project with new website compositions, new slides, original captions, and an illustrative manuscript. It does not read or reuse the owner's test slides, test figure canvases, manuscript, context, or personal library; it never writes to the source project. Scientific demo data are labeled synthetic.
+The previous bundled example and download have been retired. The confirmed master demonstration project supplies two authored figures and their accepted assets. Their plot content and layout are preserved. Refreshing media creates an isolated copy with original captions, a new manuscript, a small demonstration bibliography, and three new slides. Existing test slides and the owner's personal configuration or library are never read.
 
-Normal builds use checked-in reviewed assets and need neither the author's project nor a Flux checkout. See [media/README.md](media/README.md) for the deliberate refresh workflow. Its source input hashes prove that the selected plot bytes were preserved. The interactive slides use Flux's native player. The homepage SVG inspector switches between unchanged plot states; it does not implement a replacement animation engine.
+The showcase includes public Allen Brain Observatory recordings, anatomical models, calculated fields, crystallographic records and illustrative material properties. Sources and interpretation are documented on the [visual credits page](site/docs/visual-credits.qmd).
+
+Normal builds use reviewed, checked-in assets and need neither the source project nor a Flux checkout. See [media/README.md](media/README.md) for the deliberate refresh workflow. Input hashes and preservation checks protect the selected compositions. Interactive slides use Flux's native player, including its 3D runtime.
 
 ## Publish
 

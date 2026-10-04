@@ -1,0 +1,244 @@
+---
+title: "Plot format and identity"
+description: "Understand the files, stable IDs and data contracts used by Flux and other consumers."
+---
+
+<p class="eyebrow">Plotting / fluxplot</p>
+
+# Plot format and identity
+
+::: {.doc-lead}
+Understand the files, stable IDs and data contracts used by Flux and other consumers.
+:::
+
+## The file bundle
+
+### `growth.svg` — visible artwork
+The SVG opens independently in a browser or vector editor. fluxplot adds two pieces of information to each meaningful element:
+
+- a **stable, meaningful `id`** — `control.line`, `control.point.3`, `axis.x.title`, `legend`;
+- **`data-*` attributes** carrying role + identity (+ the datum value, for convenience):
+
+```xml
+<g id="control.line" data-role="line" data-series="control"><path d="…"/></g>
+…
+<use id="control.point.3" data-role="point" data-series="control"
+     data-index="3" data-x="12" data-y="0.41" x="182.05" y="103.5"/>
+```
+
+Text stays as real, editable `<text>` (axis titles, tick labels) — not outlined to paths — so it can be
+restyled and read.
+
+### `growth.fluxplot.json` — the semantic index
+A sidecar that **points into the SVG by id** and adds everything SVG can't naturally express. It never
+duplicates geometry (no path data, no bounding boxes — those live authoritatively in the SVG). It
+holds:
+
+```jsonc
+{
+  "axes": [{
+    "x": { "scale": "linear", "domain": [-1.2, 25.2],
+           "anchors": [{"data": -1.2, "svg": 57.6}, {"data": 25.2, "svg": 414.72}] },
+    "y": { "scale": "log", "base": 10, "domain": [0.0158, 2.6767],
+           "anchors": [{"data": 0.0158, "svg": 307.6}, {"data": 2.6767, "svg": 41.5}] }
+  }],
+  "series": [{ "id": "control", "kind": "line", "svg": {"line": "control.line", "points": "control.points"},
+               "data": { "x": [0,4,8,…], "y": [0.02,0.05,0.13,…] },
+               "points": [ … {"index": 3, "svgId": "control.point.3", "x": 12, "y": 0.41} … ] }],
+  "build": { "order": ["axis.x","axis.y","gridlines","control.line","treatment.line",
+                       "control.points","treatment.points","legend","significance-bracket.0"],
+             "presets": { "line": {"animation": "draw-on"}, "point": {"animation": "stagger-in"} } }
+}
+```
+
+Flux uses this index to select named parts and interpret their data.
+
+### `growth.recipe.json` — the provenance
+The script (auto-discovered, or recorded explicitly), the parameters, references (+ hashes) of the
+input data, and a `provenance` block (script hash, interpreter, package versions, git state when
+available). Enough to **re-run the plot here** — which is what makes "rerun Figure 6d with a
+Mann-Whitney test" a real operation. All host-varying material lives here, never in the SVG/manifest.
+
+A plot made in a notebook cell has no script to re-run. `fp.save(..., recipe={"notebook": path,
+"cell": "fig-growth"})` records it honestly: `provenance.scriptDiscovery: "notebook"` and a
+`notebook: {path, cell, sha256}` block, with no `command`. In a live kernel the notebook is
+detected from what the host states outright — `$QUARTO_DOCUMENT_PATH`, or the
+`__vsc_ipynb_file__` / `__session__` globals — and never guessed from the working directory.
+
+### Consistency between the three files
+The manifest records `artifact.svgSha256` — the checksum of the final SVG bytes. `save` stages all
+three files and commits them with atomic per-file renames (SVG → manifest → recipe), so a watcher
+never sees a partially written file, and a stale SVG/manifest pair is *detectable* via the checksum
+rather than silently misinterpreted.
+
+**Why split SVG and manifest?** Because they answer different questions in the representation each is
+good at. The SVG answers *"how does it look and which part is which?"* — that belongs in a vector
+tree. The manifest answers *"what does it mean and how does it move?"* — nested numeric data,
+coordinate transforms, choreography — which fit naturally in
+JSON. The authority rule keeps them from drifting: **geometry is authoritative in the SVG; data,
+coordinate-mapping, and choreography are authoritative in the manifest; identity + role appear in both
+as the join key.**
+
+---
+
+## Export pipeline
+
+FluxPlot rides matplotlib's one real hook from "an artist" to "a named SVG element":
+`artist.set_gid("control.line")` makes matplotlib's SVG backend wrap that artist's output in
+`<g id="control.line">…</g>`. The pipeline in `save()` is:
+
+1. **Assign deterministic gids.** Walk the marks you tagged and give each a semantic id (`ids.py`).
+2. **Auto-tag the scaffold.** Name the axes, tick labels, legend, and title so you never have to.
+3. **Capture coordinates.** Read each axis's real transform and record the data↔pixel mapping + scale
+   (see below).
+4. **Render deterministically.** Save to SVG with the determinism knobs set (see below).
+5. **Inject `data-*` + canonicalize.** matplotlib writes only `id`, never arbitrary attributes — so a
+   post-render pass (`postprocess.py`, via lxml) finds each element **by the id we ourselves set** and
+   adds `data-role`/`data-series`/… , splits the points group into addressable per-point elements, and
+   strips volatile metadata.
+6. **Emit the manifest and recipe.**
+
+> **"Isn't step 5 the reverse-engineering you said was a sin?"** No — and the distinction is the whole
+> point. Reverse-engineering means looking at an anonymous `<path>` and *guessing from its color or
+> shape* that it's the control line. Here, **we set `id="control.line"` before rendering**, so the
+> post-pass is an *exact structural join on an id we authored* plus annotation with values our code
+> already had. Nothing is inferred from pixels. It's serialization, not divination.
+
+### Per-point addressability
+"The 4th point of the control series" needs each point to be its *own* element. matplotlib draws a
+set of markers as one artist: a marker glyph defined once in `<defs>`, then one `<use>` per point in
+data order. FluxPlot's post-pass enumerates those `<use>` children and stamps each with
+`id="control.point.k"` + `data-index`/`data-x`/`data-y`. (If matplotlib ever culls off-axis points and
+the count stops matching the data, FluxPlot detects the mismatch and keeps the group addressable
+rather than mislabel indices.)
+
+### Heavy layers are rasterized by default
+An artist becomes as many SVG nodes as it draws primitives. A `LineCollection` built from per-edge
+segments — the ordinary way to draw an SWC reconstruction or a graph — emits **one `<path>` per
+segment**, and a `scatter` emits **one `<use>` per point**. At real data scale that is 10⁴–10⁵ nodes
+in a single panel, and consumers inline that markup as live DOM, where it is ruinous. (Measured: a
+14-panel figure carrying three neuron reconstructions and 8.7k-point scatters reached 260,907 nodes
+and ~390 ms per pan frame — about 2.5 fps.)
+
+So `fp.save` rasterizes any artist over `raster_threshold` primitives (default 800) into a single
+embedded `<image>` at `raster_dpi` (default 600), and says so:
+
+```
+fluxplot: 'medoid' — rasterized 2 heavy layer(s) at 600 dpi: axon.x-morphology (72,586 primitives),
+dendrite.x-morphology (4,199 primitives). Axes, ticks, labels and legend stay vector.
+Pass force_vectors=True to keep everything as vectors.
+```
+
+**Only the heavy layer is rasterized.** Axes, spines, ticks, tick labels, the legend, annotations and
+every lighter series stay fully vector and fully editable — this is matplotlib's own `set_rasterized`
+applied per artist, which is what journals expect for dense scatter and line art anyway. The
+rasterized layer **keeps its id, its `data-role`/`data-series` and its manifest entry**, so it stays
+addressable as a whole; only *per-point* ids are unavailable, because a rasterized cloud has no
+per-point nodes. `SaveResult.rasterized` lists what was rasterized and the manifest marks those
+entries `"rasterized": true`.
+
+On a real morphology panel: **13.42 MB / 76,852 nodes → 0.06 MB / 67 nodes**, rendering
+pixel-indistinguishable (mean channel difference 0.11/255).
+
+Opt out with `fp.save(..., force_vectors=True)` or `FLUXPLOT_FORCE_VECTORS=1`; the heavy layers are
+then still reported, as a warning naming them and their node cost. A per-artist
+`set_rasterized(False)` does **not** override the default — that is matplotlib's factory setting
+rather than a considered choice, and silently emitting an unusable SVG is the failure this exists to
+prevent. `force_vectors` is how you say you meant it.
+
+### Determinism — the same plot always produces the same bytes
+This is non-negotiable, because **morphing, diffing, and regeneration all break if ids or structure
+wobble between runs.** FluxPlot pins the sources of nondeterminism:
+
+- `svg.hashsalt` is fixed (otherwise matplotlib salts every clip-path / glyph id with a fresh UUID);
+- `svg.fonttype='none'` keeps text as `<text>` (the default outlines glyphs into font-version-dependent
+  path data, *and* makes labels un-restylable);
+- the SVG date metadata is dropped, path-simplification is pinned, and the JSON is written canonically
+  (sorted keys, fixed float precision).
+
+Result: same input → byte-identical SVG and manifest. Timestamps and content hashes (which *must*
+vary) live only in the recipe, so the SVG/manifest stay stable for diffs and morphs.
+
+### Coordinate capture — why the manifest stores "anchors"
+A morph that moves a point from value 2 to value 8 on a **log** axis must travel correctly, which is
+impossible from pixels alone. So per axis FluxPlot stores the scale type and two `(data, svg)` anchor
+pairs. A consumer interpolates between them — linearly, or in log space for a log axis — and gets the
+exact pixel position for any data value, **without ever reconstructing matplotlib's transform.** Two
+anchors + a scale type is the complete, portable contract. (FluxPlot computes them with a
+dpi-invariant fraction method that round-trips *exactly* against the positions matplotlib actually
+emits — verified in `NOTES_matplotlib_svg.md`.)
+
+---
+
+## Semantic IDs: the universal join key
+
+Ids are **derived from meaning**, not random — a dotted path of `[a-z0-9-]` segments:
+
+```
+control.line          control.point.3        axis.x.title       axis.x.tick.2
+legend                annotation.peak        reference-line.threshold        panel.a
+```
+
+The same id is simultaneously the SVG `id`, the manifest key, the handle a caption or animation step
+refers to, and a coordinate in "meaning space" (`role=point, series=control, index=3`). Making it
+**deterministic** is what lets four different operations work:
+
+- **Durable references** — a restyle, a caption, or an animation attached to `control.line` survives the
+  plot being **regenerated with new data**: the line is still "the control line" even though its shape
+  changed, because it has the same id.
+- **Morphing** — match parts across two versions of a plot by id, then tween.
+- **Legible diffs** — a regenerated plot produces a meaningful git diff instead of noise.
+- **Addressing** — humans and agents name a part the same way the file does.
+
+(matplotlib's own ids use underscores and hex hashes and never contain dots, so FluxPlot's dotted
+namespace is provably disjoint from anything it autogenerates.)
+
+A series name becomes its id segment by a deterministic slug: accents folded, Greek letters and
+`µ` / `°` / `%` spelled out (`α` → `alpha`, `37 °C` → `37-degc`), super- and subscripts flattened
+(`CO₂` → `co2`), lowercase, spaces to `-`. When dropping characters would let two names collide
+(`IL-6 (pg/mL)` vs `IL-6 [pg/mL]`), a six-hex-digit hash of the name is appended, so distinct names
+stay distinct and stable. Spines are named by side (`axis.x.spine.bottom`, `axis.y.spine.left`).
+When a rule changes an id an older fluxplot emitted, the manifest's `idAliases` maps the old id (or
+a series' old root) to the new one for one minor version, so a consumer resolves saved overrides
+through it instead of losing them.
+
+Two orthogonal axes of labeling make this work: **role** = *what kind of thing it is* (`line`,
+`point`, `axis-title`) and **identity** = *which one* (`series=control`, `index=3`). Animation targets
+by role ("draw every `line`"); a caption targets by identity ("the `treatment` series"); a journal
+restyle targets by role across the whole figure ("every `axis-title` → 8pt").
+
+---
+
+## The role vocabulary
+
+The part names aren't ad hoc — they're the **Grammar of Graphics** (the model behind ggplot2 and
+Vega-Lite): a plot is *data → marks + scales + guides + annotations*. FluxPlot's v0 core roles:
+
+- **Containers:** `figure`, `panel`, `plot-area`, `legend`, `colorbar`, `title`
+- **Scaffold / guides:** `axis`, `spine`, `tick`, `tick-label`, `axis-title`, `gridline`, `background`
+- **Data marks:** `series`, `line`, `point`, `bar`, `area`, `errorbar`, `box`, `violin`
+- **Composite sub-parts:** `whisker`, `cap`, `flier`, `median`, `mean`, `segment`, `regions`
+- **Overlays:** `annotation`, `reference-line`, `highlight-region`, `significance-bracket`, `label`
+
+Science is unbounded (heatmaps, networks, brain maps), so the vocabulary is a **versioned core plus a
+namespaced extension mechanism**: anything unrecognized becomes an `x-…` role. An unknown role still
+gets a stable id and still renders and is still addressable — at worst it's a clean, tagged, editable
+figure. The standard only ever *adds* power; it never makes a plot worse than a plain SVG.
+
+---
+
+
+## scene3d
+
+A 3D bundle contains `name.glb`, `name.fluxplot.json` and `name.recipe.json`. The scene manifest uses `spec: "fluxplot/scene3d"` and its own schema version; it is distinct from the 2D manifest. It records the source GLB hash, physical size, named parts, axes, layout, view, value fields and shape-state information.
+
+GLB assets accepted by Flux may be prepared for rendering. The saved asset hash identifies those accepted bytes; the placement's original-source hash binds its scene metadata. A mismatch keeps the accepted mesh while refusing incompatible metadata. Import and relink through Flux to keep these records coherent.
+
+Values and validity masks travel with the mesh, so changing a colour range does not require analysis to run again. A shape state reuses exactly the same vertex count and triangle indices. Separate morph partners also need matching names and topology. See [3D plots](/docs/3d-plots.html) for authoring and validation.
+
+The complete machine-readable definitions are maintained with the implementation: [2D schemas](https://github.com/fluxsci/fluxplot/tree/main/schema) and [3D binary contract](https://github.com/fluxsci/fluxplot/blob/main/docs/SCENE3D_CONTRACT.md).
+
+
+::: {.next-reading}
+[fluxplot quickstart](/docs/fluxplot.html) · [Python API reference](/docs/fluxplot-api.html) · [Edit plots in Flux](/docs/plot-editing.html)
+:::

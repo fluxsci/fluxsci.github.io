@@ -1,0 +1,92 @@
+---
+title: "fluxplot"
+description: "Create plots in Python that stay editable in Flux: a complete example, installation, and the path to more advanced plotting."
+---
+
+<p class="eyebrow">Plotting / Start here</p>
+
+# fluxplot
+
+::: {.doc-lead}
+Plot with Matplotlib. Give the important parts a name. Save a figure that stays editable in Flux.
+:::
+
+fluxplot is a Python library for scientific plots. Its helpers return ordinary Matplotlib artists, so you can keep using familiar axes, labels and layout tools. The saved plot also carries series identities and data that Flux uses for selection, styling and animation.
+
+## Install {#install}
+
+In your analysis environment:
+
+```bash
+uv add fluxplot
+```
+
+Or, with pip:
+
+```bash
+python -m pip install fluxplot
+```
+
+For mesh-file loading and optional simplification, install `fluxplot[mesh]`. For a notebook kernel, use `fluxplot[notebook]`. The plotting library can be used independently of the Flux desktop app.
+
+## Make your first plot {#first-plot}
+
+Save this as `plot_response.py` and run it in that environment. The values are synthetic.
+
+```python
+from pathlib import Path
+import numpy as np
+import matplotlib.pyplot as plt
+import fluxplot as fp
+
+fp.use_paper()
+x = np.linspace(0, 10, 120)
+fig, ax = plt.subplots(figsize=(3.5, 2.5))
+fp.line(ax, x, np.exp(-x / 3), series="control", label="Control")
+fp.line(ax, x, np.exp(-x / 5), series="treatment", label="Treatment")
+ax.set(xlabel="Time (s)", ylabel="Illustrative response")
+fp.legend(ax, frameon=False)
+Path("plots").mkdir(exist_ok=True)
+fp.save(fig, "plots/response.svg")
+plt.close(fig)
+```
+
+```bash
+uv run python plot_response.py
+```
+
+The output is a bundle of three files:
+
+| File | Purpose |
+|---|---|
+| `response.svg` | The visible plot, with addressable parts. |
+| `response.fluxplot.json` | Series, axes, identities and data used by Flux. |
+| `response.recipe.json` | How to regenerate the plot. |
+
+Keep them together. Put the bundle in a project's `plots/` folder, then open the [Plot gallery](/docs/plot-gallery.html). Insert the plot into a figure or slide.
+
+## Name what should stay connected {#identity}
+
+`series="control"` is an identity; `label="Control"` is display text. Keep identities stable when you rerun a plot. This lets Flux retain a line's styling or follow a point between two data states.
+
+Use `fp.panel(ax, name="response")` when a figure has several axes. Use stable point IDs for scatter data whose row order can change. The [semantic plot guide](/docs/semantic-plots.html) explains what the consumer can edit; the [format reference](/docs/plot-format.html) explains the saved contract.
+
+## Choose the next guide {#guides}
+
+| Your task | Guide |
+|---|---|
+| Plot lines, observations, distributions or a fit | [Lines, points and distributions](/docs/plot-types.html) |
+| Show observations alongside a summary | [Glowbar, fluxbox and hexmatrix](/docs/signature-plots.html) |
+| Plot a heatmap, contour or shared colour scale | [Matrices and colour scales](/docs/matrices-and-scales.html) |
+| Display calibrated images or projected surfaces | [Images and surface maps](/docs/images-and-surfaces.html) |
+| Use consistent colours and check readability | [Colour and style](/docs/colors-and-style.html) |
+| Report tests, intervals and comparisons | [Statistics and brackets](/docs/statistics.html) |
+| Make an orbitable mesh or shape sequence | [3D plots](/docs/3d-plots.html) |
+| Set physical size, panels and regeneration | [Saving and recipes](/docs/save-and-recipes.html) |
+| Look up a parameter | [Python API reference](/docs/fluxplot-api.html) |
+
+## Existing Matplotlib or Seaborn code {#existing-code}
+
+You can adopt fluxplot gradually. `fp.tag` names an existing artist; `fp.tag_points` adds point identities to a scatter collection; `fp.tag_seaborn` names supported Seaborn plot types. Public, unambiguous Matplotlib labels are also captured at save time. Explicit helpers are preferable when the role matters—for example, a confidence band rather than an arbitrary filled polygon.
+
+For a complete project workflow, continue with [Your first project](/docs/first-project.html).

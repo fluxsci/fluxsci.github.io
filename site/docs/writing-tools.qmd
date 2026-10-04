@@ -1,0 +1,106 @@
+---
+title: "Writing tools"
+description: "Adjust the reading surface, manage technical vocabulary, and choose how corrections work."
+---
+
+<p class="eyebrow">Writing</p>
+
+# Writing tools
+
+::: {.doc-lead}
+Adjust the reading surface, manage technical vocabulary, and choose how corrections work.
+:::
+
+## Text size {#text-size}
+
+The status bar carries a text-size slider on its own row, just above **Local**, **Export**, and
+the word count. Drag it, use the **−** and **+** buttons beside it, or press **Ctrl+=** and **Ctrl+-** from
+anywhere in Paper; **Ctrl+0** goes back to 100%. The range is 50% to 250%.
+
+This changes the real type, not a zoom of the picture: the text redraws at the new size, the
+lines re-wrap, and the column of text widens or narrows with them. Nothing about the document
+on disk changes — text size is a reading preference for this device.
+
+Click the percentage to choose **which panels** it applies to. The small window that opens has
+a checkbox for **All panels together** and one each for the **Manuscript**, the **Left
+sidebar**, and the **Right margin** — tick any one, any combination, or all three. By default
+the slider resizes the manuscript only, so the sidebar and margin keep their size while you
+make your text bigger. Each panel remembers its own size, and both the sizes and your choice
+of panels come back the next time you open Flux. At least one panel always stays ticked.
+
+## Local corrections {#local-corrections}
+
+Paper fixes clear typing slips when you finish a word, using a local Harper worker. This first layer sends no manuscript text to a service. It leaves code, math, citations, links, tables and technical identifiers alone.
+
+A correction briefly pulses blue. Click the word to inspect it, undo it or add it to the dictionary. **Ctrl+Z** also undoes a correction batch. Undoing teaches the project to leave that correction alone.
+
+### Dictionaries and aliases {#dictionaries}
+
+Select a word and open **Word tools** in the floating toolbar, or press **Shift+Alt+W**. Add it to the **Project** dictionary for this project, or **Personal** for all projects on this device. **Shift+Alt+D** toggles project recognition; **Alt+D** toggles personal recognition.
+
+An alias expands a short form when you finish typing it. For example, `igf` can expand to `iGluSnFR4f`. Choose its scope in Word tools. Project aliases take precedence over personal ones; **Ctrl+Z** restores the typed form. Remove aliases through Word tools or the recent expansion's menu.
+
+Dictionaries help nearby misspellings resolve to a known technical term. They do not make every similar scientific name equivalent: recognizing `SLAP2` does not turn `SLAP3` into it.
+
+### Optional sentence judgment {#sentence-judgment}
+
+Turn local checking on or off with **Local** in the status bar or **Settings → Corrections**. Sentence judgment is a separate, optional layer that considers completed sentences to resolve uncertain spellings. It proposes individual word corrections, not sentence rewrites. Flux checks the suggestion again and discards it if you have changed the source text.
+
+| Underline | Meaning |
+|---|---|
+| Red | The local checker flagged an unresolved word. |
+| Blue, fading | A correction was applied. |
+| Orange | Sentence judgment kept the word. Click to inspect the decision. |
+
+Opening an existing document adds flags without correcting old text or sending it for sentence judgment. Editing a flagged sentence brings it into the normal checking workflow.
+
+Choose a provider explicitly: **Flux managed** runs a downloaded local model; an existing **Ollama** installation is another local option; the optional cloud provider has its own key and disclosure. A local failure never enables cloud processing automatically.
+
+<details><summary>Model setup, correction strength and learned preferences</summary>
+
+Settings offers three judgment envelopes. **Standard** is the default: one typing edit for short
+words and two otherwise. **Aggressive** can explore three edits for words of nine or more letters.
+**Really aggressive** explores every bounded candidate, allows three edits from seven letters and
+four from ten, and is deliberately available for testing the high-recall edge. All three preserve
+the same no-rewrite, syntax, scientific morphology, dictionary, contextual approval, local-lexicon,
+and exact-source safety gates. Wider modes can be slower and still abstain when those gates fail.
+
+**Flux managed** is the default contextual provider. In Settings, install the 2.33 GB Qwen3 4B
+Instruct 2507 model explicitly; the download resumes after interruption, is SHA-256 verified under
+`FluxConfig/Models/corrections/`, and can be unloaded or removed there. Flux owns a pinned
+`llama-server` helper on authenticated loopback and never starts it on the Home screen. Apple
+Silicon packages fully offload to Metal, Linux packages use the pinned Vulkan backend when a GPU is
+available, and Settings names the active acceleration path. “Ready” means the model has produced a
+schema-valid non-thinking answer, not merely that its process is listening. Use **Update local model** if Settings offers a newer verified artifact.
+
+An existing Ollama installation can be selected as an advanced local provider. Flux explicitly
+warms the selected Ollama model, holds it for 15 minutes, and fixes its context at 2,048 tokens so a
+small correction request cannot accidentally allocate the model's much larger default context.
+Provider loading is allowed a longer background deadline, but a correction still has only the
+editor's short silent-application window; a late result never changes the manuscript. GPT-5.6 Luna
+is separately opt-in: its API key is OS-encrypted, requests use `store: false`, Settings discloses
+the payload and shows the session cost estimate, and a local failure never activates cloud.
+
+Personal guidance, project guidance, dialect, explicit terms, aliases, and learned “leave alone”
+decisions all feed this bounded judgment. **Reset correction learning** in the same Settings
+section clears automatic lessons without deleting dictionaries or aliases; individual lessons can
+also be removed from the visible list. Quoted material, code, math, citations, links, tables, front
+matter, and technical identifiers remain protected in both lanes.
+
+
+</details>
+
+## Vim, and how the caret feels {#vim-and-how-the-caret-feels}
+
+For keyboard fans, **Ctrl+K → Enable Vim mode** turns on modal editing, with two flavors:
+plain **Vim**, or **flux-ViM** — Vim plus Flux's opt-in refinements (the first: `jj` in insert
+mode is Escape). If none of this means anything to you, ignore it happily.
+
+Separately, Settings › Paper offers **Caret motion**: *chase* (the default — the caret
+pursues your typing with a lively, immediate feel) or *smooth* (a fixed soft glide).
+
+::: {.next-reading}
+**Related guides**
+
+[Paper](/docs/paper.html) · [Citations, figures and tables](/docs/citations-and-figures.html) · [Export documents](/docs/export-documents.html)
+:::

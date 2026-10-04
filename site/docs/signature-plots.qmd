@@ -1,0 +1,164 @@
+---
+title: "Glowbar, fluxbox and hexmatrix"
+description: "Show observations, summaries and density with individually named plot parts."
+---
+
+<p class="eyebrow">Plotting / fluxplot</p>
+
+# Glowbar, fluxbox and hexmatrix
+
+::: {.doc-lead}
+Show observations, summaries and density with individually named plot parts.
+:::
+
+They take a
+DataFrame (pandas, polars or a dict of columns) plus column names, seaborn-style, and name every
+part for you.
+
+## Glowbar
+
+
+```python
+gb = fp.glowbar(df, x="condition", y="APP/GAPDH", units="subject", ax=ax)
+gb = fp.glowbar(df, x="condition", y="signal", units="mouse",          # paired / repeated measures
+                connect_identical_points_across_x_values=True, ax=ax)
+```
+
+Every observation is a dot; beside each group sits a slim bar that *glows* — its ink densest at
+the centre of the distribution and fading to hard caps at the interval ends — with the **mean** as
+a heavy, haloed line across the bar and the **median** as a V-notch cut into both of its edges.
+The interval is mean ± SEM by default, glowing around the mean; `interval="iqr"` spans the box of
+a box plot and glows around the median, `"sd"` gives mean ± SD, and a callable
+`values -> (low, high)` is accepted. Default groups use ColorBrewer's `YlGnBu`, then `YlOrRd`.
+
+With `units=` every unit (animal, subject, cell) keeps a **fixed lane and colour derived from the
+table, never from the values**, so plots of different measures made from one table agree dot for
+dot — even when a unit is missing from one of them. Unit colours are equal *perceptual* steps
+(CAM02-UCS) of each group's ColorBrewer map between `shade_range=(88, 22)` lightness, dealt across
+lanes so neighbours always contrast (`interleave_shades=True`), and rimmed in a deeper shade of
+themselves so the palest dots stay crisp (`point_edge="rim"`). Connectors are a quiet neutral grey
+and break at a unit's missing category rather than bridging it.
+
+| part | default id | role |
+|---|---|---|
+| interval glow | `<category>.glow` | `box` |
+| interval caps | `<category>.caps` | `cap` |
+| mean line | `<category>.mean` | `mean` |
+| median notch | `<category>.median` | `median` |
+| a unit's point(s) / connector | `<unit>.points`, `<unit>.point.<k>` / `<unit>.line` | `point` / `line` |
+| points without `units` | `<category>.points`, `<category>.point.<k>` | `point` |
+
+Each category series carries a `glowbar` manifest payload with the exact statistics drawn (`n`,
+`mean`, `median`, `sd`, `sem`, `q1`, `q3`, `interval`, `low`, `high`, `center`, `x`, `groupColor`),
+and each unit series its identity (`units`, `unit`, `categories`, `colors`); the manifest's
+`plotType` is `"glowbar"`. Series names default to the category / unit values — `series=` and
+`unit_series=` (a mapping or a callable) rename them. Every visual choice is a keyword:
+`bar_width`, `bar_offset`, `bar_side` (`"outer"` — the default: the first category's bar to
+the left of its points, every other to the right — or `"left"` / `"right"` for all), `glow_steps`, `glow_alpha`, `mean_line_width`, `mean_color`,
+`mean_halo_width`, `median_notch_depth`, `median_notch_height`, `cap_width`, `cap_color`,
+`show_mean`/`show_median`/`show_caps`/`show_individual_points`, `point_size`, `jitter`,
+`point_edge`, `point_fill_alpha` (fill only — the rim stays opaque), `palette` (per category: any
+`fp.colors.maps` colormap such as `"cmasher.emerald"`, any `fp.colors.palettes` palette such as
+`"brewer.Set2"` / `"tol.bright"`, a matplotlib map, a list of colours or one colour — glowbar picks
+as many distinct point colours as it needs plus a solid group colour), `group_color`, `group_color_position`, `point_colors`, `shade_range`,
+`interleave_shades`, `connect_line_width`, `connect_color`, `connect_alpha` (see
+`help(fp.glowbar)`). It returns a `GlowbarResult` (`.ax`, `.categories`, `.stats`, `.group_colors`,
+`.point_colors`, `.series`, `.unit_series`, `.artists`). `examples/glowbar_example.py` draws both
+designs.
+
+## Fluxbox
+
+The fluxbox is the glowbar with a box plot for its summary — the same call, the same lanes,
+colours, connectors and names, so the two can be swapped for one another dot for dot:
+
+```python
+fb = fp.fluxbox(df, x="condition", y="APP/GAPDH", units="subject", ax=ax)
+```
+
+Beside each group sits a slim box (Q1–Q3), a half-strength wash of the group colour
+(`box_alpha=0.5`). The **median** is a solid line across it in the group's own hue — deepened, or on
+a dark background lifted, only as far as it takes to differ from the box by `median_contrast=30`
+units of perceived lightness, so it reads for any palette and theme; the whiskers (and fliers) share
+that colour, so the box is the only wash. The **mean** is a V-notch cut
+into both edges of the box — the glowbar's median notch; a mean outside the box (a strongly skewed
+group) keeps its mark as the same two V's drawn solid, pointing in at the whisker. The capless
+whiskers reach the most extreme observations within `whis` × IQR of the box (`1.5` — Tukey's rule,
+exactly `plt.boxplot`'s whiskers), `"range"`, or a `(low, high)` pair of percentiles. Observations
+beyond the whiskers are not drawn again as fliers — the points already show them — unless the
+points are hidden (`show_fliers="auto"`).
+
+| part | default id | role |
+|---|---|---|
+| box (Q1–Q3) | `<category>.box` | `box` |
+| whiskers | `<category>.whiskers` | `whisker` |
+| whisker caps (`show_caps=True`) | `<category>.caps` | `cap` |
+| median line | `<category>.median` | `median` |
+| mean notch | `<category>.mean` | `mean` |
+| fliers (points hidden) | `<category>.fliers` | `flier` |
+| points / connectors | as for the glowbar | `point` / `line` |
+
+Each category series carries a `fluxbox` manifest payload with the exact statistics drawn (`n`,
+`mean`, `median`, `sd`, `sem`, `q1`, `q3`, `iqr`, `whis`, `whiskerLow`, `whiskerHigh`, `outliers`,
+`x`, `groupColor`); the manifest's `plotType` is `"fluxbox"`. The box keywords are `whis`,
+`box_width`, `box_alpha`, `box_offset`, `box_side`, `median_line_width`, `median_color` (sets the
+median outright), `median_contrast`, `mean_notch_depth`, `mean_notch_height`, `whisker_width`, `whisker_color`,
+`cap_size`, `cap_width`, `cap_color`, `flier_size`, `cut_color` and
+`show_mean`/`show_median`/`show_whiskers`/`show_caps`/`show_fliers`; every point, colour, connector
+and naming keyword is the glowbar's. It returns a `FluxboxResult` with the same fields as a
+`GlowbarResult`. `examples/fluxbox_example.py` draws both designs.
+
+## Hexmatrix
+
+The hexmatrix tiles the plane with regular hexagons, each one a named part. One call covers a
+point cloud's density, a 2D gradient of a third variable, and a matrix drawn on a hex lattice:
+
+```python
+hm = fp.hexmatrix(df, x="x", y="y", ax=ax, color="#4CB391", marginals=True)       # jointplot-style
+hm = fp.hexmatrix(df, x="wake", y="nrem", ax=ax, xscale="log", yscale="log",      # log-log density
+                  norm="log", identity_line=True, colorbar_label="Synapses per hexbin")
+hm = fp.hexmatrix(df, x="ccf_x", y="ccf_z", ax=ax, aspect="equal", binwidth=0.15, # spatial, 0.15 mm bins
+                  norm="log", colorbar_label="somata / hexbin")
+hm = fp.hexmatrix(df, x="x", y="y", C="rate", reduce="median", ax=ax,             # a gradient of C
+                  cmap="RdBu_r", center=0)
+hm = fp.hexmatrix(matrix=weights, ax=ax, gap=0.08)                                # a hex lattice map
+```
+
+Hexagons are addressed by their lattice position: `row` counts up the y axis and `col` along x, so
+`<series>.hex.<row>.<col>` names the same hexagon in every plot with the same `extent` and grid,
+whatever the data. They are regular *on the page*. `aspect="auto"` locks the axes' box aspect so a
+later layout pass can't squash them, and `aspect="equal"` bins in true data units. Log axes bin in
+log space.
+
+The colour can be a count, `stat="density"`/`"probability"`/`"percent"` (optionally `weights=`), or
+a `reduce` of `C` (`mean`, `median`, `sum`, `min`, `max`, `std`, `count` or a callable). The scale is
+set by `cmap`/`color` (a single-hue ramp), `norm` (`linear`/`log`/`sqrt` or any `Normalize`),
+`vmin`/`vmax`, `robust` and `center`. Further keywords:
+
+* `mincnt=0` draws the empty hexagons too;
+* `sparse=k` draws points instead of hexagons where fewer than `k` observations fall;
+* `show_points` overlays every observation;
+* `gap`, `edgecolor`, `linewidth` and `orientation="flat"` shape the hexagons;
+* `marginals`, `colorbar` and `identity_line` add furniture.
+
+The colormap and colour limits are recipe controls, exactly as for `fp.heatmap`: Flux's Color scales
+editor can change them and regenerate.
+
+| part | default id | role |
+|---|---|---|
+| all hexagons | `<series>.hexes` | `x-hexbin` |
+| one hexagon (`data-row`, `data-column`, `data-x`, `data-y`, `data-count`, `data-value`) | `<series>.hex.<row>.<col>` | `x-hex` |
+| sparse / overlaid points | `<series>-points.points`, `….point.<k>` | `point` |
+| identity line | `reference-line.identity` | `reference-line` |
+| marginal histograms (own panels) | `<series>-x.bar.<k>`, `<series>-y.bar.<k>` | `bar` |
+
+The series carries a `hexmatrix` manifest payload: the lattice (orientation, radius, aspect,
+scales, extent), the statistic, and every hexagon drawn (`row`, `col`, `x`, `y`, `count`, `value`).
+It also carries the usual `field` colour payload; the `plotType` is `"hexmatrix"`. The call returns
+a `HexMatrixResult` (`.ax`, `.hexes`, `.bins`, `.cmap`, `.norm`, `.colorbar`, `.marginal_axes`,
+`.points`, `.hex_id(row, col)`, `.lookup(x, y)`). A layer of more than 800 hexagons is rasterized
+like any heavy layer; its hexagons stay in the manifest. Pass `force_vectors=True` to `fp.save` to
+keep every hexagon addressable. `examples/hexmatrix_example.py` draws all five.
+
+::: {.next-reading}
+[fluxplot quickstart](/docs/fluxplot.html) · [Python API reference](/docs/fluxplot-api.html) · [Edit plots in Flux](/docs/plot-editing.html)
+:::

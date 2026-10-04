@@ -1,0 +1,63 @@
+---
+title: "Images and surface maps"
+description: "Show calibrated images, channels and projected mesh data alongside ordinary plots."
+---
+
+<p class="eyebrow">Plotting / fluxplot</p>
+
+# Images and surface maps
+
+::: {.doc-lead}
+Show calibrated images, channels and projected mesh data alongside ordinary plots.
+:::
+
+## Images and scale bars
+
+These patterns assume an axes `ax` and image arrays from your analysis.
+
+```python
+im = fp.image(ax, np.stack([dapi, gfp]), series="cells", channels=["dapi", "gfp"],
+              luts=["blue", "green"], display_range=[(0, 900), None],    # None → 1st–99.8th percentiles
+              pixel_size=0.325, units="µm", composite="add")           # or "max"; value_raster=True
+fp.scalebar(ax, 10, "µm")                                              # a vector bar, exactly 10 data units
+fp.colorbar(im.mappables["gfp"], ax=ax, name="gfp", label="GFP")
+```
+
+`fp.image` takes a `(H, W)` image or a `(C, H, W)` / `(H, W, C)` stack, gives every channel a LUT
+(a colormap name, or a colour meaning a black-to-colour ramp) and a display range (the black and
+white points), composites them into one RGB `imshow` in Python, and puts the axes in physical
+units from `pixel_size`. Each channel is a colour scale in the manifest (`cells.dapi`,
+`cells.gfp`; a 2-D image's is just `cells`) with a linear norm over its display range and
+`recolor: "regenerate"` (`"raster"` with `value_raster=True`, when the channel's values travel
+beside the SVG), and a recipe control of the same name — so Flux's colour-scale editor adjusts a
+channel's brightness/contrast or LUT and reruns. The series' `image` payload records the channels,
+LUTs, display ranges, pixel size, units, extent and composite. `fp.scalebar` is a `Line2D` whose x
+extent is exactly `length` data units, anchored in a corner (`loc`), with its label
+(`"<length> <units>"`) as `scalebar.<n>.label`; it takes the theme's ink. `examples/image_example.py`
+draws a two-channel field.
+
+## Surface maps
+
+```python
+fp.surface(ax, values, *, series, surfaces, kind="categorical"|"continuous", ...)
+```
+
+`surfaces` is a `{hemisphere: (vertices, faces)}` mapping, or paths to GIFTI files (read with
+`nibabel`, an optional dependency). `values` is one value per vertex. A categorical map draws **one
+collection per category**, so every region becomes a separately addressable, separately recolourable
+part (`blocks.regions`, or `blocks.<category>` by name) with a matching legend key; a continuous map
+draws one field plus a colorbar, and the manifest records the complete value→colour contract —
+`cmap`, `color_range`, the category→colour table, and which vertices were treated as missing. Views
+(`lateral`, `medial`, …) and hemispheres are laid out side by side inside the one axes.
+
+Vertices with no data are an explicit `missing` part rather than a value, so an on-mesh zero stays
+distinguishable from absent data and sentinel codes grey out instead of becoming a spurious category.
+Rendering is orthographic with back-face culling — a fold cannot paint over the surface in front of
+it — with optional Lambertian `shading` for relief; a face straddling a boundary takes the majority
+label rather than being dropped.
+
+For an orbitable mesh rather than a projected view, use [3D plots](/docs/3d-plots.html).
+
+::: {.next-reading}
+[fluxplot quickstart](/docs/fluxplot.html) · [Python API reference](/docs/fluxplot-api.html) · [Edit plots in Flux](/docs/plot-editing.html)
+:::

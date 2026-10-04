@@ -1,0 +1,131 @@
+---
+title: "Matrices, contours and colour scales"
+description: "Represent a field, define its value-to-colour mapping, and share a scale across panels."
+---
+
+<p class="eyebrow">Plotting / fluxplot</p>
+
+# Matrices, contours and colour scales
+
+::: {.doc-lead}
+Represent a field, define its value-to-colour mapping, and share a scale across panels.
+:::
+
+## Make a heatmap
+
+```python
+import matplotlib.pyplot as plt
+import fluxplot as fp
+
+fig, ax = plt.subplots(layout="constrained")
+image = fp.heatmap(ax, [[1, .2], [.2, 1]], series="correlation",
+                   cmap="viridis", vmin=0, vmax=1, cells=True)
+fp.colorbar(image, name="correlation", label="Correlation")
+fp.save(fig, "correlation.svg")
+
+```
+
+For a contour field, supply your coordinate arrays `x`, `y` and measured or calculated field `z`. The helpers use Matplotlib's contour options:
+
+```python
+# x, y and z come from your analysis.
+fig, ax = plt.subplots()
+bands = fp.contourf(ax, x, y, z, series="energy", levels=[0, 1, 3, 5])
+fp.colorbar(bands, name="energy", label="Energy")
+```
+
+- `heatmap` uses `imshow` by default. Supplying `x` and `y` selects `pcolormesh` and supports
+  irregular grids. `cells=True` uses mesh edges (default unit edges, origin at the lower left)
+  and names each small-matrix cell by row/column. It does not change the raster budget.
+- `contour` and `contourf` retain exact boundaries and addressable levels/bands, including the
+  different ContourSet structures in Matplotlib 3.7 and later.
+- Field metadata records shape, extent or grid, masks, colormap, normalization and its range.
+  `include_values=True` additionally records raw matrix values; it is off by default. Regular
+  meshes store compact one-dimensional edge arrays. Large layers rasterize as one named part.
+- Named colorbars expose the ramp, label and ticks, and link to the mappable. Ordinary
+  `fig.colorbar` calls receive the same automatic guide capture.
+
+## Saved colour-scale metadata
+
+<details><summary>How Flux retains values, normalization and colour keys</summary>
+
+Every colour-mapped mark — a heatmap, a hexmatrix, a filled contour, a `fp.scatter(..., c=values)`,
+even a raw `ax.imshow` or `ax.pcolormesh` you never tagged — records its complete value → colour
+law in the manifest's `colorScales[]`:
+
+```jsonc
+{"id": "rates",                          // == the recipe's colour-control key
+ "kind": "continuous",                   // continuous | binned (a BoundaryNorm)
+ "colormap": {"name": "viridis", "source": "matplotlib", "N": 256, "lut": ["#440154ff", …],
+              "under": "#440154ff", "over": "#fde725ff", "bad": "#00000000", "discrete": false},
+ "norm": {"kind": "log", "vmin": 1.0, "vmax": 53.0, "clip": false, "base": 10, "extend": "neither"},
+ "mappables": ["rates.hexes"], "colorbars": ["colorbar.color"], "label": "Synapses per hexbin",
+ "recolor": "live",                      // live | raster | regenerate (an imshow is a raster)
+ "editable": {"cmap": true, "limits": true, "normKinds": ["linear", "log", "power", "symlog"], "center": false}}
+```
+
+`lut` is the full lookup table matplotlib indexes, so a consumer reproduces its colours exactly:
+`lut[trunc(x · N)]` for the normalised `x`, `under` / `over` beyond the limits, `bad` for a missing
+value (`fluxplot.colorscale.apply` is the reference implementation, tested hex for hex against
+matplotlib for every norm kind; `tests/fixtures/colorscale_vectors.json` carries the vectors Flux
+checks too). In the SVG every coloured element carries the value it was coloured by —
+`data-value` on each cell, hexagon, band (with `data-level-low` / `-high`), contour line and point,
+`data-missing="1"` for a gap — and the group carries `data-color-scale` and `data-paint` (`fill`,
+`stroke` or `fill stroke`), so Flux can recolour or re-range a plot live, without Python.
+`series[].field` and `series[].color.scale` point at the scale; `fp.heatmap(..., value_raster=True)`
+additionally writes the matrix as `<plot>.<key>.values.json` beside an image layer.
+
+Colour keys are exact vectors: the 256 solid quads become one `<rect>` filled by a hard-stepped
+`<linearGradient>` (no rasterization, no warning), and the colorbar guide records `anchors`
+(vmin / vcenter / vmax ↔ SVG position), `axisLength`, `orientation`, `tickLocator`,
+`tickFormatter`, `extend` and the extend triangles (`colorbar.color.extend-min` / `-max`).
+
+`fp.tag_seaborn(ax, plot="heatmap")` (and the bivariate `histplot` / `kdeplot`) turn a seaborn
+mesh or contour set into the same kind of field, cells named and colour key linked.
+
+</details>
+
+## Shared scales
+
+Declare the scale once and let every panel join it:
+
+```python
+fp.color_scale("corr", cmap="RdBu_r", center=0)          # norm="linear"|"log"|"sqrt"|"symlog", vmin/vmax, robust
+fp.heatmap(ax1, C1, series="ctrl", scale="corr")
+fp.heatmap(ax2, C2, series="drug", scale="corr")           # also contour/contourf, scatter(c=…), hexmatrix
+fp.colorbar(scale="corr", ax=[ax1, ax2], label="r")        # one key, borrowing space from both panels
+```
+
+The members share the map and the norm, and their limits default to the **union** of every
+member's finite values (symmetric about `center` when one is given; `robust=True` uses the
+2nd–98th percentiles), resolved at `fp.save` before layout so the figure never lays out against
+stale limits. The manifest carries one `colorScales` entry (`id: "corr"`) listing every member and
+the key, the recipe carries one control (`__fluxplot__.corr`), and an edit to it — a new map, a
+pinned `vmax` — repaints every panel at once.
+
+`force_vectors=True` overrides and restores caller rasterization flags, including axes z-order
+rasterization. It cannot vectorize a source image created with `imshow`; use a modest
+`cells=True` heatmap when individual vector cells are needed. Empty/clipped raster artists no
+longer disrupt another layer's IDs. Surface lighting survives SVG rendering and colorbars use
+a separate scalar mappable. Surface category rendering uses per-part painter ordering, **not a
+full cross-category depth buffer**: convex projections are supported, while arbitrary folded
+meshes can have cross-part occlusion differences. This limitation is recorded in surface metadata.
+
+## Colour and confidence
+
+A colour-mapped mark can carry a second, opacity channel: `alpha_by=` on `fp.hexmatrix`
+(`"count"`, a column, a per-point or per-hexagon array, or a matrix in matrix mode), `fp.heatmap`
+(a matrix of the same shape — p-values, n) and `fp.scatter` (one value per point), with
+`alpha_range=(0.25, 1.0)` and `alpha_norm="linear"|"log"`. Each element's alpha runs over the
+range with its value (a missing value takes the low end), set as per-element alpha so matplotlib
+renders it; the manifest records the channel as `colorScales[].alpha = {source, range, norm}` and
+every element carries `data-alpha-value`, so a consumer can recompute `fill-opacity` live. Use counts, for example, to make sparsely sampled regions lighter. Higher channel values receive higher opacity; transform uncertainty measures explicitly if lower values should be more prominent.
+
+`fp.hexmatrix` also keeps its hexagons individually addressable up to `vector_limit=5000` (a
+per-mark raster threshold; `None` falls back to the save's generic 800), and on axes that share x
+or y it leaves the box aspect unlocked with a warning instead of distorting the siblings.
+
+
+::: {.next-reading}
+[fluxplot quickstart](/docs/fluxplot.html) · [Python API reference](/docs/fluxplot-api.html) · [Edit plots in Flux](/docs/plot-editing.html)
+:::

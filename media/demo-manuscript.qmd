@@ -1,28 +1,32 @@
 ---
-title: "Patterns in a changing population"
-subtitle: "An illustrative study of response profiles and population geometry"
+title: "Patterns across scales"
+subtitle: "A visual study of structure, responses and representation"
 author: Flux demonstration
 bibliography: ../references/library.bib
 ---
 
-## One input, a range of responses
+## Structure becomes visible
 
-A shared input need not produce a uniform response. Here, three synthetic populations respond across the same stimulus coordinate. Each curve has its own preferred input, width and strength. Alongside them, 108 model neurons form three groups in an illustrative response space.
+A figure can bring several scales of an explanation into view. Here, material properties and stress fields sit beside electronic structure and crystal geometry. Each panel keeps its own axes, units and source.
 
-![](../fig/renders/fig-population.svg){#fig-population}
+![](../fig/renders/fig-1.svg){#fig-1}
 
-The curves are a visual model, not experimental measurements. Their purpose is to make a relationship visible: an individual response has a shape, and a population contains many such shapes. The original plot keeps each curve's identity alongside the values that define it.
+The plate combines typical reference values, calculations and illustrative models. It is a visual study, not a report of one experiment. The crystal structures come from the Crystallography Open Database; the MgB₂ geometry uses the FermiSurfer example data @fermisurfer.
 
-## A result can hold an explanation
+## From individual cells to a population
 
-A still figure makes comparison possible. A sequence makes the change itself visible. In the slide below, response profiles sharpen, shift and redistribute their strength. The curves keep their names as their values change, letting the reader follow a population through successive states.
+The neuroscience plate brings anatomy together with responses of 143 visual neurons recorded by the Allen Brain Observatory @allen-observatory. A response atlas keeps individual cells visible; population trajectories offer a complementary view of their shared activity.
 
-![](../slides/website-showcase/renders/response-shapes-step-0.svg){#slide-response-story .flux-slide deck="website-showcase" slide="response-shapes" width=100%}
+![](../fig/renders/fig_mut5bjopik7r_124.svg){#fig-fig-mut5bjopik7r-124}
 
-## Follow the same points
+The anatomical models and functional recordings are separate specimens. The network connects similar response profiles, not anatomically connected neurons. MICrONS reconstructions provide examples of neuronal form.
 
-A second illustration follows 108 synthetic neurons through three arrangements: a mixed population, separated clusters and a reorganized geometry. Color and point identity remain fixed. The movement describes a constructed example of changing coordinates; it does not imply a measured biological transition.
+## An explanation can move
 
-## About this demonstration
+At three stimulus frequencies, the same cells occupy different positions in a common response space. The embedded slide preserves each cell's identity as the view changes. Interpolation helps follow the transition; it does not add measured time points.
 
-All numerical examples are synthetic. Source plots were supplied by the project's author and are shown without altering their content. Captions, writing and presentation composition were created for this website. These examples demonstrate a scientific workflow, rather than report a research finding.
+![](../slides/website-showcase/renders/response-geometry-step-0.svg){#slide-response-story .flux-slide deck="website-showcase" slide="response-geometry" width=100%}
+
+## Sources and interpretation
+
+Original figure layouts and plot content are preserved from the author's master demonstration project. Captions, this manuscript and the presentation were written for the website. Data and anatomical models are credited to the Allen Institute for Brain Science, the MICrONS project, the Crystallography Open Database and FermiSurfer. They retain their source terms. See the website's visual credits for dataset identifiers and publications.

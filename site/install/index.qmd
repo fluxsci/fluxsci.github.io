@@ -63,7 +63,7 @@ Using another Python environment? Run `pip install fluxplot` there. For a new uv
 
 ### Connect your AI collaborator
 
-Open **AI** in the Flux titlebar, choose **Connect** for your agent, review any proposed replacements, then restart open agent sessions. The connection panel provides the command to start working with a particular project. [Read the agent connection guide](https://github.com/fluxsci/flux/blob/main/docs/agents/connect.qmd).
+Open **AI** in the Flux titlebar, choose **Connect** for your agent, review any proposed replacements, then restart open agent sessions. The connection panel provides the command to start working with a particular project. [Read the agent connection guide](/docs/connect.html).
 
 ## Check the installation {#verify}
 
@@ -113,7 +113,7 @@ Open a new terminal so the installer’s PATH change takes effect. If the comman
 
 <details class="doc-details"><summary>Word export or a Quarto PDF will not build</summary>
 
-For Word, install Quarto in the setup window. For `flux compile --to pdf`, add TinyTeX too. Journal PDF styles may also need TeX packages or an SVG converter; the [companion-tool reference](https://github.com/fluxsci/flux/blob/main/docs/installation.qmd#extras-for-journal-styled-pdf) lists those requirements. Flux’s own PDF export remains available without this setup.
+For Word, install Quarto in the setup window. For `flux compile --to pdf`, add TinyTeX too. Journal PDF styles may also need TeX packages or an SVG converter; the [companion-tool reference](/docs/export-documents.html#pdf-dependencies) lists those requirements. Flux’s own PDF export remains available without this setup.
 
 </details>
 
@@ -141,7 +141,7 @@ node node_modules/electron/install.js
 npm run electron:dev
 ```
 
-The Electron download is a separate step. A source checkout is also needed for the separate [Lighttable companion](https://github.com/fluxsci/flux/blob/main/docs/lighttable.qmd).
+The Electron download is a separate step. A source checkout is also needed for the separate [Lighttable companion](/docs/lighttable.html).
 
 ::: {.next-reading}
 **Next: make something.**

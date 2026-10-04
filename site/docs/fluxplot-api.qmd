@@ -1,0 +1,2116 @@
+---
+title: "Python API reference"
+description: "Signatures and behavior of the public fluxplot plotting, saving, 3D, colour and statistics functions."
+---
+
+<p class="eyebrow">Plotting / Reference</p>
+
+# Python API reference
+
+::: {.doc-lead}
+Find the function, its parameters and its return value. Import the library as `import fluxplot as fp`.
+:::
+
+Start with the [quickstart](/docs/fluxplot.html) for a complete script. The examples in this reference describe individual calls; variables such as `ax`, `x` and `data` come from your own analysis. Signatures are taken from the reviewed fluxplot source.
+
+`**kwargs` generally pass through to the corresponding Matplotlib method. See the [plotting guides](/docs/plot-types.html), [colour guide](/docs/colors-and-style.html) and [3D guide](/docs/3d-plots.html) for worked patterns.
+
+## Styles and saving
+
+### `fp.use_paper` {#use_paper}
+
+```python
+fp.use_paper(ink: 'str' = '#100F0F', muted: 'str' = '#575653', grid: 'bool' = True, paper: 'str' = '#FFFCF0', serif: 'bool' = False, _override: 'bool' = True) -> 'None'
+```
+
+Apply the warm Flexoki-paper theme (a gridded, cream ground).
+
+### `fp.use_light` {#use_light}
+
+```python
+fp.use_light(ink: 'str' = '#100F0F', muted: 'str' = '#575653', grid: 'bool' = False, paper: 'str' = '#FFFFFF', serif: 'bool' = False, _override: 'bool' = True) -> 'None'
+```
+
+Apply the paper-background theme (the default look). Call before creating figures.
+
+### `fp.use_dark` {#use_dark}
+
+```python
+fp.use_dark(serif: 'bool' = False, grid: 'bool' = False, bg: 'str' = '#1C1B1A', _override: 'bool' = True) -> 'None'
+```
+
+Apply the dark theme before creating figures.
+
+### `fp.save` {#save}
+
+```python
+fp.save(fig, path, *, recipe=None, validate=True, force_vectors=False, raster_threshold=None, raster_dpi=None, theme_vars=False, lint='off', _now=None) -> 'SaveResult'
+```
+
+Emit `<path>.svg` + `<path>.fluxplot.json` + `<path>.recipe.json` for `fig`.
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+`fig` may also be a 3D scene from `fp.scene3d`: it then writes
+`<path>.glb` + `<path>.fluxplot.json` (the scene3d manifest) + `<path>.recipe.json`,
+always at full mesh resolution (`preview_max_faces` only affects notebook previews).
+`path` is a stem or ends in `.glb`. `recipe`, `validate` and `FLUXPLOT_ONLY`
+behave as below; the SVG rasterization options do not apply.
+
+`recipe` controls the provenance sidecar:
+
+- `None` (default) — automatic: the producing script is discovered from the running
+  interpreter when that is safe and exact, making the recipe rerunnable without an explicit recipe.
+- `False` — explicitly suppress discovery (notebooks, generated figures, privacy).
+- `dict` — explicit fields (`script`/`command`/`params`/`inputs`) always win;
+  an inferred script only fills a missing `script`.
+
+**Heavy layers are rasterized by default.** An artist that draws more than
+`raster_threshold` primitives (default 800) — a `LineCollection` of per-edge
+segments, a 10k-point `scatter` — would otherwise become that many live SVG nodes and
+make any editor that inlines the plot unusable. Such layers are rendered to a single
+embedded `<image>` at `raster_dpi` (default 600) while axes, ticks, tick labels,
+legend, annotations and every lighter artist stay fully vector, and `save` says on
+stderr exactly what it rasterized. The layers keep their ids, `data-role`/`data-series`
+and manifest entries, so they remain addressable as a whole; only *per-point* ids are
+unavailable (a rasterized cloud has no per-point nodes). `SaveResult.rasterized` lists
+what was rasterized.
+
+Set `force_vectors=True` (or the `FLUXPLOT_FORCE_VECTORS` environment variable) to
+keep everything vector — a per-artist `set_rasterized(False)` does *not* override the
+safety default, because that is matplotlib's silent factory setting rather than a
+considered choice. Under `force_vectors` the heavy layers are still reported, as a
+warning naming them and their node cost.
+
+**Themes.** The manifest records `style = {"theme", "tokens"}` — the scaffold colours in
+force at save (ink, label, tick, axis, grid, plot, paper) and the `fp.use_*` theme they
+came from — and every scaffold element painted with one of them carries `data-ink-fill` /
+`data-ink-stroke` naming the token, so a consumer can restyle the furniture to its own
+theme without touching a data colour. `theme_vars=True` additionally rewrites those paints
+to `var(--fx-<token>, <hex>)`, which a CSS-aware host can drive directly (off by default:
+the fallback form is honoured by browsers and rsvg, still to be checked in Illustrator /
+Inkscape). A rerun with `FLUX_PARAMS={"__fluxplot__": {"theme": "dark"}}` makes every
+`fp.use_*` call apply that theme instead.
+
+**Accessibility lint** (`lint="warn"` / `"error"`, default `"off"`): the tagged series'
+colours and the text inks are checked against one another and the ground
+(`fluxplot.colorcheck` — colour-vision deficiency, greyscale, WCAG contrast). Findings
+land in `SaveResult.warnings` and in the manifest's `quality.color`; `"error"` refuses
+the save with them.
+
+**Targeted reruns** (`FLUXPLOT_ONLY`): a figure-level script that saves
+several plots can be re-run for ONE of them — set `FLUXPLOT_ONLY` to a
+comma-separated list of plot names (fnmatch patterns work: `fig2*`) and
+every non-matching `save` becomes a no-op (nothing written, siblings
+untouched on disk). `flux rerun-plot <recipe> --only` sets this for you.
+
+</details>
+
+### `fp.params` {#params}
+
+```python
+fp.params(defaults: 'dict | None' = None) -> 'dict'
+```
+
+Merge `defaults` with any `FLUX_PARAMS` (JSON) provided in the environment.
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+Read tunables through this so `flux rerun-plot <recipe> --key value` (and the in-app
+*Regenerate* button, which set `$FLUX_PARAMS`) can re-run the script with overrides:
+
+    import fluxplot as fp
+    p = fp.params({"test": "t-test", "smooth": False})
+    if p["test"] == "mann-whitney":
+        ...
+
+</details>
+
+### `fp.panel` {#panel}
+
+```python
+fp.panel(ax, name)
+```
+
+Give an axes a durable panel identity, independent of subplot layout/order.
+
+## Lines, points and summaries
+
+### `fp.line` {#line}
+
+```python
+fp.line(ax, x, y, *, series, marker=None, label=None, **kw)
+```
+
+A named line. With `marker=` it also draws an addressable per-point group.
+
+### `fp.scatter` {#scatter}
+
+```python
+fp.scatter(ax, x, y, *, series, label=None, key=None, scale=None, alpha_by=None, alpha_range=(0.25, 1.0), alpha_norm='linear', **kw)
+```
+
+A named scatter, every point addressable.
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+With `c=` an array of values the points are colour-mapped: the scale becomes a recipe colour
+control (named `key`, default the series), the manifest carries its exact lookup table, each
+point carries its value (`data-value`) and a `colorbar` links to it — so Flux can
+recolour or re-range the points live.
+
+</details>
+
+### `fp.bar` {#bar}
+
+```python
+fp.bar(ax, x, height, *, series, label=None, **kw)
+```
+
+Add a named text annotation to the axes. `**kw` passes through to Matplotlib’s `ax.annotate`; supply `xy` and any desired arrow or text options.
+
+### `fp.barh` {#barh}
+
+```python
+fp.barh(ax, y, width, *, series, label=None, **kw)
+```
+
+A horizontal named bar series; returns the ordinary BarContainer.
+
+### `fp.step` {#step}
+
+```python
+fp.step(ax, x, y, *, series, where='pre', label=None, **kw)
+```
+
+A step line (`Axes.step`) whose `where` (`pre` / `post` / `mid`) and drawstyle the manifest records under `step`, so a consumer re-projects the treads, not the corners.
+
+### `fp.stem` {#stem}
+
+```python
+fp.stem(ax, x, y, *, series, label=None, **kw)
+```
+
+A stem plot as one series: the markers (`<series>.point.k`), the stems (`<series>.segment`) and the baseline (`<series>.baseline`).
+
+### `fp.errorbar` {#errorbar}
+
+```python
+fp.errorbar(ax, x, y, *, series, yerr=None, xerr=None, label=None, **kw)
+```
+
+Points with error bars, each part addressable: the data line (`<series>.line`, when the format draws one), the markers (`<series>.point.k`, when a marker is set), the caps (`<series>.cap`, …) and the bars (`<series>.errorbar`, …). `uncertainty` records `xerr` / `yerr` broadcast to the N points with `errShape` (scalar / symmetric / asymmetric).
+
+### `fp.area` {#area}
+
+```python
+fp.area(ax, x, y1, y2=0, *, series, label=None, **kw)
+```
+
+A filled region between `y1` and `y2` (default the baseline 0) — `fill_between` with its inputs recorded: the manifest's `band` carries `{x, y1, y2}` (a scalar `y2` is broadcast), not the polygon's vertices.
+
+### `fp.band` {#band}
+
+```python
+fp.band(ax, x, lo, hi, *, series, what='95% CI', label=None, **fill_kw)
+```
+
+An uncertainty band around a series' line: `fill_between(x, lo, hi)` registered under the **same series** as the line, so `ctl.band` sits beside `ctl.line`.
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+`what` says what the band is (`"95% CI"`, `"SEM"`, `"IQR"`, …) and is recorded with
+the inputs in the manifest: `band = {x, lo, hi, what}`. The band takes the series' line
+colour when one is drawn already (else the call's, else the cycle's), at `alpha=0.25` with
+no edge unless the call says otherwise.
+
+</details>
+
+### `fp.box` {#box}
+
+```python
+fp.box(ax, values, *, series, label=None, include_values=False, **kw)
+```
+
+One box-and-whisker group as ONE semantic series with addressable statistics.
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+Wraps `Axes.boxplot` for a single dataset. The documented return-dict pieces — box body,
+whiskers, caps, median, fliers (and mean when shown) — become tagged sub-parts grouped per
+series (`<series>.whiskers`, `<series>.caps`, …). Multiple groups = multiple calls with
+distinct `series` names. Raw sample values are recorded only with `include_values=True`
+(samples can be large or sensitive). Returns matplotlib's boxplot dict unchanged.
+
+</details>
+
+### `fp.violin` {#violin}
+
+```python
+fp.violin(ax, values, *, series, label=None, include_values=False, **kw)
+```
+
+One violin as ONE semantic series with addressable statistics.
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+Wraps `Axes.violinplot` for a single dataset: the body plus whatever the call returned
+(extrema bar, min/max caps, median/mean/quantile lines) each become tagged sub-parts —
+absent options create no dead parts. Multiple groups = multiple calls with distinct
+`series` names. Raw sample values are recorded only with `include_values=True`.
+Returns matplotlib's violinplot dict unchanged.
+
+</details>
+
+### `fp.hist` {#hist}
+
+```python
+fp.hist(ax, values, *, series, bins=None, label=None, include_values=False, **kw)
+```
+
+A histogram as an indexed bar series with its exact distribution recorded.
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+Wraps `Axes.hist` (single dataset, default bar histtype). The returned patches become
+per-index addressable bars; the manifest additionally carries the exact `binEdges` and
+`counts` in an additive `distribution` payload. Bar heights are never presented as the
+original observations — pass `include_values=True` to record the source values (they can
+be large or sensitive). Returns matplotlib's `(counts, edges, patches)` unchanged.
+
+</details>
+
+### `fp.regression` {#regression}
+
+```python
+fp.regression(ax, x, y, *, series, kind='linear', ci=0.95, degree=1, frac=0.6666666666666666, points=True, n_grid=100, n_boot=200, label=None, color=None, band_kw=None, point_kw=None, **line_kw) -> 'RegressionResult'
+```
+
+Fit `y ~ x` and draw the fit line, its confidence band and (by default) the points as one series, recording the fit in the manifest.
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+
+**Parameters**
+
+`kind`
+:   `"linear"` (a straight line), `"poly"` (a polynomial of `degree`) or `"lowess"`
+    (Cleveland's locally weighted regression with span `frac`).
+
+`ci`
+:   The confidence level of the band: for linear / poly the t-interval of the mean response;
+    for lowess a seeded percentile bootstrap of the smooth (`n_boot` resamples).
+
+`points`
+:   Draw the observations as `<series>.point.k` too.
+
+`color`
+:   The series colour (line, band and points); default the cycle's next colour.
+
+`band_kw, point_kw, **line_kw`
+:   Extra keywords for the band (`fill_between`), the points (`scatter`) and the fit line.
+
+
+**Returns**
+
+`RegressionResult`
+:   With `stats = {kind, degree, coefficients, r2, p, n, ci, frac?}` (`coefficients` in
+    `numpy.polyfit` order, highest power first; `None` for lowess, whose `p` is `None`).
+
+
+</details>
+
+### `fp.kde` {#kde}
+
+```python
+fp.kde(ax, values, *, series, bw='scott', fill=False, n_grid=200, cut=3.0, label=None, color=None, fill_kw=None, **line_kw) -> 'KdeResult'
+```
+
+A Gaussian kernel density estimate drawn as a line (`<series>.line`; `fill=True` adds `<series>.fill`), recording the grid, the density and the bandwidth in the manifest.
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+`bw` is scipy's `bw_method` (`"scott"`, `"silverman"`, a number or a callable);
+the grid runs `cut` bandwidths past the data on either side.
+
+</details>
+
+## Fields, images and surfaces
+
+### `fp.heatmap` {#heatmap}
+
+```python
+fp.heatmap(ax, data, *, series, x=None, y=None, cells=False, include_values=False, key=None, value_raster=False, scale=None, alpha_by=None, alpha_range=(0.25, 1.0), alpha_norm='linear', **kwargs)
+```
+
+Draw a scalar matrix. `x`/`y` select pcolormesh (including irregular grids).
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+`cells=True` gives modest meshes row/column cell IDs; above the raster
+threshold only the layer is addressable. `include_values` stores raw values.
+`key` names the recipe color controls; defaults to the owning axes and series.
+`value_raster=True` writes the matrix as `<plot>.<key>.values.json` beside the SVG
+(row-major, `null` for missing) and points the colour scale at it, so a consumer can
+repaint an image layer from its values instead of regenerating. `scale="name"` joins a
+shared scale declared with `color_scale`. `alpha_by` (a matrix of the same shape —
+p-values, counts, confidence) washes cells out: their alpha runs over `alpha_range` with
+the value (`alpha_norm="log"` for p-values); the manifest records the channel as
+`colorScales[].alpha` and every cell carries `data-alpha-value`.
+
+</details>
+
+### `fp.contour` {#contour}
+
+```python
+fp.contour(ax, *args, series, include_values=False, key=None, scale=None, **kwargs)
+```
+
+Matplotlib contour with exact levels and addressable level paths.
+
+### `fp.contourf` {#contourf}
+
+```python
+fp.contourf(ax, *args, series, include_values=False, key=None, scale=None, **kwargs)
+```
+
+Matplotlib filled contours with exact boundaries and band identities.
+
+### `fp.color_scale` {#color_scale}
+
+```python
+fp.color_scale(name, *, cmap=None, norm='linear', vmin=None, vmax=None, center=None, robust=False, fig=None)
+```
+
+Declare a colour scale shared across panels: `fp.color_scale("corr", cmap="RdBu_r", center=0)`.
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+Every colour helper joins it with `scale="corr"` (its recipe key becomes `corr`, its map
+and norm come from here, its limits default to the union of all members' values), and
+`fp.colorbar(scale="corr", ax=[...])` draws one key. The manifest carries one
+`colorScales` entry listing every member, so a Flux edit recolours all panels at once.
+
+</details>
+
+### `fp.colorbar` {#colorbar}
+
+```python
+fp.colorbar(mappable=None, *, name='color', ax=None, scale=None, fig=None, **kwargs)
+```
+
+Create a named, linked color key using Figure.colorbar's usual options.
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+The key follows its scale's recipe controls: an `extend` edited in Flux is applied here
+(and recorded) unless the call names its own. `scale="name"` draws the one key of a shared
+scale (`color_scale`) — pass `ax=[...]` to let it borrow space from several panels.
+
+</details>
+
+### `fp.image` {#image}
+
+```python
+fp.image(ax, data, *, series, pixel_size=None, units='µm', origin='upper', channels=None, luts=None, display_range=None, composite='add', value_raster=False, key=None, **imshow_kw) -> 'ImageResult'
+```
+
+Draw a single- or multi-channel image with recorded LUTs and display ranges.
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+
+**Parameters**
+
+`ax, data`
+:   The axes and the pixels: `(H, W)`, or a `(C, H, W)` / `(H, W, C)` stack (the channel
+    axis is the one matching `len(channels)`, else the one of length ≤ 4). Missing pixels
+    (NaN / masked) are transparent.
+
+`series`
+:   The series name: the image is `<series>.image` and every channel's colour scale and
+    recipe control is `<series>.<channel>` (a 2-D image with no `channels`: `<series>`).
+
+`pixel_size, units`
+:   The physical size of a pixel (one number, or `(row, column)`) and its unit; the axes are
+    then in those units (`extent`), and `scalebar` lengths are too.
+
+`origin`
+:   `"upper"` (row 0 at the top, the imaging convention) or `"lower"`.
+
+`channels`
+:   Channel names for a stack (default `ch0, ch1, …`).
+
+`luts`
+:   Per-channel LUT (one for all, or a list): a colormap name / Colormap, or a colour name
+    meaning a black-to-colour ramp. Default `gray` for one channel, else green, magenta,
+    cyan, yellow, red, blue.
+
+`display_range`
+:   Per-channel `(black, white)` (one pair for all, or a list): the linear norm's limits.
+    Default the 1st–99.8th percentiles of each channel's finite values.
+
+`composite`
+:   How channels combine: `"add"` (sum, clipped) or `"max"`.
+
+`value_raster`
+:   Write each channel's values as `<plot>.<key>.values.json` beside the SVG and mark its
+    scale `recolor: "raster"`, so a consumer can repaint from the values.
+
+`key`
+:   Override the control-key root (default `series`).
+
+`**imshow_kw`
+:   Passed to `Axes.imshow` (`interpolation` defaults to `"nearest"`).
+
+
+**Returns**
+
+ImageResult
+
+</details>
+
+### `fp.scalebar` {#scalebar}
+
+```python
+fp.scalebar(ax, length, units='µm', *, loc='lower right', label=None, color=None, thickness=2.0, pad=0.4, name=None, text_kw=None)
+```
+
+A vector scale bar of `length` data units, anchored in a corner of the axes.
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+The bar is a `Line2D` whose x extent is exactly `length` in data coordinates (so it is
+true to `image`'s `pixel_size`) and whose vertical anchor is an axes fraction, with
+its label (default `"<length> <units>"`) centred above it (below, for the upper corners).
+`pad` is the inset from the axes edge in units of the label's font size. `color` paints
+bar and label (default: the theme's ink, so it reads on a dark ground too). Registers
+`Mark(role="scalebar")` with `{length, units}`; the label is `<id>.label`.
+
+</details>
+
+### `fp.surface` {#surface}
+
+```python
+fp.surface(ax, values, *, series, surfaces, kind='auto', categories=None, palette=None, cmap=None, color_range=None, percentile=None, views=('lateral', 'medial'), hemispheres=('left', 'right'), missing_below=None, missing_values=(), missing_color='#D8D8D8', gap=0.06, edgecolor='none', linewidth=0.0, shading=0.0, light=(0.35, -0.25, 0.9), antialiased=False, colorbar=False, cbar_label=None, cbar_ticks=None, legend=None, legend_missing=False, legend_kw=None, label=None)
+```
+
+Draw a per-vertex surface map as named, addressable parts.
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+
+**Parameters**
+
+`ax`
+:   Target axes. Every requested (hemisphere, view) is tiled left→right inside it; the axes is
+    set to equal aspect with its frame hidden, because a cortical projection has no meaningful
+    data axes.
+
+`values`
+:   Per-vertex array over the concatenated hemispheres (left then right), or per hemisphere via
+    a `{"left": ..., "right": ...}` mapping.
+
+`series`
+:   Addressable name for this map — parts are `<series>.<category>` (label maps) or
+    `<series>.field` (continuous), plus `<series>.missing`.
+
+`surfaces`
+:   `{"left": spec, "right": spec}` where each spec is a GIFTI path or a `(vertices, faces)`
+    pair.
+
+`kind`
+:   `"label"`, `"continuous"`, or `"auto"` (label when the data are integral and few-valued).
+
+`categories`
+:   `{code: name}` for label maps. Codes absent from the data are ignored; data codes absent
+    here get a `category-<code>` name so nothing is silently dropped (negative codes are
+    `category-m<abs>`, e.g. `category-m1`, so `-1` and `+1` never share an id).
+
+`palette`
+:   `{name_or_code: colour}` for label maps — a fixed mapping, never remapped.
+
+`cmap, color_range, percentile`
+:   Continuous styling. `cmap` is a Colormap or a name: matplotlib names first, then
+    fluxplot's collections (`"emerald"`, `"crameri.batlow"`). `percentile=(2, 98)`
+    clips to those percentiles of the finite data; `color_range` wins if both are given.
+    The resolved range is recorded in the manifest.
+
+`missing_below, missing_values`
+:   Sentinel handling (e.g. `missing_below=0` turns a −1 off-hemisphere sentinel into missing).
+
+`colorbar, cbar_label, cbar_ticks`
+:   Add a colorbar for continuous maps as its own addressable part. `cbar_ticks` pins the tick
+    positions (e.g. to keep them at round numbers) instead of leaving them to matplotlib.
+
+`shading, light`
+:   Diffuse shading strength in [0, 1] (0 = flat colour, the default). A flat-coloured mesh shows
+    no relief no matter how folded the geometry is — there is no illumination model — so sulci and
+    gyri are invisible even on an unsmoothed surface. With `shading > 0` each face is darkened by
+    `1 - shading*(1 - n·L)`, where `n` is its unit normal and `L` the light direction (given
+    in the *view* frame: x toward the camera, y right, z up). ~0.4 gives readable folding without
+    distorting the colour mapping; the value→hue relation is untouched, only its lightness.
+
+`legend, legend_missing, legend_kw`
+:   Draw a category legend. Defaults to `True` for label maps (a categorical map without a key
+    is unreadable) and `False` for continuous ones (the colorbar *is* the key). The legend is a
+    real matplotlib legend, so it is auto-tagged like any other plot's: the manifest gains a
+    `legend` guide whose entries carry the swatch/label ids and resolve to the addressable
+    region part. `legend_missing=True` adds an entry for the missing/no-data part;
+    `legend_kw` overrides placement (default: horizontal, under the map, frameless).
+
+Returns the list of matplotlib collections drawn (in draw order).
+
+</details>
+
+## Signature plots
+
+### `fp.glowbar` {#glowbar}
+
+```python
+fp.glowbar(data=None, *, x, y, units=None, order: 'Optional[Sequence]' = None, unit_order: 'Optional[Sequence]' = None, ax=None, interval: 'Union[str, Callable]' = 'sem', center: 'str' = 'auto', show_mean: 'bool' = True, show_median: 'bool' = True, show_caps: 'bool' = True, bar_width: 'float' = 5.0, bar_offset: 'float' = 0.42, bar_side: 'str' = 'outer', glow_steps: 'int' = 28, glow_alpha: 'float' = 0.06, mean_line_width: 'float' = 1.2, mean_color=None, mean_halo_width: 'float' = 1.5, median_notch_depth: 'float' = 1.3, median_notch_height: 'float' = 2.2, cap_width: 'float' = 0.8, cap_color=None, cut_color=None, show_individual_points: 'bool' = True, point_size: 'float' = 18.0, jitter: 'float' = 0.14, point_edge='rim', point_edge_width: 'float' = 0.5, point_fill_alpha: 'float' = 1.0, palette=None, group_color_position: 'Optional[float]' = None, group_color=None, point_colors='auto', shade_range: 'tuple' = (88.0, 22.0), interleave_shades: 'bool' = True, connect_identical_points_across_x_values: 'bool' = False, connect_line_width: 'float' = 0.6, connect_color=None, connect_alpha: 'float' = 0.8, series=None, unit_series=None, label_axes: 'bool' = True, zorder: 'float' = 2.0) -> 'GlowbarResult'
+```
+
+Draw a glowbar: the individual points plus a glowing interval bar with mean line and median notch.
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+
+**Parameters**
+
+`data`
+:   A pandas or polars DataFrame, a dict of columns, or `None` when `x`/`y`/`units` are
+    passed as arrays.
+
+`x, y`
+:   Column names (or array-likes): `x` is categorical (one bar per value), `y` numeric. Rows
+    whose `x` or `y` is missing are not drawn.
+
+`units`
+:   Optional identity column (subject, animal, cell…). Each unit gets a fixed lane and colour
+    inside every category, derived from the table order (`unit_order`), never from the values
+    — so separate plots of different measures from the same table agree, even when a unit is
+    missing a value in one of them. Units are also what
+    `connect_identical_points_across_x_values` joins.
+
+`order, unit_order`
+:   Category order (left → right) and unit order (first lane → last). Default: first appearance
+    in the data (numeric categories are sorted). Categories missing from `order` are dropped.
+
+`ax`
+:   Target axes (default: the current axes).
+
+`interval`
+:   What the glowing bar and its caps span: `"sem"` (mean ± SEM — default), `"iqr"` (Q1–Q3,
+    the box of a box plot), `"sd"` (mean ± SD), or a callable `values -> (low, high)`.
+
+`center`
+:   Where the glow is densest: `"auto"` (the median for `"iqr"`, else the mean), `"mean"`
+    or `"median"`. The glow fades from there toward each cap independently, so a skewed group
+    glows asymmetrically.
+
+`show_mean, show_median, show_caps`
+:   Toggle the mean line, the median notch and the interval caps.
+
+`bar_width`
+:   Bar width in points; the mean line and the caps span exactly this width.
+
+`bar_offset, bar_side`
+:   Distance (category units) of the bar from its category's centre, and its side: `"outer"`
+    (the first category's bar to the left, every other to the right, so the bars frame the
+    comparison — default), `"left"` or `"right"`.
+
+`glow_steps, glow_alpha`
+:   The glow is `glow_steps` nested segments of opacity `glow_alpha`; their overlap builds the
+    gradient (peak opacity ≈ `1 - (1 - glow_alpha) ** glow_steps`).
+
+`mean_line_width, mean_color, mean_halo_width`
+:   Stroke of the mean line (points), its colour (default: the group colour deepened — or, on a
+    dark ground, lifted — just far enough to stand off the glow) and the width of the
+    background-coloured halo that lifts it off the glow (`0` disables it).
+
+`median_notch_depth, median_notch_height`
+:   How far each V-cut reaches into the bar, and its height, in points. The notch is drawn above
+    the mean line, so it stays visible when the median meets the mean.
+
+`cap_width, cap_color`
+:   Stroke and colour (default: the group colour) of the interval caps.
+
+`cut_color`
+:   Colour of the notch and halo "cuts" (default: the axes background).
+
+`show_individual_points`
+:   Draw the individual observations (default `True`).
+
+`point_size, jitter`
+:   Marker area (points²), and the half-width of the lane spread (category units). Lanes are
+    evenly spaced, never random.
+
+`point_edge, point_edge_width`
+:   `"rim"` (a deeper shade of each point's own colour, which keeps pale points crisp —
+    default), `"none"` or any colour; and the edge width in points.
+
+`point_fill_alpha`
+:   Opacity of the points' fill only (default `1.0`). The rim / edge keeps full opacity, so
+    translucent points stay crisply outlined where they overlap.
+
+`palette`
+:   Per-category colour source, given once for every category, as a list (cycled in category
+    order) or as a `{category: spec}` mapping. A spec can be anything in fluxplot's colour
+    library — a colormap from `fp.colors.maps` (`"cmasher.emerald"`, `"crameri.batlow"`,
+    `"tol.sunset"`, a bare `"YlGnBu"`, `_r` reversed), a palette from
+    `fp.colors.palettes` (`"brewer.Set2"`, `"tol.bright"`, `"flexoki.blue"`), any
+    matplotlib colormap or `Colormap`, a list of colours, or a single colour. The glowbar
+    picks as many distinct point colours as each group needs plus one solid group colour:
+    sequential sources give equal perceptual steps (oriented light → dark, whatever their
+    source direction); diverging / cyclic maps are sampled evenly along their usable (not too
+    pale) stretches; qualitative palettes keep their own order. Default: the ColorBrewer
+    maps `YlGnBu`, `YlOrRd`, `RdPu`, `BuGn`, `Purples`, `YlOrBr`. (Because a palette list
+    like `["#123", "#456"]` means one spec per category, wrap a hand-made palette for a
+    single category in a mapping: `{"SD": ["#123", "#456", "#789"]}`.)
+
+`group_color_position`
+:   Pin the group colour to a point of an ordered (sequential) source's light → dark ramp
+    (0 = palest, 1 = darkest). Default `None` chooses: 0.75 along a ColorBrewer ramp; for any
+    other source its most chromatic mid-lightness colour when its hues agree (e.g. cmasher
+    `emerald`), or a neutral ink when they spread around the wheel (diverging, rainbow,
+    qualitative) — no single hue honestly stands for those.
+
+`group_color`
+:   Override the group colour (glow, caps, mean shade) outright: one colour, or a
+    `{category: colour}` mapping. Point colours still come from `palette`.
+
+`point_colors`
+:   `"shades"` (each unit its own shade of its category's map), `"group"` (every point in its
+    group colour), `"auto"` (shades with `units`, else group — default), one colour for all
+    points, or a `{unit: colour}` mapping.
+
+`shade_range, interleave_shades`
+:   Lightness of the palest and darkest shade (0 = black, 100 = white), spaced in equal
+    perceptual steps; and whether shades are dealt across lanes so neighbours always contrast
+    (default `True`) or run pale → dark in lane order. On a dark ground the dark bound is
+    lifted to stay at least 20 lightness units above the ground.
+
+`connect_identical_points_across_x_values`
+:   Join each unit's points across the x categories with a line (needs `units`) — for paired
+    or repeated-measures designs. A unit missing from a category breaks its line there instead
+    of bridging the gap; several rows of one unit in one category are joined through their mean.
+
+`connect_line_width, connect_color, connect_alpha`
+:   Connector stroke (points), colour (a colour, or `"unit"` for each unit's own point colour)
+    and opacity. The default is a quiet neutral — the active theme's grid colour, else Flexoki
+    base-300 — so the lines never compete with the points.
+
+`series, unit_series`
+:   Override the series names — the roots of every part id — per category / per unit, as a
+    mapping or a callable. Defaults: the category and unit values (`"SD"` → `sd.glow`,
+    `"B6_8"` → `b6-8.points`).
+
+`label_axes`
+:   Put the category names on the x ticks and the `y` column name on the y axis, and set the x
+    limits (default `True`).
+
+`zorder`
+:   Base z-order: connectors sit just below it, the points at it, the bar above.
+
+
+**Returns**
+
+`GlowbarResult`
+:   The axes, category order, statistics, colours, series names and artists.
+
+
+</details>
+
+### `fp.fluxbox` {#fluxbox}
+
+```python
+fp.fluxbox(data=None, *, x, y, units=None, order: 'Optional[Sequence]' = None, unit_order: 'Optional[Sequence]' = None, ax=None, whis: 'Union[float, str, Sequence[float]]' = 1.5, show_mean: 'bool' = True, show_median: 'bool' = True, show_whiskers: 'bool' = True, show_caps: 'bool' = False, show_fliers: 'Union[bool, str]' = 'auto', box_width: 'float' = 7.0, box_alpha: 'float' = 0.5, box_offset: 'float' = 0.42, box_side: 'str' = 'outer', median_line_width: 'float' = 1.4, median_color=None, median_contrast: 'float' = 30.0, mean_notch_depth: 'float' = 1.5, mean_notch_height: 'float' = 2.6, whisker_width: 'float' = 1.0, whisker_color=None, cap_size: 'float' = 4.0, cap_width: 'float' = 0.8, cap_color=None, flier_size: 'float' = 8.0, cut_color=None, show_individual_points: 'bool' = True, point_size: 'float' = 18.0, jitter: 'float' = 0.14, point_edge='rim', point_edge_width: 'float' = 0.5, point_fill_alpha: 'float' = 1.0, palette=None, group_color_position: 'Optional[float]' = None, group_color=None, point_colors='auto', shade_range: 'tuple' = (88.0, 22.0), interleave_shades: 'bool' = True, connect_identical_points_across_x_values: 'bool' = False, connect_line_width: 'float' = 0.6, connect_color=None, connect_alpha: 'float' = 0.8, series=None, unit_series=None, label_axes: 'bool' = True, zorder: 'float' = 2.0) -> 'FluxboxResult'
+```
+
+Draw a fluxbox: the individual points plus a slim box plot with a median line and a mean notch.
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+
+**Parameters**
+
+`data`
+:   A pandas or polars DataFrame, a dict of columns, or `None` when `x`/`y`/`units` are
+    passed as arrays.
+
+`x, y`
+:   Column names (or array-likes): `x` is categorical (one box per value), `y` numeric. Rows
+    whose `x` or `y` is missing are not drawn.
+
+`units`
+:   Optional identity column (subject, animal, cell…). Each unit gets a fixed lane and colour
+    inside every category, derived from the table order (`unit_order`), never from the values
+    — so separate plots of different measures from the same table agree, even when a unit is
+    missing a value in one of them. Units are also what
+    `connect_identical_points_across_x_values` joins.
+
+`order, unit_order`
+:   Category order (left → right) and unit order (first lane → last). Default: first appearance
+    in the data (numeric categories are sorted). Categories missing from `order` are dropped.
+
+`ax`
+:   Target axes (default: the current axes).
+
+`whis`
+:   How far the whiskers reach: a factor of the IQR (default `1.5` — Tukey's rule, as
+    `plt.boxplot`), `"range"` (the minimum and maximum), or a `(low, high)` pair of
+    percentiles. Each whisker ends on the most extreme observation within that reach.
+
+`show_mean, show_median, show_whiskers, show_caps`
+:   Toggle the mean notch, the median line, the whiskers and whisker caps (off by default).
+
+`show_fliers`
+:   Mark the observations beyond the whiskers on the box's own axis: `"auto"` (only when the
+    individual points are hidden, since otherwise they are already drawn — default), `True`
+    or `False`.
+
+`box_width, box_alpha`
+:   Box width in points (the median line spans exactly this width), and the opacity of its fill
+    (default `0.5`: a wash of the group colour that the solid median line stands out from).
+
+`box_offset, box_side`
+:   Distance (category units) of the box from its category's centre, and its side: `"outer"`
+    (the first category's box to the left, every other to the right, so the boxes frame the
+    comparison — default), `"left"` or `"right"`.
+
+`median_line_width, median_color, median_contrast`
+:   Stroke of the median line (points) and its colour. By default it is the group colour,
+    deepened — or, where the box renders darker than the group colour (a dark background),
+    lifted — only as far as it takes to differ from the box by `median_contrast` units of
+    perceived lightness (0–100 scale); give `median_color` to set it outright. Whichever it is,
+    it is also the colour of the whiskers, fliers and a solid (out-of-box) mean mark.
+
+`mean_notch_depth, mean_notch_height`
+:   How far each V-cut of the mean notch reaches into the box, and its height, in points. The
+    notch is drawn above the median, so it stays visible when the mean meets the median.
+
+`whisker_width, whisker_color`
+:   Whisker stroke (points) and colour (default: the median's colour).
+
+`cap_size, cap_width, cap_color`
+:   Whisker cap length and stroke (points), and colour (default: the whiskers') — when
+    `show_caps=True`. A whisker of zero length (no observation beyond the box) gets no cap.
+
+`flier_size`
+:   Marker area (points²) of the fliers.
+
+`cut_color`
+:   Colour of the mean notch "cut" (default: the axes background); also the ground the median's
+    contrast is judged against.
+
+`show_individual_points`
+:   Draw the individual observations (default `True`).
+
+`point_size, jitter`
+:   Marker area (points²), and the half-width of the lane spread (category units). Lanes are
+    evenly spaced, never random.
+
+`point_edge, point_edge_width`
+:   `"rim"` (a deeper shade of each point's own colour, which keeps pale points crisp —
+    default), `"none"` or any colour; and the edge width in points.
+
+`point_fill_alpha`
+:   Opacity of the points' fill only (default `1.0`). The rim / edge keeps full opacity, so
+    translucent points stay crisply outlined where they overlap.
+
+`palette`
+:   Per-category colour source, given once for every category, as a list (cycled in category
+    order) or as a `{category: spec}` mapping — any colormap or palette in fluxplot's colour
+    library, a matplotlib colormap, a list of colours, or a single colour; exactly as for
+    `fluxplot.glowbar`. Default: the ColorBrewer maps `YlGnBu`, `YlOrRd`, `RdPu`,
+    `BuGn`, `Purples`, `YlOrBr`.
+
+`group_color_position`
+:   Pin the group colour to a point of an ordered (sequential) source's light → dark ramp
+    (0 = palest, 1 = darkest). Default `None`: 0.75 along a ColorBrewer ramp, else the
+    source's most chromatic mid-lightness colour (or a neutral ink for multi-hue sources).
+
+`group_color`
+:   Override the group colour (the box, and the base of the median / whisker ink) outright: one
+    colour, or a `{category: colour}` mapping. Point colours still come from `palette`.
+
+`point_colors`
+:   `"shades"` (each unit its own shade of its category's map), `"group"` (every point in its
+    group colour), `"auto"` (shades with `units`, else group — default), one colour for all
+    points, or a `{unit: colour}` mapping.
+
+`shade_range, interleave_shades`
+:   Lightness of the palest and darkest shade (0 = black, 100 = white), spaced in equal
+    perceptual steps; and whether shades are dealt across lanes so neighbours always contrast
+    (default `True`) or run pale → dark in lane order.
+
+`connect_identical_points_across_x_values`
+:   Join each unit's points across the x categories with a line (needs `units`) — for paired
+    or repeated-measures designs. A unit missing from a category breaks its line there instead
+    of bridging the gap; several rows of one unit in one category are joined through their mean.
+
+`connect_line_width, connect_color, connect_alpha`
+:   Connector stroke (points), colour (a colour, or `"unit"` for each unit's own point colour)
+    and opacity. The default is a quiet neutral — the active theme's grid colour, else Flexoki
+    base-300 — so the lines never compete with the points.
+
+`series, unit_series`
+:   Override the series names — the roots of every part id — per category / per unit, as a
+    mapping or a callable. Defaults: the category and unit values (`"SD"` → `sd.box`,
+    `"B6_8"` → `b6-8.points`).
+
+`label_axes`
+:   Put the category names on the x ticks and the `y` column name on the y axis, and set the x
+    limits (default `True`).
+
+`zorder`
+:   Base z-order: connectors sit just below it, the points at it, the box above.
+
+
+**Returns**
+
+`FluxboxResult`
+:   The axes, category order, statistics, colours, series names and artists.
+
+
+</details>
+
+### `fp.hexmatrix` {#hexmatrix}
+
+```python
+fp.hexmatrix(data=None, *, x=None, y=None, C=None, matrix=None, ax=None, gridsize: 'int' = 30, binwidth: 'Optional[float]' = None, extent: 'Optional[Sequence[float]]' = None, orientation: 'str' = 'pointy', aspect: 'Union[str, float]' = 'auto', xscale: 'Optional[str]' = None, yscale: 'Optional[str]' = None, origin: 'str' = 'upper', stat: 'str' = 'count', reduce: 'Union[str, Callable]' = 'mean', weights=None, mincnt: 'int' = 1, cmap=None, color=None, norm: 'Any' = 'linear', vmin: 'Optional[float]' = None, vmax: 'Optional[float]' = None, robust: 'Union[bool, Sequence[float]]' = False, center: 'Optional[float]' = None, gamma: 'float' = 0.5, gap: 'float' = 0.0, edgecolor='face', linewidth: 'Optional[float]' = None, alpha: 'Optional[float]' = None, sparse: 'Optional[int]' = None, show_points: 'bool' = False, point_size: 'float' = 4.0, point_color=None, colorbar: 'bool' = True, colorbar_label: 'Optional[str]' = None, colorbar_size: 'float' = 0.05, colorbar_pad: 'float' = 0.04, marginals: 'Union[bool, str]' = False, marginal_size: 'float' = 0.22, marginal_pad: 'float' = 0.03, marginal_bins: 'Optional[int]' = None, marginal_color=None, identity_line: 'Union[bool, dict]' = False, series: 'Optional[str]' = None, key: 'Optional[str]' = None, scale: 'Optional[str]' = None, alpha_by=None, alpha_range=(0.25, 1.0), alpha_norm: 'str' = 'linear', vector_limit: 'Optional[int]' = 5000, label_axes: 'bool' = True, zorder: 'float' = 2.0) -> 'HexMatrixResult'
+```
+
+Draw a hexmatrix: hexagonal bins of a point cloud, or a 2D array on a hex lattice.
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+
+**Parameters**
+
+`data`
+:   A pandas or polars DataFrame, a dict of columns, or `None` when `x`/`y`/`C` are
+    passed as arrays.
+
+`x, y`
+:   Column names (or array-likes) of the point coordinates. Rows with a missing / non-finite
+    coordinate (or a non-positive one on a log axis) are dropped and counted in the manifest.
+
+`C`
+:   Optional third variable (column name or array). Each hexagon is coloured by `reduce` of the
+    `C` values that fall in it instead of by a count — a 2D gradient / mean map.
+
+`matrix`
+:   Instead of points: a 2D array drawn one hexagon per entry on an offset lattice (row `r` of
+    the array is lattice row `r`; odd rows are shifted half a hexagon). `NaN` entries are left
+    empty. Excludes `x`/`y`/`C`.
+
+`ax`
+:   Target axes (default: the current axes).
+
+`gridsize, binwidth`
+:   Hexagon size: `gridsize` hexagons across the x extent (default `30`), or `binwidth`, the
+    centre-to-centre distance of neighbouring hexagons in (scaled) x data units — e.g. `0.1` for
+    0.1 mm bins of spatial data, or `0.1` decades on a log axis. `binwidth` wins.
+
+`extent`
+:   `(xmin, xmax, ymin, ymax)` of the binned region in data units (default: the data range).
+    Points outside are dropped. Fix it to make hexagon names (and colours) comparable across
+    plots of different data.
+
+`orientation`
+:   `"pointy"` (pointy-top hexagons in horizontal rows — default) or `"flat"`.
+
+`aspect`
+:   `"auto"` (default): hexagons are regular on the page for the axes' current box shape, whose
+    aspect is then locked (`Axes.set_box_aspect`) so a later layout pass cannot distort them.
+    `"equal"` (or a number, the y-per-x data ratio): hexagons are regular in data units and the
+    axes' data aspect is set — right for spatial coordinates.
+
+`xscale, yscale`
+:   `"linear"` or `"log"` (default: the axes' current scale). Log axes bin in log space, so the
+    hexagons are regular as displayed.
+
+`origin`
+:   Matrix mode only: `"upper"` (row 0 at the top, like `imshow` — default) or `"lower"`.
+
+`stat`
+:   Without `C`: what a hexagon's colour counts — `"count"` (default), `"density"` (count per
+    unit (scaled) data area, integrating to 1), `"probability"` (fraction of all points) or
+    `"percent"`.
+
+`reduce`
+:   With `C`: `"mean"` (default), `"median"`, `"sum"`, `"min"`, `"max"`, `"std"`,
+    `"count"` or any callable taking a 1D array.
+
+`weights`
+:   Optional per-point weights (column name or array) for the count statistics.
+
+`mincnt`
+:   Minimum number of observations for a hexagon to be drawn (default `1`: empty hexagons are
+    left empty). `0` draws every hexagon of the extent, empty ones at a count of zero.
+
+`cmap, color`
+:   The colormap: any matplotlib or fluxplot colormap name (`"viridis"`, `"emerald"`,
+    `"crameri.batlow"`) or a Colormap; default: the style's image colormap. Or `color`: one
+    colour, from which a pale → colour → deep single-hue ramp is built.
+
+`norm`
+:   How values map to colour: `"linear"` (default), `"log"`, `"sqrt"` (a power law,
+    `gamma`), or any matplotlib `Normalize` instance (`SymLogNorm`, `BoundaryNorm`, …).
+
+`vmin, vmax`
+:   Colour limits (default: the range of the drawn values). Flux can override them (and `cmap`)
+    through the recipe's colour controls.
+
+`robust`
+:   Derive default limits from the 2nd–98th percentile (`True`) or a `(low, high)` percentile
+    pair instead of the extremes, so a few outlying hexagons do not wash out the rest.
+
+`center`
+:   A value to centre a diverging map on (`TwoSlopeNorm`); default limits become symmetric.
+
+`gamma`
+:   Exponent of `norm="sqrt"` (default `0.5`).
+
+`gap`
+:   Fraction of each hexagon trimmed away to leave a gap between neighbours (`0` — seamless —
+    to `<1`).
+
+`edgecolor, linewidth`
+:   Hexagon outline: `"face"` (the fill colour — default; closes antialiasing seams), `"none"`
+    or a colour; and its width in points (default `0.25` when seamless, `0` with a gap).
+
+`alpha`
+:   Hexagon opacity.
+
+`sparse`
+:   Draw hexagons only where at least `sparse` observations fall, and the individual points
+    elsewhere — a density map whose sparse fringe stays honest.
+
+`show_points`
+:   Overlay every observation as a small point.
+
+`point_size, point_color`
+:   Marker area (points²) and colour of those points (default: the colour of the lowest value).
+
+`colorbar, colorbar_label`
+:   Attach a named colour key (default `True`) and its label (default: the statistic, e.g.
+    `"Count per hexbin"`, or `"mean <C>"`).
+
+`colorbar_size, colorbar_pad`
+:   Its width and gap, as fractions of the plot's width.
+
+`marginals`
+:   `True` / `"hist"`: histograms of `x` and `y` along the top and right (points mode).
+
+`marginal_size, marginal_pad`
+:   Their depth and gap, as fractions of the plot's size.
+
+`marginal_bins, marginal_color`
+:   Number of marginal bins across the x extent (default: `gridsize`; y gets the same bin
+    width) and their colour (default: a mid tone of the colormap, or `color`).
+
+`identity_line`
+:   Draw the `y = x` line across the plot (`True`, or a dict of `Line2D` properties).
+
+`series`
+:   The series name — the root of every part id (default `"hexbin"`).
+
+`key`
+:   The recipe key of the colour controls (default: the series).
+
+`scale`
+:   Join a shared colour scale declared with `fluxplot.color_scale` (its map, norm and
+    union limits; one key for every panel).
+
+`alpha_by, alpha_range, alpha_norm`
+:   Value × confidence: wash out hexagons by a second variable. `"count"` (observations
+    per hexagon), a column of `data` or a per-point array (its mean per hexagon), a
+    per-hexagon array (one value per drawn hexagon), or a matrix of the `matrix` shape.
+    Alpha runs over `alpha_range` with the value (`alpha_norm="log"` for p-values); the
+    manifest records `colorScales[].alpha` and every hexagon carries `data-alpha-value`.
+
+`vector_limit`
+:   Hexagons stay individually addressable up to this many (default 5000; `None` for the
+    save's generic threshold), where a generic collection would be rasterized at 800.
+
+`label_axes`
+:   Label the axes with the `x` / `y` column names (default `True`).
+
+`zorder`
+:   z-order of the hexagons; points and the identity line sit above.
+
+
+**Returns**
+
+`HexMatrixResult`
+:   The axes, the hexagons, the bins drawn, the colour scale, the colorbar and the marginal axes.
+
+
+</details>
+
+## Labels and existing artists
+
+### `fp.legend` {#legend}
+
+```python
+fp.legend(ax, handles=None, labels=None, **kw)
+```
+
+`ax.legend` with the entry → artist mapping kept, so the manifest can say which series each legend entry names even when the handles were chosen by hand (`fp.legend(ax, [ln], ["Control"])`). Without `handles` the axes' own labelled artists are used, in matplotlib's order, and the mapping is recovered from them at save.
+
+### `fp.secondary_axis` {#secondary_axis}
+
+```python
+fp.secondary_axis(ax, location, *, functions, label=None, **kw)
+```
+
+A secondary x (`"top"` / `"bottom"`) or y (`"right"` / `"left"`) axis showing the same data through `functions=(forward, inverse)` — wavelength beside frequency, mm beside pixels. It is tagged as the panel's `axis.x2` / `axis.y2` and the manifest records the transform as samples (`axes[].x2.secondary.samples`), so a consumer can re-tick it.
+
+### `fp.annotation` {#annotation}
+
+```python
+fp.annotation(ax, *, name, text, **kw)
+```
+
+See the related guide for usage.
+
+### `fp.reference_line` {#reference_line}
+
+```python
+fp.reference_line(ax, *, y=None, x=None, name, **kw)
+```
+
+See the related guide for usage.
+
+### `fp.significance_bracket` {#significance_bracket}
+
+```python
+fp.significance_bracket(ax, *, x0, x1, y, label, between=None, p=None, name=None, height=None, color=None, text_kw=None, stats=None, **kw)
+```
+
+Draw a comparison bracket with a p-value.
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+`color` paints both the bracket line and its label (default: the theme's text colour,
+so a bracket reads on dark grounds too); `text_kw` are extra `Text` properties for the
+label (`fontsize`, `fontweight`, …). `height` is the tip height in data units
+(default: 3 % of the y range, or a 6 % step on a log axis). `stats` is the provenance of
+the label — the test, statistic, p-values, effect size — recorded on the manifest overlay
+(`fluxplot.brackets` fills it from an `fp.stats` row).
+
+</details>
+
+### `fp.brackets` {#brackets}
+
+```python
+fp.brackets(ax, rows: 'Iterable[dict]', *, positions: 'Optional[Dict[Any, float]]' = None, pairs: 'Optional[Iterable[Tuple[Any, Any]]]' = None, label: 'Union[str, Callable[[dict], str]]' = 'stars', p_column: 'str' = 'p_corrected_holm', thresholds: 'Sequence[Tuple[float, str]]' = ((0.001, '***'), (0.01, '**'), (0.05, '*')), ns: 'bool' = True, top: 'Optional[float]' = None, step: 'float' = 0.06, tip: 'float' = 0.02, **line_kw) -> 'list'
+```
+
+Draw one significance bracket per `fp.stats` row, stacked so none overlap.
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+
+**Parameters**
+
+`ax`
+:   The axes the compared groups are plotted on.
+
+`rows`
+:   Reporting rows whose `groups` is the pair `[a, b]` (`fp.stats.pairwise`,
+    `tukey_hsd`, `games_howell`, `dunn`; or any two-group row given `names=`).
+
+`positions`
+:   `{group name: x}`. Default: the axes' x tick labels (a glowbar / fluxbox / categorical
+    axis), which must name every group; `GlowbarResult.positions` and
+    `FluxboxResult.positions` give it directly.
+
+`pairs`
+:   Draw only these `(a, b)` pairs (either order), in this order of priority when several
+    rows name the same pair. Default: every row.
+
+`label`
+:   `"stars"` (`***`/`**`/`*`/`ns` by `thresholds`), `"p"` (`p = 0.003` /
+    `p < 0.001`), `"both"` (stars over the p), or a callable `row -> str`.
+
+`p_column`
+:   The row column the label and the stacking read: `"p_corrected_holm"` (default),
+    `"p_corrected_bh"` or `"p-value"`.
+
+`thresholds`
+:   `((p, stars), …)`: the first threshold `p` falls under gives its label.
+
+`ns`
+:   Draw a bracket labelled `ns` for non-significant pairs (default). `False` omits them.
+
+`top`
+:   Start the stack at this y instead of above the data each bracket spans.
+
+`step, tip`
+:   Vertical step between brackets and the tip height, as fractions of the y range (on a log
+    axis, of the range in decades).
+
+`**line_kw`
+:   Passed to `fluxplot.significance_bracket` (`color`, `linewidth`, `text_kw`, …).
+
+
+**Returns**
+
+`list`
+:   The bracket line artists, in drawing order (shortest span first). Each carries the
+    manifest `stats` payload of its row.
+
+
+</details>
+
+### `fp.tag` {#tag}
+
+```python
+fp.tag(artist, *, role, series=None, index=None, name=None, x=None, y=None, **identity)
+```
+
+Tag any raw matplotlib artist with a semantic role + identity.
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+`x`/`y` capture the mark's data coordinates. When omitted, they are read from the
+artist itself for supported types (`Line2D` data, scatter offsets — the same exact
+adapters save-time promotion uses); otherwise they stay honestly absent rather than
+making an invalid spatial claim.
+
+</details>
+
+### `fp.tag_points` {#tag_points}
+
+```python
+fp.tag_points(points, *, series, x=None, y=None)
+```
+
+Tag an existing markers `Line2D` / `PathCollection` as an addressable point group.
+
+### `fp.tag_seaborn` {#tag_seaborn}
+
+```python
+fp.tag_seaborn(ax, *, series=None, plot=None, data=None, x=None, y=None, hue=None, order=None, hue_order=None)
+```
+
+Auto-tag the artists a seaborn axes-level plot drew on `ax` — one call, done.
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+Call it right after the seaborn call (and before raw-matplotlib additions you tag
+yourself). Series names come from `series=[...]` if given, else from the frame
+(`data=`, `x=`, `y=`, `hue=` — the same arguments the seaborn call took, so the hue
+levels come out in seaborn's own order), else the legend's labels for a known `plot=`
+adapter, else the y-axis label. Multi-hue plots require `plot='lineplot'` (or
+`histplot`, `barplot`, `kdeplot`, etc.) because legend order alone does not identify
+Seaborn's drawing order. An explicit `series=[...]` always means artist draw order. Per
+series it names:
+
+- data-carrying lines           → role `line`      (`lineplot` means, `kdeplot`, `regplot` fits)
+- fill-between bands            → role `area`      (confidence / error bands)
+- scatter collections           → role `point`     (`scatterplot` / `regplot` — per-point addressable)
+- bar containers                → role `bar`       (`barplot` / `countplot` / `histplot`)
+- capped/horizontal bar errors  → role `errorbar`  (joined by categorical position)
+
+The categorical kinds (`plot="boxplot"`, `"violinplot"`, `"stripplot"`, `"swarmplot"`,
+`"pointplot"`) are named from seaborn's fixed drawing order: without `hue` every category is
+a series (`a.box`, `a.whisker`, `a.points`, …); with `hue` every hue level is a series
+and each category a named part of it (`p.a` for the box, `p.a-whisker`, `p.a.point.k`).
+A strip / swarm / scatter with hue levels mixed inside one collection is split by the frame
+rows each level owns (`data=` is needed for that), the collection staying one artist.
+`barplot(x=g, hue=g)` is named from `hue=` even though seaborn draws no legend for it.
+
+Seaborn's empty legend-proxy lines are removed (they draw nothing; the legend keeps its
+own handles). Artists already tagged are skipped, so this composes with the `fp.*`
+helpers and `tag`. Anything it cannot *confidently* pair with a series name is
+left alone — `save()`'s orphan sweep still makes it addressable as `extra.*` — and a
+call that tags nothing warns.
+
+Returns `{series_name: [roles tagged]}` so you can see exactly what got named.
+
+</details>
+
+## 3D scenes
+
+### `fp.scene3d` {#scene3d}
+
+```python
+fp.scene3d(*, figsize=(3.5, 3), units='', up='y', title=None, axes='none', scalebar=None, scalebar_label=None, view=None, lighting='studio', preview_max_faces=100000)
+```
+
+Create a 3D scene; add meshes with `mesh3d` / `surface3d`, save with `fp.save`.
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+`fp.save(sc, "plots/name")` writes `name.glb` + `name.fluxplot.json` +
+`name.recipe.json`. Flux imports it at its physical size and can re-angle,
+restyle, recolour and animate it without rerunning Python.
+
+
+**Parameters**
+
+`figsize`
+:   `(width, height)` in inches: the default physical size in Flux.
+
+`units`
+:   Data length unit (`"nm"`, `"µm"`, `"mm"`, …) used by axis labels and the
+    scale bar. Coordinates are never rescaled.
+
+`up`
+:   Which data axis points up: `"x"`, `"-x"`, `"y"` (default), `"-y"`, `"z"`
+    or `"-z"`. `"z"` suits most neuroimaging/connectomics data, `"-y"` image
+    coordinates. Only the stored orientation changes; axes and ticks keep your units.
+
+`title`
+:   Optional title above the scene.
+
+`axes`
+:   `"none"` (default), `"box"` (back panes, grid, ticks in data units; tune with
+    `Scene3D.axis`) or `"triad"` (a small x/y/z orientation gizmo).
+
+`scalebar`
+:   Scale-bar length in data units (e.g. `10_000` with `units="nm"`); shown in
+    orthographic views. Its label is simplified to a friendly metric unit
+    (`10 µm`).
+
+`scalebar_label`
+:   Replace the automatic scale-bar label text.
+
+`view`
+:   Initial saved view, the same mapping `Scene3D.view` accepts, e.g. the
+    notebook's Copy view output: `view=dict(azimuth=30, elevation=15, zoom=0.9)`.
+
+`lighting`
+:   `"studio"` (default) or `"unlit"` (flat colours, e.g. for label maps).
+
+`preview_max_faces`
+:   Triangle budget of the notebook preview only (default 100,000). With the
+    optional `fluxplot[mesh]` extra the preview is simplified to this budget;
+    `fp.save` always keeps the scene's full resolution.
+
+
+**Returns**
+
+`Scene3D`
+:   Display it as the last line of a notebook cell to orbit it interactively.
+
+
+**Examples**
+
+>>> sc = fp.scene3d(figsize=(3.5, 3), units="nm", up="-y", scalebar=10_000)
+>>> fp.mesh3d(sc, (vertices, faces), series="neuron")
+>>> sc.view(azimuth=30, elevation=15, zoom=0.9)
+>>> fp.save(sc, "plots/neuron")
+
+</details>
+
+### `fp.mesh3d` {#mesh3d}
+
+```python
+fp.mesh3d(scene, mesh, *, series, color=None, palette=None, alpha=None, legend=False, label=None, states=None, sequence=False, share_topology_with=None, morph_group=None, max_faces=None)
+```
+
+Add one mesh, or a named mapping of meshes, as addressable parts of a 3D scene.
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+
+**Parameters**
+
+`scene`
+:   The `fp.scene3d` to add to.
+
+`mesh`
+:   One mesh, or `{name: mesh}` for named parts (`"soma"`, `"axon"`, …), each
+    of which Flux can recolour, fade or hide separately. A mesh is a
+    `(vertices, faces)` pair, an object with `.vertices`/`.faces` (trimesh,
+    meshparty, cloudvolume), PyVista `PolyData`, a GIFTI path (needs `nibabel`)
+    or a `.ply/.obj/.stl/.off` path (needs `trimesh`). A `trimesh.Scene`
+    becomes one named part per node.
+
+`series`
+:   Name of this series; parts are `<series>.mesh` or `<series>.<name>`. Ids are
+    stable across reruns, so edits made in Flux survive regeneration.
+
+`color, palette`
+:   `color` colours every part; `palette={name: color}` colours named parts. Parts
+    without either take successive colours of the house cycle, so a legend can tell
+    them apart.
+
+`alpha`
+:   Opacity in [0, 1] for every part of this call (overrides any alpha in the
+    colours). Flux can still change it per part.
+
+`legend`
+:   Add these parts to the scene legend.
+
+`label`
+:   Display label. For a single mesh it labels the part (e.g. in the legend). For a
+     named mapping it names the whole series, as in `fp.surface
+    `; each part keeps its mapping key as its label.
+
+`states`
+:   Other shapes of the same mesh, shown as weight sliders in Flux:
+    `{"inflated": inflated}`. A state is the base mesh moved, so it may be a bare
+    N×3 vertex array or a mesh with identical faces (checked). For named parts give
+    `{state: {part: shape}}`.
+
+`sequence`
+:   With a list of states (`states=frames[1:]`), mark a time sequence: frame 0 is
+    this mesh and each state is the next frame (`sc.view(frame=3)`).
+
+`share_topology_with`
+:   A reference scene, the list of parts a previous `mesh3d` call returned, or a
+    mesh with the same faces. The faces are checked, and a decimated reference's
+    exact collapses are replayed, so the two stay morphable in Flux. Build the
+    reference first (with any `max_faces`), use the same `series` and part
+    names, then pass it here.
+
+`morph_group`
+:   A label (e.g. `"cortex"`) suggesting morph partners in Flux.
+
+`max_faces`
+:   Optional triangle budget for this call, apportioned over its parts (needs the
+    `fluxplot[mesh]` extra). Save warnings recommend a value for large scenes.
+
+
+**Returns**
+
+`list of MeshPart`
+:   The new parts, in order.
+
+
+**Examples**
+
+>>> sc = fp.scene3d(units="nm", scalebar=10_000)
+>>> fp.mesh3d(sc, {"soma": soma, "axon": axon}, series="neuron", legend=True,
+...           palette={"soma": fp.colors.red400, "axon": fp.colors.blue400})
+>>> fp.mesh3d(sc, pial, series="cortex", states={"inflated": inflated_vertices})
+
+</details>
+
+### `fp.surface3d` {#surface3d}
+
+```python
+fp.surface3d(scene, values, *, series, surfaces, kind='auto', categories=None, palette=None, cmap=None, color_range=None, percentile=None, missing_below=None, missing_values=(), missing_color='#D8D8D8', colorbar=False, cbar_label=None, cbar_ticks=None, legend=None, legend_missing=False, label=None, alpha=None, states=None, sequence=False, share_topology_with=None, morph_group=None, max_faces=None)
+```
+
+Add a per-vertex value map on a mesh: a categorical atlas or a continuous field.
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+The value-to-colour law is the one `fp.surface` uses (same
+arguments and missing-data rules). The raw values are saved too, so Flux can change
+the colormap and limits without rerunning Python.
+
+
+**Parameters**
+
+`scene`
+:   The `fp.scene3d` to add to.
+
+`values`
+:   One value per vertex: an array in mesh order (concatenated when `surfaces` is a
+    mapping) or `{name: array}` matching `surfaces`.
+
+`series`
+:   Part-id prefix: label maps give `<series>.<category>`, continuous maps
+    `<series>.field`; faces touching missing data form `<series>.missing`.
+
+`surfaces`
+:   One mesh (any `mesh3d` input) or `{name: mesh}`, e.g. both hemispheres.
+    A mapping is drawn as one combined mesh; for separately hideable hemispheres,
+    call `surface3d` once per hemisphere with its own series and a shared
+    `color_range`.
+
+`kind`
+:   `"label"` (`"categorical"`), `"continuous"`, or `"auto"` (label when the
+    data are integral and have at most 32 distinct values).
+
+`categories`
+:   `{code: name}` for label maps. Unnamed codes become `category-<code>`
+    (negative codes `category-m<abs>`).
+
+`palette`
+:   `{name_or_code: color}` for label maps; fixed, never remapped. Codes need
+    `categories`.
+
+`cmap, color_range, percentile`
+:   Continuous styling. `cmap` is a Colormap or a name: matplotlib's, or fluxplot's
+    collections (`"emerald"`, `"crameri.batlow"`). `percentile=(2, 98)` clips
+    to those percentiles; an explicit `color_range=(lo, hi)` wins. Pass the same
+    `color_range` to several calls (e.g. two hemispheres) for identical colours.
+
+`missing_below, missing_values, missing_color`
+:   Values below `missing_below` or in `missing_values` are missing, like NaN
+    and infinities; zero stays a real value. Missing faces use `missing_color`.
+
+`colorbar, cbar_label, cbar_ticks`
+:   Add a colorbar for a continuous map, with an optional title and fixed ticks.
+
+`legend, legend_missing`
+:   Add the category parts to the scene legend (default: on for label maps). A
+    continuous field has no legend swatch; its key is the colorbar.
+    `legend_missing=True` adds the missing-data part.
+
+`label`
+:   For a continuous map, the field's display label. For a label map it names the
+    whole series (as in `fp.surface`); categories keep their names.
+
+`alpha`
+:   Opacity in [0, 1] for every part of this call.
+
+`states, sequence, share_topology_with, morph_group, max_faces`
+:   As in `mesh3d`. States are other shapes of the same mesh (bare N×3
+    vertex arrays are fine), e.g. `states={"inflated": inflated}`.
+
+
+**Returns**
+
+`list of MeshPart`
+:   The new parts, in order.
+
+
+**Examples**
+
+>>> cx = fp.scene3d(figsize=(3, 3), units="mm")
+>>> fp.surface3d(cx, thickness, series="thickness", surfaces=pial, kind="continuous",
+...              cmap="emerald", percentile=(2, 98), colorbar=True,
+...              cbar_label="Thickness (mm)", states={"inflated": inflated})
+
+</details>
+
+### `fp.can_morph` {#can_morph}
+
+```python
+fp.can_morph(a, b)
+```
+
+Check ordered faces and vertex counts, pairing named parts as Flux does.
+
+## Statistics
+
+### `fp.stats.anova_oneway` {#anova_oneway}
+
+```python
+fp.stats.anova_oneway(*groups: 'Any', names: 'Optional[Sequence[str]]' = None, effect: 'str' = 'eta2') -> 'Dict[str, Any]'
+```
+
+Classic one-way ANOVA (equal variances assumed) with η² or ω² and its 95% CI.
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+`F = MS_between / MS_within` on `(k - 1, N - k)` dof (scipy's `f_oneway`). The effect
+size is η² = SS_between / SS_total (`effect="eta2"`, the default) or the less biased
+ω² = (SS_between − (k − 1) MS_within) / (SS_total + MS_within) (`effect="omega2"`). Both
+estimate the population proportion of variance explained, so both get the same 95% CI: the
+noncentral-F interval of Steiger (2004), whose lower bound is 0 whenever `p >= 0.025`.
+
+
+**Parameters**
+
+`*groups`
+:   Two or more samples, or a single `{name: sample}` dict.
+
+`names`
+:   Group names (recorded in `groups`); default `group1, group2, …`.
+
+`effect`
+:   `"eta2"` or `"omega2"`.
+
+
+</details>
+
+### `fp.stats.bh` {#bh}
+
+```python
+fp.stats.bh(rows: 'Iterable[dict]') -> 'List[dict]'
+```
+
+Fill `p_corrected_bh` across a family of reporting rows with Benjamini–Hochberg adjusted p-values (see `bh_adjusted`); the counterpart of `holm` for false-discovery-rate control. Copies the rows, keeps their order and extra keys.
+
+### `fp.stats.bh_adjusted` {#bh_adjusted}
+
+```python
+fp.stats.bh_adjusted(p: 'Any') -> 'np.ndarray'
+```
+
+Benjamini–Hochberg (1995) step-up adjusted p-values (q-values) for a family of `m` raw p-values.
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+The largest p-value keeps its value, the next is multiplied by `m / (m - 1)`, and so on down
+to `m / 1` for the smallest; running minima from the top keep the adjusted values monotone
+and each is capped at 1. Rejecting every adjusted value below `alpha` controls the false
+discovery rate at `alpha` for independent or positively dependent tests — the right control
+for a screen of many measures, where Holm's family-wise guarantee is needlessly strict. NaN
+passes through.
+
+</details>
+
+### `fp.stats.dunn` {#dunn}
+
+```python
+fp.stats.dunn(*groups: 'Any', names: 'Optional[Sequence[str]]' = None, adjust: 'Union[str, Sequence[str]]' = 'holm') -> 'List[Dict[str, Any]]'
+```
+
+Dunn's (1964) rank-sum test over every pair after Kruskal–Wallis, with Cliff's delta.
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+The pooled ranks give each pair `z = (R̄_a − R̄_b) / sqrt((N (N + 1) / 12 − T) (1 / n_a + 1 / n_b))`
+with the tie term `T = Σ (t³ − t) / (12 (N − 1))`; `p-value` is the raw two-sided normal
+p, and `adjust` (`"holm"`, `"bh"`, or both) fills the matching corrected column across
+the pairs. The effect size is Cliff's delta with Newcombe's 95% CI, as in
+`fluxplot.stats.mann_whitney_cliff`.
+
+</details>
+
+### `fp.stats.friedman_kendall` {#friedman_kendall}
+
+```python
+fp.stats.friedman_kendall(table: 'Any', subject: 'str', within: 'str', dv: 'str', n_boot: 'int' = 2000) -> 'Dict[str, Any]'
+```
+
+Friedman's test with Kendall's W and a bootstrap 95% CI.
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+scipy's `friedmanchisquare` on the `subjects × conditions` matrix gives the χ² statistic on
+`k − 1` dof. Kendall's W = χ² / (n (k − 1)) is the agreement between subjects about the
+ordering of the conditions, in `[0, 1]`. Its 95% CI is a seeded percentile bootstrap over
+subjects (rows resampled with replacement, `n_boot` draws).
+
+`groups` lists the conditions; `n_total` is the number of subjects.
+
+</details>
+
+### `fp.stats.games_howell` {#games_howell}
+
+```python
+fp.stats.games_howell(*groups: 'Any', names: 'Optional[Sequence[str]]' = None) -> 'List[Dict[str, Any]]'
+```
+
+The Games–Howell test over every pair (unequal variances and sizes), with Hedges' g (non-pooled SD).
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+Each pair's `t = (mean_a − mean_b) / sqrt(var_a / n_a + var_b / n_b)` on Welch–Satterthwaite
+dof is referred to the studentized range distribution of `k` groups
+(`p = P(Q_{k, df} > |t| sqrt 2)`), which controls the family-wise error rate: as for
+`tukey_hsd`, the corrected columns equal `p-value`. The effect size and its Bonett CI
+are those of `fluxplot.stats.welch_hedges`.
+
+</details>
+
+### `fp.stats.holm` {#holm}
+
+```python
+fp.stats.holm(rows: 'Iterable[dict]') -> 'List[dict]'
+```
+
+Fill `p_corrected_holm` across a family of reporting rows.
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+Holm's step-down correction needs every p-value in the family (each one's multiplier depends
+on its rank among the others), so it cannot be applied inside a single test call. Collect the
+rows of the comparisons that form one family — for instance every measure tested on the same
+animals in one figure — and pass them here once:
+
+>>> rows = [dict(measure=m, **fp.stats.welch_hedges(sd[m], sleep[m])) for m in measures]
+>>> rows = fp.stats.holm(rows)          # p_corrected_holm now spans the whole family
+>>> pl.DataFrame(rows)
+
+
+**Parameters**
+
+`rows`
+:   Reporting rows (dicts with a `"p-value"` key, as returned by any `fp.stats` test).
+    Extra keys such as a measure name are kept.
+
+
+**Returns**
+
+`list of dict`
+:   Copies of the rows in the same order, with `p_corrected_holm` set to the Holm-adjusted
+    p-value across the family. A single row comes back unchanged (Holm of one is the identity).
+
+
+</details>
+
+### `fp.stats.holm_adjusted` {#holm_adjusted}
+
+```python
+fp.stats.holm_adjusted(p: 'Any') -> 'np.ndarray'
+```
+
+Holm (1979) step-down adjusted p-values for a family of `m` raw two-sided p-values.
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+The smallest p-value is multiplied by `m`, the next by `m - 1`, and so on down to `1`;
+running maxima keep the adjusted values monotone in the raw ones and each is capped at 1.
+Rejecting every adjusted value below `alpha` controls the family-wise error rate at `alpha`
+under any dependence between the tests, and is never less powerful than Bonferroni.
+
+</details>
+
+### `fp.stats.kruskal_epsilon` {#kruskal_epsilon}
+
+```python
+fp.stats.kruskal_epsilon(*groups: 'Any', names: 'Optional[Sequence[str]]' = None, n_boot: 'int' = 2000) -> 'Dict[str, Any]'
+```
+
+Kruskal–Wallis H test with the ε² effect size and a bootstrap 95% CI.
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+`H` is scipy's tie-corrected statistic on `k − 1` dof. ε² = H / (N − 1) (Kelley 1935; the
+rank analogue of η², in `[0, 1]`). Its 95% CI is a seeded percentile bootstrap of ε² over
+`n_boot` within-group resamples — deterministic across runs.
+
+</details>
+
+### `fp.stats.mann_whitney_cliff` {#mann_whitney_cliff}
+
+```python
+fp.stats.mann_whitney_cliff(a: 'Any', b: 'Any', *, alternative: 'str' = 'two-sided', names=('a', 'b')) -> 'Dict[str, Any]'
+```
+
+Mann–Whitney U test of `a` vs `b` with Cliff's delta and its 95% CI.
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+For independent samples compared by rank (ordered categories, or a rank-based comparison chosen
+before looking at the results). The p-value is scipy's two-sided `mannwhitneyu`
+(`method="auto"`: exact for small samples without ties, otherwise the normal approximation
+with tie and continuity corrections).
+
+Cliff's delta is `P(a > b) - P(a < b)` over all `n_a * n_b` cross-group pairs (ties count
+as neither), which equals `2 U_a / (n_a n_b) - 1`. Its 95% CI is Newcombe's (2006) Method 5
+score interval for `theta = (delta + 1) / 2`, mapped back to the delta scale. It stays inside
+`[-1, 1]` and, unlike Cliff's own (1996) interval, does not collapse to a point when the
+groups do not overlap at all (`delta = ±1`) — common with small samples.
+
+Signs follow `a - b`: a positive delta means values in `a` tend to be larger.
+
+
+**Parameters**
+
+`a, b`
+:   The two samples (any 1-D array-like of numbers). Each needs at least 2 finite values.
+
+`alternative`
+:   `"two-sided"` (default), `"less"` or `"greater"` (the direction of `a` relative to
+    `b`). The CI is always two-sided.
+
+`names`
+:   The names of the two groups, recorded in the row's `groups`.
+
+
+**Returns**
+
+`dict`
+:   One reporting row keyed by `REPORT_COLUMNS`. The statistic is `U` for `a` (the
+    number of pairs with `a > b`, ties counting one half); `dof` is `None` (a rank test
+    has no degrees of freedom).
+
+
+</details>
+
+### `fp.stats.paired_t_hedges` {#paired_t_hedges}
+
+```python
+fp.stats.paired_t_hedges(a: 'Any', b: 'Any', *, alternative: 'str' = 'two-sided', names=('a', 'b')) -> 'Dict[str, Any]'
+```
+
+Paired t-test of `a` vs `b` with Hedges' g_z and its 95% CI.
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+For matched observations, asking whether the mean of the paired differences `a - b` is
+different from zero. The effect size is `d_z = mean(a - b) / sd(a - b)` (standardized by the
+SD of the paired differences) times the small-sample correction `J = 1 - 3 / (4 (n - 1) - 1)`.
+The 95% CI is exact under normality: the noncentral-t interval for the population `d_z`,
+inverting the noncentral t distribution of the observed t with `n - 1` degrees of freedom.
+It is not multiplied by `J`: that would break its exactness (at n = 6 and `d_z = 2`
+coverage would fall to about 90%).
+
+Signs follow `a - b`: a positive statistic and effect size mean `a` is larger on average.
+
+
+**Parameters**
+
+`a, b`
+:   The paired samples, equal length, `a[i]` matched with `b[i]`; at least 2 pairs of finite
+    values.
+
+`alternative`
+:   `"two-sided"` (default), `"less"` or `"greater"` for the mean difference `a - b`.
+    The CI is always two-sided.
+
+`names`
+:   The names of the two conditions, recorded in the row's `groups`.
+
+
+**Returns**
+
+`dict`
+:   One reporting row keyed by `REPORT_COLUMNS`: the t statistic, the p-value,
+    `dof = n - 1`, Hedges' g_z and its 95% CI. `n_a = n_b = n_total = n`, the number of pairs.
+
+
+</details>
+
+### `fp.stats.pairwise` {#pairwise}
+
+```python
+fp.stats.pairwise(test: 'Callable[..., dict]', groups: 'Dict[str, Any]', pairs: 'Optional[Iterable[Tuple[str, str]]]' = None, adjust: 'Union[str, Sequence[str], None]' = 'holm') -> 'List[Dict[str, Any]]'
+```
+
+Run a two-group test of this package over pairs of named groups and correct the p-values.
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+>>> rows = fp.stats.pairwise(fp.stats.welch_hedges, {"ctl": ctl, "drug": drug, "sham": sham})
+>>> fp.brackets(ax, rows, positions=gb.positions)
+
+
+**Parameters**
+
+`test`
+:   `welch_hedges`, `mann_whitney_cliff`, `paired_t_hedges` or `wilcoxon_rank_biserial`
+    (any callable `test(a, b, names=(a_name, b_name)) -> row`).
+
+`groups`
+:   `{name: sample}`; the order fixes the default pairs and the sign convention (`a − b`
+    with `a` the earlier group).
+
+`pairs`
+:   The `(a, b)` name pairs to compare; default every pair in `groups` order.
+
+`adjust`
+:   `"holm"` (default), `"bh"`, a sequence of both, or `None`: the correction(s) filled
+    in across the family (`p_corrected_holm` / `p_corrected_bh`).
+
+
+</details>
+
+### `fp.stats.rm_anova` {#rm_anova}
+
+```python
+fp.stats.rm_anova(table: 'Any', subject: 'str', within: 'str', dv: 'str') -> 'Dict[str, Any]'
+```
+
+One-way repeated-measures ANOVA with the Greenhouse–Geisser correction and partial η².
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+The within-subject decomposition `SS_total = SS_subjects + SS_conditions + SS_error` gives
+`F = MS_conditions / MS_error` on `(k − 1, (k − 1)(n − 1))` dof. Sphericity is not assumed:
+both dof are multiplied by the Greenhouse–Geisser ε (from the double-centred covariance matrix
+of the conditions, clamped to `[1 / (k − 1), 1]`) before the p-value is taken, and the row
+reports those corrected dof. Partial η² = SS_conditions / (SS_conditions + SS_error), with the
+noncentral-F 95% CI on the corrected dof.
+
+`groups` lists the conditions; `n_total` is the number of subjects.
+
+</details>
+
+### `fp.stats.tukey_hsd` {#tukey_hsd}
+
+```python
+fp.stats.tukey_hsd(*groups: 'Any', names: 'Optional[Sequence[str]]' = None) -> 'List[Dict[str, Any]]'
+```
+
+Tukey's honestly-significant-difference test over every pair, with Hedges' g (pooled SD).
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+scipy's `tukey_hsd` gives each pair's mean difference `a − b` and its p-value from the
+studentized range on `N − k` dof. That p-value already controls the family-wise error rate,
+so `p_corrected_holm` and `p_corrected_bh` equal it: do **not** correct these rows again.
+The effect size is Hedges' g with the pooled SD (Tukey assumes equal variances), with the
+Hedges–Olkin large-sample 95% CI.
+
+</details>
+
+### `fp.stats.welch_anova` {#welch_anova}
+
+```python
+fp.stats.welch_anova(*groups: 'Any', names: 'Optional[Sequence[str]]' = None) -> 'Dict[str, Any]'
+```
+
+Welch's ANOVA (unequal variances) with ω² and its 95% CI.
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+Welch's (1951) F weights each group by `n_i / var_i`; the denominator dof are
+`(k² − 1) / (3 Σ (1 − w_i / W)² / (n_i − 1))`. The effect size is
+ω² = (k − 1)(F − 1) / ((k − 1)(F − 1) + N) (Kirk's formula; identical to the classic ω² when
+the variances are equal), with the noncentral-F 95% CI on Welch's dof.
+
+</details>
+
+### `fp.stats.welch_hedges` {#welch_hedges}
+
+```python
+fp.stats.welch_hedges(a: 'Any', b: 'Any', *, alternative: 'str' = 'two-sided', names=('a', 'b')) -> 'Dict[str, Any]'
+```
+
+Welch's t-test of `a` vs `b` with Hedges' g (non-pooled SD) and its 95% CI.
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+For independent samples compared on their arithmetic means. The effect size is standardized by
+the non-pooled SD `sqrt((var_a + var_b) / 2)`, so it stays meaningful when the group variances
+differ. The estimate carries the small-sample bias correction
+`J = 1 - 3 / (4 (n_a + n_b - 2) - 1)`. The 95% CI is Bonett's (2008) unequal-variance interval
+for the population value; it is not multiplied by `J`, because the interval targets the
+parameter itself and `J` would pull it off target (simulated coverage is 95–97% as is).
+
+Signs follow `a - b`: a positive statistic and effect size mean `a` has the larger mean.
+
+
+**Parameters**
+
+`a, b`
+:   The two samples (any 1-D array-like of numbers). Each needs at least 2 finite values.
+
+`alternative`
+:   `"two-sided"` (default), `"less"` (`a` has the smaller mean) or `"greater"`. The
+    p-value follows it; the effect-size CI is always the two-sided 95% interval.
+
+`names`
+:   The names of the two groups, recorded in the row's `groups` (`("a", "b")` by default).
+
+
+**Returns**
+
+`dict`
+:   One reporting row keyed by `REPORT_COLUMNS`: the test name, the t statistic, the
+    p-value, the Welch–Satterthwaite degrees of freedom, the effect-size method, its value and
+    its 95% CI formatted as `"[low, high]"` (2 decimals) and as numbers, the sample sizes,
+    the group names and the alternative.
+
+
+**Example**
+
+>>> row = fp.stats.welch_hedges(sd_values, sleep_values, names=("SD", "sleep"))
+>>> pl.DataFrame([row]).write_csv("plots/_dissections/app/_stats/welch_ttest.csv")
+
+</details>
+
+### `fp.stats.wilcoxon_rank_biserial` {#wilcoxon_rank_biserial}
+
+```python
+fp.stats.wilcoxon_rank_biserial(a: 'Any', b: 'Any', *, alternative: 'str' = 'two-sided', names=('a', 'b')) -> 'Dict[str, Any]'
+```
+
+Wilcoxon signed-rank test of `a` vs `b` with the matched-pairs rank-biserial correlation.
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+For matched observations compared by the ranks of their differences `a - b` (chosen before
+looking at the results; assumes the differences are meaningful in size and symmetrically
+distributed). Zero differences are dropped (Wilcoxon's convention, scipy's
+`zero_method="wilcox"`) and tied `|a - b|` share their average rank. The p-value is scipy's
+two-sided `wilcoxon` (`method="auto"`: exact for small samples, otherwise the normal
+approximation).
+
+The effect size is Kerby's (2014) matched-pairs rank-biserial correlation
+`r = (W+ - W-) / (W+ + W-)` over the `n` non-zero differences: the share of the rank sum
+favouring `a > b` minus the share favouring `a < b`, in `[-1, 1]`.
+
+Its 95% CI is a score-type interval (the construction of Wilson's and Newcombe's intervals)
+for the population value `rho = 2 P(D_i + D_j > 0) - 1`: it inverts the normal approximation
+to `W+` using `W+`'s exact mean and variance, evaluated under a normal working model for the
+differences. It stays inside `[-1, 1]` and does not collapse when every difference has the
+same sign. In simulation (n = 6–20; normal, t3, Laplace and uniform differences) its coverage
+is 93–97%. The Fisher-z interval of the R `effectsize` package, by contrast, covers as little
+as 43–84% at n = 6.
+
+
+**Parameters**
+
+`a, b`
+:   The paired samples, equal length, `a[i]` matched with `b[i]`; at least 2 pairs of finite
+    values, and at least one non-zero difference.
+
+`alternative`
+:   `"two-sided"` (default), `"less"` or `"greater"` for the differences `a - b`. The
+    CI is always two-sided.
+
+`names`
+:   The names of the two conditions, recorded in the row's `groups`.
+
+
+**Returns**
+
+`dict`
+:   One reporting row keyed by `REPORT_COLUMNS`. The statistic is `W+`, the sum of the
+    ranks of the positive differences (R's `V`; scipy's two-sided statistic is instead
+    `min(W+, W-)`); `dof` is `None` (a rank test has no degrees of freedom).
+
+
+</details>
+
+## Colour checks
+
+### `fp.colorcheck.check_palette` {#check_palette}
+
+```python
+fp.colorcheck.check_palette(colors, bg='#ffffff', *, text=None, names=None, thresholds=None) -> 'List[Finding]'
+```
+
+Lint a set of mark colours against one another and their ground.
+
+<details class="api-detail"><summary>Parameters and details</summary>
+
+- every pair closer than ΔE 10 under any of the three deficiencies → `cvd-confusable`;
+- every pair whose lightness differs by less than 10 L* → `greyscale-confusable`;
+- a mark colour with WCAG contrast < 3:1 against `bg` → `low-contrast-mark`;
+- a `text` colour with contrast < 4.5:1 against `bg` → `low-contrast-text`.
+`names` label the colours in the messages (default: their hex).
+
+</details>
+
+### `fp.colorcheck.check_colormap` {#check_colormap}
+
+```python
+fp.colorcheck.check_colormap(cmap, *, sequential=None, n=256, thresholds=None) -> 'List[Finding]'
+```
+
+Lint a colormap: `non-uniform` when the ΔE2000 steps between neighbouring samples vary by more than a 0.35 coefficient of variation, `non-monotone` when a sequential map's lightness does not run one way (`sequential` defaults to the map's shipped type).
+
+### `fp.colorcheck.check_figure` {#check_figure}
+
+```python
+fp.colorcheck.check_figure(fig, *, thresholds=None) -> 'List[Finding]'
+```
+
+Lint a figure: its tagged series' primary colours against one another and the axes background, and its text inks against the same ground.
+
+### `fp.colorcheck.simulate` {#simulate}
+
+```python
+fp.colorcheck.simulate(colors, kind: 'str', severity: 'float' = 1.0) -> 'np.ndarray'
+```
+
+What `colors` look like to a viewer with `kind` colour-vision deficiency, as sRGB in [0, 1] (Machado et al. 2009, applied in linear sRGB). `kind` is `protanomaly` / `deuteranomaly` / `tritanomaly` (or the `-opia` names); `severity` 1.0 is dichromacy.
+
+### `fp.colorcheck.delta_e` {#delta_e}
+
+```python
+fp.colorcheck.delta_e(a, b) -> 'float'
+```
+
+CIEDE2000 colour difference between two colours (Sharma, Wu & Dalal 2005 formulation).
+
+### `fp.colorcheck.contrast` {#contrast}
+
+```python
+fp.colorcheck.contrast(fg, bg) -> 'float'
+```
+
+WCAG 2 contrast ratio between a foreground and a background colour (1 … 21).
+
+## Portable colour laws
+
+### `fp.colorscale.normalize` {#normalize}
+
+```python
+fp.colorscale.normalize(norm: 'dict', values) -> 'np.ma.MaskedArray'
+```
+
+Port of each matplotlib norm's `__call__` for a `norm` record: floats in (about) `[0, 1]` for the continuous kinds, colour *indices* for `boundary` / `none`. Masked entries are the `bad` values (missing data, non-positive on a log scale).
+
+### `fp.colorscale.lookup` {#lookup}
+
+```python
+fp.colorscale.lookup(colormap: 'dict', x) -> 'list'
+```
+
+Colour of each normalised value (or index) per the lookup rule, as `#rrggbbaa`.
+
+### `fp.colorscale.apply` {#apply}
+
+```python
+fp.colorscale.apply(record: 'dict', values) -> 'list'
+```
+
+Reference implementation: the colour (`#rrggbbaa`) matplotlib paints each value with.
+
+## Scene methods
+
+A `Scene3D` stores mesh geometry and a view. These methods change its framing or notebook display; use `fp.save(scene, path)` to write the portable bundle.
+
+### `Scene3D.view` {#scene-view}
+
+```python
+scene.view(mapping=None, /, *, view=None, azimuth=None, elevation=None, roll=None, zoom=None, panX=None, panY=None, projection=None, fov=None, states=None, frame=None)
+```
+
+Set the saved Home view; return this scene so a notebook cell can end with it.
+
+Accepts keywords, a mapping, or both (keywords win), so every Copy view form
+pastes back unchanged:
+
+    sc.view(azimuth=30, elevation=15, zoom=0.9)
+    sc.view({"azimuth": 30, "elevation": 15, "zoom": 0.9})
+    sc.view(view=dict(azimuth=30, elevation=15, zoom=0.9))
+    sc.view(frame=3)                    # sequences: frame 0 is the base mesh
+    sc.view(states={"inflated": 0.5})   # named shape states
+
+
+**Parameters**
+
+`azimuth, elevation, roll`
+:   Camera angles in degrees; azimuth is unwrapped, elevation is in [-90, 90].
+
+`zoom`
+:   Magnification in [0.02, 50]; 1 fits the scene's bounding sphere.
+
+`panX, panY`
+:   Pan in bounding-sphere radii.
+
+`projection, fov`
+:   `"orthographic"` (default; scale bars need it) or `"perspective"` with a
+    vertical field of view `fov` in [5, 120] degrees.
+
+`states`
+:   `{state_name: weight}` default weights of named shape states. Weights are
+    stored unclamped; 0 is the base shape and 1 the full state.
+
+`frame`
+:   For `sequence=True` scenes: frame 0 is the base, 1..N the sequence
+    targets; a fractional frame blends its two neighbours.
+
+
+### `Scene3D.axis` {#scene-axis}
+
+```python
+scene.axis(which, *, lim=None, ticks=None, label=None)
+```
+
+Override the authored data-unit ticks, limits or label of x/y/z (box axes).
+
+### `Scene3D.show` {#scene-show}
+
+```python
+scene.show(*, static=False)
+```
+
+Display in a notebook; `static=True` shows only the PNG still.
+
+## Result objects and versions
+
+Plotting helpers return Matplotlib artists or result objects documented above. `fp.save` returns paths and warnings in a `SaveResult`. `fp.__version__` is the installed package version; `fp.SPEC_VERSION` and `fp.SCENE3D_SPEC_VERSION` identify the output formats, not the application version.
+
+[Format and identity](/docs/plot-format.html) · [Statistics guide](/docs/statistics.html) · [Source repository](https://github.com/fluxsci/fluxplot)

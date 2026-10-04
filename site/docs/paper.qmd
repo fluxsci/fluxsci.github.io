@@ -1,0 +1,98 @@
+---
+title: "Paper"
+description: "Write and organize documents, with figures and references close at hand."
+---
+
+<p class="eyebrow">Writing</p>
+
+# Paper
+
+::: {.doc-lead}
+Write and organize documents, with figures and references close at hand.
+:::
+
+<figure class="doc-figure"><a href="/assets/media/paper.webp" data-enlarge data-caption="Write with an embedded figure and its caption in the document."><img src="/assets/media/paper.webp" alt="Write with an embedded figure and its caption in the document." width="1500" height="950" loading="lazy"></a><figcaption>Write with an embedded figure and its caption in the document. <a href="/docs/visual-credits.html">Visual credits</a>.</figcaption></figure>
+
+## The writing surface {#the-writing-surface}
+
+Click the title pill to edit a document's title and authors. Its small dot shows autosave status. Use **Ctrl+K** to find commands by name, or type **/** at the start of a line to insert a figure, slide, table, equation, citation, heading or callout.
+
+New projects start with `paper/notes.qmd`. Add drafts, protocols and working notes in the same project; no particular manuscript filename is required. Older `manuscript/` folders continue to work alongside `paper/`.
+
+## Organize documents {#organize-documents}
+
+**Alt+O** opens the left sidebar. Files and Outline share its height: drag the divider to resize, double-click to reset, or focus it and use the arrow keys. Click either section's label to hide or show it. Drag the sidebar's outer edge to change its width.
+
+| Task | Action |
+|---|---|
+| Create a document or folder | Use the folder's **+** or folder-plus control. The bottom buttons use the most recently selected folder. |
+| Move a document | Drag it onto a folder. Comments move with it and supported document links are adjusted. Existing files are never replaced. |
+| Reorder within a folder | Drag over another document, or focus its row and press **Alt+↑ / ↓**. |
+| Delete a document | Click its hover **×** or press **Delete** on its row, then confirm. The file and comments go to system trash where available. |
+
+Close a second Paper pane before moving files: a move may update links in other documents. Code examples and paths inside executable code remain unchanged. Standard Context files and an older project's designated main manuscript are protected from deletion or movement.
+
+Generated render and cache folders stay out of the file browser. Ordinary folders and intentional empty folders remain visible; filtering does not remove anything from disk.
+
+## Context and reading views {#context-and-reading}
+
+The **Context** group contains `ProjectContext.qmd`, the append-only Log (`NOTEBOOK.md`) and project rules (`RULES.md`). They can be opened and commented on like other documents. See [Context and memory](/docs/context.html) for what to put there and when agents update the Log.
+
+**Ctrl+Shift+E** opens a full-width reading preview; **Escape** returns. The command palette switches between continuous and paginated views. **Ctrl+Shift+[** folds a section and **Ctrl+Shift+]** unfolds it. Click the status-bar word count for document statistics.
+
+For spelling, vocabulary, aliases and caret preferences, see [Writing tools](/docs/writing-tools.html). For citations, equations, tables and embedded content, see [Citations, figures and tables](/docs/citations-and-figures.html).
+
+## The margin {#the-margin}
+
+Helper panes summon beside your text and stack in one column:
+
+| Shortcut | Pane |
+|---|---|
+| **Alt+R** | Reference search — the whole library, filterable (`author:smith year:2020`) |
+| **Alt+F** | Figures — zoom/pan any figure, insert it, or open it in Figure mode |
+| **Alt+A** | Comments — the review threads on this document |
+| **Alt+C** | Citation group — edit the citation at the caret |
+| **Alt+J** | Journal Check — the selected journal's rulebook, as advice |
+
+**Alt+P** closes the active pane, and **Escape** always returns focus to your writing.
+**Ctrl+Shift+B** hides the margin column entirely; the outline rail's edge
+drags to resize. (When idle, the margin shows an ambient background — pick your scene in
+Settings › Paper.)
+
+## Two manuscripts side by side {#two-manuscripts-side-by-side}
+
+**Alt+click** the Paper icon in the top bar to split the workspace into two Paper panes —
+the main text on the left, the supplement (or any other document) on the right. Each pane
+has its own outline, margin, and helper panes, and each edits its own document; asking a
+pane for a document that's already open in the other pane focuses that pane instead of
+opening it twice.
+
+## Comments and review {#comments-and-review}
+
+Select text and click the comment button in the floating toolbar (or press **Ctrl+Alt+M**) to
+start a thread anchored to that exact passage. Threads live in the Comments pane: reply,
+**Resolve**, reopen, delete. They're stored beside the document — never inside your prose —
+and they're the shared review channel with [agents](/docs/comments.html): an agent
+addressing your comments resolves them with a note, and you watch threads close live in your
+margin. If the underlying text is edited away, a comment is kept as *Detached* rather than
+lost.
+
+**Ctrl+F** is find; **Ctrl+Alt+F** adds replace.
+
+## Troubleshooting {#troubleshooting}
+
+| Symptom | Cause → fix |
+|---|---|
+| A citation chip shows your typed text, dimmed | The key isn't in the project bib or library → check the spelling, or add the paper to the [Library](/docs/library.html) first |
+| Word export is disabled | Quarto isn't installed → **Install Quarto…** in the export dialog, or **Settings → General → Setup** ([Installation](/install/)) |
+| A journal-styled PDF fails but Word works | Missing LaTeX pieces → the error names the package; see [Installation](/install/) |
+| Journal Check flags a figure reference that is fine | It's advice, not a rule — dismiss it. References to another paper's figures are skipped automatically when an author name is next to them |
+| A figure embed shows no caption | The figure has no caption yet → write it in **Figure-Meta** (**Alt+M**) |
+| A Word export says figures will be missing | No render could be produced for the named figures → open Figure mode so they load, then export again. A figure with no render is not in the document at all, so this is an error, not a warning |
+| A comment shows as *Detached* | Its anchored text was edited away — the thread is preserved; re-select and start a fresh one if needed |
+
+::: {.next-reading}
+**Related guides**
+
+[Citations, figures and tables](/docs/citations-and-figures.html) · [Writing tools](/docs/writing-tools.html) · [Export documents](/docs/export-documents.html)
+:::

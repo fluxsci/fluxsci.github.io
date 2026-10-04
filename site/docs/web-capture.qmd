@@ -1,0 +1,132 @@
+---
+title: "Web capture"
+description: "Send papers and PDFs from your browser to your Flux library."
+---
+
+<p class="eyebrow">Integrations</p>
+
+# Web capture
+
+::: {.doc-lead}
+Send papers and PDFs from your browser to your Flux library.
+:::
+
+You are reading a paper in your browser. One click puts it in your library: the reference, and
+the PDF, without a download folder detour or a copy-pasted DOI.
+
+## Setting it up {#setting-it-up}
+
+In [Library](/docs/library.html), at the bottom of the pane, the **Web capture** row shows
+whether capture is connected. Click **Set up…** and follow the two lines for your browser:
+
+- **Firefox** — **Open the add-on** shows you the signed file, **Copy address** gives you
+  `about:addons` to paste in a new tab, then click the *gear* and choose **Install Add-on From
+  File…**. (On macOS nothing is registered to open a `.xpi`, so Flux reveals the file rather
+  than pretending it can hand it to Firefox.)
+- **Chrome, Edge or Brave** — **Show me the folder** opens the extension folder, **Copy address**
+  gives you `chrome://extensions` to paste in a new tab, then turn on *Developer mode* and
+  choose **Load unpacked**.
+
+::: {.callout-note}
+Flux can't open `chrome://extensions` or `about:addons` for you — browsers refuse navigation to
+those from outside, deliberately. That's why the panel opens the folder and hands you the
+address to paste rather than pretending to do it in one click.
+:::
+
+The status dot turns green the moment your first capture arrives, so you never have to wonder
+whether it took.
+
+### Keeping it up to date {#keeping-it-up-to-date}
+
+The extension lives in your **browser**, not in Flux, so updating Flux does not update it. When
+capture changes, do it once per browser:
+
+- **Firefox** — open **Set up… → Install for Firefox** again (or `about:addons` → the gear →
+  *Install Add-on From File…*). It upgrades in place; don't remove the old one first.
+- **Chrome, Edge or Brave** — `chrome://extensions` and press **Reload** on the Flux card.
+
+If you run Flux from a source checkout, `npm run build` refreshes the folder Chromium loads,
+and the signed Firefox add-on is in the checkout too — so a `git pull` plus a build gives you
+both, and all that's left is the reload or reinstall above.
+
+## Using it {#using-it}
+
+Open a paper and click the **Flux** button in your browser's toolbar. It works on the article
+page **and** on a PDF you already have open. The badge tells you what happened:
+
+| Badge | What happened |
+|---|---|
+| A number, green | That many files captured — the article plus its supplementary files. |
+| `1`, amber | No PDF was reachable, so the paper's details were captured. Flux still adds the reference; it just won't have the PDF yet. |
+| `!`, red | Nothing was captured. **Hover the button** — the tooltip says why. |
+
+Supplementary files come with the article in the same click: SI PDFs, spreadsheets, videos.
+Each is filed against the paper once Flux has identified it — into that paper's
+`supplements/` folder, which the reader's **Switch PDF** menu lists — so a supplement for a
+paper you don't have yet simply waits until the paper arrives.
+
+Captures land in a **`flux/` subfolder** of your downloads folder, named `flux-…`, and Flux
+removes them as it files them. **Flux doesn't need to be open** — anything captured while it's
+closed is brought in when you next start it. Nothing is lost, and nothing else in your
+downloads folder is touched: Flux only ever looks at files it wrote itself.
+
+Flux brings captures in at **two moments, both yours**: when it starts, and when you press
+**Assign PDFs** in [Library mode](/docs/library.html#getting-papers-in). That button's count
+includes anything still waiting in your downloads folder, so you can always see there's work to
+do — and capture while Flux is running as much as you like, knowing your downloads folder won't
+rearrange itself under you until you say so.
+
+A captured PDF goes through the same identification as the
+[drop folder](/docs/library.html#getting-papers-in) — Flux reads the document's own content
+(embedded DOI, then the DOI printed on page 1, then its reference list, then a title search) to
+find the right reference. It attaches to a paper you already have, or adds the reference if it's
+new.
+
+## Why capture from the browser {#why-capture-from-the-browser}
+
+Flux can already fetch open-access PDFs on its own, and paywalled ones through your
+[library proxy](/docs/library.html). But some publishers sit behind anti-bot systems —
+Cloudflare and PerimeterX — that refuse automated browsers outright, no matter how the request
+is dressed up. Those papers are simply unreachable to Flux.
+
+Your browser is not an automated browser. It's you: already signed in, already past the
+paywall, already holding the session. The extension captures the PDF *from inside your own
+session*, which is why it reaches papers Flux cannot fetch by itself. It's the most capable
+acquisition route in the app, and it costs one click.
+
+## Browser support {#browser-support}
+
+| Browser | |
+|---|---|
+| **Firefox** | Fully supported, installed from the signed add-on. |
+| **Chrome, Edge, Brave** | Fully supported, loaded from the extension folder. |
+| **Safari** | Not supported — Safari uses a different extension format. Save the PDF yourself and drop it into FluxLib's `pdfs_to_assign` folder. |
+
+## If nothing happens {#if-nothing-happens}
+
+- **Hover the toolbar button.** The tooltip carries the reason the last capture failed,
+  including the browser's own error code when a publisher refused the download.
+- **Check the address bar** for a blocked-download icon, and allow it.
+- **Some publishers refuse the PDF but not the page.** You get the amber badge and the
+  reference still arrives — just without its PDF. Flux can often fetch that separately with
+  **Get PDFs**.
+- **Internal pages can't be captured** (`about:`, `chrome://`, the extensions page itself) —
+  browsers don't allow it.
+
+## Where things land {#where-things-land}
+
+| | |
+|---|---|
+| Captured files | `<downloads>/flux/`, named `flux-…` (removed as Flux files them) |
+| Captured PDFs, once filed | `FluxLib/pdfs_to_assign/`, then `FluxLib/items/<citekey>/paper.pdf` |
+| Captured supplements | `FluxLib/items/<citekey>/supplements/` (they wait, staged, until the article has been identified) |
+| PDFs that couldn't be identified | `FluxLib/pdfs_to_assign/_unresolved/`, with a note saying why |
+
+Nothing is ever guessed: a PDF Flux can't identify with confidence is set aside rather than
+attached to the wrong paper.
+
+::: {.next-reading}
+**Related guides**
+
+[Zotero](/docs/zotero.html) · [GROBID](/docs/grobid.html)
+:::

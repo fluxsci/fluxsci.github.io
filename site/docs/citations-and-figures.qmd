@@ -1,0 +1,136 @@
+---
+title: "Citations, figures and tables"
+description: "Insert references and scientific content that stay connected as you edit."
+---
+
+<p class="eyebrow">Writing</p>
+
+# Citations, figures and tables
+
+::: {.doc-lead}
+Insert references and scientific content that stay connected as you edit.
+:::
+
+## Citations {#citations}
+
+Type **@** and start a name — the autocomplete searches your whole
+[library](/docs/library.html) plus the project's own bibliography. Picking one inserts a **citation
+chip**: rendered as *(Author, Year)* or as collapsed numerals like *[3,5,9–14]*, your choice —
+toggle **Au–Yr** / **[1]** in the References pane (it's stored per document). Numbers assign
+themselves in order of appearance and stay correct as you edit.
+
+The bibliography maintains itself. Citing a paper from your library copies its entry into the
+project's `references/library.bib` automatically, so the project stays
+[self-contained](/docs/projects-and-files.html). Even quicker: **paste a DOI** (or a
+doi.org link) straight into the text — Flux fetches the metadata, adds the reference, and
+leaves a citation chip where you pasted.
+
+**Double-click a citation chip** to edit its group — add, remove, and reorder the references
+cited at that spot as one unit. **Alt+R** opens Reference Search in the margin (mark rows with
+**Space**, insert them as one citation with **Enter**); **Alt+C** edits the citation under the
+caret.
+
+## Figures {#figures}
+
+Insert a figure with `/figure` (or **Ctrl+K → Insert figure…**). The picker shows every figure
+at full size — scroll (or arrow) through long lists, search by name or caption, and when the
+project has more than one canvas, use the dropdown next to the search box to limit the list
+(and your search) to a single canvas. In the text, the embed is a
+compact **⌗ name chip** with the live figure rendered beneath it — the real thing from
+[Figure mode](/docs/figure.html), with its caption. Put the caret on the chip's line to see its
+source, or double-click the chip to open the figure. Captions live on the figure itself (edited in
+**Figure-Meta**, **Alt+M**, available in Paper and Figure), so figure and caption can never drift apart; exports carry them
+automatically. Hover the figure for width controls (50% · 75% · 100% · Auto — or drag the
+grip), and **Open in Figure** jumps to editing it.
+
+Reference a figure with `@fig-...` — it becomes a live **"Fig 3"** chip whose number stays
+correct as figures are added, removed, or reordered (`@tbl-` and `@eq-` work the same way for
+tables and equations, with their own autocomplete). Type **@@** for the figure picker, which
+can also select specific panels (*Fig 3a,c*) and carries the same canvas dropdown as the
+insert picker, so you can narrow a multi-canvas project to one canvas before you search. **Double-click** any reference chip to jump to
+the thing it points to — a table or equation reference scrolls the editor to its source;
+**Ctrl+Enter** follows the reference under the caret.
+
+## Slides in documents {#slides-in-documents}
+
+Use **/slide** or **Ctrl+K → Insert slide…**, choose a deck, then choose a slide.
+The picker previews the completed slide. The block in your document starts at **step 0**.
+In the text, the embed line shows as a compact **▷ Deck 3 · Slide 4** chip with the deck's
+title and the slide's name, as under the slide itself. Hover the chip for the slide's position
+in its deck. Put the caret on the line to see its source. Long values such as the IDs and the
+image path show as **…** until the caret reaches them. Double-click the chip to open that
+slide in Slide mode. A dimmed chip means its deck or slide is missing.
+
+Click the artwork or **›** underneath it to advance one animation step. Tracks within a
+step play together with their authored timing. Automatic and “with previous” steps still
+wait for your next click here. Clicking during an animation finishes that step; the final
+step stops. **‹** goes back and **↺** resets to step 0.
+
+While the artwork has focus, **Right**, **Enter**, or **Space** advances, **Left** goes back,
+**Home** resets, and **Escape** returns to writing. The **Animation** toggle lets you snap
+between steps; your system's reduced-motion preference supplies its initial setting.
+Width buttons and the right-edge grip resize the display without changing the source slide.
+Use **↗** to open the original in Slide mode, or **Replace…** to choose another source.
+
+Each occurrence plays independently. Typing and scrolling retain its position; reopening
+a document starts again at step 0. Saved source edits appear in the block. If its deck or
+slide disappears, the block shows an unavailable message and retains its replacement control.
+If a slide with a 3D model cannot play here, the block keeps its still image and says
+**3D preview unavailable — showing a still** underneath; hover that line for the reason.
+Flux identifies the source by deck and slide IDs, so renaming or reordering it is safe.
+
+The editable source is an ordinary Quarto image with a generated SVG fallback:
+
+```markdown
+![Optional caption](../slides/talk/renders/results-step-0.svg){#slide-example .flux-slide deck="talk" slide="results" width=100%}
+```
+
+The caption belongs to this document. Speaker notes stay in the deck. Reading preview and
+exported HTML retain playback; PDF and Word show the **step-0 image**, regardless of the
+step currently visible in the editor. Word includes a raster fallback. Generated SVGs can
+be rebuilt by exporting or inserting the slide again.
+
+## Tables {#tables}
+
+Insert a table with `/table` — it arrives labeled and numbered, with the first header cell
+selected so you can just start typing. Everything in the cells renders properly: **bold**,
+`code`, math like `$x^2$`, citations, even references to other tables.
+
+While you are reading or writing elsewhere, a table's pipe-text source is out of the way:
+it shows as a small blue **▦ Table 3** pill, with the rendered table below it — the same
+idea as the pill on a figure's source line. Put the caret in the table and the source comes
+straight back, exactly as you typed it. Three ways in, whichever suits:
+
+- **Click a rendered cell** — the caret lands in that cell's source.
+- **Click the rendered caption** — the caret lands in the caption text.
+- **Click the pill**, or arrow into it from the line above or below.
+
+Move the caret out and it folds away again. Nothing about the `.qmd` on disk changes —
+this is only what the editor shows you.
+
+Editing is spreadsheet-shaped:
+
+- **Tab** / **Shift+Tab** move between cells (Tab past the last cell adds a row);
+  **Enter** adds a row below — press it on an empty last row to leave the table.
+- The pipes align themselves as you type — no manual space-pushing.
+- **Ctrl+Alt+R** adds a row, **Ctrl+Alt+C** a column (**+Shift** deletes one);
+  **Ctrl+Alt+A** cycles the column's alignment, as does **Alt+click** on a rendered
+  header cell.
+- Hover the table for **+ Row · + Col · Format · Copy** (Copy puts the table on the
+  clipboard tab-separated, ready for Excel or Sheets) — these work whether the source is
+  showing or folded away.
+- **Paste from Excel/Sheets** and the copied cells become a table — pasted outside one they
+  insert a fresh table; pasted inside one they fill cells from the caret. CSV converts via
+  **Ctrl+K → Paste as table**.
+
+A table is numbered once it has a caption line — `: Your caption {#tbl-name}` below it —
+which `/table` writes for you. A table without one is perfectly fine, it just has no number
+to carry, so its pill reads **▦ Table**. Wide tables scroll in the editor and shrink-to-fit
+on export so nothing gets cut off. Display math keeps its source line on show: source line,
+rendered block below, numbered when labeled.
+
+::: {.next-reading}
+**Related guides**
+
+[Paper](/docs/paper.html) · [Writing tools](/docs/writing-tools.html) · [Export documents](/docs/export-documents.html)
+:::

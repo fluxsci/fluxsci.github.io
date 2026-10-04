@@ -17,19 +17,19 @@
     const guide = preview.querySelector("[data-workspace-guide]");
     const prompt = preview.querySelector(".workspace-prompt");
     const workspaces = {
-      paper: ["Paper", "Write with your figures, citations, and working notes in reach.", "Flux Paper workspace with the synthetic population study, project documents, and a connected scientific figure."],
-      figure: ["Figure", "Compose the whole figure. Refine every individual part.", "Flux Figure workspace with the editable response-profile composition and its layers."],
+      paper: ["Paper", "Write with your figures, citations, and working notes in reach.", "Flux Paper workspace with the demonstration manuscript, project documents, and a connected scientific figure."],
+      figure: ["Figure", "Compose the whole figure. Refine every individual part.", "Flux Figure workspace with the authored materials composition and its layers."],
       slides: ["Slides", "Give the same figures a timeline. Build the explanation step by step.", "Flux Slides workspace with the new website showcase deck and its editable animation steps."],
       library: ["Library", "A lasting collection of references, ready for every project.", "Flux Library workspace with the illustrative study collection, paper metadata, and organization controls."],
-      reader: ["Reader", "Read closely. Keep your notes connected to the evidence.", "Flux Reader workspace displaying the original synthetic-population manuscript and its reading tools."],
+      reader: ["Reader", "Read closely. Keep your notes connected to the evidence.", "Flux Reader workspace displaying the original Patterns across scales manuscript and its reading tools."],
     };
     const loads = new Map();
     let request = 0;
-    let selected = "paper";
+    let selected = "figure";
     const preload = (name) => {
       if (!loads.has(name)) {
         const next = new Image();
-        next.src = `assets/media/${name}.webp`;
+        next.src = `assets/media/${name === "figure" ? "figure-materials" : name}.webp`;
         const loading = next.decode().then(() => next).catch(error => {
           loads.delete(name);
           throw error;
@@ -56,7 +56,7 @@
         link.dataset.caption = `${title} in Flux. ${description}`;
         link.setAttribute("aria-label", `Enlarge the Flux ${title} workspace`);
         caption.textContent = description;
-        guide.href = `#${name}`;
+        guide.href = `/docs/${name}.html`;
         guide.replaceChildren(document.createTextNode(`Explore ${title}`));
         const arrow = document.createElement("span");
         arrow.setAttribute("aria-hidden", "true");
@@ -65,7 +65,7 @@
         for (const button of buttons) button.setAttribute("aria-pressed", String(button.dataset.workspace === name));
         selected = name;
       } catch {
-        if (token === request) caption.textContent = "This preview could not load. Explore the modules below.";
+        if (token === request) caption.textContent = "This preview could not load. Open the workspace guide below.";
       } finally {
         if (token === request) {
           preview.removeAttribute("aria-busy");
@@ -221,323 +221,6 @@
       imageOpener?.focus({ preventScroll: true });
       largeImage.removeAttribute("src");
     });
-  }
-
-  // The semantic-plot explorer: the browser reads a real fluxplot SVG from the
-  // example project and names the part under the pointer. Switching to a
-  // regenerated state moves the same named points and curves to their new
-  // values and keeps any restyle attached by id, which is what a Flux figure
-  // does when a linked plot regenerates. Nothing here reproduces the app; it
-  // is the file format, inspected.
-  const xray = document.querySelector("[data-xray]");
-  if (xray && "fetch" in window && "DOMParser" in window) setupXray(xray);
-
-  function setupXray(container) {
-    const stage = container.querySelector("[data-xray-stage]");
-    const readout = container.querySelector("[data-xray-readout]");
-    const partsList = container.querySelector("[data-xray-parts]");
-    const command = container.querySelector("[data-xray-command]");
-    const fileName = container.querySelector("[data-xray-file]");
-    const stateButtons = [...container.querySelectorAll("[data-xray-state]")];
-    const states = container.dataset.states.split(";").map((entry) => {
-      const [label, url, file] = entry.split("|");
-      return { label, url, file, text: null, promise: null };
-    });
-    const figureId = container.dataset.figure || "figure";
-    const ACCENTS = ["#205ea6", "#bc5215", "#66800b", "#5e409d", "#24837b", "#a02f6f", "#ad8301", "#af3029"];
-    const PREFIX = "xr-";
-    const restyles = new Map();
-    let current = Number(container.dataset.initial || 0);
-    let svg = null;
-    let hot = null;
-    let stateRequest = 0;
-    let started = false;
-
-    const originalId = (element) => (element?.id || "").replace(PREFIX, "");
-    const partOf = (target) => {
-      if (target instanceof Element && target.dataset.for)
-        target = svg?.querySelector(`[id="${target.dataset.for}"]`) || target;
-      const part = target instanceof Element ? target.closest("[data-role]") : null;
-      if (!part || !svg || !svg.contains(part)) return null;
-      const role = part.dataset.role;
-      if (role === "figure" || role === "plot-area") return null;
-      return part;
-    };
-    const seriesOf = (part) => part.dataset.series || null;
-    const seriesPartId = (part) => {
-      const series = seriesOf(part);
-      if (!series) return originalId(part);
-      return originalId(part);
-    };
-    const colorOf = (part) => {
-      const element = part.matches("use") ? part : part.querySelector("path, text") || part;
-      const style = getComputedStyle(element);
-      return part.dataset.role === "point" ? style.fill : style.stroke;
-    };
-
-    function load(index) {
-      const state = states[index];
-      if (!state.promise) {
-        state.promise = fetch(state.url)
-          .then((response) => {
-            if (!response.ok) throw new Error(`${response.status} ${state.url}`);
-            return response.text();
-          })
-          .then((text) => (state.text = text));
-      }
-      return state.promise;
-    }
-
-    function parse(text) {
-      // Ids and references get a prefix so an inlined plot can never collide
-      // with the page's own anchors, and the plot's global <style> is scoped.
-      const prepared = text
-        .replace(/<\?xml[^>]*\?>/, "")
-        .replace(/\bid="([^"]+)"/g, `id="${PREFIX}$1"`)
-        .replace(/url\(#/g, `url(#${PREFIX}`)
-        .replace(/href="#/g, `href="#${PREFIX}`)
-        .replace(/<style[^>]*>[\s\S]*?<\/style>/, (block) => block.replace(/\*\s*\{/g, ".xray-stage svg *{"));
-      const documentNode = new DOMParser().parseFromString(prepared, "image/svg+xml");
-      const element = document.importNode(documentNode.documentElement, true);
-      element.removeAttribute("width");
-      element.removeAttribute("height");
-      element.setAttribute("role", "img");
-      element.setAttribute("aria-label", stage.querySelector("img")?.alt || "A fluxplot plot");
-      element.setAttribute("focusable", "false");
-      return element;
-    }
-
-    function applyRestyles(target = svg) {
-      if (!target) return;
-      for (const [series, color] of restyles) {
-        const line = target.querySelector(`[data-series="${series}"][data-role="line"] > path:not(.xray-hit)`);
-        if (line) line.style.stroke = color;
-        target
-          .querySelectorAll(`[data-series="${series}"][data-role="point"]`)
-          .forEach((point) => {
-            point.style.fill = color;
-          });
-      }
-    }
-
-    function describe(part) {
-      readout.replaceChildren();
-      if (!part) {
-        const hint = document.createElement("p");
-        hint.className = "xray-hint";
-        hint.textContent = "Move over a curve, a point or an axis label to see its name. Click a curve or point to restyle that series.";
-        readout.append(hint);
-        return;
-      }
-      const role = document.createElement("span");
-      role.className = "xray-role";
-      role.textContent = part.dataset.role.replace(/^x-/, "");
-      const id = document.createElement("code");
-      id.className = "xray-id";
-      id.textContent = originalId(part);
-      readout.append(role, id);
-      const facts = [];
-      if (part.dataset.series) facts.push(["series", part.dataset.series]);
-      if (part.dataset.index !== undefined) facts.push(["index", part.dataset.index]);
-      if (part.dataset.axis) facts.push(["axis", part.dataset.axis]);
-      if (part.dataset.x !== undefined) facts.push(["x", `${Number(part.dataset.x).toFixed(0)}°`]);
-      if (part.dataset.y !== undefined) facts.push(["y", Number(part.dataset.y).toFixed(3)]);
-      const text = part.querySelector("text");
-      if (text && !part.dataset.series) facts.push(["text", text.textContent.trim()]);
-      if (facts.length) {
-        const list = document.createElement("dl");
-        list.className = "xray-facts";
-        for (const [key, value] of facts) {
-          const dt = document.createElement("dt");
-          dt.textContent = key;
-          const dd = document.createElement("dd");
-          dd.textContent = value;
-          list.append(dt, dd);
-        }
-        readout.append(list);
-      }
-    }
-
-    function highlight(part) {
-      if (!svg) return;
-      if (hot) hot.classList.remove("xray-hot");
-      svg.querySelectorAll(".xray-dim").forEach((element) => element.classList.remove("xray-dim"));
-      hot = part;
-      stage.classList.toggle("is-hovering", !!part);
-      if (!part) return;
-      part.classList.add("xray-hot");
-      const series = seriesOf(part);
-      if (!series) return;
-      const cell = series.replace(/-(guide|means)$/, "");
-      svg.querySelectorAll("[data-series]").forEach((element) => {
-        if (!element.dataset.series.startsWith(cell)) element.classList.add("xray-dim");
-      });
-    }
-
-    function highlightSeries(series) {
-      if (!svg) return;
-      const part = svg.querySelector(`[data-series="${series}"]`);
-      highlight(part);
-      describe(part);
-    }
-
-    function sameColor(a, b) {
-      const probe = document.createElement("span");
-      probe.style.color = a;
-      const first = probe.style.color;
-      probe.style.color = b;
-      return first !== "" && first === probe.style.color;
-    }
-
-    function restyle(part) {
-      const series = seriesOf(part);
-      if (!series) return;
-      const currentColor = restyles.get(series) || colorOf(part);
-      const index = ACCENTS.findIndex((accent) => sameColor(accent, currentColor));
-      const color = ACCENTS[(index + 1) % ACCENTS.length];
-      restyles.set(series, color);
-      applyRestyles();
-      renderParts();
-      if (command)
-        command.textContent = `flux restyle ${figureId} ${seriesPartId(part)} --${part.dataset.role === "point" ? "fill" : "stroke"} '${color}'`;
-    }
-
-    function renderParts() {
-      if (!partsList || !svg) return;
-      partsList.replaceChildren();
-      const seen = new Set();
-      svg.querySelectorAll("[data-series][data-role='line']").forEach((element) => {
-        const series = element.dataset.series;
-        if (seen.has(series)) return;
-        seen.add(series);
-        const item = document.createElement("li");
-        const button = document.createElement("button");
-        button.type = "button";
-        button.dataset.series = series;
-        const swatch = document.createElement("i");
-        swatch.style.setProperty("--swatch", restyles.get(series) || colorOf(element));
-        button.append(swatch, document.createTextNode(series));
-        const clear = () => {
-          highlight(null);
-          describe(null);
-        };
-        button.addEventListener("pointerenter", () => highlightSeries(series));
-        button.addEventListener("focus", () => highlightSeries(series));
-        button.addEventListener("pointerleave", clear);
-        button.addEventListener("blur", clear);
-        button.addEventListener("click", () => {
-          const part = svg.querySelector(`[data-series="${series}"][data-role="line"]`);
-          if (!part) return;
-          restyle(part);
-          highlightSeries(series);
-        });
-        item.append(button);
-        partsList.append(item);
-      });
-    }
-
-    function decorate(element) {
-      // Thin strokes and 1.4-unit markers are hard to point at; each curve gets an
-      // invisible wide twin and each point an invisible disc that resolve back to
-      // the named part they belong to.
-      element.querySelectorAll('[data-role="line"] > path').forEach((path) => {
-        const hit = path.cloneNode(false);
-        hit.removeAttribute("id");
-        hit.setAttribute("class", "xray-hit");
-        hit.setAttribute("style", "fill:none;stroke:#000;stroke-opacity:0;stroke-width:6;pointer-events:stroke");
-        path.after(hit);
-      });
-      element.querySelectorAll('use[data-role="point"]').forEach((point) => {
-        const hit = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-        hit.setAttribute("class", "xray-hit");
-        hit.setAttribute("cx", point.getAttribute("x"));
-        hit.setAttribute("cy", point.getAttribute("y"));
-        hit.setAttribute("r", "4");
-        hit.setAttribute("style", "fill:#000;fill-opacity:0;pointer-events:all");
-        hit.dataset.for = point.id;
-        point.after(hit);
-      });
-    }
-
-    function mount(element, index) {
-      decorate(element);
-      applyRestyles(element);
-      if (svg) svg.replaceWith(element);
-      else stage.querySelector("img")?.replaceWith(element);
-      svg = element;
-      hot = null;
-      current = index;
-      if (fileName) fileName.textContent = states[index].file || "";
-      stateButtons.forEach((button, k) => button.setAttribute("aria-pressed", String(k === index)));
-      renderParts();
-    }
-
-    async function goTo(index) {
-      if (index === current || index < 0 || index >= states.length) return;
-      const token = ++stateRequest;
-      let next;
-      try {
-        next = parse(await load(index));
-        if(token !== stateRequest) return;
-      } catch {
-        return;
-      }
-      highlight(null);
-      describe(null);
-      mount(next, index);
-    }
-
-    function start() {
-      if (started) return;
-      started = true;
-      load(current)
-        .then((text) => {
-          mount(parse(text), current);
-          describe(null);
-          container.classList.add("is-live");
-          const prefetch = () => states.forEach((_, k) => k !== current && load(k).catch(() => {}));
-          if ("requestIdleCallback" in window) requestIdleCallback(prefetch);
-          else setTimeout(prefetch, 800);
-        })
-        .catch(() => {
-          /* The fallback image and text remain. */
-        });
-    }
-
-    stage.addEventListener("pointerover", (event) => {
-      const part = partOf(event.target);
-      if (part === hot) return;
-      highlight(part);
-      describe(part);
-    });
-    stage.addEventListener("pointerleave", () => {
-      highlight(null);
-      describe(null);
-    });
-    stage.addEventListener("click", (event) => {
-      const part = partOf(event.target);
-      if (!part || !seriesOf(part)) return;
-      restyle(part);
-      highlight(part);
-      describe(part);
-    });
-    stateButtons.forEach((button) =>
-      button.addEventListener("click", () => goTo(Number(button.dataset.xrayState))),
-    );
-    container.xray = { goTo, state: () => current, restyles, ready: () => !!svg };
-
-    if ("IntersectionObserver" in window) {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          if (entries.some((entry) => entry.isIntersecting)) {
-            observer.disconnect();
-            start();
-          }
-        },
-        { rootMargin: "400px 0px" },
-      );
-      observer.observe(container);
-    } else start();
   }
 
   const demo = document.getElementById("slide-demo");

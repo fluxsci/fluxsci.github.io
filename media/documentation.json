@@ -1,0 +1,325 @@
+{
+  "reviewed": "2026-10-04",
+  "sources": [
+    {
+      "repository": "https://github.com/fluxsci/flux.git",
+      "revision": "9f5c7ccbe3916107fbcf8b9d53d5cf4cf99bf58e",
+      "version": "0.2.0",
+      "files": {
+        "docs/index.qmd": "10bbdf9756b265d3803ea90f936c144504fb1a4639ce9b01ec5475612d21bd33",
+        "docs/installation.qmd": "d5a118b32d189880bc3f37fcb824d27d6c3dec40066cbc577574bf548b10a624",
+        "docs/getting-started.qmd": "f12c951fe2c65d3c6938f9938c59c13e3cb13ff1025d676b6eb175d18fd9dd23",
+        "docs/concepts/projects-and-files.qmd": "ccc7d1f4aec53e127213c70dcfdef43fc3b567818a193615417fe0da8871fa49",
+        "docs/modes/library.qmd": "0ca78e57b9a08e81b7830b0a5adcd2e03b573155c791ef02d2bba0b41e314645",
+        "docs/modes/reader.qmd": "25a5bb8a0019d43e7ab9e1708ffecbd8fbcc5c6e678ed9ffe1008107b5137009",
+        "docs/concepts/semantic-plots.qmd": "329b3478696c650b56e7551416ccc06bc9a2da32acb53409c91e9bf892410827",
+        "docs/concepts/dissections.qmd": "20c477d59a2200c105b6109eff8053f50139d0b398166a72a56179e30137da91",
+        "docs/agents/connect.qmd": "8724e6f49f49157be1ac5adc78896e002d8df5c64cd2e4f69c40a59f3bcf7b61",
+        "docs/agents/context.qmd": "2f8c89008a70382092c3c128116cc2d43cb87ba5674e10d634770fcc82c57f8c",
+        "docs/agents/annotations.qmd": "2a6b73988b05ab56ee54bc38ed92db65250c4685af8d0795e274d4e296af265a",
+        "docs/integrations/zotero.qmd": "c7c69c8a5d409dd32443f83df138b7d20363d8b6f37188144a2351795a534dc1",
+        "docs/integrations/web-capture.qmd": "c8d0633d48a629bd1615a5cf99dcc507f4fa3ab3db555748cd1393a11ba2576f",
+        "docs/integrations/grobid.qmd": "e91f1fa7572903a1defdec047c8845f1742c04cb81af835e0ca8ac0099e2f929",
+        "docs/reference/cli.qmd": "de9c50319e5cdaabfcc21923dca4f90c8baff6b88871fbb5ad966227b3cbf504",
+        "docs/reference/shortcuts.qmd": "c5269feba740ed7baf58787fbdcea6c40b4454e20f885c50152d0e3036bbff48",
+        "docs/reference/project-layout.qmd": "49e7dbcb4a3bbcd5a8d97613d171ee38149045a4e06ad2fec67d8d5ba82e1c40",
+        "docs/concepts/library-and-fluxlib.qmd": "37ed0f32487093cf4dc1394a6d43a9f90af5e4a8621018c4fa8034601ed28bf8",
+        "docs/lighttable.qmd": "f6ce0ecf285ac22de007639a9e739b2e3c526a4570a8e8e82c1da90ce7ac2999",
+        "docs/modes/paper.qmd": "fd8f18a61e881eabc880439bf1c2bc4073e2522402c61cdebca09280a2551cbe",
+        "docs/modes/figure.qmd": "3b96be25b196857137d5bfa58040d9f9468808a275a8ad3e6f6fe2327b11b390",
+        "docs/modes/slide.qmd": "8e40f377c739bb93dbb5082a0e98b4cbf6bd271dcee3ce8b09659ecfdba82223"
+      }
+    },
+    {
+      "repository": "https://github.com/fluxsci/fluxplot.git",
+      "revision": "713d0f68e85b2864032d0c8bb5c7fa0de96a1bed",
+      "version": "0.1.0",
+      "files": {
+        "README.md": "3e7239f234e099aeb8e5cc14098e385c0dce27be1d15e48368da25919788ec0b",
+        "src/fluxplot/__init__.py": "fe4b08b8682d8ab45f0a6c93e12882d5456f04d145867fe9434df4599608b847",
+        "src/fluxplot/_fieldmap.py": "04a3595cfe3d22d41eb86a42ca241a2c84bf3d79da0eb02236d7e3ab7611fc52",
+        "src/fluxplot/_mesh_reduce.py": "ea3257e8f3c436a246376eacd65ec670daabed214d2643132d8116b58715d627",
+        "src/fluxplot/_scene3d_size.py": "2ff463ebef831cc98ae877a78a052e1c536d439b48068fb331da465c1d3355a8",
+        "src/fluxplot/api.py": "ad3506caceba38289b2ffc7b3c0ce03d81f9b5502ff3981a8f49798da2ca1d7a",
+        "src/fluxplot/autotag.py": "d06d77df0ae1cad1a0883994780fc83adfea665adc54276ccdbff7fa0b0dd224",
+        "src/fluxplot/brackets.py": "099df131ba245aefc9cfcbce3397b9d50dc8c571c3e0be2b102a0f31f0c33161",
+        "src/fluxplot/canonical_json.py": "a8704e024204bf2219f6173959ee06ded9815f8dce06d1ee01cf062b6365600c",
+        "src/fluxplot/capture.py": "78826e1186c8030315d8270bd9c20d369ce2e4de25118265213a1c39aa9ef7be",
+        "src/fluxplot/colorcheck.py": "fdc56b92af0d9c86cd77fc1febb939c965ed9884962fc6008db6a347f61342e5",
+        "src/fluxplot/colors.py": "e881eb0f0c6854361ac75ee7e77e480e9dbe080c3127f18644b81d05b3545534",
+        "src/fluxplot/colorscale.py": "06c9abe0d1c5914ee025152fa0d901046b8f6aed0febb90c391c4d573548c96c",
+        "src/fluxplot/data.py": "ec3be8a97d245dbb8e437a61b1ca8b2ced176c0a873eda65b773860391c0ce09",
+        "src/fluxplot/descriptors.py": "e768a3b828d2b9459e036006742298fafac4360ed28d031041a22f9b9a8c7b2c",
+        "src/fluxplot/fields.py": "6bf289af86674a599feac0d7f010d4b3f8503682dbb34cbdaee830fad6e6d629",
+        "src/fluxplot/fits.py": "116a25d0d5fd14c76126665f890feefe7e2d0370cdcf70bf1988591b075e79f1",
+        "src/fluxplot/glb.py": "0aa9f46210e9127e006022c4517f35d9bcc782223ae23619ec78a83651164225",
+        "src/fluxplot/ids.py": "0edefdee02f93afa200814d40c619e45049e43170e3657ceafc6b357236f30d3",
+        "src/fluxplot/images.py": "c2563fb77ec024ffb59aa9fdff7615f067695119b17fda9d1777f3f78c43d7a9",
+        "src/fluxplot/integrity.py": "79a3bbd006df5f1bc5d5e25e7491c735d4204632338f95406dd0e57b6f120ce0",
+        "src/fluxplot/manifest.py": "e3e63100bce19ad0faffeb458d5f6f5b9ae365f147a7b7d9e59bc49bd7cdcd9d",
+        "src/fluxplot/mesh3d.py": "b9b1954894ccb06cc9d2c456c9fca88ec9ec87c27bed48c8fd831dfdf41c4268",
+        "src/fluxplot/panels.py": "b9ccd45346fa101d3dd73e7cc1d88b765057bde6822d7995bafca5e6e512bd12",
+        "src/fluxplot/postprocess.py": "5c79c685761e16a9bf583a651cbe6ae9ab480b27351e7f156ddc36a2eeb2e9a7",
+        "src/fluxplot/presets.py": "cd34cd28d74b77375f62f829cef90b53ae0dd279c014894e1a207758ef168d48",
+        "src/fluxplot/provenance.py": "6449b717eb31856713ff37bf5aa81b114e1b6091988a7fe64441fa51365ee666",
+        "src/fluxplot/raster.py": "7345e298149651887a074d4805f9cef14c9972b6f6bd8d91f0e8b37590286624",
+        "src/fluxplot/recipe.py": "a1808257e626e4135c4b1f93f796f91110af439e8106e402a60fdba333aec473",
+        "src/fluxplot/render.py": "53d4f56a2a21319673f374a69bb713cf46ae6e35e1f9487b3c8b02125f0185f4",
+        "src/fluxplot/roles.py": "f307dba5b37e8c45ef3ba966e10b3e38464941177d0c29fb72467e5739d8b0a9",
+        "src/fluxplot/scene3d.py": "e85976cb22649cb5f9491c956301449f9fbbb1a6422505cf9889a956c1650537",
+        "src/fluxplot/scene3d_manifest.py": "13d412116e848f0b09575879c13cb488e2110d646b9f9c738b1b39e130ca49e3",
+        "src/fluxplot/scene3d_viewer.py": "37cfa05137f284ab98b463b7d6ed5e88748f90dd4781c73f67e6ae567c816572",
+        "src/fluxplot/seaborn_adapters.py": "29a99fa4c6ca225286dbca3488635637771f06d8f9b445ff15d54d93369887e3",
+        "src/fluxplot/style.py": "236ccafeb8a5575ec3ff1ef1628468e7706fc7c19fe5c4c44689287483baa76b",
+        "src/fluxplot/surface.py": "3227fc1752d1977d947b0b707892f1bced05edffe031355350175b603493924b",
+        "src/fluxplot/surface3d.py": "4de60734dfc5f57ca34e2b01109e8979dfd6dc0cc56c3d4027815d5c3de8b192",
+        "src/fluxplot/tagger.py": "ae48b641c3299c840e046994d6b1d5e391a2608fd6428fca1b7a3c3e5b47f770",
+        "src/fluxplot/version.py": "45aa46cd521b7a9f446ed1a353808145d09465aae7f512e9e32b672e003a2454"
+      }
+    }
+  ],
+  "guides": [
+    {
+      "source": "docs/first-project.qmd",
+      "url": "/docs/first-project.html",
+      "title": "Your first project"
+    },
+    {
+      "source": "docs/projects-and-files.qmd",
+      "url": "/docs/projects-and-files.html",
+      "title": "Projects and files"
+    },
+    {
+      "source": "docs/paper.qmd",
+      "url": "/docs/paper.html",
+      "title": "Paper"
+    },
+    {
+      "source": "docs/citations-and-figures.qmd",
+      "url": "/docs/citations-and-figures.html",
+      "title": "Citations, figures and tables"
+    },
+    {
+      "source": "docs/writing-tools.qmd",
+      "url": "/docs/writing-tools.html",
+      "title": "Writing tools"
+    },
+    {
+      "source": "docs/export-documents.qmd",
+      "url": "/docs/export-documents.html",
+      "title": "Export documents"
+    },
+    {
+      "source": "docs/figure.qmd",
+      "url": "/docs/figure.html",
+      "title": "Figure"
+    },
+    {
+      "source": "docs/plot-gallery.qmd",
+      "url": "/docs/plot-gallery.html",
+      "title": "Plot gallery and source links"
+    },
+    {
+      "source": "docs/plot-editing.qmd",
+      "url": "/docs/plot-editing.html",
+      "title": "Edit plot parts and data views"
+    },
+    {
+      "source": "docs/figure-layout.qmd",
+      "url": "/docs/figure-layout.html",
+      "title": "Layout, drawing and typography"
+    },
+    {
+      "source": "docs/3d-models.qmd",
+      "url": "/docs/3d-models.html",
+      "title": "3D models in Flux"
+    },
+    {
+      "source": "docs/slides.qmd",
+      "url": "/docs/slides.html",
+      "title": "Slides"
+    },
+    {
+      "source": "docs/animation.qmd",
+      "url": "/docs/animation.html",
+      "title": "Animation and timing"
+    },
+    {
+      "source": "docs/transforms.qmd",
+      "url": "/docs/transforms.html",
+      "title": "Transforms and data morphs"
+    },
+    {
+      "source": "docs/slide-media.qmd",
+      "url": "/docs/slide-media.html",
+      "title": "3D and video in slides"
+    },
+    {
+      "source": "docs/present-and-export.qmd",
+      "url": "/docs/present-and-export.html",
+      "title": "Present and export"
+    },
+    {
+      "source": "docs/library.qmd",
+      "url": "/docs/library.html",
+      "title": "Library"
+    },
+    {
+      "source": "docs/reader.qmd",
+      "url": "/docs/reader.html",
+      "title": "Reader"
+    },
+    {
+      "source": "docs/semantic-plots.qmd",
+      "url": "/docs/semantic-plots.html",
+      "title": "Semantic plots"
+    },
+    {
+      "source": "docs/dissections.qmd",
+      "url": "/docs/dissections.html",
+      "title": "Dissections"
+    },
+    {
+      "source": "docs/connect.qmd",
+      "url": "/docs/connect.html",
+      "title": "Connect an agent"
+    },
+    {
+      "source": "docs/context.qmd",
+      "url": "/docs/context.html",
+      "title": "Context and memory"
+    },
+    {
+      "source": "docs/comments.qmd",
+      "url": "/docs/comments.html",
+      "title": "Comments and Inbox"
+    },
+    {
+      "source": "docs/zotero.qmd",
+      "url": "/docs/zotero.html",
+      "title": "Zotero"
+    },
+    {
+      "source": "docs/web-capture.qmd",
+      "url": "/docs/web-capture.html",
+      "title": "Web capture"
+    },
+    {
+      "source": "docs/grobid.qmd",
+      "url": "/docs/grobid.html",
+      "title": "GROBID"
+    },
+    {
+      "source": "docs/cli.qmd",
+      "url": "/docs/cli.html",
+      "title": "Command line"
+    },
+    {
+      "source": "docs/shortcuts.qmd",
+      "url": "/docs/shortcuts.html",
+      "title": "Keyboard shortcuts"
+    },
+    {
+      "source": "docs/project-layout.qmd",
+      "url": "/docs/project-layout.html",
+      "title": "Project layout"
+    },
+    {
+      "source": "docs/configuration.qmd",
+      "url": "/docs/configuration.html",
+      "title": "Library and configuration"
+    },
+    {
+      "source": "docs/lighttable.qmd",
+      "url": "/docs/lighttable.html",
+      "title": "Lighttable"
+    },
+    {
+      "source": "docs/plot-types.qmd",
+      "url": "/docs/plot-types.html",
+      "title": "Lines, points and distributions"
+    },
+    {
+      "source": "docs/images-and-surfaces.qmd",
+      "url": "/docs/images-and-surfaces.html",
+      "title": "Images and surface maps"
+    },
+    {
+      "source": "docs/signature-plots.qmd",
+      "url": "/docs/signature-plots.html",
+      "title": "Glowbar, fluxbox and hexmatrix"
+    },
+    {
+      "source": "docs/statistics.qmd",
+      "url": "/docs/statistics.html",
+      "title": "Statistics and comparison brackets"
+    },
+    {
+      "source": "docs/colors-and-style.qmd",
+      "url": "/docs/colors-and-style.html",
+      "title": "Colour and style"
+    },
+    {
+      "source": "docs/save-and-recipes.qmd",
+      "url": "/docs/save-and-recipes.html",
+      "title": "Saving, panels and recipes"
+    },
+    {
+      "source": "docs/matrices-and-scales.qmd",
+      "url": "/docs/matrices-and-scales.html",
+      "title": "Matrices, contours and colour scales"
+    },
+    {
+      "source": "docs/3d-plots.qmd",
+      "url": "/docs/3d-plots.html",
+      "title": "3D plots"
+    },
+    {
+      "source": "docs/plot-format.qmd",
+      "url": "/docs/plot-format.html",
+      "title": "Plot format and identity"
+    },
+    {
+      "source": "docs/fluxplot.qmd",
+      "url": "/docs/fluxplot.html",
+      "title": "fluxplot"
+    },
+    {
+      "source": "docs/fluxplot-api.qmd",
+      "url": "/docs/fluxplot-api.html",
+      "title": "Python API reference"
+    },
+    {
+      "source": "docs/settings.qmd",
+      "url": "/docs/settings.html",
+      "title": "Settings and setup"
+    },
+    {
+      "source": "docs/contributing.qmd",
+      "url": "/docs/contributing.html",
+      "title": "Contributing and support"
+    },
+    {
+      "source": "docs/visual-credits.qmd",
+      "url": "/docs/visual-credits.html",
+      "title": "Visual and data credits"
+    },
+    {
+      "source": "docs/commands.qmd",
+      "url": "/docs/commands.html",
+      "title": "CLI and MCP command reference"
+    }
+  ],
+  "validation": {
+    "examples": [
+      "fluxplot",
+      "first-project",
+      "3d-plots",
+      "colors-and-style",
+      "matrices-and-scales",
+      "save-and-recipes"
+    ],
+    "runtime": "Released fluxplot 0.1.0 in isolated uv environments",
+    "notes": "All original application user-guide sections were migrated, split by task and cross-linked. The Python reference preserves public signatures and parameter descriptions with website formatting. Guide text was edited for clarity; the normal build does not access either product checkout."
+  }
+}

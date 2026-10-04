@@ -1,0 +1,290 @@
+---
+title: "Animation and timing"
+description: "Reveal the right information at the right moment. Control steps, effects, timing and reusable styles."
+---
+
+<p class="eyebrow">Presentations</p>
+
+# Animation and timing
+
+::: {.doc-lead}
+Reveal the right information at the right moment. Control steps, effects, timing and reusable styles.
+:::
+
+## The Animator {#the-animator}
+
+**Animate ⏱** opens a resizable dock with a named step strip, millisecond ruler, and timing lanes.
+Object and semantic-part names stay readable in the fixed left column, even for short effects.
+Select a lane to select and outline its stage target. Hovering a lane outlines the exact object or
+plot parts. Selecting an object identifies its effects in the current step.
+
+To animate something, select it on the stage (**Ctrl/Cmd+click** drills to a plot part), then use:
+
+- **Appear** / **Ctrl+Shift+A** — add an entrance.
+- **Transform ▾** — one action, three ways: **Change** (**Ctrl+Shift+C**) shapes a new state of the
+  object at this step; **Ghost…** (**Ctrl+Alt+G**) creates copies that transform independently;
+  **Become** (**B**) turns the object into another one. See [Transforms](/docs/transforms.html#transforms).
+- **Emphasize** — add a highlight.
+- **Disappear** / **Ctrl+Shift+D** — add an exit.
+
+Text rises in, shapes pop, and lines and paths draw on. Adding another appearance keeps the existing
+effects; successive effects on the same target start after its existing effects by default.
+**Auto-animate** builds a plot's entrance sequence from its semantic anatomy and the plot's own
+hints: axes and their colour key first, then gridlines, then the data (lines draw on, bars grow from
+their baseline, points and hexagons stagger in), and last the legend, annotations and brackets,
+each after the short delay the plot suggests. A multi-panel plot offers **panel by panel**: the
+same four phases for each panel in turn (an inset right after its host), with the figure's title
+first and its shared legend last.
+
+Drag a box from empty timing-grid space to select the effects it intersects. Hold **Shift**
+(or Ctrl/Cmd) to add to the selection. Crossing a collapsed group span selects its members.
+Scroll while dragging, or hold near the grid edge to scroll; **Escape** cancels the selection.
+Click empty grid space to clear it. Selection alone does not change timing or add an Undo entry.
+
+Drag a timing bar to change its start, its right edge to change duration, or drag it vertically to
+reorder. Drag onto a step to move it; hold **Alt** to copy between steps. Shift or Ctrl/Cmd-click
+selects several lanes; **Ctrl/Cmd+A** selects this step's effects. **Ctrl/Cmd+G** groups the selection,
+**Ctrl/Cmd+Shift+G** ungroups it, and **Ctrl/Cmd+D** duplicates it. Groups can collapse without changing
+timing. Double-click a group name to rename it; drag its span to retime or move the whole group. Right-click a lane for these actions and moves to named steps. Ctrl/Cmd-wheel zooms timing;
+**fit ⟲** restores automatic scaling. The ruler and its vertical grid lines fill the whole
+visible time axis at every zoom, even past the step's last effect; while you drag, a guide follows the edge you are moving and runs the full
+height of the ruler when it snaps to another effect's edge or to a grid line — every major and
+minor line drawn is a snap target (the 50 ms round-number grid still catches drags between
+them), and a resize snaps the effect's *end* onto the line — and a single
+selected effect shows its start and end across all lanes so alignment reads at a glance.
+
+### Align starts and ends {#align-starts-and-ends}
+
+Select effects and press **Alt+A** to align their starts, or **Alt+D** to align their ends —
+the same keys align objects left and right on the canvas. Press again to step through the
+choices, nearest first: with several effects selected whose edges differ, the first press lines
+them up with the selection's own earliest start or latest end; after that each press moves them
+to the start or end of the next lane *above* the selection, and after the last one the
+effects return to where they were. A full-height line and a ruler label (**→ ‹rect 2› end ·
+1.95 s**) show what each press aligned to. With four effects under a 1 s draw-on and a
+0.95 s rise starting at 1 s, **Alt+D** ends them at 1.00 s, again at 1.95 s, and a third time
+restores them.
+
+Aligning moves each effect and keeps its duration. Add **Shift** (**Alt+Shift+A**,
+**Alt+Shift+D**) to resize instead: the opposite edge stays put. The presses of one cycle are a
+single **Undo**. A moved start detaches a [Follow timing](/docs/animation.html#follow-timing) link, as a drag does,
+and the toast names the former lane. **Align starts** and **Align ends** are also on a bar's
+right-click menu. `align-tracks` does the same from the CLI and MCP:
+
+```bash
+flux align-tracks talk slide1 --tracks e3,e4,e5 --edge end --to rect2      # rect2's end
+flux align-tracks talk slide1 --tracks e3,e4 --edge start --to 250 --resize  # starts at 250 ms
+```
+
+### Inherit an effect's animation {#inherit-an-effects-animation}
+
+To give several effects exactly the animation of another one, select them, hold **Ctrl+Alt**
+(**⌘+⌥** on macOS) and drag one of their bars onto the other effect's lane. The bars stay where
+they are; a dashed line runs from the selection to the pointer, the lane under it lights, and a
+label reads **Inherit from ‹rect 2›**. Release to apply; release anywhere else or press
+**Escape** to cancel. The effects keep their own start times unless you hold **Shift** as you
+release, which copies the start too. One **Undo** reverts the whole drop, and a toast names
+what was inherited (**4 effects inherit ‹rect 2› · 953 ms · spring**). **Inherit animation
+from…** on a bar's right-click menu does the same with one click on the source lane.
+
+Inherit copies the source's duration, easing or spring and stagger. Between two entrances (or two
+exits, or two transforms) the effect itself and its options come too — four pops become four
+rises. Across kinds only the timing travels, so an exit stays an exit. If the source uses an
+[animation style](/docs/animation.html#animation-styles), the effects link to that style instead and follow its
+later edits. What the effects animate, their transform endpoints, links, groups and on/off state
+never change. Video commands and animations do not share timing. `inherit-track` is the
+CLI and MCP twin:
+
+```bash
+flux inherit-track talk slide1 --from rect2 --to e3,e4,e5,e6 [--include-start]
+```
+
+The **X-ray** (**Alt+R**) animates too: select one plot — or several — press **Alt+R**, pick
+the rows you want (**Shift+click** a run, **Ctrl/Cmd+click** to toggle, **Ctrl/Cmd+A** for all;
+a multi-plot X-ray lists the parts every plot shares), then press **M** and choose
+**Appear**, **Emphasize**, **Disappear** or **Change**. Appearance actions give each picked part
+its own effect on the current step, ready to retime. **Change** selects the whole owning objects;
+part-style edits are captured in each plot’s Change. Selecting the same part through
+both a common row and its plot's tree creates one effect. With **Show hidden** off,
+disappeared targets remain untouched by common-row visibility and animation actions.
+
+The **Animation** inspector edits the selected effects' target, part, effect, start, duration,
+easing, stagger, and relevant specialized controls. Mixed timing values are blank until you set
+one shared value. Choose a new target or part to repair a missing binding. An issue banner identifies
+missing targets, unmatched parts, unsupported effects, or conflicting overlapping effects; click an
+issue to inspect its track. The **Easing** field shows the timing curve and opens its editor.
+**Library** holds reusable presets and multi-track templates.
+
+Keyboard commands belong to the focused surface. In the animation dock or inspector, **Delete**
+removes effects, arrows navigate steps/lanes, **Alt+left/right** retimes starts,
+**Alt+Shift+left/right** adjusts durations, and **Alt+A** / **Alt+D** align starts / ends.
+**Ctrl+Alt-drag** a bar onto another lane to inherit its animation. On the canvas, Delete removes objects and arrows move
+them. **P** focuses Effect/Action, **D** Duration, **T** Start/Offset, **G** Stagger, and **E**
+opens Easing. Inputs retain normal text editing; **Ctrl/Cmd+Z** undoes one edit or gesture.
+
+### Easing and springs {#easing-and-springs}
+
+Select an effect and click **Easing**, or press **E** while the Animator has focus.
+The field shows the curve, when the motion first arrives at 90% of its travel, and when it
+settles. A faint curve inside each timeline bar shows the same timing; springs also have an
+arrival tick.
+
+![The Easing field shows arrival and settle times.](/assets/media/docs/animation-curve-field.png){fig-alt="The Easing field shows arrival and settle times."}
+
+Choose a tile from **Ease**, **Overshoot**, **Spring**, or **Discrete**. Hover a tile for one
+preview pass; reduced motion keeps that preview still. Focus a group and press **1–9** to
+choose within it. **Bouncy** is a spring with overshoot and a settling tail. Adjust
+**Bounce** to change its character and **Velocity** to change its starting speed. For a Discrete
+curve, **Steps** sets the count from 1 to 60. The **overshoot …%** readout reports how far the
+curve passes its endpoint; data and other bounded channels still stay within their limits.
+
+![Bouncy, its spring graph, and the spacing chart.](/assets/media/docs/animation-curve-spring.png){fig-alt="Bouncy, its spring graph, and the spacing chart."}
+
+**Keep arrival** starts checked. It adjusts each selected effect's duration to preserve its
+arrival time as you change the curve, within 150–4000 ms. A 600 ms Smooth move becomes about
+1418 ms with Bouncy: the motion arrives at the same time and the bar grows to hold the settling
+tail. Turn Keep arrival off to keep the bar's duration instead. A follower anchored to the bar's
+end waits until settling finishes.
+
+The graph's handles edit a custom bezier. Arrow keys move a focused handle by 0.01;
+**Shift+arrow** moves it by 0.1. The numeric fields let you enter exact values. Existing
+influence curves keep their handles horizontal; dragging vertically converts them to a free
+bezier. The spacing chart shows 13 positions at equal times: close dots mean slower motion.
+
+Use the **Paste a curve…** field and **Paste** button, or **Ctrl+V** in the editor, to enter
+names such as `bouncy`, or strings such as
+`spring(0.35, v=2)`, `cubic-bezier(.2,1.4,.4,1)` and `steps(8)`. **Copy** copies the current curve.
+Invalid text shows an error without changing the effect. Different selected curves show
+**Mixed**; choosing a curve applies to all selected effects as one edit. **Enter**, **Done**,
+or clicking outside commits; **Esc** restores the opening curve and duration.
+
+**Data never overshoots.** Box movement and camera motion can spring past their destinations;
+data values, count-up text, plot views, opacity and reveals stay within their valid range.
+**PowerPoint uses Morph's own ease**; Flux's curve is retained in Flux playback and HTML exports.
+
+Right-click a timeline bar and choose **Copy timing**, then select other effects and choose
+**Paste timing**. This copies duration, curve and stagger together as one undoable edit.
+It leaves their targets, start times and linked style identities in place.
+
+### Animation styles {#animation-styles}
+
+Deck animation styles share an effect's preset, parameters, duration, easing, stagger, arc and
+start. A linked effect inherits absent fields; changing a field on that effect overrides the
+style for that field. Editing the style updates every inheriting effect. An effect links only to
+a style of its own kind (appearance, transform or video command); linking gives it the style's
+preset, and changing the style's preset changes it on every linked effect. Detaching a style,
+or deleting it, keeps each effect's current settings. Saved slide presets carry the styles
+they use, and insertion reuses an existing style with the same name and family.
+
+Select an effect and open **Style ▾** in the Animation inspector. Choose a deck style of the
+same family, or **Save as new style…** and enter a name. Selecting several effects links them
+all; a selection spanning different families explains why linking is unavailable.
+
+![The style picker lists compatible deck styles and the save, edit, and detach actions.](/assets/media/docs/animation-style-picker.png){fig-alt="The style picker lists compatible deck styles and the save, edit, and detach actions."}
+
+A local edit shows **override** beside **↺ use style**. Reset removes that field's override
+so it follows the style again. Setting stagger to zero turns it off for this effect. Setting
+both custom influence values to zero in the editor resets the timing field to its style or
+preset default. A stored zero-influence record can explicitly suppress inherited influence,
+but the editor’s zero action restores inheritance. **Edit style…** opens the shared
+fields under an **Editing style ‹name› · N tracks** banner; **Back to effect** returns to local
+edits. **Detach** keeps the current settings as independent values.
+
+![A linked effect with a duration override and its use-style reset.](/assets/media/docs/animation-style-override.png){fig-alt="A linked effect with a duration override and its use-style reset."}
+
+Right-click a timing bar and choose **Animate like…**, then click an object on the canvas.
+The picker's outline and hover show which object you are on and name its effect in this step;
+one click commits.
+Its effect in this step supplies the style. If it has no style, Flux creates **Like ‹object
+label›** and links both effects. A multi-selection links in bulk; incompatible families are
+reported. In the X-ray, **6** arms the same pick for the selected objects or parts. **Esc** cancels.
+
+The animation **Library** keeps its usual copy action on the preset name. **as a linked style**
+creates a deck style from that saved preset and links the applied effects. Slide presets include
+the deck styles they use and restore their links when inserted.
+
+### Follow timing {#follow-timing}
+
+Hold **Ctrl/Cmd** and drag a bar's **left edge** onto another bar's start or end. The magnet
+guide turns solid; releasing creates a timing anchor with zero offset. A link glyph marks the
+follower. Retiming the source moves its followers live, including the source's stagger tail.
+You can also choose **⛓ Follow timing…** in the inspector and select a lane's start or end.
+
+![The linked follower and the inspector's after-lane-end row.](/assets/media/docs/animation-follow-timing.png){fig-alt="The linked follower and the inspector's after-lane-end row."}
+
+An anchored start row reads **after ‹lane› end + 0 ms** and displays the resolved start.
+Its primary input edits the **offset**. Choose **⛓ Detach** to retain the resolved start as
+absolute milliseconds. A plain bar drag also detaches and names the former lane in a toast;
+one Undo restores the whole gesture. Missing targets, cross-step references and cycles show
+the compiler's issue text with the stored start as fallback.
+
+The CLI and MCP support this through `anim-style`, `animate-like` and `set-track`:
+
+```bash
+flux anim-style create talk --name "Gentle reveal" --family appearance --preset fade --duration 400
+flux set-track talk slide1 effect1 --style STYLE_ID
+flux animate-like talk slide1 --from effect1 --to effect2,effect3
+flux set-track talk slide1 effect2 --anchor effect1:end:50
+```
+
+The last command starts effect2 50 ms after effect1 ends, including its stagger tail.
+Retiming effect1 moves effect2 automatically. Anchors stay within one step; self-links and
+cycles are refused. A removed anchor target leaves a visible issue and uses the follower's
+stored start. `set-track --start` adjusts an anchored effect's offset; `--no-anchor` keeps its
+current resolved start. `--no-style` detaches its style. A start cascade adjusts anchor offsets;
+a duration cascade writes local overrides on linked effects.
+
+Successive appearance effects follow the prior effect's end. Plot Auto-reveal links the
+Data-phase geometry to the points' start plus its original half-stagger delay.
+
+### Playback and inspection {#playback-and-inspection}
+
+**Step** plays only the selected step. **Play** starts from that step and continues through the slide;
+**Slide** plays the whole slide. **Space** toggles play/pause and **Stop** returns to editing. The
+playhead follows the actual player clock. Drag the ruler to inspect a precise time without editing
+the document or changing the edit destination. Playback retains the last frame for inspection.
+**Loop** repeats the chosen playback range. Editing a property cancels the old preview so the next
+preview uses the updated document. Use Present for manual click-by-click rehearsal.
+
+### Appearances {#appearances}
+
+The preset menu covers entrances (**fade**, **fadeRise**, **popIn**, **growBaseline**,
+**drawOn**, **writeOn**), exits (**fadeOut**, **popOut**, **drawOff**, **wipeOut**), emphasis
+(**highlight**, **dim**), **stagger** — members of a group or points of a series arrive in
+sequence, ordered by position or index, from either end or the center — and **countUp**, which
+tweens a number in a text element ("n = 1,247" counts up in place). Draw-on/off expose full
+**trim path** control (direction, anchor, single/both-ends/middle-out, partial windows), and
+wipes pick their direction.
+
+**by** orders the ramp: **order** (target order), **x →** or **y ↑** (data position), **value**
+(each part's own value — a hexagon's mean, a cell's value, a bar's height — low to high),
+**count** (observations per hexagon) or **data index** (the generator's index). The order comes
+from the plot's data, so a hexmatrix can fill from its emptiest hexagon to its fullest.
+
+Use **Stagger → Each** for the delay between ranks, or **Total** for the time between the
+first and last item starting. Switching modes preserves the current span. **From → Random**
+uses a repeatable order; edit **Seed** or click **↻** to reshuffle (one Undo restores it).
+The distribution curve controls how densely starts fall within the span: an ease-out curve
+starts widely spaced, then packs later starts together. Springs are clamped to the span.
+Center and Edges keep symmetric pairs together; if every item ties, Total uses input order.
+A single target has no stagger tail.
+
+```bash
+flux set-track talk slide1 effect1 --stagger-total 800 --stagger-curve enter --stagger-from random --seed 42
+flux set-track talk slide1 effect1 --stagger-each 30
+flux set-track talk slide1 effect1 --stagger-each 30 --stagger-by count
+```
+
+### Cascading tracks {#cascading-tracks}
+
+Select several tracks and press **Ctrl+Alt+C**: the same [cascade](/docs/figure-layout.html#cascade)
+popover, over animation — stagger **start**, **duration**, **per-item or total stagger**, **Arc**, or easing
+**influence** or **Spring bounce** in even steps across the selection. Spring bounce skips
+non-spring effects, which do not consume a step. Five drawOns starting 120 ms apart is one
+gesture, not arithmetic.
+
+::: {.next-reading}
+**Related guides**
+
+[Slides](/docs/slides.html) · [Transforms and data morphs](/docs/transforms.html) · [3D and video in slides](/docs/slide-media.html) · [Present and export](/docs/present-and-export.html)
+:::

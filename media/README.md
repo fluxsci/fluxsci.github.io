@@ -1,31 +1,33 @@
 # Reviewed product media
 
-Normal builds use checked-in screenshots, native player exports, fonts and plot files. No application code, private project, or personal Flux configuration is read during a normal build.
+Normal builds use checked-in screenshots, native player exports, fonts and figure images. No application checkout, private project or personal configuration is read during a normal build.
 
 ## Inputs and boundaries
 
-`flux-source.json` pins the reviewed upstream Flux revision. The owner's visual source is supplied explicitly as `--project`; for this milestone it is the `FLUX_TEST_PROJ` folder inside the owner-provided `main_test_project_and_data` directory. This local location is deliberately not stored in public output.
+`flux-source.json` pins the reviewed Flux revision. The visual source is supplied explicitly with `--project`: the `MASTER_DEMO_FluxProj` folder inside the owner's confirmed `flux_demo_master` directory. Local paths are never published.
 
-Only the selected files under `plots/` are read. Existing test decks and figure canvases are not showcase material and are never copied. `media/showcase.mjs` creates a separate, new website presentation and figure composition from byte-identical source plots. All values are synthetic. `media/demo-manuscript.qmd` is the original website narrative; generated figure captions describe the illustrations without claiming experimental results.
+`media/showcase.mjs` reads the two selected authored figures and their accepted `fig/assets` files. The plots, layout, labels, view settings and accepted asset bytes are preserved; figure titles and captions are supplied for the website. It does not read existing test decks, other manuscripts, context or a personal library. It checks the original figure inputs again after preparing the copy. Linked source paths are redirected to the copied assets, so capture never follows external research paths.
 
-The temporary capture project lives in `.cache/visual-project/`. It is not an editable example shipped with the website and is never published. Refresh refuses an unpinned or modified product checkout. The owner's input project is read-only throughout.
+The isolated `.cache/visual-project/` contains three original website slides, an original manuscript and a small demonstration bibliography. It is neither a bundled editable example nor a published download. The source includes real public recordings, calculated examples and illustrative values, identified on the website's visual credits page. No source project files are changed.
 
 ## Refresh
 
-Prepare a clean Flux checkout at the pinned revision, with its locked Node dependencies installed. Check port 1420 before starting that checkout's dev server; stop a server you own when finished. Then, from the website root:
+Prepare a clean Flux checkout at the pinned revision with locked Node dependencies installed. Start that checkout's development server on port 1420. From the website root:
 
 ```sh
-node scripts/refresh-flux-assets.mjs --flux-source /path/to/pinned/flux --project /path/to/authored/FLUX_TEST_PROJ
+node scripts/refresh-flux-assets.mjs --flux-source /path/to/pinned/flux --project /path/to/MASTER_DEMO_FluxProj
 node scripts/capture-media.mjs --flux-source /path/to/pinned/flux
 npm test
 ```
 
-Set `FLUX_CHROME` to the Chrome/Chromium executable if Brave is not installed. Set `FLUX_URL` when the isolated product preview uses a port other than 1420. The screenshot script mirrors the temporary composition through the real application's in-memory FileBridge; it seeds an isolated Library using explicitly labeled demonstration notes and an original manuscript PDF. It accesses no personal library and fabricates no application UI. Screenshots are captured at 2× display density; manifest dimensions describe their displayed viewport.
+Set `FLUX_CHROME` to a Chrome/Chromium executable if Brave is not installed, and `FLUX_URL` if the app preview uses another port. Stop servers you started when finished.
 
-Review all five workspaces and part editing, plus each slide at every step. The slides are exported using `mountSlideEmbed` from the pinned app. Animation, transforms, and per-part rendering belong to Flux. Website code only loads the isolated player, changes scene, and pauses it offscreen.
+The screenshot script mirrors the isolated project through the real application's in-memory FileBridge. It seeds a demonstration Library and an original manuscript PDF without accessing a personal library. Screenshots show unmodified Flux UI at 2× display density; manifest dimensions describe the viewport. Figure plates come from the native figure renderer, with native 3D posters.
 
-`media/native-assets.json` records the pinned product revision, original plot input hashes, and published runtime/plot hashes. `media/screenshots.json` records capture conditions and image hashes. `media/installer.json` pins the upstream installer's exact bytes; copy it from the same reviewed revision when deliberately updating it.
+Review all five workspaces, plot editing, both plates and every step of the three slides. The player uses native `mountSlideEmbed` and the native 3D host. Website code loads the player, selects a slide, preserves manual progress, resizes its frame and pauses it offscreen. Flux owns rendering, animation and transforms.
 
-## Licenses
+`media/native-assets.json` records product and source input hashes and published runtime hashes. `media/screenshots.json` records capture conditions and image hashes. `media/installer.json` records the reviewed installer's exact bytes. `media/documentation.json` records the revisions used to write the guides and API reference.
 
-The native runtime carries Flux's MIT notice and licenses for every bundled third-party package under `site/assets/licenses/`. Gelasio's SIL OFL notice is in `site/assets/fonts/OFL.txt`. Plot examples in this milestone are the owner's original synthetic demonstrations; the former Allen Institute example and its assets are no longer published.
+## Licenses and credit
+
+Runtime dependency licenses are under `site/assets/licenses/`; Gelasio's SIL OFL notice is in `site/assets/fonts/OFL.txt`. Scientific assets retain their own source terms. The website's visual credits page identifies Allen Institute, MICrONS, FermiSurfer and Crystallography Open Database sources and distinguishes measured, computed and illustrative content. Website licensing does not relicense source datasets.
