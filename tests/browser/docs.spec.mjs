@@ -17,7 +17,7 @@ for(const url of pages)test(`document ${url} is readable, linked and accessible`
 });
 test('installer availability is honest and code copies exactly',async({page,request})=>{
  await page.addInitScript(()=>{Object.defineProperty(navigator,'clipboard',{value:{writeText:async text=>window.copied=text}})});
- await page.goto('/install/');await expect(page.locator('.availability-note')).toContainText('cannot install Flux');
+ await page.goto('/install/');await expect(page.locator('.availability-note')).toContainText('Flux v0.2.0 is available');
  await page.locator('[data-copy]').first().click();
  expect(await page.evaluate(()=>window.copied)).toBe('curl -fsSL https://fluxsci.github.io/install.sh | bash');
  await expect(page.locator('[data-copy]').first()).toHaveText('Copied');

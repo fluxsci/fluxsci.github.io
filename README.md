@@ -2,7 +2,7 @@
 
 The public Flux website at **https://fluxsci.github.io/**, built with Quarto and maintained independently from the application.
 
-The current review milestone includes the homepage, installation, a searchable documentation directory, and two finished guides: **Your first project** and **Projects and files**. Remaining topics link to current upstream documentation while their new editions are prepared. The desktop release remains in draft; the installation page explicitly explains availability.
+The current review milestone includes the homepage, installation, a searchable documentation directory, and two finished guides: **Your first project** and **Projects and files**. Remaining topics link to current upstream documentation while their new editions are prepared. The installation page reflects the current public desktop release.
 
 ## Develop and verify
 
@@ -48,4 +48,4 @@ Normal builds use checked-in reviewed assets and need neither the author's proje
 
 GitHub Pages uses **GitHub Actions**, with HTTPS enforced. After `npm test` and visual review, stage explicit source paths, commit, and push `main`. The **Verify and publish website** workflow runs the same checks, uploads only `dist/`, then deploys to **https://fluxsci.github.io/**. Pull requests produce a review artifact without deploying.
 
-The app's release and the website are separate. Publishing this website does not publish a draft Flux release. Keep the installation availability note accurate when the first public release ships.
+The app's release and the website are separate. Publishing this website does not publish a draft Flux release. Keep the installation availability note accurate when public releases change.

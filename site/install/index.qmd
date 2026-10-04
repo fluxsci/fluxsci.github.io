@@ -12,7 +12,7 @@ One command puts the workspace on your machine. A short setup window takes care 
 :::
 
 ::: {.availability-note role="note"}
-**The first desktop release is being prepared.** Flux v0.2.0 is currently a draft. The command below is ready for the public release, but **cannot install Flux until that release is published**. Follow [GitHub Releases](https://github.com/fluxsci/flux/releases) for availability. Developers can [run Flux from source](#from-source) today.
+**Flux v0.2.0 is available.** The desktop release includes macOS builds for Apple Silicon and Intel, and a Debian/Ubuntu package for x86-64 Linux. [Read the release notes](https://github.com/fluxsci/flux/releases/tag/v0.2.0).
 :::
 
 ## One line to install {#install-command}
@@ -97,13 +97,11 @@ To choose a specific **published** release:
 curl -fsSL https://fluxsci.github.io/install.sh | bash -s -- --version v0.2.0
 ```
 
-The v0.2.0 example becomes usable once that release is public.
-
 ## If something needs attention {#troubleshooting}
 
 <details class="doc-details"><summary>The command cannot find a public release</summary>
 
-The first release is still in draft. The installer cannot download draft assets anonymously. Check [GitHub Releases](https://github.com/fluxsci/flux/releases) and try again when a release appears there.
+Check that you can reach [GitHub Releases](https://github.com/fluxsci/flux/releases) from your network. If you use `--version`, copy the exact tag of a published release, such as `v0.2.0`. A misspelled tag or unavailable release cannot be downloaded.
 
 </details>
 

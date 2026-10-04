@@ -5,7 +5,7 @@ Deliver and publish the homepage, installation, documentation navigation/search,
 ## Delivered pages
 
 - `/`: refreshed native application screenshots; unchanged source plots; new native two-scene presentation; local install and docs links. Legacy example ZIP and source fixture retired.
-- `/install/`: reviewed curl installer, clear draft-release notice, supported platforms, setup window, Python plotting, verification, updates, troubleshooting, and contributor path.
+- `/install/`: reviewed curl installer, current release availability, supported platforms, setup window, Python plotting, verification, updates, troubleshooting, and contributor path.
 - `/docs/`: seven topic groups across the ecosystem, with 24 destinations and explicit upstream markers.
 - `/docs/first-project.html`: runnable Python example, figure editing, literature, writing, presentation, and export.
 - `/docs/projects-and-files.html`: source/managed/derived files, linked-source states, references, autosave/conflicts, AI coexistence, and portable handoff.
@@ -31,7 +31,13 @@ The owner subsequently clarified that all existing test slides are unsuitable. O
 ## Verification before publication
 
 - Publication allowlist, local routes/fragments, metadata, privacy checks, and reviewed output hashes pass: 41 files, 4.82 MB.
-- 81 browser checks pass locally across Chromium, desktop WebKit, and mobile Safari, including accessibility in light/dark, keyboard navigation, search/copy controls, no-JavaScript fallbacks, screenshots, and native slides. Local Firefox fails before page load with “Could not find profile folder”; the unchanged CI matrix will verify all four projects on Ubuntu before allowing deployment.
+- 81 browser checks pass locally across Chromium, desktop WebKit, and mobile Safari, including accessibility in light/dark, keyboard navigation, search/copy controls, no-JavaScript fallbacks, screenshots, and native slides. Local Firefox fails before page load with “Could not find profile folder”; all 108 checks, including Firefox, passed on Ubuntu in Actions run 37188429183 before deployment.
 - The tutorial's Python example runs against the published fluxplot package and writes all three expected files.
 - The pinned installer's 19 fixture checks pass. Linux download tests use a test-only x86-64 architecture shim on this arm64 Mac; they do not run apt or perform a real Linux install. Website installer bytes match upstream exactly.
 - Native playback traversed all four states in both original scenes with no reported runtime issues. Desktop/mobile and light/dark layouts, application screenshots, and slide composition were visually reviewed. Source plot hashes match the author's files.
+
+## Deployment and concurrent release change
+
+Commit ae0a9a4 was deployed successfully by Actions run 37188429183. All five live page URLs returned 200, the installer matched reviewed upstream bytes, and live search/navigation, inline playback, mobile geometry, and the styled 404 passed.
+
+The app release was verified as draft before the website push. During that deployment, v0.2.0 became public at 2026-10-04 08:20:41 UTC through a separate action. This task did not change the app release. Anonymous GitHub API and asset requests confirmed the public state. The installation note was corrected to reflect that availability without modifying the release itself.
