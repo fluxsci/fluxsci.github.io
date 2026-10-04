@@ -46,6 +46,9 @@ The second needs the isolated visual project from the earlier refresh and the Fl
 server. It captures the X-ray, property menu and Animator in the native in-memory fixture,
 recording image dimensions and hashes in `media/docs-screenshots.json`.
 
+For a diagram-only update, add `--timing-only` to the first command. This preserves the checked-in
+slides and player while refreshing the four schematic Animator comparisons and their hashes.
+
 Review all six examples during playback and at rest, plus all four alignment diagrams. Check
 mobile sizing, reduced motion, keyboard controls, no-script posters and light/dark document
 surroundings. The browser suite covers these interactions. Normal builds audit both manifests

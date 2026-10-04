@@ -18,19 +18,41 @@ await ensureDom();const deck=createTechniques(ops),errors=validateDeckFile(deck)
 const payload={deck,assets:{},plots:{},assetSizes:{}};
 const out=path.join(root,'site/demos/techniques');await fs.mkdir(out,{recursive:true});
 const posters=[];
-for(const slide of deck.slides){const p={...payload,deck:{...deck,slides:[slide]}};const svg=renderSlidePosterSvg(p,1);const name=`${slide.id}.svg`;await fs.writeFile(path.join(out,name),svg);posters.push('site/demos/techniques/'+name);}
+const timingOnly=process.argv.includes('--timing-only');
+if(!timingOnly)for(const slide of deck.slides){const p={...payload,deck:{...deck,slides:[slide]}};const svg=renderSlidePosterSvg(p,1);const name=`${slide.id}.svg`;await fs.writeFile(path.join(out,name),svg);posters.push('site/demos/techniques/'+name);}
 // Diagrams use the native timeline operations for their before/after geometry.
 const {alignCandidates,alignTrackEdges,trackEdges}=await load('src/lib/slide/alignTracks.ts');
+const {presetDef}=await load('src/lib/slide/presetCatalog.ts');
+const {resolveCurve}=await load('src/lib/slide/curves.ts');
 for(const edge of ['start','end'])for(const mode of ['move','resize']){
  const d=structuredClone(deck),s=d.slides[0],b=s.beats[1];
  b.tracks=b.tracks.map((t,i)=>({...t,start:(edge==='start'?[300,900,900]:[300,900,1300])[i],duration:(edge==='start'?[2400,700,1000]:[2400,1000,600])[i]}));
  const ids=b.tracks.slice(1).map(t=>t.id),before=b.tracks.map(t=>trackEdges(t));
  const target=alignCandidates(b.tracks,ids,edge)[0].ms;
  const result=alignTrackEdges(d,s.id,b.id,ids,edge,target,{mode});if(result.refused.length)throw Error(JSON.stringify(result));
- const after=b.tracks.map(t=>trackEdges(t)),x=t=>140+t*.18;
- const rows=(values,y)=>values.map((t,i)=>`<text x="29" y="${y+i*31+16}">${['Reference','Selected 1','Selected 2'][i]}</text><rect x="${x(t.start)}" y="${y+i*31}" width="${(t.end-t.start)*.18}" height="22" rx="4" fill="${['#737b80','#205ea6','#24837b'][i]}"/>`).join('');
- const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 344" role="img"><title>${mode==='resize'?'Resize':'Move'} to align ${edge}s</title><rect width="680" height="344" fill="#fffefa"/><style>text{font:13px Arial,sans-serif;fill:#62686b}.label{font-weight:bold;fill:#242a30}@media(max-width:450px){text{font-size:22px}.label{font-size:20px}}</style><text class="label" x="28" y="29">BEFORE</text><text x="${x(0)}" y="29">0 s</text><text x="${x(1000)}" y="29">1 s</text><text x="${x(2000)}" y="29">2 s</text>${[0,1000,2000].map(t=>`<path d="M${x(t)} 42V136 M${x(t)} 196V296" stroke="#e6e6de"/>`).join('')}${rows(before,48)}<path d="M28 153H650" stroke="#deded6"/><text class="label" x="28" y="180">AFTER</text><text x="140" y="180">Alt + ${mode==='resize'?'Shift + ':''}${edge==='start'?'A':'D'}</text><path d="M${x(target)} 195V299" stroke="#205ea6" stroke-dasharray="4 4"/>${rows(after,207)}<text x="28" y="328">${mode==='move'?'Durations stay the same.':'The opposite edge stays fixed.'}</text><text x="430" y="328">${edge==='start'?'Starts':'Ends'} meet at ${(target/1000).toFixed(1)} s</text></svg>`;
+ const after=b.tracks.map(t=>trackEdges(t)),x=t=>164+t*.174;
+ // Schematic, not a screenshot: match BeatRail's dark lanes, preset colours,
+ // square bars, duration text and selection rails. Flux still supplies the
+ // alignment geometry and easing curves.
+ const grid=(values,top,aligned=false)=>{
+  const lanes=top+25,bottom=lanes+102;
+  const rows=values.map((t,i)=>{
+   const y=lanes+i*34,bx=x(t.start),by=y+7,w=(t.end-t.start)*.174;
+   const preset=presetDef(b.tracks[i].preset),curve=resolveCurve(b.tracks[i]);
+   const spark=Array.from({length:24},(_,j)=>{const u=j/23;return `${j?'L':'M'}${(bx+u*w).toFixed(2)},${(by+20*(1-curve.fn(u))).toFixed(2)}`;}).join(' ');
+   return `<g>${i?`<rect x="164" y="${y}" width="496" height="34" fill="#4385be" fill-opacity=".16"/>`:''}<rect x="20" y="${y}" width="144" height="34" fill="${i?'#222a31':'#1c1b1a'}"/>${i?`<path d="M21 ${y}v34" stroke="#4385be" stroke-width="2"/>`:''}<text class="track-name" x="30" y="${y+15}">${['Reference','Selected 1','Selected 2'][i]}</text><text class="effect" x="30" y="${y+28}">${preset.label}</text><path d="M20 ${y+34}H660" stroke="#2a2827"/>${i?`<rect x="${bx-1}" y="${by-1}" width="${w+2}" height="22" fill="none" stroke="#fffcf0"/>`:''}<rect x="${bx}" y="${by}" width="${w}" height="20" fill="#100f0f"/><rect x="${bx}" y="${by}" width="${w}" height="20" fill="${preset.colour}" fill-opacity=".22" stroke="${preset.colour}"/><path d="${spark}" fill="none" stroke="${preset.colour}" stroke-opacity=".55"/><text class="duration" x="${bx+5}" y="${by+14}">${((t.end-t.start)/1000).toFixed(2)}s</text></g>`;
+  }).join('');
+  const ticks=Array.from({length:29},(_,i)=>{const t=i*100,major=i%5===0;return `<path d="M${x(t)} ${major?top+5:lanes}V${bottom}" stroke="${major?'#343331':'#242322'}"/>${major?`<text class="ruler ${i%10?'half':''}" x="${x(t)+5}" y="${top+16}">${t/1000}s</text>`:''}`;}).join('');
+  return `<rect x="20" y="${top}" width="640" height="127" fill="#100f0f" stroke="#403e3c"/><rect x="20" y="${top}" width="640" height="25" fill="#1c1b1a"/><text class="column" x="30" y="${top+16}"><tspan class="wide-label">OBJECT / EFFECT</tspan><tspan class="compact-label">TRACK</tspan></text>${ticks}${rows}<path d="M164 ${top}V${bottom}" stroke="#403e3c"/>${aligned?`<path d="M${x(target)} ${top}V${bottom}" stroke="#66a0c8" stroke-width="1.5" stroke-dasharray="4 3"/><path d="M${x(target)-4} ${top}h8l-4 6z" fill="#66a0c8"/>`:''}`;
+ };
+ const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 392" role="img"><title>${mode==='resize'?'Resize':'Move'} to align ${edge}s on the Animator timeline</title><desc>Schematic timing lanes before and after alignment. The two selected lanes have blue selection rails and outlined timing bars.</desc><rect width="680" height="392" fill="#100f0f"/><style>text{font:12px Arial,sans-serif;fill:#cecdc3}.label{font-weight:bold;fill:#fffcf0}.hint,.ruler,.column,.duration{font-family:ui-monospace,Menlo,Consolas,monospace}.hint,.ruler,.column,.effect{fill:#9f9d96}.hint,.column{font-size:10px;letter-spacing:.04em}.effect{font-size:10px}.compact-label{display:none}.duration{font-size:11px}.track-name{font-size:13px}@media(max-width:450px){text,.ruler,.track-name{font-size:20px}.label{font-size:20px}.hint{font-size:15px}.column{font-size:15px}.duration{font-size:18px}.effect,.half,.wide-label{display:none}.compact-label{display:inline}.track-name{transform:translateY(6px)}}</style><text class="label" x="20" y="25">BEFORE</text><text class="hint" x="452" y="25">ANIMATOR TIMELINE</text>${grid(before,39)}<text class="label" x="20" y="201">AFTER</text><text x="164" y="201">Alt + ${mode==='resize'?'Shift + ':''}${edge==='start'?'A':'D'}</text>${grid(after,215,true)}<text x="20" y="377">${mode==='move'?'Durations stay the same.':'The opposite edge stays fixed.'}</text><text x="413" y="377">${edge==='start'?'Starts':'Ends'} meet at ${(target/1000).toFixed(1)} s</text></svg>`;
  const rel=`site/demos/techniques/timing-${edge}-${mode}.svg`;await fs.writeFile(path.join(root,rel),svg);posters.push(rel);
+}
+if(timingOnly){
+ const file=path.join(root,'media/docs-demos.json'),manifest=JSON.parse(await fs.readFile(file,'utf8'));
+ if(JSON.stringify(manifest.source)!==JSON.stringify(pin))throw Error('Refresh the full documentation export for a changed Flux pin');
+ for(const rel of posters){const bytes=await fs.readFile(path.join(root,rel));manifest.outputs[rel]={bytes:bytes.length,sha256:createHash('sha256').update(bytes).digest('hex')};}
+ await fs.writeFile(file,JSON.stringify(manifest,null,2)+'\n');console.log('Refreshed four Animator timeline diagrams.');process.exit(0);
 }
 const host=`import {mountSlideEmbed} from ${JSON.stringify(path.join(source,'src/lib/slide/embedPlayer.ts'))};
 const payload=JSON.parse(document.getElementById('payload').textContent),poster=document.getElementById('poster');let controller;

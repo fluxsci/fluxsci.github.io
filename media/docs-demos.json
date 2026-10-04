@@ -63,20 +63,20 @@
       "sha256": "59bb11b75b0fed252b0bc50b7d409c6b56b629d943a481df8beb6fd63efeff3b"
     },
     "site/demos/techniques/timing-start-move.svg": {
-      "bytes": 1548,
-      "sha256": "8d6943a50f4f9532b07874f178b9b6238c335ce68d9360adfda1a9c622dc38d0"
+      "bytes": 11141,
+      "sha256": "a682e922b5115065c9e5ce4297ac54aa15f460651185821112e831273d515610"
     },
     "site/demos/techniques/timing-start-resize.svg": {
-      "bytes": 1564,
-      "sha256": "4210949c20b1951d4f6300e4018ebc45f1bfb1ffc2f7958ea70c8c9e46d32966"
+      "bytes": 11163,
+      "sha256": "1bae481103ae5f1badc585f05fe7857440510e7d1c7992c805da61d3d9c38d59"
     },
     "site/demos/techniques/timing-end-move.svg": {
-      "bytes": 1544,
-      "sha256": "1743ff2bf7bb8d8d9f4d3ecada8b9194a9c6982062071cfbf92dac79db1f312d"
+      "bytes": 11267,
+      "sha256": "e55f11e13aef5b554ea946d98e9dbc2f00b534fa983ff45e0fb70270451c0c47"
     },
     "site/demos/techniques/timing-end-resize.svg": {
-      "bytes": 1560,
-      "sha256": "742376066260d929e402d01fa314111bccd4db8083a28b8156731e3eb0a4cc8f"
+      "bytes": 11198,
+      "sha256": "19f1d730cb64e94c33b2520f4e252b4a188e71817c51d74c202e0d7cd53ffd92"
     },
     "site/demos/techniques/player.js": {
       "bytes": 483928,
