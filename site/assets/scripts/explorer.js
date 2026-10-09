@@ -89,26 +89,30 @@
     }
     const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
-    // Highlight: a selection box drawn in the plot's own coordinate space.
+    // Highlight: a selection box drawn in the plot's own coordinate space. Screen
+    // rectangles are mapped back through the SVG's screen matrix, so the box lands on
+    // the part whatever transforms, viewBox scaling or fonts are involved.
     const ns = 'http://www.w3.org/2000/svg';
     function highlight(entry) {
       overlay.replaceChildren();
       svg.querySelectorAll('.is-hot').forEach(el => el.classList.remove('is-hot'));
       if (!entry) return;
-      const ids = entry.children.length && entry.role === 'group' ? entry.children.map(c => c.id) : [entry.id];
+      const ids = entry.role === 'group' && entry.children.length ? entry.children.map(c => c.id) : [entry.id];
+      const toUser = svg.getScreenCTM()?.inverse();
+      if (!toUser) return;
       let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+      const hot = [];
       for (const id of ids) {
         const el = svg.getElementById(id);
-        if (!el || typeof el.getBBox !== 'function') continue;
-        const b = el.getBBox();
-        if (!b.width && !b.height) continue;
-        el.classList.add('is-hot');
-        const m = el.getCTM();
-        for (const [px, py] of [[b.x, b.y], [b.x + b.width, b.y], [b.x, b.y + b.height], [b.x + b.width, b.y + b.height]]) {
-          const p = new DOMPoint(px, py).matrixTransform(m);
-          x0 = Math.min(x0, p.x); y0 = Math.min(y0, p.y); x1 = Math.max(x1, p.x); y1 = Math.max(y1, p.y);
-        }
+        if (!el) continue;
+        const r = el.getBoundingClientRect();
+        if (!r.width && !r.height) continue;
+        hot.push(el);
+        const a = new DOMPoint(r.left, r.top).matrixTransform(toUser);
+        const b = new DOMPoint(r.right, r.bottom).matrixTransform(toUser);
+        x0 = Math.min(x0, a.x, b.x); y0 = Math.min(y0, a.y, b.y); x1 = Math.max(x1, a.x, b.x); y1 = Math.max(y1, a.y, b.y);
       }
+      for (const el of hot) el.classList.add('is-hot');
       if (!Number.isFinite(x0)) return;
       const pad = 2.5;
       const rect = document.createElementNS(ns, 'rect');
@@ -122,6 +126,21 @@
         h.setAttribute('class', 'explorer-handle');
         overlay.append(h);
       }
+    }
+
+    // A small label follows the pointer so the name is read where the eye already is.
+    const tip = document.createElement('div');
+    tip.className = 'explorer-tip';
+    tip.hidden = true;
+    stage.append(tip);
+    function moveTip(event, entry) {
+      if (!entry) { tip.hidden = true; return; }
+      tip.innerHTML = `<span>${esc(entry.name)}</span><code>${esc(entry.id)}</code>`;
+      tip.hidden = false;
+      const bounds = stage.getBoundingClientRect();
+      const x = Math.min(event.clientX - bounds.left + 14, bounds.width - tip.offsetWidth - 8);
+      const y = Math.min(event.clientY - bounds.top + 18, bounds.height - tip.offsetHeight - 8);
+      tip.style.transform = `translate(${Math.max(8, x)}px, ${Math.max(8, y)}px)`;
     }
 
     // Tree: every part the manifest names, in the order it names them.
@@ -169,11 +188,12 @@
       if (!fromTree) rows.get(entry.id)?.part.scrollIntoView({ block: 'nearest' });
     }
     const target = event => { const el = event.target.closest('[data-role]'); if (!el) return null; let node = el; while (node && node !== svg) { const entry = node.id && index.get(node.id); if (entry) return entry; node = node.parentNode; } return null; };
-    svg.addEventListener('pointermove', event => { const entry = target(event); if (entry !== shown || !entry) preview(entry); });
-    svg.addEventListener('pointerleave', () => preview(null));
+    svg.addEventListener('pointermove', event => { const entry = target(event); if (entry !== shown || !entry) preview(entry); moveTip(event, entry); });
+    svg.addEventListener('pointerleave', () => { preview(null); tip.hidden = true; });
     svg.addEventListener('click', event => { const entry = target(event); if (entry) select(entry); });
-    box.addEventListener('keydown', event => { if (event.key === 'Escape' && pinned) { pinned = null; box.classList.remove('is-pinned'); show(null); } });
-    box.querySelector('[data-explorer-clear]')?.addEventListener('click', () => { pinned = null; box.classList.remove('is-pinned'); show(null); });
+    function release() { pinned = null; box.classList.remove('is-pinned'); show(null); if (box.contains(document.activeElement)) document.activeElement.blur(); }
+    box.addEventListener('keydown', event => { if (event.key === 'Escape' && pinned) release(); });
+    box.querySelector('[data-explorer-clear]')?.addEventListener('click', release);
     box.classList.add('is-live');
   }
 })();

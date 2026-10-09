@@ -19,29 +19,23 @@ Click **AI** in the title bar, or use **Ctrl+K** → **AI status**, to open the 
 **Pin** moves the same panel into its own window; **Dock** brings it back.
 
 <figure class="doc-diagram flow" aria-label="Diagram: your agent talks to the flux launcher, which exposes the CLI and MCP server. The launcher reads, edits and renders the project folder, receives your context and skills from FluxConfig, and reaches the running Flux app over the live bridge. The app saves to and watches the same project folder.">
-<svg viewBox="0 0 1000 340" aria-hidden="true">
+<svg viewBox="0 0 1000 392" aria-hidden="true">
 <defs><marker id="connect-head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z"/></marker></defs>
 <g class="flow-edges">
-<path d="M510 98v30" marker-end="url(#connect-head)"/>
-<path d="M220 176h178" marker-end="url(#connect-head)" marker-start="url(#connect-head)"/>
-<path d="M622 176h176" marker-end="url(#connect-head)" marker-start="url(#connect-head)"/>
-<path d="M510 222v38" marker-end="url(#connect-head)" marker-start="url(#connect-head)"/>
-<path d="M620 294h280v-70" marker-end="url(#connect-head)" marker-start="url(#connect-head)"/>
+<path d="M510 112v26" marker-end="url(#connect-head)"/>
+<path d="M220 198h178" marker-end="url(#connect-head)" marker-start="url(#connect-head)"/>
+<path d="M622 198h176" marker-end="url(#connect-head)" marker-start="url(#connect-head)"/>
+<path d="M510 258v26" marker-end="url(#connect-head)" marker-start="url(#connect-head)"/>
+<path d="M620 334h280v-76" marker-end="url(#connect-head)" marker-start="url(#connect-head)"/>
 </g>
 <g class="flow-labels">
-<text x="522" y="118" text-anchor="start">your context and skills</text>
-<text x="309" y="164">tools, images, inbox</text>
-<text x="710" y="164">reads, edits, renders</text>
-<text x="522" y="246" text-anchor="start">live bridge, while a project is open</text>
-<text x="760" y="314">saves, watches, shows the Inbox</text>
+<text x="522" y="131" text-anchor="start">your context and skills</text>
+<text x="309" y="186">tools, images, inbox</text>
+<text x="710" y="186">reads, edits, renders</text>
+<text x="522" y="276" text-anchor="start">live bridge, while a project is open</text>
+<text x="760" y="354">saves, watches, shows the Inbox</text>
 </g>
-<g class="flow-nodes">
-<g transform="translate(400 20)" class="flow-node flow-code"><rect width="220" height="78" rx="10"/><text class="flow-title" x="22" y="31">FluxConfig</text><text class="flow-note" x="22" y="56">UserContext · FluxContext · Skills</text></g>
-<g transform="translate(20 130)" class="flow-node" style="--c:#8b7ec8"><rect width="200" height="92" rx="10"/><circle cx="24" cy="26" r="5"/><text class="flow-title" x="40" y="33">Your agent</text><text class="flow-note" x="24" y="58">Claude Code, Codex or</text><text class="flow-note" x="24" y="76">another MCP client.</text></g>
-<g transform="translate(400 130)" class="flow-node" style="--c:#205ea6"><rect width="220" height="92" rx="10"/><circle cx="24" cy="26" r="5"/><text class="flow-title" x="40" y="33">flux launcher</text><text class="flow-note" x="24" y="58">CLI verbs and the MCP server,</text><text class="flow-note" x="24" y="76">installed with the app.</text></g>
-<g transform="translate(800 130)" class="flow-node flow-code"><rect width="200" height="92" rx="10"/><text class="flow-title" x="22" y="33">Project folder</text><text class="flow-note" x="22" y="58">Context/, paper/, fig/,</text><text class="flow-note" x="22" y="76">slides/, .meta/</text></g>
-<g transform="translate(400 260)" class="flow-node" style="--c:#3aa99f"><rect width="220" height="68" rx="10"/><circle cx="24" cy="26" r="5"/><text class="flow-title" x="40" y="33">Flux app</text><text class="flow-note" x="24" y="56">Selection, live edits, get_view.</text></g>
-</g>
+<g class="flow-nodes"><foreignObject x="400" y="12" width="220" height="100"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-code"><span class="flow-box-title">FluxConfig</span><span class="flow-box-note">UserContext · FluxContext · Skills</span></div></foreignObject><foreignObject x="20" y="138" width="200" height="120"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#8b7ec8"></i>Your agent</span><span class="flow-box-note">Claude Code, Codex or another MCP client.</span></div></foreignObject><foreignObject x="400" y="138" width="220" height="120"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#205ea6"></i>flux launcher</span><span class="flow-box-note">CLI verbs and the MCP server, installed with the app.</span></div></foreignObject><foreignObject x="800" y="138" width="200" height="120"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-code"><span class="flow-box-title">Project folder</span><span class="flow-box-note">Context/, paper/, fig/, slides/, .meta/</span></div></foreignObject><foreignObject x="400" y="284" width="220" height="100"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#3aa99f"></i>Flux app</span><span class="flow-box-note">Selection, live edits, get_view.</span></div></foreignObject></g>
 </svg>
 <figcaption>Connect registers the launcher with your agent. Everything the agent reads or changes goes through the same project files the app uses.</figcaption>
 </figure>

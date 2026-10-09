@@ -149,12 +149,12 @@ description: "Flux is a free, open-source desktop workspace for scientists. Comp
         <circle cx="54.59" cy="88.44" r="4.48" fill="#ce5d97" style="--i:86" />
         <circle cx="20.49" cy="24.61" r="4.52" fill="#ce5d97" style="--i:87" />
       </svg>
-      <p class="eyebrow intro-rise" style="--intro-delay: 60ms">A free desktop workspace for scientists</p>
       <h1 id="hero-title" class="intro-rise" style="--intro-delay: 100ms">
-        From plot to paper to talk,<br /><em>without starting over.</em>
+        A unified<br /><em>scientific workspace.</em>
       </h1>
       <p class="hero-description intro-rise" style="--intro-delay: 200ms">
-        Flux is where your figures, your manuscript and your slides are built from the same Python plots, in a folder of plain files you own. Change the analysis, and the figure, the paper and the talk follow.
+        Figures, presentations, literature, and papers.<br class="desktop-break" />
+        Connected in one place. Built for you and your AI collaborators.
       </p>
       <div class="hero-actions intro-rise" style="--intro-delay: 300ms">
         <a class="button button-primary" href="/install/">Install Flux<svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a><a class="text-link" href="#how-it-works">See how it fits together<span aria-hidden="true">↓</span></a>
@@ -198,42 +198,49 @@ description: "Flux is a free, open-source desktop workspace for scientists. Comp
   </section>
 
   <section id="how-it-works" class="flow-section content-width section-space" aria-labelledby="flow-title">
-    <div class="section-heading"><p class="eyebrow">How it fits together</p><h2 id="flow-title">One project. Every part stays connected.</h2><p>Plots made with fluxplot keep a name on every part. Figures are composed from those plots, papers and slides are built from those figures, and references flow in from your library. Nothing is pasted, so nothing goes stale.</p></div>
-    <div class="flow" tabindex="0" role="img" aria-label="Diagram: Python plots feed the Figure workspace; figures are placed in Paper and animated in Slides. Library feeds Reader, and references from both are cited in Paper. Regenerating a plot updates every figure that uses it.">
-      <svg viewBox="0 0 1000 330" aria-hidden="true">
+    <div class="section-heading"><p class="eyebrow">How it fits together</p><h2 id="flow-title">One project. Every part stays connected.</h2><p>Plots made with fluxplot keep a name on every part. Figures are composed from those plots, papers and slides are built from those figures, and references flow in from your library. One document, one deck: export them to whatever format the journal, the conference or your co-author needs.</p></div>
+    <div class="flow" tabindex="0" role="img" aria-label="Diagram: Python plots feed the Figure workspace; figures are placed in Paper and animated in Slides. Library feeds Reader, and references from both are cited in Paper. Regenerating a plot updates every figure that uses it. Paper exports to Word, PDF, HTML and journal styles; Slides export to a self-contained HTML deck, PowerPoint, PDF and video.">
+      <svg viewBox="0 0 1240 390" aria-hidden="true">
         <defs>
           <marker id="flow-head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z"/></marker>
         </defs>
         <g class="flow-edges">
-          <path d="M240 86h120" marker-end="url(#flow-head)"/>
-          <path d="M600 86h120" marker-end="url(#flow-head)"/>
-          <path d="M240 236h120" marker-end="url(#flow-head)"/>
-          <path d="M600 236h120" marker-end="url(#flow-head)"/>
-          <path d="M600 212c60 0 60 -106 120 -106" marker-end="url(#flow-head)"/>
-          <path class="flow-return" d="M360 262c-40 0-40 36-80 36h-40" marker-end="url(#flow-head)"/>
+          <path d="M230 95h96" marker-end="url(#flow-head)"/>
+          <path d="M550 95h96" marker-end="url(#flow-head)"/>
+          <path d="M230 285h96" marker-end="url(#flow-head)"/>
+          <path d="M550 285h96" marker-end="url(#flow-head)"/>
+          <path d="M550 258c50 0 50 -132 100 -132" marker-end="url(#flow-head)"/>
+          <path class="flow-return" d="M330 318c-40 0-40 44-80 44h-40" marker-end="url(#flow-head)"/>
+          <path class="flow-export" d="M870 95L970 118" marker-end="url(#flow-head)"/>
+          <path class="flow-export" d="M870 95L970 138" marker-end="url(#flow-head)"/>
+          <path class="flow-export" d="M870 95L970 158" marker-end="url(#flow-head)"/>
+          <path class="flow-export" d="M870 95L970 178" marker-end="url(#flow-head)"/>
+          <path class="flow-export" d="M870 285L970 218" marker-end="url(#flow-head)"/>
+          <path class="flow-export" d="M870 285L970 238" marker-end="url(#flow-head)"/>
+          <path class="flow-export" d="M870 285L970 258" marker-end="url(#flow-head)"/>
+          <path class="flow-export" d="M870 285L970 278" marker-end="url(#flow-head)"/>
         </g>
         <g class="flow-labels">
-          <text x="300" y="74">read, annotate</text>
-          <text x="660" y="74">cite</text>
-          <text x="300" y="224">import at true size</text>
-          <text x="660" y="224">animate by part</text>
-          <text x="690" y="176" text-anchor="start">place, caption</text>
-          <text x="300" y="316">re-run the script → the figure updates</text>
+          <text x="288" y="83">annotate</text>
+          <text x="608" y="83">cite</text>
+          <text x="288" y="273">import</text>
+          <text x="608" y="273">animate</text>
+          <text x="662" y="200" text-anchor="start">place, caption</text>
+          <text x="330" y="382">re-run the script → the figure updates</text>
         </g>
-        <g class="flow-nodes">
-          <g transform="translate(20 40)" class="flow-node" style="--c:#8b7ec8"><rect width="220" height="92" rx="10"/><circle cx="24" cy="26" r="5"/><text class="flow-title" x="40" y="33">Library</text><text class="flow-note" x="24" y="66">References and PDFs, shared by all your projects.</text></g>
-          <g transform="translate(380 40)" class="flow-node" style="--c:#d0a215"><rect width="220" height="92" rx="10"/><circle cx="24" cy="26" r="5"/><text class="flow-title" x="40" y="33">Reader</text><text class="flow-note" x="24" y="66">Read, highlight and keep notes on the source.</text></g>
-          <g transform="translate(740 40)" class="flow-node" style="--c:#4385be"><rect width="240" height="92" rx="10"/><circle cx="24" cy="26" r="5"/><text class="flow-title" x="40" y="33">Paper</text><text class="flow-note" x="24" y="66">Write, cite, and export to Word or PDF.</text></g>
-          <g transform="translate(20 190)" class="flow-node flow-code" style="--c:#575653"><rect width="220" height="92" rx="10"/><text class="flow-title" x="24" y="33">Python plots</text><text class="flow-note" x="24" y="58">fluxplot names every part:</text><text class="flow-mono" x="24" y="78">control.line · axis.x.tick.3</text></g>
-          <g transform="translate(380 190)" class="flow-node" style="--c:#3aa99f"><rect width="220" height="92" rx="10"/><circle cx="24" cy="26" r="5"/><text class="flow-title" x="40" y="33">Figure</text><text class="flow-note" x="24" y="66">Compose panels, restyle any part, export.</text></g>
-          <g transform="translate(740 190)" class="flow-node" style="--c:#ce5d97"><rect width="240" height="92" rx="10"/><circle cx="24" cy="26" r="5"/><text class="flow-title" x="40" y="33">Slides</text><text class="flow-note" x="24" y="66">Reveal, morph and turn, one step at a time.</text></g>
-        </g>
+        <foreignObject x="20" y="40" width="210" height="110"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#8b7ec8"></i>Library</span><span class="flow-box-note">References and PDFs, shared by all your projects.</span></div></foreignObject>
+        <foreignObject x="340" y="40" width="210" height="110"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#d0a215"></i>Reader</span><span class="flow-box-note">Read, highlight and keep notes on the source.</span></div></foreignObject>
+        <foreignObject x="660" y="40" width="210" height="110"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#4385be"></i>Paper</span><span class="flow-box-note">Write and cite. One manuscript, every output format.</span></div></foreignObject>
+        <foreignObject x="20" y="230" width="210" height="110"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-code"><span class="flow-box-title">Python plots</span><span class="flow-box-note">fluxplot names every part:</span><code>control.line · axis.x.tick.3</code></div></foreignObject>
+        <foreignObject x="340" y="230" width="210" height="110"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#3aa99f"></i>Figure</span><span class="flow-box-note">Compose panels, restyle any part, export.</span></div></foreignObject>
+        <foreignObject x="660" y="230" width="210" height="110"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#ce5d97"></i>Slides</span><span class="flow-box-note">Reveal, morph and turn, one step at a time.</span></div></foreignObject>
+        <foreignObject x="970" y="30" width="250" height="330"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-export"><span class="flow-box-title">Export anywhere</span><span class="flow-box-note">The same document, in any format.</span><ul class="flow-list"><li>Word (.docx)</li><li>PDF</li><li>HTML</li><li>Journal styles</li></ul><ul class="flow-list flow-list-slides"><li>Self-contained HTML deck</li><li>PowerPoint (.pptx)</li><li>PDF handout</li><li>Video (.mp4)</li></ul></div></foreignObject>
       </svg>
     </div>
     <ul class="flow-points">
       <li><strong>Plain files.</strong> Manuscripts are Quarto Markdown, references are BibTeX, figures and decks are readable JSON beside their SVGs. Keep the folder in git, open it in any editor, hand it to a colleague.</li>
       <li><strong>Live links.</strong> A plot placed in a figure stays linked to its source. Re-run the analysis and the regenerated plot hot-swaps into every figure, with your restyles intact.</li>
-      <li><strong>Your agent, inside the project.</strong> Connect Claude Code or Codex. It reads the project, sees the figures, and works through the comments you leave in the Inbox.</li>
+      <li><strong>Write once, export anywhere.</strong> A journal style is applied on the way out, never to your text, so switching from one journal to another or from PDF to Word is a menu choice.</li>
     </ul>
   </section>
 
@@ -252,7 +259,7 @@ description: "Flux is a free, open-source desktop workspace for scientists. Comp
   </section>
 
   <section class="showcase-section content-width section-space" aria-labelledby="showcase-title">
-    <div class="section-heading"><p class="eyebrow">Made in Flux</p><h2 id="showcase-title">Publication figures, composed from real plots.</h2><p>Two figures from a demonstration project. Every panel is a named plot or model that can be opened, restyled and regenerated.</p></div>
+    <div class="section-heading"><p class="eyebrow">Made in Flux</p><h2 id="showcase-title">Publication figures, composed in an editor <strong>made</strong> for science.</h2><p>Two figures from a demonstration project. Every panel is a named plot or model that can be opened, restyled and regenerated.</p></div>
     <div class="showcase-plates">
       <figure><a href="/assets/media/response-figure.webp" data-enlarge data-caption="Anatomy and population responses. Allen Brain Observatory data, Allen CCF2017 anatomy and separate MICrONS reconstructions. Circular links show response similarity, not anatomical connections."><img src="/assets/media/response-figure.webp" alt="A detailed neuroscience figure with brain anatomy, neuron reconstructions, response traces, population trajectories, distributions and a heatmap." width="1800" height="2086" loading="lazy"></a><figcaption><span>01 / Neuroscience</span>Anatomy, individual responses and population patterns.<a href="/docs/figure.html">Explore Figure →</a></figcaption></figure>
       <figure><a href="/assets/media/materials-figure.webp" data-enlarge data-caption="Materials across scales. Reference material properties, computed and analytic stress fields, MgB₂ electronic structure and COD crystal models. A composition of separate scientific examples."><img src="/assets/media/materials-figure.webp" alt="A multi-panel materials figure combining an Ashby chart, Fermi surface, stress fields, band sections and four crystal structures." width="1800" height="1486" loading="lazy"></a><figcaption><span>02 / Materials</span>Properties, fields and structures across scales, including 3D models.<a href="/docs/3d-models.html">Explore 3D models →</a></figcaption></figure>
@@ -261,7 +268,7 @@ description: "Flux is a free, open-source desktop workspace for scientists. Comp
   </section>
 
   <section id="slides" class="motion-showcase content-width section-space" aria-labelledby="motion-title">
-    <div class="section-heading"><p class="eyebrow">Slides</p><h2 id="motion-title">Explain it in motion.</h2><p>Build the talk from the same plots. Reveal a series, morph a chart from one condition to the next, turn a 3D structure. Every change is a step you trigger, and the deck exports as one self-contained HTML file.</p></div>
+    <div class="section-heading"><p class="eyebrow">Slides</p><h2 id="motion-title">Explain it in motion.</h2><p>In Flux, any figure can become a slide, because the underlying editor and files are the same. That makes it seamless and simple to take a figure you have already made and add motion: reveal a series, morph a chart from one condition to the next, turn a 3D structure. Every change is a step you trigger, and the deck exports as one self-contained HTML file.</p></div>
     <div class="scene-tabs" role="group" aria-label="Choose a scene" hidden>
       <button type="button" data-scene="1" aria-pressed="true"><span>Same cells, new stimulus</span><small>Data morph</small></button>
       <button type="button" data-scene="2" aria-pressed="false"><span>A structure in motion</span><small>3D turntable</small></button>
@@ -272,16 +279,6 @@ description: "Flux is a free, open-source desktop workspace for scientists. Comp
     </div>
     <div class="demo-caption"><p>Use the arrows to step through a scene, or pick another scene above. The player is Flux’s own.</p><a class="text-link" href="/docs/slides.html">Learn about Slides<span aria-hidden="true">→</span></a></div>
     <p class="visual-credit">Response data: <a href="https://brain-map.org/our-research/circuits-behavior/visual-coding">Allen Institute for Brain Science</a>. 3D geometry: FermiSurfer. <a href="/docs/visual-credits.html">Visual credits</a>.</p>
-  </section>
-
-  <section class="pillars content-width section-space" aria-labelledby="pillars-title">
-    <div class="section-heading"><p class="eyebrow">Who it is for</p><h2 id="pillars-title">Made for the people who explain science.</h2></div>
-    <div class="audience-grid">
-      <article><h3>Researchers</h3><p>Keep the figure, the manuscript and the supplementary panels consistent through every round of revision. Export to the journal’s format when it is time.</p><a class="text-link" href="/docs/first-project.html">Your first project<span aria-hidden="true">→</span></a></article>
-      <article><h3>Teachers and speakers</h3><p>Turn the same figures into step-by-step explanations: one series at a time, one condition becoming the next, a model turning in 3D.</p><a class="text-link" href="/docs/animation.html">Animation and timing<span aria-hidden="true">→</span></a></article>
-      <article><h3>Science writers</h3><p>Read and annotate papers from one library, cite as you write, and export clean Word, PDF or HTML without leaving the project.</p><a class="text-link" href="/docs/library.html">Library and Reader<span aria-hidden="true">→</span></a></article>
-      <article><h3>You and your AI agent</h3><p>Give an agent the project background once. It can see every figure, propose edits, and reply to comments you leave on a passage, a panel or a slide.</p><a class="text-link" href="/docs/connect.html">Connect an agent<span aria-hidden="true">→</span></a></article>
-    </div>
   </section>
 
   <section id="get-started" class="closing-section content-width section-space" aria-labelledby="closing-title">
