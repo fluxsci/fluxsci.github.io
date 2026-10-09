@@ -11,7 +11,10 @@
   const MS = window.ManagedMediaSource || window.MediaSource;
   const AHEAD = 24, BEHIND = 12;
 
-  launch.addEventListener("click", () => {
+  // The poster becomes the video (or the video already playing is reused).
+  function start() {
+    const playing = frame.querySelector("video.film-video");
+    if (playing) return playing;
     const video = document.createElement("video");
     video.className = "film-video";
     video.controls = true;
@@ -29,8 +32,32 @@
     else video.src = MASTER;
     frame.replaceChildren(video);
     frame.classList.add("is-playing");
+    return video;
+  }
+
+  launch.addEventListener("click", () => {
+    const video = start();
     video.focus({ preventScroll: true });
     video.play().catch(() => {});     // inside the click: the visitor asked for sound
+  });
+
+  // "Watch the video" in the hero starts the film full screen, inside the same click (play first: a granted
+  // full-screen request uses up the click's activation). Without JavaScript it is a link to the film.
+  for (const link of document.querySelectorAll("[data-film-watch]")) link.addEventListener("click", event => {
+    event.preventDefault();
+    frame.scrollIntoView({ block: "center" });     // where the visitor is when they leave full screen
+    const video = start(), request = video.requestFullscreen || video.webkitRequestFullscreen;
+    if (request) {
+      video.play().catch(() => {});
+      try { Promise.resolve(request.call(video)).catch(() => {}); } catch {}   // refused: it plays in place
+    } else {
+      // iPhone has no element full screen: a video without playsinline goes full screen as it starts, and one
+      // already playing in place is sent there.
+      if (video.readyState >= 1 && video.webkitEnterFullscreen) { try { video.webkitEnterFullscreen(); } catch {} }
+      else video.playsInline = false;
+      video.play().catch(() => {});
+    }
+    video.focus({ preventScroll: true });
   });
 
   function parse(text, base) {

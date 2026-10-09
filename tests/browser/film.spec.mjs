@@ -49,6 +49,35 @@ test('the film waits for a visitor, then plays the whole ladder as one continuou
   expect(errors).toEqual([]);
 });
 
+test('"Watch the video" in the hero starts the film full screen', async ({ page }) => {
+  test.setTimeout(60_000);
+  const errors = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.goto('/');
+  const link = page.locator('.hero-actions [data-film-watch]');
+  await expect(link).toHaveText(/^Watch the video/);
+  await expect(link).toHaveAttribute('href', '#film');
+  const decodes = await canDecode(page);
+  await link.click();
+  const video = page.locator('[data-film] video.film-video');
+  await expect(video).toHaveCount(1);
+  await expect(page).not.toHaveURL(/#film$/);
+  const elementFullscreen = await video.evaluate(element => !!(element.requestFullscreen || element.webkitRequestFullscreen));
+  if (elementFullscreen) {
+    await expect.poll(() => page.evaluate(() => (document.fullscreenElement || document.webkitFullscreenElement)?.tagName ?? null)).toBe('VIDEO');
+    await page.evaluate(() => (document.exitFullscreen || document.webkitExitFullscreen).call(document));
+    await expect.poll(() => page.evaluate(() => document.fullscreenElement || document.webkitFullscreenElement || null)).toBe(null);
+  } else {
+    expect(await video.evaluate(element => element.playsInline)).toBe(false);   // iPhone: plays in the system's full-screen player
+  }
+  if (decodes) await expect.poll(() => video.evaluate(element => element.currentTime), { timeout: 20000 }).toBeGreaterThan(0.5);
+  // Leaving full screen returns to the film, still the only video, still playing.
+  await expect(video).toBeInViewport();
+  await link.click();
+  await expect(page.locator('[data-film] video')).toHaveCount(1);
+  expect(errors).toEqual([]);
+});
+
 test('the explorer follows the film and keeps all five workspaces', async ({ page }) => {
   await page.goto('/');
   const film = await page.locator('#film').boundingBox();

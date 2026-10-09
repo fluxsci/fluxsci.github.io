@@ -157,7 +157,7 @@ description: "Flux is a free, open-source desktop workspace for scientists. Comp
         Connected in one place. Built for you and your AI collaborators.
       </p>
       <div class="hero-actions intro-rise" style="--intro-delay: 300ms">
-        <a class="button button-primary" href="/install/">Install Flux<svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a><a class="text-link" href="#how-it-works">See how it fits together<span aria-hidden="true">↓</span></a>
+        <a class="button button-primary" href="/install/">Install Flux<svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a><a class="text-link" href="#film" data-film-watch>Watch the video<span aria-hidden="true">↓</span></a>
       </div>
       <p class="hero-platforms intro-rise" style="--intro-delay: 360ms">macOS and Linux · Open source, MIT license · Python plotting with fluxplot</p>
     </div>

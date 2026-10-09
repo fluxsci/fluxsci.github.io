@@ -78,8 +78,8 @@ test('navigation works with mobile menu and keyboard dismissal', async ({ page }
   await page.getByRole('navigation', { name:'Main navigation', exact:true }).getByRole('link', { name:'Documentation', exact:true }).click();
   await expect(page).toHaveURL(/\/docs\/$/);
   await page.goto('/');
-  await page.locator('.hero-actions .text-link').click();
-  await expect(page).toHaveURL(/#how-it-works$/);
+  await page.locator('#film figcaption .text-link').click();
+  await expect(page).toHaveURL(/#explore$/);
   if (await menu.isVisible()) await expect(menu).toHaveAttribute('aria-expanded', 'false');
   await page.locator('[data-workspace-guide]').click();
   await expect(page).toHaveURL(/\/docs\/figure.html$/);
@@ -234,7 +234,7 @@ test.describe('without JavaScript', () => {
     await expect(navigation.getByRole('link', { name:/Documentation/ })).toBeVisible();
     await expect(page.locator('.scene-tabs')).toBeHidden();
     await page.locator('.hero-actions .text-link').click();
-    await expect(page).toHaveURL(/#how-it-works$/);
+    await expect(page).toHaveURL(/#film$/);
     await expect(page.locator('[data-enlarge]').first()).toHaveAttribute('href', /assets\/media\/figure-materials\.webp$/);
     const fallback = page.locator('.showcase-plates img').first();
     await fallback.scrollIntoViewIfNeeded();

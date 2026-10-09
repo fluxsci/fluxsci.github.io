@@ -42,7 +42,7 @@ Add a route and navigation entry to `scripts/routes.mjs`; `site/_quarto.yml` ren
 
 ## Homepage film
 
-The film sits directly below the homepage header. Nothing streams until a visitor presses play; the poster then becomes a native `<video>`. Safari and every iOS browser play the HLS ladder natively (with AirPlay); other browsers use `site/assets/scripts/film.js`, which appends the same fragmented-MP4 segments into one MediaSource buffer (one continuous timeline) and picks the rendition that fits the player and the connection, up to 4K at 60 fps. Without JavaScript the page offers a native video element.
+The film sits directly below the homepage header. Nothing streams until a visitor presses play; the poster then becomes a native `<video>`. Safari and every iOS browser play the HLS ladder natively (with AirPlay); other browsers use `site/assets/scripts/film.js`, which appends the same fragmented-MP4 segments into one MediaSource buffer (one continuous timeline) and picks the rendition that fits the player and the connection, up to 4K at 60 fps. Without JavaScript the page offers a native video element. "Watch the video" beside the install button starts the film full screen in the same click (iPhone uses its own full-screen player); without JavaScript it links down to the film.
 
 Re-encode after replacing the master (the masters stay outside the repository; their hashes are recorded):
 
