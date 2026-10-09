@@ -192,49 +192,80 @@ description: "Flux is a free, open-source desktop workspace for scientists. Comp
       >
       <figcaption>
         <span data-workspace-caption aria-live="polite">Compose the whole figure. Refine every individual part.</span>
-        <a class="text-link workspace-guide" href="/docs/figure.html" data-workspace-guide>Explore Figure<span aria-hidden="true">↓</span></a>
+        <a class="text-link workspace-guide" href="/docs/figure.html" data-workspace-guide>Explore Figure<span aria-hidden="true">→</span></a>
       </figcaption>
     </figure>
   </section>
 
   <section id="how-it-works" class="flow-section content-width section-space" aria-labelledby="flow-title">
-    <div class="section-heading"><p class="eyebrow">How it fits together</p><h2 id="flow-title">One project. Every part stays connected.</h2><p>Plots made with fluxplot keep a name on every part. Figures are composed from those plots, papers and slides are built from those figures, and references flow in from your library. One document, one deck: export them to whatever format the journal, the conference or your co-author needs.</p></div>
-    <div class="flow" tabindex="0" role="img" aria-label="Diagram: Python plots feed the Figure workspace; figures are placed in Paper and animated in Slides. Library feeds Reader, and references from both are cited in Paper. Regenerating a plot updates every figure that uses it. Paper exports to Word, PDF, HTML and journal styles; Slides export to a self-contained HTML deck, PowerPoint, PDF and video.">
-      <svg viewBox="0 0 1240 390" aria-hidden="true">
+    <div class="section-heading"><p class="eyebrow">How it fits together</p><h2 id="flow-title">One project. Every part stays connected.</h2><p>Plots made with fluxplot keep a name on every part. Figures are composed from those plots, papers and slides are built from those figures, and references flow in from your library. One document, one deck: export them to whatever format the journal, the conference or your <span class="nowrap">co-author</span> needs.</p></div>
+    <div class="flow" role="img" aria-label="Diagram: Library opens into Reader, and Reader's notes are cited in Paper. Python plots are imported into Figure; re-running the script updates the figure. Figures are placed and captioned in Paper and animated in Slides. Paper exports to Word, PDF, HTML and journal styles; Slides export to an HTML deck, PowerPoint, PDF handouts and video.">
+      <svg class="flow-wide" viewBox="0 0 1240 418" aria-hidden="true">
         <defs>
           <marker id="flow-head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z"/></marker>
         </defs>
         <g class="flow-edges">
-          <path d="M230 95h96" marker-end="url(#flow-head)"/>
-          <path d="M550 95h96" marker-end="url(#flow-head)"/>
-          <path d="M230 285h96" marker-end="url(#flow-head)"/>
-          <path d="M550 285h96" marker-end="url(#flow-head)"/>
-          <path d="M550 258c50 0 50 -132 100 -132" marker-end="url(#flow-head)"/>
-          <path class="flow-return" d="M330 318c-40 0-40 44-80 44h-40" marker-end="url(#flow-head)"/>
-          <path class="flow-export" d="M870 95L970 118" marker-end="url(#flow-head)"/>
-          <path class="flow-export" d="M870 95L970 138" marker-end="url(#flow-head)"/>
-          <path class="flow-export" d="M870 95L970 158" marker-end="url(#flow-head)"/>
-          <path class="flow-export" d="M870 95L970 178" marker-end="url(#flow-head)"/>
-          <path class="flow-export" d="M870 285L970 218" marker-end="url(#flow-head)"/>
-          <path class="flow-export" d="M870 285L970 238" marker-end="url(#flow-head)"/>
-          <path class="flow-export" d="M870 285L970 258" marker-end="url(#flow-head)"/>
-          <path class="flow-export" d="M870 285L970 278" marker-end="url(#flow-head)"/>
+          <path d="M230 90h96" marker-end="url(#flow-head)"/>
+          <path d="M550 90h96" marker-end="url(#flow-head)"/>
+          <path d="M230 290h96" marker-end="url(#flow-head)"/>
+          <path d="M550 290h96" marker-end="url(#flow-head)"/>
+          <path d="M550 262c50 0 50 -146 96 -146" marker-end="url(#flow-head)"/>
+          <path d="M870 90h86" marker-end="url(#flow-head)"/>
+          <path d="M870 290h86" marker-end="url(#flow-head)"/>
+          <path class="flow-return" d="M125 362C125 396 445 396 445 368" marker-end="url(#flow-head)"/>
         </g>
         <g class="flow-labels">
-          <text x="288" y="83">annotate</text>
-          <text x="608" y="83">cite</text>
-          <text x="288" y="273">import</text>
-          <text x="608" y="273">animate</text>
-          <text x="662" y="200" text-anchor="start">place, caption</text>
-          <text x="330" y="382">re-run the script → the figure updates</text>
+          <text x="278" y="78">open</text>
+          <text x="598" y="78">cite</text>
+          <text x="278" y="278">import</text>
+          <text x="598" y="278">animate</text>
+          <text x="588" y="194" text-anchor="end">place, caption</text>
+          <text x="913" y="78">export</text>
+          <text x="913" y="278">export</text>
+          <text x="285" y="410">re-run the script → the figure updates</text>
         </g>
-        <foreignObject x="20" y="40" width="210" height="110"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#8b7ec8"></i>Library</span><span class="flow-box-note">References and PDFs, shared by all your projects.</span></div></foreignObject>
-        <foreignObject x="340" y="40" width="210" height="110"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#d0a215"></i>Reader</span><span class="flow-box-note">Read, highlight and keep notes on the source.</span></div></foreignObject>
-        <foreignObject x="660" y="40" width="210" height="110"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#4385be"></i>Paper</span><span class="flow-box-note">Write and cite. One manuscript, every output format.</span></div></foreignObject>
-        <foreignObject x="20" y="230" width="210" height="110"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-code"><span class="flow-box-title">Python plots</span><span class="flow-box-note">fluxplot names every part:</span><code>control.line · axis.x.tick.3</code></div></foreignObject>
-        <foreignObject x="340" y="230" width="210" height="110"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#3aa99f"></i>Figure</span><span class="flow-box-note">Compose panels, restyle any part, export.</span></div></foreignObject>
-        <foreignObject x="660" y="230" width="210" height="110"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#ce5d97"></i>Slides</span><span class="flow-box-note">Reveal, morph and turn, one step at a time.</span></div></foreignObject>
-        <foreignObject x="970" y="30" width="250" height="330"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-export"><span class="flow-box-title">Export anywhere</span><span class="flow-box-note">The same document, in any format.</span><ul class="flow-list"><li>Word (.docx)</li><li>PDF</li><li>HTML</li><li>Journal styles</li></ul><ul class="flow-list flow-list-slides"><li>Self-contained HTML deck</li><li>PowerPoint (.pptx)</li><li>PDF handout</li><li>Video (.mp4)</li></ul></div></foreignObject>
+        <foreignObject x="20" y="22" width="210" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#8b7ec8"></i>Library</span><span class="flow-box-note">References and PDFs, shared by all your projects.</span></div></foreignObject>
+        <foreignObject x="340" y="22" width="210" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#d0a215"></i>Reader</span><span class="flow-box-note">Read, highlight and keep notes on the source.</span></div></foreignObject>
+        <foreignObject x="660" y="22" width="210" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#4385be"></i>Paper</span><span class="flow-box-note">Write and cite. One manuscript, every output format.</span></div></foreignObject>
+        <foreignObject x="20" y="222" width="210" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-code"><span class="flow-box-title">Python plots</span><span class="flow-box-note">fluxplot names every part:</span><code>control.line · axis.x.tick.3</code></div></foreignObject>
+        <foreignObject x="340" y="222" width="210" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#3aa99f"></i>Figure</span><span class="flow-box-note">Compose panels, restyle any part, export.</span></div></foreignObject>
+        <foreignObject x="660" y="222" width="210" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#ce5d97"></i>Slides</span><span class="flow-box-note">Reveal, morph and turn, one step at a time.</span></div></foreignObject>
+        <foreignObject x="970" y="22" width="250" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-export"><span class="flow-box-title">Documents</span><span class="flow-formats"><span>Word</span><span>PDF</span><span>HTML</span><span>Journal styles</span></span></div></foreignObject>
+        <foreignObject x="970" y="222" width="250" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-export"><span class="flow-box-title">Decks</span><span class="flow-formats"><span>HTML deck</span><span>PowerPoint</span><span>PDF handout</span><span>Video</span></span></div></foreignObject>
+      </svg>
+      <svg class="flow-tall" viewBox="0 0 400 820" aria-hidden="true">
+        <defs>
+          <marker id="flow-head-tall" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z"/></marker>
+        </defs>
+        <g class="flow-edges">
+          <path d="M100 154v42" marker-end="url(#flow-head-tall)"/>
+          <path d="M270 154v42" marker-end="url(#flow-head-tall)"/>
+          <path class="flow-return" d="M330 154v42" marker-end="url(#flow-head-tall)"/>
+          <path d="M100 360v70" marker-end="url(#flow-head-tall)"/>
+          <path d="M300 360v70" marker-end="url(#flow-head-tall)"/>
+          <path d="M216 315C196 315 204 495 190 495" marker-end="url(#flow-head-tall)"/>
+          <path d="M100 594v42" marker-end="url(#flow-head-tall)"/>
+          <path d="M300 594v42" marker-end="url(#flow-head-tall)"/>
+        </g>
+        <g class="flow-labels">
+          <text x="108" y="180" text-anchor="start">open</text>
+          <text x="262" y="180" text-anchor="end">import</text>
+          <text x="338" y="180" text-anchor="start">re-run</text>
+          <text x="92" y="400" text-anchor="end">cite</text>
+          <text x="308" y="400" text-anchor="start">animate</text>
+          <text x="214" y="398" text-anchor="start">place,</text>
+          <text x="214" y="414" text-anchor="start">caption</text>
+          <text x="108" y="620" text-anchor="start">export</text>
+          <text x="308" y="620" text-anchor="start">export</text>
+        </g>
+        <foreignObject x="20" y="0" width="160" height="150"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#8b7ec8"></i>Library</span><span class="flow-box-note">References and PDFs, shared by all your projects.</span></div></foreignObject>
+        <foreignObject x="220" y="0" width="160" height="150"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-code"><span class="flow-box-title">Python plots</span><span class="flow-box-note">fluxplot names every part:</span><code>control.line · axis.x.tick.3</code></div></foreignObject>
+        <foreignObject x="20" y="206" width="160" height="150"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#d0a215"></i>Reader</span><span class="flow-box-note">Read, highlight and keep notes on the source.</span></div></foreignObject>
+        <foreignObject x="220" y="206" width="160" height="150"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#3aa99f"></i>Figure</span><span class="flow-box-note">Compose panels, restyle any part, export.</span></div></foreignObject>
+        <foreignObject x="20" y="440" width="160" height="150"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#4385be"></i>Paper</span><span class="flow-box-note">Write and cite. One manuscript, every output format.</span></div></foreignObject>
+        <foreignObject x="220" y="440" width="160" height="150"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#ce5d97"></i>Slides</span><span class="flow-box-note">Reveal, morph and turn, one step at a time.</span></div></foreignObject>
+        <foreignObject x="20" y="646" width="160" height="170"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-export"><span class="flow-box-title">Documents</span><span class="flow-formats"><span>Word</span><span>PDF</span><span>HTML</span><span>Journal styles</span></span></div></foreignObject>
+        <foreignObject x="220" y="646" width="160" height="170"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-export"><span class="flow-box-title">Decks</span><span class="flow-formats"><span>HTML deck</span><span>PowerPoint</span><span>PDF handout</span><span>Video</span></span></div></foreignObject>
       </svg>
     </div>
     <ul class="flow-points">
@@ -246,7 +277,7 @@ description: "Flux is a free, open-source desktop workspace for scientists. Comp
 
   <section class="structure-section content-width section-space" aria-labelledby="structure-title">
     <div class="section-heading"><p class="eyebrow">Semantic plots</p><h2 id="structure-title">A plot is a structure, not a picture.</h2><p>Every meaningful part of a fluxplot plot carries a stable name. Hover the plot: a single point, the median line, the tick labels of an axis. That name is what you restyle in Figure, caption in Paper and animate in Slides, and it survives when the plot is regenerated.</p></div>
-    <div class="part-explorer" data-part-explorer aria-label="Explore the named parts of a fluxbox plot">
+    <div class="part-explorer" data-part-explorer role="group" aria-label="Explore the named parts of a fluxbox plot">
 <div class="explorer-stage"><img src="/assets/media/docs/explorer-fluxbox.svg" width="720" height="540" alt="A fluxbox plot with three conditions: Control, Low dose and High dose. Each condition shows eight points beside a box with a median line and a mean notch." loading="lazy"></div>
 <div class="explorer-panel"><div class="explorer-head"><span>Named parts</span><button type="button" data-explorer-clear>Release selection</button></div>
 <div class="explorer-readout"><p>Move the pointer over the plot, or choose a part from the list. Every element you land on has a stable name. Click a part to keep it selected.</p></div>

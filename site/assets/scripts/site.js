@@ -60,7 +60,7 @@
         guide.replaceChildren(document.createTextNode(`Explore ${title}`));
         const arrow = document.createElement("span");
         arrow.setAttribute("aria-hidden", "true");
-        arrow.textContent = "↓";
+        arrow.textContent = "→";
         guide.append(arrow);
         for (const button of buttons) button.setAttribute("aria-pressed", String(button.dataset.workspace === name));
         selected = name;
@@ -196,6 +196,7 @@
         imageOpener = link;
         largeImage.src = link.href;
         largeImage.alt = image?.alt || "";
+        dialog.classList.toggle("is-tall", Number(image?.getAttribute("height")) > Number(image?.getAttribute("width")));
         imageCaption.textContent = link.dataset.caption || image?.alt || "";
         dialog.showModal();
         root.classList.add("dialog-open");

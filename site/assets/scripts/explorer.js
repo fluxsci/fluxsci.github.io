@@ -29,7 +29,8 @@
     const axisName = which => ({ x: 'x axis', y: 'y axis', z: 'z axis', x2: 'secondary x axis', y2: 'secondary y axis' }[which] || `${which} axis`);
     function visit(node, path, parent) {
       const id = node.id || node.ref;
-      const role = node.role === 'group' ? 'group' : node.role;
+      const selfGroup = node.role === 'group' && node.members?.length === 1 && node.members[0] === id;
+      const role = selfGroup ? node.memberRole || node.groupRole : node.role === 'group' ? 'group' : node.role;
       let name = NAMES[role] || role;
       if (role === 'axis') name = axisName(node.axis);
       else if (role === 'series') name = node.label || id;
@@ -41,6 +42,9 @@
       if (parent) parent.children.push(entry);
       for (const child of node.children || []) visit(child, entry.path, entry);
       for (const [i, member] of (node.members || []).entries()) {
+        // A group whose only member carries the group's own id (fluxplot names a series'
+        // whiskers this way) is one part, not a group row with a duplicate inside it.
+        if (member === id) continue;
         const memberRole = node.memberRole || node.groupRole;
         const tail = member.split('.').pop();
         const label = `${NAMES[memberRole] || memberRole} ${/^\d+$/.test(tail) ? tail : ''}`.trim();
@@ -71,7 +75,7 @@
         case 'whisker': out.push(['Series', s.label], ['Reach', `${fmt(s.whiskerLow)} to ${fmt(s.whiskerHigh)}`]); break;
         case 'median': out.push(['Series', s.label], ['Median', fmt(s.median)]); break;
         case 'mean': out.push(['Series', s.label], ['Mean', fmt(s.mean)]); break;
-        case 'group': out.push(['Members', entry.children.length], ['Member role', entry.groupRole]); break;
+        case 'group': out.push(['Members', entry.node.members?.length ?? entry.children.length], ['Member role', entry.groupRole]); break;
         default: break;
       }
       if (s && entry.role !== 'figure') out.push(['Colour', s.color]);
@@ -85,9 +89,36 @@
       if (!entry) { readout.innerHTML = hint; return; }
       const crumbs = entry.path.map(id => index.get(id)?.name || id);
       const dl = facts(entry).map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(String(v))}</dd>`).join('');
-      readout.innerHTML = `<p class="explorer-crumbs">${crumbs.map(esc).join('<span aria-hidden="true"> › </span>')}</p><code class="explorer-id">${esc(entry.id)}</code><span class="explorer-role">${esc(entry.role === 'group' ? `group of ${entry.groupRole}s` : entry.role)}</span>${dl ? `<dl class="explorer-facts">${dl}</dl>` : ''}`;
+      const note = lockedWidth && !inked(entry).length ? '<p class="explorer-note">Named, but not drawn in this plot’s style.</p>' : '';
+      readout.innerHTML = `<p class="explorer-crumbs">${crumbs.map(esc).join('<span aria-hidden="true"> › </span>')}</p><code class="explorer-id">${esc(entry.id)}</code><span class="explorer-role">${esc(entry.role === 'group' ? `group of ${entry.groupRole.replace(/-/g, " ")}s` : entry.role)}</span>${dl ? `<dl class="explorer-facts">${dl}</dl>` : ''}${note}`;
+    }
+    // The drawn elements of a part: its own element plus everything the manifest lists
+    // inside it (an axis's spine is drawn outside the axis group), or for a group, its
+    // members. A series has no element of its own, so its contents stand in for it.
+    function elementsOf(entry) {
+      const own = svg.getElementById(entry.id);
+      const inner = entry.children.flatMap(elementsOf);
+      if (entry.role === 'group' && entry.children.length) return inner;
+      return own ? [own, ...inner] : inner;
+    }
+    function inked(entry) {
+      return elementsOf(entry).filter(el => { const r = el.getBoundingClientRect(); return r.width || r.height; });
     }
     const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+    // The readout keeps the height of its longest entry, so the tree below it never
+    // moves while the pointer travels over the plot or down the list.
+    let lockedWidth = 0;
+    function lockReadout() {
+      const width = readout.clientWidth;
+      if (!width || width === lockedWidth) return;
+      lockedWidth = width;
+      for (const [id, row] of rows) row.part.classList.toggle('is-undrawn', !inked(index.get(id)).length);
+      readout.style.minHeight = '';
+      let tallest = 0;
+      for (const entry of [null, ...index.values()]) { render(entry); tallest = Math.max(tallest, readout.offsetHeight); }
+      render(shown);
+      readout.style.minHeight = `${tallest}px`;
+    }
 
     // Highlight: a selection box drawn in the plot's own coordinate space. Screen
     // rectangles are mapped back through the SVG's screen matrix, so the box lands on
@@ -97,16 +128,12 @@
       overlay.replaceChildren();
       svg.querySelectorAll('.is-hot').forEach(el => el.classList.remove('is-hot'));
       if (!entry) return;
-      const ids = entry.role === 'group' && entry.children.length ? entry.children.map(c => c.id) : [entry.id];
       const toUser = svg.getScreenCTM()?.inverse();
       if (!toUser) return;
       let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
       const hot = [];
-      for (const id of ids) {
-        const el = svg.getElementById(id);
-        if (!el) continue;
+      for (const el of inked(entry)) {
         const r = el.getBoundingClientRect();
-        if (!r.width && !r.height) continue;
         hot.push(el);
         const a = new DOMPoint(r.left, r.top).matrixTransform(toUser);
         const b = new DOMPoint(r.right, r.bottom).matrixTransform(toUser);
@@ -170,6 +197,9 @@
     tree.replaceChildren(buildList({ children: [root] }));
     for (const id of ['figure', 'plot-area']) { const r = rows.get(id); if (r?.toggle) { r.toggle.setAttribute('aria-expanded', 'true'); r.sub.hidden = false; } }
     tree.addEventListener('pointerleave', () => preview(null));
+    // Named groups for assistive technology; a plain div's label would be ignored.
+    if (!box.hasAttribute('role')) box.setAttribute('role', 'group');
+    tree.setAttribute('role', 'group');
 
     // Selection: hovering previews a part; clicking keeps it; Escape or a second click releases it.
     let pinned = null, shown = null;
@@ -185,15 +215,42 @@
       // Keeping a part also reveals what it contains and where it sits in the tree.
       let p = entry;
       while (p) { const r = rows.get(p.id); if (r?.toggle) { r.toggle.setAttribute('aria-expanded', 'true'); r.sub.hidden = false; } p = p.parent; }
-      if (!fromTree) rows.get(entry.id)?.part.scrollIntoView({ block: 'nearest' });
+      if (!fromTree) revealRow(rows.get(entry.id)?.part);
+    }
+    // Scroll the list, never the page: the plot must stay under the pointer or finger.
+    function revealRow(part) {
+      if (!part) return;
+      const list = tree.getBoundingClientRect(), row = part.getBoundingClientRect();
+      if (row.top < list.top) tree.scrollTop -= list.top - row.top + 8;
+      else if (row.bottom > list.bottom) tree.scrollTop += row.bottom - list.bottom + 8;
     }
     const target = event => { const el = event.target.closest('[data-role]'); if (!el) return null; let node = el; while (node && node !== svg) { const entry = node.id && index.get(node.id); if (entry) return entry; node = node.parentNode; } return null; };
     svg.addEventListener('pointermove', event => { const entry = target(event); if (entry !== shown || !entry) preview(entry); moveTip(event, entry); });
     svg.addEventListener('pointerleave', () => { preview(null); tip.hidden = true; });
     svg.addEventListener('click', event => { const entry = target(event); if (entry) select(entry); });
-    function release() { pinned = null; box.classList.remove('is-pinned'); show(null); if (box.contains(document.activeElement)) document.activeElement.blur(); }
-    box.addEventListener('keydown', event => { if (event.key === 'Escape' && pinned) release(); });
-    box.querySelector('[data-explorer-clear]')?.addEventListener('click', release);
+    // Releasing keeps keyboard users where they were: focus stays on (or returns to) the
+    // part's row, which then shows as an ordinary preview.
+    const clear = box.querySelector('[data-explorer-clear]');
+    function release() {
+      const was = pinned;
+      pinned = null; box.classList.remove('is-pinned');
+      if (document.activeElement === clear && was) rows.get(was.id)?.part.focus({ preventScroll: true });
+      const row = document.activeElement?.closest?.('.explorer-part');
+      show(row && box.contains(row) ? index.get(row.dataset.part) : null);
+    }
+    // A part pinned with the pointer leaves focus outside the explorer, so Escape is
+    // heard document-wide while something is pinned (an open dialog handles its own).
+    document.addEventListener('keydown', event => {
+      if (event.key !== 'Escape' || !pinned || event.defaultPrevented || document.querySelector('dialog[open]')) return;
+      const focused = document.activeElement;
+      if (focused && focused !== document.body && !box.contains(focused)) return;
+      release();
+    });
+    clear?.addEventListener('click', release);
+    box.addEventListener('focusout', event => { if (!pinned && !box.contains(event.relatedTarget)) show(null); });
+    lockReadout();
+    if ('ResizeObserver' in window) new ResizeObserver(() => requestAnimationFrame(lockReadout)).observe(readout);
+    document.fonts?.ready.then(() => { lockedWidth = 0; lockReadout(); });
     box.classList.add('is-live');
   }
 })();
