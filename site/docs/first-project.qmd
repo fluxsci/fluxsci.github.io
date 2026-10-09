@@ -15,6 +15,8 @@ Bring a plot into a figure. Give it a caption, a place in your manuscript, and a
 
 You’ll need [Flux installed](/install/). The plotting step uses Python and fluxplot; you can also begin with an SVG or PNG you already have. All numbers in the small example below are **synthetic**.
 
+Shortcuts are written with **Ctrl** and **Alt**. On macOS, press **⌘ Command** for Ctrl and **⌥ Option** for Alt; [Keyboard shortcuts](/docs/shortcuts.html) lists them all.
+
 ## 1. Give the work a home {#create}
 
 Create a working folder called `growth-study`. In Flux, choose **New project** from Home and create a project named `paper` inside that folder.
@@ -26,7 +28,13 @@ growth-study/
 
 Your analysis code will live in `growth-study`; the project holds the writing, plots, figures, references, and slides. Flux autosaves your work. If saving reports an error, resolve it before closing the app.
 
-You can return to the folder from Home, or open it from a terminal with `flux /path/to/growth-study/paper`. [Learn how projects and files fit together](projects-and-files.qmd).
+You can return to the project from Home, or open it from a terminal:
+
+```bash
+flux /path/to/growth-study/paper
+```
+
+[Learn how projects and files fit together](projects-and-files.qmd).
 
 ## 2. Make a plot with named parts {#plot}
 
@@ -47,24 +55,31 @@ import matplotlib.pyplot as plt
 import fluxplot as fp
 
 time = [0, 4, 8, 12, 16, 20, 24]
-control = [0.02, 0.05, 0.13, 0.41, 0.95, 1.60, 1.90]
-treatment = [0.02, 0.07, 0.25, 0.80, 1.50, 1.95, 2.10]
+control = [0.02, 0.05, 0.13, 0.41,
+           0.95, 1.60, 1.90]
+treatment = [0.02, 0.07, 0.25, 0.80,
+             1.50, 1.95, 2.10]
 
 fig, ax = plt.subplots(figsize=(4.8, 3.2))
-fp.line(ax, time, control, series="control",
+fp.line(ax, time, control,
+        series="control",
         marker="o", label="Control")
-fp.line(ax, time, treatment, series="treatment",
+fp.line(ax, time, treatment,
+        series="treatment",
         marker="s", label="Treatment")
-ax.set(xlabel="Time (h)", ylabel="Illustrative response",
-       title="Two synthetic growth profiles")
+ax.set(xlabel="Time (h)",
+       ylabel="Illustrative response")
+ax.set_title("Synthetic growth profiles")
 ax.legend(frameon=False)
 fig.tight_layout()
 
-output = Path(__file__).parent / "paper" / "plots" / "growth.svg"
-output.parent.mkdir(parents=True, exist_ok=True)
-fp.save(fig, output,
-        recipe={"script": str(Path(__file__).resolve()),
-                "params": {}, "inputs": []})
+here = Path(__file__).resolve()
+plots = here.parent / "paper" / "plots"
+plots.mkdir(parents=True, exist_ok=True)
+recipe = {"script": str(here),
+          "params": {}, "inputs": []}
+fp.save(fig, plots / "growth.svg",
+        recipe=recipe)
 ```
 
 Run it:
@@ -83,7 +98,7 @@ You now have three neighboring files in `paper/plots/`: `growth.svg`, `growth.fl
 
 Switch to **Figure** in the titlebar. Open the **Plot gallery** with **Alt+G**, select `growth.svg`, and choose **Insert**. Flux imports at the plot’s physical size; the gallery marks semantic plots with a **◆** badge.
 
-Select a plot part with **Ctrl+click** (**⌘+click** on macOS). Press **F** to open its properties and change a line’s stroke color. **Alt+R** opens X-ray, where you can inspect the plot’s named parts and regeneration recipe.
+Select a plot part with **Ctrl+click**. Press **F** to open its properties and change a line’s stroke color. **Alt+R** opens **X-ray**, where you can inspect the plot’s named parts and regeneration recipe.
 
 Try changing a number in `make_growth.py` and rerunning it. Flux refreshes the linked plot, retaining styling attached to stable series identities such as `control`. Source status in the figure catalog tells you whether the link is current, missing, or needs attention.
 
@@ -118,7 +133,7 @@ Your manuscript remains a `.qmd` file. You can write equations, add tables, keep
 
 In **Slides**, compose a slide from the same plot sources. Add a beat for the next part of your explanation, then use the animation tools to reveal an element or transform it into a later state. Present at your own pace.
 
-An interactive slide can also live inside a Paper document. HTML preserves its steps; PDF and Word use a still. The example below uses Flux’s native player with newly composed website slides and unchanged plots from the master showcase.
+An interactive slide can also live inside a Paper document. HTML preserves its steps; PDF and Word use a still. The example below runs in Flux’s native player: the slides were composed for this website, and the plots come unchanged from the master demonstration project.
 
 ```{=html}
 <div class="slide-demo" id="slide-demo" data-demo-src="/demos/data-morph/index.html" data-demo-scene="1">
@@ -130,12 +145,7 @@ The example opens on **Follow the same cells**: 143 recorded cells in a shared r
 
 ## 7. Export and keep the sources {#export}
 
-In Paper, choose **Export** and select PDF. Flux’s built-in PDF export does not require Quarto. Word export uses Quarto; install it through **Set up Flux** if needed. The separate `flux compile --to pdf` workflow also requires TeX.
+In Paper, choose **Export** and select PDF. Flux’s built-in PDF export does not require Quarto. Word export uses Quarto; install it through **Set up Flux** if needed. The command-line route, `flux compile --to pdf`, uses Quarto and also needs TeX ([PDF dependencies](/docs/export-documents.html#pdf-dependencies)).
 
 Check the exported figures, captions, and references, then keep your project folder alongside the result. It contains the editable work you will want for the next revision.
 
-::: {.next-reading}
-**Next: know what you’re keeping.**
-
-[Projects and files →](projects-and-files.qmd)
-:::

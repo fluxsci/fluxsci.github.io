@@ -13,15 +13,17 @@ Choose a file format, apply a journal style, and check the result.
 
 ## Export {#export}
 
-The **Export** button in the status bar — or **Alt+E** — opens a dialog with two
-independent choices: the **file format** (PDF, Word, HTML) and the **journal style**.
-Every format saves where you choose, defaulting to the project's `exports/` — the
-suggested file name follows the format you pick, so switching to Word gives you a `.docx`
-name, not the `.pdf` one the dialog opened on (a name you choose yourself is kept). Word and
-journal-styled PDF run through Quarto (the dialog says so when Quarto isn't installed —
-see [Installation](/install/)); a long render shows its progress and can be
-cancelled. Figure renders, captions, and panel references are all resolved during export,
-and failures surface as a toast naming what to fix.
+The **Export** button in the status bar, or **Alt+E**, opens a dialog with two independent
+choices: the **file format** (PDF, Word, HTML) and the **journal style**.
+
+- Every format saves where you choose, defaulting to the project's `exports/` folder. The
+  suggested file name follows the format you pick, so switching to Word suggests a `.docx`
+  name; a name you typed yourself is kept.
+- Word and journal-styled PDF run through Quarto. The dialog says so when Quarto isn't
+  installed; see [PDF dependencies](#pdf-dependencies) and [Installation](/install/).
+- A long render shows its progress and can be cancelled.
+- Figure renders, captions and panel references are resolved during export. A failure
+  appears as a notification that names what to fix.
 
 ### Journal styles {#journal-styles}
 
@@ -61,15 +63,36 @@ prose.
 
 Flux's built-in PDF export needs neither Quarto nor TeX. Word and journal-styled exports use Quarto; Quarto PDF also needs TeX. **Set up Flux** can install Quarto and TinyTeX.
 
-Journal styles may need additional TeX packages and an SVG converter:
+Journal styles may need additional TeX packages and an SVG converter. Install the packages for
+your TeX distribution.
 
-| Environment | Additional packages |
-|---|---|
-| TinyTeX | `tlmgr install lineno setspace` |
-| MacTeX | `sudo tlmgr install lineno setspace` |
-| Debian / Ubuntu TeX Live | `sudo apt install texlive-latex-recommended texlive-humanities texlive-luatex texlive-fonts-recommended` |
+With **TinyTeX**:
 
-Install `rsvg-convert` through `librsvg` on Homebrew or Arch, or `librsvg2-bin` on Debian/Ubuntu. Check it with `rsvg-convert --version`. TeX can locate a package with `kpsewhich lineno.sty setspace.sty`.
+```bash
+tlmgr install lineno setspace
+```
+
+With **MacTeX**:
+
+```bash
+sudo tlmgr install lineno setspace
+```
+
+With **TeX Live on Debian or Ubuntu**:
+
+```bash
+sudo apt install texlive-latex-recommended \
+  texlive-humanities texlive-luatex \
+  texlive-fonts-recommended
+```
+
+Install `rsvg-convert` through `librsvg` on Homebrew or Arch, or `librsvg2-bin` on
+Debian/Ubuntu. Check the converter, and confirm that TeX can find the packages:
+
+```bash
+rsvg-convert --version
+kpsewhich lineno.sty setspace.sty
+```
 
 TinyTeX's own commands may need its bin folder on your shell's PATH: `~/Library/TinyTeX/bin/universal-darwin` on macOS or `~/.TinyTeX/bin/x86_64-linux` on Linux. Flux and Quarto can find TinyTeX without that shell change. These dependencies do not affect Word export.
 

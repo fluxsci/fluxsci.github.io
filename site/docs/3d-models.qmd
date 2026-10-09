@@ -11,7 +11,7 @@ description: "Import a model, choose its view, and work with named parts, value 
 Import a model, choose its view, and work with named parts, value fields and shape states.
 :::
 
-## 3D models and 3D fluxplots {#3d-models}
+## Import a model {#3d-models}
 
 Import a **GLB** mesh through **Import**, drag it onto the canvas, or pick its **3D** tile in
 the gallery. Flux keeps a project copy, so sharing the project does not depend on the
@@ -28,15 +28,23 @@ pick. If preparing a model takes more than a second, a notice names the files st
 imported. A placed model shows a dashed outline while its image is prepared, and
 “Preparing 3D preview” only if that takes longer than a second.
 
+## Create a 3D fluxplot in Python {#python}
+
 In Python, start a scene, add your mesh and save it into `plots/`. This needs a fluxplot
-version with `fp.scene3d` support. Install or update [fluxplot](/docs/fluxplot.html#install); the released package includes 3D scenes.
+release with `fp.scene3d`; [install or update fluxplot](/docs/fluxplot.html#install) if
+needed. [3D plots](/docs/3d-plots.html) covers scenes, value fields and shape states in depth.
 
 ```python
 import fluxplot as fp
 
-# vertices is an N×3 array; faces is an M×3 array of vertex indices.
-sc = fp.scene3d(figsize=(3.5, 3), units="µm", up="z", axes="triad")
-fp.mesh3d(sc, (vertices, faces), series="neuron", color="#4385be")
+# vertices: an N×3 array of coordinates
+# faces: an M×3 array of vertex indices
+sc = fp.scene3d(figsize=(3.5, 3),
+                units="µm", up="z",
+                axes="triad")
+fp.mesh3d(sc, (vertices, faces),
+          series="neuron",
+          color="#4385be")
 sc.view(azimuth=30, elevation=20)
 fp.save(sc, "plots/neuron")
 ```
@@ -47,6 +55,8 @@ Use **Copy view** and paste the `sc.view(...)` line it produces into your code, 
 make that angle the scene's Home view. In the viewer, click the model (or hold **Ctrl**) before
 scrolling to zoom; otherwise scrolling moves the notebook as usual. For a static output, use `sc.show(static=True)`.
 
+## Update from source {#update-from-source}
+
 After rerunning Python, **Source changed** appears in the Inspector and as a dot in
 Layers, together with **Update from source**. Choose it to accept the new geometry and
 metadata. Your box, camera and look stay in place; restyles and field settings remain for
@@ -55,6 +65,8 @@ disappear or bounds move substantially. **Undo** restores the previous stored mo
 Source changes never replace the model automatically. A missing original file leaves the
 saved copy available. For a recipe-backed model, **Regenerate** in X-ray reruns the recipe
 with its parameters and applies the same update after it succeeds.
+
+## Orbit and views {#orbit}
 
 **Double-click the mesh**, or choose **Orbit** in the Inspector, to turn it. While you
 orbit, the button reads **Done** and a hint over the model lists the keys:
@@ -70,11 +82,13 @@ orbit, the button reads **Done** and a hint over the model lists the keys:
 | **0** | Home view and saved shape weights |
 | **P** | Switch orthographic / perspective |
 | **Enter** | Finish, like **Done**; one **Undo** restores the previous view |
-| **Esc** | Cancel the whole orbit visit |
+| **Escape** | Cancel the whole orbit visit |
 
 Clicking outside the model also finishes. **Space+drag** and **Ctrl+wheel** return to
 canvas navigation. Double-clicking a label, colorbar, legend or scale bar selects that part
 instead, as with a 2D plot's parts.
+
+## The 3D model panel {#model-panel}
 
 The Inspector's **3D model** panel is grouped into sections:
 
@@ -92,6 +106,8 @@ almost straight down one axis shrinks it to a short stub. Its tick labels are th
 rather than stacked on top of each other, and so is its title if the title is longer than
 the stub. The axis line, ticks and grid stay.
 
+## Parts, value fields and shapes {#parts-and-fields}
+
 Use **Alt+R** for the model's **X-ray**. Named mesh parts can be recoloured, hidden or made
 transparent; labels can be restyled independently. Mesh-part colours show while **Colours**
 is **From file**, so painting a mesh part on a Uniform model switches it to From file (one
@@ -105,6 +121,8 @@ and fractional values blend neighbouring frames. **Custom** means the current we
 are not a sequence frame. **Reset shape** restores the saved weights. Stored scientific
 weights can extend beyond the slider range.
 
+## Export and limits {#export}
+
 PNG and TIFF exports rasterize the result at the requested print size. SVG and PDF keep
 the mesh as a high-resolution image while axes, labels, legends and scale bars remain
 vector artwork. Paper uses the saved figure view in its embeds and document exports.
@@ -112,6 +130,16 @@ Large meshes can be reduced at creation with `fp.mesh3d(..., max_faces=...)`; th
 the optional `fluxplot[mesh]` extra. Texture images are omitted and skinning is ignored:
 Flux shows the stored mesh geometry, so bake a desired pose before exporting the GLB.
 Point and line primitives are refused; export triangle meshes.
+
+## Troubleshooting {#troubleshooting}
+
+| Symptom | Cause → fix |
+|---|---|
+| I see a grey 3D tile | Read the message inside it. Restore a missing GLB, or enable graphics support if rendering is unavailable. Saved posters can still display when a new render cannot be made. |
+| Orbit won't start | A notice says why: the model is locked or hidden (unlock or show it), its file is missing, rendering is unavailable, or another editing mode owns the interaction. Resolve that condition, then choose Orbit again. |
+| Saving says a 3D model file is missing | The model's GLB was moved or deleted from the project's `fig/assets/` folder. The figure still opens with a grey tile in its place, and saving waits. Put the named file back and save again, or select the model and delete it: saving resumes and the rest of the figure is untouched. **Ctrl+Z** brings the model back, and saving waits again until its file returns. If the message says a deck still uses the file, restore it or delete that model from the deck. |
+| Notebook labels look different | In a notebook, the interactive viewer uses browser fonts; the PNG fallback uses Python's font renderer. Install the same font in both environments. Placement and point sizes remain explicit. |
+| Notebook output is blank | In an untrusted notebook, VS Code can suppress an entire mixed HTML/PNG output. Trust the notebook if appropriate, or run `sc.show(static=True)` to request only the PNG. See [3D plots](/docs/3d-plots.html#axes-scale-bars-and-notebook-behavior). |
 
 ::: {.next-reading}
 **Related guides**

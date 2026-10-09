@@ -11,80 +11,105 @@ description: "Find plots, insert them at their intended size, and keep their sou
 Find plots, insert them at their intended size, and keep their sources current.
 :::
 
+## Getting plots in {#getting-plots-in}
+
+### Browse the gallery {#browse}
+
+**Alt+G** opens the **Plot gallery**, showing SVG and PNG previews in the current folder,
+including GLB meshes marked **3D**. Choose **Gallery** or **List**, and adjust **Size**,
+**Space** and **Names** to make the contact sheet comfortable; Size reaches **800 px** for large
+previews. Flux remembers these display choices.
+
+**Folders** shows or collapses a directory tree. Clicking a folder shows what is in it, and the
+**›** arrow beside it expands or collapses its branches, so you can browse files without losing
+your picks. The **Folder click behavior** setting in **Settings → Figure** can make the click do
+both. The root button (**plots** or **plot_library**) returns to the top, and **Up** or
+**Backspace** goes to the parent folder.
+
+**◆** marks semantic plots and **◇** marks plain images; **List** also shows semantic and
+paper-snip badges. In Slides, the gallery also previews MP4/MOV clips: select **Play video** to
+play, pause, seek, or mute a clip in the full-window view (see
+[3D and video in slides](/docs/slide-media.html)).
+
+### Project and global plots {#global-plot-library}
+
+**Project** / **Global** at the top of the gallery (**Alt+1** / **Alt+2**) switches between this
+project's `plots/` folder and your **global plot library**, the `plot_library` folder inside your
+FluxConfig folder (by default `~/FluxConfig/plot_library`). Picks from both scopes can go in
+together.
+
+Put plots you reuse everywhere in the global library, such as logos, schematics, reference
+panels and colour keys. Organise it with any folders you like, as you would a project's
+`plots/`; Flux creates the folder the first time you open **Global**, and **Open folder** takes
+you there. The project keeps its own copy of every plot you insert, and a global plot stays
+linked to its file in the library, so regenerating it there updates it here on this machine.
+The global library holds SVG, PNG and GLB plots; video clips live in a project's
+`plots/_videos/`.
+
+### Search, select and insert {#search-and-insert}
+
+By default, search reaches ordinary folders throughout the tree you are browsing. The **Plot
+gallery search scope** setting in **Settings → Figure** can widen or narrow that: everything in
+the scope you are browsing (the default), only the current folder and its subfolders, only
+project plots, only global plots, or everything in both. When results come from outside the
+scope you are browsing, each one is labelled **Project** or **Global**.
+
+The reserved [`_dissections/`](/docs/dissections.html) and `_lighttable/` companion collections
+stay out of ordinary results. Type **`_`** to list them and **Enter** to go in, or open them in
+**Folders**. Search then stays inside that collection until you leave it.
+
+Click a plot, or press **Enter** or **Space** in an empty search box, to select it. Picks
+survive folder changes and searches. **Ctrl+Enter**, the **Insert** button, or a double-click
+inserts the selection.
+
+**Ctrl+click** (**⌘+click** on macOS) a plot, or use **Preview** / **F4**, for a full-window
+view. Arrow keys browse adjacent plots; **Escape** returns to the gallery. Open **Dissections**
+or press **D** to inspect the plot's companion groups and panels. **Similar names** finds
+filename variants across the current search scope, without selecting them; clear that filter to
+return to normal browsing.
+
+### Pin the gallery {#pin-the-gallery}
+
+**Pin open** moves the gallery into its own resizable window. Move it to another screen and keep
+arranging figures in the editor. The current folder and selection are preserved, and you can
+still browse the entire `plots/` tree and the global library. Insertions leave the window open
+and use the figure named in its footer; successful insertions clear the submitted picks, ready
+for the next batch.
+
+**Dock** returns the same gallery to the editor, and **Alt+G** brings an already pinned gallery
+forward. **Refresh** reloads files and previews. Preview columns adjust as you resize the pinned
+window, including while the editor is minimized. Closing the project also closes its gallery.
+
+### Import from files or the clipboard {#import}
+
+**Drag files in** from your file manager (an SVG with its `.fluxplot.json` sibling imports as a
+semantic plot), or **paste an image** straight from the clipboard. A pasted image has no file
+behind it, so Flux keeps the original for you in [`plots/pasted/`](/docs/project-layout.html).
+
+Everything imports at **true physical size**: a 6.4 × 4.8 inch plot lands exactly that big,
+never silently rescaled. If an import is larger than its figure frame, a notification says so;
+**Ctrl+Shift+I** brings the selection inside the frame (moving it, never resizing it).
+
 ## Keeping linked sources current {#keeping-linked-sources-current}
 
 Imported plots retain an accepted SVG and its semantic metadata in the project. When analysis
 regenerates a linked source, Flux updates that accepted bundle automatically, including changes
-only to a manifest or recipe. Figure, Paper, and slides read the accepted version. Edits also
-catch up when the project opens and before export. Styling overrides, figure identity, captions,
-and deliberate placement scale survive source updates.
+only to a manifest or recipe. Figure, Paper, and Slides read the accepted version. Accepted
+copies also catch up with their sources when the project opens and before export. Styling
+overrides, figure identity, captions, and deliberate placement scale survive source updates.
 
 The catalog's **Sources** section shows **Linked · current**, **Updating**, **Source missing**,
 **Update failed**, or **Frozen version**. A missing or malformed source retains the last good
 version; the error explains what needs attention. **Reload sources** retries immediately.
 If a saved caption cannot be read, source refresh stops to preserve it. Restore access to
 the caption file, then retry **Reload sources**.
+
 **Relink…** chooses a moved source. **Freeze** gives the selected figure an independent saved
 version; **Resume updates** links it again. These actions preserve the other figures' links.
 
 **Used in** lists manuscript references and slide copies that share source assets. Removing a
 referenced figure or canvas first shows these uses. Paper references then become unresolved;
 slide copies retain the assets they need. A slide copy has its own layout and annotations.
-
-## Getting plots in {#getting-plots-in}
-
-- **Alt+G** opens the **Plot gallery**, showing SVG and PNG previews in the current
-  folder, including GLB meshes marked **3D**. Choose **Gallery** or **List**; adjust **Size**, **Space**, and **Names** to make
-  the contact sheet comfortable. Size reaches **800 px** for large previews. **Folders**
-  shows or collapses a directory tree; clicking a folder shows what is in it, and the **›**
-  arrow beside it expands or collapses its branches, so you can browse files without losing
-  your picks (**Settings → Plot gallery** can make the click do both). Flux remembers these
-  display choices.
-- **Project** / **Global** at the top of the gallery (**Alt+1** / **Alt+2**) switches between
-  this project's `plots/` folder and your **global plot library**, the
-  `plot_library` folder inside your FluxConfig folder (by default
-  `~/FluxConfig/plot_library`). Put plots you reuse everywhere there, such as logos,
-  schematics, reference panels and colour keys. Organise it with any folders you like, as
-  you would a project's `plots/`; Flux creates the folder the first time you open **Global**
-  and **Open folder** takes you there. Picks from both scopes can go in together. The
-  project keeps its own copy of every plot you insert, and a global plot stays linked to its
-  file in the library, so regenerating it there updates it here on this machine. The global
-  library holds SVG, PNG and GLB plots; video clips live in a project's `plots/_videos/`.
-- **What a search covers** is set in **Settings → Figure → Plot gallery**: everything in
-  the scope you are browsing (the default), only the current folder and its subfolders, only
-  project plots, only global plots, or everything in both. When results come from outside
-  the scope you are browsing, each one is labelled **Project** or **Global**.
-- Click a plot, or press **Enter** or **Space** in an empty search box, to select it.
-  Picks survive folder changes and searches. **Ctrl+Enter**, the **Insert** button, or
-  a double-click inserts the selection. By default, search reaches ordinary folders
-  throughout the tree you are browsing. The root button (**plots** or **plot_library**)
-  returns to the top, and **Up** or **Backspace** goes to the parent folder.
-- **Ctrl-click** (Mac: **⌘-click**) a plot, or use **Preview** / **F4**, for a full-window
-  view. Arrow keys browse adjacent plots; **Escape** returns to the gallery. Open
-  **Dissections** or press **D** to inspect the plot's companion groups and panels.
-  **Similar names** finds filename variants across the current search scope, without
-  selecting them. Clear that filter to return to normal browsing.
-- **Pin open** moves the gallery into its own resizable window. Move it to another screen
-  and keep arranging figures in the editor. The current folder and selection are preserved,
-  and you can still browse the entire `plots/` tree and the global library. Insertions leave the window open and
-  use the figure named in its footer. Successful insertions clear the submitted picks,
-  ready for the next batch. **Dock** returns the same gallery to the editor;
-  **Alt+G** brings an already pinned gallery forward. **Refresh** reloads files and previews.
-  Preview columns adjust as you resize the pinned window, including while the editor is
-  minimized. Closing the project also closes its gallery.
-- **◆** marks semantic plots and **◇** marks plain images; **List** also shows semantic
-  and paper-snip badges. The reserved [`_dissections/`](/docs/dissections.html) and
-  `_lighttable/` companion collections stay out of ordinary results. Type **`_`** to list
-  them and **Enter** to go in, or open them in **Folders**. Search then stays inside that
-  collection until you leave it. The Slide gallery also previews MP4/MOV clips: select
-  **Play video** to play, pause, seek, or mute a clip in the full-window view.
-- **Drag files in** from your file manager (an SVG with its `.fluxplot.json` sibling imports
-  as a semantic plot), or **paste an image** straight from the clipboard. A pasted image has
-  no file behind it, so Flux keeps the original for you in
-  [`plots/pasted/`](/docs/project-layout.html).
-- Everything imports at **true physical size** — a 6.4 × 4.8 inch plot lands exactly that
-  big, never silently rescaled. If an import is larger than its figure frame, a toast says so:
-  **Ctrl+Shift+I** brings the selection inside the frame (moving it, never resizing it).
 
 ::: {.next-reading}
 **Related guides**

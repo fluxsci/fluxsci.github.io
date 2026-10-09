@@ -30,25 +30,43 @@ move one step), **Shift+H** / **Shift+V** flip, **Delete** removes, **Escape** c
 you're midway through. The Inspector's Align row lines selections up, distributes them, and
 sets exact gaps.
 
+## The property menu {#property-menu}
 
 <figure class="doc-figure doc-figure-compact"><a href="/assets/media/docs/figure-property-menu.png" data-enlarge data-caption="Press F for the selected object’s geometry and axis-view controls. The blue key labels let you work without moving the pointer."><img src="/assets/media/docs/figure-property-menu.png" alt="Native property menu with geometry, content scale and axis-view controls." width="906" height="1078" loading="lazy"></a><figcaption>Press F for the selected object’s geometry and axis-view controls. The blue key labels let you work without moving the pointer. Click to enlarge.</figcaption></figure>
 
-Press **F** with anything selected for the **property menu** — the fastest way to edit, built
-for one hand on the keyboard and one on the mouse. It opens **beside the selection**, never on
-top of it (when nothing fits, it takes the side that covers the least), and lays its groups
-out in narrow columns — each row is a key and a name over its control — so nothing scrolls.
-Opening a larger picker repositions the menu when needed to keep the selection clear.
-Every hotkey is a **left-hand key** (`1`–`6`, `q w e r t`, `a d g`, `z x c v b`; `h` for a
-plot's **content scale** or a text's **letter spacing**, and `n` for **paragraph spacing**),
-so the right
-hand never leaves the wheel: press the key to **arm** the row, then roll the **mouse wheel**
-anywhere on the screen to adjust it (a slow roll moves one step per notch, a flick moves fast,
-a trackpad scrubs; **Shift** ×10, **Alt** ×0.1; **↑/↓** step too, typed digits replace), and
-press **Space** or **Enter** to apply — **Escape** reverts.
+Press **F** with anything selected for the **property menu**, the fastest way to edit with one
+hand on the keyboard and one on the mouse. It opens **beside the selection**, never on top of it
+(when nothing fits, it takes the side that covers the least), and lays its groups out in narrow
+columns, each row a key and a name over its control, so nothing scrolls. Opening a larger picker
+repositions the menu when needed to keep the selection clear.
 
-A choice such
-as font or alignment expands its options inline (wheel, **w/a/s/d**, **1–9**, or click); a
-colour opens the **palette** — every row on one line, the whole grid in view — with the
+Every hotkey is a **left-hand key**: `1`–`6`, `q` `w` `e` `r` `t`, `a` `d` `g` and
+`z` `x` `c` `v` `b`, plus `h` for a plot's **content scale** or a text's **letter spacing** and
+`n` for **paragraph spacing**. Your right hand stays on the mouse:
+
+1. Press the key to **arm** the row.
+2. Roll the **mouse wheel** anywhere on the screen to adjust it. A slow roll moves one step per
+   notch, a flick moves fast and a trackpad scrubs; hold **Shift** for ×10 or **Alt** for ×0.1.
+   **↑/↓** step too, and typed digits replace the value.
+3. Press **Space** or **Enter** to apply, or **Escape** to revert.
+
+A choice such as font or alignment expands its options inline (wheel, **w/a/s/d**, **1–9**, or
+click).
+
+Hovering any numeric row and rolling the wheel edits it directly, so
+the menu works with the mouse alone as well; **s** searches the properties. It carries the
+essentials (position, size with **aspect lock**, rotation, opacity) plus the deep cuts: dashed
+strokes with dash/gap control, **arrowheads** on lines *and* open paths (filled or V-line,
+sized, with round/flat/square caps), **corner radius** on rectangles *and* paths,
+no-fill/no-stroke, separate **fill opacity** (**b**) and **stroke opacity** (**t**) — each
+independent of the object's **opacity**, which multiplies both — text styling — and **save as
+preset** for anything you want to reuse. The
+right rail carries the same properties (fill, stroke and text colours with their palette
+names, sizes, stroke widths, arrowheads), so the menu is a choice, not a requirement.
+
+## Colours and colormaps {#colours-and-colormaps}
+
+A colour row opens the **palette** — every row on one line, the whole grid in view — with the
 full **spectrum** beside it (a saturation/value square and a hue bar, seeded from the current
 colour), a hex field and an **eyedropper**; hovering a swatch previews it live, a click
 applies it, and a drag on the square previews until you let go. The hex field and spectrum
@@ -57,6 +75,7 @@ opacity — a fill picker sets the fill's, a stroke picker the stroke's (a text 
 object's opacity) — and shows the selection's current value (or **mixed**).
 Releasing the hue or opacity slider applies that adjustment and keeps the picker open so
 you can continue tuning the colour.
+
 The eyedropper samples a colour from your screen. On Linux it uses your desktop's
 colour picker; **Escape** cancels without changing your artwork. If screen picking
 is unavailable, Flux offers a magnified view labelled **Pick from Flux window**,
@@ -77,18 +96,9 @@ The map's colours are stored on the element itself, so the gradient travels into
 (SVG, PNG, TIFF), headless render and exported deck exactly as drawn;
 the menu chip and the Inspector swatch show the map and name it (`crameri.batlow · along y`),
 and picking any plain swatch returns the element to a solid colour. Plot *parts* take solid
-colours only. Settings → Figure chooses which palette and colormap collection a picker opens on.
+colours only. **Settings → Figure** chooses which palette and colormap collection a picker opens on.
 
-Hovering any numeric row and rolling the wheel edits it directly, so
-the menu works with the mouse alone as well; **s** searches the properties. It carries the
-essentials (position, size with **aspect lock**, rotation, opacity) plus the deep cuts: dashed
-strokes with dash/gap control, **arrowheads** on lines *and* open paths (filled or V-line,
-sized, with round/flat/square caps), **corner radius** on rectangles *and* paths,
-no-fill/no-stroke, separate **fill opacity** (**b**) and **stroke opacity** (**t**) — each
-independent of the object's **opacity**, which multiplies both — text styling — and **save as
-preset** for anything you want to reuse. The
-right rail carries the same properties (fill, stroke and text colours with their palette
-names, sizes, stroke widths, arrowheads), so the menu is a choice, not a requirement.
+## Numeric fields and layers {#numeric-fields-and-layers}
 
 Numeric fields accept expressions such as `240/2` and display fractional values even when
 the normal wheel increment is a whole unit. Drag a field’s label to scrub, or click
@@ -97,7 +107,7 @@ cancels the current preview. Mixed selections show **Mixed** and how many object
 can change. Locked or hidden objects, including members of a locked or hidden group, stay
 unchanged while you edit the rest of a selection.
 
-In **Layers**, **Ctrl/⌘+click** toggles objects and **Shift+click** selects a range. With a row
+In **Layers**, **Ctrl+click** (**⌘+click** on macOS) toggles objects and **Shift+click** selects a range. With a row
 focused, **↑/↓** moves through the list, **Home/End** reaches either end, **Shift+↑/↓** extends
 the selection, and **F2** renames. A group opens or closes with **→/←**. Locks inherited from
 a parent group explain which group must be unlocked.
@@ -174,7 +184,9 @@ you want — a species name, a gene symbol, a single letter — and press **Ctrl
 untouched. With nothing selected, while you are typing, the same keys style only what you type
 next: press **Ctrl+I**, type the species name, press **Ctrl+I** again and carry on upright. Moving
 the cursor or clicking ends that. To style the whole box, click the box without editing it, or
-select all of its text first. The formatting sticks to the letters it was given: type in the middle of an italic word and the
+select all of its text first.
+
+The formatting sticks to the letters it was given: type in the middle of an italic word and the
 new letters are italic too, type against its edge and they are not, and deleting the word takes
 its formatting with it. The formatting shows on the canvas as you work. Bold makes letters
 wider, so after a bold word the text cursor can sit a few pixels off the letters. In the rare
@@ -188,9 +200,9 @@ smaller and raised or lowered, so *x²* and *H₂O* stay in one text box. **Ctrl
 do the same, as in Google Docs. Pressing the same one again puts the characters back on the line,
 and with nothing selected it applies to what you type next, like the other styles.
 
-**Color and the Inspector work on the selected letters too.** While letters are selected, the
+**Colour and the Inspector work on the selected letters too.** While letters are selected, the
 Inspector's Text section says *Styling N selected characters*. Its **B**, **I** and **U** buttons
-then format just those letters, and you can press several in a row. The *Text* color swatch
+then format just those letters, and you can press several in a row. The *Text* colour swatch
 paints just those letters as well, so one symbol can be red inside a black label. Click
 **Whole box**, or click the canvas, to style the whole text again. A colormap gradient always
 covers the whole box, so it is not offered for a few selected letters.
@@ -205,8 +217,8 @@ it.
 
 Select several things and press **Ctrl+Shift+C**: the **cascade** popover applies a *stepped
 delta* across the selection — each object offset a bit more than the last. Pick the property
-(position, rotation, opacity, size, stroke width, font size, or a color), the step (add or
-multiply), and the ordering (selection, layers, left→right, top→bottom); colors ramp
+(position, rotation, opacity, size, stroke width, font size, or a colour), the step (add or
+multiply), and the ordering (selection, layers, left→right, top→bottom); colours ramp
 perceptually in OKLCh (ΔL/ΔC/ΔH per step). The preview is live; **Enter** applies as one undo
 step, **Escape** puts everything back. Fanned annotations, graded palettes, staircase layouts —
 one gesture.
