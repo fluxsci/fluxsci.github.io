@@ -60,3 +60,27 @@ test.describe('visual guides without scripts',()=>{
   await expect(page.locator('.doc-study-stage>img:visible')).toHaveCount(2);await expect(page.locator('.doc-study-launch:visible')).toHaveCount(0);
  });
 });
+
+test('the semantic plots guide inspects a real fluxplot plot by part', async({page})=>{
+ await page.goto('/docs/semantic-plots.html');
+ const box=page.locator('[data-part-explorer]');await box.scrollIntoViewIfNeeded();
+ await expect(box).toHaveClass(/is-live/);
+ const point=box.locator('.explorer-svg #control\\.point\\.3');const b=await point.boundingBox();
+ await page.mouse.move(b.x+b.width/2,b.y+b.height/2);
+ await expect(box.locator('.explorer-id')).toHaveText('control.point.3');
+ await expect(box.locator('.explorer-crumbs')).toContainText('Control');
+ await box.locator('.explorer-part[data-part="axis.x"]').click();
+ await expect(box.locator('.explorer-id')).toHaveText('axis.x');
+ await expect(box).toHaveClass(/is-pinned/);
+ await page.keyboard.press('Escape');await expect(box).not.toHaveClass(/is-pinned/);
+ await expect(box.locator('.explorer-part[data-part="axis.x.tick-labels"]')).toBeVisible();
+ expect((await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze()).violations).toEqual([]);
+});
+
+test('reference tables keep every column readable',async({page})=>{
+ await page.goto('/docs/connect.html');
+ const wrap=page.locator('.table-wrap[data-columns="4"]').first();await wrap.scrollIntoViewIfNeeded();
+ const widths=await wrap.locator('thead th').evaluateAll(cells=>cells.map(c=>c.getBoundingClientRect().width));
+ expect(Math.min(...widths)).toBeGreaterThan(110);
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth)).toBeLessThanOrEqual(1);
+});

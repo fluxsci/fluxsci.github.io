@@ -11,9 +11,7 @@ description: "Show observations, summaries and density with individually named p
 Show observations, summaries and density with individually named plot parts.
 :::
 
-They take a
-DataFrame (pandas, polars or a dict of columns) plus column names, seaborn-style, and name every
-part for you.
+Three signature plots show observations beside their summary. Each takes a DataFrame (pandas, polars or a dict of columns) plus column names, seaborn-style, and names every part for you. Hover a real fluxbox on the [semantic plots](/docs/semantic-plots.html#every-part-has-a-name) page to see those names.
 
 ## Glowbar
 

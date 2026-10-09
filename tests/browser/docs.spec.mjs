@@ -34,10 +34,12 @@ test('search works by title and content with keyboard navigation and focus resto
  await page.keyboard.press('Escape');await expect(dialog).not.toBeVisible();await expect(opener).toBeFocused();
  await page.keyboard.press('/');await expect(dialog).toBeVisible();await input.fill('zzzz-no-such-topic');await expect(dialog.locator('[role="status"]')).toContainText('No matching topics');
 });
-test('docs guide embeds the native slides on demand',async({page})=>{
+test('docs guide embeds the native slides on demand and opens on the data morph',async({page})=>{
  await page.goto('/docs/first-project.html');await expect(page.locator('#slide-demo iframe')).toHaveCount(0);
  await page.getByRole('button',{name:'Load the interactive population slides'}).click();
- const frame=page.frameLocator('#slide-demo iframe');await frame.getByRole('button',{name:'Next animation step',exact:true}).click();await expect(frame.locator('.flux-slide-bar [aria-live="polite"]')).toContainText('Step 1 / 1');
+ const frame=page.frameLocator('#slide-demo iframe');await expect(frame.getByRole('combobox',{name:'Explore the deck'})).toHaveValue('1');
+ await expect(frame.locator('.flux-slide-bar [aria-live="polite"]')).toContainText('Step 1 / 3');
+ await frame.getByRole('button',{name:'Next animation step',exact:true}).click();await expect(frame.locator('.flux-slide-bar [aria-live="polite"]')).toContainText('Step 2 / 3');
 });
 test.describe('progressive documents',()=>{
  test.use({javaScriptEnabled:false});

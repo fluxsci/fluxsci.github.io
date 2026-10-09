@@ -25,10 +25,10 @@ The preview is at **http://127.0.0.1:1430**. It serves only `dist/`, with a real
 | `site/install/index.qmd` | Installation, companions, updates, and troubleshooting |
 | `site/docs/*.qmd` | Authored guides; the directory is generated from the navigation manifest |
 | `scripts/routes.mjs` | Explicit public routes and ecosystem topic navigation |
-| `scripts/docs.mjs` | Shared document frame, directory, code-copy markup, and search index |
+| `scripts/docs.mjs` | Shared header and footer for every page, the documentation directory, table wrappers, code-copy markup, and the search index |
 | `site/assets/styles/site.css`, `docs.css` | Shared visual system and documentation layouts |
-| `site/assets/scripts/site.js`, `docs.js` | Accessible progressive interactions, search, and copy controls |
-| `site/assets/media/` | Reviewed app screenshots and original plot derivatives |
+| `site/assets/scripts/site.js`, `docs.js`, `explorer.js` | Accessible progressive interactions, search, copy controls, and the semantic-plot part explorer |
+| `site/assets/media/` | Reviewed app screenshots, original plot derivatives, and `docs/explorer-fluxbox.svg` (a synthetic fluxbox saved by fluxplot for the part explorer) |
 | `site/demos/data-morph/` | Native Flux inline-slide player export |
 | `site/demos/techniques/` | Six native teaching slides and timeline alignment diagrams |
 | `site/install.sh` | Byte-for-byte copy of the reviewed upstream installer |

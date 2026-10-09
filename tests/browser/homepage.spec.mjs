@@ -25,6 +25,11 @@ test('homepage has complete content, working imagery, and responsive geometry', 
   }
   const imageCount = await page.locator('img[src]').count();
   expect(imageCount).toBeGreaterThanOrEqual(4);
+  await expect(page.locator('.site-header .main-navigation a')).toHaveCount(4);
+  await expect(page.locator('.site-footer .footer-columns a')).toHaveCount(13);
+  expect(await page.locator('body').innerText()).not.toContain('Built around the work');
+  await expect(page.locator('.part-explorer.is-live')).toHaveCount(1);
+  await expect(page.locator('.install-command [data-copy]')).toBeVisible();
   await page.evaluate(() => document.fonts.ready);
   const overflow = await page.evaluate(() => ({ viewport:document.documentElement.clientWidth, content:document.documentElement.scrollWidth }));
   expect(overflow.content).toBeLessThanOrEqual(overflow.viewport + 1);
@@ -69,11 +74,14 @@ test('navigation works with mobile menu and keyboard dismissal', async ({ page }
     await expect(menu).toBeFocused();
     await menu.click();
   }
-  await page.getByRole('navigation', { name:'Main navigation', exact:true }).getByRole('link', { name:'Explore', exact:true }).click();
-  await expect(page).toHaveURL(/#explore$/);
+  await page.locator('.hero-actions .text-link').click();
+  await expect(page).toHaveURL(/#how-it-works$/);
   if (await menu.isVisible()) await expect(menu).toHaveAttribute('aria-expanded', 'false');
   await page.locator('[data-workspace-guide]').click();
   await expect(page).toHaveURL(/\/docs\/figure.html$/);
+  await page.goBack();
+  await page.getByRole('navigation', { name:'Main navigation', exact:true }).getByRole('link', { name:'Documentation', exact:true }).click();
+  await expect(page).toHaveURL(/\/docs\/$/);
 });
 
 test('full-size imagery opens accessibly and restores focus', async ({ page }) => {
@@ -92,16 +100,21 @@ test('full-size imagery opens accessibly and restores focus', async ({ page }) =
   await expect(opener).toBeFocused();
 });
 
-test('homepage loads its native slide only on request and pauses offscreen', async ({ page }) => {
+test('homepage loads its native slide only on request, opens the data morph, and pauses offscreen', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('#slide-demo iframe')).toHaveCount(0);
+  await expect(page.locator('.scene-tabs button[aria-pressed="true"]')).toHaveAttribute('data-scene', '1');
   await page.getByRole('button', { name:'Load the interactive scientific slides', exact:true }).click();
   const iframe = page.locator('#slide-demo iframe');
   await expect(iframe).toHaveCount(1);
   const frame = page.frameLocator('#slide-demo iframe');
-  await frame.getByRole('combobox', { name:'Explore the deck' }).selectOption('1');
+  await expect(frame.getByRole('combobox', { name:'Explore the deck' })).toHaveValue('1');
   await expect(frame.getByRole('button', { name:'Next animation step', exact:true })).toBeVisible();
-  await frame.getByRole('button', { name:'Next animation step', exact:true }).click();
+  await expect(frame.locator('.flux-slide-bar [aria-live="polite"]')).toContainText('Step 1 / 3');
+  await page.locator('.scene-tabs button[data-scene="2"]').click();
+  await expect(frame.getByRole('combobox', { name:'Explore the deck' })).toHaveValue('2');
+  await expect(page.locator('.scene-tabs button[aria-pressed="true"]')).toHaveAttribute('data-scene', '2');
+  await page.locator('.scene-tabs button[data-scene="1"]').click();
   await expect(frame.locator('.flux-slide-bar [aria-live="polite"]')).toContainText('Step 1 / 3');
   await frame.getByRole('button', { name:'Next animation step', exact:true }).click();
   await page.evaluate(() => window.scrollTo({ top:0, behavior:'instant' }));
@@ -134,6 +147,7 @@ test('native slide is a real independent player with manual steps and reduced mo
 
 test('a narrow phone keeps every native slide control inside the frame', async ({ page }) => {
   await page.setViewportSize({ width:320, height:800 });
+  await page.emulateMedia({ reducedMotion:'reduce' });
   await page.goto('/');
   await page.getByRole('button', { name:'Load the interactive scientific slides', exact:true }).click();
   const iframe = page.locator('#slide-demo iframe');
@@ -202,6 +216,7 @@ test('missing nested paths return a styled and accessible 404', async ({ page })
   expect(response.status()).toBe(404);
   await expect(page.getByRole('heading', { level:1 })).toHaveCount(1);
   await expect(page.getByRole('link', { name:'Return to Flux →', exact:true })).toHaveAttribute('href', '/');
+  await expect(page.getByRole('navigation', { name:'Main navigation', exact:true })).toBeVisible();
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'noindex');
   expect(await page.evaluate(() => [...document.styleSheets].some(sheet => sheet.href?.endsWith('/assets/styles/site.css')))).toBe(true);
   const result = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
@@ -215,8 +230,9 @@ test.describe('without JavaScript', () => {
     await expect(page.getByRole('heading', { level:1 })).toBeVisible();
     const navigation = page.getByRole('navigation', { name:'Main navigation', exact:true });
     await expect(navigation.getByRole('link', { name:/Documentation/ })).toBeVisible();
-    await navigation.getByRole('link', { name:'Explore', exact:true }).click();
-    await expect(page).toHaveURL(/#explore$/);
+    await expect(page.locator('.scene-tabs')).toBeHidden();
+    await page.locator('.hero-actions .text-link').click();
+    await expect(page).toHaveURL(/#how-it-works$/);
     await expect(page.locator('[data-enlarge]').first()).toHaveAttribute('href', /assets\/media\/figure-materials\.webp$/);
     const fallback = page.locator('.showcase-plates img').first();
     await fallback.scrollIntoViewIfNeeded();

@@ -44,7 +44,9 @@ so the right
 hand never leaves the wheel: press the key to **arm** the row, then roll the **mouse wheel**
 anywhere on the screen to adjust it (a slow roll moves one step per notch, a flick moves fast,
 a trackpad scrubs; **Shift** ×10, **Alt** ×0.1; **↑/↓** step too, typed digits replace), and
-press **Space** or **Enter** to apply — **Escape** reverts. A choice such
+press **Space** or **Enter** to apply — **Escape** reverts.
+
+A choice such
 as font or alignment expands its options inline (wheel, **w/a/s/d**, **1–9**, or click); a
 colour opens the **palette** — every row on one line, the whole grid in view — with the
 full **spectrum** beside it (a saturation/value square and a hue bar, seeded from the current
@@ -60,7 +62,9 @@ colour picker; **Escape** cancels without changing your artwork. If screen picki
 is unavailable, Flux offers a magnified view labelled **Pick from Flux window**,
 which samples only this window. A completed pick is one undoable change.
 **Escape** or clicking outside dismisses an unchosen preview; an incomplete hex stays editable
-until you finish it. The palette comes in
+until you finish it.
+
+The palette comes in
 **collections** — Flexoki (the default), ColorBrewer, Paul Tol's colour sets, and your
 project's own imported palette — as tabs above the grid; **Shift+Tab** cycles them. **Tab**
 switches the grid to the **colormaps**: every map fluxplot ships (matplotlib, Crameri's
@@ -73,7 +77,9 @@ The map's colours are stored on the element itself, so the gradient travels into
 (SVG, PNG, TIFF), headless render and exported deck exactly as drawn;
 the menu chip and the Inspector swatch show the map and name it (`crameri.batlow · along y`),
 and picking any plain swatch returns the element to a solid colour. Plot *parts* take solid
-colours only. Settings → Figure chooses which palette and colormap collection a picker opens on. Hovering any numeric row and rolling the wheel edits it directly, so
+colours only. Settings → Figure chooses which palette and colormap collection a picker opens on.
+
+Hovering any numeric row and rolling the wheel edits it directly, so
 the menu works with the mouse alone as well; **s** searches the properties. It carries the
 essentials (position, size with **aspect lock**, rotation, opacity) plus the deep cuts: dashed
 strokes with dash/gap control, **arrowheads** on lines *and* open paths (filled or V-line,

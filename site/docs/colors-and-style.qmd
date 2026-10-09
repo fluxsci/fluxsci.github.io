@@ -151,7 +151,7 @@ qualitative palette's group ink is the light neutral, and a hexmatrix's single-c
 `tests/test_dark_ground.py` pins WCAG contrast ≥ 1.5 for every mark and ≥ 3 for bracket and
 identity lines under the light, paper and dark themes.
 
-## Value × confidence
+## Value × confidence {#value-and-confidence}
 
 A colour-mapped mark can carry a second, opacity channel: `alpha_by=` on `fp.hexmatrix`
 (`"count"`, a column, a per-point or per-hexagon array, or a matrix in matrix mode), `fp.heatmap`

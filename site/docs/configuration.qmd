@@ -25,6 +25,26 @@ The point of the split: your library can grow to thousands of papers without blo
 project, and a project still **zips, clones, and compiles standalone** — hand the folder to a
 collaborator and every citation resolves, no FluxLib required.
 
+<figure class="doc-diagram flow" aria-label="Diagram: FluxLib is the one library on the machine, holding library.bib, an items folder per paper with its PDF, highlights and text, and an inbox folder for PDFs. Each project keeps its own references/library.bib with only the entries it cites, copied from FluxLib when a paper is cited.">
+<svg viewBox="0 0 1000 300" aria-hidden="true">
+<defs><marker id="layers-head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z"/></marker></defs>
+<g class="flow-edges">
+<path d="M440 130c60 0 60 -55 120 -55h40" marker-end="url(#layers-head)"/>
+<path d="M440 170c60 0 60 55 120 55h40" marker-end="url(#layers-head)"/>
+</g>
+<g class="flow-labels">
+<text x="520" y="90">cite → entry copied</text>
+<text x="520" y="222">cite → entry copied</text>
+</g>
+<g class="flow-nodes">
+<g transform="translate(20 40)" class="flow-node" style="--c:#8b7ec8"><rect width="420" height="220" rx="10"/><circle cx="24" cy="26" r="5"/><text class="flow-title" x="40" y="33">FluxLib</text><text class="flow-note" x="24" y="60">One library for every project on this machine.</text><text class="flow-mono" x="24" y="96">~/FluxConfig/FluxLib/</text><text class="flow-mono" x="40" y="120">library.bib</text><text class="flow-note" x="190" y="120">every reference you keep</text><text class="flow-mono" x="40" y="144">items/&lt;citekey&gt;/</text><text class="flow-note" x="190" y="144">PDF, supplements, highlights, text</text><text class="flow-mono" x="40" y="168">pdfs_to_assign/</text><text class="flow-note" x="190" y="168">drop PDFs here to file them</text><text class="flow-mono" x="40" y="192">.fluxlib/</text><text class="flow-note" x="190" y="192">rebuildable search indexes</text></g>
+<g transform="translate(600 20)" class="flow-node flow-code"><rect width="380" height="100" rx="10"/><text class="flow-title" x="22" y="33">Project: thesis-chapter</text><text class="flow-mono" x="22" y="60">references/library.bib</text><text class="flow-note" x="22" y="82">Only the entries this project cites. Zips and compiles alone.</text></g>
+<g transform="translate(600 180)" class="flow-node flow-code"><rect width="380" height="100" rx="10"/><text class="flow-title" x="22" y="33">Project: methods-paper</text><text class="flow-mono" x="22" y="60">references/library.bib</text><text class="flow-note" x="22" y="82">Its own cited subset, with the same citekeys.</text></g>
+</g>
+</svg>
+<figcaption>The citekey is the join key: the same <code>smithNeuralBasis2021</code> names the paper in FluxLib, in every project that cites it, and in your manuscript.</figcaption>
+</figure>
+
 ## The citekey is the join key {#the-citekey-is-the-join-key}
 
 Every paper has one stable **citation key** (`smithNeuralBasis2021`-style — the same format

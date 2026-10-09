@@ -1,7 +1,7 @@
 ---
 title: ""
-pagetitle: "A unified scientific workspace"
-description: "Figures, presentations, literature, and papers in one connected workspace. Built for you and your AI collaborators, around files you own."
+pagetitle: "Flux — figures, papers and talks from the same plots"
+description: "Flux is a free, open-source desktop workspace for scientists. Compose publication figures, write the manuscript and build the talk from the same Python plots, in plain files you own, with your AI agent alongside."
 ---
 
 ```{=html}
@@ -55,54 +55,6 @@ description: "Figures, presentations, literature, and papers in one connected wo
     </symbol>
   </defs>
 </svg>
-
-<a class="skip-link" href="#main-content">Skip to content</a>
-<header class="site-header">
-  <div class="header-inner">
-    <a class="wordmark" href="/" aria-label="Flux home"
-      ><img
-        src="assets/brand/flux-mark.svg"
-        alt=""
-        width="40"
-        height="40"
-      /><span>Flux</span></a
-    >
-    <button
-      class="menu-toggle"
-      type="button"
-      aria-expanded="false"
-      aria-controls="main-navigation"
-    >
-      <svg class="icon" aria-hidden="true"><use href="#i-menu" /></svg
-      ><span>Menu</span>
-    </button>
-    <nav
-      id="main-navigation"
-      class="main-navigation"
-      aria-label="Main navigation"
-    >
-      <a href="#explore">Explore</a>
-      <a href="/docs/projects-and-files.html">How it connects</a>
-      <a href="/docs/"
-        >Documentation</a>
-    </nav>
-    <div class="header-actions">
-      <label class="theme-select"
-        ><svg class="icon" aria-hidden="true"><use href="#i-sun" /></svg
-        ><span class="visually-hidden">Appearance</span
-        ><select id="appearance" aria-label="Appearance">
-          <option value="system">System</option>
-          <option value="light">Light</option>
-          <option value="dark">Dark</option>
-        </select></label
-      >
-      <a class="header-start" href="/install/"
-        >Install Flux<svg class="icon" aria-hidden="true">
-          <use href="#i-arrow" /></svg
-      ></a>
-    </div>
-  </div>
-</header>
 
 <main id="main-content" class="flux-home">
   <section class="hero" aria-labelledby="hero-title">
@@ -197,27 +149,21 @@ description: "Figures, presentations, literature, and papers in one connected wo
         <circle cx="54.59" cy="88.44" r="4.48" fill="#ce5d97" style="--i:86" />
         <circle cx="20.49" cy="24.61" r="4.52" fill="#ce5d97" style="--i:87" />
       </svg>
+      <p class="eyebrow intro-rise" style="--intro-delay: 60ms">A free desktop workspace for scientists</p>
       <h1 id="hero-title" class="intro-rise" style="--intro-delay: 100ms">
-        A unified<br /><em>scientific workspace.</em>
+        From plot to paper to talk,<br /><em>without starting over.</em>
       </h1>
       <p class="hero-description intro-rise" style="--intro-delay: 200ms">
-        Figures, presentations, literature, and papers.<br class="desktop-break" />
-        Connected in one place. Built for you and your AI collaborators.
+        Flux is where your figures, your manuscript and your slides are built from the same Python plots, in a folder of plain files you own. Change the analysis, and the figure, the paper and the talk follow.
       </p>
       <div class="hero-actions intro-rise" style="--intro-delay: 300ms">
-        <a
-          class="button button-primary"
-          href="/install/"
-          >Get started with Flux<svg class="icon" aria-hidden="true">
-            <use href="#i-arrow" /></svg></a
-        ><a class="text-link" href="#explore"
-          >Take a closer look<span aria-hidden="true">↓</span></a
-        >
+        <a class="button button-primary" href="/install/">Install Flux<svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a><a class="text-link" href="#how-it-works">See how it fits together<span aria-hidden="true">↓</span></a>
       </div>
+      <p class="hero-platforms intro-rise" style="--intro-delay: 360ms">macOS and Linux · Open source, MIT license · Python plotting with fluxplot</p>
     </div>
     <figure id="explore" class="hero-figure wide-width intro-rise" style="--intro-delay: 420ms" data-workspace-preview>
       <div class="figure-overline">
-        <span><span class="status-dot"></span>One project. Every part of the work.</span
+        <span><span class="status-dot"></span>Five workspaces. One project folder.</span
         ><span class="workspace-prompt">Explore the workspace</span>
       </div>
       <div class="workspace-choices" role="group" aria-label="Choose a Flux workspace" hidden>
@@ -251,33 +197,99 @@ description: "Figures, presentations, literature, and papers in one connected wo
     </figure>
   </section>
 
+  <section id="how-it-works" class="flow-section content-width section-space" aria-labelledby="flow-title">
+    <div class="section-heading"><p class="eyebrow">How it fits together</p><h2 id="flow-title">One project. Every part stays connected.</h2><p>Plots made with fluxplot keep a name on every part. Figures are composed from those plots, papers and slides are built from those figures, and references flow in from your library. Nothing is pasted, so nothing goes stale.</p></div>
+    <div class="flow" tabindex="0" role="img" aria-label="Diagram: Python plots feed the Figure workspace; figures are placed in Paper and animated in Slides. Library feeds Reader, and references from both are cited in Paper. Regenerating a plot updates every figure that uses it.">
+      <svg viewBox="0 0 1000 330" aria-hidden="true">
+        <defs>
+          <marker id="flow-head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z"/></marker>
+        </defs>
+        <g class="flow-edges">
+          <path d="M240 86h120" marker-end="url(#flow-head)"/>
+          <path d="M600 86h120" marker-end="url(#flow-head)"/>
+          <path d="M240 236h120" marker-end="url(#flow-head)"/>
+          <path d="M600 236h120" marker-end="url(#flow-head)"/>
+          <path d="M600 212c60 0 60 -106 120 -106" marker-end="url(#flow-head)"/>
+          <path class="flow-return" d="M360 262c-40 0-40 36-80 36h-40" marker-end="url(#flow-head)"/>
+        </g>
+        <g class="flow-labels">
+          <text x="300" y="74">read, annotate</text>
+          <text x="660" y="74">cite</text>
+          <text x="300" y="224">import at true size</text>
+          <text x="660" y="224">animate by part</text>
+          <text x="690" y="176" text-anchor="start">place, caption</text>
+          <text x="300" y="316">re-run the script → the figure updates</text>
+        </g>
+        <g class="flow-nodes">
+          <g transform="translate(20 40)" class="flow-node" style="--c:#8b7ec8"><rect width="220" height="92" rx="10"/><circle cx="24" cy="26" r="5"/><text class="flow-title" x="40" y="33">Library</text><text class="flow-note" x="24" y="66">References and PDFs, shared by all your projects.</text></g>
+          <g transform="translate(380 40)" class="flow-node" style="--c:#d0a215"><rect width="220" height="92" rx="10"/><circle cx="24" cy="26" r="5"/><text class="flow-title" x="40" y="33">Reader</text><text class="flow-note" x="24" y="66">Read, highlight and keep notes on the source.</text></g>
+          <g transform="translate(740 40)" class="flow-node" style="--c:#4385be"><rect width="240" height="92" rx="10"/><circle cx="24" cy="26" r="5"/><text class="flow-title" x="40" y="33">Paper</text><text class="flow-note" x="24" y="66">Write, cite, and export to Word or PDF.</text></g>
+          <g transform="translate(20 190)" class="flow-node flow-code" style="--c:#575653"><rect width="220" height="92" rx="10"/><text class="flow-title" x="24" y="33">Python plots</text><text class="flow-note" x="24" y="58">fluxplot names every part:</text><text class="flow-mono" x="24" y="78">control.line · axis.x.tick.3</text></g>
+          <g transform="translate(380 190)" class="flow-node" style="--c:#3aa99f"><rect width="220" height="92" rx="10"/><circle cx="24" cy="26" r="5"/><text class="flow-title" x="40" y="33">Figure</text><text class="flow-note" x="24" y="66">Compose panels, restyle any part, export.</text></g>
+          <g transform="translate(740 190)" class="flow-node" style="--c:#ce5d97"><rect width="240" height="92" rx="10"/><circle cx="24" cy="26" r="5"/><text class="flow-title" x="40" y="33">Slides</text><text class="flow-note" x="24" y="66">Reveal, morph and turn, one step at a time.</text></g>
+        </g>
+      </svg>
+    </div>
+    <ul class="flow-points">
+      <li><strong>Plain files.</strong> Manuscripts are Quarto Markdown, references are BibTeX, figures and decks are readable JSON beside their SVGs. Keep the folder in git, open it in any editor, hand it to a colleague.</li>
+      <li><strong>Live links.</strong> A plot placed in a figure stays linked to its source. Re-run the analysis and the regenerated plot hot-swaps into every figure, with your restyles intact.</li>
+      <li><strong>Your agent, inside the project.</strong> Connect Claude Code or Codex. It reads the project, sees the figures, and works through the comments you leave in the Inbox.</li>
+    </ul>
+  </section>
+
+  <section class="structure-section content-width section-space" aria-labelledby="structure-title">
+    <div class="section-heading"><p class="eyebrow">Semantic plots</p><h2 id="structure-title">A plot is a structure, not a picture.</h2><p>Every meaningful part of a fluxplot plot carries a stable name. Hover the plot: a single point, the median line, the tick labels of an axis. That name is what you restyle in Figure, caption in Paper and animate in Slides, and it survives when the plot is regenerated.</p></div>
+    <div class="part-explorer" data-part-explorer aria-label="Explore the named parts of a fluxbox plot">
+<div class="explorer-stage"><img src="/assets/media/docs/explorer-fluxbox.svg" width="720" height="540" alt="A fluxbox plot with three conditions: Control, Low dose and High dose. Each condition shows eight points beside a box with a median line and a mean notch." loading="lazy"></div>
+<div class="explorer-panel"><div class="explorer-head"><span>Named parts</span><button type="button" data-explorer-clear>Release selection</button></div>
+<div class="explorer-readout"><p>Move the pointer over the plot, or choose a part from the list. Every element you land on has a stable name. Click a part to keep it selected.</p></div>
+<div class="explorer-tree" aria-label="Parts tree"></div>
+<script type="application/json">{"plotType":"fluxbox","generator":{"matplotlib":"3.11.0","name":"fluxplot","version":"0.1.0"},"parts":{"children":[{"kind":"shape","ref":"figure.background","role":"background"},{"children":[{"kind":"shape","ref":"axes.background","role":"background"},{"axis":"x","children":[{"kind":"line","ref":"axis.x.spine.bottom","role":"spine"},{"groupRole":"tick","id":"axis.x.ticks","kind":"line","memberRole":"tick","members":["axis.x.tick.0","axis.x.tick.1","axis.x.tick.2"],"role":"group"},{"groupRole":"tick-label","id":"axis.x.tick-labels","kind":"text","memberRole":"tick-label","members":["axis.x.ticklabel.0","axis.x.ticklabel.1","axis.x.ticklabel.2"],"role":"group"},{"kind":"text","ref":"axis.x.title","role":"axis-title"}],"id":"axis.x","kind":"container","role":"axis"},{"axis":"y","children":[{"kind":"line","ref":"axis.y.spine.left","role":"spine"},{"groupRole":"tick","id":"axis.y.ticks","kind":"line","memberRole":"tick","members":["axis.y.tick.1","axis.y.tick.2","axis.y.tick.3","axis.y.tick.4","axis.y.tick.5","axis.y.tick.6","axis.y.tick.7","axis.y.tick.8","axis.y.tick.9"],"role":"group"},{"groupRole":"tick-label","id":"axis.y.tick-labels","kind":"text","memberRole":"tick-label","members":["axis.y.ticklabel.1","axis.y.ticklabel.2","axis.y.ticklabel.3","axis.y.ticklabel.4","axis.y.ticklabel.5","axis.y.ticklabel.6","axis.y.ticklabel.7","axis.y.ticklabel.8","axis.y.ticklabel.9"],"role":"group"},{"kind":"text","ref":"axis.y.title","role":"axis-title"}],"id":"axis.y","kind":"container","role":"axis"},{"children":[{"groupRole":"point","id":"control.points","kind":"shape","memberRole":"point","members":["control.point.0","control.point.1","control.point.2","control.point.3","control.point.4","control.point.5","control.point.6","control.point.7"],"role":"group"},{"groupRole":"whisker","id":"control.whiskers","kind":"line","memberRole":"whisker","members":["control.whiskers"],"role":"group"},{"kind":"shape","ref":"control.box","role":"box"},{"groupRole":"median","id":"control.medians","kind":"line","memberRole":"median","members":["control.median"],"role":"group"},{"groupRole":"mean","id":"control.means","kind":"line","memberRole":"mean","members":["control.mean"],"role":"group"}],"id":"control","kind":"container","label":"Control","role":"series"},{"children":[{"groupRole":"point","id":"low-dose.points","kind":"shape","memberRole":"point","members":["low-dose.point.0","low-dose.point.1","low-dose.point.2","low-dose.point.3","low-dose.point.4","low-dose.point.5","low-dose.point.6","low-dose.point.7"],"role":"group"},{"groupRole":"whisker","id":"low-dose.whiskers","kind":"line","memberRole":"whisker","members":["low-dose.whiskers"],"role":"group"},{"kind":"shape","ref":"low-dose.box","role":"box"},{"groupRole":"median","id":"low-dose.medians","kind":"line","memberRole":"median","members":["low-dose.median"],"role":"group"},{"groupRole":"mean","id":"low-dose.means","kind":"line","memberRole":"mean","members":["low-dose.mean"],"role":"group"}],"id":"low-dose","kind":"container","label":"Low dose","role":"series"},{"children":[{"groupRole":"point","id":"high-dose.points","kind":"shape","memberRole":"point","members":["high-dose.point.0","high-dose.point.1","high-dose.point.2","high-dose.point.3","high-dose.point.4","high-dose.point.5","high-dose.point.6","high-dose.point.7"],"role":"group"},{"groupRole":"whisker","id":"high-dose.whiskers","kind":"line","memberRole":"whisker","members":["high-dose.whiskers"],"role":"group"},{"kind":"shape","ref":"high-dose.box","role":"box"},{"groupRole":"median","id":"high-dose.medians","kind":"line","memberRole":"median","members":["high-dose.median"],"role":"group"},{"groupRole":"mean","id":"high-dose.means","kind":"line","memberRole":"mean","members":["high-dose.mean"],"role":"group"}],"id":"high-dose","kind":"container","label":"High dose","role":"series"}],"id":"plot-area","kind":"container","role":"plot-area"}],"id":"figure","kind":"container","role":"figure"},"series":{"control":{"label":"Control","color":"#225da8","n":8,"mean":1.0630000000000002,"median":0.997,"q1":0.902,"q3":1.2057499999999999,"iqr":0.30374999999999985,"whiskerLow":0.852,"whiskerHigh":1.381,"points":[{"id":"control.point.0","y":1.01},{"id":"control.point.1","y":1.381},{"id":"control.point.2","y":1.343},{"id":"control.point.3","y":0.857},{"id":"control.point.4","y":0.917},{"id":"control.point.5","y":0.852},{"id":"control.point.6","y":1.16},{"id":"control.point.7","y":0.984}]},"low-dose":{"label":"Low dose","color":"#e2191c","n":8,"mean":1.5851250000000001,"median":1.6015,"q1":1.495,"q3":1.7455,"iqr":0.25049999999999994,"whiskerLow":1.444,"whiskerHigh":1.989,"points":[{"id":"low-dose.point.0","y":1.759},{"id":"low-dose.point.1","y":1.033},{"id":"low-dose.point.2","y":1.989},{"id":"low-dose.point.3","y":1.523},{"id":"low-dose.point.4","y":1.741},{"id":"low-dose.point.5","y":1.512},{"id":"low-dose.point.6","y":1.444},{"id":"low-dose.point.7","y":1.68}]},"high-dose":{"label":"High dose","color":"#ad017e","n":8,"mean":2.34725,"median":2.35,"q1":2.1980000000000004,"q3":2.53125,"iqr":0.3332499999999996,"whiskerLow":1.976,"whiskerHigh":2.631,"points":[{"id":"high-dose.point.0","y":2.631},{"id":"high-dose.point.1","y":2.343},{"id":"high-dose.point.2","y":2.357},{"id":"high-dose.point.3","y":2.592},{"id":"high-dose.point.4","y":2.156},{"id":"high-dose.point.5","y":1.976},{"id":"high-dose.point.6","y":2.511},{"id":"high-dose.point.7","y":2.212}]}},"axes":{"x":{"label":"Condition","scale":"linear","domain":[-0.75,2.75],"ticks":[{"label":"Control","value":0.0},{"label":"Low dose","value":1.0},{"label":"High dose","value":2.0}]},"y":{"label":"Response (a.u.)","scale":"linear","domain":[0.70968,2.77332],"ticks":[{"label":"0.50","value":0.5},{"label":"0.75","value":0.75},{"label":"1.00","value":1.0},{"label":"1.25","value":1.25},{"label":"1.50","value":1.5},{"label":"1.75","value":1.75},{"label":"2.00","value":2.0},{"label":"2.25","value":2.25},{"label":"2.50","value":2.5},{"label":"2.75","value":2.75},{"label":"3.00","value":3.0}]}}}</script></div>
+<div class="explorer-caption"><p>A real plot saved by fluxplot, inspected on this page. The names come from the plot’s own manifest, exactly as Flux reads them. Values are synthetic.</p></div>
+</div>
+<script src="/assets/scripts/explorer.js" defer></script>
+    <div class="structure-links"><a class="text-link" href="/docs/semantic-plots.html">Semantic plots, explained<span aria-hidden="true">→</span></a><a class="text-link" href="/docs/fluxplot.html">Start plotting with fluxplot<span aria-hidden="true">→</span></a></div>
+  </section>
+
   <section class="showcase-section content-width section-space" aria-labelledby="showcase-title">
-    <div class="section-heading"><p class="eyebrow">Made in Flux</p><h2 id="showcase-title">Let the work speak.</h2><p>From a single plot to the whole picture. Keep every panel editable.</p></div>
+    <div class="section-heading"><p class="eyebrow">Made in Flux</p><h2 id="showcase-title">Publication figures, composed from real plots.</h2><p>Two figures from a demonstration project. Every panel is a named plot or model that can be opened, restyled and regenerated.</p></div>
     <div class="showcase-plates">
       <figure><a href="/assets/media/response-figure.webp" data-enlarge data-caption="Anatomy and population responses. Allen Brain Observatory data, Allen CCF2017 anatomy and separate MICrONS reconstructions. Circular links show response similarity, not anatomical connections."><img src="/assets/media/response-figure.webp" alt="A detailed neuroscience figure with brain anatomy, neuron reconstructions, response traces, population trajectories, distributions and a heatmap." width="1800" height="2086" loading="lazy"></a><figcaption><span>01 / Neuroscience</span>Anatomy, individual responses and population patterns.<a href="/docs/figure.html">Explore Figure →</a></figcaption></figure>
-      <figure><a href="/assets/media/materials-figure.webp" data-enlarge data-caption="Materials across scales. Reference material properties, computed and analytic stress fields, MgB₂ electronic structure and COD crystal models. A composition of separate scientific examples."><img src="/assets/media/materials-figure.webp" alt="A multi-panel materials figure combining an Ashby chart, Fermi surface, stress fields, band sections and four crystal structures." width="1800" height="1486" loading="lazy"></a><figcaption><span>02 / Materials</span>Properties, fields and structures across scales.<a href="/docs/3d-models.html">Explore 3D →</a></figcaption></figure>
+      <figure><a href="/assets/media/materials-figure.webp" data-enlarge data-caption="Materials across scales. Reference material properties, computed and analytic stress fields, MgB₂ electronic structure and COD crystal models. A composition of separate scientific examples."><img src="/assets/media/materials-figure.webp" alt="A multi-panel materials figure combining an Ashby chart, Fermi surface, stress fields, band sections and four crystal structures." width="1800" height="1486" loading="lazy"></a><figcaption><span>02 / Materials</span>Properties, fields and structures across scales, including 3D models.<a href="/docs/3d-models.html">Explore 3D models →</a></figcaption></figure>
     </div>
-    <p class="visual-credit">Neuroscience data and anatomy: <a href="https://brain-map.org/our-research/circuits-behavior/visual-coding">Allen Institute for Brain Science</a> and <a href="https://www.microns-explorer.org/">MICrONS</a>. Materials: COD, FermiSurfer and calculated examples. <a href="/docs/visual-credits.html">Sources &amp; captions →</a></p>
+    <p class="visual-credit">Neuroscience data and anatomy: <a href="https://brain-map.org/our-research/circuits-behavior/visual-coding">Allen Institute for Brain Science</a> and <a href="https://www.microns-explorer.org/">MICrONS</a>. Materials: COD, FermiSurfer and calculated examples. <a href="/docs/visual-credits.html">Sources and captions →</a></p>
   </section>
+
   <section id="slides" class="motion-showcase content-width section-space" aria-labelledby="motion-title">
-    <div class="section-heading"><p class="eyebrow">The explanation can move</p><h2 id="motion-title">Give your result a little time.</h2><p>Follow the same cells as a plot changes. Turn a 3D structure. Put an interactive slide right inside a document.</p></div>
-    <div class="slide-demo" id="slide-demo" data-demo-src="/demos/data-morph/index.html">
-      <button type="button" class="demo-launch" aria-label="Load the interactive scientific slides" data-demo-start><img src="/assets/media/slide-poster.svg" alt="A population atlas of 143 recorded visual neurons. Open the native Flux presentation to explore three scientific slides." width="1200" height="760" loading="lazy"><span class="demo-launch-prompt"><span class="play-disc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 6 9 6-9 6Z" /></svg></span><span>Explore the slides<small>You control the next step.</small></span></span></button>
+    <div class="section-heading"><p class="eyebrow">Slides</p><h2 id="motion-title">Explain it in motion.</h2><p>Build the talk from the same plots. Reveal a series, morph a chart from one condition to the next, turn a 3D structure. Every change is a step you trigger, and the deck exports as one self-contained HTML file.</p></div>
+    <div class="scene-tabs" role="group" aria-label="Choose a scene" hidden>
+      <button type="button" data-scene="1" aria-pressed="true"><span>Same cells, new stimulus</span><small>Data morph</small></button>
+      <button type="button" data-scene="2" aria-pressed="false"><span>A structure in motion</span><small>3D turntable</small></button>
+      <button type="button" data-scene="0" aria-pressed="false"><span>A population of responses</span><small>Reveal</small></button>
     </div>
-    <div class="demo-caption"><p>Real Flux slides. Use the arrows, then choose another scene.</p><a class="text-link" href="/docs/slides.html">Explore Slides →</a></div>
+    <div class="slide-demo" id="slide-demo" data-demo-src="/demos/data-morph/index.html" data-demo-scene="1">
+      <button type="button" class="demo-launch" aria-label="Load the interactive scientific slides" data-demo-start><img src="/assets/media/slide-poster.svg" alt="A population atlas of 143 recorded visual neurons. Open the native Flux presentation to explore three scientific slides." width="1200" height="760" loading="lazy"><span class="demo-launch-prompt"><span class="play-disc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 6 9 6-9 6Z" /></svg></span><span>Play the slides<small>Real Flux slides, running in your browser</small></span></span></button>
+    </div>
+    <div class="demo-caption"><p>Use the arrows to step through a scene, or pick another scene above. The player is Flux’s own.</p><a class="text-link" href="/docs/slides.html">Learn about Slides<span aria-hidden="true">→</span></a></div>
     <p class="visual-credit">Response data: <a href="https://brain-map.org/our-research/circuits-behavior/visual-coding">Allen Institute for Brain Science</a>. 3D geometry: FermiSurfer. <a href="/docs/visual-credits.html">Visual credits</a>.</p>
   </section>
-  <section class="essentials content-width" aria-label="A connected workspace">
-    <a href="/docs/paper.html"><h2>Write with the work in reach.</h2><p>Figures, citations and reading notes beside your manuscript.</p><span>Paper &amp; reading →</span></a>
-    <a href="/docs/connect.html"><h2>Bring your AI collaborator.</h2><p>Give it context. Leave feedback on the passage, figure or slide.</p><span>Working with AI →</span></a>
-    <a href="/docs/projects-and-files.html"><h2>Keep the files. Keep the work.</h2><p>Open formats, local projects and sources you can take with you.</p><span>Projects &amp; files →</span></a>
+
+  <section class="pillars content-width section-space" aria-labelledby="pillars-title">
+    <div class="section-heading"><p class="eyebrow">Who it is for</p><h2 id="pillars-title">Made for the people who explain science.</h2></div>
+    <div class="audience-grid">
+      <article><h3>Researchers</h3><p>Keep the figure, the manuscript and the supplementary panels consistent through every round of revision. Export to the journal’s format when it is time.</p><a class="text-link" href="/docs/first-project.html">Your first project<span aria-hidden="true">→</span></a></article>
+      <article><h3>Teachers and speakers</h3><p>Turn the same figures into step-by-step explanations: one series at a time, one condition becoming the next, a model turning in 3D.</p><a class="text-link" href="/docs/animation.html">Animation and timing<span aria-hidden="true">→</span></a></article>
+      <article><h3>Science writers</h3><p>Read and annotate papers from one library, cite as you write, and export clean Word, PDF or HTML without leaving the project.</p><a class="text-link" href="/docs/library.html">Library and Reader<span aria-hidden="true">→</span></a></article>
+      <article><h3>You and your AI agent</h3><p>Give an agent the project background once. It can see every figure, propose edits, and reply to comments you leave on a passage, a panel or a slide.</p><a class="text-link" href="/docs/connect.html">Connect an agent<span aria-hidden="true">→</span></a></article>
+    </div>
   </section>
+
   <section id="get-started" class="closing-section content-width section-space" aria-labelledby="closing-title">
     <img class="closing-mark" src="/assets/brand/flux-mark.svg" alt="" width="68" height="68" loading="lazy"><h2 id="closing-title">Your research.<br><em>In Flux.</em></h2>
-    <div class="closing-actions"><a class="button button-primary" href="/install/">Install Flux →</a><a class="button button-secondary" href="/docs/first-project.html">Make your first project</a></div>
-    <p class="availability">Free &amp; open source · macOS &amp; Linux</p>
+    <p class="closing-lead">One command installs the app on macOS or Debian and Ubuntu Linux.</p>
+    <div class="install-command"><pre><code class="language-bash">curl -fsSL https://fluxsci.github.io/install.sh | bash</code></pre></div>
+    <div class="closing-actions"><a class="button button-primary" href="/install/">Installation guide →</a><a class="button button-secondary" href="/docs/first-project.html">Make your first project</a></div>
+    <p class="availability">Free and open source · Apple Silicon and Intel Macs · x86-64 Debian and Ubuntu</p>
   </section>
 </main>
-<footer class="site-footer"><div class="content-width"><div class="footer-top"><a class="wordmark" href="/" aria-label="Flux home"><img src="/assets/brand/flux-mark.svg" alt="" width="38" height="38"><span>Flux</span></a><p>A unified scientific workspace.</p><nav aria-label="Footer navigation"><a href="/docs/">Documentation</a><a href="/docs/visual-credits.html">Visual credits</a><a href="https://github.com/fluxsci/flux">GitHub ↗</a></nav></div><div class="footer-bottom"><span>Built around the work. Built around you.</span><a href="#main-content">Back to top ↑</a></div></div></footer>
-<dialog class="media-dialog" id="media-dialog" aria-labelledby="media-dialog-caption"><div class="media-dialog-inner"><button class="dialog-close" type="button" aria-label="Close enlarged image">Close ×</button><img id="media-dialog-image" alt=""><p id="media-dialog-caption"></p></div></dialog>
 ```

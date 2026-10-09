@@ -18,6 +18,34 @@ or your preferred terminal. Flux includes the tools, skills and context they nee
 Click **AI** in the title bar, or use **Ctrl+K** → **AI status**, to open the monitor.
 **Pin** moves the same panel into its own window; **Dock** brings it back.
 
+<figure class="doc-diagram flow" aria-label="Diagram: your agent talks to the flux launcher, which exposes the CLI and MCP server. The launcher reads, edits and renders the project folder, receives your context and skills from FluxConfig, and reaches the running Flux app over the live bridge. The app saves to and watches the same project folder.">
+<svg viewBox="0 0 1000 340" aria-hidden="true">
+<defs><marker id="connect-head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z"/></marker></defs>
+<g class="flow-edges">
+<path d="M510 98v30" marker-end="url(#connect-head)"/>
+<path d="M220 176h178" marker-end="url(#connect-head)" marker-start="url(#connect-head)"/>
+<path d="M622 176h176" marker-end="url(#connect-head)" marker-start="url(#connect-head)"/>
+<path d="M510 222v38" marker-end="url(#connect-head)" marker-start="url(#connect-head)"/>
+<path d="M620 294h280v-70" marker-end="url(#connect-head)" marker-start="url(#connect-head)"/>
+</g>
+<g class="flow-labels">
+<text x="522" y="118" text-anchor="start">your context and skills</text>
+<text x="309" y="164">tools, images, inbox</text>
+<text x="710" y="164">reads, edits, renders</text>
+<text x="522" y="246" text-anchor="start">live bridge, while a project is open</text>
+<text x="760" y="314">saves, watches, shows the Inbox</text>
+</g>
+<g class="flow-nodes">
+<g transform="translate(400 20)" class="flow-node flow-code"><rect width="220" height="78" rx="10"/><text class="flow-title" x="22" y="31">FluxConfig</text><text class="flow-note" x="22" y="56">UserContext · FluxContext · Skills</text></g>
+<g transform="translate(20 130)" class="flow-node" style="--c:#8b7ec8"><rect width="200" height="92" rx="10"/><circle cx="24" cy="26" r="5"/><text class="flow-title" x="40" y="33">Your agent</text><text class="flow-note" x="24" y="58">Claude Code, Codex or</text><text class="flow-note" x="24" y="76">another MCP client.</text></g>
+<g transform="translate(400 130)" class="flow-node" style="--c:#205ea6"><rect width="220" height="92" rx="10"/><circle cx="24" cy="26" r="5"/><text class="flow-title" x="40" y="33">flux launcher</text><text class="flow-note" x="24" y="58">CLI verbs and the MCP server,</text><text class="flow-note" x="24" y="76">installed with the app.</text></g>
+<g transform="translate(800 130)" class="flow-node flow-code"><rect width="200" height="92" rx="10"/><text class="flow-title" x="22" y="33">Project folder</text><text class="flow-note" x="22" y="58">Context/, paper/, fig/,</text><text class="flow-note" x="22" y="76">slides/, .meta/</text></g>
+<g transform="translate(400 260)" class="flow-node" style="--c:#3aa99f"><rect width="220" height="68" rx="10"/><circle cx="24" cy="26" r="5"/><text class="flow-title" x="40" y="33">Flux app</text><text class="flow-note" x="24" y="56">Selection, live edits, get_view.</text></g>
+</g>
+</svg>
+<figcaption>Connect registers the launcher with your agent. Everything the agent reads or changes goes through the same project files the app uses.</figcaption>
+</figure>
+
 ## Connect Claude Code or Codex {#connect-claude-code-or-codex}
 
 Click **Connect** on the agent's card. Flux installs its skill, registers its MCP
@@ -178,7 +206,7 @@ If no sessions appear, run the copied connection command in the agent. Presence
 appears after an explicit project connection and expires when its heartbeat stops.
 The monitor does not start an agent or enable watch mode by itself.
 
-If `flux` is not on PATH, use the full launcher path in the [installation guide](/docs/configuration.html).
+If `flux` is not on PATH, use the full launcher path from the [command-line guide](/docs/cli.html#invoking).
 Run `flux connect doctor` (or `--json`) for the same diagnostics from a terminal.
 If an agent's shell cannot write outside its workspace, use the registered MCP tools;
 connect also has a temporary-cache fallback. Setup does not change the agent's sandbox policy.

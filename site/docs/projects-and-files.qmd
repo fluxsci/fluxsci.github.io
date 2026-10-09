@@ -45,6 +45,34 @@ A rendered preview is replaceable. An accepted plot or mesh in `fig/assets/` or 
 
 ## One plot, several uses {#linked-plots}
 
+<figure class="doc-diagram flow" aria-label="Diagram: an analysis script saves a plot bundle into plots. Inserting it stores an accepted copy in fig/assets that stays linked to its source. Figure, Paper and Slides all read the accepted copy. When the source changes, the accepted copy refreshes and restyles are kept.">
+<svg viewBox="0 0 1000 300" aria-hidden="true">
+<defs><marker id="linked-head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z"/></marker></defs>
+<g class="flow-edges">
+<path d="M220 140h80" marker-end="url(#linked-head)"/>
+<path d="M520 140h80" marker-end="url(#linked-head)"/>
+<path d="M820 120c40 0 40 -70 80 -70" marker-end="url(#linked-head)"/>
+<path d="M820 140h80" marker-end="url(#linked-head)"/>
+<path d="M820 160c40 0 40 70 80 70" marker-end="url(#linked-head)"/>
+<path class="flow-return" d="M410 180v40h190v-40" marker-end="url(#linked-head)"/>
+</g>
+<g class="flow-labels">
+<text x="260" y="128">fp.save</text>
+<text x="560" y="128">Insert</text>
+<text x="505" y="250">source changes → accepted copy refreshes, restyles kept</text>
+</g>
+<g class="flow-nodes">
+<g transform="translate(20 100)" class="flow-node flow-code"><rect width="200" height="80" rx="10"/><text class="flow-title" x="22" y="33">Analysis script</text><text class="flow-mono" x="22" y="60">make_growth.py</text></g>
+<g transform="translate(300 100)" class="flow-node flow-code"><rect width="220" height="80" rx="10"/><text class="flow-title" x="22" y="33">plots/</text><text class="flow-mono" x="22" y="58">growth.svg · .fluxplot.json</text><text class="flow-mono" x="22" y="72">· .recipe.json</text></g>
+<g transform="translate(600 100)" class="flow-node" style="--c:#3aa99f"><rect width="220" height="80" rx="10"/><circle cx="24" cy="26" r="5"/><text class="flow-title" x="40" y="33">fig/assets/</text><text class="flow-note" x="24" y="60">Accepted copy, linked to its source.</text></g>
+<g transform="translate(900 20)" class="flow-node" style="--c:#3aa99f"><rect width="90" height="60" rx="10"/><text class="flow-title" x="16" y="38">Figure</text></g>
+<g transform="translate(900 110)" class="flow-node" style="--c:#4385be"><rect width="90" height="60" rx="10"/><text class="flow-title" x="16" y="38">Paper</text></g>
+<g transform="translate(900 200)" class="flow-node" style="--c:#ce5d97"><rect width="90" height="60" rx="10"/><text class="flow-title" x="16" y="38">Slides</text></g>
+</g>
+</svg>
+<figcaption>Your analysis owns the source in <code>plots/</code>. Flux keeps an accepted copy in <code>fig/assets/</code> that every workspace reads and that follows the source when it changes.</figcaption>
+</figure>
+
 Your analysis writes a source plot into `plots/`. Inserting it into Figure stores an accepted copy and the link to its source. The composition records placement, styling, and captions separately from the original data visualization.
 
 When a linked SVG source changes, Flux refreshes the accepted SVG, manifest, and recipe. A 3D model instead offers an explicit **Update from source** action; its saved mesh stays in place until you accept that update. Figure, Paper, and Slides read that accepted version. Stable part identities let Flux retain edits to a named series while its data change.

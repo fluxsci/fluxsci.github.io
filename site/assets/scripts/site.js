@@ -223,9 +223,13 @@
     });
   }
 
+  // The native Flux player is loaded on request. The website chooses the scene, starts the
+  // first step once the visitor has asked to play, and pauses the player when it is out of view.
   const demo = document.getElementById("slide-demo");
   const launch = demo?.querySelector("[data-demo-start]");
+  const sceneTabs = [...document.querySelectorAll(".scene-tabs button[data-scene]")];
   let demoFrame = null;
+  let requestedScene = Number(demo?.dataset.demoScene ?? 0);
   function notifyDemo(type, detail = {}) {
     if (!demoFrame?.contentWindow) return;
     demoFrame.contentWindow.postMessage(
@@ -236,6 +240,29 @@
       },
       window.location.origin,
     );
+  }
+  function markScene(index) {
+    for (const tab of sceneTabs) tab.setAttribute("aria-pressed", String(Number(tab.dataset.scene) === index));
+  }
+  // The exported player is same-origin; its own scene selector is driven, never replaced.
+  function playerDocument() {
+    try { return demoFrame?.contentDocument || null; } catch { return null; }
+  }
+  function chooseScene(index, play) {
+    requestedScene = index;
+    markScene(index);
+    const doc = playerDocument();
+    if (!doc) return;
+    const select = doc.getElementById("slide-select");
+    if (select && select.value !== String(index)) {
+      select.value = String(index);
+      select.dispatchEvent(new Event("change", { bubbles: true }));
+    }
+    if (play && !reducedMotion.matches) {
+      const next = doc.querySelector('#native-player [aria-label="Next animation step"]');
+      const status = doc.querySelector(".flux-slide-bar [aria-live]");
+      if (next && !next.disabled && /Step 0 \//.test(status?.textContent || "")) next.click();
+    }
   }
   // The native control bar can wrap on narrow screens or with larger text.
   window.addEventListener("message", (event) => {
@@ -251,7 +278,7 @@
     demo.style.paddingBottom = "0";
     demo.style.height = `${Math.ceil(height)}px`;
   });
-  launch?.addEventListener("click", () => {
+  function loadDemo() {
     if (demoFrame) return;
     demoFrame = document.createElement("iframe");
     demoFrame.src = demo.dataset.demoSrc;
@@ -261,16 +288,25 @@
     demoFrame.addEventListener(
       "load",
       () => {
-        notifyDemo("motion-preference", {
-          reducedMotion: reducedMotion.matches,
-        });
+        notifyDemo("motion-preference", { reducedMotion: reducedMotion.matches });
+        chooseScene(requestedScene, true);
         // An intentional launch may enter the player. Loading never occurs on page arrival.
         demoFrame.focus({ preventScroll: true });
       },
       { once: true },
     );
     demo.replaceChildren(demoFrame);
-  });
+  }
+  launch?.addEventListener("click", loadDemo);
+  if (sceneTabs.length && demo) {
+    sceneTabs[0].parentElement.hidden = false;
+    markScene(requestedScene);
+    for (const tab of sceneTabs) tab.addEventListener("click", () => {
+      const index = Number(tab.dataset.scene);
+      if (demoFrame) chooseScene(index, true);
+      else { requestedScene = index; markScene(index); loadDemo(); }
+    });
+  }
   reducedMotion.addEventListener("change", () =>
     notifyDemo("motion-preference", { reducedMotion: reducedMotion.matches }),
   );

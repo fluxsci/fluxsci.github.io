@@ -119,7 +119,6 @@ its resolution. PDF pages use the figure’s physical dimensions.
 | The labels look different in the notebook | The interactive viewer uses browser fonts; the PNG fallback uses Python's font renderer. Install the same font in both environments. Placement and point sizes remain explicit. |
 | An untrusted notebook output is blank | VS Code can suppress an entire mixed HTML/PNG output. Trust the notebook if appropriate, or execute `sc.show(static=True)` to request only the PNG. |
 | "These figures changed on disk" banner | Another tool or agent edited them → **Reload theirs** or **Overwrite with mine** — nothing is lost silently |
-
 | “Some figures could not be loaded” | A referenced canvas is missing or unreadable. Restore or repair it and reopen the project; saving is blocked to preserve the existing files. |
 | “Caption edits conflict” | Both the caption and its Markdown copy changed. Reconcile those versions before saving; changing panel labels alone does not create an external edit. |
 

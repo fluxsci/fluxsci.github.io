@@ -39,7 +39,7 @@ the equation that defines its interval.
 
 ## Multiple comparisons
 
- a row on its own has `p_corrected_holm == p-value` (a family of one).
+A row on its own has `p_corrected_holm == p-value` (a family of one).
 Holm's step-down correction needs every p-value in the family, so it is a separate pass over the
 rows of the comparisons that belong together (e.g. every measure tested on the same animals in one
 figure); extra keys such as a measure name ride along:
@@ -55,7 +55,7 @@ screen of many measures. NaN p-values pass through both untouched.
 
 ## Three or more groups
 
- the omnibus tests return one row (`groups` lists every group; F tests
+The omnibus tests return one row (`groups` lists every group; F tests
 carry `dof` / `dof_error`), the post-hoc tests one row per pair, and `pairwise` runs any two-group
 test above over the pairs of a `{name: sample}` family and corrects across them:
 
@@ -75,7 +75,7 @@ test above over the pairs of a `{name: sample}` family and corrects across them:
 
 ## Draw the comparisons
 
- `fp.brackets(ax, rows, positions=…)` draws one significance bracket per
+`fp.brackets(ax, rows, positions=…)` draws one significance bracket per
 post-hoc row and stacks them automatically: shortest span first, each bracket one `step` above the
 data it spans and above every bracket it overlaps in x (multiplicative steps on a log axis), so
 nothing crosses. `positions` maps group name → x; a glowbar / fluxbox result provides it, and
