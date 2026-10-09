@@ -271,7 +271,7 @@ While presenting: **→ / Space / PageDown** next beat (**+Shift**: next slide) 
 | **Alt+R** | Search your reference library in the right sidebar |
 | **Escape** | Close the topmost thing (menu → popover) |
 
-Mouse: select text → highlight colors appear · **Alt+drag** = pop out a figure region ·
+Mouse: select text → highlight colours appear · **Alt+drag** = pop out a figure region ·
 **Ctrl+Alt+drag** = save a [paper snip](/docs/reader.html#figures-and-snips) ·
 **Ctrl+wheel** / pinch = zoom at the cursor · drag a tab to reorder it · drag a sidebar edge
 to resize it (double-click resets).

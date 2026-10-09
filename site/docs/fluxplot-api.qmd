@@ -349,7 +349,7 @@ Draw a scalar matrix. `x`/`y` select pcolormesh (including irregular grids).
 
 `cells=True` gives modest meshes row/column cell IDs; above the raster
 threshold only the layer is addressable. `include_values` stores raw values.
-`key` names the recipe color controls; defaults to the owning axes and series.
+`key` names the recipe colour controls; defaults to the owning axes and series.
 `value_raster=True` writes the matrix as `<plot>.<key>.values.json` beside the SVG
 (row-major, `null` for missing) and points the colour scale at it, so a consumer can
 repaint an image layer from its values instead of regenerating. `scale="name"` joins a
@@ -399,7 +399,7 @@ and norm come from here, its limits default to the union of all members' values)
 fp.colorbar(mappable=None, *, name='color', ax=None, scale=None, fig=None, **kwargs)
 ```
 
-Create a named, linked color key using Figure.colorbar's usual options.
+Create a named, linked colour key using Figure.colorbar's usual options.
 
 <details class="api-detail"><summary>Parameters and details</summary>
 

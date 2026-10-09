@@ -379,7 +379,7 @@ export const groups = [
       {
         "title": "Paper",
         "url": "/docs/paper.html",
-        "description": "Write and organize documents, with figures and references close at hand."
+        "description": "Write and organise documents, with figures and references close at hand."
       },
       {
         "title": "Citations, figures and tables",

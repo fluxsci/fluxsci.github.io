@@ -98,7 +98,7 @@ You now have three neighboring files in `paper/plots/`: `growth.svg`, `growth.fl
 
 Switch to **Figure** in the titlebar. Open the **Plot gallery** with **Alt+G**, select `growth.svg`, and choose **Insert**. Flux imports at the plot’s physical size; the gallery marks semantic plots with a **◆** badge.
 
-Select a plot part with **Ctrl+click**. Press **F** to open its properties and change a line’s stroke color. **Alt+R** opens **X-ray**, where you can inspect the plot’s named parts and regeneration recipe.
+Select a plot part with **Ctrl+click**. Press **F** to open its properties and change a line’s stroke colour. **Alt+R** opens **X-ray**, where you can inspect the plot’s named parts and regeneration recipe.
 
 Try changing a number in `make_growth.py` and rerunning it. Flux refreshes the linked plot, retaining styling attached to stable series identities such as `control`. Source status in the figure catalog tells you whether the link is current, missing, or needs attention.
 
@@ -113,7 +113,7 @@ Open **Figure-Meta** with **Alt+M** and add a caption. For this example: “Synt
 
 Open **Library** and paste a paper’s DOI into the add field, or import a BibTeX file. The reference joins your shared library, where it is available across projects. Use **Enrich** for additional metadata and the download control for an available open-access PDF.
 
-Open the paper in **Reader** from its Library row. Select a sentence and choose a highlight color, then attach a note to the highlight. Reader also supports tabs, side-by-side reading, and figure snips that retain their source provenance.
+Open the paper in **Reader** from its Library row. Select a sentence and choose a highlight colour, then attach a note to the highlight. Reader also supports tabs, side-by-side reading, and figure snips that retain their source provenance.
 
 A reference in your Library becomes part of a project’s bibliography when you cite it. [Library and project references](projects-and-files.qmd#library) explains the distinction.
 

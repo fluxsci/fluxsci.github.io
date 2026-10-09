@@ -63,7 +63,7 @@ Using another Python environment? Run `pip install fluxplot` there. For a new uv
 
 ### Connect your AI collaborator
 
-Open **AI** in the Flux titlebar, choose **Connect** for your agent, review any proposed replacements, then restart open agent sessions. The connection panel provides the command to start working with a particular project. [Read the agent connection guide](/docs/connect.html).
+Open **AI** in the Flux title bar, choose **Connect** for your agent, review any proposed replacements, then restart open agent sessions. The connection panel provides the command to start working with a particular project. [Read the agent connection guide](/docs/connect.html).
 
 ## Check the installation {#verify}
 

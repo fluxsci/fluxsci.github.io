@@ -210,8 +210,14 @@ description: "Flux is a free, open-source desktop workspace for scientists. Comp
           <path d="M230 290h96" marker-end="url(#flow-head)"/>
           <path d="M550 290h96" marker-end="url(#flow-head)"/>
           <path d="M550 262c50 0 50 -146 96 -146" marker-end="url(#flow-head)"/>
-          <path d="M870 90h86" marker-end="url(#flow-head)"/>
-          <path d="M870 290h86" marker-end="url(#flow-head)"/>
+          <path class="flow-export" d="M870 90L956 54" marker-end="url(#flow-head)"/>
+          <path class="flow-export" d="M870 90L956 78" marker-end="url(#flow-head)"/>
+          <path class="flow-export" d="M870 90L956 102" marker-end="url(#flow-head)"/>
+          <path class="flow-export" d="M870 90L956 126" marker-end="url(#flow-head)"/>
+          <path class="flow-export" d="M870 290L956 254" marker-end="url(#flow-head)"/>
+          <path class="flow-export" d="M870 290L956 278" marker-end="url(#flow-head)"/>
+          <path class="flow-export" d="M870 290L956 302" marker-end="url(#flow-head)"/>
+          <path class="flow-export" d="M870 290L956 326" marker-end="url(#flow-head)"/>
           <path class="flow-return" d="M125 362C125 396 445 396 445 368" marker-end="url(#flow-head)"/>
         </g>
         <g class="flow-labels">
@@ -220,8 +226,8 @@ description: "Flux is a free, open-source desktop workspace for scientists. Comp
           <text x="278" y="278">import</text>
           <text x="598" y="278">animate</text>
           <text x="588" y="194" text-anchor="end">place, caption</text>
-          <text x="913" y="78">export</text>
-          <text x="913" y="278">export</text>
+          <text x="913" y="146">export</text>
+          <text x="913" y="346">export</text>
           <text x="285" y="410">re-run the script → the figure updates</text>
         </g>
         <foreignObject x="20" y="22" width="210" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#8b7ec8"></i>Library</span><span class="flow-box-note">References and PDFs, shared by all your projects.</span></div></foreignObject>
@@ -230,10 +236,10 @@ description: "Flux is a free, open-source desktop workspace for scientists. Comp
         <foreignObject x="20" y="222" width="210" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-code"><span class="flow-box-title">Python plots</span><span class="flow-box-note">fluxplot names every part:</span><code>control.line · axis.x.tick.3</code></div></foreignObject>
         <foreignObject x="340" y="222" width="210" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#3aa99f"></i>Figure</span><span class="flow-box-note">Compose panels, restyle any part, export.</span></div></foreignObject>
         <foreignObject x="660" y="222" width="210" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#ce5d97"></i>Slides</span><span class="flow-box-note">Reveal, morph and turn, one step at a time.</span></div></foreignObject>
-        <foreignObject x="970" y="22" width="250" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-export"><span class="flow-box-title">Documents</span><span class="flow-formats"><span>Word</span><span>PDF</span><span>HTML</span><span>Journal styles</span></span></div></foreignObject>
-        <foreignObject x="970" y="222" width="250" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-export"><span class="flow-box-title">Decks</span><span class="flow-formats"><span>HTML deck</span><span>PowerPoint</span><span>PDF handout</span><span>Video</span></span></div></foreignObject>
+        <foreignObject x="970" y="22" width="250" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-export"><span class="flow-box-title">Documents</span><span class="flow-box-note">One manuscript, any format.</span><span class="flow-formats"><span>Word</span><span>PDF</span><span>HTML</span><span>Journal styles</span></span></div></foreignObject>
+        <foreignObject x="970" y="222" width="250" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-export"><span class="flow-box-title">Decks</span><span class="flow-box-note">One deck, any format.</span><span class="flow-formats"><span>HTML deck</span><span>PowerPoint</span><span>PDF handout</span><span>Video</span></span></div></foreignObject>
       </svg>
-      <svg class="flow-tall" viewBox="0 0 400 820" aria-hidden="true">
+      <svg class="flow-tall" viewBox="0 0 400 876" aria-hidden="true">
         <defs>
           <marker id="flow-head-tall" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z"/></marker>
         </defs>
@@ -244,8 +250,14 @@ description: "Flux is a free, open-source desktop workspace for scientists. Comp
           <path d="M100 360v70" marker-end="url(#flow-head-tall)"/>
           <path d="M300 360v70" marker-end="url(#flow-head-tall)"/>
           <path d="M216 315C196 315 204 495 190 495" marker-end="url(#flow-head-tall)"/>
-          <path d="M100 594v42" marker-end="url(#flow-head-tall)"/>
-          <path d="M300 594v42" marker-end="url(#flow-head-tall)"/>
+          <path class="flow-export" d="M100 594L52 638" marker-end="url(#flow-head-tall)"/>
+          <path class="flow-export" d="M100 594L84 638" marker-end="url(#flow-head-tall)"/>
+          <path class="flow-export" d="M100 594L116 638" marker-end="url(#flow-head-tall)"/>
+          <path class="flow-export" d="M100 594L148 638" marker-end="url(#flow-head-tall)"/>
+          <path class="flow-export" d="M300 594L252 638" marker-end="url(#flow-head-tall)"/>
+          <path class="flow-export" d="M300 594L284 638" marker-end="url(#flow-head-tall)"/>
+          <path class="flow-export" d="M300 594L316 638" marker-end="url(#flow-head-tall)"/>
+          <path class="flow-export" d="M300 594L348 638" marker-end="url(#flow-head-tall)"/>
         </g>
         <g class="flow-labels">
           <text x="108" y="180" text-anchor="start">open</text>
@@ -255,8 +267,8 @@ description: "Flux is a free, open-source desktop workspace for scientists. Comp
           <text x="308" y="400" text-anchor="start">animate</text>
           <text x="214" y="398" text-anchor="start">place,</text>
           <text x="214" y="414" text-anchor="start">caption</text>
-          <text x="108" y="620" text-anchor="start">export</text>
-          <text x="308" y="620" text-anchor="start">export</text>
+          <text x="186" y="620" text-anchor="end">export</text>
+          <text x="386" y="620" text-anchor="end">export</text>
         </g>
         <foreignObject x="20" y="0" width="160" height="150"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#8b7ec8"></i>Library</span><span class="flow-box-note">References and PDFs, shared by all your projects.</span></div></foreignObject>
         <foreignObject x="220" y="0" width="160" height="150"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-code"><span class="flow-box-title">Python plots</span><span class="flow-box-note">fluxplot names every part:</span><code>control.line · axis.x.tick.3</code></div></foreignObject>
@@ -264,8 +276,8 @@ description: "Flux is a free, open-source desktop workspace for scientists. Comp
         <foreignObject x="220" y="206" width="160" height="150"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#3aa99f"></i>Figure</span><span class="flow-box-note">Compose panels, restyle any part, export.</span></div></foreignObject>
         <foreignObject x="20" y="440" width="160" height="150"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#4385be"></i>Paper</span><span class="flow-box-note">Write and cite. One manuscript, every output format.</span></div></foreignObject>
         <foreignObject x="220" y="440" width="160" height="150"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#ce5d97"></i>Slides</span><span class="flow-box-note">Reveal, morph and turn, one step at a time.</span></div></foreignObject>
-        <foreignObject x="20" y="646" width="160" height="170"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-export"><span class="flow-box-title">Documents</span><span class="flow-formats"><span>Word</span><span>PDF</span><span>HTML</span><span>Journal styles</span></span></div></foreignObject>
-        <foreignObject x="220" y="646" width="160" height="170"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-export"><span class="flow-box-title">Decks</span><span class="flow-formats"><span>HTML deck</span><span>PowerPoint</span><span>PDF handout</span><span>Video</span></span></div></foreignObject>
+        <foreignObject x="20" y="646" width="160" height="222"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-export"><span class="flow-box-title">Documents</span><span class="flow-box-note">One manuscript, any format.</span><span class="flow-formats"><span>Word</span><span>PDF</span><span>HTML</span><span>Journal styles</span></span></div></foreignObject>
+        <foreignObject x="220" y="646" width="160" height="222"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-export"><span class="flow-box-title">Decks</span><span class="flow-box-note">One deck, any format.</span><span class="flow-formats"><span>HTML deck</span><span>PowerPoint</span><span>PDF handout</span><span>Video</span></span></div></foreignObject>
       </svg>
     </div>
     <ul class="flow-points">

@@ -104,7 +104,7 @@ fluxplot uses matplotlib's one real hook from "an artist" to "a named SVG elemen
 6. **Emit the manifest and recipe.**
 
 > **Is step 5 reverse-engineering?** No — and the distinction is the whole
-> point. Reverse-engineering means looking at an anonymous `<path>` and *guessing from its color or
+> point. Reverse-engineering means looking at an anonymous `<path>` and *guessing from its colour or
 > shape* that it's the control line. Here, **we set `id="control.line"` before rendering**, so the
 > post-pass is an *exact structural join on an id we authored* plus annotation with values our code
 > already had. Nothing is inferred from pixels. It's serialization, not divination.

@@ -1,5 +1,6 @@
 (() => {
  'use strict';
+ for(const code of document.querySelectorAll('.doc-content :not(pre)>code'))if(code.textContent.length<=32)code.classList.add('is-short');
  for(const button of document.querySelectorAll('[data-copy]')) {
   button.hidden=false;
   button.addEventListener('click',async()=>{

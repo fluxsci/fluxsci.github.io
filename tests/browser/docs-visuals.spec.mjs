@@ -49,7 +49,7 @@ test('all six native teaching slides actually animate and settle without issues'
 
 test('documentation navigation exposes breadcrumbs, section links and adjacent guides',async({page})=>{
  await page.goto('/docs/figure.html');await expect(page.getByRole('navigation',{name:'Breadcrumb'})).toContainText('Figures');
- const pagination=page.getByRole('navigation',{name:'More in Figures'});await pagination.getByRole('link',{name:/Next guide/}).click();await expect(page).toHaveURL(/plot-gallery.html$/);
+ const pagination=page.getByRole('navigation',{name:'Previous and next guide'});await pagination.getByRole('link',{name:/^Next/}).click();await expect(page).toHaveURL(/plot-gallery.html$/);
  const anchor=page.locator('.heading-link').first();await anchor.focus();await expect(anchor).toBeVisible();await anchor.click();expect(new URL(page.url()).hash).not.toBe('');
 });
 
