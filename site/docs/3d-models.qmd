@@ -139,7 +139,7 @@ Point and line primitives are refused; export triangle meshes.
 | Orbit won't start | A notice says why: the model is locked or hidden (unlock or show it), its file is missing, rendering is unavailable, or another editing mode owns the interaction. Resolve that condition, then choose Orbit again. |
 | Saving says a 3D model file is missing | The model's GLB was moved or deleted from the project's `fig/assets/` folder. The figure still opens with a grey tile in its place, and saving waits. Put the named file back and save again, or select the model and delete it: saving resumes and the rest of the figure is untouched. **Ctrl+Z** brings the model back, and saving waits again until its file returns. If the message says a deck still uses the file, restore it or delete that model from the deck. |
 | Notebook labels look different | In a notebook, the interactive viewer uses browser fonts; the PNG fallback uses Python's font renderer. Install the same font in both environments. Placement and point sizes remain explicit. |
-| Notebook output is blank | In an untrusted notebook, VS Code can suppress an entire mixed HTML/PNG output. Trust the notebook if appropriate, or run `sc.show(static=True)` to request only the PNG. See [3D plots](/docs/3d-plots.html#axes-scale-bars-and-notebook-behavior). |
+| Notebook output is blank | In an untrusted notebook, VS Code can suppress an entire mixed HTML/PNG output. Trust the notebook if appropriate, or run `sc.show(static=True)` to request only the PNG. See [3D plots](/docs/3d-plots.html#notebooks). |
 
 ::: {.next-reading}
 **Related guides**

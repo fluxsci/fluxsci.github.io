@@ -78,7 +78,7 @@ The viewer is live: files dropped into the folder while it's open simply appear.
 
 For scripts and agents, `flux list-dissections [plot]` prints a plot's groups and files (or,
 with no argument, every plot that has dissections); see the
-[command reference](/docs/commands.html#verb-cheat-sheet).
+[command reference](/docs/commands.html#verb-reference).
 
 ## Troubleshooting {#troubleshooting}
 

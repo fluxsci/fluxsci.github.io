@@ -481,6 +481,11 @@ export const groups = [
     "id": "plotting",
     "items": [
       {
+        "title": "fluxplot",
+        "url": "/docs/fluxplot.html",
+        "description": "Create plots in Python that stay editable in Flux: a complete example, installation, and the path to more advanced plotting."
+      },
+      {
         "title": "Semantic plots",
         "url": "/docs/semantic-plots.html",
         "description": "A plot with named parts remains editable after it leaves Python."
@@ -529,11 +534,6 @@ export const groups = [
         "title": "3D plots",
         "url": "/docs/3d-plots.html",
         "description": "Build an orbitable scene with named mesh parts, value fields, shape states and a saved view."
-      },
-      {
-        "title": "fluxplot",
-        "url": "/docs/fluxplot.html",
-        "description": "Create plots in Python that stay editable in Flux: a complete example, installation, and the path to more advanced plotting."
       }
     ]
   },

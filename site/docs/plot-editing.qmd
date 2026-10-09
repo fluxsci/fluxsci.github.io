@@ -43,7 +43,7 @@ band, its error bars and its legend swatch — written as one override per part,
 regeneration like any part edit, with **reset** to return to the generated colours. A
 colour-mapped series (a heatmap, a hexbin, a scatter coloured by value) has no series colour: edit
 its [**Colour scale**](#colour-scales) instead. From the command line, the same edit is
-`flux set-series-color` ([command reference](/docs/commands.html#verb-cheat-sheet)).
+`flux set-series-color` ([command reference](/docs/commands.html#verb-reference)).
 
 ## X-ray {#x-ray}
 
