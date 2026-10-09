@@ -540,6 +540,7 @@ kbd {
   margin-top: 22px;
   font: 12px/1.6 var(--sans);
   color: var(--muted);
+  text-wrap: balance;
 }
 .hero-figure {
   margin-top: 48px;
@@ -697,9 +698,26 @@ kbd {
   margin: 0 auto;
 }
 .flow svg {
+  display: block;
   width: 100%;
   height: auto;
   font-family: var(--sans);
+}
+/* The wide diagram reads left to right; narrower screens get the same
+   diagram stacked in two columns instead of a sideways-scrolling strip. */
+.flow-tall {
+  display: none !important;
+}
+@media (max-width: 999px) {
+  .flow {
+    max-width: 440px;
+  }
+  .flow-wide {
+    display: none !important;
+  }
+  .flow-tall {
+    display: block !important;
+  }
 }
 .flow-edges path {
   fill: none;
@@ -713,45 +731,48 @@ kbd {
   fill: var(--muted);
 }
 .flow-labels text {
-  font-size: 12.5px;
+  font-size: 13px;
   fill: var(--muted);
   text-anchor: middle;
+}
+.flow-labels text[text-anchor="start"] {
+  text-anchor: start;
+}
+.flow-labels text[text-anchor="end"] {
+  text-anchor: end;
 }
 .desktop-break {
   display: inline;
 }
-.flow-labels text[text-anchor="start"] {
-  text-anchor: start;
+.nowrap {
+  white-space: nowrap;
 }
 @media (min-width: 561px) {
   .nav-install {
     display: none !important;
   }
 }
-.flow-edges .flow-export {
-  stroke-width: 1.2;
-  opacity: 0.85;
-}
 .flow-box {
   box-sizing: border-box;
   height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  padding: 13px 18px;
+  gap: 5px;
+  padding: 12px 16px;
   border: 1px solid var(--rule);
   border-radius: 10px;
   background: var(--inset);
   color: var(--muted);
-  font: 12.5px/1.3 var(--sans);
+  font: 13.5px/1.3 var(--sans);
   overflow: hidden;
 }
-.flow-box.is-small {
-  padding: 10px 14px;
-  justify-content: center;
+.flow-tall .flow-box {
+  padding: 12px 13px;
+  font-size: 14px;
 }
-.flow-box.is-small .flow-box-title {
-  font-size: 19px;
+.flow-tall .flow-formats > span {
+  padding: 1px 5px;
+  font-size: 12.5px;
 }
 .flow-box.is-code {
   border-style: dashed;
@@ -775,28 +796,27 @@ kbd {
 }
 .flow-box code {
   display: block;
-  font: 11.5px/1.4 var(--mono);
+  font: 12px/1.4 var(--mono);
   color: var(--ink);
   background: none;
   padding: 0;
 }
 .flow-box.is-export {
   background: var(--paper);
-  gap: 4px;
 }
-.flow-list {
-  list-style: none;
-  margin: 6px 0 0;
-  padding: 7px 0 0;
-  border-top: 1px solid var(--rule);
-  font: 12.5px/1.2 var(--sans);
+.flow-formats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 3px;
+}
+.flow-formats > span {
+  padding: 1px 7px;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  font: 12.5px/1.5 var(--sans);
   color: var(--ink);
-}
-.flow-list li {
-  padding: 2px 0 3px;
-}
-.flow-list-slides {
-  margin-top: 8px;
+  white-space: nowrap;
 }
 .flow-points {
   list-style: none;
@@ -942,43 +962,41 @@ kbd {
   margin: auto;
   box-shadow: 0 12px 35px #100f0f0b;
 }
+/* Before it loads, the player is previewed as its own layout: the whole slide, then
+   a control strip that holds the play prompt, so nothing on the slide is covered. */
+.slide-demo:has(> .demo-launch) {
+  aspect-ratio: auto;
+  padding-bottom: 0;
+}
 .demo-launch {
-  position: absolute;
-  inset: 0;
+  position: relative;
   border: 0;
-  background: #fffcf0;
+  background: #ffffff;
   padding: 0;
   width: 100%;
-  height: 100%;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+/* The player frame clips overflow, so the focus ring is drawn inside the button. */
+.demo-launch:focus-visible {
+  outline-offset: -4px;
 }
 .demo-launch > img {
+  display: block;
   width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: top;
-}
-.demo-launch::after {
-  content: "";
-  position: absolute;
-  inset: 40% 0 0;
-  background: linear-gradient(transparent, #100f0f14);
+  height: auto;
+  aspect-ratio: 1200 / 760;
 }
 .demo-launch-prompt {
-  position: absolute;
-  bottom: 28px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 13px;
-  background: #fffcf0f5;
-  border: 1px solid #dad8ce;
-  border-radius: 8px;
-  padding: 14px 22px 14px 15px;
+  background: #f2f0e5;
+  border-top: 1px solid #dad8ce;
+  padding: 12px 16px;
   color: #100f0f;
-  box-shadow: 0 6px 24px #100f0f16;
   white-space: nowrap;
   text-align: left;
   font: 14px/1.4 var(--sans);
@@ -1069,6 +1087,7 @@ kbd {
   margin: 22px auto 0;
   font-size: 18px;
   max-width: 560px;
+  text-wrap: balance;
 }
 .install-command {
   max-width: 640px;
@@ -1078,9 +1097,9 @@ kbd {
 .install-command .code-example {
   margin: 0;
 }
-.install-command pre {
+.install-command .code-example pre {
   margin: 0;
-  padding: 20px 110px 20px 22px;
+  padding: 20px 96px 20px 22px;
   background: var(--inset);
   border: 1px solid var(--rule);
   border-radius: 8px;
@@ -1094,7 +1113,8 @@ kbd {
   padding: 0;
 }
 .install-command .copy-code {
-  top: 14px;
+  top: 50%;
+  transform: translateY(-50%);
   right: 14px;
   font-size: 12px;
   padding: 6px 12px;
@@ -1108,6 +1128,7 @@ kbd {
 .availability {
   font: 12px/1.6 var(--sans);
   color: var(--muted);
+  text-wrap: balance;
   margin-top: 20px;
 }
 
@@ -1164,6 +1185,7 @@ kbd {
   grid-column: 1 / -1;
   border-top: 1px solid var(--rule);
   padding-top: 20px;
+  text-wrap: balance;
   display: flex;
   justify-content: space-between;
   gap: 20px;
@@ -1211,10 +1233,17 @@ kbd {
   font: 12px var(--sans);
 }
 .media-dialog img {
+  display: block;
   max-width: 100%;
   height: auto;
   margin: auto;
   border-radius: 3px;
+}
+/* Landscape views fit the window whole, caption included; tall plates keep their
+   full width and scroll, so their detail stays legible. */
+.media-dialog:not(.is-tall) img {
+  width: auto;
+  max-height: calc(100dvh - 172px);
 }
 .media-dialog p {
   padding: 14px 7px 0;
@@ -1243,6 +1272,7 @@ html.dialog-open {
 .error-page p:not(.eyebrow) {
   line-height: 1.7;
   margin-top: 1.4rem;
+  text-wrap: pretty;
 }
 .error-actions {
   display: flex;
@@ -1387,7 +1417,7 @@ html.dialog-open {
     gap: 22px;
   }
   .hero-figure figcaption {
-    font-size: 11px;
+    font-size: 12px;
   }
   .workspace-choices button {
     column-gap: 6px;
@@ -1406,14 +1436,6 @@ html.dialog-open {
     grid-template-columns: 1fr;
     gap: 18px;
     margin-top: 30px;
-  }
-  .flow {
-    overflow-x: auto;
-    scrollbar-width: thin;
-    padding-bottom: 6px;
-  }
-  .flow svg {
-    min-width: 900px;
   }
   .showcase-plates {
     gap: 18px;
@@ -1561,12 +1583,12 @@ html.dialog-open {
     height: 18px;
   }
   .hero-figure figcaption {
-    font-size: 10px;
+    font-size: 12px;
     gap: 14px;
     padding-top: 11px;
   }
   .workspace-guide {
-    font-size: 10px;
+    font-size: 12px;
   }
   .eyebrow {
     font-size: 10px;
@@ -1605,14 +1627,12 @@ html.dialog-open {
     border-radius: 6px;
   }
   .demo-launch-prompt {
-    bottom: 14px;
-    padding: 9px 12px 9px 9px;
-    gap: 9px;
-    font-size: 11px;
-    border-radius: 5px;
+    padding: 10px 12px;
+    gap: 10px;
+    font-size: 13px;
   }
   .demo-launch-prompt small {
-    font-size: 9px;
+    font-size: 11px;
     margin-top: 2px;
   }
   .play-disc {
@@ -1642,12 +1662,16 @@ html.dialog-open {
   .closing-lead {
     font-size: 16px;
   }
-  .install-command pre {
-    padding: 48px 14px 16px;
+  .install-command .code-example pre {
+    padding: 50px 16px 16px;
     font-size: 12px;
+    /* The whole command stays visible; copying uses the text, not the line breaks. */
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
   }
   .install-command .copy-code {
     top: 10px;
+    transform: none;
     right: 10px;
   }
   .closing-actions {
@@ -1689,6 +1713,39 @@ html.dialog-open {
   .zoom-hint > .icon {
     width: 13px;
     height: 13px;
+  }
+}
+/* The smallest phones keep the whole header on one row: the menu button keeps
+   "Menu" as its accessible name but shows only the icon. */
+@media (max-width: 380px) {
+  .header-inner {
+    gap: 6px;
+  }
+  .wordmark {
+    gap: 5px;
+  }
+  .search-open {
+    padding-inline: 6px;
+  }
+  .theme-select select {
+    padding-right: 13px;
+  }
+  .theme-select::after {
+    right: 2px;
+  }
+  .js .menu-toggle {
+    margin-left: 2px;
+    min-width: 40px;
+    padding-inline: 0;
+    justify-content: flex-end;
+  }
+  .js .menu-toggle > span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
   }
 }
 @media (hover: none) {

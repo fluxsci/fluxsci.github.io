@@ -63,6 +63,8 @@
   status.textContent=query?(matched.length?`${matched.length} result${matched.length===1?'':'s'}`:'No matching topics. Try “plots”, “slides”, or “agents”.'):'Explore a guide, or type to search.';
  }
  input.addEventListener('input',render);
+ // "Enter to open" from the field opens the best match, as the help line promises.
+ input.addEventListener('keydown',e=>{if(e.key!=='Enter'||e.isComposing)return;const first=results.querySelector('a');if(first){e.preventDefault();location.href=first.href;}});
  dialog.querySelector('[data-search-close]').addEventListener('click',close);
  dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)close();}});
  dialog.addEventListener('close',()=>opener?.focus());

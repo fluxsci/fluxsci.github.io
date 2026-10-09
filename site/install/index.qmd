@@ -59,7 +59,7 @@ For 3D mesh exports:
 uv add "fluxplot[mesh]"
 ```
 
-Using another Python environment? Run `pip install fluxplot` there. For a new uv project, run `uv init` first. Fluxplot belongs beside your analysis code; each plot's recipe records how to regenerate it.
+Using another Python environment? Run `pip install fluxplot` there. For a new uv project, run `uv init` first. Keep fluxplot beside your analysis code: each plot's recipe records how to regenerate it.
 
 ### Connect your AI collaborator
 
