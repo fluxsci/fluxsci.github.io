@@ -13,29 +13,48 @@ Compute reporting rows with effect sizes and intervals, then attach the same res
 
 ## Two-group comparisons
 
-Each two-group test takes `(a, b)`, orients signs as `a - b`, and returns one
-reporting row (a dict keyed by `fp.stats.REPORT_COLUMNS`: `sig_test_used`, `test_statistic_value`,
-`p-value`, `p_corrected_holm`, `dof`, `effect_size_method`, `effect_size_value`,
-`effect_size_95_CI`, then the appended `effect_size_ci_low` / `effect_size_ci_high` (numbers),
-`n_a`, `n_b`, `n_total`, `groups` (the names compared), `alternative`, `p_corrected_bh` and
-`dof_error`), ready to save as a CSV in the plot's `_stats` dissection:
+Each two-group test takes two samples `(a, b)`, orients signs as `a − b`, and returns one
+reporting row: a dict ready to save as a CSV in the plot's `_stats`
+[dissection](/docs/dissections.html).
 
 ```python
-row = fp.stats.welch_hedges(sd_values, sleep_values, names=("SD", "sleep"))   # alternative="two-sided"
+import polars as pl
+import fluxplot as fp
+
+# sd_values and sleep_values are the two samples from your analysis.
+row = fp.stats.welch_hedges(sd_values, sleep_values, names=("SD", "sleep"))
 pl.DataFrame([row]).write_csv("plots/_dissections/app_gapdh/_stats/welch_ttest.csv")
 ```
 
-| function | design | test | effect size + 95% CI |
-|---|---|---|---|
-| `welch_hedges` | independent, means | Welch's t-test | Hedges' g, non-pooled SD `sqrt((var_a + var_b) / 2)`; Bonett (2008) CI |
-| `mann_whitney_cliff` | independent, ranks | Mann–Whitney U (`U` of `a`) | Cliff's delta; Newcombe (2006) Method 5 score CI |
-| `paired_t_hedges` | paired, mean difference | paired t-test | Hedges' g_z (SD of the differences); exact noncentral-t CI |
-| `wilcoxon_rank_biserial` | paired, ranks | Wilcoxon signed-rank (`W+`, zeros dropped) | Kerby's matched-pairs rank-biserial r; score CI |
+The tests are two-sided unless you pass `alternative=`. A row's keys, in the order of
+`fp.stats.REPORT_COLUMNS`, are:
+
+- **Test and result**: `sig_test_used`, `test_statistic_value`, `p-value`, `p_corrected_holm`, `dof`.
+- **Effect size**: `effect_size_method`, `effect_size_value`, `effect_size_95_CI`, and the
+  interval as numbers in `effect_size_ci_low` and `effect_size_ci_high`.
+- **Samples**: `n_a`, `n_b`, `n_total`, and `groups` (the names compared).
+- **Also recorded**: `alternative`, `p_corrected_bh`, `dof_error`.
+
+| Function | Design | Test |
+|---|---|---|
+| `welch_hedges` | independent samples, means | Welch's t-test |
+| `mann_whitney_cliff` | independent samples, ranks | Mann–Whitney U (the `U` of `a`) |
+| `paired_t_hedges` | paired samples, mean difference | paired t-test |
+| `wilcoxon_rank_biserial` | paired samples, ranks | Wilcoxon signed-rank (`W+`, zeros dropped) |
+
+Each reports this effect size with a 95% confidence interval:
+
+| Function | Effect size and 95% CI |
+|---|---|
+| `welch_hedges` | Hedges' g with the non-pooled SD, `sqrt((var_a + var_b) / 2)`; Bonett (2008) CI |
+| `mann_whitney_cliff` | Cliff's delta; Newcombe (2006) Method 5 score CI |
+| `paired_t_hedges` | Hedges' g_z (SD of the differences); exact noncentral-t CI |
+| `wilcoxon_rank_biserial` | Kerby's matched-pairs rank-biserial r; score CI |
 
 The CIs target the population effect size, so they are never multiplied by Hedges' `J`. Both
 rank-based CIs stay non-degenerate at complete separation (`delta` or `r` = ±1), which is common at
-n = 6. Rank tests report `dof = None`. `tests/test_stats.py` pins each against scipy and against
-the equation that defines its interval.
+n = 6. Rank tests report `dof = None`. fluxplot's test suite (`tests/test_stats.py`) checks each
+test against SciPy and against the equation that defines its interval.
 
 ## Multiple comparisons
 
@@ -45,8 +64,10 @@ rows of the comparisons that belong together (e.g. every measure tested on the s
 figure); extra keys such as a measure name ride along:
 
 ```python
+# sd and sleep map each measure name to its samples.
 rows = [dict(measure=m, **fp.stats.welch_hedges(sd[m], sleep[m])) for m in measures]
-rows = fp.stats.holm(rows)   # fills p_corrected_holm across the family; order is kept
+# Fill p_corrected_holm across the family; the row order is kept.
+rows = fp.stats.holm(rows)
 ```
 
 `fp.stats.holm_adjusted(p)` does the same for a bare array of p-values; `fp.stats.bh(rows)` /
@@ -55,23 +76,36 @@ screen of many measures. NaN p-values pass through both untouched.
 
 ## Three or more groups
 
-The omnibus tests return one row (`groups` lists every group; F tests
-carry `dof` / `dof_error`), the post-hoc tests one row per pair, and `pairwise` runs any two-group
-test above over the pairs of a `{name: sample}` family and corrects across them:
+The omnibus tests return one row, in which `groups` lists every group and F tests carry `dof`
+and `dof_error`. The post-hoc tests return one row per pair. `pairwise` runs any two-group test
+above over the pairs of a `{name: sample}` family and corrects across them.
 
-| function | test | effect size + 95% CI |
+| Function | Test | Effect size and 95% CI |
 |---|---|---|
-| `anova_oneway(*groups, names=, effect="eta2"\|"omega2")` | one-way ANOVA | η² or ω²; Steiger's noncentral-F CI |
-| `welch_anova(*groups, names=)` | Welch's ANOVA | ω²; noncentral-F CI on Welch's dof |
-| `kruskal_epsilon(*groups, names=)` | Kruskal–Wallis | ε² = H / (N − 1); seeded bootstrap CI |
-| `rm_anova(table, subject, within, dv)` | repeated-measures ANOVA, Greenhouse–Geisser dof and p | partial η²; noncentral-F CI |
-| `friedman_kendall(table, subject, within, dv)` | Friedman | Kendall's W; seeded bootstrap CI |
-| `tukey_hsd(*groups, names=)` | Tukey HSD (family-wise p as is) | Hedges' g, pooled SD |
-| `games_howell(*groups, names=)` | Games–Howell (studentized range on Welch dof) | Hedges' g, non-pooled SD; Bonett CI |
-| `dunn(*groups, names=, adjust="holm")` | Dunn's rank-sum test after Kruskal–Wallis | Cliff's delta; Newcombe CI |
-| `pairwise(test, groups, pairs=None, adjust="holm"\|"bh")` | any two-group test per pair | that test's |
+| `anova_oneway` | one-way ANOVA | η² or ω² (`effect="eta2"` or `"omega2"`); Steiger's noncentral-F CI |
+| `welch_anova` | Welch's ANOVA | ω²; noncentral-F CI on Welch's dof |
+| `kruskal_epsilon` | Kruskal–Wallis | ε² = H / (N − 1); seeded bootstrap CI |
+| `rm_anova` | repeated-measures ANOVA | partial η²; noncentral-F CI |
+| `friedman_kendall` | Friedman | Kendall's W; seeded bootstrap CI |
+| `tukey_hsd` | Tukey HSD | Hedges' g, pooled SD |
+| `games_howell` | Games–Howell | Hedges' g, non-pooled SD; Bonett CI |
+| `dunn` | Dunn's test | Cliff's delta; Newcombe CI |
+| `pairwise` | any two-group test, per pair | the chosen test's |
 
-`tests/test_stats_multi.py` pins them against pingouin / scikit-posthocs reference values.
+Notes on the tests:
+
+- `rm_anova` reports Greenhouse–Geisser-corrected degrees of freedom and p.
+- `tukey_hsd` reports Tukey's family-wise p as it is, without a further correction.
+- `games_howell` uses the studentized range on Welch's degrees of freedom.
+- `dunn` is Dunn's rank-sum test after Kruskal–Wallis, corrected with `adjust="holm"` by default.
+- `pairwise` corrects across the pairs with `adjust="holm"` (the default) or `"bh"`.
+
+The group-based functions take the samples as positional arguments with optional `names=`, for
+example `fp.stats.welch_anova(ctl, drug, sham, names=("ctl", "drug", "sham"))`. The
+repeated-measures functions take a long table and its column names:
+`fp.stats.rm_anova(table, subject, within, dv)`. Exact signatures are in the
+[API reference](/docs/fluxplot-api.html#statistics). fluxplot's test suite
+(`tests/test_stats_multi.py`) checks them against pingouin and scikit-posthocs reference values.
 
 ## Draw the comparisons
 
@@ -82,18 +116,25 @@ nothing crosses. `positions` maps group name → x; a glowbar / fluxbox result p
 `gb.brackets(rows)` is the one-liner:
 
 ```python
-rows = fp.stats.pairwise(fp.stats.welch_hedges, {"ctl": ctl, "drug": drug, "sham": sham})
+# ctl, drug and sham are the samples; df["group"] holds the same three names.
+rows = fp.stats.pairwise(fp.stats.welch_hedges,
+                         {"ctl": ctl, "drug": drug, "sham": sham})
 gb = fp.glowbar(data=df, x="group", y="value", ax=ax)
-gb.brackets(rows)                                   # *** / ** / * / ns from p_corrected_holm
-gb.brackets(rows, label="p", ns=False, p_column="p_corrected_bh")   # "p = 0.003", drop ns pairs
+
+# Stars (***, **, *, ns) from p_corrected_holm:
+gb.brackets(rows)
+# Or "p = 0.003" labels from the BH-corrected p-values, without the ns pairs:
+gb.brackets(rows, label="p", ns=False, p_column="p_corrected_bh")
 ```
 
-`label` is `"stars"`, `"p"`, `"both"` or a callable on the row; `thresholds`, `top`, `step` and
-`tip` shape the stack; extra keywords reach `fp.significance_bracket`. Each bracket's manifest
+`label` is `"stars"`, `"p"`, `"both"` or a callable on the row. `thresholds`, `top`, `step` and
+`tip` shape the stack, and extra keywords are passed to `fp.significance_bracket`. Each bracket's manifest
 overlay carries `between: [a, b]`, `p` and a `stats` block — test, statistic, raw and corrected p,
 correction, effect size and its CI, sizes — so the figure states exactly which test each star came
 from.
 
 ::: {.next-reading}
-[fluxplot quickstart](/docs/fluxplot.html) · [Python API reference](/docs/fluxplot-api.html) · [Edit plots in Flux](/docs/plot-editing.html)
+**Related guides**
+
+[Glowbar, fluxbox and hexmatrix](/docs/signature-plots.html) · [Dissections](/docs/dissections.html) · [Python API reference](/docs/fluxplot-api.html) · [fluxplot quickstart](/docs/fluxplot.html)
 :::

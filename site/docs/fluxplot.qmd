@@ -77,16 +77,22 @@ Use `fp.panel(ax, name="response")` when a figure has several axes. Use stable p
 |---|---|
 | Plot lines, observations, distributions or a fit | [Lines, points and distributions](/docs/plot-types.html) |
 | Show observations alongside a summary | [Glowbar, fluxbox and hexmatrix](/docs/signature-plots.html) |
-| Plot a heatmap, contour or shared colour scale | [Matrices and colour scales](/docs/matrices-and-scales.html) |
+| Plot a heatmap, contour or shared colour scale | [Matrices, contours and colour scales](/docs/matrices-and-scales.html) |
 | Display calibrated images or projected surfaces | [Images and surface maps](/docs/images-and-surfaces.html) |
 | Use consistent colours and check readability | [Colour and style](/docs/colors-and-style.html) |
-| Report tests, intervals and comparisons | [Statistics and brackets](/docs/statistics.html) |
+| Report tests, intervals and comparisons | [Statistics and comparison brackets](/docs/statistics.html) |
 | Make an orbitable mesh or shape sequence | [3D plots](/docs/3d-plots.html) |
-| Set physical size, panels and regeneration | [Saving and recipes](/docs/save-and-recipes.html) |
+| Set physical size, panels and regeneration | [Saving, panels and recipes](/docs/save-and-recipes.html) |
 | Look up a parameter | [Python API reference](/docs/fluxplot-api.html) |
 
 ## Existing Matplotlib or Seaborn code {#existing-code}
 
-You can adopt fluxplot gradually. `fp.tag` names an existing artist; `fp.tag_points` adds point identities to a scatter collection; `fp.tag_seaborn` names supported Seaborn plot types. Public, unambiguous Matplotlib labels are also captured at save time. Explicit helpers are preferable when the role matters—for example, a confidence band rather than an arbitrary filled polygon.
+You can adopt fluxplot gradually. `fp.tag` names an existing artist; `fp.tag_points` adds point identities to a scatter collection; `fp.tag_seaborn` names supported Seaborn plot types. Public, unambiguous Matplotlib labels are also captured at save time. Explicit helpers are preferable when the role matters: for example, a confidence band rather than an arbitrary filled polygon.
 
 For a complete project workflow, continue with [Your first project](/docs/first-project.html).
+
+::: {.next-reading}
+**Related guides**
+
+[Semantic plots](/docs/semantic-plots.html) · [Python API reference](/docs/fluxplot-api.html) · [Plot gallery and source links](/docs/plot-gallery.html) · [Edit plots in Flux](/docs/plot-editing.html)
+:::

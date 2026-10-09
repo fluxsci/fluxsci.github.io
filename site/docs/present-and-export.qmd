@@ -13,18 +13,25 @@ Rehearse a talk, share an interactive HTML deck, or export PDF, PowerPoint and v
 
 ## Presenting {#presenting}
 
-**F5** presents from the start (**Shift+F5** from the current slide). Arrow keys and **Space**
-advance beats (**Shift+arrows** jump whole slides), a typed **number + Enter** jumps to a
-slide, **B**/**W** blank to black/white, **S** shows presenter notes, **F** toggles
-fullscreen without leaving, **R** resets the timer, and one **Escape** leaves, even in
-fullscreen. Click zones work too: left quarter back, elsewhere forward.
+**F5** presents from the start; **Shift+F5** presents from the current slide. While presenting:
+
+- **→**, **Space** or **PageDown** plays the next step; **←**, **Backspace** or **PageUp** goes
+  back. Add **Shift** to move a whole slide.
+- **Home** / **End** jump to the first / last slide; type a **number** and press **Enter** to
+  jump to that slide.
+- **B** / **W** blank the screen to black / white, **S** shows presenter notes, **F** toggles
+  fullscreen, **R** resets the timer and **M** reduces motion.
+- One **Escape** leaves, even in fullscreen.
+- Clicking the left quarter of the screen goes back; clicking anywhere else goes forward.
+
+The full list is in [Keyboard shortcuts](/docs/shortcuts.html#slide).
 
 ## Export {#export}
 
 **Export ▾** offers these formats, each written to the project's `exports/`:
 
-- **HTML** — **one self-contained `.html`** with every slide, beat, animation, transform, and
-  font, playing in any web browser with the same keys as Present mode. No Flux on the
+- **HTML** — **one self-contained `.html`** with every slide, step, animation, transform and
+  font, playing in any web browser with the same keys as Present. No Flux on the
   presenting machine, no network, nothing to install: open the file, give the talk.
 - **PDF** — one page per slide, showing the slide with every build step applied: a handout or
   a copy to send before the talk (`<deck>.pdf`). Plots and text stay sharp at any zoom.
@@ -39,7 +46,9 @@ fullscreen. Click zones work too: left quarter back, elsewhere forward.
 - **PowerPoint, final state** — the same, but one PowerPoint slide per slide with every build
   step applied and no animation (`<deck>-final.pptx`): the easiest file to edit further.
 
-**How builds play in PowerPoint.** PowerPoint's **Morph** transition tweens every object that
+### How builds play in PowerPoint {#powerpoint-builds}
+
+PowerPoint's **Morph** transition tweens every object that
 appears under the same name on two consecutive slides, so it can carry what Flux animates —
 moves, Changes of size, colour or text, the camera, entrances and exits. A slide with builds
 becomes its resting state plus **one PowerPoint slide per click**, each entered by Morph over
@@ -54,14 +63,19 @@ the effect's duration:
 
 Objects are named with a leading `!!` (the Selection Pane shows it) — that is how Morph pairs
 them across slides, so keep the names if you edit a build. Morph uses its own ease, so a
-step's easing, arc paths and eased stagger distribution are not copied; a plot whose parts build in cross-fades from one state to the
-next, and a count-up cross-fades from its first number to its last. Morph needs PowerPoint 2019
-or Microsoft 365; older versions show a plain fade.
+step's easing, arc paths and eased stagger distribution are not carried over. A plot whose
+parts build up step by step cross-fades from one state to the next, and a count-up cross-fades
+from its first number to its last. Morph needs PowerPoint 2019 or Microsoft 365; older versions
+show a plain fade.
 
-Pages and slides are exactly the stage's shape; PowerPoint slides are the standard 13.33-inch
-width. Videos show their poster frame in PDF and PowerPoint, and PDF pages show where
+### Page size, fonts and media {#page-size-fonts-and-media}
+
+PDF pages and PowerPoint slides have exactly the stage's shape; PowerPoint slides use the
+standard 13.33-inch width. Videos show their poster frame in PDF and PowerPoint, and PDF pages show where
 animations end. Fonts that are not installed on the other computer (such as Gelasio) are
 replaced by PowerPoint.
+
+## Video {#video}
 
 **Video…** exports the **current slide** and all of its animation steps as one continuous
 `.mp4`. Set **Delay between steps**, **Hold at start**, and **Hold at end**, then choose

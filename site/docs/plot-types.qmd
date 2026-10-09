@@ -26,7 +26,7 @@ The helpers return ordinary Matplotlib artists. Every series gets a stable name.
 | A fitted relationship | `fp.regression` |
 | Reference marks and labels | `fp.reference_line`, `fp.annotation`, `fp.legend` |
 
-See the [API reference](/docs/fluxplot-api.html) for each signature. All examples below assume you have imported Matplotlib and fluxplot and created the variables being plotted.
+See the [API reference](/docs/fluxplot-api.html) for each signature. The examples below assume `import matplotlib.pyplot as plt` and `import fluxplot as fp`, an axes `ax`, and data variables from your own analysis.
 
 ## Lines and uncertainty
 
@@ -36,13 +36,13 @@ fp.band(ax, x, lower, upper, series="control", what="95% CI")
 fp.legend(ax)
 ```
 
-The band and line share a series identity. The band records its bounds and what they mean; it does not calculate a confidence interval for you. `fp.errorbar` records scalar, symmetric or asymmetric errors and separately names its line, points, caps and bars. `fp.area` records the two boundaries of a filled region.
+The band and line share a series identity. The band records its bounds and what they mean (`what=`); it does not calculate a confidence interval for you. `fp.errorbar` records scalar, symmetric or asymmetric errors and separately names its line, points, caps and bars. `fp.area` records the two boundaries of a filled region.
 
 ## Points and categories
 
 `fp.scatter` gives individual points identities. Supply stable point IDs when row order may change; see [identity](/docs/plot-format.html#per-point-addressability). Categorical and date axes retain display labels alongside numeric coordinates. Bar plots record centres, widths, baselines, lengths and category keys.
 
-On a log axis, use a positive baseline. A horizontal bar starting at zero can create invalid geometry; for counts at least one, a pattern is `ax.barh(y, counts - 1, left=1)` followed by `fp.tag` on each bar.
+On a log axis, use a positive baseline: a bar that starts at zero has no valid position on a log scale. For counts of at least one, draw the bars from 1 with `ax.barh(y, counts - 1, left=1)`, then name each bar with `fp.tag`.
 
 ## Distributions and fits
 
@@ -67,11 +67,14 @@ points = ax.scatter(x, observations)
 fp.tag_points(points, series="observations")
 ```
 
-A public, unique Matplotlib label can also become a series at save time. Unlabeled or ambiguously labeled artists remain generic parts. Fluxplot does not infer scientific meaning from colour or geometry: name an uncertainty band, fit or threshold explicitly.
+A public, unique Matplotlib label can also become a series at save time. Unlabeled or ambiguously labeled artists remain generic parts. fluxplot does not infer scientific meaning from colour or geometry: name an uncertainty band, fit or threshold explicitly.
 
 ## Seaborn
 
 ```python
+import seaborn as sns
+
+# df is a pandas DataFrame from your analysis.
 sns.lineplot(data=df, x="time", y="signal", hue="region", ax=ax)
 fp.tag_seaborn(ax, plot="lineplot")
 ```
@@ -91,5 +94,7 @@ With a hue, each hue level becomes a series and categories become named parts. W
 `fp.tag` covers any Matplotlib artist. Tag stackplot layers as areas, hexbin collections as a field, or each ridge's fill and outline under one series. Custom roles can use an `x-` prefix. For live matrix cells and colour controls, prefer the dedicated [field helpers](/docs/matrices-and-scales.html).
 
 ::: {.next-reading}
-[fluxplot quickstart](/docs/fluxplot.html) · [Python API reference](/docs/fluxplot-api.html) · [Edit plots in Flux](/docs/plot-editing.html)
+**Related guides**
+
+[Glowbar, fluxbox and hexmatrix](/docs/signature-plots.html) · [Statistics and comparison brackets](/docs/statistics.html) · [Python API reference](/docs/fluxplot-api.html) · [Edit plots in Flux](/docs/plot-editing.html)
 :::

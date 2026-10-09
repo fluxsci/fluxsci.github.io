@@ -21,8 +21,7 @@ fig, ax = plt.subplots(layout="constrained")
 image = fp.heatmap(ax, [[1, .2], [.2, 1]], series="correlation",
                    cmap="viridis", vmin=0, vmax=1, cells=True)
 fp.colorbar(image, name="correlation", label="Correlation")
-fp.save(fig, "correlation.svg")
-
+fp.save(fig, "plots/correlation.svg")
 ```
 
 For a contour field, supply your coordinate arrays `x`, `y` and measured or calculated field `z`. The helpers use Matplotlib's contour options:
@@ -54,14 +53,18 @@ even a raw `ax.imshow` or `ax.pcolormesh` you never tagged — records its compl
 law in the manifest's `colorScales[]`:
 
 ```jsonc
-{"id": "rates",                          // == the recipe's colour-control key
- "kind": "continuous",                   // continuous | binned (a BoundaryNorm)
- "colormap": {"name": "viridis", "source": "matplotlib", "N": 256, "lut": ["#440154ff", …],
-              "under": "#440154ff", "over": "#fde725ff", "bad": "#00000000", "discrete": false},
- "norm": {"kind": "log", "vmin": 1.0, "vmax": 53.0, "clip": false, "base": 10, "extend": "neither"},
- "mappables": ["rates.hexes"], "colorbars": ["colorbar.color"], "label": "Synapses per hexbin",
- "recolor": "live",                      // live | raster | regenerate (an imshow is a raster)
- "editable": {"cmap": true, "limits": true, "normKinds": ["linear", "log", "power", "symlog"], "center": false}}
+{"id": "rates",           // the same key as the recipe's colour control
+ "kind": "continuous",     // continuous | binned (a BoundaryNorm)
+ "colormap": {"name": "viridis", "source": "matplotlib", "N": 256,
+              "lut": ["#440154ff", …], "under": "#440154ff", "over": "#fde725ff",
+              "bad": "#00000000", "discrete": false},
+ "norm": {"kind": "log", "vmin": 1.0, "vmax": 53.0, "clip": false, "base": 10,
+          "extend": "neither"},
+ "mappables": ["rates.hexes"], "colorbars": ["colorbar.color"],
+ "label": "Synapses per hexbin",
+ "recolor": "live",        // live | raster | regenerate (an imshow is a raster)
+ "editable": {"cmap": true, "limits": true,
+              "normKinds": ["linear", "log", "power", "symlog"], "center": false}}
 ```
 
 `lut` is the full lookup table matplotlib indexes, so a consumer reproduces its colours exactly:
@@ -90,11 +93,18 @@ mesh or contour set into the same kind of field, cells named and colour key link
 Declare the scale once and let every panel join it:
 
 ```python
-fp.color_scale("corr", cmap="RdBu_r", center=0)          # norm="linear"|"log"|"sqrt"|"symlog", vmin/vmax, robust
+# C1 and C2 are correlation matrices from your analysis.
+fig, (ax1, ax2) = plt.subplots(1, 2, layout="constrained")
+fp.color_scale("corr", cmap="RdBu_r", center=0)
 fp.heatmap(ax1, C1, series="ctrl", scale="corr")
-fp.heatmap(ax2, C2, series="drug", scale="corr")           # also contour/contourf, scatter(c=…), hexmatrix
-fp.colorbar(scale="corr", ax=[ax1, ax2], label="r")        # one key, borrowing space from both panels
+fp.heatmap(ax2, C2, series="drug", scale="corr")
+# One key, borrowing space from both panels:
+fp.colorbar(scale="corr", ax=[ax1, ax2], label="r")
 ```
+
+`fp.color_scale` also accepts `norm=` (`"linear"`, `"log"`, `"sqrt"` or `"symlog"`), `vmin`,
+`vmax` and `robust`. Besides heatmaps, `contour`, `contourf`, `scatter(c=…)` and `hexmatrix`
+can join a scale with `scale=`.
 
 The members share the map and the norm, and their limits default to the **union** of every
 member's finite values (symmetric about `center` when one is given; `robust=True` uses the
@@ -103,18 +113,26 @@ stale limits. The manifest carries one `colorScales` entry (`id: "corr"`) listin
 the key, the recipe carries one control (`__fluxplot__.corr`), and an edit to it — a new map, a
 pinned `vmax` — repaints every panel at once.
 
-`force_vectors=True` overrides and restores caller rasterization flags, including axes z-order
-rasterization. It cannot vectorize a source image created with `imshow`; use a modest
-`cells=True` heatmap when individual vector cells are needed. Empty/clipped raster artists no
-longer disrupt another layer's IDs. Surface lighting survives SVG rendering and colorbars use
-a separate scalar mappable. Surface category rendering uses per-part painter ordering, **not a
-full cross-category depth buffer**: convex projections are supported, while arbitrary folded
-meshes can have cross-part occlusion differences. This limitation is recorded in surface metadata.
+## Rasterization and vector cells {#rasterization}
+
+Heavy layers are rasterized when you save (see [`fp.save`](/docs/fluxplot-api.html#save)).
+`fp.save(..., force_vectors=True)` keeps them vector, overriding (and afterwards restoring) any
+rasterization flags your code set, including axes z-order rasterization. It cannot vectorize a
+source image created with `imshow`; use a modest `cells=True` heatmap when you need individual
+vector cells.
+
+For [surface maps](/docs/images-and-surfaces.html#surface-maps), lighting survives SVG rendering
+and colorbars use a separate scalar mappable. Categories are drawn with per-part painter
+ordering, **not a full cross-category depth buffer**: convex projections are supported, while
+arbitrary folded meshes can show occlusion differences between parts. The surface metadata
+records this limitation.
 
 ## Colour and confidence
 
 A colour-mapped mark can also carry an opacity channel (`alpha_by=` on `fp.hexmatrix`, `fp.heatmap` and `fp.scatter`), so sparsely sampled regions read lighter than well-sampled ones. The [colour guide](/docs/colors-and-style.html#value-and-confidence) describes the channel, its range and how Flux recomputes it live.
 
 ::: {.next-reading}
-[fluxplot quickstart](/docs/fluxplot.html) · [Python API reference](/docs/fluxplot-api.html) · [Edit plots in Flux](/docs/plot-editing.html)
+**Related guides**
+
+[Colour and style](/docs/colors-and-style.html) · [Glowbar, fluxbox and hexmatrix](/docs/signature-plots.html) · [Python API reference](/docs/fluxplot-api.html) · [Edit plots in Flux](/docs/plot-editing.html#colour-scales)
 :::

@@ -13,7 +13,7 @@ Save at a known physical size and record the information needed to regenerate th
 
 ## Save a plot
 
-`fp.save(fig, "plots/result.svg")` writes an SVG, a semantic manifest and a regeneration recipe. For a 3D scene it writes a GLB instead of an SVG. Keep these files together. Use the [API reference](/docs/fluxplot-api.html#save) for all save options.
+`fp.save(fig, "plots/result.svg")` writes an SVG, a semantic manifest (`result.fluxplot.json`) and a regeneration recipe (`result.recipe.json`). For a [3D scene](/docs/3d-plots.html) it writes a GLB instead of an SVG. Keep these files together. The [API reference](/docs/fluxplot-api.html#save) lists every save option.
 
 ## Physical size and named panels
 
@@ -29,13 +29,14 @@ fig, axes = plt.subplots(1, 2, layout="constrained")
 for name, ax in zip(["baseline", "followup"], axes):
     fp.panel(ax, name)               # stable even when the layout changes
     fp.line(ax, [0, 1, 2], [1, 3, 2], series="control")
-fp.save(fig, "comparison.svg")
+fp.save(fig, "plots/comparison.svg")
 ```
 
-A legacy single axes keeps IDs such as `control.line`. Multiple axes (including twins and
-insets) use panel namespaces; explicit names produce `panel.baseline.control.line`. Automatic
-names follow layout order. Name panels explicitly when identities must survive rearrangement.
-Colorbars belong to their source panel and do not masquerade as additional plotting axes.
+A plot with a single axes keeps IDs such as `control.line`. With several axes (including twins
+and insets), IDs are namespaced by panel: the explicit names above produce
+`panel.baseline.control.line`. Unnamed panels are numbered in layout order, so name them
+whenever identities must survive rearrangement. Colorbars belong to their source panel and are
+not counted as additional plotting axes.
 
 <details><summary>Saved data, coordinates and panel identities</summary>
 
@@ -48,7 +49,7 @@ garbage collection release the registry.
 Use ordinary Matplotlib scalar inputs, categorical bars and datetime coordinates. `barh` shares
 `bar`'s orientation/baseline metadata. Histograms record bin edges, heights, count/density,
 weighting and cumulative settings; `counts` remains the legacy height key. Line markers inherit
-size, color, opacity, z-order and `markevery`. Numeric exported coordinates use Matplotlib's
+size, colour, opacity, z-order and `markevery`. Numeric exported coordinates use Matplotlib's
 converted units, with display tick labels and date epoch information alongside them.
 
 Axis tick groups include visible major and minor marks on both sides, with matching
@@ -68,7 +69,7 @@ transition. A 3D scatter retains group identity without claiming depth-sorted po
 For multi-hue Seaborn output, pass the plotting adapter: `fp.tag_seaborn(ax, plot="histplot")`,
 `plot="lineplot"`, `plot="barplot"`, etc. Distribution adapters account for reversed hue draw
 order. Explicit `series=[...]` means **artist draw order**. Ambiguous automatic tagging warns
-and leaves addressable extras; it never guesses scientific identity from color.
+and leaves addressable extras; it never guesses scientific identity from colour.
 
 
 </details>
@@ -93,7 +94,7 @@ fp.save(fig, "plots/result.svg", recipe={
 
 This is a pattern to add to your own script: `fig` and the input file must exist. `fp.params` reads overrides from `FLUX_PARAMS`; a normal script run uses your defaults. Keep scientifically meaningful choices as explicit parameters. Colour-scale controls are recorded separately under `__fluxplot__`; see [colour controls](/docs/colors-and-style.html#colour-controls-in-the-recipe).
 
-Recipe overrides for `args`, `cwd` and `output` are supported. Paths for `cwd` and `output` resolve relative to the recipe directory. `FLUXPLOT_ONLY` limits a run to selected saves before layout or file I/O.
+A recipe can also override `args`, `cwd` and `output`; paths for `cwd` and `output` resolve relative to the recipe directory. When one script saves several plots, setting `FLUXPLOT_ONLY` to a comma-separated list of plot names (wildcards such as `fig2*` work) skips every other save before layout or file output; `flux rerun-plot <recipe> --only` sets it for you.
 
 ## Check and regenerate
 
@@ -104,7 +105,8 @@ flux rerun-plot plots/result.recipe.json
 
 Keep series names and point keys stable across versions so styling, highlights and [data morphs](/docs/transforms.html) still refer to the same things. See [semantic plots](/docs/semantic-plots.html) and [source links](/docs/plot-gallery.html) for how updates reach an existing figure.
 
-
 ::: {.next-reading}
-[fluxplot quickstart](/docs/fluxplot.html) · [Python API reference](/docs/fluxplot-api.html) · [Edit plots in Flux](/docs/plot-editing.html)
+**Related guides**
+
+[fluxplot quickstart](/docs/fluxplot.html) · [Python API reference](/docs/fluxplot-api.html) · [Plot format and identity](/docs/plot-format.html) · [Edit plots in Flux](/docs/plot-editing.html)
 :::
