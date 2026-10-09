@@ -77,12 +77,14 @@ test('a part pinned with the pointer is released with Escape; keyboard release k
   const box = page.locator('[data-part-explorer]');
   await box.scrollIntoViewIfNeeded();
   await expect(box).toHaveClass(/is-live/);
-  // Click the median line where a visitor would: at its drawn position in the plot.
-  const median = await box.locator('.explorer-svg [id="high-dose.median"]').evaluate(element => { const r = element.getBoundingClientRect(); return { x:r.x + r.width / 2, y:r.y + r.height / 2 }; });
-  await page.mouse.click(median.x, median.y);
+  // Click a part where a visitor would: at its drawn position in the plot. The box is a filled
+  // area, so the click lands on it at every viewport size and in every engine.
+  await box.locator('.explorer-svg').scrollIntoViewIfNeeded();
+  const target = await box.locator('.explorer-svg [id="high-dose.box"]').evaluate(element => { const r = element.getBoundingClientRect(); return { x:r.x + r.width / 2, y:r.y + r.height / 2 }; });
+  await page.mouse.click(target.x, target.y);
   await page.mouse.move(2, 2);
   await expect(box).toHaveClass(/is-pinned/);
-  await expect(box.locator('.explorer-id')).toHaveText('high-dose.median');
+  await expect(box.locator('.explorer-id')).toHaveText('high-dose.box');
   await page.keyboard.press('Escape');
   await expect(box).not.toHaveClass(/is-pinned/);
   const row = box.locator('.explorer-part[data-part="plot-area"]');
