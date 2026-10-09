@@ -11,9 +11,12 @@ description: "Compose publication figures from plots, images, text and 3D models
 Compose publication figures from plots, images, text and 3D models.
 :::
 
-<figure class="doc-figure"><a href="/assets/media/figure.webp" data-enlarge data-caption="The Figure workspace keeps a multi-panel composition, its layers and its export controls together."><img src="/assets/media/figure.webp" alt="The Figure workspace keeps a multi-panel composition, its layers and its export controls together." width="1500" height="950" loading="lazy"></a><figcaption>The Figure workspace keeps a multi-panel composition, its layers and its export controls together. Data and anatomy: <a href="https://brain-map.org/our-research/circuits-behavior/visual-coding">Allen Institute for Brain Science</a> and MICrONS. <a href="/docs/visual-credits.html">Visual credits</a>.</figcaption></figure>
+<figure class="doc-figure"><a href="/assets/media/figure.webp" data-enlarge data-caption="The Figure workspace keeps a multi-panel composition, its layers and its export controls together."><img src="/assets/media/figure.webp" alt="The Figure workspace with a multi-panel neuroscience figure on the canvas, the Figures and Layers sidebar on the left and the Inspector on the right." width="1500" height="950" loading="lazy"></a><figcaption>The Figure workspace keeps a multi-panel composition, its layers and its export controls together. Data and anatomy: <a href="https://brain-map.org/our-research/circuits-behavior/visual-coding">Allen Institute for Brain Science</a> and MICrONS. <a href="/docs/visual-credits.html">Visual credits</a>.</figcaption></figure>
 
 ## The workspace {#the-workspace}
+
+Shortcuts are written with **Ctrl** and **Alt**. On macOS, press **⌘ Command** for Ctrl and
+**⌥ Option** for Alt; [Keyboard shortcuts](/docs/shortcuts.html#figure) lists every Figure shortcut.
 
 - **Tools** are single keys — **V** select, **K** scale, **H** hand (pan), **T** text,
   **R** rectangle, **O** ellipse, **L** line, **A** arrow, **P** pen.
@@ -27,17 +30,17 @@ Compose publication figures from plots, images, text and 3D models.
   is never changed for you. Click the name again after panning away to snap back to it.
 - **Drag a figure's row up or down the list to reorder the figures** — or press
   **Alt+↑** / **Alt+↓**. **Shift+click** picks a run of rows and **Ctrl+click**
-  (**⌘+click** on macOS) adds or drops one, and the whole pick then moves as a block.
+  adds or drops one, and the whole pick then moves as a block.
   This changes the *order of the list only*: nothing moves on the canvas, and no figure is
   renumbered — reordering and renumbering are separate on purpose, so use Figure-Meta’s Name tab
   below when you want the numbers to follow.
 - The **Inspector** puts the selection’s position, size and appearance first. Alignment and
-  arrangement tools, the color palette and journal export options can be expanded as needed; drag its left edge to resize it, **Ctrl+Shift+B** hides it for a
+  arrangement tools, the colour palette and journal export options can be expanded as needed; drag its left edge to resize it, **Ctrl+Shift+B** hides it for a
   clean canvas.
 - **Ctrl+Z** undo, **Ctrl+Shift+Z** redo, zoom controls in the toolbar (5%–25600%).
   Undo and redo buttons show when a step is available. The toolbar distinguishes waiting
   changes, saving, and a failed save with **Retry**. If a save fails, switching between Figure
-  and Slide keeps your edits in the original editor until they can be saved.
+  and Slides keeps your edits in the original editor until they can be saved.
 
 ## Finding and naming figures {#finding-and-naming-figures}
 
@@ -79,10 +82,11 @@ filename, and you do not need to rename stored files to rename a figure.
   The figure and composed caption preview sit beside the fields; drag the divider to resize
   them. The Name tab includes family, number, title and custom families. Existing captions
   and permanent references are preserved. Captions flow into the [manuscript](/docs/paper.html)
-  and exports automatically. Each field grows to fit; the fields column scrolls. Set the
+  and exports automatically.
+- In Figure-Meta, each field grows to fit and the fields column scrolls. Set the
   typing size with the **− / +** controls above the blocks (also in **Settings → Figure**).
   Click a block's letter or heading to collapse or expand it.
-- The preview fits the entire figure **and caption** by default. **Ctrl-scroll** zooms around
+- The preview fits the entire figure **and caption** by default. **Ctrl+scroll** zooms around
   the pointer; drag to pan, choose a percentage, or press **Fit** to see everything again.
 - **Add closing caption · ps** adds optional prose after the final panel caption. It appears
   as ordinary text, with no “ps” label, and stays at the end when panels are added or reordered.
@@ -96,9 +100,10 @@ filename, and you do not need to rename stored files to rename a figure.
 
 ## Exporting figures {#exporting-figures}
 
-The Inspector's Export section renders the selected figure to **PNG**, **SVG**, or **PDF** —
-or, for submissions, expand **Journal-spec raster** and pick a target width (single/double column
-presets or custom mm), a DPI, transparency, and export TIFF or PNG at exact print size.
+The Inspector's Export section renders the selected figure to **PNG**, **SVG**, or **PDF**.
+For submissions, expand **Journal-spec raster**, pick a target width (single/double column
+presets or custom mm), a DPI and transparency, and export TIFF or PNG at exact print size.
+
 An export captures the figure when you start it, so edits made while choosing a filename
 cannot change its artwork or dimensions. Large raster exports offer **Cancel export** and
 keep the editor responsive. An unsupported output size reports an error rather than reducing
@@ -112,15 +117,13 @@ its resolution. PDF pages use the figure’s physical dimensions.
 |---|---|
 | Ctrl+click won't select a part | The plot isn't semantic (imported without its manifest) → re-save via `fp.save` and re-import, or check `flux validate-plot` |
 | An import landed huge / outside the frame | True-size import of a large plot → **Ctrl+Shift+I** to bring it inside, then resize deliberately |
-| Restyles vanished after regenerating | The plot's series names changed in the script → keep `series=` names stable ([why](/docs/semantic-plots.html)) |
-| I see a grey 3D tile | Read the message inside it. Restore a missing GLB, or enable graphics support if rendering is unavailable. Saved posters can still display when a new render cannot be made. |
-| Orbit won't start | A notice says why: the model is locked or hidden (unlock or show it), its file is missing, rendering is unavailable, or another editing mode owns the interaction. Resolve that condition, then choose Orbit again. |
-| Saving says a 3D model file is missing | The model's GLB was moved or deleted from the project's `fig/assets/` folder. The figure still opens with a grey tile in the model's place, and saving waits. Put the named file back and save again, or select the model and delete it: saving resumes and the rest of the figure is untouched. **Ctrl+Z** brings the model back, and saving waits again until its file returns. If the message says a deck still uses the file, restore it or delete that model from the deck. |
-| The labels look different in the notebook | The interactive viewer uses browser fonts; the PNG fallback uses Python's font renderer. Install the same font in both environments. Placement and point sizes remain explicit. |
-| An untrusted notebook output is blank | VS Code can suppress an entire mixed HTML/PNG output. Trust the notebook if appropriate, or execute `sc.show(static=True)` to request only the PNG. |
+| Restyles vanished after regenerating | The plot's series names changed in the script → keep `series=` names stable (see [Semantic plots](/docs/semantic-plots.html#every-part-has-a-name)) |
 | "These figures changed on disk" banner | Another tool or agent edited them → **Reload theirs** or **Overwrite with mine** — nothing is lost silently |
 | “Some figures could not be loaded” | A referenced canvas is missing or unreadable. Restore or repair it and reopen the project; saving is blocked to preserve the existing files. |
 | “Caption edits conflict” | Both the caption and its Markdown copy changed. Reconcile those versions before saving; changing panel labels alone does not create an external edit. |
+
+For 3D model problems (grey tiles, Orbit, missing GLB files), see
+[3D models troubleshooting](/docs/3d-models.html#troubleshooting).
 
 ::: {.next-reading}
 **Related guides**

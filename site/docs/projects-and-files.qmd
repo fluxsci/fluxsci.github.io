@@ -17,17 +17,18 @@ Your documents are plain-text Quarto files. Bibliographic entries live in BibTeX
 
 ## A quick tour {#folder-tour}
 
-```text
-my-project/
-├── project.json       Project identity and registered documents
-├── paper/             Manuscripts and working notes (.qmd)
-├── plots/             Plots produced by your analysis
-├── fig/               Figure compositions, captions, accepted assets
-├── slides/            Decks, animation steps, accepted assets
-├── references/        The bibliography cited by this project
-├── Context/           ProjectContext, Log, and project rules
-└── exports/           Generated documents and presentations
-```
+Every project folder, here called `my-project/`, contains:
+
+| Path | What it holds |
+|:---|:---|
+| `project.json` | Project identity and registered documents |
+| `paper/` | Manuscripts and working notes (`.qmd`) |
+| `plots/` | Plots produced by your analysis |
+| `fig/` | Figure compositions, captions, accepted assets |
+| `slides/` | Decks, animation steps, accepted assets |
+| `references/` | The bibliography cited by this project |
+| `Context/` | ProjectContext, Log, and project rules |
+| `exports/` | Generated documents and presentations |
 
 Older projects may use `manuscript/` for documents; Flux supports that layout too. The [complete layout reference](/docs/project-layout.html) describes indexes, metadata, and additional folders.
 
@@ -35,11 +36,11 @@ Older projects may use `manuscript/` for documents; Flux supports that layout to
 
 These three kinds of files play different roles:
 
-| Kind | Examples | How to work with it |
-|:---|:---|:---|
-| **Source material** | `.qmd` documents, plot outputs, `references/library.bib` | Edit with Flux, a text editor, or the analysis script that produces them. |
-| **Managed composition** | Figure and deck JSON, captions, accepted SVG or GLB assets | Inspect freely. Make structural changes through Flux or its CLI so indexes and references stay coherent. |
-| **Generated output** | `fig/renders/`, exported PDF and Word files, previews | Regenerate from sources. Keep a final export when it records a submitted or shared version. |
+| Kind and examples | How to work with it |
+|:---|:---|
+| **Source material**<br>`.qmd` documents, plot outputs, `references/library.bib` | Edit with Flux, a text editor, or the analysis script that produces them. |
+| **Managed composition**<br>Figure and deck JSON, captions, accepted SVG or GLB assets | Inspect freely. Make structural changes through Flux or its CLI so indexes and references stay coherent. |
+| **Generated output**<br>`fig/renders/`, exported PDF and Word files, previews | Regenerate from sources. Keep a final export when it records a submitted or shared version. |
 
 A rendered preview is replaceable. An accepted plot or mesh in `fig/assets/` or a deck’s `assets/` is part of the saved composition: retain it when sharing or backing up a project.
 
@@ -54,14 +55,14 @@ A rendered preview is replaceable. An accepted plot or mesh in `fig/assets/` or 
 <path d="M810 128c35 0 35 -78 70 -78" marker-end="url(#linked-head)"/>
 <path d="M810 150h70" marker-end="url(#linked-head)"/>
 <path d="M810 172c35 0 35 78 70 78" marker-end="url(#linked-head)"/>
-<path class="flow-return" d="M410 200v44h190v-44" marker-end="url(#linked-head)"/>
+<path class="flow-return" d="M410 210v34h295v-34" marker-end="url(#linked-head)"/>
 </g>
 <g class="flow-labels">
 <text x="255" y="138">fp.save</text>
 <text x="555" y="138">Insert</text>
-<text x="505" y="274">source changes → accepted copy refreshes, restyles kept</text>
+<text x="557" y="274">source changes → accepted copy refreshes, restyles kept</text>
 </g>
-<g class="flow-nodes"><foreignObject x="20" y="92" width="200" height="116"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-code"><span class="flow-box-title">Analysis script</span><code>make_growth.py</code></div></foreignObject><foreignObject x="300" y="92" width="220" height="116"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-code"><span class="flow-box-title">plots/</span><code>growth.svg · .fluxplot.json · .recipe.json</code></div></foreignObject><foreignObject x="600" y="92" width="210" height="116"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#3aa99f"></i>fig/assets/</span><span class="flow-box-note">Accepted copy, linked to its source.</span></div></foreignObject><foreignObject x="880" y="20" width="110" height="60"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-small"><span class="flow-box-title"><i style="background:#3aa99f"></i>Figure</span></div></foreignObject><foreignObject x="880" y="120" width="110" height="60"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-small"><span class="flow-box-title"><i style="background:#4385be"></i>Paper</span></div></foreignObject><foreignObject x="880" y="220" width="110" height="60"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-small"><span class="flow-box-title"><i style="background:#ce5d97"></i>Slides</span></div></foreignObject></g>
+<g class="flow-nodes"><foreignObject x="20" y="92" width="200" height="116"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-code"><span class="flow-box-title">Analysis script</span><code>make_growth.py</code></div></foreignObject><foreignObject x="300" y="92" width="220" height="116"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-code"><span class="flow-box-title">plots/</span><code>growth.svg</code><code>growth.fluxplot.json</code><code>growth.recipe.json</code></div></foreignObject><foreignObject x="600" y="92" width="210" height="116"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#3aa99f"></i>fig/assets/</span><span class="flow-box-note">Accepted copy, linked to its source.</span></div></foreignObject><foreignObject x="880" y="20" width="110" height="60"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-small"><span class="flow-box-title"><i style="background:#3aa99f"></i>Figure</span></div></foreignObject><foreignObject x="880" y="120" width="110" height="60"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-small"><span class="flow-box-title"><i style="background:#4385be"></i>Paper</span></div></foreignObject><foreignObject x="880" y="220" width="110" height="60"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-small"><span class="flow-box-title"><i style="background:#ce5d97"></i>Slides</span></div></foreignObject></g>
 </svg>
 <figcaption>Your analysis owns the source in <code>plots/</code>. Flux keeps an accepted copy in <code>fig/assets/</code> that every workspace reads and that follows the source when it changes.</figcaption>
 </figure>
@@ -103,7 +104,7 @@ Library PDFs and annotations may live outside the project. If a collaborator nee
 
 ## Working alongside an agent {#agents}
 
-Humans and agents work with the same project folder. The project’s `Context/` records its background, Log, and rules. Personal guidance belongs in your shared environment and applies across projects.
+Humans and agents work with the same project folder. The project’s `Context/` records its background, Log, and rules. Your personal context lives in your FluxConfig folder and applies across projects.
 
 Flux’s commands coordinate edits with the app. An advisory lock can defer a command while the app is writing; supported project mutations are journaled so you can inspect who changed what. Use the CLI or connected tools for managed figures and decks, and keep comments attached to the passage, figure, or slide they concern.
 

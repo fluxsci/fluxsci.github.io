@@ -11,11 +11,13 @@ description: "Write and organize documents, with figures and references close at
 Write and organize documents, with figures and references close at hand.
 :::
 
-<figure class="doc-figure"><a href="/assets/media/paper.webp" data-enlarge data-caption="Write with an embedded figure and its caption in the document."><img src="/assets/media/paper.webp" alt="Write with an embedded figure and its caption in the document." width="1500" height="950" loading="lazy"></a><figcaption>Write with an embedded figure and its caption in the document. <a href="/docs/visual-credits.html">Visual credits</a>.</figcaption></figure>
+<figure class="doc-figure"><a href="/assets/media/paper.webp" data-enlarge data-caption="A manuscript in Paper with an embedded figure; the caption comes from the figure itself."><img src="/assets/media/paper.webp" alt="The Paper workspace: a manuscript with an embedded multi-panel figure and its caption, beside the Files and Outline sidebar." width="1500" height="950" loading="lazy"></a><figcaption>A manuscript in Paper with an embedded figure; the caption comes from the figure itself. <a href="/docs/visual-credits.html">Visual credits</a>.</figcaption></figure>
 
 ## The writing surface {#the-writing-surface}
 
-Click the title pill to edit a document's title and authors. Its small dot shows autosave status. Use **Ctrl+K** to find commands by name, or type **/** at the start of a line to insert a figure, slide, table, equation, citation, heading or callout.
+Click the title pill to edit a document's title and authors. Its small dot shows autosave status. Use **Ctrl+K** to find commands by name, or type **/** at the start of a line to insert a figure, slide, table, equation, citation, heading or callout. **Ctrl+F** finds text; **Ctrl+Alt+F** finds and replaces.
+
+Shortcuts are written with **Ctrl** and **Alt**. On macOS, press **⌘ Command** for Ctrl and **⌥ Option** for Alt unless a shortcut says otherwise; [Keyboard shortcuts](/docs/shortcuts.html) lists every Paper shortcut.
 
 New projects start with `paper/notes.qmd`. Add drafts, protocols and working notes in the same project; no particular manuscript filename is required. Older `manuscript/` folders continue to work alongside `paper/`.
 
@@ -38,7 +40,7 @@ Generated render and cache folders stay out of the file browser. Ordinary folder
 
 The **Context** group contains `ProjectContext.qmd`, the append-only Log (`NOTEBOOK.md`) and project rules (`RULES.md`). They can be opened and commented on like other documents. See [Context and memory](/docs/context.html) for what to put there and when agents update the Log.
 
-**Ctrl+Shift+E** opens a full-width reading preview; **Escape** returns. The command palette switches between continuous and paginated views. **Ctrl+Shift+[** folds a section and **Ctrl+Shift+]** unfolds it. Click the status-bar word count for document statistics.
+**Ctrl+Shift+E** opens a full-width reading preview; **Escape** returns. The command palette switches between continuous and paginated views. **Ctrl+Shift+\[** folds a section and **Ctrl+Shift+\]** unfolds it (on macOS, **⌘⌥\[** and **⌘⌥\]**). Click the status-bar word count for document statistics.
 
 For spelling, vocabulary, aliases and caret preferences, see [Writing tools](/docs/writing-tools.html). For citations, equations, tables and embedded content, see [Citations, figures and tables](/docs/citations-and-figures.html).
 
@@ -49,19 +51,19 @@ Helper panes summon beside your text and stack in one column:
 | Shortcut | Pane |
 |---|---|
 | **Alt+R** | Reference search — the whole library, filterable (`author:smith year:2020`) |
-| **Alt+F** | Figures — zoom/pan any figure, insert it, or open it in Figure mode |
+| **Alt+F** | Figures — zoom/pan any figure, insert it, or open it in Figure |
 | **Alt+A** | Comments — the review threads on this document |
 | **Alt+C** | Citation group — edit the citation at the caret |
-| **Alt+J** | Journal Check — the selected journal's rulebook, as advice |
+| **Alt+J** | [Journal Check](/docs/export-documents.html#journal-check) — the selected journal's rulebook, as advice |
 
-**Alt+P** closes the active pane, and **Escape** always returns focus to your writing.
-**Ctrl+Shift+B** hides the margin column entirely; the outline rail's edge
-drags to resize. (When idle, the margin shows an ambient background — pick your scene in
-Settings › Paper.)
+**Alt+P** closes the active pane, **Ctrl+Alt+P** closes them all, and **Escape** always
+returns focus to your writing. **Ctrl+Shift+B** hides the margin column entirely. When no
+pane is open, the margin shows an ambient background; choose its scene in
+**Settings → Paper**.
 
 ## Two manuscripts side by side {#two-manuscripts-side-by-side}
 
-**Alt+click** the Paper icon in the top bar to split the workspace into two Paper panes —
+**Alt+click** the Paper icon in the top bar (**⌘+click** on macOS) to split the workspace into two Paper panes —
 the main text on the left, the supplement (or any other document) on the right. Each pane
 has its own outline, margin, and helper panes, and each edits its own document; asking a
 pane for a document that's already open in the other pane focuses that pane instead of
@@ -72,23 +74,21 @@ opening it twice.
 Select text and click the comment button in the floating toolbar (or press **Ctrl+Alt+M**) to
 start a thread anchored to that exact passage. Threads live in the Comments pane: reply,
 **Resolve**, reopen, delete. They're stored beside the document — never inside your prose —
-and they're the shared review channel with [agents](/docs/comments.html): an agent
+and they're the shared review channel with agents ([Comments and Inbox](/docs/comments.html)): an agent
 addressing your comments resolves them with a note, and you watch threads close live in your
 margin. If the underlying text is edited away, a comment is kept as *Detached* rather than
 lost.
-
-**Ctrl+F** is find; **Ctrl+Alt+F** adds replace.
 
 ## Troubleshooting {#troubleshooting}
 
 | Symptom | Cause → fix |
 |---|---|
 | A citation chip shows your typed text, dimmed | The key isn't in the project bib or library → check the spelling, or add the paper to the [Library](/docs/library.html) first |
-| Word export is disabled | Quarto isn't installed → **Install Quarto…** in the export dialog, or **Settings → General → Setup** ([Installation](/install/)) |
+| Word export is disabled | Quarto isn't installed → **Install Quarto…** in the export dialog, or **Set up Flux** (**Settings → General → Setup**; see [Installation](/install/)) |
 | A journal-styled PDF fails but Word works | Missing LaTeX pieces → the error names the package; see [Installation](/install/) |
 | Journal Check flags a figure reference that is fine | It's advice, not a rule — dismiss it. References to another paper's figures are skipped automatically when an author name is next to them |
 | A figure embed shows no caption | The figure has no caption yet → write it in **Figure-Meta** (**Alt+M**) |
-| A Word export says figures will be missing | No render could be produced for the named figures → open Figure mode so they load, then export again. A figure with no render is not in the document at all, so this is an error, not a warning |
+| A Word export says figures will be missing | No render could be produced for the named figures → open Figure so they load, then export again. A figure with no render is not in the document at all, so this is an error, not a warning |
 | A comment shows as *Detached* | Its anchored text was edited away — the thread is preserved; re-select and start a fresh one if needed |
 
 ::: {.next-reading}
