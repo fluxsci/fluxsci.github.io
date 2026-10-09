@@ -11,7 +11,7 @@ description: "Build a presentation from the plots and figures in your project."
 Build a presentation from the plots and figures in your project.
 :::
 
-<figure class="doc-figure"><a href="/assets/media/slides.webp" data-enlarge data-caption="Design the slide above and arrange its steps in the Animator below."><img src="/assets/media/slides.webp" alt="Design the slide above and arrange its steps in the Animator below." width="1500" height="950" loading="lazy"></a><figcaption>Design the slide above and arrange its steps in the Animator below. Data and anatomy: <a href="https://brain-map.org/our-research/circuits-behavior/visual-coding">Allen Institute for Brain Science</a> and MICrONS. <a href="/docs/visual-credits.html">Visual credits</a>.</figcaption></figure>
+<figure class="doc-figure"><a href="/assets/media/slides.webp" data-enlarge data-caption="Design the slide above and arrange its steps in the Animator below."><img src="/assets/media/slides.webp" alt="Flux Slides workspace: the deck list and filmstrip on the left, a slide titled One stimulus. Many responses. with a response heatmap on the stage, and the Animator timeline below it." width="1500" height="950" loading="lazy"></a><figcaption>Design the slide above and arrange its steps in the Animator below. Data and anatomy: <a href="https://brain-map.org/our-research/circuits-behavior/visual-coding">Allen Institute for Brain Science</a> and MICrONS. <a href="/docs/visual-credits.html">Visual credits</a>.</figcaption></figure>
 
 
 <div class="doc-study" data-doc-study="/demos/techniques/index.html#emphasis">
@@ -28,11 +28,16 @@ starter text — title, section, two-column, or *blank* for a clean stage), and 
 inserts a slide from your machine-global **slide preset library** (save any slide there from
 the Slide panel — its animation, background, and media travel with it).
 
-The right rail switches between **Object**, **Animation**, **Slide**, and **Deck**. Object edits the selected object; Animation edits the selected effect. The **Slide panel** holds the name, per-slide **background**, transition, speaker
-notes. The **Deck panel** controls the **theme** — seven built-ins from *Flux Dark* through *Flux
-Light*, *Paper*, *Midnight*, *Slate*, *Sepia*, and *Contrast* — and the **stage size** (16:9,
-4:3, 16:10). **Ctrl+Shift+B** hides the whole rail, and both rails resize by dragging their
-inner edge (the filmstrip too; **Ctrl+B** hides it when no text is selected).
+The right rail switches between four panels:
+
+- **Object** edits the selected object.
+- **Animation** edits the selected effect.
+- **Slide** holds the slide's name, background, transition and speaker notes.
+- **Deck** sets the **theme** and the **stage size** (16:9, 4:3 or 16:10). There are seven
+  built-in themes: *Flux Dark*, *Flux Light*, *Paper*, *Midnight*, *Slate*, *Sepia* and *Contrast*.
+
+**Ctrl+Shift+B** hides the right rail, and **Ctrl+B** hides the filmstrip when no text is
+selected. Drag the inner edge of either rail to resize it.
 
 ## Steps and editing destination {#steps-and-editing-destination}
 
@@ -46,27 +51,33 @@ shows the selected step's effects.
 
 The bar above the stage states where your edits go:
 
-- **Design** edits the original slide objects. Future hand-off destinations stay hidden until
-  landing; **Show hidden** makes them available as faint, selectable ghosts. Unborn ghost copies
-  remain absent even with Show hidden enabled.
-- **Edit after step N** shows the evaluated result through that step. Move, resize, recolor,
-  rewrite, or restyle an object to create or update a Change at **that exact step**. Earlier
-  steps remain intact. Adding, deleting, grouping, and renaming objects are structural slide edits.
+- **Design** edits the original slide objects.
+- **Edit after step N** shows the result of every step up to N. Move, resize, recolour,
+  rewrite or restyle an object to create or update a Change at **that exact step**; earlier
+  steps stay intact. Adding, deleting, grouping and renaming objects are structural edits to
+  the slide itself, whichever destination is chosen.
 
-Selecting a different step browses its effects; it does not silently change the editing destination.
-Choose **Edit after step N** when you want to shape the newly selected step. **Show hidden** displays
-objects and plot parts that have disappeared as faint, selectable ghosts. Turn **Show hidden**
-off to remove them completely from the editing canvas, selection, and snapping, so you can work
-on objects underneath them. Turn it back on whenever you need to edit a hidden object or add
-an **Appear** effect at a later step. This changes only your editing view; it does not delete
-objects or change presentation/export. **Fit** keeps the whole stage visible as you resize the dock and rails;
-manual zoom or pan preserves your chosen view instead.
+Selecting a different step browses its effects; it does not silently change the editing
+destination. Choose **Edit after step N** when you want to shape the newly selected step.
+
+**Show hidden** displays objects and plot parts that are hidden at the current point (they
+have disappeared, or they are hand-off destinations that have not landed yet) as faint,
+selectable ghosts. Turn it on to edit a hidden object or to add an **Appear** effect to it at a
+later step. Turn it off to remove hidden objects from the canvas, selection and snapping, so you
+can work on the objects underneath. Ghost copies do not exist before the step that creates them,
+so they stay absent even with Show hidden on. The setting changes only your editing view; it
+never deletes objects or changes what Present and the exports show.
+
+**Fit** keeps the whole stage visible as you resize the dock and rails; manual zoom or pan
+keeps your chosen view instead.
 
 ## Between figures and slides {#between-figures-and-slides}
 
-**Send to deck…** (in Figure mode's Inspector) turns a figure into a slide;
-**Send to canvas…** (in the Slide panel) turns a slide into a paper figure — it becomes
-citable as `@fig-…` like any other. Copied composition is independently editable. Plot source data stays linked unless you deliberately freeze a usage; later source refresh preserves your slide-specific layout.
+**Send to deck…** (in the Figure workspace's Inspector) turns a figure into a slide.
+**Send to canvas…** (in the Slide panel) turns a slide into a figure, which becomes citable as
+`@fig-…` like any other. The copied composition is independently editable. Plot source data
+stays linked unless you deliberately freeze a usage, and a later source refresh preserves your
+slide-specific layout.
 
 Decks remember the accepted intrinsic size of linked assets so regeneration preserves the
 same placement scale whether the deck stays open or is reopened later. An older deck without
@@ -77,11 +88,11 @@ that were never saved.
 
 | Symptom | Cause → fix |
 |---|---|
-| The animation chords do nothing | The animator is closed → open it with **Animate ⏱** first |
+| The animation shortcuts (such as **Ctrl+Shift+A**) do nothing | The Animator is closed → open it with **Animate ⏱** first |
 | A plot Become fades a series instead of morphing its data | Continuous data motion requires shared series ids, supported data and matching axis scales. A series without a tweenable counterpart fades on its own (the Animation inspector lists it); only an SVG without semantic IDs crossfades as a whole. |
 | An animation issue appears | Select the issue to inspect the effect, then retarget missing objects/parts or adjust overlapping timing |
-| A shape becomes text and the letters land as boxes ("No readable outlines for …") | The text's font has no outline Flux can read: Gelasio, the bundled theme font, ships only as a web font; a browser preview has no access to installed fonts → set the text in an installed font (Georgia, Arial, …) to see letter outlines; the boxes still land on each letter and fade into the text |
-| "Couldn't open that deck — its file may be missing or corrupt." appears while an agent edits the deck | An older Flux mistook a reload overtaken by the agent’s next edit for a bad file → update Flux; the deck on disk is intact, so reopening it shows the agent’s version |
+| A shape becomes text and the letters land as boxes ("No readable outlines for …") | Flux cannot read letter outlines from the text's font. Gelasio, the bundled theme font, ships only as a web font, and a browser preview has no access to installed fonts → set the text in an installed font (Georgia, Arial, …). Until then the boxes still land on each letter and fade into the text |
+| "Couldn't open that deck — its file may be missing or corrupt." appears while an agent edits the deck | Older versions of Flux could mistake a reload that the agent's next edit overtook for a damaged file → update Flux. The deck on disk is intact, so reopening it shows the agent's version |
 | Present shows placeholder "Title / Subtitle" text | The slide was created with a starter layout → delete the starters, or use the *blank* layout when composing by hand |
 
 ::: {.next-reading}

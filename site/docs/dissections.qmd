@@ -63,11 +63,11 @@ search.
 
 ## Viewing them {#viewing-them}
 
-In the figure editor, select a plot and press **D** (or click **Dissections** in the
+In the Figure workspace, select a plot and press **D** (or click **Dissections** in the
 Inspector — it shows a count). The viewer opens full-screen, and the **⧉** button shrinks it
 to a floating window you can keep beside the canvas:
 
-- **Arrow keys** move through the grid; **[** / **]** change the column count; **1–9** switch
+- **Arrow keys** move through the grid; **\[** / **\]** change the column count; **1–9** switch
   group tabs.
 - **Enter** expands a file. Images zoom at the cursor with **Ctrl+scroll**, pan with
   **Space+drag** or plain scroll, and toggle fit/1:1 with **Enter**. CSV/TSV files open as
@@ -77,8 +77,8 @@ to a floating window you can keep beside the canvas:
 The viewer is live: files dropped into the folder while it's open simply appear.
 
 For scripts and agents, `flux list-dissections [plot]` prints a plot's groups and files (or,
-with no argument, every plot that has dissections) — see the
-[CLI reference](/docs/cli.html).
+with no argument, every plot that has dissections); see the
+[command reference](/docs/commands.html#verb-cheat-sheet).
 
 ## Troubleshooting {#troubleshooting}
 
@@ -96,5 +96,5 @@ with no argument, every plot that has dissections) — see the
 ::: {.next-reading}
 **Related guides**
 
-[Semantic plots](/docs/semantic-plots.html)
+[Semantic plots](/docs/semantic-plots.html) · [Statistics and comparison brackets](/docs/statistics.html) · [Edit plot parts and data views](/docs/plot-editing.html#dissecting-a-plot) · [Lighttable](/docs/lighttable.html)
 :::

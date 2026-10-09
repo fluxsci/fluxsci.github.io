@@ -11,7 +11,6 @@ description: "Build an orbitable scene with named mesh parts, value fields, shap
 Build an orbitable scene with named mesh parts, value fields, shape states and a saved view.
 :::
 
-
 A 3D fluxplot keeps the mesh, its values, named parts and a saved viewing angle. You can
 orbit it in a notebook and later choose another angle in Flux without rerunning Python.
 
@@ -47,11 +46,11 @@ Pass `(vertices, faces)` arrays, an object exposing those attributes (such as tr
 
 `up=` accepts all six signed axes and converts to glTF Y-up while retaining labels and scale bars in the original data units. STL files often contain separate corners for every triangle and look faceted. For a smooth single shape, merge deliberately with `trimesh.load(path, process=True)` before adding it. Do not merge vertices independently when preserving shape-state correspondence.
 
-The examples below assume mesh arrays, fields or objects from your analysis. Each starts a fresh scene.
+## Named parts and value fields {#named-parts}
 
-## Named parts and value fields
-
-Use the arrays and named meshes from your analysis in these patterns.
+The examples below assume `import numpy as np`, `import fluxplot as fp`, and mesh arrays,
+fields or mesh objects from your analysis. Each starts a fresh scene; in the shorter snippets,
+`sc` stands for any scene created with `fp.scene3d`.
 
 ```python
 nc = fp.scene3d(figsize=(3.5, 3), units='nm', scalebar=10_000)
@@ -65,7 +64,7 @@ fp.surface3d(cx, thickness, series='thickness', surfaces=(vertices, faces),
              colorbar=True, cbar_label='Thickness (mm)')
 ```
 
-Parts have stable names such as `neuron.axon` and `thickness.field`. Flux can recolor,
+Parts have stable names such as `neuron.axon` and `thickness.field`. Flux can recolour,
 fade or hide each one. Named parts without a `palette` entry (or `color=`) take
 successive colours of the house cycle, so the legend tells them apart. `alpha=0.3`
 makes every part of a call translucent. `label=` labels a single mesh; on a named
@@ -88,17 +87,18 @@ colours; add `colorbar=True` to one of them:
 hemis = fp.scene3d(figsize=(4, 3), units='mm', up='z')
 lo, hi = np.nanpercentile(np.concatenate([lh_thickness, rh_thickness]), [2, 98])
 fp.surface3d(hemis, lh_thickness, series='lh', surfaces=lh_pial, kind='continuous',
-             cmap='emerald', color_range=(lo, hi), colorbar=True, cbar_label='Thickness (mm)')
+             cmap='emerald', color_range=(lo, hi),
+             colorbar=True, cbar_label='Thickness (mm)')
 fp.surface3d(hemis, rh_thickness, series='rh', surfaces=rh_pial, kind='continuous',
              cmap='emerald', color_range=(lo, hi))
 ```
 
-`surface3d` uses the same value-to-color functions as `surface`. Continuous 3D colors
-interpolate per vertex; the 2D surface colors each face's mean value. Categorical maps
+`surface3d` uses the same value-to-colour functions as `surface`. Continuous 3D colours
+interpolate per vertex; the 2D surface colours each face's mean value. Categorical maps
 use `kind='label'`, `categories={code: name}`, and `palette={name_or_code: color}`. Each
 category gets its own part. A boundary face follows the majority of its three vertices;
-a three-way tie follows the first vertex. Default category colors follow sorted category
-names; pass a palette to keep colors fixed across differently populated subsets.
+a three-way tie follows the first vertex. Default category colours follow sorted category
+names; pass a palette to keep colours fixed across differently populated subsets.
 Unnamed codes become `category-<code>`; negative codes are spelled `category-m<abs>`
 (`-1` is `category-m1`), so `-1` and `+1` never share or shift an id.
 
@@ -106,7 +106,12 @@ NaN, infinity, `missing_below=...`, and `missing_values=[...]` become missing da
 touching missing data goes into `<series>.missing`; **zero stays real**. The GLB encodes
 missing values with a validity mask because glTF forbids non-finite binary values.
 
-## Shape states first, separate morph partners when needed
+## Shape states and morph partners {#shape-states}
+
+Prefer shape states in one file; use separate morph partners only when the shapes must be saved
+as separate plots.
+
+### Shape states {#states}
 
 Several shapes of one mesh can live in the same file:
 
@@ -131,15 +136,19 @@ For a time sequence, pass `states=frames[1:], sequence=True` (a list of meshes o
 arrays, or one `(T, N, 3)` array). Frame 0 is the base, frames 1 onward are the targets.
 `sc.view(frame=3)` shows frame 3; `sc.view(frame=2.5)` blends frames 2 and 3.
 
+### Separate morph partners {#morph-partners}
+
 For separate files, build the reference first (with any `max_faces`), then use the same
-series/part names for its partner and verify correspondence:
+series and part names for its partner, and verify the correspondence:
 
 ```python
-a = fp.scene3d(); pial_parts = fp.mesh3d(a, pial, series='cortex', max_faces=200_000)
-b = fp.scene3d(); fp.mesh3d(b, inflated, series='cortex', share_topology_with=a,
-                           morph_group='cortex')
+a = fp.scene3d()
+pial_parts = fp.mesh3d(a, pial, series='cortex', max_faces=200_000)
+b = fp.scene3d()
+fp.mesh3d(b, inflated, series='cortex', share_topology_with=a, morph_group='cortex')
 assert fp.can_morph(a, b)
-fp.save(a, 'plots/cortex_pial'); fp.save(b, 'plots/cortex_inflated')
+fp.save(a, 'plots/cortex_pial')
+fp.save(b, 'plots/cortex_inflated')
 ```
 
 `share_topology_with` accepts the reference scene, the list of parts its `mesh3d` call
@@ -154,7 +163,7 @@ are reduced separately, and values are remapped using the collapse mapping. A si
 may retain more faces than requested; that is reported explicitly. Simplification can
 change a categorical boundary's shape even though it never merges category parts.
 
-## Axes, scale bars and notebook behavior
+## Axes and scale bars {#axes-and-scale-bars}
 
 Use `axes='none'`, `'box'`, or `'triad'`. Box axes draw back panes and grid lines behind
 the mesh, with axis lines, ticks and labels on the outer edges; they use authored data
@@ -173,6 +182,15 @@ stay. Flux and the static still apply the same rule.
 triad sits bottom-left; the scale bar sits bottom-left, or bottom-right when a triad is
 shown.
 
+Colorbar titles and legend entries wrap at their physical font size, and long identifiers split
+across lines with every character retained. The guide column takes at most 40% of the figure
+width; increase `figsize` if a warning says its labels cannot fit. The static PNG and Flux share
+the same layout, including generated ticks when a manifest omits them. Text widths are estimated
+from Arial with a 20% reserve, checked against common sans-serif fonts including DejaVu Sans;
+custom fonts can still need a larger box.
+
+## Notebooks {#notebooks}
+
 Notebook output bundles a self-contained viewer and a PNG. Drag orbits, wheel zooms,
 axis keys choose views, and Home restores the saved view. Copy view provides the exact
 Python view arguments; every form it produces pastes straight back:
@@ -189,31 +207,32 @@ fp.scene3d(figsize=(3, 3), view=dict(azimuth=18, elevation=24))  # at creation
 A view given at creation may name shape states or a frame; they are applied once a mesh
 with those states is added (saving or displaying fails with the names if none is).
 
-Script-free frontends can show the PNG; `sc.show(static=True)` forces the still. The
-still mirrors the viewer's layout (title, legend and colorbar slots, box axes, triad and
-scale bar) and is rendered at 2× for sharp HiDPI display at the viewer's size.
-Displaying a scene with no mesh yet prints what to add. Trust is controlled by the
-notebook frontend. Trusted VS Code Jupyter
-and QMD Notebook execute this viewer. In untrusted VS Code, an output containing both
-HTML and PNG can appear blank because the frontend blocks its selected HTML representation;
-it does not automatically select the alternate PNG. Select the PNG representation if the frontend offers that choice, or save a PNG-only
-output with `sc.show(static=True)` before sharing. PNG-only output was verified in untrusted
-VS Code Jupyter; untrusted QMD output restoration remains unverified.
-Frontends that render HTML but disable scripts retain the inline PNG.
+Frontends that do not run scripts can show the PNG, and `sc.show(static=True)` forces the
+still. The still mirrors the viewer's layout (title, legend and colorbar slots, box axes, triad
+and scale bar) and is rendered at 2× for sharp display on high-density screens. Displaying a
+scene with no mesh yet prints what to add.
+
+Whether the interactive viewer runs is up to the notebook frontend. Trusted notebooks in VS Code
+Jupyter and QMD Notebook run it, and frontends that render HTML but disable scripts fall back to
+the inline PNG. In an untrusted VS Code notebook, an output that contains both HTML and PNG can
+appear blank, because VS Code blocks the HTML and does not switch to the PNG on its own. Choose
+the PNG representation if the frontend offers it, or use `sc.show(static=True)` to produce a
+PNG-only output before sharing the notebook.
 
 `preview_max_faces` defaults to 100,000 triangles, which keeps each notebook output small
-and quick to redraw. With the optional simplifier (`fluxplot[mesh]`), only the private
-notebook preview is reduced; `fp.save` keeps your scene's full resolution. Without it,
-previews remain full resolution and warn above 30 MiB. Raise it
-(`fp.scene3d(preview_max_faces=300_000)`) to inspect fine detail. Every interactive output
-embeds its own copy of the viewer runtime (about 0.75 MB) so it keeps working after the
-notebook is saved, reopened or partly cleared. Notebook previews use a white paper
-background so authored figure labels remain readable in dark notebook themes. This does
-not change the GLB background or Flux export transparency. A static PNG uses a global face
-painter with the surface shading functions; intersecting transparent geometry may look
-different from the WebGL depth-buffer view.
+and quick to redraw. With the optional simplifier (`fluxplot[mesh]`), only the notebook preview
+is reduced; `fp.save` keeps your scene's full resolution. Without the simplifier, previews stay
+at full resolution and warn above 30 MiB. Raise the limit
+(`fp.scene3d(preview_max_faces=300_000)`) to inspect fine detail.
 
-## Troubleshooting
+Every interactive output embeds its own copy of the viewer runtime (about 0.75 MB), so it keeps
+working after the notebook is saved, reopened or partly cleared. Notebook previews use a white
+paper background so that labels stay readable in dark notebook themes; this does not change the
+GLB background or the transparency of Flux exports. A static PNG sorts faces back to front
+instead of using a depth buffer, so intersecting transparent geometry may look different from
+the interactive WebGL view.
+
+## Troubleshooting {#troubleshooting}
 
 - An all-grey map often means all values are missing. Check sentinels and `missing_below`.
 - If the notebook shows only a still, its frontend may not execute trusted HTML scripts.
@@ -223,30 +242,27 @@ different from the WebGL depth-buffer view.
 - If a large model is slow, use `max_faces` and fewer states. Each state adds 24 bytes
   per vertex before GLB overhead. The notebook preview budget does not shrink saved files.
 
-When a save exceeds Flux's 50 MiB or two-million-triangle warning limits, its warning
-gives a scene-specific `max_faces=N` to apply to **each** `mesh3d`/`surface3d` call.
-The cap conservatively accounts for every part, value/color channel, shape state and
-GLB metadata; it preserves each call's minimum of one triangle per part. It assumes
-the simplifier reaches the cap: retained-face warnings still require attention.
-If fixed part/state overhead cannot fit, the warning says to remove parts/states or
-split the scene. If the conservative bound cannot guarantee a cap, it says so instead
-of promising one. Simplification also drops backend-produced unused vertices in
-original index order, applying the same map to states, values and colors; it does not
-weld vertices or disturb shared-topology correspondence.
+### Large scenes {#large-scenes}
 
-`uv run --extra mesh python examples/scene3d_demo.py` writes scratch assets under
-`test-results/model3d/demo/plots/` (override with `--out`). It creates a neuron-like mesh, two shape states,
-a same-topology morph pair, a field map and an eight-frame sequence without downloaded data.
-The schema and binary details are in [scene format reference](/docs/plot-format.html#scene3d).
+When a save exceeds Flux's warning limits (50 MiB or two million triangles), the warning gives a
+scene-specific `max_faces=N` to apply to **each** `mesh3d` / `surface3d` call. The cap
+conservatively accounts for every part, value and colour channel, shape state and GLB metadata,
+and keeps at least one triangle per part. It assumes the simplifier reaches the cap, so warnings
+about retained faces still need attention. If the fixed overhead of parts and states cannot fit,
+the warning tells you to remove parts or states or to split the scene; if no cap can be
+guaranteed, it says so rather than suggesting one. Simplification also drops unused vertices,
+applying the same mapping to states, values and colours; it does not weld vertices or disturb
+shared-topology correspondence.
 
-Colorbar titles and legend entries wrap at their physical font size. Long identifiers
-split across lines with every character retained. The guide column takes at most 40%
-of the figure width; increase `figsize` if a warning says its labels cannot fit.
-The static PNG and Flux share the layout, including generated ticks when a manifest
-omits them. Width estimates use Arial advances with a 20% reserve checked against
-common sans fonts including DejaVu Sans; custom fonts can still need a larger box.
+## More examples and the format {#more}
 
+The fluxplot repository's `examples/scene3d_demo.py` builds a neuron-like mesh, two shape states,
+a same-topology morph pair, a field map and an eight-frame sequence without downloading data
+(`uv run --extra mesh python examples/scene3d_demo.py --out <folder>`). The schema and binary
+details are in the [scene format reference](/docs/plot-format.html#scene3d).
 
 ::: {.next-reading}
-[fluxplot quickstart](/docs/fluxplot.html) · [Python API reference](/docs/fluxplot-api.html) · [Edit plots in Flux](/docs/plot-editing.html)
+**Related guides**
+
+[3D models in Flux](/docs/3d-models.html) · [3D and video in slides](/docs/slide-media.html#3d-models) · [Python API reference](/docs/fluxplot-api.html#scene3d) · [fluxplot quickstart](/docs/fluxplot.html)
 :::

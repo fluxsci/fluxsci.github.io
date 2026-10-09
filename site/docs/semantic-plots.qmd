@@ -16,13 +16,13 @@ made with [fluxplot](https://github.com/fluxsci/fluxplot), every meaningful part
 series' line, its 4th data point, the x-axis title — carries a **stable name**. That one idea is
 what makes Flux figures feel alive:
 
-- **Click into a plot and restyle a part** — one line's color, one label's size — in
-  [Figure mode](/docs/figure.html), without touching your analysis code.
+- **Click into a plot and restyle a part** — one line's colour, one label's size — in the
+  [Figure workspace](/docs/figure.html), without touching your analysis code.
 - **Regenerate without losing your tuning.** Re-run the analysis script and the plot updates in
   place; your per-part restyles survive, because they're keyed to the part *names*, not to
   pixels.
-- **Animate at the level of parts** in [Slide mode](/docs/slides.html) — fade one series in,
-  draw a curve on, morph one chart into another.
+- **Animate at the level of parts** in the [Slides workspace](/docs/slides.html) — fade one
+  series in, draw a curve on, morph one chart into another.
 
 ## Every part has a name {#every-part-has-a-name}
 
@@ -49,20 +49,20 @@ but every meaningful thing has a name." You plot through thin helpers that take 
 then save with `fp.save()`:
 
 ```python
-import matplotlib
-matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import fluxplot as fp
-from fluxplot import style as fx
-fx.use_light()                       # the house style (Flexoki palette, clean look)
 
+fp.use_light()   # the house style: Flexoki palette, clean axes
+
+# t, control and treatment come from your analysis of data/growth.csv.
 fig, ax = plt.subplots(figsize=(6.4, 4.8))
 fp.line(ax, t, control,   series="control",   marker="o", label="Control")
 fp.line(ax, t, treatment, series="treatment", marker="s", label="Treatment")
-ax.set_xlabel("Time (h)"); ax.set_ylabel("OD600"); ax.legend()
+ax.set_xlabel("Time (h)")
+ax.set_ylabel("OD600")
+fp.legend(ax)
 
-fp.save(fig, "plots/growth.svg",
-        recipe=dict(script=__file__, params=p, inputs=["data/growth.csv"]))
+fp.save(fig, "plots/growth.svg", recipe={"inputs": ["data/growth.csv"]})
 ```
 
 Saving into your project's `plots/` folder writes **three files that travel together**:
@@ -74,10 +74,12 @@ plots/growth.recipe.json    ← the recipe: how it was made, so it can be re-mad
 ```
 
 Name series consistently across related plots: the name is the handle Flux restyles by.
-When saving from a Python script, fluxplot discovers the script automatically. Pass
-`recipe={"script": __file__, "params": p, "inputs": [...]}` when you need explicit parameters
-and input provenance; `recipe=False` suppresses script discovery. The full API and style guide
-ship with fluxplot itself; setup is covered in [Installation](/install/).
+When saving from a Python script, fluxplot discovers the script automatically, so the recipe
+above only adds the input file. Pass `"params"` as well when the script takes parameters (see
+[Recipes and parameters](/docs/save-and-recipes.html#recipes-and-parameters)), or
+`recipe=False` to suppress script discovery. Installation and a complete first script are in
+the [fluxplot quickstart](/docs/fluxplot.html); every function is listed in the
+[Python API reference](/docs/fluxplot-api.html).
 
 ## True physical size {#true-physical-size}
 
@@ -97,15 +99,14 @@ parameters* — from the app or the command line — without editing code.
 ## What about plots from anywhere else? {#what-about-plots-from-anywhere-else}
 
 Other SVGs also import with an automatically derived parts tree for editing and animation;
-PNGs remain images. Derived SVG parts do not carry the original scientific data or a recipe.
-Fluxplot supplies that additional meaning. (If a
-fluxplot-saved plot imports as a flat image, something's wrong — `flux validate-plot
-plots/<name>.svg` says what.)
+PNGs remain images. Derived SVG parts do not carry the original scientific data or a recipe;
+fluxplot supplies that additional meaning. If a plot saved by fluxplot imports as a flat
+image, something is wrong, and `flux validate-plot plots/<name>.svg` says what.
 
 ## Multiple panels and precise data {#multiple-panels-and-precise-data}
 
-Fluxplot schema 0.3 keeps each subplot's series and axes separate, including shared axes,
-twins and insets. Give panels stable names before plotting when their layout may change:
+From schema 0.3, fluxplot keeps each subplot's series and axes separate, including shared
+axes, twins and insets. Give panels stable names before plotting when their layout may change:
 
 ```python
 fig, axes = plt.subplots(1, 2, layout="constrained")
@@ -122,11 +123,12 @@ supported linear or logarithmic axes can morph in data space. Polar/3D projectio
 scales, field layers and other composite plots use the complete transition behavior. Existing
 projects stay readable; upgrading does not regenerate your plots automatically.
 
-## Matrices, contours and color scales {#matrices-contours-and-color-scales}
+## Matrices, contours and colour scales {#matrices-contours-and-color-scales}
 
 Use `fp.heatmap`, `fp.contour`, `fp.contourf` and `fp.colorbar` to name the field and its key:
 
 ```python
+# matrix comes from your analysis.
 fig, ax = plt.subplots()
 image = fp.heatmap(ax, matrix, series="correlation", cmap="viridis", vmin=0, vmax=1)
 fp.colorbar(image, name="correlation", label="Correlation")
@@ -134,45 +136,67 @@ fp.save(fig, "plots/correlation.svg")
 ```
 
 For a modest matrix, `cells=True` makes individual cells addressable. Large fields stay efficient
-as one named raster layer. Raw matrix values are only included when `include_values=True`.
+as one named raster layer. Raw matrix values are only included when `include_values=True`. The
+[matrices and colour scales guide](/docs/matrices-and-scales.html) covers fields in detail.
 
-With fluxplot 0.3.1 or later the saved plot records each colour scale's exact law — the colormap
-table, the normalisation and its limits — and every coloured element's data value, so Flux
-recolours the plot itself. Select the plot and edit **Colour scales** in the Object inspector, or
-**colour scale** in its **F** menu: the palette, its direction, the norm kind, the limits and
-`extend` change live, together with the colorbar, and the edit is saved with the figure or slide
-and tweens in a talk. **Apply to source** writes the complete colour controls into the recipe
-(`__fluxplot__`, keyed by the series name) and regenerates the plot from source data while
-preserving your named-part overrides; the plot needs a runnable recipe, and the action targets
-that plot's save, leaving sibling outputs untouched. Plots saved before 0.3.1 keep the
-regenerate-only palette and range fields in **X-Ray**.
+### Recolour a plot without Python {#recolour-without-python}
 
-The same manifest carries each series' **colour** (its hex and, when fluxplot drew it from a
-palette, the exact token) and every scaffold element's **theme token**, so Flux can give a whole
-series one colour — **Series colour** in the Plot part section, `set-series-color` headless — and
-let a slide plot **follow the deck theme** (its ink, axes and gridlines take the theme's colours;
-data colours never move). Reading a figure's data is a verb, not a squint: `get-plot-data`
-returns every series' exact values and per-point ids, hexmatrix bins, glowbar / fluxbox
-statistics, heatmap values, image channels, axis domains and each significance bracket's test and
-p, windowing long arrays; hovering a part with **Ctrl** held shows the same facts on the canvas.
+A plot saved with fluxplot schema 0.3.1 or later records each colour scale's exact law (the
+colormap table, the normalization and its limits) and the data value of every coloured
+element, so Flux can recolour the plot itself:
 
-fluxplot 0.3.2 adds what the rest of the colour plan needs and Flux consumes it all: a scale's
-**opacity channel** (`alpha_by`: a hexagon's count, a cell's p-value) recolours live with the
-palette; **twin value axes** (`ax.twinx()`, secondary axes) have their own axis view; bars,
-cells and hexagons carry **stable keys** and their data boxes, so an axis view moves them and a
-Become between two versions of a plot tweens them member by member; every axis records its
-**tick scheme**, so a viewed axis is re-ticked; fits (`fp.regression`, `fp.kde`), steps, stems,
-images and the figure's own title, legend and annotations are named parts that `get-plot-data`
-and the hover readout report. Two ids changed names in 0.3.2 — spines are `axis.x.spine.bottom`
-and some series slugs were regularised — and the manifest's `idAliases` maps the old names, so
-overrides, captions and effects saved against an older plot keep pointing at the same parts.
+- Select the plot and edit **Colour scales** in the Object inspector, or **colour scale** in its
+  **F** menu. The palette, its direction, the norm kind, the limits and `extend` change live,
+  together with the colorbar. The edit is saved with the figure or slide, and tweens in a talk.
+- **Apply to source** writes the complete colour controls into the recipe (`__fluxplot__`,
+  keyed by the series name) and regenerates the plot from the source data, keeping your
+  named-part overrides. It needs a runnable recipe and affects only that plot's save, leaving
+  sibling outputs untouched.
+
+Plots saved with an older schema offer only the palette and range fields in the **X-ray**, and
+those regenerate the plot.
+
+### Series colours and deck themes {#series-colours-and-themes}
+
+The manifest also records each series' **colour** (its hex value and, when fluxplot drew it from
+a palette, the exact palette token) and the **theme token** of every scaffold element. With it,
+Flux can give a whole series one colour (**Series colour** in the Plot part section, or
+`set-series-color` from the command line), and a plot on a slide can
+[follow the deck theme](/docs/transforms.html#plots-follow-the-deck-theme): its ink, axes and
+gridlines take the theme's colours, while data colours never change.
+
+### Read the data back {#read-the-data-back}
+
+`flux get-plot-data` returns what the plot shows: every series' exact values and per-point IDs,
+hexmatrix bins, glowbar and fluxbox statistics, heatmap values, image channels, axis domains,
+and each significance bracket's test and p-value. Long arrays are windowed. In Flux, hold
+**Ctrl** while hovering a part to see the same facts on the canvas.
+
+### What schema 0.3.2 adds {#what-schema-032-adds}
+
+- A colour scale can carry an **opacity channel** (`alpha_by`, for example a hexagon's count
+  or a cell's p-value), which recolours live with the palette.
+- **Twin value axes** (`ax.twinx()` and secondary axes) get their own axis view.
+- Bars, cells and hexagons carry **stable keys** and their data boxes, so an axis view moves
+  them and a Become between two versions of a plot tweens them member by member.
+- Every axis records its **tick scheme**, so a viewed axis is re-ticked.
+- Fits (`fp.regression`, `fp.kde`), steps, stems, images and the figure's own title, legend and
+  annotations are named parts that `get-plot-data` and the hover readout report.
+
+Two kinds of ID changed in 0.3.2: spines are now named like `axis.x.spine.bottom`, and some
+series names are spelled differently so they no longer collide. The manifest's `idAliases` maps
+the old IDs, so overrides, captions and effects saved against an older plot keep pointing at the
+same parts.
+
+### Checks on import {#checks-on-import}
 
 New imports and linked-source reloads verify the SVG/manifest checksum before accepting the
 bundle. If generation is still writing files or the sidecar belongs to another SVG, Flux keeps
-the last accepted plot and reports the mismatch. This check precedes any legacy SVG repair.
+the last accepted plot and reports the mismatch. This check runs before any repair of older
+SVGs.
 
 ::: {.next-reading}
 **Related guides**
 
-[Dissections](/docs/dissections.html)
+[fluxplot quickstart](/docs/fluxplot.html) · [Edit plot parts and data views](/docs/plot-editing.html) · [Plot format and identity](/docs/plot-format.html) · [Dissections](/docs/dissections.html)
 :::

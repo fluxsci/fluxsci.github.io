@@ -11,7 +11,7 @@ description: "Collect references and PDFs in a library shared by your projects."
 Collect references and PDFs in a library shared by your projects.
 :::
 
-<figure class="doc-figure"><a href="/assets/media/library.webp" data-enlarge data-caption="Browse a small demonstration collection, with metadata and organization controls beside it."><img src="/assets/media/library.webp" alt="Browse a small demonstration collection, with metadata and organization controls beside it." width="1500" height="950" loading="lazy"></a><figcaption>Browse a small demonstration collection, with metadata and organization controls beside it. <a href="/docs/visual-credits.html">Visual credits</a>.</figcaption></figure>
+<figure class="doc-figure"><a href="/assets/media/library.webp" data-enlarge data-caption="Browse a small demonstration collection, with metadata and organization controls beside it."><img src="/assets/media/library.webp" alt="The Flux Library workspace showing FluxLib with three demonstration references. One row is expanded into its details strip with keywords, tags and buttons such as Get PDF and Similar. The header holds the Library and World toggle, the search box, the add-by-DOI box and buttons such as Import and Zotero." width="1500" height="950" loading="lazy"></a><figcaption>Browse a small demonstration collection, with metadata and organization controls beside it. <a href="/docs/visual-credits.html">Visual credits</a>.</figcaption></figure>
 
 Library is your reference manager. It manages **FluxLib**, the machine-global collection shared
 by all your projects — every paper you save, its PDF, your highlights, tags, and reading
@@ -30,25 +30,15 @@ header shows the collection and its size; everything below is the grid.
 - **Bulk import.** **Import…** reads a `.bib` or `.ris` file (Zotero, EndNote, Mendeley,
   BibTeX exports), previews what's new vs. already-known before committing, and can pull the
   PDFs a Zotero export references alongside.
-- **Zotero sync.** The **Zotero** button connects FluxLib to a live Zotero library. One-time
-  setup in Zotero: install the [Better BibTeX](https://retorque.re/zotero-better-bibtex/)
-  plugin, right-click your library → **Export Library…** → format **Better BibTeX**, tick
-  **Keep updated**, and save the `.bib` anywhere you like. Point Flux at that file and from
-  then on anything you add in Zotero (including via its browser connector) flows into FluxLib
-  — on startup, live while Flux is open, or on **Sync now**. It's one-way and additive: papers
-  you already have are recognized and left untouched (by DOI, or title+author+year when
-  there's no DOI), and nothing is ever written back to Zotero. PDFs come along too — either
-  **copied** into FluxLib (the default: FluxLib alone stays a complete backup) or **linked**
-  (one copy on disk; papers open from Zotero's folder, which then must stay put). A paper
-  whose PDF shows up in Zotero later is backfilled on the next sync. Agents can run the same
-  sync headlessly (`flux zotero-sync`). For very large libraries, the connect dialog detects a
-  big export and preselects linking **without upfront text extraction** — the sync never reads
-  the PDFs at all (it only records where they live), and searchable text fills in quietly as
-  you open papers. Automatic syncs are effectively free: when the export file hasn't changed
-  since the last sync, Flux notices from the file's timestamp alone and does nothing at all
-  (**Sync now** always performs a full pass). The
-  [Zotero integration](/docs/zotero.html) page walks through the full setup,
-  the copy-vs-link decision, and troubleshooting.
+- **Zotero sync.** The **Zotero** button connects FluxLib to a Zotero library through a
+  [Better BibTeX](https://retorque.re/zotero-better-bibtex/) export with **Keep updated**
+  ticked. From then on, anything you add in Zotero flows into FluxLib at startup, live while
+  Flux is open, or on **Sync now**. The sync is one-way and additive: papers you already have
+  are recognized and left untouched, and nothing is written back to Zotero. PDFs are either
+  **copied** into FluxLib (the default, so FluxLib alone is a complete backup) or **linked** to
+  Zotero's folder. Agents can run the same sync with `flux zotero-sync`. The
+  [Zotero integration](/docs/zotero.html) guide covers setup, copying versus linking, very large
+  libraries and troubleshooting.
 - **The inbox folder.** Drop PDF files into `~/FluxConfig/FluxLib/pdfs_to_assign/` and Flux
   identifies each one *from its own contents* and files it under the right paper — attaching it
   to an entry that lacks a PDF, keeping it as a supplement if the paper already has one, or
@@ -69,19 +59,19 @@ The search box does three kinds of search, all as you type:
   keywords, and topics. `"quoted phrases"` match exactly.
 - **Fielded filters** narrow precisely, and combine (every clause must match):
 
-  | Filter | Matches | Aliases |
+  | Filter | Alias | Matches |
   |---|---|---|
-  | `author:smith` | author names | `au:` |
-  | `year:2021` | exact year — `year:201` matches the whole decade | `yr:` |
-  | `journal:nature` | journal / venue | `venue:` |
-  | `title:cortex` | title | `ti:` |
-  | `doi:10.1038` | DOI | |
-  | `abstract:reward` | the enriched abstract | `abs:` |
-  | `keyword:sleep` | enriched keywords | `kw:` |
-  | `topic:neuroscience` | enriched topics | |
-  | `tag:methods` | your tags | |
-  | `status:read` | reading status (`unread` / `reading` / `read`) | `read:` |
-  | `collection:thesis` | your collections | `coll:` |
+  | `author:smith` | `au:` | author names |
+  | `year:2021` | `yr:` | the exact year; `year:201` matches the whole decade |
+  | `journal:nature` | `venue:` | journal or venue |
+  | `title:cortex` | `ti:` | title |
+  | `doi:10.1038` | — | DOI |
+  | `abstract:reward` | `abs:` | the enriched abstract |
+  | `keyword:sleep` | `kw:` | enriched keywords |
+  | `topic:neuroscience` | — | enriched topics |
+  | `tag:methods` | — | your tags |
+  | `status:read` | `read:` | reading status: `unread`, `reading` or `read` |
+  | `collection:thesis` | `coll:` | your collections |
 
   Quote multi-word values: `journal:"nature neuroscience"`.
 - **Full text**: prefix with `ft:` to search **inside every PDF you've stored** —
@@ -117,7 +107,7 @@ One row, many verbs — the row tooltip is a cheat sheet:
 - **Alt+click** opens the paper's DOI in your browser.
 - The **status dot** on each row cycles unread ○ → reading ◐ → read ●.
 - **Check several rows** and a bar appears: add them all to the current project, fetch their
-  PDFs (**Alt+F**), tag them in one stroke, or delete them (**Alt+Del**, with Undo).
+  PDFs (**Alt+F**), tag them in one stroke, or delete them (**Alt+Delete**, with Undo).
 
 ## PDFs {#pdfs}
 
@@ -149,7 +139,7 @@ citing/similar lookups.
 | Symptom | Cause → fix |
 |---|---|
 | Add box rejects a URL | The page exposes no DOI metadata → paste the DOI itself |
-| `ft:` finds nothing for a paper you have | Its PDF isn't stored yet (full-text search scans stored PDFs) → **Get PDF** first |
+| `ft:` finds nothing for a paper you have | Its PDF isn't stored yet (full-text search scans stored PDFs) → fetch it with the row's **⬇** button or **Get PDFs** first |
 | No abstract / topics on a paper | Not enriched yet → **Enrich** |
 | Get PDFs starts but paywalled papers fail | Proxy session expired → **⚙ → Sign in**, run again |
 | A dropped PDF didn't get filed | See `pdfs_to_assign/_unresolved/` — each file carries a note saying why it couldn't be identified |
@@ -157,5 +147,5 @@ citing/similar lookups.
 ::: {.next-reading}
 **Related guides**
 
-[Reader](/docs/reader.html)
+[Reader](/docs/reader.html) · [Zotero integration](/docs/zotero.html) · [Capturing from the web](/docs/web-capture.html) · [Citations, figures and tables](/docs/citations-and-figures.html)
 :::

@@ -11,10 +11,10 @@ description: "Read PDFs, compare papers, and keep notes attached to their source
 Read PDFs, compare papers, and keep notes attached to their source.
 :::
 
-<figure class="doc-figure"><a href="/assets/media/reader.webp" data-enlarge data-caption="Read the original demonstration manuscript with a highlight and an attached note."><img src="/assets/media/reader.webp" alt="Read the original demonstration manuscript with a highlight and an attached note." width="1500" height="950" loading="lazy"></a><figcaption>Read the original demonstration manuscript with a highlight and an attached note. <a href="/docs/visual-credits.html">Visual credits</a>.</figcaption></figure>
+<figure class="doc-figure"><a href="/assets/media/reader.webp" data-enlarge data-caption="Read the original demonstration manuscript with a highlight and an attached note."><img src="/assets/media/reader.webp" alt="The Flux Reader with the demonstration manuscript Patterns across scales open. A sentence on the page is highlighted in yellow, and the Highlights sidebar lists it with its attached note." width="1500" height="950" loading="lazy"></a><figcaption>Read the original demonstration manuscript with a highlight and an attached note. <a href="/docs/visual-credits.html">Visual credits</a>.</figcaption></figure>
 
-Open a paper from the [Library](/docs/library.html) (the **Read**
-action on a row, or **Ctrl+Shift+click**) and you get a fast PDF view whose highlights and
+Open a paper from the [Library](/docs/library.html) (the **Read PDF** button on a row, or
+**Ctrl+Shift+click** the row) and you get a fast PDF view whose highlights and
 notes anchor to the *text itself* — they survive re-downloads, re-opens, and zooming, and they
 belong to the paper, not to any one project.
 
@@ -70,24 +70,18 @@ demand, restored to their remembered page and zoom.
 
 ### Two papers side by side {#two-papers-side-by-side}
 
-**Alt-click** (or **Cmd-click**) a tab to open that paper in a second pane beside the current
+**Alt+click** (or **Cmd+click**) a tab to open that paper in a second pane beside the current
 one — compare a method against the paper that introduced it, or keep a review open while you
 read. Each pane has its own tab strip and switches independently; tab shortcuts act on the
 pane you're focused in. You can even show the *same* paper in both panes — a highlight made
-in one appears in the other. (Alt-clicking the Reader icon in the top bar splits too, as in
-every mode.)
+in one appears in the other. (**Alt+click** the Reader icon in the top bar to split, as in
+every workspace.)
 
 ## Highlights and notes {#highlights-and-notes}
 
-Select a passage or open a saved highlight and click **✦ Annotate this passage** to open the shared Annotate surface
-with the citekey, page, and selected text already attached as a target. Add your note and
-choose **To:** Inbox, Any watching agent, or a named session. **Ctrl+Shift+M** does the same
-from the current Reader view; **Escape** keeps the draft. PDF highlights remain available
-through the color buttons.
-
-Select any text and a small color menu appears — five highlight colors (yellow, green, blue,
-pink, orange). Click one and the highlight is saved. Click a highlight later to open its
-popover: recolor it, attach a **comment**, copy the text, or delete it. The right sidebar's
+Select any text and a small colour menu appears, with five highlight colours (yellow, green,
+blue, pink, orange). Click one and the highlight is saved. Click a highlight later to open its
+popover: recolour it, attach a **comment**, copy the text, or delete it. The right sidebar's
 **Highlights** tab (**Alt+A**) lists every highlight with its page; click one to scroll to
 it, and edit or delete from there.
 
@@ -96,9 +90,18 @@ positions — so they re-attach correctly even if the PDF is re-fetched. If a pa
 changes so much that a quote can't be found, the note is kept and marked *detached* rather
 than lost.
 
-**Export notes…** (on the Highlights tab, and on the paper's row in the Library) writes all of a
-paper's highlights and comments to a tidy Markdown file — grouped by page, quotes with your
+**Export notes…** (on the Highlights tab, and in the paper's details in the Library) writes all
+of a paper's highlights and comments to a tidy Markdown file — grouped by page, quotes with your
 notes beneath, citation and DOI in the header — ready to drop into your own notes system.
+
+### Annotate a passage for an agent {#annotate-a-passage}
+
+To send a passage to an agent rather than keep a private note, select it (or open a saved
+highlight) and click **✦ Annotate this passage**. The shared Annotate surface opens with the
+citekey, page and selected text already attached. Add your note and choose **To:** Inbox, Any
+watching agent, or a named session. **Ctrl+Shift+M** does the same from the current Reader view;
+**Escape** closes the surface and keeps the draft. See
+[Annotations, comments and the inbox](/docs/comments.html).
 
 ## Search {#search}
 
@@ -144,7 +147,7 @@ MCP tools: which paper is open, the current page, and the selected passage. See
 
 | Symptom | Cause → fix |
 |---|---|
-| "No PDF on disk" when opening | The paper's PDF isn't fetched yet → **Get PDF** in the Library |
+| "No PDF on disk" when opening | The paper's PDF isn't fetched yet → fetch it with the row's **⬇** button or **Get PDFs** in the Library |
 | Reference list is empty | The paper isn't enriched → **Enrich** in the Library |
 | A highlight shows as *detached* | The stored quote no longer matches this PDF's text — the note is preserved; re-highlight to re-anchor it |
 | Snip capture says "Open a project" | Snips save into the current project's `plots/` — open one first |
@@ -152,5 +155,5 @@ MCP tools: which paper is open, the current page, and the selected passage. See
 ::: {.next-reading}
 **Related guides**
 
-[Library](/docs/library.html)
+[Library](/docs/library.html) · [Annotations, comments and the inbox](/docs/comments.html) · [Citations, figures and tables](/docs/citations-and-figures.html)
 :::
