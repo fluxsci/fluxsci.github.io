@@ -74,14 +74,15 @@ test('navigation works with mobile menu and keyboard dismissal', async ({ page }
     await expect(menu).toBeFocused();
     await menu.click();
   }
+  // On a phone the menu is open at this point; choosing a destination closes it and navigates.
+  await page.getByRole('navigation', { name:'Main navigation', exact:true }).getByRole('link', { name:'Documentation', exact:true }).click();
+  await expect(page).toHaveURL(/\/docs\/$/);
+  await page.goto('/');
   await page.locator('.hero-actions .text-link').click();
   await expect(page).toHaveURL(/#how-it-works$/);
   if (await menu.isVisible()) await expect(menu).toHaveAttribute('aria-expanded', 'false');
   await page.locator('[data-workspace-guide]').click();
   await expect(page).toHaveURL(/\/docs\/figure.html$/);
-  await page.goBack();
-  await page.getByRole('navigation', { name:'Main navigation', exact:true }).getByRole('link', { name:'Documentation', exact:true }).click();
-  await expect(page).toHaveURL(/\/docs\/$/);
 });
 
 test('full-size imagery opens accessibly and restores focus', async ({ page }) => {
@@ -216,7 +217,8 @@ test('missing nested paths return a styled and accessible 404', async ({ page })
   expect(response.status()).toBe(404);
   await expect(page.getByRole('heading', { level:1 })).toHaveCount(1);
   await expect(page.getByRole('link', { name:'Return to Flux →', exact:true })).toHaveAttribute('href', '/');
-  await expect(page.getByRole('navigation', { name:'Main navigation', exact:true })).toBeVisible();
+  await expect(page.locator('#main-navigation')).toHaveCount(1);
+  await expect(page.locator('.site-header .wordmark')).toBeVisible();
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'noindex');
   expect(await page.evaluate(() => [...document.styleSheets].some(sheet => sheet.href?.endsWith('/assets/styles/site.css')))).toBe(true);
   const result = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();

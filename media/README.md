@@ -57,3 +57,13 @@ without reading the source project or starting Flux.
 ## Licenses and credit
 
 Runtime dependency licenses are under `site/assets/licenses/`; Gelasio's SIL OFL notice is in `site/assets/fonts/OFL.txt`. Scientific assets retain their own source terms. The website's visual credits page identifies Allen Institute, MICrONS, FermiSurfer and Crystallography Open Database sources and distinguishes measured, computed and illustrative content. Website licensing does not relicense source datasets.
+
+## Part explorer plot
+
+`media/explorer/make_explorer.py` draws a small synthetic fluxbox with fluxplot (run it from a
+fluxplot checkout: `uv run python media/explorer/make_explorer.py <outdir>`), and
+`media/explorer/build_explorer.py <outdir> <website root>` turns the saved bundle into
+`site/assets/media/docs/explorer-fluxbox.svg` (viewBox only, matplotlib's global style rule
+removed) plus a compact JSON description of the manifest's parts tree. That JSON is embedded in
+`site/docs/semantic-plots.qmd` and `site/index.qmd`, where `site/assets/scripts/explorer.js`
+lets a reader hover any named part. The values are synthetic and say so on the page.
