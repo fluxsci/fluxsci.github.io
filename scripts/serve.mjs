@@ -5,7 +5,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { OUTPUT, isInside } from './paths.mjs';
 
-const MIME = { '.sh':'text/plain; charset=utf-8', '.zip':'application/zip', '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.json':'application/json', '.svg':'image/svg+xml', '.png':'image/png', '.webp':'image/webp', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.avif':'image/avif', '.woff2':'font/woff2', '.woff':'font/woff', '.ttf':'font/ttf', '.mp4':'video/mp4', '.webm':'video/webm', '.xml':'application/xml', '.txt':'text/plain; charset=utf-8', '.vtt':'text/vtt' };
+const MIME = { '.sh':'text/plain; charset=utf-8', '.zip':'application/zip', '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.json':'application/json', '.svg':'image/svg+xml', '.png':'image/png', '.webp':'image/webp', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.avif':'image/avif', '.woff2':'font/woff2', '.woff':'font/woff', '.ttf':'font/ttf', '.mp4':'video/mp4', '.webm':'video/webm', '.xml':'application/xml', '.txt':'text/plain; charset=utf-8', '.vtt':'text/vtt', '.m3u8':'application/vnd.apple.mpegurl', '.m4s':'video/iso.segment' };
 
 export function createStaticServer(root = OUTPUT) {
   return http.createServer(async (request, response) => {

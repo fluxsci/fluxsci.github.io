@@ -161,7 +161,20 @@ description: "Flux is a free, open-source desktop workspace for scientists. Comp
       </div>
       <p class="hero-platforms intro-rise" style="--intro-delay: 360ms">macOS and Linux · Open source, MIT license · Python plotting with fluxplot</p>
     </div>
-    <figure id="explore" class="hero-figure wide-width intro-rise" style="--intro-delay: 420ms" data-workspace-preview>
+    <figure id="film" class="hero-film wide-width intro-rise" style="--intro-delay: 420ms">
+      <div class="figure-overline">
+        <span><span class="status-dot"></span>Flux in three and a half minutes</span><span>Up to 4K at 60 fps</span>
+      </div>
+      <div class="film-frame" data-film data-film-src="assets/film/master.m3u8" data-film-poster="assets/film/poster.webp" data-film-captions="assets/film/captions.vtt">
+        <button type="button" class="film-launch" data-film-start aria-label="Play the Flux film, 3 minutes 37 seconds, with music"><img src="assets/film/poster.webp" alt="" width="1920" height="1080" fetchpriority="high" /><span class="film-launch-prompt"><span class="play-disc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 6 9 6-9 6Z" /></svg></span><span>Watch the film<small>3 min 37 s · with music</small></span></span></button>
+        <noscript><video class="film-video" controls playsinline preload="none" poster="assets/film/poster.webp" src="assets/film/master.m3u8"><track kind="captions" src="assets/film/captions.vtt" srclang="en" label="English" /></video></noscript>
+      </div>
+      <figcaption>
+        <span>One project in Flux: the manuscript, its figures, an AI collaborator, and the talk built from the same plots.</span>
+        <a class="text-link" href="#explore">Explore the workspaces<span aria-hidden="true">↓</span></a>
+      </figcaption>
+    </figure>
+    <figure id="explore" class="hero-figure workspace-figure wide-width" data-workspace-preview>
       <div class="figure-overline">
         <span><span class="status-dot"></span>Five workspaces. One project folder.</span
         ><span class="workspace-prompt">Explore the workspace</span>
@@ -184,7 +197,7 @@ description: "Flux is a free, open-source desktop workspace for scientists. Comp
           alt="Flux Figure workspace with the authored materials composition and its layers."
           width="1500"
           height="950"
-          fetchpriority="high"
+          loading="lazy"
         /><span class="zoom-hint"
           ><svg class="icon" aria-hidden="true"><use href="#i-zoom" /></svg>View
           workspace</span
@@ -298,6 +311,7 @@ description: "Flux is a free, open-source desktop workspace for scientists. Comp
 <div class="explorer-caption"><p>A real plot saved by fluxplot, inspected on this page. The names come from the plot’s own manifest, exactly as Flux reads them. Values are synthetic.</p></div>
 </div>
 <script src="/assets/scripts/explorer.js" defer></script>
+<script src="/assets/scripts/film.js" defer></script>
     <div class="structure-links"><a class="text-link" href="/docs/semantic-plots.html">Semantic plots, explained<span aria-hidden="true">→</span></a><a class="text-link" href="/docs/fluxplot.html">Start plotting with fluxplot<span aria-hidden="true">→</span></a></div>
   </section>
 
