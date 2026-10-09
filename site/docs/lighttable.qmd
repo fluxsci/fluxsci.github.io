@@ -3,7 +3,7 @@ title: "Lighttable"
 description: "Browse and compare sets of images in Flux’s separate visual companion."
 ---
 
-<p class="eyebrow">Reference</p>
+<p class="eyebrow">Around Flux</p>
 
 # Lighttable
 
@@ -12,7 +12,7 @@ Browse and compare sets of images in Flux’s separate visual companion.
 :::
 
 Lighttable is a small, fast desktop app that ships in the Flux repository as a **companion**
-— not one of Flux's modes, but the step *before* them. Analysis batches produce piles of
+— not one of Flux's workspaces, but the step *before* them. Analysis batches produce piles of
 images: a parameter sweep at five settings, per-cell outputs across conditions, one plot per
 model. Lighttable is the light table you spread them on: a grid of every image in one
 variant, **instant flipping between variants** (each cell swaps in place, like a flip-book),
@@ -68,16 +68,16 @@ npm start -- ~/sweep         # build + run, opening the collection
 ```
 
 `npm start` **is** `npm run build && electron .`, so there's no separate build step to run
-before it. If you only want Flux's top-bar Lighttable button to work and don't need to open
+before it. If you only want Flux's title-bar Lighttable button to work and don't need to open
 it right now, `npm run build` on its own is the alternative — the button launches it for you.
 
-The sidecar has its **own** dependencies and build, entirely separate from Flux's — run
+Lighttable has its **own** dependencies and build, entirely separate from Flux's — run
 these from inside `lighttable/`, never from the repo root.
 
 Once it's open you can also drop a folder onto the window, use the Open picker, or pick
 from Recents.
 
-From inside Flux, the Lighttable button on the right side of the top bar (next to the Docs
+From inside Flux, the Lighttable button on the right side of the title bar (next to the Docs
 button and Settings gear) launches it directly — a fresh window if it isn't running, or the existing one
 brought to front. The button needs the one-time `npm ci` plus a build — either `npm run
 build`, or one `npm start`, which builds on its way up. If either is missing it tells you
@@ -86,8 +86,8 @@ which.
 ## Using it {#using-it}
 
 **The grid.** Arrow keys move; **Enter** (or clicking a cell) opens the image fullscreen;
-**1–9** jump straight to set N and **Tab** cycles sets — this is the flip-book. **[** and
-**]** change the column count, **/** searches items, **c** toggles filename captions, and
+**1–9** jump straight to set N and **Tab** cycles sets — this is the flip-book. **\[** and
+**\]** change the column count, **/** searches items, **c** toggles filename captions, and
 **Escape** backs out of whatever you're in.
 
 **Detail view** (fullscreen one image): **←/→** step through items (skipping gaps),
@@ -108,7 +108,7 @@ Lighttable knows nothing about Flux projects — no captions, no manifests, no c
 just folders of images, kept deliberately separate so it stays instant at any batch size.
 When an image graduates from "candidate" to "figure panel", that's your cue to leave the
 light table: regenerate it with [fluxplot](/docs/semantic-plots.html) and build the real
-thing in [Figure mode](/docs/figure.html).
+thing in [Figure](/docs/figure.html).
 
 ## Troubleshooting {#troubleshooting}
 
@@ -123,5 +123,5 @@ thing in [Figure mode](/docs/figure.html).
 ::: {.next-reading}
 **Related guides**
 
-[Command line](/docs/cli.html) · [Keyboard shortcuts](/docs/shortcuts.html) · [Project layout](/docs/project-layout.html) · [Library and configuration](/docs/configuration.html)
+[Project layout](/docs/project-layout.html) · [Figure](/docs/figure.html) · [Semantic plots](/docs/semantic-plots.html)
 :::

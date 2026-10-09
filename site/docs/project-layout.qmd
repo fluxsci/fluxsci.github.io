@@ -21,13 +21,13 @@ A Flux project is a plain folder whose marker is `project.json`. Here is the can
 │   ├── notes.comments.json      #   its margin-comment threads
 │   └── _quarto.yml              #   shared export settings
 ├── plots/                       # YOURS — analysis output lands here, any structure you like
-│   ├── growth.{svg,fluxplot.json,recipe.json}   # a semantic plot + manifest + recipe
-│   ├── neuron.{glb,fluxplot.json,recipe.json} #   a 3D mesh + semantic manifest + recipe
+│   ├── growth.{svg,fluxplot.json,recipe.json}   #   a semantic plot + manifest + recipe
+│   ├── neuron.{glb,fluxplot.json,recipe.json}   #   a 3D mesh + semantic manifest + recipe
 │   ├── _dissections/growth/     #   growth's companion material (per-subject panels, stats CSVs)
 │   ├── _lighttable/             #   Lighttable collections for exploratory image sets
 │   ├── _videos/                 #   video clips for slides
 │   ├── pasted/                  #   originals of images pasted from the clipboard
-│   └── paper_snips/             #   regions snipped out of PDFs in the reader
+│   └── paper_snips/             #   regions snipped out of PDFs in Reader
 ├── fig/                         # APP-MANAGED — the figure subsystem
 │   ├── index.json               #   canvases + figures rollup
 │   ├── canvases/<id>.json       #   the real compositions (figures → elements)
@@ -45,20 +45,20 @@ A Flux project is a plain folder whose marker is `project.json`. Here is the can
 │   └── RULES.md                 #   your standing project rules
 ├── styles/  assets/  exports/   # figure styles · media · compiled output (derived)
 └── .meta/                       # tool state: journal, annotation ledger, locks, schemas
-    ├── feedback.ndjson          # append-only annotations, routes, claims and status
-    ├── feedback/                # annotation pictures
-    ├── live/sessions/           # connected-session presence (disposable)
-    └── archive/                 # historical material moved by the one-shot migration
+    ├── feedback.ndjson          #   append-only annotations, routes, claims and status
+    ├── feedback/                #   annotation pictures
+    ├── live/sessions/           #   connected-session presence (disposable)
+    └── archive/                 #   historical material moved by the one-shot migration
 ```
 
 ## Ownership at a glance {#ownership-at-a-glance}
 
-| Kind | Paths | Rule |
-|---|---|---|
-| **Yours — edit freely** | `paper/**.qmd` (legacy: `manuscript/`), `plots/`, `references/library.bib` | Source of truth. Edit in Flux, another editor, or a script — all equivalent. |
-| **Co-owned with agents** | `Context/` | ProjectContext links the background agents need; rules are yours; the Log gets new entries only when requested. |
-| **App-managed** | `fig/`, `slides/` | Readable JSON, but change it through the app or [`flux` commands](/docs/cli.html) so indexes and captions stay coherent. |
-| **Derived** | `fig/renders/`, `exports/`, caches | Rebuildable output. Safe to ignore in backups and version control. |
+| Paths | Ownership and rule |
+|---|---|
+| `paper/` documents (legacy `manuscript/`), `plots/`, `references/library.bib` | **Yours — edit freely.** Source of truth. Edit in Flux, another editor, or a script — all equivalent. |
+| `Context/` | **Co-owned with agents.** ProjectContext links the background agents need; rules are yours; the Log gets new entries only when requested. |
+| `fig/`, `slides/` | **App-managed.** Readable JSON, but change it through the app or [`flux` commands](/docs/cli.html) so indexes and captions stay coherent. |
+| `fig/renders/`, `exports/`, caches | **Derived.** Rebuildable output. Safe to ignore in backups and version control. |
 
 ## Notes on specific pieces {#notes-on-specific-pieces}
 
@@ -85,20 +85,21 @@ A Flux project is a plain folder whose marker is `project.json`. Here is the can
   New folders contain a hidden `.flux-folder` marker so intentional empty folders, including
   those with generated-looking names, remain visible. Existing ordinary folders need no marker.
   These visibility rules never remove files from disk.
-- **`plots/` is a drop-zone with no imposed structure** — organize it however your analysis
+- **`plots/` is a drop zone with no imposed structure** — organize it however your analysis
   does. Flux only reads it, copying what you compose into `fig/assets/`. See
-  [semantic plots](/docs/semantic-plots.html) for the three-file contract. Two
-  subfolders are written *for* you, and are yours to keep or delete: `plots/pasted/` holds
-  the original of every image you paste from the clipboard, and `plots/paper_snips/` holds
-  every region you snip out of a PDF. Both exist so the pixels you contribute live somewhere
-  you own, not only inside the app's `fig/assets/` copy. Three names are reserved, all starting
-  with `_`: `plots/_dissections/` holds each plot's
-  [companion material](/docs/dissections.html) (the **D** key in the figure editor views
-  it); `plots/_lighttable/` is where [Lighttable](/docs/lighttable.html) collections belong —
-  the sweeps and per-cell batches you triage before choosing a panel; and `plots/_videos/`
-  holds video clips for slides. Companion collections stay out of an
-  ordinary plot-importer search, however many thousands of images they hold; type **`_`** in
-  the importer to list them and **Enter** to search inside one.
+  [semantic plots](/docs/semantic-plots.html) for the three-file contract.
+  - Two subfolders are written *for* you and are yours to keep or delete: `plots/pasted/`
+    holds the original of every image you paste from the clipboard, and `plots/paper_snips/`
+    holds every region you snip out of a PDF. The pixels you contribute live somewhere you
+    own, not only inside the app's `fig/assets/` copy.
+  - Three names starting with `_` are reserved: `plots/_dissections/` holds each plot's
+    [companion material](/docs/dissections.html) (press **D** in Figure to view it);
+    `plots/_lighttable/` holds [Lighttable](/docs/lighttable.html) collections, the sweeps
+    and per-cell batches you triage before choosing a panel; and `plots/_videos/` holds
+    video clips for slides.
+  - Reserved folders stay out of an ordinary plot-importer search, however many thousands
+    of images they hold. Type **`_`** in the importer to list them and **Enter** to search
+    inside one.
 - **3D fluxplots** keep the source GLB and its `.fluxplot.json` beside each other in `plots/`.
   Import copies the accepted bundle into `fig/assets/`. Camera settings, shape weights and
   part restyles live in the figure composition. `fig/renders/model3d/` contains rebuildable
@@ -109,13 +110,13 @@ A Flux project is a plain folder whose marker is `project.json`. Here is the can
   for every file type, and the live-bridge descriptor while the app is open. Connected
   MCP sessions publish heartbeats in `live/sessions/`; these are disposable. Migration
   archives are stored in `archive/2026-09-agent-workflow/`.
-- **`Context/`** is explained in full in [Your context and your project's](/docs/context.html).
+- **`Context/`** is explained in full in [Context and memory](/docs/context.html).
 
-For the philosophy behind the layout — source vs. derived, crash safety, live reload —
-see [Projects are folders, files are the truth](/docs/projects-and-files.html).
+For the ideas behind the layout — source versus derived files, crash safety, live reload —
+see [Projects and files](/docs/projects-and-files.html).
 
 ::: {.next-reading}
 **Related guides**
 
-[Command line](/docs/cli.html) · [Keyboard shortcuts](/docs/shortcuts.html) · [Library and configuration](/docs/configuration.html) · [Lighttable](/docs/lighttable.html)
+[Projects and files](/docs/projects-and-files.html) · [Context and memory](/docs/context.html) · [Plot format and identity](/docs/plot-format.html) · [Library and configuration](/docs/configuration.html)
 :::

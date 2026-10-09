@@ -88,7 +88,7 @@ came from — and every scaffold element painted with one of them carries `data-
 `data-ink-stroke` naming the token, so a consumer can restyle the furniture to its own
 theme without touching a data colour. `theme_vars=True` additionally rewrites those paints
 to `var(--fx-<token>, <hex>)`, which a CSS-aware host can drive directly (off by default:
-the fallback form is honoured by browsers and rsvg, still to be checked in Illustrator /
+the fallback form is honoured by browsers and rsvg, not yet verified in Illustrator /
 Inkscape). A rerun with `FLUX_PARAMS={"__fluxplot__": {"theme": "dark"}}` makes every
 `fp.use_*` call apply that theme instead.
 
@@ -99,7 +99,7 @@ land in `SaveResult.warnings` and in the manifest's `quality.color`; `"error"` r
 the save with them.
 
 **Targeted reruns** (`FLUXPLOT_ONLY`): a figure-level script that saves
-several plots can be re-run for ONE of them — set `FLUXPLOT_ONLY` to a
+several plots can be re-run for one of them — set `FLUXPLOT_ONLY` to a
 comma-separated list of plot names (fnmatch patterns work: `fig2*`) and
 every non-matching `save` becomes a no-op (nothing written, siblings
 untouched on disk). `flux rerun-plot <recipe> --only` sets this for you.
@@ -1302,10 +1302,12 @@ restyle, recolour and animate it without rerunning Python.
 
 **Examples**
 
->>> sc = fp.scene3d(figsize=(3.5, 3), units="nm", up="-y", scalebar=10_000)
->>> fp.mesh3d(sc, (vertices, faces), series="neuron")
->>> sc.view(azimuth=30, elevation=15, zoom=0.9)
->>> fp.save(sc, "plots/neuron")
+```python
+sc = fp.scene3d(figsize=(3.5, 3), units="nm", up="-y", scalebar=10_000)
+fp.mesh3d(sc, (vertices, faces), series="neuron")
+sc.view(azimuth=30, elevation=15, zoom=0.9)
+fp.save(sc, "plots/neuron")
+```
 
 </details>
 
@@ -1387,10 +1389,12 @@ Add one mesh, or a named mapping of meshes, as addressable parts of a 3D scene.
 
 **Examples**
 
->>> sc = fp.scene3d(units="nm", scalebar=10_000)
->>> fp.mesh3d(sc, {"soma": soma, "axon": axon}, series="neuron", legend=True,
-...           palette={"soma": fp.colors.red400, "axon": fp.colors.blue400})
->>> fp.mesh3d(sc, pial, series="cortex", states={"inflated": inflated_vertices})
+```python
+sc = fp.scene3d(units="nm", scalebar=10_000)
+fp.mesh3d(sc, {"soma": soma, "axon": axon}, series="neuron", legend=True,
+          palette={"soma": fp.colors.red400, "axon": fp.colors.blue400})
+fp.mesh3d(sc, pial, series="cortex", states={"inflated": inflated_vertices})
+```
 
 </details>
 
@@ -1478,10 +1482,12 @@ the colormap and limits without rerunning Python.
 
 **Examples**
 
->>> cx = fp.scene3d(figsize=(3, 3), units="mm")
->>> fp.surface3d(cx, thickness, series="thickness", surfaces=pial, kind="continuous",
-...              cmap="emerald", percentile=(2, 98), colorbar=True,
-...              cbar_label="Thickness (mm)", states={"inflated": inflated})
+```python
+cx = fp.scene3d(figsize=(3, 3), units="mm")
+fp.surface3d(cx, thickness, series="thickness", surfaces=pial, kind="continuous",
+             cmap="emerald", percentile=(2, 98), colorbar=True,
+             cbar_label="Thickness (mm)", states={"inflated": inflated})
+```
 
 </details>
 
@@ -1623,9 +1629,11 @@ on its rank among the others), so it cannot be applied inside a single test call
 rows of the comparisons that form one family — for instance every measure tested on the same
 animals in one figure — and pass them here once:
 
->>> rows = [dict(measure=m, **fp.stats.welch_hedges(sd[m], sleep[m])) for m in measures]
->>> rows = fp.stats.holm(rows)          # p_corrected_holm now spans the whole family
->>> pl.DataFrame(rows)
+```python
+rows = [dict(measure=m, **fp.stats.welch_hedges(sd[m], sleep[m])) for m in measures]
+rows = fp.stats.holm(rows)          # p_corrected_holm now spans the whole family
+pl.DataFrame(rows)
+```
 
 
 **Parameters**
@@ -1778,8 +1786,10 @@ Run a two-group test of this package over pairs of named groups and correct the 
 
 <details class="api-detail"><summary>Parameters and details</summary>
 
->>> rows = fp.stats.pairwise(fp.stats.welch_hedges, {"ctl": ctl, "drug": drug, "sham": sham})
->>> fp.brackets(ax, rows, positions=gb.positions)
+```python
+rows = fp.stats.pairwise(fp.stats.welch_hedges, {"ctl": ctl, "drug": drug, "sham": sham})
+fp.brackets(ax, rows, positions=gb.positions)
+```
 
 
 **Parameters**
@@ -1902,8 +1912,10 @@ Signs follow `a - b`: a positive statistic and effect size mean `a` has the larg
 
 **Example**
 
->>> row = fp.stats.welch_hedges(sd_values, sleep_values, names=("SD", "sleep"))
->>> pl.DataFrame([row]).write_csv("plots/_dissections/app/_stats/welch_ttest.csv")
+```python
+row = fp.stats.welch_hedges(sd_values, sleep_values, names=("SD", "sleep"))
+pl.DataFrame([row]).write_csv("plots/_dissections/app/_stats/welch_ttest.csv")
+```
 
 </details>
 

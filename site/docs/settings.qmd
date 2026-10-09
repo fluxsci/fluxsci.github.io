@@ -8,7 +8,7 @@ description: "Adjust Flux's general settings, Figure controls, Paper margins, co
 # Settings and setup
 
 ::: {.doc-lead}
-Open the gear in the titlebar to adjust the workspace. Use Set up Flux for tools that need installation.
+Open the gear in the title bar to adjust the workspace. Use Set up Flux for tools that need installation.
 :::
 
 ## General {#general}
@@ -34,7 +34,7 @@ Open the gear in the titlebar to adjust the workspace. Use Set up Flux for tools
 | Folder click behavior | Choose whether a gallery folder click also expands its subtree. |
 | Palette and colormap collection | Choose which collection a colour picker opens first. |
 
-Inside a colour picker, **Tab** changes between palettes and colormaps; **Shift+Tab** cycles collections. Press **F** with objects selected to open the property menu. See [Layout and drawing](/docs/figure-layout.html) and [Plot editing](/docs/plot-editing.html).
+Inside a colour picker, **Tab** changes between palettes and colormaps; **Shift+Tab** cycles collections. Press **F** with objects selected to open the property menu. See [Layout, drawing and typography](/docs/figure-layout.html) and [Edit plot parts and data views](/docs/plot-editing.html).
 
 ## Paper {#paper}
 
@@ -49,3 +49,9 @@ Configure local spelling and punctuation corrections, dictionaries and aliases. 
 ## Where to find other preferences {#other-preferences}
 
 Some controls belong beside the work: slide themes and animation styles live in [Slides](/docs/slides.html); library services and Zotero settings live in [Library](/docs/library.html); export styles are chosen when [exporting a document](/docs/export-documents.html).
+
+::: {.next-reading}
+**Related guides**
+
+[Installation](/install/) · [Keyboard shortcuts](/docs/shortcuts.html) · [Writing tools](/docs/writing-tools.html) · [Connect an agent](/docs/connect.html)
+:::

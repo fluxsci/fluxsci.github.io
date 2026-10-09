@@ -49,7 +49,9 @@ mkdir -p ~/jdk21 && tar -xzf /tmp/jdk21.tar.gz -C ~/jdk21 --strip-components=1
 ~/jdk21/bin/javac -version
 ```
 
-On macOS swap `linux/x64` for `mac/aarch64` (Apple Silicon) or `mac/x64` (Intel). Docker is **not**
+On macOS swap `linux/x64` for `mac/aarch64` (Apple Silicon) or `mac/x64` (Intel). The macOS
+archive nests the JDK one level deeper, so use `~/jdk21/Contents/Home` wherever these steps
+say `~/jdk21` (for example `~/jdk21/Contents/Home/bin/javac -version`). Docker is **not**
 required — it is only a convenience wrapper around this same JVM.
 
 ### 2. Clone and start the service {#2-clone-and-start-the-service}
@@ -81,16 +83,15 @@ flux grobid --run          # enrich everything not already current
 `--run` is incremental and resumable: papers already enriched are skipped, each is written as it
 completes, and an interrupted run picks up where it stopped. Useful flags:
 
-| flag | effect |
-|---|---|
-| `--limit 20` | stop after 20 papers — good for a first look |
-| `--keys a,b` | only these citekeys |
-| `--force` | redo papers already current, e.g. after upgrading GROBID |
-| `--url …` | a service somewhere other than `http://localhost:8070` |
-| `--reproject` | rebuild `grobid.json` from stored TEI. **No service needed** — used after a Flux upgrade changes the projection format |
+- `--limit 20` stops after 20 papers, which is good for a first look.
+- `--keys a,b` enriches only these citekeys.
+- `--force` redoes papers that are already current, for example after upgrading GROBID.
+- `--url …` uses a service somewhere other than `http://localhost:8070`.
+- `--reproject` rebuilds `grobid.json` from the stored TEI. **No service is needed**; use it
+  after a Flux upgrade changes the projection format.
 
-Once enrichment is done you can stop the GROBID service. The data is on disk; Flux never contacts
-it again unless you run `--run` for newly added papers.
+Once enrichment is done you can stop the GROBID service. The data is on disk; Flux contacts the
+service again only when you run `flux grobid --run` for newly added papers.
 
 ## Where it is stored {#where-it-is-stored}
 

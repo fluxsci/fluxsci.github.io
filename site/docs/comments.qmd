@@ -58,21 +58,9 @@ selectable. Your choice is remembered per project.
 recognized routing mentions are removed from the saved text. **#tags** appear as chips.
 **New background agent** appears when background runs are available ([below](/docs/comments.html#sec-background)).
 
-### Pair with the live window {#pair-with-the-live-window}
+## Review in Inbox {#sec-note-popover}
 
-Connect with `--live` to pair with the open project. A connected session in live mode
-shows **Pairing** in Annotate's **To:** menu; choose its name to hand it an annotation.
-An agent can use `get_view` to see the current Flux window and its context, including
-while Annotate is open. Each view briefly shows **◉ heron viewed your window** in the
-titlebar, using that session's name.
-
-**Settings → General → Allow agents to view the Flux window** is on by default.
-Turn it off to refuse agent screenshots. The agent receives a clear disabled message.
-Viewing captures only that project's Flux window.
-
-### Inbox: review, reply, and status {#sec-note-popover}
-
-Open **Inbox** from the titlebar (the badge counts open items), **Alt+Q**, or the **Inbox**
+Open **Inbox** from the title bar (the badge counts open items), **Alt+Q**, or the **Inbox**
 command in the command palette. The composer's **Open inbox** link opens the same panel.
 It combines annotations with margin comments from every project document. **Pin open**
 keeps it in a separate window; **Dock** brings it back without losing a reply draft.
@@ -87,13 +75,15 @@ Select an item to see its full text, picture, numbered anchors, and conversation
 Reply; **Enter** sends, and **Shift+Enter** adds a newline. Agent replies show the agent's name.
 **Jump to** returns to the document range, figure selection, slide and beat, or Reader page.
 **↑/↓** move between rows; **Enter** on a row jumps; **E** archives. **Unarchive** restores an
-archived item, and **Reopen** returns resolved work to the inbox. **Copy agent prompt** copies
+archived item, and **Reopen** returns resolved work to Inbox. **Copy agent prompt** copies
 an instruction you can give your agent.
 
 **Edit** loads an annotation's original text, targets, and picture; **Add** replaces it while
 preserving history. **Withdraw** removes your annotation from the active list. The ledger is
 append-only at `.meta/feedback.ndjson`; pictures live in `.meta/feedback/` and are saved before
 their notes are published. Replies to margin comments stay in their document's comment sidecar.
+
+### Status, assignment and claims {#status-assignment-and-claims}
 
 Status chips update as agents work: **Queued → heron**, **Claimed by heron**, **heron needs
 your input**, and **Resolved by heron**. Toasts name the agent; a question's toast opens that
@@ -110,17 +100,19 @@ returns to Open with its previous holder retained. Claims stay active while the 
 connected or has acted on the item in the last 30 minutes; once both expire, they show the
 same reassign prompt.
 
-The titlebar's **2 agents ▾** chip and **AI status → Sessions** show the same connected
+### Connected sessions {#connected-sessions}
+
+The title bar's **2 agents ▾** chip and **AI status → Sessions** show the same connected
 sessions: name, product and surface, connected-since time, **👁 Watching · queue**,
 **👁 Watching · annotations**, or **👁 Watching · filter**, and **🖥 Live** when pairing.
 Each row shows pending queue count and current claims. **Copy name** copies the handle;
 **Show its items** opens Inbox with that agent's `@name` filter. **Stop watching** ends its
-wait and releases its claims. The titlebar chip disappears when no sessions are connected.
+wait and releases its claims. The title bar chip disappears when no sessions are connected.
 
 ### Who gets what: a worked example {#who-gets-what-a-worked-example}
 
 1. Two agents are connected: **heron** is watching my annotations; **wren** is connected
-   but not watching. Both appear in the titlebar agents chip and **AI status → Sessions**.
+   but not watching. Both appear in the title bar agents chip and **AI status → Sessions**.
 2. I annotate a legend with `@wren move this below the axis`. **To:** switches to wren,
    and after I add it the Inbox chip reads **Queued → wren (not watching)**. Heron cannot
    take it. Wren's row shows **1 queued**.
@@ -165,9 +157,21 @@ address them. With several watchers, the first successful claim owns an Any item
 For agents, the waiting tool is `wait_for_inbox`; the CLI twin is `flux wait-inbox`.
 These return the request, targets, picture and thread together. Agents claim before
 working, respect reassignment and release, and ask in the thread when they need input.
-See the [CLI reference](/docs/cli.html) for the complete tool reference.
+See the [CLI and MCP command reference](/docs/commands.html) for every inbox verb and tool.
 
-### Ask about what you see {#ask-about-what-you-see}
+### Pair with the live window {#pair-with-the-live-window}
+
+Connect with `--live` to pair with the open project. A connected session in live mode
+shows **Pairing** in Annotate's **To:** menu; choose its name to hand it an annotation.
+An agent can use `get_view` to see the current Flux window and its context, including
+while Annotate is open. Each view briefly shows **◉ heron viewed your window** in the
+title bar, using that session's name.
+
+**Settings → General → Allow agents to view the Flux window** is on by default.
+Turn it off to refuse agent screenshots. The agent receives a clear disabled message.
+Viewing captures only that project's Flux window.
+
+## Ask about what you see {#ask-about-what-you-see}
 
 Press **Ctrl+Shift+J**, choose **Ask about this…** in **Ctrl+K**, or use **Ask** beside
 Reader's passage action. The Figure properties menu also offers **✦ Ask**. Ask captures
@@ -176,7 +180,8 @@ your current selection and window; type immediately, then press **Enter** to sen
 pinned utility windows.
 
 Choose your installed agent, model, and effort in **Settings → General → Agent that
-Flux launches** (also in **AI status → Agents → Agent that Flux launches (Ask)…**). Flux runs your own Claude Code or Codex CLI with your existing login;
+Flux launches** (also in **AI status → Agents → Agent that Flux launches (Ask)…**).
+Flux runs your own Claude Code or Codex CLI with your existing login;
 usage counts against your plan. Install and sign in using that CLI first. Flux does not
 handle vendor logins.
 
@@ -186,20 +191,22 @@ exchange from Flux; the CLI's own session history remains. **Keep** saves the qu
 answers, captured view, and targets as a resolved annotation. **Copy resume command**
 copies a command you can paste into your own terminal to continue the vendor session.
 
-### Run an item in the background {#sec-background}
+## Run an item in the background {#sec-background}
 
-Open the **Inbox** (**Alt+Q**), select an open item, and choose **Run in background ▾ →
+Open **Inbox** (**Alt+Q**), select an open item, and choose **Run in background ▾ →
 Claude Code** or **Codex**. Or send a new annotation **To: New background agent**, or
 start it with `@new` (Claude Code) or `@new-codex` (Codex). The option appears when
 AI status finds an installed, signed-in CLI.
 
 The agent is a session like any other: it appears in **AI status → Sessions** and the
-titlebar agents chip with a name such as **bg · claude · wren**, claims the item, and
+title bar agents chip with a name such as **bg · claude · wren**, claims the item, and
 signs its replies with that name. The item shows a live activity strip with the actual
 tool inputs, progress and reported usage. **Stop** (on the strip or the session row)
-cancels the run and releases its claim; the item returns to Open ("Open (last held by
-bg · claude · wren)"), ready to run again or assign. Replying in the item's thread continues the same session when it can; a
-reply sent while the agent is working waits for that turn to finish. If a run ends
+cancels the run and releases its claim; the item returns to Open, marked **last held by
+bg · claude · wren**, ready to run again or assign.
+
+Replying in the item's thread continues the same session when it can; a reply sent while
+the agent is working waits for that turn to finish. If a run ends
 without replying or resolving, its last message is added to the thread.
 
 A background agent may edit the project and its analysis workspace, and use Flux's

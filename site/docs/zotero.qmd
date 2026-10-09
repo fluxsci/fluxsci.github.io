@@ -11,10 +11,10 @@ description: "Bring a collection into Flux and keep references connected to Zote
 Bring a collection into Flux and keep references connected to Zotero.
 :::
 
-If you already live in Zotero — or your papers arrive through its excellent browser
-connector — you don't have to choose between Zotero and Flux. Connect them once and
-Zotero becomes an intake valve for [FluxLib](/docs/configuration.html): anything
-you add there appears in Flux, with its PDF, ready to read, highlight, cite, and search.
+If you already work in Zotero, or your papers arrive through its browser connector, you
+don't have to choose between Zotero and Flux. Connect them once and Zotero feeds
+[FluxLib](/docs/configuration.html): anything you add there appears in Flux, with its PDF,
+ready to read, highlight, cite and search.
 
 ## What it does — and what it never does {#what-it-does-and-what-it-never-does}
 
@@ -158,8 +158,8 @@ in reach.
 
 The same sync runs headlessly as `flux zotero-sync` — useful in scripts, cron jobs, and
 for AI agents keeping your library current. Like automatic syncs, it skips an unchanged
-export; `--force` performs a complete pass. See the [command-line reference](/docs/cli.html)
-for all flags.
+export; `--force` performs a complete pass. See the
+[command reference](/docs/commands.html#verb-reference) for all flags.
 
 ## Disconnecting {#disconnecting}
 

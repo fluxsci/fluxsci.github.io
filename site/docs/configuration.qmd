@@ -15,7 +15,7 @@ Flux's reference system has two layers, and the split is what lets a permanent r
 coexist with fully self-contained projects:
 
 - **FluxLib** — the machine-global library. One collection of papers for *you*, shared by every
-  project on the machine. This is what [Library mode](/docs/library.html) manages: every paper
+  project on the machine. This is what the [Library](/docs/library.html) workspace manages: every paper
   you save, its PDF, your highlights and notes, tags, collections, reading status.
 - **The project's cited subset** — each project carries its own `references/library.bib`
   holding real copies of just the entries it cites. Citing a paper in a manuscript materializes
@@ -25,18 +25,18 @@ The point of the split: your library can grow to thousands of papers without blo
 project, and a project still **zips, clones, and compiles standalone** — hand the folder to a
 collaborator and every citation resolves, no FluxLib required.
 
-<figure class="doc-diagram flow" aria-label="Diagram: FluxLib is the one library on the machine, holding library.bib, an items folder per paper with its PDF, highlights and text, and an inbox folder for PDFs. Each project keeps its own references/library.bib with only the entries it cites, copied from FluxLib when a paper is cited.">
-<svg viewBox="0 0 1000 312" aria-hidden="true">
+<figure class="doc-diagram flow" aria-label="Diagram: FluxLib is the one library on the machine, holding library.bib, an items folder per paper with its PDF, highlights and text, and a pdfs_to_assign folder for new PDFs. Each project keeps its own references/library.bib with only the entries it cites, copied from FluxLib when a paper is cited.">
+<svg viewBox="0 0 820 300" aria-hidden="true">
 <defs><marker id="layers-head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z"/></marker></defs>
 <g class="flow-edges">
-<path d="M440 130c60 0 60 -60 120 -60h40" marker-end="url(#layers-head)"/>
-<path d="M440 170c60 0 60 70 120 70h40" marker-end="url(#layers-head)"/>
+<path d="M350 128c50 0 50 -58 100 -58h18" marker-end="url(#layers-head)"/>
+<path d="M350 172c50 0 50 58 100 58h18" marker-end="url(#layers-head)"/>
 </g>
 <g class="flow-labels">
-<text x="520" y="146">cite a paper →</text>
-<text x="520" y="163">its entry is copied</text>
+<text x="412" y="144">cite a paper →</text>
+<text x="412" y="161">entry copied</text>
 </g>
-<g class="flow-nodes"><foreignObject x="20" y="40" width="420" height="230"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#8b7ec8"></i>FluxLib</span><span class="flow-box-note">One library for every project on this machine.</span><code>~/FluxConfig/FluxLib/</code><dl class="flow-files"><dt>library.bib</dt><dd>every reference you keep</dd><dt>items/&lt;citekey&gt;/</dt><dd>PDF, supplements, highlights, text</dd><dt>pdfs_to_assign/</dt><dd>drop PDFs here to file them</dd><dt>.fluxlib/</dt><dd>rebuildable search indexes</dd></dl></div></foreignObject><foreignObject x="600" y="4" width="380" height="132"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-code"><span class="flow-box-title">Project: thesis-chapter</span><span class="flow-box-note">Only the entries this project cites. Zips and compiles alone.</span><code>references/library.bib</code></div></foreignObject><foreignObject x="600" y="174" width="380" height="132"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-code"><span class="flow-box-title">Project: methods-paper</span><span class="flow-box-note">Its own cited subset, with the same citekeys.</span><code>references/library.bib</code></div></foreignObject></g>
+<g class="flow-nodes"><foreignObject x="10" y="50" width="340" height="200"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#8b7ec8"></i>FluxLib</span><span class="flow-box-note">One library for every project on this machine.</span><code>~/FluxConfig/FluxLib/</code><dl class="flow-files"><dt>library.bib</dt><dd>every reference you keep</dd><dt>items/&lt;citekey&gt;/</dt><dd>PDF, supplements, highlights, text</dd><dt>pdfs_to_assign/</dt><dd>drop PDFs here to file them</dd><dt>.fluxlib/</dt><dd>rebuildable search indexes</dd></dl></div></foreignObject><foreignObject x="470" y="6" width="340" height="128"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-code"><span class="flow-box-title">Project: thesis-chapter</span><span class="flow-box-note">Only the entries this project cites. Zips and compiles alone.</span><code>references/library.bib</code></div></foreignObject><foreignObject x="470" y="166" width="340" height="128"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-code"><span class="flow-box-title">Project: methods-paper</span><span class="flow-box-note">Its own cited subset, with the same citekeys.</span><code>references/library.bib</code></div></foreignObject></g>
 </svg>
 <figcaption>The citekey is the join key: the same <code>smithNeuralBasis2021</code> names the paper in FluxLib, in every project that cites it, and in your manuscript.</figcaption>
 </figure>
@@ -56,13 +56,13 @@ FluxLib lives at `<FluxConfig>/FluxLib` (by default `~/FluxConfig/FluxLib`; `flu
 prints this machine's paths). Like [projects](/docs/projects-and-files.html), it's plain files with a
 clear source-vs-derived split:
 
-- `library.bib` — the canonical BibTeX. The one honest source of truth for your references;
-  you could open it in any reference tool ever written.
+- `library.bib` — the canonical BibTeX file and the source of truth for your references. Any
+  reference manager that reads BibTeX can open it.
 - `items/<citekey>/` — everything belonging to one paper: the PDF (or, when Zotero sync runs
   in linked mode, a small pointer file naming the PDF in Zotero's folder), a `supplements/`
   folder for supplementary files, your highlights, and the extracted text that powers
   full-text search.
-- `pdfs_to_assign/` — the watched **inbox folder**: drop PDFs here and Flux identifies each one
+- `pdfs_to_assign/` — the watched **inbox folder** for PDFs (not the comment [Inbox](/docs/comments.html)): drop PDFs here and Flux identifies each one
   from its own contents and files it under the right paper (refusing, rather than guessing, when
   it isn't sure).
 - `.fluxlib/` — derived indexes (search, full-text, enrichment). Rebuildable caches, never the
@@ -77,5 +77,5 @@ and your global plot library (`plot_library/`). Back it up like you'd back up yo
 ::: {.next-reading}
 **Related guides**
 
-[Command line](/docs/cli.html) · [Keyboard shortcuts](/docs/shortcuts.html) · [Project layout](/docs/project-layout.html) · [Lighttable](/docs/lighttable.html)
+[Library](/docs/library.html) · [Zotero](/docs/zotero.html) · [Project layout](/docs/project-layout.html) · [Context and memory](/docs/context.html)
 :::
