@@ -8,7 +8,7 @@ Normal builds use checked-in screenshots, native player exports, fonts and figur
 
 `media/showcase.mjs` reads the two selected authored figures and their accepted `fig/assets` files. The plots, layout, labels, view settings and accepted asset bytes are preserved; figure titles and captions are supplied for the website. It does not read existing test decks, other manuscripts, context or a personal library. It checks the original figure inputs again after preparing the copy. Linked source paths are redirected to the copied assets, so capture never follows external research paths.
 
-The isolated `.cache/visual-project/` contains three original website slides, an original manuscript and a small demonstration bibliography. It is neither a bundled editable example nor a published download. The source includes real public recordings, calculated examples and illustrative values, identified on the website's visual credits page. No source project files are changed.
+The isolated `.cache/visual-project/` contains an original manuscript and a small demonstration bibliography (and the retired website deck, used only by a full screenshot refresh). It is neither a bundled editable example nor a published download. The source includes real public recordings, calculated examples and illustrative values, identified on the website's visual credits page. No source project files are changed.
 
 ## Refresh
 
@@ -24,35 +24,67 @@ Set `FLUX_CHROME` to a Chrome/Chromium executable if Brave is not installed, and
 
 The screenshot script mirrors the isolated project through the real application's in-memory FileBridge. It seeds a demonstration Library and an original manuscript PDF without accessing a personal library. Screenshots show unmodified Flux UI at 2× display density; manifest dimensions describe the viewport. Figure plates come from the native figure renderer, with native 3D posters.
 
-Review all five workspaces, plot editing, both plates and every step of the three slides. The player uses native `mountSlideEmbed` and the native 3D host. Website code loads the player, selects a slide, preserves manual progress, resizes its frame and pauses it offscreen. Flux owns rendering, animation and transforms.
+Review all five workspaces, plot editing and both plates.
 
 `media/native-assets.json` records product and source input hashes and published runtime hashes. `media/screenshots.json` records capture conditions and image hashes. `media/installer.json` records the reviewed installer's exact bytes. `media/documentation.json` records the revisions used to write the guides and API reference.
 
+## Slides from the Flux film
+
+The homepage player and every documentation example play slides from the launch film. They are
+exported unchanged from the owner-authorized decks "Deck 6" and "Figure 11 deck" of
+`MASTER_DEMO_FluxProj` (the October 2026 film copy). `media/film-slides.mjs` selects the slides,
+their player titles, credits and alt text; credits follow each slide's own source notes.
+
+The film decks need slide-engine changes made after v0.2.0 (Become pairs morph outline to outline,
+transforms repaint their end state, dissolve is the default transform). `flux-source.json` therefore
+pins the slide player separately: `slidePlayer.revision` is a public Flux commit and
+`slidePlayer.patches` lists reviewed patches applied on top (FLUX-057: the caption letters of the
+Figure 11 Become fly as in Present). Prepare that checkout, then export:
+
+```sh
+git -C /path/to/flux worktree add --detach /tmp/flux-player <slidePlayer.revision>
+git -C /tmp/flux-player apply "$PWD/media/flux-patches/flux-057-glyph-handoff.patch"   # each listed patch
+node scripts/refresh-slides.mjs --flux-source /tmp/flux-player --project /path/to/MASTER_DEMO_FluxProj
+```
+
+It refuses a checkout that differs from the revision plus the listed patches. Outputs:
+`site/demos/slides/index.html` (homepage), `site/demos/studies/<id>.html` and `<id>.svg` (one page
+and still per guide example), `site/assets/media/slide-poster.svg`, and the bundled runtime license
+notices, all recorded in `media/slides.json`. Each slide keeps its own deck payload, because the
+decks differ in theme. The website hides the player's authoring notes (`.flux-slide-status`); the
+brain-region slide's text-to-text Become crossfades by design. Add `--review` to export every slide
+of both decks to `.cache/slides-review/` for choosing new ones.
+
+The export also writes `.cache/film-capture-project/` for the Slides workspace screenshot. With the
+pinned release's development server on port 1420:
+
+```sh
+node scripts/capture-slides.mjs --flux-source /path/to/pinned/flux
+```
+
+This replaces only `slides.webp` and its entry in `media/screenshots.json`.
+
 ## Documentation examples and close-ups
 
-`media/techniques.mjs` authors six original geometric studies: entrance effects, Change, Ghost,
-Become, easing and emphasis. They use no owner slides or research data. The native Flux player
-renders and plays each example; the timeline comparison diagrams use Flux's own alignment
-operations to calculate their before-and-after positions.
+`media/techniques.mjs` authors a small geometric deck. The Animator timeline diagrams use Flux's own
+alignment operations on it to calculate their before-and-after positions; its slides are no longer
+published.
 
 ```sh
 node scripts/refresh-docs-demos.mjs --flux-source /path/to/pinned/flux
 node scripts/capture-docs.mjs --flux-source /path/to/pinned/flux
 ```
 
-The first command exports posters and a shared player to `site/demos/techniques/`, records their
-hashes in `media/docs-demos.json`, and saves the capture deck under `.cache/docs-techniques/`.
-The second needs the isolated visual project from the earlier refresh and the Flux development
-server. It captures the X-ray, property menu and Animator in the native in-memory fixture,
-recording image dimensions and hashes in `media/docs-screenshots.json`.
+The first command draws the four Animator timing diagrams into `site/demos/techniques/`, records
+their hashes in `media/docs-demos.json`, and saves the geometric capture deck under
+`.cache/docs-techniques/`. The second needs the isolated visual project from the earlier refresh and
+the Flux development server. It captures the X-ray, property menu and Animator in the native
+in-memory fixture, recording image dimensions and hashes in `media/docs-screenshots.json`.
 
-For a diagram-only update, add `--timing-only` to the first command. This preserves the checked-in
-slides and player while refreshing the four schematic Animator comparisons and their hashes.
-
-Review all six examples during playback and at rest, plus all four alignment diagrams. Check
-mobile sizing, reduced motion, keyboard controls, no-script posters and light/dark document
-surroundings. The browser suite covers these interactions. Normal builds audit both manifests
-without reading the source project or starting Flux.
+Review the four alignment diagrams and, for the film slides, every documentation example during
+playback and at rest. Check mobile sizing, reduced motion, keyboard controls, no-script stills and
+light/dark document surroundings. The browser suite covers these interactions. Normal builds audit
+every manifest without reading the source project or starting Flux.
 
 ## Licenses and credit
 

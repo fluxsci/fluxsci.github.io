@@ -144,7 +144,7 @@ test('the slide preview shows the whole slide with the play prompt beneath it', 
     const image = await poster.boundingBox();
     const prompt = await page.locator('#slide-demo .demo-launch-prompt').boundingBox();
     expect(prompt.y, `${width}px`).toBeGreaterThanOrEqual(image.y + image.height - 1);
-    expect(Math.abs(image.width / image.height - 1200 / 760), `${width}px`).toBeLessThan(0.02);
+    expect(Math.abs(image.width / image.height - 16 / 9), `${width}px`).toBeLessThan(0.02);
   }
 });
 

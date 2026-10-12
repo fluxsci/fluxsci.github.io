@@ -50,9 +50,16 @@ export async function checkSource() {
   const pin = JSON.parse(await readFile(path.join(ROOT, 'flux-source.json'), 'utf8'));
   assert(/^[a-f0-9]{40}$/.test(pin.revision), 'flux-source.json must pin a full commit hash.');
   assert.equal(pin.repository, 'https://github.com/fluxsci/flux.git');
-  for (const manifestFile of ['media/native-assets.json', 'media/screenshots.json', 'media/docs-demos.json', 'media/docs-screenshots.json']) {
+  // Screenshots, figures and diagrams come from the public release; the live slides need a later
+  // slide engine, pinned separately with its reviewed patches.
+  const release = { repository: pin.repository, revision: pin.revision, version: pin.version };
+  const player = pin.slidePlayer;
+  assert(/^[a-f0-9]{40}$/.test(player?.revision ?? ''), 'flux-source.json must pin the slide player to a full commit hash.');
+  for (const patch of player.patches) assert.equal(createHash('sha256').update(await readFile(path.join(ROOT, patch.path))).digest('hex'), patch.sha256, `Slide player patch changed: ${patch.path}`);
+  const playerSource = { repository: pin.repository, revision: player.revision, patches: player.patches.map(({ path, sha256 }) => ({ path, sha256 })) };
+  for (const [manifestFile, expected] of [['media/native-assets.json', release], ['media/screenshots.json', release], ['media/docs-demos.json', release], ['media/docs-screenshots.json', release], ['media/slides.json', playerSource]]) {
     const manifest = JSON.parse(await readFile(path.join(ROOT, manifestFile), 'utf8'));
-    assert.deepEqual(manifest.source, pin, `${manifestFile} does not match the pinned Flux source.`);
+    assert.deepEqual(manifest.source, expected, `${manifestFile} does not match the pinned Flux source.`);
     assert(Object.keys(manifest.outputs).length, `${manifestFile} has no output provenance.`);
     for (const [file, expected] of Object.entries(manifest.outputs)) {
       assert(file.startsWith('site/') && isInside(SOURCE, path.resolve(ROOT, file)), `Invalid asset provenance path: ${file}`);
@@ -143,7 +150,7 @@ export async function checkOutput() {
     const published = await readFile(path.join(OUTPUT, file.slice(5)));
     assert.equal(createHash('sha256').update(published).digest('hex'), expected.sha256, `Published film file differs from media/film.json: ${file}. Rebuild the site.`);
   }
-  for (const manifestFile of ['media/native-assets.json', 'media/screenshots.json', 'media/docs-demos.json', 'media/docs-screenshots.json']) {
+  for (const manifestFile of ['media/native-assets.json', 'media/screenshots.json', 'media/docs-demos.json', 'media/docs-screenshots.json', 'media/slides.json']) {
     const manifest = JSON.parse(await readFile(path.join(ROOT, manifestFile), 'utf8'));
     for (const [file, expected] of Object.entries(manifest.outputs)) {
       const published = await readFile(path.join(OUTPUT, file.slice(5)));

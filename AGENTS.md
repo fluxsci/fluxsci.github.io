@@ -9,8 +9,10 @@ This is the independent Quarto website for Flux, intended for the GitHub reposit
 - Visual source plots come from the owner-authorized external project passed explicitly to
   refresh tools. Preserve plot bytes and the owner's authored figure layouts. The selected
   materials and neuroscience compositions in MASTER_DEMO_FluxProj are authorized showcase
-  material. Never reuse its test slides, manuscript instructions, personal context, or library.
-  Create new website slides, captions and writing in the isolated temporary capture project.
+  material. The owner also authorized the launch-film decks ("Deck 6", "Figure 11 deck") for the
+  website's live slides (2026-10-12); export those slides unchanged with `scripts/refresh-slides.mjs`.
+  Never reuse its other test slides, manuscript instructions, personal context, or library.
+  Create captions and writing in the isolated temporary capture project.
   Credit public data sources accurately; distinguish measured, computed and illustrative material.
 - Use real Flux screenshots and its native inline slide runtime. Never fabricate app UI or
   reproduce its animation engine. Never read the user's FluxConfig.

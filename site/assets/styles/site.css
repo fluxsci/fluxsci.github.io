@@ -1094,7 +1094,7 @@ html:not(.js) .film-launch {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 1200 / 760;
+  aspect-ratio: 16 / 9;
 }
 .demo-launch-prompt {
   display: flex;
@@ -1560,15 +1560,13 @@ html.dialog-open {
     padding-top: 32px;
   }
   .scene-tabs:not([hidden]) {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 6px;
   }
   .scene-tabs button {
     min-height: 48px;
-    flex-direction: row;
-    align-items: baseline;
-    justify-content: space-between;
-    padding: 10px 14px;
+    padding: 9px 12px;
+    font-size: 13px;
   }
   .footer-inner {
     grid-template-columns: 1fr;

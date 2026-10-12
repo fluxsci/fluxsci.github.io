@@ -13,11 +13,31 @@ The showcase uses real Flux compositions: authored scientific figures, public da
 
 ## The figures and screenshots {#figures}
 
-The materials and neuroscience figures were composed by Kort Driessen in a demonstration project. Their plot content, layout, labels and views are preserved. Captions, the demonstration manuscript and the website's three slides were written for this site. Screenshots show the actual Flux interface using an isolated copy of the selected work.
+The materials and neuroscience figures were composed by Kort Driessen in a demonstration project. Their plot content, layout, labels and views are preserved. Captions and the demonstration manuscript were written for this site. Screenshots show the actual Flux interface using an isolated copy of the selected work; the Slides workspace screenshot shows the slides from the film.
 
 The Library and Reader screenshots use a small demonstration bibliography and an original manuscript; they do not show a personal reference library.
 
-The six geometric animation examples in the documentation were made for this site and play through Flux's native slide player. They illustrate controls, not research results. Timeline alignment diagrams use Flux's alignment operations to calculate the bar positions. Close-ups show the real X-ray, property menu and Animator; the easing editor and animation-style screenshots come from Flux's own user guide.
+Timeline alignment diagrams use Flux's alignment operations to calculate the bar positions on a small geometric example. Close-ups show the real X-ray, property menu and Animator; the easing editor and animation-style screenshots come from Flux's own user guide.
+
+## Slides {#slides}
+
+The live slides on the homepage and in the guides are the slides from the Flux film. They were made in Flux, in the same demonstration project. They are exported unchanged and play through Flux’s own slide player. Each player names its source below the slide. Motion between resting steps is visual interpolation; the values shown at rest are the computed ones.
+
+| Slide | Source and interpretation |
+|---|---|
+| Any figure can become a slide | The Flux mark, plotted, and shapes drawn in Flux. |
+| Shapes that change shape | Computed geometry: a superquadric (sphere, cube and star states) and the catenoid–helicoid family of minimal surfaces. |
+| Visual response latency across brain regions | Region outlines from a coronal section of the [Allen Mouse Common Coordinate Framework, CCF2017](https://download.alleninstitute.org/informatics-archive/current-release/mouse_ccf/). **The latency values are synthetic and illustrative**, not recordings. |
+| The fold becomes a fingerprint | C-alpha coordinates of crambin, [PDB 1CRN](https://www.rcsb.org/structure/1CRN). A contact is a C-alpha distance below 8 Å with sequence separation above 2. The motion is a change of representation, not protein unfolding. |
+| From genes to programs | Airway RNA-seq, [GEO GSE52778](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE52778) (Himes et al. 2014, [doi:10.1371/journal.pone.0099625](https://doi.org/10.1371/journal.pone.0099625)), read counts from the Bioconductor `airway` package. The 36 most variable genes are clustered into three descriptive groups, not validated pathways. |
+| Agreement, revealed | First and second systolic blood-pressure readings from [NHANES 2017–2018](https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/BPX_J.htm): a deterministic sample of 240 complete pairs. Descriptive and unweighted; not a population estimate. |
+| Central limit theorem | Simulated samples from a Gamma(2, 0.5) population. |
+| Spikes to rate | Simulated spike trains from an inhomogeneous Poisson process; no recording is implied. |
+| Spatial transcriptomics | Simulated expression on a Visium-style hexagonal spot grid, embedded with PCA and UMAP. |
+| Phyllotaxis | Vogel’s model: radius = c√n, angle = n × 137.5°, for 233 seeds. Spiral counts depend on scale. |
+| Shadows contain a shape | Exact parallel-beam projections of three uniform disks at twelve angles. The final image is an unfiltered backprojection, so its blur is expected. |
+
+The 3D slide needs WebGL; without it, the player shows Flux’s own saved views of each step.
 
 ## Neuroscience {#neuroscience}
 
@@ -25,7 +45,7 @@ The six geometric animation examples in the documentation were made for this sit
 
 The brain geometry and coronal view use the [Allen Mouse Common Coordinate Framework, CCF2017](https://download.alleninstitute.org/informatics-archive/current-release/mouse_ccf/). Neuronal silhouettes and the small mesh reconstruction use [MICrONS](https://www.microns-explorer.org/) reconstructions. These anatomical examples are separate from the functionally recorded cells.
 
-The circular network connects similar response profiles; it is not a map of anatomical synapses. The animated scatter views use the same 143 cells and a common PCA basis at 1, 4 and 15 Hz. Movement between those states is a visual interpolation, not additional experimental observations.
+The circular network connects similar response profiles; it is not a map of anatomical synapses.
 
 Relevant publications:
 

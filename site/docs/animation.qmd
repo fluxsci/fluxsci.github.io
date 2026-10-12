@@ -43,11 +43,11 @@ the title first and shared legend last.
 
 ### See an entrance {#entrance-examples}
 
-Use **Fade** for a quiet reveal, **Pop** to bring attention to a shape, or **Wipe** to uncover it across the frame. The three examples below use the same duration.
+Use **Fade** for a quiet reveal, **Pop** to bring attention to a shape, or **Wipe** to uncover it across the frame. In the slide below, from the Flux film, sample means pop in and a curve draws on.
 
-<div class="doc-study" data-doc-study="/demos/techniques/index.html#appear">
-<div class="doc-study-stage"><img src="/demos/techniques/appear.svg" alt="Compare Fade, Pop and Wipe entrances" width="800" height="440" loading="lazy"><button class="doc-study-launch" type="button" data-study-start data-title="Compare Fade, Pop and Wipe entrances" hidden><span aria-hidden="true">▶</span> Try this example</button></div>
-<div class="doc-study-caption"><span class="study-label">Interactive example</span><p><strong>One action, different entrances.</strong> The outlined frames mark the final positions. Use the next-step arrow to play; reset to compare again. Reduced motion shows the finished step.</p></div>
+<div class="doc-study" data-doc-study="/demos/studies/entrances.html">
+<div class="doc-study-stage"><img src="/demos/studies/entrances.svg" alt="Sample means pop in and a normal curve draws on" width="1280" height="720" loading="lazy"><button class="doc-study-launch" type="button" data-study-start data-title="Sample means pop in and a normal curve draws on" hidden><span aria-hidden="true">▶</span> Try this example</button></div>
+<div class="doc-study-caption"><span class="study-label">Interactive example · a slide from the Flux film</span><p><strong>Entrances build the argument.</strong> A sample lights up in the population, its five dots fly down, and their mean <strong>pops</strong> in below: one sample, then two, then a cascade of a hundred. The normal curve then <strong>draws on</strong> over the pile. Simulated samples from a skewed Gamma population. Use the next-step arrow to play; reset to watch again. Reduced motion shows each finished step.</p></div>
 </div>
 
 ### Select and arrange effects {#select-and-arrange-effects}
@@ -179,9 +179,9 @@ Keyboard commands belong to the focused surface:
 ### Easing and springs {#easing-and-springs}
 
 
-<div class="doc-study" data-doc-study="/demos/techniques/index.html#easing">
-<div class="doc-study-stage"><img src="/demos/techniques/easing.svg" alt="Compare six easing methods" width="800" height="440" loading="lazy"><button class="doc-study-launch" type="button" data-study-start data-title="Compare six easing methods" hidden><span aria-hidden="true">▶</span> Try this example</button></div>
-<div class="doc-study-caption"><span class="study-label">Interactive example</span><p><strong>Same distance. Same duration.</strong> Watch the moving dots: Linear is steady, Smooth changes speed, and Bouncy passes the endpoint before settling. Use the next-step arrow to play; reset to compare again. Reduced motion shows the finished step.</p></div>
+<div class="doc-study" data-doc-study="/demos/studies/easing.html">
+<div class="doc-study-stage"><img src="/demos/studies/easing.svg" alt="Hundreds of spike marks ease into a histogram" width="1280" height="720" loading="lazy"><button class="doc-study-launch" type="button" data-study-start data-title="Hundreds of spike marks ease into a histogram" hidden><span aria-hidden="true">▶</span> Try this example</button></div>
+<div class="doc-study-caption"><span class="study-label">Interactive example · a slide from the Flux film</span><p><strong>One easing, hundreds of moves.</strong> Every spike mark travels to its histogram bin with <strong>Smooth</strong> easing: it speeds up, then settles. Because all 346 marks share the curve, the rearrangement reads as one gesture. Simulated spike trains. Use the next-step arrow to play; reset to watch again. Reduced motion shows each finished step.</p></div>
 </div>
 
 Select an effect and click **Easing**, or press **E** while the Animator has focus.

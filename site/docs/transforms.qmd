@@ -29,9 +29,9 @@ While a transform is selected, **Before** and **After** choose which of its two 
 
 ### Change {#change}
 
-<div class="doc-study" data-doc-study="/demos/techniques/index.html#change">
-<div class="doc-study-stage"><img src="/demos/techniques/change.svg" alt="Change an object’s position, size and colour" width="800" height="440" loading="lazy"><button class="doc-study-launch" type="button" data-study-start data-title="Change an object’s position, size and colour" hidden><span aria-hidden="true">▶</span> Try this example</button></div>
-<div class="doc-study-caption"><span class="study-label">Interactive example</span><p><strong>Keep the object; change its state.</strong> The dotted frames mark its original and final bounds. Use the next-step arrow to play; reset to compare again. Reduced motion shows the finished step.</p></div>
+<div class="doc-study" data-doc-study="/demos/studies/change.html">
+<div class="doc-study-stage"><img src="/demos/studies/change.svg" alt="233 seeds move from a nearby angle to the golden angle" width="1280" height="720" loading="lazy"><button class="doc-study-launch" type="button" data-study-start data-title="233 seeds move from a nearby angle to the golden angle" hidden><span aria-hidden="true">▶</span> Try this example</button></div>
+<div class="doc-study-caption"><span class="study-label">Interactive example · a slide from the Flux film</span><p><strong>Keep the objects; change their state.</strong> Each of the 233 seeds is one object. One <strong>Change</strong> per seed moves the spiral to a nearby angle, which leaves gaps; the next moves it back to the golden angle, which fills the disc. Later steps draw the 13 and 21 spiral families through the same seeds. Vogel’s model, computed. Use the next-step arrow to play; reset to watch again. Reduced motion shows each finished step.</p></div>
 </div>
 
 
@@ -65,9 +65,9 @@ flux set-transform talk slide1 step1 object1 --state '{"x":420,"y":160}' --arc 0
 
 ### Ghost {#ghost}
 
-<div class="doc-study" data-doc-study="/demos/techniques/index.html#ghost">
-<div class="doc-study-stage"><img src="/demos/techniques/ghost.svg" alt="Three Ghost copies leave the same source" width="800" height="440" loading="lazy"><button class="doc-study-launch" type="button" data-study-start data-title="Three Ghost copies leave the same source" hidden><span aria-hidden="true">▶</span> Try this example</button></div>
-<div class="doc-study-caption"><span class="study-label">Interactive example</span><p><strong>One source, independent copies.</strong> Three copies leave the original, and each travels to its own destination. Use the next-step arrow to play; reset to compare again. Reduced motion shows the finished step.</p></div>
+<div class="doc-study" data-doc-study="/demos/studies/ghost.html">
+<div class="doc-study-stage"><img src="/demos/studies/ghost.svg" alt="Each projection leaves a Ghost in the sinogram" width="1280" height="720" loading="lazy"><button class="doc-study-launch" type="button" data-study-start data-title="Each projection leaves a Ghost in the sinogram" hidden><span aria-hidden="true">▶</span> Try this example</button></div>
+<div class="doc-study-caption"><span class="study-label">Interactive example · a slide from the Flux film</span><p><strong>One source, independent copies.</strong> Every projection of the three disks leaves a <strong>Ghost</strong> that travels into the sinogram, one angle per step. In the last step the same copies sweep back through the object to form an unfiltered backprojection. Exact projections, computed. Use the next-step arrow to play; reset to watch again. Reduced motion shows each finished step.</p></div>
 </div>
 
 
@@ -96,9 +96,9 @@ ghost's creation lane removes that copy and its later effects; Undo restores the
 
 ### Become {#become}
 
-<div class="doc-study" data-doc-study="/demos/techniques/index.html#become">
-<div class="doc-study-stage"><img src="/demos/techniques/become.svg" alt="A circle becomes a rectangle" width="800" height="440" loading="lazy"><button class="doc-study-launch" type="button" data-study-start data-title="A circle becomes a rectangle" hidden><span aria-hidden="true">▶</span> Try this example</button></div>
-<div class="doc-study-caption"><span class="study-label">Interactive example</span><p><strong>An outline becomes another outline.</strong> The circle’s outline flows into the rectangle, which takes its place as it lands. The dashed frame only marks the destination. Use the next-step arrow to play; reset to compare again. Reduced motion shows the finished step.</p></div>
+<div class="doc-study" data-doc-study="/demos/studies/become.html">
+<div class="doc-study-stage"><img src="/demos/studies/become.svg" alt="The dots of the Flux mark become shapes and a caption" width="1280" height="720" loading="lazy"><button class="doc-study-launch" type="button" data-study-start data-title="The dots of the Flux mark become shapes and a caption" hidden><span aria-hidden="true">▶</span> Try this example</button></div>
+<div class="doc-study-caption"><span class="study-label">Interactive example · a slide from the Flux film</span><p><strong>Objects become other objects.</strong> The 88 dots of a plotted Flux mark <strong>Become</strong> five shapes, a frame and a caption, and each letter flies out of a dot. This is the slide made live in the Flux film: select the dots, press <strong>B</strong>, pick the targets. Use the next-step arrow to play; reset to watch again. Reduced motion shows each finished step.</p></div>
 </div>
 
 

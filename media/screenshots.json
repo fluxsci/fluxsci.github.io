@@ -42,8 +42,8 @@
     "site/assets/media/slides.webp": {
       "width": 1500,
       "height": 950,
-      "bytes": 299738,
-      "sha256": "500d634372c1ed15dd6e24850917f7fe33093313f079a3c0ec9e882cd81d2e54"
+      "bytes": 206262,
+      "sha256": "e8dec88da11b38783e11fe7aacebc5c0866cc9aecd9da9e5721e120d415fbd6b"
     },
     "site/assets/media/library.webp": {
       "width": 1500,
@@ -69,5 +69,6 @@
       "bytes": 808714,
       "sha256": "200cee88e85a1b47402f5637a68cd6577ac329402419662e7afdbb274c09e99f"
     }
-  }
+  },
+  "slidesNote": "slides.webp shows the launch-film slides (deck \"The Flux film\", exported unchanged from the owner-authorized master project) in the same pinned release GUI; captured by scripts/capture-slides.mjs."
 }

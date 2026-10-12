@@ -133,15 +133,15 @@ Your manuscript remains a `.qmd` file. You can write equations, add tables, keep
 
 In **Slides**, compose a slide from the same plot sources. Add a beat for the next part of your explanation, then use the animation tools to reveal an element or transform it into a later state. Present at your own pace.
 
-An interactive slide can also live inside a Paper document. HTML preserves its steps; PDF and Word use a still. The example below runs in Flux’s native player: the slides were composed for this website, and the plots come unchanged from the master demonstration project.
+An interactive slide can also live inside a Paper document. HTML preserves its steps; PDF and Word use a still. The example below runs in Flux’s native player. These are the slides from the Flux film, made from plots in the demonstration project.
 
 ```{=html}
-<div class="slide-demo" id="slide-demo" data-demo-src="/demos/data-morph/index.html" data-demo-scene="1">
-<button type="button" class="demo-launch" aria-label="Load the interactive population slides" data-demo-start><img src="/assets/media/slide-poster.svg" alt="A response atlas of 143 visual neurons. Load the native slides to explore the study." width="1200" height="760" loading="lazy"><span class="demo-launch-prompt"><span class="play-disc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 6 9 6-9 6Z" /></svg></span><span>Play the slides<small>Real Flux slides, running in your browser</small></span></span></button>
+<div class="slide-demo" id="slide-demo" data-demo-src="/demos/slides/index.html" data-demo-scene="0">
+<button type="button" class="demo-launch" aria-label="Load the interactive slides from the Flux film" data-demo-start><img src="/assets/media/slide-poster.svg" alt="A slide titled “In Flux, any figure can become a slide”: the dots of the Flux mark have become five coloured shapes. Load the native slides to play them." width="1280" height="720" loading="lazy"><span class="demo-launch-prompt"><span class="play-disc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 6 9 6-9 6Z" /></svg></span><span>Play the slides<small>The slides from the film, running in your browser</small></span></span></button>
 </div>
 ```
 
-The example opens on **Follow the same cells**: 143 recorded cells in a shared response space, morphing between three stimulus frequencies. Use the arrows to advance, or choose another slide from the deck menu. Data: [Allen Institute for Brain Science](https://brain-map.org/our-research/circuits-behavior/visual-coding); the movement between states is illustrative interpolation. [Visual credits](/docs/visual-credits.html) · [Slides guide](/docs/slides.html).
+The example opens on the slide made live in the film: the dots of a plotted Flux mark become five shapes and a caption. Use the arrows to advance, or choose another slide from the menu. Each slide names its data source below the player. [Visual credits](/docs/visual-credits.html#slides) · [Slides guide](/docs/slides.html).
 
 ## 7. Export and keep the sources {#export}
 

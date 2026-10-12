@@ -4,7 +4,7 @@
     "revision": "9f5c7ccbe3916107fbcf8b9d53d5cf4cf99bf58e",
     "version": "0.2.0"
   },
-  "description": "Two unchanged authored figures from the confirmed master project, with original website slides from its accepted plots. Public experimental data, computed examples and reference structures; see visual credits. No owner test slides or personal library are included.",
+  "description": "Two unchanged authored figures from the confirmed master project, rendered for the website screenshots, plus the Flux mark, fonts and runtime licenses. Public experimental data, computed examples and reference structures; see visual credits. The live slides are recorded in media/slides.json.",
   "project": {
     "id": "proj_website_showcase",
     "title": "Patterns across scales",
@@ -132,22 +132,7 @@
       "plots/materials_and_engineering/fermi_mgb2_section_gamma.fluxplot.json": "903668f7b30b2d23f71513e1e78dc388b4324b75a97c90a0b5b90a673c15abba"
     }
   },
-  "bundledPackages": [
-    "three",
-    "css-tree",
-    "source-map-js",
-    "esm-env",
-    "svelte"
-  ],
   "outputs": {
-    "site/demos/data-morph/index.html": {
-      "bytes": 9266112,
-      "sha256": "8d328054bb4edf7b345bc575ca37dffbd8142c4ac551250a2fd6c5c55a45355a"
-    },
-    "site/assets/media/slide-poster.svg": {
-      "bytes": 704672,
-      "sha256": "ca9a55c1f42c23f8fea398b8794f5ce6a4858544292c5aed4d7585cdb88c1fd2"
-    },
     "site/assets/brand/flux-mark.svg": {
       "bytes": 5352,
       "sha256": "214f6a56299daecb328aa4fa93c2efd1250d54e0ba895dbd0f742f98375bd1db"
@@ -163,26 +148,6 @@
     "site/assets/licenses/Flux-MIT.txt": {
       "bytes": 1070,
       "sha256": "9cb484ed57e4668339b0dfd500e41ffc986e352a96f0601a2d4b44517d0296d1"
-    },
-    "site/assets/licenses/three-LICENSE.txt": {
-      "bytes": 1081,
-      "sha256": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc"
-    },
-    "site/assets/licenses/css-tree-LICENSE.txt": {
-      "bytes": 1065,
-      "sha256": "719a251ceca49c057ea90a1152af6546b767ec88e6d573bb6324454267b32c22"
-    },
-    "site/assets/licenses/source-map-js-LICENSE.txt": {
-      "bytes": 1526,
-      "sha256": "6cb0631f71c7749763fd3dd1d5bee52dd1070ec17f2edc1710079ad070bd2fbd"
-    },
-    "site/assets/licenses/esm-env-LICENSE.txt": {
-      "bytes": 1063,
-      "sha256": "6df5276ee7531fcc5446f19082c12e77bb6c5f081fd2b6d6cf88180a5ee36acd"
-    },
-    "site/assets/licenses/svelte-LICENSE.txt": {
-      "bytes": 1126,
-      "sha256": "06257f4847b13a49a039efb17b944c141e71b12fd8d231b362d86919067d77a3"
     }
   }
 }

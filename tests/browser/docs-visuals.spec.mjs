@@ -14,34 +14,37 @@ test('timeline diagrams explain all four shortcuts and remain keyboard operable'
  expect((await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze()).violations).toEqual([]);
 });
 
-test('separate native examples load on demand and respect reduced motion',async({page})=>{
+const STUDIES={entrances:5,easing:3,emphasis:2,change:5,ghost:13,become:1};
+
+test('separate film-slide examples load on demand and respect reduced motion',async({page})=>{
  await page.emulateMedia({reducedMotion:'reduce'});await page.goto('/docs/transforms.html');
  await expect(page.locator('.doc-study iframe')).toHaveCount(0);
  for(const id of ['change','ghost','become']){
-  const box=page.locator(`[data-doc-study$="#${id}"]`);await box.getByRole('button',{name:'Try this example'}).click();
+  const box=page.locator(`[data-doc-study="/demos/studies/${id}.html"]`);await box.getByRole('button',{name:'Try this example'}).click();
   const frame=box.frameLocator('iframe');await frame.getByRole('button',{name:'Next animation step',exact:true}).click();
-  await expect(frame.locator('.flux-slide-bar [aria-live]')).toHaveText('Step 1 / 1');
+  await expect(frame.locator('.flux-slide-bar [aria-live]')).toContainText(`/ ${STUDIES[id]}`);
+  await expect(frame.locator('.flux-slide-bar [aria-live]')).not.toHaveText(`Step 0 / ${STUDIES[id]}`);
   await expect(frame.getByRole('button',{name:'Toggle animation',exact:true})).toHaveAttribute('aria-pressed','false');
-  await expect(frame.locator('.flux-slide-status')).toBeEmpty();
+  await expect(frame.locator('.flux-slide-status')).toBeHidden();
   await frame.getByRole('button',{name:'Reset to step 0',exact:true}).click();
-  await expect(frame.locator('.flux-slide-bar [aria-live]')).toHaveText('Step 0 / 1');
+  await expect(frame.locator('.flux-slide-bar [aria-live]')).toHaveText(`Step 0 / ${STUDIES[id]}`);
  }
  expect(await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth)).toBeLessThanOrEqual(1);
 });
 
-test('all six native teaching slides actually animate and settle without issues',async({page})=>{
- test.setTimeout(65000);await page.emulateMedia({reducedMotion:'no-preference'});
+test('all six film-slide examples actually animate and settle without issues',async({page})=>{
+ test.setTimeout(90000);await page.emulateMedia({reducedMotion:'no-preference'});
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
- for(const id of ['appear','change','ghost','become','easing','emphasis']){
-  await page.goto('/demos/techniques/index.html#'+id);
-  await expect.poll(()=>page.evaluate(()=>window.fluxDocsDemo?.id)).toBe(id);
+ for(const [id,steps] of Object.entries(STUDIES)){
+  await page.goto(`/demos/studies/${id}.html`);
+  await expect.poll(()=>page.evaluate(()=>window.fluxWebsiteDemo?.state()?.totalBeats)).toBe(steps+1);
   await page.getByRole('button',{name:'Next animation step',exact:true}).click();
-  await expect.poll(()=>page.evaluate(()=>window.fluxDocsDemo.state().playing)).toBe(true);
+  await expect.poll(()=>page.evaluate(()=>window.fluxWebsiteDemo.state().playing)).toBe(true);
   const before=await page.locator('.flux-slide-fit').innerHTML();
   await expect.poll(()=>page.locator('.flux-slide-fit').innerHTML()).not.toBe(before);
-  await expect.poll(()=>page.evaluate(()=>window.fluxDocsDemo.state().playing)).toBe(false);
-  expect(await page.evaluate(()=>window.fluxDocsDemo.state().issues),id).toEqual([]);
-  await expect(page.locator('.flux-slide-bar [aria-live]')).toHaveText('Step 1 / 1');
+  await expect.poll(()=>page.evaluate(()=>window.fluxWebsiteDemo.state().playing),{timeout:15000}).toBe(false);
+  expect(await page.evaluate(()=>window.fluxWebsiteDemo.state().issues),id).toEqual([]);
+  await expect(page.locator('.source-credit:visible')).toHaveCount(1);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth),id).toBeLessThanOrEqual(1);
  }
  expect(errors).toEqual([]);

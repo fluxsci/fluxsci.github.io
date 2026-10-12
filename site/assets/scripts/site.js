@@ -19,7 +19,7 @@
     const workspaces = {
       paper: ["Paper", "Write with your figures, citations, and working notes in reach.", "Flux Paper workspace with the demonstration manuscript, project documents, and a connected scientific figure."],
       figure: ["Figure", "Compose the whole figure. Refine every individual part.", "Flux Figure workspace with the authored materials composition and its layers."],
-      slides: ["Slides", "Give the same figures a timeline. Build the explanation step by step.", "Flux Slides workspace with the new website showcase deck and its editable animation steps."],
+      slides: ["Slides", "Give the same figures a timeline. Build the explanation step by step.", "Flux Slides workspace with the slides from the Flux film and their editable animation steps."],
       library: ["Library", "A lasting collection of references, ready for every project.", "Flux Library workspace with the illustrative study collection, paper metadata, and organization controls."],
       reader: ["Reader", "Read closely. Keep your notes connected to the evidence.", "Flux Reader workspace displaying the original Patterns across scales manuscript and its reading tools."],
     };
@@ -283,7 +283,7 @@
     if (demoFrame) return;
     demoFrame = document.createElement("iframe");
     demoFrame.src = demo.dataset.demoSrc;
-    demoFrame.title = "Interactive Flux slides: neuronal populations";
+    demoFrame.title = "Interactive Flux slides from the launch film";
     demoFrame.setAttribute("allow", "fullscreen");
     demoFrame.setAttribute("loading", "eager");
     demoFrame.addEventListener(

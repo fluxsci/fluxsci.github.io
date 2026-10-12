@@ -1,5 +1,16 @@
 {
   "repository": "https://github.com/fluxsci/flux.git",
   "revision": "9f5c7ccbe3916107fbcf8b9d53d5cf4cf99bf58e",
-  "version": "0.2.0"
+  "version": "0.2.0",
+  "slidePlayer": {
+    "revision": "2f110436eafc445fe6a6ec9686203046367ba37c",
+    "note": "Slides from the launch film need slide-engine changes made after v0.2.0 (Become pairs morph outline to outline; transforms repaint their complete end state; dissolve is the default transform method). The website's slide player is built from this public revision plus the listed patches.",
+    "patches": [
+      {
+        "path": "media/flux-patches/flux-057-glyph-handoff.patch",
+        "fixes": "FLUX-057: an exported Become into a set of shapes and a caption bakes the caption's letter outlines, so letters fly as in Present.",
+        "sha256": "8400a745a4eb9566c8bf31c838c7cf3554bd4ce9049d65352c8d3a4147e7e725"
+      }
+    ]
+  }
 }

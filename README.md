@@ -30,8 +30,9 @@ The preview is at **http://127.0.0.1:1430**. It serves only `dist/`, with a real
 | `site/assets/scripts/site.js`, `docs.js`, `explorer.js` | Accessible progressive interactions, search, copy controls, and the semantic-plot part explorer |
 | `site/assets/media/` | Reviewed app screenshots, original plot derivatives, and `docs/explorer-fluxbox.svg` (a synthetic fluxbox saved by fluxplot for the part explorer) |
 | `site/assets/film/` | The homepage film: an HLS ladder of fragmented-MP4 segments (2160p, 1440p, 1080p, 720p at 60 fps), poster and captions, produced by `media/film/encode.mjs` |
-| `site/demos/data-morph/` | Native Flux inline-slide player export |
-| `site/demos/techniques/` | Six native teaching slides and timeline alignment diagrams |
+| `site/demos/slides/` | The homepage player: six slides from the Flux film in Flux's native inline-slide player |
+| `site/demos/studies/` | One film slide per documentation example (`<id>.html` and its still) |
+| `site/demos/techniques/` | Animator timeline alignment diagrams |
 | `site/install.sh` | Byte-for-byte copy of the reviewed upstream installer |
 | `flux-source.json` | Exact Flux revision used for product assets and installer |
 | `media/` | Provenance, refresh code, and website manuscript; never published |
@@ -58,6 +59,8 @@ npm test
 The previous bundled example and download have been retired. The confirmed master demonstration project supplies two authored figures and their accepted assets. Their plot content and layout are preserved. Refreshing media creates an isolated copy with original captions, a new manuscript, a small demonstration bibliography, and three new slides. Existing test slides and the owner's personal configuration or library are never read.
 
 The showcase includes public Allen Brain Observatory recordings, anatomical models, calculated fields, crystallographic records and illustrative material properties. Sources and interpretation are documented on the [visual credits page](site/docs/visual-credits.qmd).
+
+The live slides on the homepage and in the guides are the slides from the Flux film, exported unchanged from the owner's film decks (`media/film-slides.mjs` selects them). They need slide-engine changes made after v0.2.0, so `flux-source.json` pins the slide player separately (`slidePlayer`: a public revision plus reviewed patches in `media/flux-patches/`). `media/slides.json` records their provenance.
 
 Normal builds use reviewed, checked-in assets and need neither the source project nor a Flux checkout. See [media/README.md](media/README.md) for the deliberate refresh workflow. Input hashes and preservation checks protect the selected compositions. Interactive slides use Flux's native player, including its 3D runtime.
 
