@@ -85,8 +85,8 @@ export async function checkSource() {
 async function resolveLocal(reference, from, label) {
   if (/^(?:https?:|mailto:|tel:|data:)/i.test(reference)) return;
   assert(!/^[a-z]+:/i.test(reference), `Unsupported URL in ${label}: ${reference}`);
-  const url = new URL(reference, `https://fluxsci.github.io/${from}`);
-  if (url.origin !== 'https://fluxsci.github.io') return;
+  const url = new URL(reference, `https://fluxsci.org/${from}`);
+  if (url.origin !== 'https://fluxsci.org') return;
   let filename = path.resolve(OUTPUT, `.${decodeURIComponent(url.pathname)}`);
   assert(isInside(OUTPUT, filename), `Path escapes output in ${label}: ${reference}`);
   const stat = await lstat(filename).catch(() => null);

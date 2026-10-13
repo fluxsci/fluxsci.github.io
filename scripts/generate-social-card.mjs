@@ -26,7 +26,7 @@ try {
     <h1>A unified<br>scientific workspace.</h1>
     <p>Software tools designed from the start for science: figures, presentations, literature, and papers, all connected in one place. With built-in tools to connect the AI agent of your choice.</p>
     <img class="bloom" alt="" src="data:image/svg+xml;base64,${mark.toString('base64')}">
-    <div class="modules"><span>Paper &nbsp;·&nbsp; Figure &nbsp;·&nbsp; Slides &nbsp;·&nbsp; Library &nbsp;·&nbsp; Reader</span><span class="site">fluxsci.github.io</span></div>
+    <div class="modules"><span>Paper &nbsp;·&nbsp; Figure &nbsp;·&nbsp; Slides &nbsp;·&nbsp; Library &nbsp;·&nbsp; Reader</span><span class="site">fluxsci.org</span></div>
   </html>`);
   await page.evaluate(() => document.fonts.ready);
   await page.screenshot({ path: path.join(root, 'site/assets/brand/social-card.png') });

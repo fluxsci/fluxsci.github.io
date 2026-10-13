@@ -1,6 +1,6 @@
 # Flux website
 
-The public Flux website at **https://fluxsci.github.io/**, built with Quarto and maintained independently from the application.
+The public Flux website at **https://fluxsci.org/**, built with Quarto and maintained independently from the application.
 
 The site includes a concise visual homepage, installation instructions, and 46 searchable guides and references covering all five workspaces, fluxplot, the command line, agent connections and integrations. Every documentation topic is local. The installation page reflects the current public desktop release.
 

@@ -7,7 +7,7 @@ for(const url of pages)test(`document ${url} is readable, linked and accessible`
  await page.goto(url);
  await expect(page.getByRole('main')).toHaveCount(1);
  await expect(page.getByRole('heading',{level:1})).toHaveCount(1);
- await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href','https://fluxsci.github.io'+url);
+ await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href','https://fluxsci.org'+url);
  for(const scheme of ['light','dark']){
   await page.getByRole('combobox',{name:'Appearance'}).selectOption(scheme);
   await page.evaluate(()=>document.fonts.ready);
@@ -20,7 +20,7 @@ test('installer availability is honest and code copies exactly',async({page,requ
  await page.addInitScript(()=>{Object.defineProperty(navigator,'clipboard',{value:{writeText:async text=>window.copied=text}})});
  await page.goto('/install/');await expect(page.locator('.availability-note')).toContainText('Flux v0.2.0 is available');
  await page.locator('[data-copy]').first().click();
- expect(await page.evaluate(()=>window.copied)).toBe('curl -fsSL https://fluxsci.github.io/install.sh | bash');
+ expect(await page.evaluate(()=>window.copied)).toBe('curl -fsSL https://fluxsci.org/install.sh | bash');
  await expect(page.locator('[data-copy]').first()).toHaveText('Copied');
  const response=await request.get('/install.sh');expect(response.status()).toBe(200);expect(response.headers()['content-type']).toContain('text/plain');expect(await response.text()).toContain('#!/usr/bin/env bash');
 });

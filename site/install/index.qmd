@@ -20,7 +20,7 @@ One command puts the workspace on your machine. A short setup window takes care 
 Open **Terminal** on macOS, or your terminal on Linux, and paste:
 
 ```bash
-curl -fsSL https://fluxsci.github.io/install.sh | bash
+curl -fsSL https://fluxsci.org/install.sh | bash
 ```
 
 <div class="platform-line"><span>macOS · Apple Silicon &amp; Intel</span><span>Debian / Ubuntu · x86-64</span></div>
@@ -94,7 +94,7 @@ On macOS, **Update now** waits for Flux to close, replaces the app, and reopens 
 To choose a specific **published** release:
 
 ```bash
-curl -fsSL https://fluxsci.github.io/install.sh | bash -s -- --version v0.2.0
+curl -fsSL https://fluxsci.org/install.sh | bash -s -- --version v0.2.0
 ```
 
 ## If something needs attention {#troubleshooting}

@@ -1,7 +1,7 @@
 # Flux public website
 
 This is the independent Quarto website for Flux, intended for the GitHub repository
-`fluxsci/fluxsci.github.io` and `https://fluxsci.github.io/`.
+`fluxsci/fluxsci.github.io`, published at `https://fluxsci.org/` (the old `fluxsci.github.io` host redirects there).
 
 - Current scope is the complete public website and documentation, approved after the first
   review milestone. Keep guides clear and concise, link detailed reference, and publish no empty pages.

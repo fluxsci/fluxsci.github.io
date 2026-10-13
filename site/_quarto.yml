@@ -15,7 +15,7 @@ project:
 website:
   title: Flux
   description: A suite of software tools designed from the start for science. Figures, presentations, literature, and papers, all connected in one place, with built-in tools to connect the AI agent of your choice.
-  site-url: https://fluxsci.github.io/
+  site-url: https://fluxsci.org/
   image: assets/brand/social-card.png
   repo-url: https://github.com/fluxsci/fluxsci.github.io
   search: false
@@ -42,9 +42,9 @@ format:
         <meta name="color-scheme" content="light dark">
         <script>try{const theme=localStorage.getItem('flux-site-appearance');if(theme==='light'||theme==='dark')document.documentElement.setAttribute('data-theme',theme)}catch{}</script>
         <script>(function(){var h=document.documentElement;h.classList.add('js');try{if(location.pathname==='/'&&!sessionStorage.getItem('flux-intro')){sessionStorage.setItem('flux-intro','1');h.classList.add('intro')}}catch(e){h.classList.add('intro')}})()</script>
-        <link rel="canonical" href="https://fluxsci.github.io/">
+        <link rel="canonical" href="https://fluxsci.org/">
         <meta property="og:type" content="website">
-        <meta property="og:url" content="https://fluxsci.github.io/">
+        <meta property="og:url" content="https://fluxsci.org/">
         <link rel="icon" href="/assets/brand/flux-mark.svg" type="image/svg+xml">
         <script src="/assets/scripts/site.js" defer></script>
         <script src="/assets/scripts/docs.js" defer></script>

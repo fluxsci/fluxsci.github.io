@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /demos/
 
-Sitemap: https://fluxsci.github.io/sitemap.xml
+Sitemap: https://fluxsci.org/sitemap.xml

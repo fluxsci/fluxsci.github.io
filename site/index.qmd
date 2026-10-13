@@ -344,7 +344,7 @@ description: "Flux is a free, open-source desktop workspace for scientists. Comp
   <section id="get-started" class="closing-section content-width section-space" aria-labelledby="closing-title">
     <img class="closing-mark" src="/assets/brand/flux-mark.svg" alt="" width="68" height="68" loading="lazy"><h2 id="closing-title">Your research.<br><em>In Flux.</em></h2>
     <p class="closing-lead">One command installs the app on macOS or Debian and Ubuntu Linux.</p>
-    <div class="install-command"><pre><code class="language-bash">curl -fsSL https://fluxsci.github.io/install.sh | bash</code></pre></div>
+    <div class="install-command"><pre><code class="language-bash">curl -fsSL https://fluxsci.org/install.sh | bash</code></pre></div>
     <div class="closing-actions"><a class="button button-primary" href="/install/">Installation guide →</a><a class="button button-secondary" href="/docs/first-project.html">Make your first project</a></div>
     <p class="availability">Free and open source · Apple Silicon and Intel Macs · x86-64 Debian and Ubuntu</p>
   </section>

@@ -1,4 +1,4 @@
-export const ORIGIN = 'https://fluxsci.github.io';
+export const ORIGIN = 'https://fluxsci.org';
 // Reviewed publication inventory. Every guide is local and has substantive content.
 export const routes = [
   {

@@ -16,7 +16,7 @@ test('homepage has complete content, working imagery, and responsive geometry', 
   await expect(page.getByRole('main')).toHaveCount(1);
   await expect(page.getByRole('heading', { level:1 })).toHaveCount(1);
   await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', /.+/);
-  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://fluxsci.github.io/');
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://fluxsci.org/');
   for (const module of ['figure-materials', 'response-figure', 'materials-figure']) {
     const image = page.locator(`img[src$="/${module}.webp"]`).first();
     await expect(image).toHaveCount(1);
