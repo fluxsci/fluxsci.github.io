@@ -17,14 +17,14 @@ try {
       body{padding:56px 66px;font-family:Gelasio,Georgia,serif;position:relative}
       header{display:flex;align-items:center;gap:12px;font-size:38px;font-weight:700}
       header img{width:46px;height:46px}h1{font-size:74px;line-height:1.08;letter-spacing:-2.8px;font-weight:400;margin:55px 0 24px;max-width:790px}
-      p{font:20px/1.6 system-ui,sans-serif;color:#575653;margin:0}
+      p{font:20px/1.6 system-ui,sans-serif;color:#575653;margin:0;max-width:830px;text-wrap:balance}
       .modules{position:absolute;left:66px;bottom:48px;right:66px;border-top:1px solid #dad8ce;padding-top:23px;font:16px system-ui,sans-serif;display:flex;justify-content:space-between;color:#575653}
       .bloom{position:absolute;width:250px;height:250px;right:52px;top:176px}
       .site{color:#205ea6}
     </style>
     <header><img alt="" src="data:image/svg+xml;base64,${mark.toString('base64')}">Flux</header>
     <h1>A unified<br>scientific workspace.</h1>
-    <p>Your figures, papers, and ideas. Connected for you and your AI collaborators.</p>
+    <p>Software tools designed from the start for science: figures, presentations, literature, and papers, all connected in one place. With built-in tools to connect the AI agent of your choice.</p>
     <img class="bloom" alt="" src="data:image/svg+xml;base64,${mark.toString('base64')}">
     <div class="modules"><span>Paper &nbsp;·&nbsp; Figure &nbsp;·&nbsp; Slides &nbsp;·&nbsp; Library &nbsp;·&nbsp; Reader</span><span class="site">fluxsci.github.io</span></div>
   </html>`);

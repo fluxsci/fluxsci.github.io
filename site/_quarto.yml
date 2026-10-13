@@ -14,7 +14,7 @@ project:
 
 website:
   title: Flux
-  description: Figures, presentations, literature, and papers in one connected workspace. Built for you and your AI collaborators, around files you own.
+  description: A suite of software tools designed from the start for science. Figures, presentations, literature, and papers, all connected in one place, with built-in tools to connect the AI agent of your choice.
   site-url: https://fluxsci.github.io/
   image: assets/brand/social-card.png
   repo-url: https://github.com/fluxsci/fluxsci.github.io
