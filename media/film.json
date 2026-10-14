@@ -2,9 +2,9 @@
  "description": "The Flux film on the homepage (HLS ladder, poster, captions). Produced by media/film/encode.mjs.",
  "inputs": {
   "film": {
-   "name": "V08-p95-4k60.mp4",
-   "bytes": 465215270,
-   "sha256": "296eef93b2bcef9f6553205c58936af21104a1d07ae1edb9181060fca46b3ab5",
+   "name": "V08-final-4k60.mp4",
+   "bytes": 469597923,
+   "sha256": "44a05f64319bd19a65e10692cce313e1a1f94bdf320d2121747c6fcd582f86d3",
    "duration": 217.017
   },
   "audio": {
@@ -16,7 +16,7 @@
  "encode": {
   "segmentSeconds": 4,
   "gop": 120,
-  "video": "libx264 High, preset medium, CRF + VBV ceiling, yuv420p, BT.709",
+  "video": "libx264 High, preset slow, CRF + VBV ceiling, yuv420p, BT.709",
   "audio": "AAC-LC 256 kb/s 48 kHz (AudioToolbox)",
   "posterTime": 54,
   "ladder": [
@@ -61,227 +61,227 @@
   },
   "site/assets/film/720p/init.mp4": {
    "bytes": 1381,
-   "sha256": "3033428eb845bbda285c06fc27869a0a0b6bc3785225de2a5222788933f4d25e"
+   "sha256": "6dbcc98c994e2dc8ca2667e0bb871703bbf8f76f9e31211adfe5ee9b7d9440db"
   },
   "site/assets/film/720p/seg_000.m4s": {
-   "bytes": 1020943,
-   "sha256": "7eddc3490e8eeb34ac823dfc65a7cb2fdbee85083d1905016ea23f686e249d14"
+   "bytes": 1003765,
+   "sha256": "47d51297fbe8830a25cdd7c7732d4b7cf1213183fbf6fd85502923b2f20e1b5e"
   },
   "site/assets/film/720p/seg_001.m4s": {
-   "bytes": 1653743,
-   "sha256": "55e74b679e1fe2b15dcf90c9230e5047a72b7141ef19a89313b660f6d1199878"
+   "bytes": 1731670,
+   "sha256": "013196191381308f072a0479b49259daa7b797c8d42b8db8dfe68c7318984216"
   },
   "site/assets/film/720p/seg_002.m4s": {
-   "bytes": 574038,
-   "sha256": "a3c6d926ceff0697ba4b3c930728d0058274de7bfb5f43939a64d30160aedb4b"
+   "bytes": 574415,
+   "sha256": "b3bd94a4bb6da3a741207782d7471225267814a43071b10232b4360690282881"
   },
   "site/assets/film/720p/seg_003.m4s": {
-   "bytes": 1152908,
-   "sha256": "26d729516eec12016ab158edac3cf8298e133dbe3eb7920fc16b8c118efba272"
+   "bytes": 1150130,
+   "sha256": "349ef32c4833bb03aa57a921c727c333c9b46703b64856ebadc8e60f7fac6050"
   },
   "site/assets/film/720p/seg_004.m4s": {
-   "bytes": 362015,
-   "sha256": "5468d326f420fdfb0673859b58fe99cf0f87483be478a15d0b63e90b26a4cf96"
+   "bytes": 368015,
+   "sha256": "e158449f909314fae3fca224adf348d4f86c774c1b02eba87a0e1e6f0c89ef98"
   },
   "site/assets/film/720p/seg_005.m4s": {
-   "bytes": 1246742,
-   "sha256": "58733682340e934df80d39d899bde8f3957c130872a962014d21911a1648cf22"
+   "bytes": 1305299,
+   "sha256": "92c224746130a56aee975433c2d18cd45f83085e2e612dbde90f4fac32755fcb"
   },
   "site/assets/film/720p/seg_006.m4s": {
-   "bytes": 469365,
-   "sha256": "6bf1368522aa3606944ecee0180073f7a07d2caec6dfb4812ef869e7198384bd"
+   "bytes": 484093,
+   "sha256": "35cfd7838adffbdf36933dbe279661a2571eec917c01486ad15e815652b62ebe"
   },
   "site/assets/film/720p/seg_007.m4s": {
-   "bytes": 979753,
-   "sha256": "bff3a2563d602d6a86ff0d7a6a985c8fd7f1baa6d77272afa376abe293b89ba3"
+   "bytes": 965037,
+   "sha256": "ea7f50a32f44de9df68de9a1c40ac85f70103c2f25393dd0d68ccbad2c058e22"
   },
   "site/assets/film/720p/seg_008.m4s": {
-   "bytes": 548532,
-   "sha256": "5703e5b14f372d8e2b990863f83b2852ed16d1457ad1ff0f4355bcbe7ad0968c"
+   "bytes": 545934,
+   "sha256": "82b20ea68d36e5b7429fbee33c2ca20a6a74f3bf4e57e2c64ffca5fbfec45802"
   },
   "site/assets/film/720p/seg_009.m4s": {
-   "bytes": 752980,
-   "sha256": "e10b6f6693206c3e667395c9d2fcf2de1f8798f9aa457f8d1e2ce31025885baa"
+   "bytes": 768880,
+   "sha256": "d0af1b78820fb11a33509370b11b84e22c63f3dc45d360edd98f7e189660cc5e"
   },
   "site/assets/film/720p/seg_010.m4s": {
-   "bytes": 769265,
-   "sha256": "0f9e4ec0acd00a072f065af7ec900a56a26c5111acd4314f86bab1eafe4fc36b"
+   "bytes": 774141,
+   "sha256": "fdd0d6f8091ce13cb5b52ccbe3a49ab2a794d1bda79519689af273d9ba8f716a"
   },
   "site/assets/film/720p/seg_011.m4s": {
-   "bytes": 729383,
-   "sha256": "e1254493cca3562ad6bc833dbcda65e9388c7bca6866de51d0953666592fccb8"
+   "bytes": 737631,
+   "sha256": "0af551678b9ffe0b3a01f56493d01d8ea7f2bc33134fc86e12f6548e585be7ea"
   },
   "site/assets/film/720p/seg_012.m4s": {
-   "bytes": 433996,
-   "sha256": "bd61284c121dabd1e83594e375de1845f8ee423173bda08a8cfbf8c4cc88c6ae"
+   "bytes": 434049,
+   "sha256": "ab615d64f6c10829f26d82a2f65193ee6333ba6eb9c7f9613cc2d6b1e1875a3f"
   },
   "site/assets/film/720p/seg_013.m4s": {
-   "bytes": 862944,
-   "sha256": "c1c75471ecad54b4c6726b51d166ce4e648cfc86f304d9beb17e9a8901d3a655"
+   "bytes": 886080,
+   "sha256": "804f6935e3dbb55b8df618c30ea1a6459e6fe9a539d508afa600a3c6393d8a71"
   },
   "site/assets/film/720p/seg_014.m4s": {
-   "bytes": 1485040,
-   "sha256": "26ffc838210431b393ec847ffe2cb432d84907364398567724b1c3aa4b0ffef7"
+   "bytes": 1490840,
+   "sha256": "45ca0e937a8b0726a39784dc75b96afa631d2699604ac3f1b35d864698f5dd47"
   },
   "site/assets/film/720p/seg_015.m4s": {
-   "bytes": 1117002,
-   "sha256": "5ed42f60ebec4caddff4c2ef324a007adeac74a5c6b3e2568a1ab3f27f579c60"
+   "bytes": 1104014,
+   "sha256": "dc622e185a45f5743a47b1bef8be5a71551f165640b723ede6316904bc38b316"
   },
   "site/assets/film/720p/seg_016.m4s": {
-   "bytes": 1233656,
-   "sha256": "f7fcc424ab52b6e58b7709c5236836dd1186c08a9b2ae287a5aa4907be9d6054"
+   "bytes": 1265380,
+   "sha256": "cb2ee67ec619f4be7d1390a0f5c36e530b37156f0258d8ea03fc48298432da64"
   },
   "site/assets/film/720p/seg_017.m4s": {
-   "bytes": 1119070,
-   "sha256": "30d830e0ae36134deae7c123a63be0a5b552bc9d27e06b5563e486064c2b034c"
+   "bytes": 1125634,
+   "sha256": "deff85d69097bb894ae0c25bd1207afdb70ffa535637505aad4a94e60032a3f5"
   },
   "site/assets/film/720p/seg_018.m4s": {
-   "bytes": 1404871,
-   "sha256": "397cc0272a0d8de5939926eb15bfa64a80509eb09ce672f608ae29b193d44aa3"
+   "bytes": 1482219,
+   "sha256": "de7b3448f0f1921283780df8f10c0d9978b54e77c3a69ecafab48efdef943e26"
   },
   "site/assets/film/720p/seg_019.m4s": {
-   "bytes": 1005135,
-   "sha256": "17e896ef05dc83a19248245d175ab1060ddb48012399fce4b74a97eb83f60cfe"
+   "bytes": 1184624,
+   "sha256": "3e7fa515f1b4f9222074a80ba8d3f263395c967a37157d54598f852c5dcb8eb3"
   },
   "site/assets/film/720p/seg_020.m4s": {
-   "bytes": 913130,
-   "sha256": "6fab57ac0e6caa13cded66bf4d3ac7711bf2501b5171c3a1d3639b479b450a30"
+   "bytes": 922815,
+   "sha256": "9e5d7b6abef4edf3850e4889ab779d76e6dd66ac6a0980ae41ca3339007c15bc"
   },
   "site/assets/film/720p/seg_021.m4s": {
-   "bytes": 895427,
-   "sha256": "2c5b3a2bc38cac2c70d41fe8aa6cd5bfc855b44f42b9fb1267b25211636cb044"
+   "bytes": 883507,
+   "sha256": "05fc43eca6cf21e30743b8f8c8876728b534c6c72fa67751bbea87b9af40656b"
   },
   "site/assets/film/720p/seg_022.m4s": {
-   "bytes": 279431,
-   "sha256": "7fb1e51eea76287e05b4d9f39e8872d1788fe0f52258fdb990491ebd5c2dd5d8"
+   "bytes": 282803,
+   "sha256": "ccfc17eed104ebafb02227d451ddf4556fdca7173ea5ddd5e934520fe9f81457"
   },
   "site/assets/film/720p/seg_023.m4s": {
-   "bytes": 930340,
-   "sha256": "8516f0f37a6f6bd31823888035f35a329197ed43c2cbcf9184dceeaa87210a66"
+   "bytes": 946563,
+   "sha256": "4d5178d51e1ee21835820c512d2f20b4947250746fba9ab8bf845c9145e388f6"
   },
   "site/assets/film/720p/seg_024.m4s": {
-   "bytes": 535715,
-   "sha256": "c44c76bf12f9c486ff030084589dcd7cee66d5a14c3b7264d2c9cd1d2414057b"
+   "bytes": 520814,
+   "sha256": "fca35724b0dd260c05a501b9c0fe22f3141305c538b5e4d878c6ff2553200d12"
   },
   "site/assets/film/720p/seg_025.m4s": {
-   "bytes": 284567,
-   "sha256": "61ff7a87169459035b49c559b2e87bc9ec37ec64b9075b338d081cb68dfa71e7"
+   "bytes": 283591,
+   "sha256": "1634eb59315245c54a91cf8c3991ff4a4acda26887f71eb0be7250128de5c1f6"
   },
   "site/assets/film/720p/seg_026.m4s": {
-   "bytes": 341857,
-   "sha256": "19e4ccf7a667b97456e6b2aa094b659547f44e9f2db6f89cf97301bb54540cbc"
+   "bytes": 339627,
+   "sha256": "8da88545f215dba2d5950e5085665a854812acc7db5de27d69e39bf7cf663d5a"
   },
   "site/assets/film/720p/seg_027.m4s": {
-   "bytes": 529960,
-   "sha256": "8a8e30839bdc4cc1234571e432ff05e4a34c2698412753ba093b642f1a546b9e"
+   "bytes": 528210,
+   "sha256": "b5525dc646270bd7f1c140fd4545fd7e5dc155300bf4142724746c5faed51c1d"
   },
   "site/assets/film/720p/seg_028.m4s": {
-   "bytes": 507487,
-   "sha256": "d1b1d0367cf8339c590ca6e26e5bbfd04c3d4fa5dd0694178023bcf51d7de5bc"
+   "bytes": 479635,
+   "sha256": "f30ea714c9e269099357d9572ba5638d9081379d4bc6dd27902311a97700f38e"
   },
   "site/assets/film/720p/seg_029.m4s": {
-   "bytes": 663122,
-   "sha256": "390d4b52986fcddd1b00f58a118cd603c86ab6d76a2a159bb0f85d1cfbea8160"
+   "bytes": 656130,
+   "sha256": "cb4a1779d1c3ff156c37c139a88979a7ecf5819a46650cbba75c4f797598af58"
   },
   "site/assets/film/720p/seg_030.m4s": {
-   "bytes": 266593,
-   "sha256": "5ef7c8e8b4fdd2f0f7a8058d7e18bd3b3af66b383ee46ac8380025d6109f4614"
+   "bytes": 267956,
+   "sha256": "3864d943e1beb9b0423ba7982d521473a58c828b83d93810a23ef7babafd39f6"
   },
   "site/assets/film/720p/seg_031.m4s": {
-   "bytes": 680818,
-   "sha256": "47216fa00626e97efea32f797fa60317e6916dcefb8813ffa66f750fb1fa9760"
+   "bytes": 682952,
+   "sha256": "0b8374d0065f674a36d039f8198e5152c86f48fc62b5bb804f6e277feba8fac6"
   },
   "site/assets/film/720p/seg_032.m4s": {
-   "bytes": 568156,
-   "sha256": "6be3894761e7e910b96e2cb829068c8a4c74160675e60716d2df9266d2aa0ce6"
+   "bytes": 591234,
+   "sha256": "088c3209ff7d7498acfbc477ed8e9440a776822ac9816d6207ac3d586bf8db56"
   },
   "site/assets/film/720p/seg_033.m4s": {
-   "bytes": 557388,
-   "sha256": "9ca82ce4efd2c3e775da2b517084111514709f0e91145fd6dd11121e2f0af23c"
+   "bytes": 547391,
+   "sha256": "37d01b8cfaba328f05f80a9845461fd19d2c4b35ebe20650c67f9ca50d850f78"
   },
   "site/assets/film/720p/seg_034.m4s": {
-   "bytes": 598654,
-   "sha256": "683467b8a5295732d68e669681a56db99996067d2e7b5df2ba013571e733f308"
+   "bytes": 579179,
+   "sha256": "2ab9524a98650235aa9b4bd7c3e17e288a53e9821c860389c228b01e9cbac678"
   },
   "site/assets/film/720p/seg_035.m4s": {
-   "bytes": 448065,
-   "sha256": "1ac2dff7773da2f2c8fe56f3c6042f65ce418c089830fe0a6da4dd0e1002794a"
+   "bytes": 446536,
+   "sha256": "e356a60452e733a3248e8f443ea2b2e43ab87e3e319067c27e63976388e71ce9"
   },
   "site/assets/film/720p/seg_036.m4s": {
-   "bytes": 748278,
-   "sha256": "b2bc5a89b8060aff817df2717538bd4c57ca3447faf86d195309b3cb44aa83ff"
+   "bytes": 752795,
+   "sha256": "d28b5772dc5e71e1eb0ed5f21430e0f0a950285e7ac539e33324337da3de8940"
   },
   "site/assets/film/720p/seg_037.m4s": {
-   "bytes": 482500,
-   "sha256": "bd62e7f1a66a5aa7da839ca7a86db9066d393254a21b9d12d04cd075f90d378e"
+   "bytes": 489480,
+   "sha256": "6f820604e2d35afce811ed7fd02c0e67d164b4afa2215244f10149e566fe8ced"
   },
   "site/assets/film/720p/seg_038.m4s": {
-   "bytes": 1331921,
-   "sha256": "bd50fccc185a91001c6791c8d3aab75472c1dbf111cf60a54f6e98a17c82fc92"
+   "bytes": 1320069,
+   "sha256": "16e758f27fab845af1b2178a500b4e7ee148d687dfb57e5da327f1dca8e08e05"
   },
   "site/assets/film/720p/seg_039.m4s": {
-   "bytes": 534467,
-   "sha256": "6ffc6a25dddd8ff330a02cb9288371de128fa0ee1cf359c870f222f5dc3f3aa8"
+   "bytes": 534736,
+   "sha256": "69be3cb3f650829bb1d2b5b4aea2a243af38fef9ab1eed7777d055e896de6f2f"
   },
   "site/assets/film/720p/seg_040.m4s": {
-   "bytes": 609279,
-   "sha256": "ce51a04aedcb129de38f49517501b4a37baa8ca830015be171e9a6684dc055f4"
+   "bytes": 610367,
+   "sha256": "b900011f868660c8c7980ae9ec4ec38f1de8d9e7e67ba62caaa5d78d65352efd"
   },
   "site/assets/film/720p/seg_041.m4s": {
-   "bytes": 1017391,
-   "sha256": "55d489589e72b67911f15b92d30f10b0c97e7dfbad5224258c119243ffe1d02d"
+   "bytes": 1004206,
+   "sha256": "581877f8755e82d31e4857d3377342f2da05925dbbe218150048b4f372ac1a2c"
   },
   "site/assets/film/720p/seg_042.m4s": {
-   "bytes": 454948,
-   "sha256": "e02b791f15f4251ce07ba9ca53bba5c83c51fd14af829e3ab2c78a2278d69347"
+   "bytes": 452846,
+   "sha256": "cbe708c8a3affb45313d7bf881b493e6a0df7c001ff48cd2f44b44cec24f42e9"
   },
   "site/assets/film/720p/seg_043.m4s": {
-   "bytes": 237604,
-   "sha256": "510cef8ca3d85e86fe5112173af180b53f367a35ec8174ba42d9c890740518e5"
+   "bytes": 239892,
+   "sha256": "7fb140ded45da4c8a1e46f0f8f3506cda508728cf6828f8fcd4e84f8407cf432"
   },
   "site/assets/film/720p/seg_044.m4s": {
-   "bytes": 621433,
-   "sha256": "2bc19ae8217fc14c9f52e46fc06449112b8e6fdbd8bf9d1bdd120964c36018f4"
+   "bytes": 613943,
+   "sha256": "6e218d97f55bdba3aa53933dba5f10dbb1f0193eeb67bc2b11ff2084dc0859b6"
   },
   "site/assets/film/720p/seg_045.m4s": {
-   "bytes": 1603863,
-   "sha256": "e56945922f8f3e93d062c246f83a9bf202e5ea3934cc61c1c6304899c6fbca30"
+   "bytes": 1603410,
+   "sha256": "9a6baac91b6256636f60ca0b7234b267a36dfd241121cde885694c45512038aa"
   },
   "site/assets/film/720p/seg_046.m4s": {
-   "bytes": 521643,
-   "sha256": "ed2f33e643c20c28e7ac52b156e784fb66566bba754908d408107d84d10d9d71"
+   "bytes": 522504,
+   "sha256": "b2707d6aa18823c66797b5bbef1a81b8bb7e0f0e8e1329a1dd0a0c76580c5c17"
   },
   "site/assets/film/720p/seg_047.m4s": {
-   "bytes": 1175528,
-   "sha256": "17ecea3c2e6ba0e88caba31d1fc15893eaf61c993bb68a1781b9f07cf8bb5a9f"
+   "bytes": 1174603,
+   "sha256": "33aa6674c71d5d1ad17a99d9f838094bcba7f3e1d9932230ffa0f84b024ba6ae"
   },
   "site/assets/film/720p/seg_048.m4s": {
-   "bytes": 369334,
-   "sha256": "fd47d48f019586924ad4f63b04632ffb88a1e5db2852c872ab242758ef2db2c1"
+   "bytes": 372806,
+   "sha256": "03217fd1afca3c360cf53c037d4147eaea1dc278392296088162b990ca985ec4"
   },
   "site/assets/film/720p/seg_049.m4s": {
-   "bytes": 732053,
-   "sha256": "df686c3b6dfc9b0b52bafab3089141db9b8e60730eb5b3cb2f35863083f351f0"
+   "bytes": 739790,
+   "sha256": "a7eb10bea7b2e5e3543272534adc404a9b69d90924e91a27fdd7b038ca104e4d"
   },
   "site/assets/film/720p/seg_050.m4s": {
-   "bytes": 196307,
-   "sha256": "2d6b8eb6d7b10066f2b89dd22ffac40456576ebf7b8ab6ba9d273321c44f4063"
+   "bytes": 196290,
+   "sha256": "af0b1eda4f38a2e3122fad05bc78a02d35d94d32e62bc6701c01612196c5079a"
   },
   "site/assets/film/720p/seg_051.m4s": {
-   "bytes": 276196,
-   "sha256": "ebc8962e6024edc8ea7d808e123120607a83f118792271364af3c00e609735a4"
+   "bytes": 279796,
+   "sha256": "94e833efc7b5b4ccde94aac851446b62e66ce1e8dc4749a2e2621c733ed68c16"
   },
   "site/assets/film/720p/seg_052.m4s": {
-   "bytes": 256035,
-   "sha256": "63eb8a03cc6015671c71bbb35f8e43cca22de92978cf06d20d3dcb508fa21843"
+   "bytes": 257787,
+   "sha256": "df102b3abb35bbe6bdc5190172cb0077632e3d1f97d21d3551dc98ef8b036293"
   },
   "site/assets/film/720p/seg_053.m4s": {
-   "bytes": 207619,
-   "sha256": "85c8441c9176b654c81d09c5405596d0e9d02c3c84af64f2c34a064d809a5cb5"
+   "bytes": 208862,
+   "sha256": "c8dca5122589b7a8b13a7a7ce4dbd9e7ad7dfae7dd001d9fe477dcd1c3b452fb"
   },
   "site/assets/film/720p/seg_054.m4s": {
-   "bytes": 36851,
-   "sha256": "84dede442035382cc66dff6cabbc72a34615baba3d923ac6fcbfea1975cddc50"
+   "bytes": 36887,
+   "sha256": "95847dfc56ca496d49934dcd5d9522f7faaf00a5f4f7304e51d6bba6a69286b4"
   },
   "site/assets/film/1080p/index.m3u8": {
    "bytes": 1817,
@@ -289,227 +289,227 @@
   },
   "site/assets/film/1080p/init.mp4": {
    "bytes": 1383,
-   "sha256": "e57222b9ef59d873cdcdc8f53941011db0cdae621194ab71a955933b5978a508"
+   "sha256": "819d25249732f775f80b0a0da6e98e093944e0a9666b9f625a85315546a137af"
   },
   "site/assets/film/1080p/seg_000.m4s": {
-   "bytes": 1660415,
-   "sha256": "bf01d4dc4cf9a5e0594ac60c76cc3adecb73cd5b892a03deff87db46a983aad2"
+   "bytes": 1645677,
+   "sha256": "d86d4f7de6ef40e922fc28279a9aaabfb7e64837204d432d8123aa67ebb7d1d9"
   },
   "site/assets/film/1080p/seg_001.m4s": {
-   "bytes": 3272407,
-   "sha256": "bb78c37e4a4db54af5458e41ec826e7e92c59d0a015f91464598f6e0da1db1bf"
+   "bytes": 3226153,
+   "sha256": "eafe39f68bcc3420b82da133d808d9252dcd5b10922cf71810eace532e56d871"
   },
   "site/assets/film/1080p/seg_002.m4s": {
-   "bytes": 1015082,
-   "sha256": "2c8349092ced4b829449cb689929db9cfcec7605a3b8720ed5a9e22d8e39e675"
+   "bytes": 976773,
+   "sha256": "55b8059d9c9f1ee922cbbb8be36a139ed4bd2bd724270c0ab37e7f0cf94e5b74"
   },
   "site/assets/film/1080p/seg_003.m4s": {
-   "bytes": 2128410,
-   "sha256": "9703e83828e4ed1d706394482e78e4e55ba97038495390000231905f4f88a6f0"
+   "bytes": 2149463,
+   "sha256": "551006f56fdd23f595746af9e2d19a6445791d660472d23a138b142709798c4f"
   },
   "site/assets/film/1080p/seg_004.m4s": {
-   "bytes": 593925,
-   "sha256": "688c68939f1928e5da3d9a7fb5ed41d5d329a5381c158ab54cfb174d45fc4cad"
+   "bytes": 602636,
+   "sha256": "ebf5054a5faf330d2bcb1d1ea2298a5124d09e0ef120d15b572966a898d401ef"
   },
   "site/assets/film/1080p/seg_005.m4s": {
-   "bytes": 2389265,
-   "sha256": "666254cb29c184018c27c75ae355d2ff4864d1ea9d701894b5b9947996a8efe9"
+   "bytes": 2453089,
+   "sha256": "a1a12332223950e7374616f2f23016071e2250983acfbfd4be86eff12e96fe5d"
   },
   "site/assets/film/1080p/seg_006.m4s": {
-   "bytes": 751914,
-   "sha256": "d0eb37d8567a5ee4a04c7cb472d21c2fbcc6d15cf25ea0c8381eab7ddf81efcc"
+   "bytes": 760304,
+   "sha256": "2e4e8c49b3ac5efd8b82576da0632d2e6b2e7b42c8627ebf0576ece837dccd06"
   },
   "site/assets/film/1080p/seg_007.m4s": {
-   "bytes": 1910629,
-   "sha256": "ffa93f758f3c0276f7a8c1fc6c7ed4b53ec446cc5740393f08420d20e6c6edd6"
+   "bytes": 1922405,
+   "sha256": "7e2dcc61d9dceab791033de51204e52835ec7c279383ca3fc1e6a3fae5e1add3"
   },
   "site/assets/film/1080p/seg_008.m4s": {
-   "bytes": 963440,
-   "sha256": "c529dbedfa389baebead91241c769df9387c0e710902856508b9aa57bb80566c"
+   "bytes": 964610,
+   "sha256": "876d0f83a537a530176a58fa3576bff06d332f775a88874f8664de5c65597f30"
   },
   "site/assets/film/1080p/seg_009.m4s": {
-   "bytes": 1348173,
-   "sha256": "628e62fefb98db5ffaaee69c1f871b91f5f18d3d6b6a5120d786853e1df61f8b"
+   "bytes": 1404409,
+   "sha256": "a2cfbbc90553cdc7ba2b12d8f5f659557f7f7e37ad98c3bf59501bba9a2d0ec3"
   },
   "site/assets/film/1080p/seg_010.m4s": {
-   "bytes": 1370565,
-   "sha256": "fe364e47d09d4df6dbbda2ddbd4aeba9daf51ea1c424635665666d5b2be656a9"
+   "bytes": 1383914,
+   "sha256": "aaf464b758fdf8cd041144c919b3892240dd068333885434b22b16684afbad75"
   },
   "site/assets/film/1080p/seg_011.m4s": {
-   "bytes": 1261724,
-   "sha256": "e6c7cf60ce56de89a2b236943178a15fbc015a685849105b9a0330b318e55bb7"
+   "bytes": 1312791,
+   "sha256": "63e357a733aa500b97e55f8ee9c6b23c1ef62a9aca16faf5cc18c7e9f39d027b"
   },
   "site/assets/film/1080p/seg_012.m4s": {
-   "bytes": 664680,
-   "sha256": "c3329331f583534c9ffbaffa57e794eed7fe1f110a6609dfac59a341d928ff85"
+   "bytes": 646218,
+   "sha256": "396a0152ff69102a87efbb9668614874e33a8acd5ff72f7255c3029928827af6"
   },
   "site/assets/film/1080p/seg_013.m4s": {
-   "bytes": 1478592,
-   "sha256": "e955d941fdf9b4db8a717f6d0b6ca2b0fbb1106a7b603985251101cc095301a2"
+   "bytes": 1521421,
+   "sha256": "7c9b6b93c40858f1e594a573bd985826e604221bd98d9167964f1f4c9cc9e5ea"
   },
   "site/assets/film/1080p/seg_014.m4s": {
-   "bytes": 2831391,
-   "sha256": "f8b95ee572292e4988ca7bf77f6b0c1c6fab13d553d1dd378729acdc63e58bf7"
+   "bytes": 2833458,
+   "sha256": "f9ae68f8122667f97521481320bf44b31a8e1aebc8c47c3643fddf9feacbfab0"
   },
   "site/assets/film/1080p/seg_015.m4s": {
-   "bytes": 2066669,
-   "sha256": "dcee33b68494ca57831684814eacc080953d2ca817ab9ff78a2fbd9bc45ff2d9"
+   "bytes": 2011132,
+   "sha256": "c445eddf981283b52c2304551d26ebe8de5307861dd311bb64dfdf4b33ef1fd1"
   },
   "site/assets/film/1080p/seg_016.m4s": {
-   "bytes": 2427562,
-   "sha256": "321e6c13321a0b5ee3dbbea1cf983df3527b64a91f7fc154d39f17fc9c451637"
+   "bytes": 2483030,
+   "sha256": "9c45fbbb03f0f113102b9d85c66c732079d8544f01b7e63648637a96ff782267"
   },
   "site/assets/film/1080p/seg_017.m4s": {
-   "bytes": 1960033,
-   "sha256": "9090c0c7cabe5c7f8e7e67953ba5ac12a049eb8ccda42989f2b0c41556e2fe9d"
+   "bytes": 2033752,
+   "sha256": "6e867fac5cc33f27d26c4ef39443f5f737ada3936d2cf7755ef405854d227ad4"
   },
   "site/assets/film/1080p/seg_018.m4s": {
-   "bytes": 2817011,
-   "sha256": "cd535ba33ecf84d1034e8fc7bfde4512da99a61ff5546f1f68aec0bea577ba1d"
+   "bytes": 2878416,
+   "sha256": "3302e8a7793f14babb0446ec63bff9237f02989cdcc19aed7f22d291c314253e"
   },
   "site/assets/film/1080p/seg_019.m4s": {
-   "bytes": 1947917,
-   "sha256": "2f8bda084fd9093cf88f6e665351ae53c9074bec9f58f39e0d460f2c40ac1d9f"
+   "bytes": 2309759,
+   "sha256": "4eefb706c0953b308b6a58c64e494e114d2218eb85fce60a2f48b24818a06ec9"
   },
   "site/assets/film/1080p/seg_020.m4s": {
-   "bytes": 1647922,
-   "sha256": "ce02014ae5493a91b1b73035823ff87f9673ca8c78178a8fbed46f335d5ce8d4"
+   "bytes": 1699680,
+   "sha256": "5ff2f2e28d40710e711c5607d3dafd3447b95e84593f23b2e533319ef394df38"
   },
   "site/assets/film/1080p/seg_021.m4s": {
-   "bytes": 1567972,
-   "sha256": "eb6b1f428645c13d1cab7f3694c9e3696d2fb38bc611de39a823a2c7e9932e1a"
+   "bytes": 1547199,
+   "sha256": "f2f2cf21a910b60b43c3706396b2ea7aa721d8a11ae2725a72b8ba244affe904"
   },
   "site/assets/film/1080p/seg_022.m4s": {
-   "bytes": 374506,
-   "sha256": "768df04710e66d4071322a0273e4ddd564d1d9ebfc25e6a3d01b5b0c440108ab"
+   "bytes": 381866,
+   "sha256": "a4d33051df129dcba601aed266938d210c1c5c0611bc3678e06bd8d5bcb24aad"
   },
   "site/assets/film/1080p/seg_023.m4s": {
-   "bytes": 1600910,
-   "sha256": "8ba024033a1b1503fa700a2d2e260c40b20d473838d138ef0263d610a3ec6851"
+   "bytes": 1595712,
+   "sha256": "9818d48fe64cf6d1e1ea3b8854f0cd03f1274272e0a288c0f8df8104e80e717a"
   },
   "site/assets/film/1080p/seg_024.m4s": {
-   "bytes": 805919,
-   "sha256": "221a5d96baa72c30d7aad870396cfd95bf902b858b26b5177a864171c21a9959"
+   "bytes": 797703,
+   "sha256": "3a18f2bf70384b14882dea93762022cd51f579f668e796af92d9970e78eddcc7"
   },
   "site/assets/film/1080p/seg_025.m4s": {
-   "bytes": 383365,
-   "sha256": "2fd855adbfde466d8b402942e065d094f71821acf20529415ece33302d86a0ef"
+   "bytes": 383663,
+   "sha256": "abe22420f546e4d532e8cf847a3f29c3bcae594abe77eb53168d59360c1d8c9e"
   },
   "site/assets/film/1080p/seg_026.m4s": {
-   "bytes": 532042,
-   "sha256": "4b22173e20753959c63240132fc7d088ab39a0a2b3fc7c1ef7c2922b27bdffdb"
+   "bytes": 530827,
+   "sha256": "3f6355a511c95b5a6f305ddbb1baf0b05addf065efb6fc3ecb836e2ec30b6c90"
   },
   "site/assets/film/1080p/seg_027.m4s": {
-   "bytes": 853587,
-   "sha256": "01bd205e722401e18f9642ffed03e9c658497d0fbc1456ac07cda4fa7728784e"
+   "bytes": 872463,
+   "sha256": "f5bd0033894732b4763e622f57a8d1ec1d71151ffcc4833d6b19584c8628d116"
   },
   "site/assets/film/1080p/seg_028.m4s": {
-   "bytes": 761954,
-   "sha256": "926877aa3bc89e827e36d2e94b307e5b4c3b172b56d34acb08e8843254b39662"
+   "bytes": 759195,
+   "sha256": "0be3c1e8d53f489c8078c81ca188176405e2d9356d5f342b428840913152f6db"
   },
   "site/assets/film/1080p/seg_029.m4s": {
-   "bytes": 1065787,
-   "sha256": "49deff958cd1b4e13b5ea82742bec4c5ad5f8c1c74fc7bdd2bbd0d462125d892"
+   "bytes": 1077488,
+   "sha256": "5dba1db1e15b26ba3968ca7133474276990d88fbb84ea75ecaf9d44f35ed91b6"
   },
   "site/assets/film/1080p/seg_030.m4s": {
-   "bytes": 365872,
-   "sha256": "090c337cb3711aeec9b4b690fccce0e83ce73f1836670495918298c5321c22c0"
+   "bytes": 364569,
+   "sha256": "3d7105d12fbdaacf69eb24f8fc7036cccfca0cd5ddc5797487d749caca2c75d0"
   },
   "site/assets/film/1080p/seg_031.m4s": {
-   "bytes": 1194254,
-   "sha256": "dce25046e77abf96f7066b400443a5104ded471fdc65d5335e1d5606ad6cab99"
+   "bytes": 1188664,
+   "sha256": "170a3541aefe7c003aecfaf274f2761eeb5243afd85e83362b13775cc7112100"
   },
   "site/assets/film/1080p/seg_032.m4s": {
-   "bytes": 1009671,
-   "sha256": "7b1d91de1a84d73501c59276d2337cb07c2e216c778db2079ebb22f5101f14a9"
+   "bytes": 1018592,
+   "sha256": "767518029c5826ea6b87494bef517f21c584e194bb71c5520e49b6a1d72ac159"
   },
   "site/assets/film/1080p/seg_033.m4s": {
-   "bytes": 875882,
-   "sha256": "46841ace4414fda707ea3d998a65bc93e3f7444485ea4e678cdb622af79016a2"
+   "bytes": 858600,
+   "sha256": "626070aa65f4ade1eb95ce14f7d7f3c5487ef0b7822d10e47473ad17f54cea9b"
   },
   "site/assets/film/1080p/seg_034.m4s": {
-   "bytes": 1016532,
-   "sha256": "b52795d230f907a584cb242ce68e4011eb5a3bb633e4f480a7ff559164bbd469"
+   "bytes": 985261,
+   "sha256": "e58bdccf484d6ee5147933cf10cadb5b575323ee2c316e5dd2018466282453e6"
   },
   "site/assets/film/1080p/seg_035.m4s": {
-   "bytes": 721484,
-   "sha256": "b8d15fba51199bb1ad17ed791ad8f1530327f7b82355b9390fe6c7da8a54dbe4"
+   "bytes": 713895,
+   "sha256": "abc33439edb9084645096383facbeb167134fbe43ec82ab8f6d01873149fbce2"
   },
   "site/assets/film/1080p/seg_036.m4s": {
-   "bytes": 1285912,
-   "sha256": "d6bb150154b133344908302bcab8934aeb3437ab88fd3f94625fb6d1ce6568c5"
+   "bytes": 1295723,
+   "sha256": "3f332d35f0240543f0be50cef7b0eb82bdb276e09043fbc6dcaa1040c1ec63dd"
   },
   "site/assets/film/1080p/seg_037.m4s": {
-   "bytes": 739969,
-   "sha256": "492403c694952e437ea66057511d08694418cfe6bb0cdda2af475b152bc89430"
+   "bytes": 750299,
+   "sha256": "4facd3e9b5956e29f1f7924b84bd29fbf7c1c3a27a5f948ba641c710f77338ff"
   },
   "site/assets/film/1080p/seg_038.m4s": {
-   "bytes": 2311571,
-   "sha256": "beb4679a6fc5f9b3cc30307a5cbc8eb87a89a844ba086c9d26c2b78a3d4eb436"
+   "bytes": 2306117,
+   "sha256": "97b1a76dd6b65123c378d2a8b08515009cf9cd9074cc12b6825d32e02759dfc7"
   },
   "site/assets/film/1080p/seg_039.m4s": {
-   "bytes": 838763,
-   "sha256": "f00a6a32924f4fede05a26bd847544ee159f783e2cf3a45ca35828dd96ab3af3"
+   "bytes": 837591,
+   "sha256": "97199bd63257d2efc5ad4a7ef12f6207e19db1da043f1c73b8cecc3bb330fa1b"
   },
   "site/assets/film/1080p/seg_040.m4s": {
-   "bytes": 961089,
-   "sha256": "52d986c8061fb4b8f2d3e4495480a237e064019e517b3ce6a8131c27c35369c5"
+   "bytes": 960162,
+   "sha256": "25f1a76476ed7173b51e8cedbd40530ad12e2d2066ef28a99db1e86388415241"
   },
   "site/assets/film/1080p/seg_041.m4s": {
-   "bytes": 1728623,
-   "sha256": "7b4087cdb5dc103bb7c590fdc1108549697fb2074fad364a1e48ff83cb1cdd1d"
+   "bytes": 1704587,
+   "sha256": "bf66d7945456fe7cd3a99c6952fc9e7963e8b66a22611d47002a163d99bc3e7a"
   },
   "site/assets/film/1080p/seg_042.m4s": {
-   "bytes": 665917,
-   "sha256": "2d49f8098fb38edc1a2a69d422dcbe2e1cc157581e26f50bce0d835a7f7e0c83"
+   "bytes": 668420,
+   "sha256": "93cc19c8847463d71b3f9fd12a2becc00d4aecb883cf499d687171bc286a96ba"
   },
   "site/assets/film/1080p/seg_043.m4s": {
-   "bytes": 316846,
-   "sha256": "a3a165f07081023ffa73e27a27afeb4a8924d3c4577233757e392b0a2331de3f"
+   "bytes": 320665,
+   "sha256": "1b9189650e30f03e1b2fbbab19acafa94f812cfd3306c78757dd6ad0b86a3c26"
   },
   "site/assets/film/1080p/seg_044.m4s": {
-   "bytes": 1164162,
-   "sha256": "fe7f85cab941278976fc496ce12b0fc0da6fe8799c2cbe6f71635c960ffa1ec4"
+   "bytes": 1136801,
+   "sha256": "9814e8603a130e6f9b8b8f607d3a4dde6d6fc1204b3b00c1c6c7b18b71ecce08"
   },
   "site/assets/film/1080p/seg_045.m4s": {
-   "bytes": 3183504,
-   "sha256": "9cef71439476fc11b7e868e7f45e83e7d27232bb831c3f99f1311aee3effcbdb"
+   "bytes": 3167854,
+   "sha256": "3bc701fc5fe52fdab763f03d73bc98cf733935c4dabac6f1d46f842f73482a00"
   },
   "site/assets/film/1080p/seg_046.m4s": {
-   "bytes": 899531,
-   "sha256": "93f379e44f71111891cec77c7e28658f70413d7f74776b92faed5b639c3cafec"
+   "bytes": 900618,
+   "sha256": "da3b4b075f955757aff6a71887fbbb8e92c223a66e5489f67330358ee8aa0641"
   },
   "site/assets/film/1080p/seg_047.m4s": {
-   "bytes": 2518141,
-   "sha256": "45dd49bcea992c872d77684b995735fb76171bf3c9d443d61fa970c0e50f4b28"
+   "bytes": 2511849,
+   "sha256": "4be85da058490ea975e1d7548a620f2b8425e05a414b7345dd25ac4ca477e25d"
   },
   "site/assets/film/1080p/seg_048.m4s": {
-   "bytes": 623045,
-   "sha256": "ab5228aa4f61031941e4b2b09a3bbf72c95d66dadeea7744cdde6bcde96efe0e"
+   "bytes": 633299,
+   "sha256": "75f2a901d0c15fe90070dd30781eb73e0c0bd7be9a1878fc2a4f8efa72807cde"
   },
   "site/assets/film/1080p/seg_049.m4s": {
-   "bytes": 1521908,
-   "sha256": "585a79887a5120813ec529f0793f2ffb0e0fdb59591d21c2107ca3b93c803f70"
+   "bytes": 1548211,
+   "sha256": "ecbc8df35172512aed182b3985e209616e4df94f061c5b766e4b635e66cbb873"
   },
   "site/assets/film/1080p/seg_050.m4s": {
-   "bytes": 238571,
-   "sha256": "658490231ea8a2cb4d684ef33d12d16de951282cb85d0035d67ccb5de0fa2dc5"
+   "bytes": 242093,
+   "sha256": "3905576325fa3efdb00c939f9c0b754cfbeac976d4c2f03082e67162cebc65d7"
   },
   "site/assets/film/1080p/seg_051.m4s": {
-   "bytes": 377761,
-   "sha256": "aa6895ca12eb488fbf177ae4bf72ef20008da00147115c40f29e457fcc39c657"
+   "bytes": 384869,
+   "sha256": "0e958ada3bc6d3315da520bc4bdec782506f6c1c582e91e84469899680ebaba9"
   },
   "site/assets/film/1080p/seg_052.m4s": {
-   "bytes": 335400,
-   "sha256": "5b6e9abcacc9fd8e233263055db236c551773ca04e9f554b1a9bc771aae06358"
+   "bytes": 340535,
+   "sha256": "f767b333649e8949d79de530f721d8f49c14392b6be27da1607818ed3f5b6bf3"
   },
   "site/assets/film/1080p/seg_053.m4s": {
-   "bytes": 273916,
-   "sha256": "e62a99c437622d4958849cf14cb91c3395084a9bc6395dc95dc4bdbf52a2dbe5"
+   "bytes": 275237,
+   "sha256": "59dd839a7c4e6b350b24f475c794e7123640b8ccb7a73f36657d163bf11d4995"
   },
   "site/assets/film/1080p/seg_054.m4s": {
-   "bytes": 39326,
-   "sha256": "46545f96130f39800c403e1492ceaf52bd9e53f6c72a588cc3c7cb3493f45d32"
+   "bytes": 39345,
+   "sha256": "18e0afc9774d6fe2c815e96d524265081e8468347752a5675bf6d214139dfdb7"
   },
   "site/assets/film/1440p/index.m3u8": {
    "bytes": 1817,
@@ -517,227 +517,227 @@
   },
   "site/assets/film/1440p/init.mp4": {
    "bytes": 1383,
-   "sha256": "f77d76ca3bebe35789f4aabb8f5eaffe6f1bac5e0428b4a5cf3bf40dd10ed497"
+   "sha256": "32af18b8ca53c88ce45e1c977c6c6c37da5899b07cf0ae18971ffff63a2eb87e"
   },
   "site/assets/film/1440p/seg_000.m4s": {
-   "bytes": 2507151,
-   "sha256": "37ef95fee279d97a3928896b07673b81d38c55e4da1c11df3504f57464b1dc87"
+   "bytes": 2461691,
+   "sha256": "7ee2da0c239a519e5d999c2ab4b235b1477b8e98c00aa1bd633f701de1f007c9"
   },
   "site/assets/film/1440p/seg_001.m4s": {
-   "bytes": 4836045,
-   "sha256": "2001d98d3a6775d0eedab3f97d0cc4689c7785c211c3a07950f9744103fa3f59"
+   "bytes": 4865017,
+   "sha256": "7d1a615fed387fd14a15948f29beac027dcef56a77f91342b1d862ced31c2912"
   },
   "site/assets/film/1440p/seg_002.m4s": {
-   "bytes": 1486093,
-   "sha256": "b488632e4ee64a63c9794a453310222679aedaf9d777fca616f00892132891b7"
+   "bytes": 1529479,
+   "sha256": "5ae93a85c4f4a9f40bc37042311a3243581c8878bd1af20130cd02710c991ddb"
   },
   "site/assets/film/1440p/seg_003.m4s": {
-   "bytes": 3358552,
-   "sha256": "dc5c45c2be3bb49d974daf379ec901a76b9ff8611b1e0e25c106aeb86b0dcca1"
+   "bytes": 3360394,
+   "sha256": "a55c066962fc05cb4406dacabb986c4176a02e921de9391fc1cc611accc89fec"
   },
   "site/assets/film/1440p/seg_004.m4s": {
-   "bytes": 855338,
-   "sha256": "52a8f42f4778f666952c467e21f0222fa4d504bafa8acfeb4dbf5ab0d4717f93"
+   "bytes": 862832,
+   "sha256": "554f1f00d94e57c9707094ff248ae0e3be9fd20d877b79678b670e312a4db4ed"
   },
   "site/assets/film/1440p/seg_005.m4s": {
-   "bytes": 3541156,
-   "sha256": "ffc6fe13de19413049867f68eb021eb8365f47358d540280bcc369e76b951b00"
+   "bytes": 3547227,
+   "sha256": "93f7299c6f7277ed6d2d5493c345c23085ecc38ddd8ac9cf2c4cfa10ff905fb9"
   },
   "site/assets/film/1440p/seg_006.m4s": {
-   "bytes": 1026517,
-   "sha256": "ae52312e0f1cda3846fbc310e9858aadda5ccf0f99c03e2314a94a1b814cf91c"
+   "bytes": 1044814,
+   "sha256": "5fa5fe0b3c47ef74bde6f9fc608217722156fb09be51adf4a682846ad78f2e4c"
   },
   "site/assets/film/1440p/seg_007.m4s": {
-   "bytes": 2927761,
-   "sha256": "4536299c82fdf7df80af6724799f2d025384aa8066f01de3c545d7c44b29a3c0"
+   "bytes": 2955540,
+   "sha256": "1af723d85bbe96f05aaa5056afe427ccabafa24e041c071de359fd2dbbfe1735"
   },
   "site/assets/film/1440p/seg_008.m4s": {
-   "bytes": 1404777,
-   "sha256": "cecb278964584479e7d7c3707017a7cce9389cc1871c95c2225cee6c93a6b553"
+   "bytes": 1419084,
+   "sha256": "95b24b95e02af37cadc5bdd900b7c6cf6aa15b71411b3882752588718a6625d5"
   },
   "site/assets/film/1440p/seg_009.m4s": {
-   "bytes": 2058314,
-   "sha256": "e6cb50303866df0681fcdda77d045f040397ffe9597f093548334280cfebf0a4"
+   "bytes": 2104507,
+   "sha256": "5b2daa3c9e019bd998c53a8c546f018cb63442d13d1783978fc980d0578f3f32"
   },
   "site/assets/film/1440p/seg_010.m4s": {
-   "bytes": 2156210,
-   "sha256": "e1049c9c35ada7d8be2a5c6d7b9b2fe5462f29acecf82cfe9b6ffcd83d61f58d"
+   "bytes": 2103987,
+   "sha256": "750019aa8a2b066b92964754b8fcdbcd98bdf1b017a7da76d400814a45a04b8f"
   },
   "site/assets/film/1440p/seg_011.m4s": {
-   "bytes": 2093432,
-   "sha256": "ed55337770ded1312a9eae335291f4ab5182f80a8a226041c8e881c893135a4c"
+   "bytes": 2042509,
+   "sha256": "659eefe7ef90522dce880bf0a6da6c7a9cbccd1bd796b14dd9a4f5faa25743e8"
   },
   "site/assets/film/1440p/seg_012.m4s": {
-   "bytes": 931902,
-   "sha256": "ab11867387e658ef053542ed3be928790142aa30f1cb66073a5c242f91d0bb97"
+   "bytes": 922057,
+   "sha256": "ddc074b3fce9c2c7362ed4f10b0b1731030764f323512e3e6a01f53837f2e426"
   },
   "site/assets/film/1440p/seg_013.m4s": {
-   "bytes": 2274433,
-   "sha256": "f82d4eecf1496b9c358505713a97a6579bdd35b84b9384ca270094c7d4961d23"
+   "bytes": 2353317,
+   "sha256": "88ec8e2cc8fe1423fb7df6a6a1d506684f84c2e98c4d331fb25b8727d8c0bca5"
   },
   "site/assets/film/1440p/seg_014.m4s": {
-   "bytes": 4487743,
-   "sha256": "7edddb12f5878faff82bc6623a91b86c07771ea9f608adf9d6f7b36c5b2f6b03"
+   "bytes": 4594814,
+   "sha256": "4acfbb732ff7a4714903799164e0a7aba0364e12f9ed7498ea3b05087d12473f"
   },
   "site/assets/film/1440p/seg_015.m4s": {
-   "bytes": 3069209,
-   "sha256": "0709b0187175123b9101b99de3f97a9b0a8ed7a883395dc7dc94b3228c3ab61b"
+   "bytes": 3055597,
+   "sha256": "20832eed8d17743aca5b533d8a52f6c17812831d5488d07274385ee01b6924c6"
   },
   "site/assets/film/1440p/seg_016.m4s": {
-   "bytes": 3699126,
-   "sha256": "83d6beb5e22c421fd152f21295a6b5c20cfd16ba0b55210ea1d4a228008330a8"
+   "bytes": 3701852,
+   "sha256": "97419740b286b962904cdb46d8bbb791289dbf095c43baa9372094963ba09b72"
   },
   "site/assets/film/1440p/seg_017.m4s": {
-   "bytes": 2960892,
-   "sha256": "e05afaa354d978b51fed3a6a819228d741331de4fc253b3e99e6345dbd1fec45"
+   "bytes": 3229246,
+   "sha256": "c208f4e2057fc0be7c73b7dff5ab5b017fb29841a6b1eda4364ac3a2af070c6c"
   },
   "site/assets/film/1440p/seg_018.m4s": {
-   "bytes": 4521872,
-   "sha256": "1272ddd2685ca1f9b2b24ae5fae07a9a39a56a7b5d47adc55ff42ff9a195aded"
+   "bytes": 4701440,
+   "sha256": "b71f904ea41233adaef0fe35ed92fdb321d6d8adcd4f0a234f62cafcdc4eeede"
   },
   "site/assets/film/1440p/seg_019.m4s": {
-   "bytes": 3250818,
-   "sha256": "e2eee8e61766b640156f22dd08e80ca5407c6f983db83117572090a7161bec70"
+   "bytes": 3539929,
+   "sha256": "4c33d009e59206e19d657a402c6ed257837265a707eee9e6df555f63b624d596"
   },
   "site/assets/film/1440p/seg_020.m4s": {
-   "bytes": 2728309,
-   "sha256": "a26e8051ea9aaaa3d4fa2ee9c02fd83444b52cef0ca2036c6644f68a2f77a091"
+   "bytes": 2707335,
+   "sha256": "08f07b3ad1ee846fc56493cf339631dadd7bdc8acc5173c46564964bf1562716"
   },
   "site/assets/film/1440p/seg_021.m4s": {
-   "bytes": 2157133,
-   "sha256": "7853f7125bcd76b126f84fe107ab60c2191bfd5ec0e571d734740cf6e917c446"
+   "bytes": 2164376,
+   "sha256": "55776e21f4f0e43a85b552c6bff952f2a16e5497cf901c4ba53415fc0d23d2c9"
   },
   "site/assets/film/1440p/seg_022.m4s": {
-   "bytes": 507542,
-   "sha256": "ceb2bc6a733eb1daa7b86af720f6c1eecc879614f9adffbbc18f30b9e0c9a4bc"
+   "bytes": 519864,
+   "sha256": "1b08e301036902be1e8102a96af43a717add92c85f699aa328fb41f091b46124"
   },
   "site/assets/film/1440p/seg_023.m4s": {
-   "bytes": 2373804,
-   "sha256": "33b83461e88f6736529946d852eb6a8a23eafafcf80dacf956e0450d4a3bb8fe"
+   "bytes": 2357514,
+   "sha256": "5bd0c98818227a623e65660d20c829c60094e2a1f08053afc73a1e94d026ef89"
   },
   "site/assets/film/1440p/seg_024.m4s": {
-   "bytes": 1073593,
-   "sha256": "951c6bc8fb87318f5ba5149bb61765c5b4323c4aca2cca643ff715ed83c6dd7e"
+   "bytes": 1055670,
+   "sha256": "3877d3d87db2f29c02b8b8be69c92f5d32e042e73e4452d8c848fc798a83c6c0"
   },
   "site/assets/film/1440p/seg_025.m4s": {
-   "bytes": 509465,
-   "sha256": "194d945fa91501735787f64cef596ed329ceb32f8de9acf4a0b0545e47ddace6"
+   "bytes": 501584,
+   "sha256": "845d67e496ae259d65fd2ffc3520c8a53591d62ed949f782a45b3b5cce73a682"
   },
   "site/assets/film/1440p/seg_026.m4s": {
-   "bytes": 824682,
-   "sha256": "82f32afe9608afce0035c3bf7719ca9acb4a2db855d963250f1ece82cce7390f"
+   "bytes": 817627,
+   "sha256": "1f20973457de055037e5329fb26e39d86dcf2ac6ba6106c34c67576d0e3acf6e"
   },
   "site/assets/film/1440p/seg_027.m4s": {
-   "bytes": 1307851,
-   "sha256": "e0f953dbcb246048788e58404fc202964ef083184e0be5c9e91a73e658c93e72"
+   "bytes": 1294021,
+   "sha256": "cda6db70446d76a451ac69a127a22ce62d4b843582635a19c6f322a249738433"
   },
   "site/assets/film/1440p/seg_028.m4s": {
-   "bytes": 1119687,
-   "sha256": "2911039bacb3267ded4d1e961c6c53818989e6327b6badc4a24f2606c23208e6"
+   "bytes": 1086093,
+   "sha256": "26153161d334851f635d2e3a8562f01d36f7e334ac1759fed147b97e15aa7bb4"
   },
   "site/assets/film/1440p/seg_029.m4s": {
-   "bytes": 1552844,
-   "sha256": "b90f5dff90f5d15a713a6be403f8560b3ee82621b1407757325b995fef3bd6a2"
+   "bytes": 1550920,
+   "sha256": "bc26eab935a832e8cb8ea90423066049ab9507b24634269493d52f2dbc0ed922"
   },
   "site/assets/film/1440p/seg_030.m4s": {
-   "bytes": 475334,
-   "sha256": "b91bb70e046341677640456150297ddfcdaed34f563b501c48100a2932bba656"
+   "bytes": 480973,
+   "sha256": "9ab6767c6181b9feb37217179fb80c07a1052efd08bd33efd1732496c408e997"
   },
   "site/assets/film/1440p/seg_031.m4s": {
-   "bytes": 1599637,
-   "sha256": "6ea763e7464089bd0f38545e748f748655cb42e16631b2410b419b20c5c68958"
+   "bytes": 1587712,
+   "sha256": "4e47cd436600cd046a3157b2cefea327bf3c09f14c5691ba3bddc09b3de55cdb"
   },
   "site/assets/film/1440p/seg_032.m4s": {
-   "bytes": 1612216,
-   "sha256": "eb20d9d7d7e4a588fa092aafbaa7045db35927e54fef37ea37239068b8b0cbd1"
+   "bytes": 1540091,
+   "sha256": "cc62c26019531983cefa458ad5c5b965121d6434611af6ca9574a58e92c8ddfa"
   },
   "site/assets/film/1440p/seg_033.m4s": {
-   "bytes": 1309932,
-   "sha256": "0918a79d188a44b3b32ca4b9442be014f6ccb7c9699c67db1d3b63436a58763d"
+   "bytes": 1288121,
+   "sha256": "5b5bf45fc5f81c2eaf37791f2d19e0e67d2ad5cf4f254baeb3882ac6cd5419df"
   },
   "site/assets/film/1440p/seg_034.m4s": {
-   "bytes": 1564746,
-   "sha256": "86c717d98804e50b8ce3a99f4649e14aaf3f6a11b7b54c9129dd8fa553a1e04d"
+   "bytes": 1506403,
+   "sha256": "65d16d79fdaa9e64dcc4d07caf80fefffbbffc1ede4ac89720c6399fc2e9fa16"
   },
   "site/assets/film/1440p/seg_035.m4s": {
-   "bytes": 1098616,
-   "sha256": "deba305fae7441915225ba02a512ace88f11d9aa82b13e5277f61e3b1a6f027d"
+   "bytes": 1077101,
+   "sha256": "89236f1c6ecc4c40b2c05132b92fb889fe49962c09399a464f4f1ea910c857ce"
   },
   "site/assets/film/1440p/seg_036.m4s": {
-   "bytes": 2019024,
-   "sha256": "556541eabda58c8f52322a99b42fc692686be1e681f06bd403f6bb5912565c47"
+   "bytes": 2016278,
+   "sha256": "1b94de9c25332a0f453dd7d7a3eeedaa03bd9f8ed4d792672bbe4d5bea3dbb39"
   },
   "site/assets/film/1440p/seg_037.m4s": {
-   "bytes": 1080975,
-   "sha256": "e71791053259e8819f3c5a0b0914e035118738255b7e28b9675a62fea3721632"
+   "bytes": 1097760,
+   "sha256": "083919e12ebe3a8d5a5f1f61f472c3e78d6f273763d0368191793abc19330d7e"
   },
   "site/assets/film/1440p/seg_038.m4s": {
-   "bytes": 3503348,
-   "sha256": "5996a266a60d62234d7c19aa4f201ffa919d6e5c030fef709bab72986c0114fe"
+   "bytes": 3472637,
+   "sha256": "ded8da7bba65be188fd66e30036ee707bdbdc3259dc9b1e25a315e2c6385cc6b"
   },
   "site/assets/film/1440p/seg_039.m4s": {
-   "bytes": 1234848,
-   "sha256": "4c1a9a1fd22c9d87886006d01771483aa2d3076f34e4d639fa73fb4a30da1882"
+   "bytes": 1235308,
+   "sha256": "4ab62cd3bf9242a582e80992de2da886bfd80832815129f99b3680eea5cf418e"
   },
   "site/assets/film/1440p/seg_040.m4s": {
-   "bytes": 1390372,
-   "sha256": "1208b7c4ad6a02414c249ca79415653a623138505337164d8e0496233e621e1f"
+   "bytes": 1385686,
+   "sha256": "b17e7cbcdfb131d6fce9c5d77844438ae9a5bc7da9b515a704fb0344f652e621"
   },
   "site/assets/film/1440p/seg_041.m4s": {
-   "bytes": 2602047,
-   "sha256": "69d091a9d7c78089888838d195ea194dc9547ce40c7cfd19db2a36fa3c6daf88"
+   "bytes": 2549262,
+   "sha256": "865ccb550cf227ff637e3713690083714192eb7bb6f6413260b806d12e58e421"
   },
   "site/assets/film/1440p/seg_042.m4s": {
-   "bytes": 937304,
-   "sha256": "a1843312db14cea1f5476830766c9632b69a0735e8aaaa09b9984bb4e9c9a6dd"
+   "bytes": 925840,
+   "sha256": "398dcb876316c10b5af63a7d3ab7aa78d1c620d258fccddc5e7a82d769ee7437"
   },
   "site/assets/film/1440p/seg_043.m4s": {
-   "bytes": 397093,
-   "sha256": "876d780264991380b8513c278b32928a915ebb345133c91394a0d8a03862a3f3"
+   "bytes": 404548,
+   "sha256": "b499ed2cf3dd67767b54e9891d2f42f7ffea6ae529d410998c9976fc054cd3a9"
   },
   "site/assets/film/1440p/seg_044.m4s": {
-   "bytes": 1871878,
-   "sha256": "a120edff30f7f35debe5e268fcd0181a706c1a20532299b7dcd2759d1d92b7a2"
+   "bytes": 1785949,
+   "sha256": "4e6153031c2bf688b9041201f7c9c55c928bd1cf8b81e848d1b8bf74648c1ca7"
   },
   "site/assets/film/1440p/seg_045.m4s": {
-   "bytes": 5181496,
-   "sha256": "d6ab9726994e5508209aebfdb283fa0608c7c6b86f58d179b6d90bdb329e0c10"
+   "bytes": 5074879,
+   "sha256": "b2e10f571462c425874600ca0c6b04948f24b61c2868b8daa51704accb8fd8fc"
   },
   "site/assets/film/1440p/seg_046.m4s": {
-   "bytes": 1314914,
-   "sha256": "01e2b5dee15b2fa472dd137b0803496ae87a982e43c09dbba28d72148c5eded7"
+   "bytes": 1303160,
+   "sha256": "ecf71e89f5eb6630ee6fc05ee4dabb40d71f8a2b6c030f5b58eebb4fe11a2788"
   },
   "site/assets/film/1440p/seg_047.m4s": {
-   "bytes": 4090968,
-   "sha256": "f01c3ad64c7f41cd3872ba4240c2a9f270472c57a241c1ff24f1b2b8117fe772"
+   "bytes": 4037411,
+   "sha256": "d2487f7bee3be89d9f93033ae5b4a5a218f26cf68702d0ed132243d1c5e0f74f"
   },
   "site/assets/film/1440p/seg_048.m4s": {
-   "bytes": 902295,
-   "sha256": "d49a7fb3089f9f3879cd5434c3a9927b542ba01c4386adaed1a22828b2238adb"
+   "bytes": 914073,
+   "sha256": "a01f2578836397e42bd6b331fd98b214ff177d3d779233bd8f27615ea101d666"
   },
   "site/assets/film/1440p/seg_049.m4s": {
-   "bytes": 2528607,
-   "sha256": "458cc0d126df1cedf9e6b3087ce3163f888181b60da719f178e911dcaaf4b910"
+   "bytes": 2558582,
+   "sha256": "fbc34087ec6a09a3d12f7ae5ca6beb427b966e60007dd05aec859e772230435c"
   },
   "site/assets/film/1440p/seg_050.m4s": {
-   "bytes": 291570,
-   "sha256": "e8eeb12477cd548cfb88c4dfb17cc742a055d0d32b02fe5dcd6e529c757e09fa"
+   "bytes": 284275,
+   "sha256": "902921ce36c38c1a76fa116dd69eb276e129c24c897be781e44f3ea288735492"
   },
   "site/assets/film/1440p/seg_051.m4s": {
-   "bytes": 535044,
-   "sha256": "094adbd8cdff1222b03ee56d24cee68382d618125014c3efad7a1d84a55e3050"
+   "bytes": 542322,
+   "sha256": "56e9cccb4ddac6b40942834769854c2a0f75658f864d3e354ddfd9f86a71bbf1"
   },
   "site/assets/film/1440p/seg_052.m4s": {
-   "bytes": 449435,
-   "sha256": "dd8ccf6cdb61f5c57d3a4eb445f8df075b01bc583de7648f3eedeb07dc4d898c"
+   "bytes": 451798,
+   "sha256": "d7a0193b489c0fbb6b2164c2aefb343d827a9ca3acdd158d59f844de06800098"
   },
   "site/assets/film/1440p/seg_053.m4s": {
-   "bytes": 384002,
-   "sha256": "dfbdffa70b7697a3e15f7fee76740d8718df7f23668544607219015c94418130"
+   "bytes": 383654,
+   "sha256": "16bcc425a59e6ad9c80ef6be4833fb15eec1e2f5d946b2881b16638570c893e8"
   },
   "site/assets/film/1440p/seg_054.m4s": {
-   "bytes": 42657,
-   "sha256": "681b55f88b43622276a07b2f7758d9d5790a04dd392eee06be24676974dfc7a2"
+   "bytes": 42683,
+   "sha256": "a62aae7f108b3b36f73287d6dc6b56fe238f44763bd20f08e76c1f5059385600"
   },
   "site/assets/film/2160p/index.m3u8": {
    "bytes": 1817,
@@ -745,227 +745,227 @@
   },
   "site/assets/film/2160p/init.mp4": {
    "bytes": 1383,
-   "sha256": "f3ebfb67c583a30907be807db7ed6f14218296fa54c8a17ff20eda4e46604a33"
+   "sha256": "e48abeac966e72f4fb33b5bad9e68be6ed196fb203995ba047924f151a3a5a81"
   },
   "site/assets/film/2160p/seg_000.m4s": {
-   "bytes": 4170447,
-   "sha256": "7db69fd32db62afea13400fc69f42c8ae68e05152940baf75e4d2423f897ccd4"
+   "bytes": 4064959,
+   "sha256": "1d147cca03dbf1d76581705ca74f956220fbeefbe8ba0411641b5821d99bb0aa"
   },
   "site/assets/film/2160p/seg_001.m4s": {
-   "bytes": 7718883,
-   "sha256": "5aa1e2d0e571b3928ce3e334858e5654827879f1119e331c96d5e6b62cf92419"
+   "bytes": 7698523,
+   "sha256": "bfd46ab0f5bea228cac7dbc000bd320faee5c5c0b8e846a57e7db3ac68addd71"
   },
   "site/assets/film/2160p/seg_002.m4s": {
-   "bytes": 2634069,
-   "sha256": "491aaed4be0a4a21c30e238e0f6a57f2afa0c9cf120949a0a994e6cc460ab717"
+   "bytes": 2654184,
+   "sha256": "425234148712b29763fd85e738ef64bf8580cd283c9cea57f6b1d9685dd981ea"
   },
   "site/assets/film/2160p/seg_003.m4s": {
-   "bytes": 6038597,
-   "sha256": "24468a14d78a0f822a0df1b3a9504e3207f2ea9b1b142db4dd2d83b396454060"
+   "bytes": 5908653,
+   "sha256": "ccd088044f4db3ac08549eef3ee641c43ad2a373afbcc250a2e726fa4820aa40"
   },
   "site/assets/film/2160p/seg_004.m4s": {
-   "bytes": 1389406,
-   "sha256": "427e4592825476b96fef5f8fc2239db74cf094fd15abbc17218a502dd8d9804d"
+   "bytes": 1390585,
+   "sha256": "1876df82633078d478bc5b09d996bf19ce19e67f29600af8da243e3180a820df"
   },
   "site/assets/film/2160p/seg_005.m4s": {
-   "bytes": 5872260,
-   "sha256": "7c001016b9d0585c237dbda219a7c21fc2c09fcc9f8f65069567dc034ff81d0f"
+   "bytes": 5788911,
+   "sha256": "47b3530f09580ff096f6c2a16a55a633e05116a5ba183188154d804e72c7d290"
   },
   "site/assets/film/2160p/seg_006.m4s": {
-   "bytes": 1593414,
-   "sha256": "2d22c4719297887a2a54a79b40b3298059787e126dd03f33684c331ca0efd84c"
+   "bytes": 1628511,
+   "sha256": "1fb22417ad3f516c0622771e4fb9d4e6e1fe6b305b4bc76ebc49934edb683c5e"
   },
   "site/assets/film/2160p/seg_007.m4s": {
-   "bytes": 5651635,
-   "sha256": "f67ab3035ddd0f0b7f67fec29bfc0bcb2aeb281fd7a3b37ebcef15b39cabd4af"
+   "bytes": 5226490,
+   "sha256": "0e2706347d7c928a36382feb12839789d3b6d94df91d0eef3a1cd4ffba99d822"
   },
   "site/assets/film/2160p/seg_008.m4s": {
-   "bytes": 2344877,
-   "sha256": "7c78d5b4175d42af1fa2b8f3a679b724cde812e566b28e3d5415dcb4860a3908"
+   "bytes": 2321407,
+   "sha256": "98eed4b1dbbf2c5868158095fbb7ae063fb09b453f3a353c98513d123609e8c2"
   },
   "site/assets/film/2160p/seg_009.m4s": {
-   "bytes": 3480005,
-   "sha256": "bb85dc7d8d3de92eb3c1f4336aef4920022d557ae85132a01d81c9ed3bd95636"
+   "bytes": 3506791,
+   "sha256": "0cf7ea8b45919b276fa7d48f81323b6d9e40b6fc076ebe5ac9e084a4211ac412"
   },
   "site/assets/film/2160p/seg_010.m4s": {
-   "bytes": 3421454,
-   "sha256": "7c5b588989e73fe9206299e68f2f3963e95b62cf93c4eb4874f3a45276a23a37"
+   "bytes": 3341822,
+   "sha256": "8b6002f6d92b9db604de37ec1db162f1eb3250301ee006abd8c74bd2c0873875"
   },
   "site/assets/film/2160p/seg_011.m4s": {
-   "bytes": 3700161,
-   "sha256": "e987a1961752aff299a68e51daaaeba732d5ee33bcc1a5becaaa0691a9334ee1"
+   "bytes": 3783432,
+   "sha256": "7e6c6e8f020274abce10fbd33d04b664c302b3af3baad735946fd0e426d3a81d"
   },
   "site/assets/film/2160p/seg_012.m4s": {
-   "bytes": 1399533,
-   "sha256": "582d571ee3ad99ec15f6a8587d449dc707231e7b737c8a2447789b6da0d6c810"
+   "bytes": 1353949,
+   "sha256": "2249192533cf3e129b13b0230c16c60aa769b1270931e8cefff633d2b1f61396"
   },
   "site/assets/film/2160p/seg_013.m4s": {
-   "bytes": 3965432,
-   "sha256": "a63f2f6d4385563f2aeb11ac9da9c5cd38c979360b055fd9c045b077aba2354c"
+   "bytes": 4165062,
+   "sha256": "5f40fa25a5aab1f4a38d4a956a4567638e32b4a87cf2c023306528d603e1f81e"
   },
   "site/assets/film/2160p/seg_014.m4s": {
-   "bytes": 8038040,
-   "sha256": "fe4ae19ac3fe9c90466afb5e98ffde5264efaa56e512156ff1f5bbae0e97b0f5"
+   "bytes": 8351650,
+   "sha256": "03223b181182d1772594c248cb9ba5acaa4bd71d8bcc23dc6c8e7d248374f87a"
   },
   "site/assets/film/2160p/seg_015.m4s": {
-   "bytes": 5202805,
-   "sha256": "fb4b1892b7cba1afaff175cdef236174eca578275bb8453ba72a21b2e257479f"
+   "bytes": 5261130,
+   "sha256": "0b09b6f36f87e26f2c729c08ba7ef0c562abc1dcfee72c234d7828cae7331840"
   },
   "site/assets/film/2160p/seg_016.m4s": {
-   "bytes": 6541490,
-   "sha256": "14808e5900c0fb9b7954db73d181aa23312735a9d9427697e0956138f8651710"
+   "bytes": 6632598,
+   "sha256": "066e94171cf0734b25490edd51f698ce7d6505dbbf12492515d2fea611c588d0"
   },
   "site/assets/film/2160p/seg_017.m4s": {
-   "bytes": 4909398,
-   "sha256": "1c760bd009a2c49a9b3ce3aec805beb210993e9fa50c574885d1d3bb86305947"
+   "bytes": 5023292,
+   "sha256": "c3be6bbcdde8d236baeebb572bdc6494231116b70642bc6c5fbed936d7372953"
   },
   "site/assets/film/2160p/seg_018.m4s": {
-   "bytes": 8194943,
-   "sha256": "02ae7ce258a5ff27e4e1c90debb2748658e4560d65c5486d284035f7c9ef66e6"
+   "bytes": 8448501,
+   "sha256": "38d6d2b02651590ed0a1cd3742e31ae43aa779a713bfb33ee7d16d986dd925e7"
   },
   "site/assets/film/2160p/seg_019.m4s": {
-   "bytes": 5259105,
-   "sha256": "df3d25119feff49aa78dd4d5cab9d6b8ef2e99d1a629d735ba3cbd2810bf5d88"
+   "bytes": 5831145,
+   "sha256": "b6b1194a883dd53cc5f6af3866a07ed36eaea9dbab4ff7b9a5cb711a53835552"
   },
   "site/assets/film/2160p/seg_020.m4s": {
-   "bytes": 4571909,
-   "sha256": "9c40473b947a2b1aafe46e14ff262eb8d4c266d313ac9bd2275f66d733e628b4"
+   "bytes": 4684047,
+   "sha256": "c0a6e71cdfcb6e589c94832fb73344cb09704a886b63e24e32e6de6dbe9d6ae7"
   },
   "site/assets/film/2160p/seg_021.m4s": {
-   "bytes": 3262505,
-   "sha256": "869e99ed240f3b530cff839ad4073dcc5b8fa57e64e16d43f4ebeae8bc0e062a"
+   "bytes": 3188896,
+   "sha256": "c188426fa7fdaf2c934fd4afafb46f855f3efd8e992a83dd2186357b19695e2b"
   },
   "site/assets/film/2160p/seg_022.m4s": {
-   "bytes": 766193,
-   "sha256": "cd623f4be2385aa43667dfe93c077ef7cbb62ac5a6e12045ccca4d7b574c39f9"
+   "bytes": 796990,
+   "sha256": "62d02bda422677f7e7c01d6655f06069875f3654d3bdfee176b3529365a0571f"
   },
   "site/assets/film/2160p/seg_023.m4s": {
-   "bytes": 3878914,
-   "sha256": "0dc7683ad5f216d030262b1933438b371915215994e15b09e7dff08a72f22995"
+   "bytes": 3794931,
+   "sha256": "aab127af59bea015e44c5fc5a1dd9dd99663913d0d9f2a00840a0c79aea2e376"
   },
   "site/assets/film/2160p/seg_024.m4s": {
-   "bytes": 1596834,
-   "sha256": "ba0f793273d70f5b112f64f81155cc0778bf39e94cd9ef613d91a1930d3fad0b"
+   "bytes": 1576972,
+   "sha256": "4b03a46e95b9ab1831f01bed2371f2d5a9025c1f8c54a630b6235add005ce0f3"
   },
   "site/assets/film/2160p/seg_025.m4s": {
-   "bytes": 755092,
-   "sha256": "0db293eedfad620a9f2898b728accaf9afa5a7fb915e165a5516b44baaa7e349"
+   "bytes": 742795,
+   "sha256": "86f87fbf79f4b291ddfcfb4cb5ba021fdc11d2633e44696c4116ca3ad2a511b5"
   },
   "site/assets/film/2160p/seg_026.m4s": {
-   "bytes": 1418883,
-   "sha256": "6540387418368236d77a301042b0d5191b2f1629d310050c36f0017494b4ec61"
+   "bytes": 1381151,
+   "sha256": "94828f6c3375df3697673b55d7a7ae1c6bfaccde0a93ac7834fcfe13fbe0dd0e"
   },
   "site/assets/film/2160p/seg_027.m4s": {
-   "bytes": 2420735,
-   "sha256": "3e7ebeb9887f27aa6615ef14d14baf56465beece741ff8b2d1435faf854efcfa"
+   "bytes": 2452450,
+   "sha256": "47bc9101c4d08fef0588dc1d6eb1a53769a8d1bf25d6896288bbcd04ce8b6024"
   },
   "site/assets/film/2160p/seg_028.m4s": {
-   "bytes": 1785195,
-   "sha256": "ec264dd139e5adc616aeba2104bdc7ce857652f1d1235fad26e81d230f18283e"
+   "bytes": 1720175,
+   "sha256": "9a63b9e08923b8cbcccc54499fa600be7480cb10e7e2d969aac4010a85ed987a"
   },
   "site/assets/film/2160p/seg_029.m4s": {
-   "bytes": 2522650,
-   "sha256": "61d3403f83ffef27246f47507223ddfa2c1c2bcb03cd53fff091f2960efb740e"
+   "bytes": 2558495,
+   "sha256": "83220bfc5f36b71315de7257b14731abfc0c255e424d6f063b74f9308d2434e3"
   },
   "site/assets/film/2160p/seg_030.m4s": {
-   "bytes": 683338,
-   "sha256": "ed77142c5cf210ff530287ae4abf78602e8b0425d5d1741117b408c96850c251"
+   "bytes": 697860,
+   "sha256": "91d48a14579fb39e3e88574fd53efb63601bf9962a8d2f9aabc660d8204474e7"
   },
   "site/assets/film/2160p/seg_031.m4s": {
-   "bytes": 2467100,
-   "sha256": "4ec427cfc1b3864ab29dfa52544c77800094c5f2be75d370f96ced3ae088f11d"
+   "bytes": 2327936,
+   "sha256": "ae731aa451f349696d07e73af457f77d756972ebfba9ac14ba63536542564ca7"
   },
   "site/assets/film/2160p/seg_032.m4s": {
-   "bytes": 2736945,
-   "sha256": "e8b0fa89732c1c2bc69b1337cdff00fd41484f23a048b8c954e62a9126582656"
+   "bytes": 2637911,
+   "sha256": "8e64b766997b325d45c4d4d1f1daf346a9c782c7e4d63cc728ab3a6a5f8485f3"
   },
   "site/assets/film/2160p/seg_033.m4s": {
-   "bytes": 2284904,
-   "sha256": "e7954b712350ded2c35faa2385ccedd20fae3291dbdcb81f340d05ebc7703c9f"
+   "bytes": 2278909,
+   "sha256": "43d4c0964f78997f8a6fffbd9cc6ee9f438b18775ec75e158281ce4e0715bdca"
   },
   "site/assets/film/2160p/seg_034.m4s": {
-   "bytes": 2974412,
-   "sha256": "31195bc7dc855dfbb7d002e4bdd46f0d68e73c1312b9513cf2fac2c94515a2c1"
+   "bytes": 2832426,
+   "sha256": "a7f49f12f9925eb340de6bfea5fda1f12e55678ec6a7698046f01bb9f8eac5bd"
   },
   "site/assets/film/2160p/seg_035.m4s": {
-   "bytes": 2070504,
-   "sha256": "07dad008e451cbb9320e368a993cc5e2cbb7c3ca85f589ccceb59bb402e501a5"
+   "bytes": 2000757,
+   "sha256": "d59e970441bc1128012a8d97ba06b8c6a06ea45d4f731f8af9185667b7eb2ee5"
   },
   "site/assets/film/2160p/seg_036.m4s": {
-   "bytes": 3537056,
-   "sha256": "a9aaa5e1c4e501224a8ba5aab6f4db27abb2abce120d114eb8e32f93bd7945df"
+   "bytes": 3543208,
+   "sha256": "6f84bb17aff4755c92a4e407597a54ac728e224152d3c82ed485eb322c0583f0"
   },
   "site/assets/film/2160p/seg_037.m4s": {
-   "bytes": 1711257,
-   "sha256": "3b391bc5642fb6060c1911170d4bffe039153f8f4717e04066eeeebde2de4973"
+   "bytes": 1736434,
+   "sha256": "51be95deea8c286a7e5fc8dbfa1a91823cd3aa076fecef44504b1930f07f2713"
   },
   "site/assets/film/2160p/seg_038.m4s": {
-   "bytes": 5788622,
-   "sha256": "f8c92d20cef0f266a526b4d3369cad5a105ad8e2e73326a96aa2a9b72fdad2e3"
+   "bytes": 5754846,
+   "sha256": "d721860548905a3218f3c2fbfdc36523ee345fd1b35be258f721ce47114789e7"
   },
   "site/assets/film/2160p/seg_039.m4s": {
-   "bytes": 1879434,
-   "sha256": "9c74ecfb4277543f6dfc8b6ffd19e371e6fe91f6c413a16e97b6eabd4d4ca927"
+   "bytes": 1881124,
+   "sha256": "33fbfcffebda7a65f06c50ddd2908e497c564dd48063b3451bebec59d85f3d7f"
   },
   "site/assets/film/2160p/seg_040.m4s": {
-   "bytes": 2188783,
-   "sha256": "6b3c2eeb6e36a694460c40e698206c7feb50717be2a9f2bb3b7baa35d545ee3c"
+   "bytes": 2191648,
+   "sha256": "1665aec7ab998aee6cfc3f21cbbc6d86717a4b3bf1825fd7a9884e9a5570cb8c"
   },
   "site/assets/film/2160p/seg_041.m4s": {
-   "bytes": 4509486,
-   "sha256": "43829e020fd1fd6b92d3e516295608fbd08c32924332863969fc2ed07811f643"
+   "bytes": 4443316,
+   "sha256": "8fd34f7f286c5b8093b36984b51fc4d03d09b52b871ba33704b8a588fde0ee05"
   },
   "site/assets/film/2160p/seg_042.m4s": {
-   "bytes": 1444504,
-   "sha256": "6801a5ff70544a6d97480931092f651b4325185af1dda071f7da1ff837fb10e5"
+   "bytes": 1419585,
+   "sha256": "8935cda4d4a22e4481f3b812eb5e331e74f12dbdeaa045b9ffd8091827c8541f"
   },
   "site/assets/film/2160p/seg_043.m4s": {
-   "bytes": 551768,
-   "sha256": "d09e7b8c284b431ce6b52e4aa185898af5ec792dd2d728af8ef87105ac68d3bb"
+   "bytes": 561117,
+   "sha256": "97eb806dfc2adc8115c4c410dc5a0f30cbe5f3d57259d5e3cbbd3ed32d5a1b02"
   },
   "site/assets/film/2160p/seg_044.m4s": {
-   "bytes": 3259412,
-   "sha256": "a02c449997cc36e6112a8f43cd9eed5618d39502e9aef2f3777149322a75b5b8"
+   "bytes": 3156018,
+   "sha256": "cde21b10530e859ffb407cf4de29c01b002f6af27a6d1664f25ebce043625b4e"
   },
   "site/assets/film/2160p/seg_045.m4s": {
-   "bytes": 9172722,
-   "sha256": "d5e74f382935a89e51ea7085d21f2ef1aa12f26dbcd698dd98624bfcbdb977db"
+   "bytes": 8978229,
+   "sha256": "00f206ac72825b285a496b232522b2c8a6fd61bbd1ecfba21764e51949673e95"
   },
   "site/assets/film/2160p/seg_046.m4s": {
-   "bytes": 2327422,
-   "sha256": "5b0b1421ed02bd73d5a0e4bff16bc757e9bbade147155ab9e412e51b67bfb488"
+   "bytes": 2313121,
+   "sha256": "e6ce67883834b35cdf663c297f5a23f41644b0dc27b5e1f53362dbc886f494df"
   },
   "site/assets/film/2160p/seg_047.m4s": {
-   "bytes": 7400417,
-   "sha256": "89ef5da4882f2e529ed050ba533d37bd51885a3b68f52734da09eb0446a7b25d"
+   "bytes": 7274007,
+   "sha256": "bd586fb80e7bba231ffe579ade6e9532fa8f1aa05be28d9a301c768d56a1ab8d"
   },
   "site/assets/film/2160p/seg_048.m4s": {
-   "bytes": 1462738,
-   "sha256": "972cc962f28b83d4e3cc8aab1f55b566ede6de02eb216bee1dbc9c638d913429"
+   "bytes": 1485143,
+   "sha256": "e129fe636f7948a95d6b34ca9348b6f041845a3524f52db48ffba49289836857"
   },
   "site/assets/film/2160p/seg_049.m4s": {
-   "bytes": 4642875,
-   "sha256": "236b89baca41a165c82a60d165ba9cc9c3fb0ac33a7df1cb3b17ab0478ad8590"
+   "bytes": 4724983,
+   "sha256": "0564d743397ae04e0d66a2b1ba980e7455791a195dc350131ed270b6591eb6b2"
   },
   "site/assets/film/2160p/seg_050.m4s": {
-   "bytes": 418989,
-   "sha256": "b69c2e7d5f8e9e12c705b4f0eae8e310bd07a424ce39a7eeab5472da88f1ef2c"
+   "bytes": 411509,
+   "sha256": "bc5ad1426f530624539e259da023eae18c7f95611a1d81d2fa4a0d4c53107661"
   },
   "site/assets/film/2160p/seg_051.m4s": {
-   "bytes": 856078,
-   "sha256": "f42962d1f244cfc8fe18b20edffb1e128f25c90d5707f23c68a35846fc903f61"
+   "bytes": 864497,
+   "sha256": "eaa112a2b94565e93c63dc59f89b43a0a19f537d94c853bab853b792f389bc9b"
   },
   "site/assets/film/2160p/seg_052.m4s": {
-   "bytes": 654004,
-   "sha256": "baf679f7a74c27fb9d5ebaec9eb7ee5d71fd99ea112808abc6ee1ad65a8c443f"
+   "bytes": 660696,
+   "sha256": "a523f757df8e255d20a74ad03313a4816f337d345bbab3c1fc9054fb4b2eab85"
   },
   "site/assets/film/2160p/seg_053.m4s": {
-   "bytes": 636038,
-   "sha256": "e5f2ce09d2f64bbf357c86cd22cbad30783d47fe30a76080e66682f98843c1e4"
+   "bytes": 635302,
+   "sha256": "020979e22660043c0f720c6670995d9275b7de3920d428f61515a270338e975b"
   },
   "site/assets/film/2160p/seg_054.m4s": {
-   "bytes": 51832,
-   "sha256": "740febd2bfad8d26cec2e3cd325ea9f9121e068d073dc3c63dac4a2b00f6cdcc"
+   "bytes": 51900,
+   "sha256": "dc4da27943c7218f177b811313a161a42c60b8d8b11a136a766e4c5699dd7a99"
   },
   "site/assets/film/captions.vtt": {
    "bytes": 176,
@@ -973,11 +973,11 @@
   },
   "site/assets/film/master.m3u8": {
    "bytes": 733,
-   "sha256": "1831c57f111aa866f9394a4f6eadb0490206f2ca2098422c1130bb1602f9e0ed"
+   "sha256": "ff5e68a5344832d504a8838426990c7da89d29ec4bc3214ca4361bc5d05c3574"
   },
   "site/assets/film/poster.webp": {
-   "bytes": 149314,
-   "sha256": "c3a6d7dd95381bbd4e937b31915754cd188149b02b2289adece9f138e5b68cc6"
+   "bytes": 149396,
+   "sha256": "2b5d6a96d027d6261c2c12b5c6a60a86c318c0e26fd49f480bf326ce94f5e4b6"
   }
  }
 }
