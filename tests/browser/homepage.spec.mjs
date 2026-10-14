@@ -101,7 +101,7 @@ test('full-size imagery opens accessibly and restores focus', async ({ page }) =
   await expect(opener).toBeFocused();
 });
 
-const FILM_SLIDES=['slide_muzr6gllt5vd_47','slide_muz2tp5izb92_249','slide_muz1bgcmzb92_3','slide_muz991ncyfxw_867','slide_muzb9z5cakd6_9141','slide_muzb9z5kakd6_13448'];
+const FILM_SLIDES=['slide_muz1bgcmzb92_3','slide_muz2tp5izb92_249','slide_muzr6gllt5vd_47','slide_muz991ncyfxw_867','slide_muzb9z5cakd6_9141','slide_muzb9z5kakd6_13448'];
 // Text-to-text Become crossfades by design; the player reports it as an authoring note, which the website hides.
 const CROSSFADE='Neither side of this Become has an outline; it crossfades';
 
@@ -116,13 +116,14 @@ test('homepage loads the film slides only on request, plays the chosen slide, an
   const frame = page.frameLocator('#slide-demo iframe');
   await expect(frame.getByRole('combobox', { name:'Choose a slide' })).toHaveValue('0');
   await expect(frame.getByRole('button', { name:'Next animation step', exact:true })).toBeVisible();
-  await expect(frame.locator('.flux-slide-bar [aria-live="polite"]')).toContainText('Step 1 / 1');
+  await expect(frame.locator('.flux-slide-bar [aria-live="polite"]')).toContainText('Step 1 / 2');
   await page.locator('.scene-tabs button[data-scene="1"]').click();
   await expect(frame.getByRole('combobox', { name:'Choose a slide' })).toHaveValue('1');
   await expect(page.locator('.scene-tabs button[aria-pressed="true"]')).toHaveAttribute('data-scene', '1');
   await expect(frame.locator('.flux-slide-bar [aria-live="polite"]')).toContainText('Step 1 / 2');
   await page.locator('.scene-tabs button[data-scene="0"]').click();
-  await expect(frame.locator('.flux-slide-bar [aria-live="polite"]')).toContainText('Step 1 / 1');
+  await expect(frame.getByRole('combobox', { name:'Choose a slide' })).toHaveValue('0');
+  await expect(frame.locator('.flux-slide-bar [aria-live="polite"]')).toContainText('Step 1 / 2');
   await page.locator('.scene-tabs button[data-scene="3"]').click();
   await expect(frame.getByRole('combobox', { name:'Choose a slide' })).toHaveValue('3');
   await expect(frame.locator('.source-credit:visible')).toContainText('PDB 1CRN');
@@ -151,7 +152,8 @@ test('a film slide is a real independent player with manual steps and reduced mo
   expect(await page.evaluate(() => window.fluxWebsiteDemo.state().playing)).toBe(false);
   await page.getByRole('button', { name:'Reset to step 0', exact:true }).click();
   await expect.poll(() => page.evaluate(() => window.fluxWebsiteDemo.state().beat)).toBe(0);
-  expect(await page.evaluate(() => window.fluxWebsiteDemo.state().issues)).toEqual([]);
+  // The first slide's text-to-text Become crossfades by design (an authoring note the website hides).
+  expect((await page.evaluate(() => window.fluxWebsiteDemo.state().issues)).filter(issue => issue.reason !== CROSSFADE)).toEqual([]);
   await expect(page.locator('.flux-slide-bar')).toContainText('The Flux film');
 });
 
@@ -188,14 +190,14 @@ test('all six film slides can be explored, keep their own theme and retain their
     await page.getByRole('button', { name:'Next animation step', exact:true }).click();
     await expect.poll(()=>page.evaluate(()=>window.fluxWebsiteDemo.state().beat)).toBeGreaterThanOrEqual(1);
     const reasons=[...new Set((await page.evaluate(()=>window.fluxWebsiteDemo.state().issues)).map(i=>i.reason))];
-    const allowed=[...(index===2?[CROSSFADE]:[]),...(index===1&&!webgl?['3D model rendered as a still']:[])];
+    const allowed=[...(index===0?[CROSSFADE]:[]),...(index===1&&!webgl?['3D model rendered as a still']:[])];
     for(const reason of reasons)expect(allowed,`${FILM_SLIDES[index]}: ${reason}`).toContain(reason);
     await expect(page.locator('.flux-slide-status')).toBeHidden();
     await expect(page.locator('.source-credit:visible')).toHaveCount(1);
     expect(await page.locator('#native-player svg').count()).toBeGreaterThan(0);
   }
   // The film's light slides keep their own deck theme rather than the Figure 11 deck's dark one.
-  expect(await page.evaluate(()=>JSON.parse(document.getElementById('payload').textContent).map(p=>p.deck.theme))).toEqual(['flux-dark','flux-light','flux-light','flux-light','flux-light','flux-light']);
+  expect(await page.evaluate(()=>JSON.parse(document.getElementById('payload').textContent).map(p=>p.deck.theme))).toEqual(['flux-light','flux-light','flux-dark','flux-light','flux-light','flux-light']);
   await select.selectOption('0');
   await expect.poll(()=>page.evaluate(()=>window.fluxWebsiteDemo.state().beat)).toBe(1);
   expect(errors).toEqual([]);

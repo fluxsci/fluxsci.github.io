@@ -37,7 +37,7 @@ test('search works by title and content with keyboard navigation and focus resto
 test('docs guide embeds the film slides on demand and opens on the Become slide',async({page})=>{
  await page.goto('/docs/first-project.html');await expect(page.locator('#slide-demo iframe')).toHaveCount(0);
  await page.getByRole('button',{name:'Load the interactive slides from the Flux film'}).click();
- const frame=page.frameLocator('#slide-demo iframe');await expect(frame.getByRole('combobox',{name:'Choose a slide'})).toHaveValue('0');
+ const frame=page.frameLocator('#slide-demo iframe');await expect(frame.getByRole('combobox',{name:'Choose a slide'})).toHaveValue('2');
  await expect(frame.locator('.flux-slide-bar [aria-live="polite"]')).toContainText('Step 1 / 1');
  await frame.getByRole('combobox',{name:'Choose a slide'}).selectOption('1');await frame.getByRole('button',{name:'Next animation step',exact:true}).click();await expect(frame.locator('.flux-slide-bar [aria-live="polite"]')).toContainText('/ 2');
 });

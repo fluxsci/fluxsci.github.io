@@ -4,17 +4,17 @@ export const DECKS=['deck_muyqzusk33zg_21','deck_muzr6gljt5vd_46'];
 const FILM='deck_muyqzusk33zg_21',FIG11='deck_muzr6gljt5vd_46';
 const allen='<a href="https://download.alleninstitute.org/informatics-archive/current-release/mouse_ccf/" target="_top">Allen CCF2017</a>';
 
-/** The homepage plays the launch film's slideshow, in the film's order. */
+/** The homepage plays the launch film's slideshow, opening on the brain-region latencies; the rest follow the film's order. */
 export const HOMEPAGE=[
- {deck:FIG11,slide:'slide_muzr6gllt5vd_47',title:'Any figure can become a slide',
-  alt:'A slide titled “In Flux, any figure can become a slide”: the dots of the Flux mark have become five coloured shapes in a frame and the caption “and adding motion is effortless”.',
-  credit:'The Flux mark and shapes, drawn in Flux'},
- {deck:FILM,slide:'slide_muz2tp5izb92_249',title:'Shapes that change shape',
-  alt:'Two 3D surfaces on black: a sphere and a minimal surface.',
-  credit:'Computed geometry: a superquadric and the catenoid–helicoid family'},
  {deck:FILM,slide:'slide_muz1bgcmzb92_3',title:'Visual response latency across brain regions',
   alt:'Twelve brain regions on a mouse coronal section, each matched to a row of visual response latencies.',
   credit:`Anatomy: ${allen}. Latency values are synthetic and illustrative`},
+ {deck:FILM,slide:'slide_muz2tp5izb92_249',title:'Shapes that change shape',
+  alt:'Two 3D surfaces on black: a sphere and a minimal surface.',
+  credit:'Computed geometry: a superquadric and the catenoid–helicoid family'},
+ {deck:FIG11,slide:'slide_muzr6gllt5vd_47',title:'Any figure can become a slide',
+  alt:'A slide titled “In Flux, any figure can become a slide”: the dots of the Flux mark have become five coloured shapes in a frame and the caption “and adding motion is effortless”.',
+  credit:'The Flux mark and shapes, drawn in Flux'},
  {deck:FILM,slide:'slide_muz991ncyfxw_867',title:'The fold becomes a fingerprint',
   alt:'The folded backbone of the protein crambin and its residue contact map.',
   credit:'Structure: crambin, <a href="https://www.rcsb.org/structure/1CRN" target="_top">PDB 1CRN</a>'},

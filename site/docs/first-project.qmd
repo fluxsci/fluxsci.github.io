@@ -136,8 +136,8 @@ In **Slides**, compose a slide from the same plot sources. Add a beat for the ne
 An interactive slide can also live inside a Paper document. HTML preserves its steps; PDF and Word use a still. The example below runs in Flux’s native player. These are the slides from the Flux film, made from plots in the demonstration project.
 
 ```{=html}
-<div class="slide-demo" id="slide-demo" data-demo-src="/demos/slides/index.html" data-demo-scene="0">
-<button type="button" class="demo-launch" aria-label="Load the interactive slides from the Flux film" data-demo-start><img src="/assets/media/slide-poster.svg" alt="A slide titled “In Flux, any figure can become a slide”: the dots of the Flux mark have become five coloured shapes. Load the native slides to play them." width="1280" height="720" loading="lazy"><span class="demo-launch-prompt"><span class="play-disc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 6 9 6-9 6Z" /></svg></span><span>Play the slides<small>The slides from the film, running in your browser</small></span></span></button>
+<div class="slide-demo" id="slide-demo" data-demo-src="/demos/slides/index.html" data-demo-scene="2">
+<button type="button" class="demo-launch" aria-label="Load the interactive slides from the Flux film" data-demo-start><img src="/demos/studies/become.svg" alt="A slide titled “In Flux, any figure can become a slide”: the dots of the Flux mark have become five coloured shapes. Load the native slides to play them." width="1280" height="720" loading="lazy"><span class="demo-launch-prompt"><span class="play-disc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 6 9 6-9 6Z" /></svg></span><span>Play the slides<small>The slides from the film, running in your browser</small></span></span></button>
 </div>
 ```
 

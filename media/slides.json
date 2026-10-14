@@ -30,9 +30,9 @@
     }
   },
   "homepage": [
-    "slide_muzr6gllt5vd_47",
-    "slide_muz2tp5izb92_249",
     "slide_muz1bgcmzb92_3",
+    "slide_muz2tp5izb92_249",
+    "slide_muzr6gllt5vd_47",
     "slide_muz991ncyfxw_867",
     "slide_muzb9z5cakd6_9141",
     "slide_muzb9z5kakd6_13448"
@@ -72,12 +72,12 @@
   ],
   "outputs": {
     "site/demos/slides/index.html": {
-      "bytes": 15124048,
-      "sha256": "6a8cef4722a10b623785fa4549f3be07957544140bca4c8d0edbe3c1a08129a1"
+      "bytes": 15123963,
+      "sha256": "741d64ed4e61beb040a03685ace9e7911e58f34e8fbe304de67699219de5fbf8"
     },
     "site/assets/media/slide-poster.svg": {
-      "bytes": 107892,
-      "sha256": "dd53b04f76483c60c7a8726245222047e176c489177eb55e4228c3a00dda7169"
+      "bytes": 561710,
+      "sha256": "925896a34a354a885b20b28877c3133a9269780c978ea20f3b3d6b2b3540aa67"
     },
     "site/demos/studies/entrances.svg": {
       "bytes": 1214075,
