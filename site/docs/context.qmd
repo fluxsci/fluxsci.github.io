@@ -24,7 +24,7 @@ Run `flux config` for this machine's resolved paths.
 |---|---|
 | `Context/UserContext/` | `WHO-AM-I.md` (you), `RULES.md` (standing rules), `Skills/<name>/SKILL.md`, and your other files. **Written by:** you. |
 | `Context/FluxContext/` | The stock manual: the canonical home of agent-facing Flux knowledge (the primer, connection contract and task references). Re-synced on every Flux update with this machine's paths filled in. **Written by:** Flux. |
-| `plot_library/` | Your **global plot library**: reusable plots, in any folders, that every project's Plot gallery can insert under **Global**. `flux config` reports it as `plotLibraryPath`. **Written by:** you, and agents you ask. |
+| `plot_library/` | Your **global plot library**: reusable plots, in any folders, that every project can place from the Plots rail (**Glob**, **Alt+2**) or the Plot gallery (**Global**). `flux config` reports it as `plotLibraryPath`. **Written by:** you, and agents you ask. |
 
 **Project level — `<project>/Context/`.** New projects start with these files. Flux adds
 any missing standard file when it opens the project, or run `flux context-init` in a folder

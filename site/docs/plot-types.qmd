@@ -11,7 +11,26 @@ description: "Choose a plotting helper, name the series, and keep its parts edit
 Choose a plotting helper, name the series, and keep its parts editable.
 :::
 
-## Choose a helper
+Every helper is a thin wrapper over a Matplotlib call that takes a `series=` name, so the saved plot knows which line, point or bar is which. A complete plot (the values are synthetic):
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+import fluxplot as fp
+
+fp.use_paper()
+x = np.linspace(0, 10, 50)
+mean = np.exp(-x / 4)
+fig, ax = plt.subplots(figsize=(3.2, 2.4), layout="constrained")
+fp.line(ax, x, mean, series="control", label="Control")
+fp.band(ax, x, mean * 0.9, mean * 1.1, series="control", what="95% CI")
+fp.scatter(ax, x[::5], mean[::5] + 0.03, series="observed", label="Observed")
+ax.set(xlabel="Time (s)", ylabel="Response")
+fp.legend(ax)
+fp.save(fig, "plots/response.svg")
+```
+
+## Choose a helper {#choose-a-helper}
 
 The helpers return ordinary Matplotlib artists. Every series gets a stable name. Use `label=` for the text you want in a legend.
 
@@ -28,7 +47,7 @@ The helpers return ordinary Matplotlib artists. Every series gets a stable name.
 
 See the [API reference](/docs/fluxplot-api.html) for each signature. The examples below assume `import matplotlib.pyplot as plt` and `import fluxplot as fp`, an axes `ax`, and data variables from your own analysis.
 
-## Lines and uncertainty
+## Lines and uncertainty {#lines-and-uncertainty}
 
 ```python
 fp.line(ax, x, mean, series="control", label="Control")
@@ -38,27 +57,27 @@ fp.legend(ax)
 
 The band and line share a series identity. The band records its bounds and what they mean (`what=`); it does not calculate a confidence interval for you. `fp.errorbar` records scalar, symmetric or asymmetric errors and separately names its line, points, caps and bars. `fp.area` records the two boundaries of a filled region.
 
-## Points and categories
+## Points and categories {#points-and-categories}
 
-`fp.scatter` gives individual points identities. Supply stable point IDs when row order may change; see [identity](/docs/plot-format.html#per-point-addressability). Categorical and date axes retain display labels alongside numeric coordinates. Bar plots record centres, widths, baselines, lengths and category keys.
+`fp.scatter` gives individual points identities. Supply stable point IDs when row order may change; see [semantic IDs](/docs/plot-format.html#semantic-ids-the-universal-join-key). Categorical and date axes retain display labels alongside numeric coordinates. Bar plots record centres, widths, baselines, lengths and category keys.
 
 On a log axis, use a positive baseline: a bar that starts at zero has no valid position on a log scale. For counts of at least one, draw the bars from 1 with `ax.barh(y, counts - 1, left=1)`, then name each bar with `fp.tag`.
 
-## Distributions and fits
+## Distributions and fits {#distributions-and-fits}
 
 `fp.hist` records its actual bin edges and heights, including density, weights and cumulative settings. `fp.box` and `fp.violin` name their components. These helpers include raw sample values only when you choose `include_values=True`.
 
 `fp.regression` supports linear, polynomial and LOWESS fits. Its optional band is a confidence interval for the mean response, using a seeded bootstrap for LOWESS. The manifest records the fit, coefficients, grid, sample size and interval. `fp.kde` records a Gaussian kernel-density estimate and its bandwidth.
 
-For individual observations alongside summaries, use [glowbar or fluxbox](/docs/signature-plots.html). For inferential comparisons, see [statistics](/docs/statistics.html).
+For individual observations alongside a mean with its uncertainty or a box plot, use the [meanmark or fluxbox](/docs/signature-plots.html). For inferential comparisons, see [statistics](/docs/statistics.html).
 
-## Axes, insets and legends
+## Axes, insets and legends {#axes-insets-and-legends}
 
 Name multi-panel axes with `fp.panel(ax, name="response")`. Insets retain their host panel. `fp.secondary_axis` records the sampled parent-to-secondary transform. A normal `twinx()` or `twiny()` remains part of its parent panel, with a second value axis; explicitly naming the twin makes it a separate panel.
 
 Figure titles, shared axis labels, figure legends and figure annotations receive figure-level identities. `fp.legend` keeps a legend entry connected to the artist it represents, including hand-picked handles.
 
-## Existing Matplotlib artists
+## Existing Matplotlib artists {#existing-matplotlib-artists}
 
 ```python
 line, = ax.plot(x, prediction, "--", color="black")
@@ -69,7 +88,7 @@ fp.tag_points(points, series="observations")
 
 A public, unique Matplotlib label can also become a series at save time. Unlabeled or ambiguously labeled artists remain generic parts. fluxplot does not infer scientific meaning from colour or geometry: name an uncertainty band, fit or threshold explicitly.
 
-## Seaborn
+## Seaborn {#seaborn}
 
 ```python
 import seaborn as sns
@@ -89,12 +108,12 @@ fp.tag_seaborn(ax, plot="swarmplot", data=df,
 
 With a hue, each hue level becomes a series and categories become named parts. Without a hue, each category becomes a series. Mixed scatter collections can retain the original artist while assigning the appropriate point identities to each group.
 
-## Other plot types
+## Other plot types {#other-plot-types}
 
 `fp.tag` covers any Matplotlib artist. Tag stackplot layers as areas, hexbin collections as a field, or each ridge's fill and outline under one series. Custom roles can use an `x-` prefix. For live matrix cells and colour controls, prefer the dedicated [field helpers](/docs/matrices-and-scales.html).
 
 ::: {.next-reading}
 **Related guides**
 
-[Glowbar, fluxbox and hexmatrix](/docs/signature-plots.html) · [Statistics and comparison brackets](/docs/statistics.html) · [Python API reference](/docs/fluxplot-api.html) · [Edit plots in Flux](/docs/plot-editing.html)
+[Meanmark, fluxbox and hexmatrix](/docs/signature-plots.html) · [Statistics and comparison brackets](/docs/statistics.html) · [Python API reference](/docs/fluxplot-api.html#line) · [Edit plots in Flux](/docs/plot-editing.html)
 :::

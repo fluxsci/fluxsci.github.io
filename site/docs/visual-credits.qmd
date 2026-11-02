@@ -13,7 +13,9 @@ The showcase uses real Flux compositions: authored scientific figures, public da
 
 ## The figures and screenshots {#figures}
 
-The materials and neuroscience figures were composed by Kort Driessen in a demonstration project. Their plot content, layout, labels and views are preserved. Captions and the demonstration manuscript were written for this site. Screenshots show the actual Flux interface using an isolated copy of the selected work; the Slides workspace screenshot shows the slides from the film.
+The materials and neuroscience figures were composed by Kort Driessen in a demonstration project. Their plot content, layout, labels and views are preserved. Captions and the demonstration manuscript were written for this site. Screenshots show the actual Flux interface (a 0.3 pre-release build) using an isolated copy of the selected work; the Slides workspace screenshot shows the website's own demonstration deck, built from the same authored plots.
+
+The close-ups and short clips in the guides (the Plots rail, Align & Arrange, plot reflow, sticky connectors, the X-ray, the Cursor settings, the Paper figures pane and the spelling checker) were captured in the same isolated project. The tutorial plot placed in them, the dissections folder with its summary table and note, and the typed sentences are illustrative. The meanmark and fluxbox drawings in the plotting guides were made with fluxplot from synthetic values and say so beside each one.
 
 The Library and Reader screenshots use a small demonstration bibliography and an original manuscript; they do not show a personal reference library.
 

@@ -11,11 +11,11 @@ description: "Choose a theme, keep colours consistent, and define scales that tr
 Choose a theme, keep colours consistent, and define scales that travel with the plot.
 :::
 
-## Start with a theme
+## Start with a theme {#start-with-a-theme}
 
 Use `fp.use_light()` for a white publication background, `fp.use_paper()` for warm paper, or `fp.use_dark()` for a dark background. Call it before creating the figure. These change Matplotlib's style settings; existing artists keep their values.
 
-## Colormap and palette collections
+## Colormap and palette collections {#colormap-and-palette-collections}
 
 Use a **colormap** for numerical values and a **palette** for named categories. Map names are registered with Matplotlib when you import fluxplot, together with their reversed `_r` forms.
 
@@ -42,7 +42,7 @@ category_colours = fp.colors.palettes.get("tol", "bright")
 
 Every `fp.use_*` theme installs `cmasher.rainforest` (`fp.style.SEQUENTIAL`) as Matplotlib's default `image.cmap`, so a heatmap without `cmap=` is in the house style; `fp.style.DEFAULT_DIVERGING` names the diverging default. You can override either for any plot with `cmap=`. In a signature plot's `palette=`, a colour name such as `"red"` selects a pale-to-deep ramp of that one hue, while `"flexoki.red"` selects the 13-step Flexoki ramp.
 
-<details><summary>Map details, derived maps and where the definitions live</summary>
+<details class="doc-details"><summary>Map details, derived maps and where the definitions live</summary>
 
 **Map information.** `fp.colors.maps.info(name)` reports a map's type (`sequential`, `diverging`,
 `cyclic`, `qualitative` or `misc`), its family, its table size `N`, whether it is `discrete` (a
@@ -126,7 +126,7 @@ Every series records its primary paint in the manifest, as `series[].color`:
 
 `token` is the exact palette token when one names the colour, and `palette` gives its slot in
 the active cycle when it came from there. A colour-mapped collection records `"varies"`, and its
-`scale` names the colour scale. The glowbar and fluxbox payloads record the `palette` each
+`scale` names the colour scale. The meanmark and fluxbox payloads record the `palette` each
 category's shades came from.
 
 `fp.colors.categories` keeps category colours consistent across figures:
@@ -143,7 +143,7 @@ fp.colors.categories.save()
 `get()` returns the colour pinned to a category; otherwise it assigns the next unused slot of the
 palette (by default the theme's cycle) in first-request order and remembers it. A category
 therefore keeps its colour whether or not the others are on the plot. Surface maps
-(`categorical_colors`), glowbar and fluxbox group colours, and `tag_seaborn`'s hue levels all
+(`categorical_colors`), meanmark and fluxbox group colours, and `tag_seaborn`'s hue levels all
 consult it.
 
 `save()` and `load()` write and read the pinned colours in the project file `fluxplot.colors.json`
@@ -154,22 +154,44 @@ between the working directory and the Git root; nothing is ever written implicit
 call gives no colour (off by default).
 
 Two recipe controls apply on a rerun: `__fluxplot__.palette = "tol.bright"` makes every
-`fp.use_*` install that palette as the colour cycle (glowbar categories draw from it too), and
+`fp.use_*` install that palette as the colour cycle (meanmark and fluxbox categories draw from it too), and
 `__fluxplot__.series = {"<series id>": {"color": "#…"}}` recolours a series. The helpers and the
 signature plots check both before drawing.
 
-## Signature plots on dark grounds
+## Signature plot palettes {#signature-plot-palettes}
 
-The glowbar, fluxbox and hexmatrix judge every ink against the ground they are drawn on. On a
+The [meanmark and fluxbox](/docs/signature-plots.html#points-units-connectors) colour each
+category from `palette=`: any `fp.colors.maps` colormap (`"cmasher.emerald"`), any
+`fp.colors.palettes` palette (`"brewer.Set2"`, `"tol.bright"`), a Matplotlib map, a list of
+colours or one colour; a `{category: spec}` mapping chooses a palette per category. A bare
+colour name such as `"red"` becomes a pale-to-deep ramp of that hue, while `"flexoki.red"`
+is the 13-step Flexoki ramp. Without `palette=` the categories cycle through ColorBrewer's
+`YlGnBu`, `YlOrRd`, `RdPu`, `BuGn`, `Purples` and `YlOrBr`, unless `fp.colors.categories`
+has a colour pinned for the category. The **group colour** (the meanmark's outline and arms,
+the fluxbox's box) sits at `group_color_position` along an ordered ramp (0.75 by default on a
+ColorBrewer map) or is set outright with `group_color`; point colours come from the same
+ramp as equal perceptual steps between `shade_range=(88, 22)` lightness. The meanmark colours
+points in the group colour by default (`point_colors="group"`), the fluxbox gives each unit its
+own shade (`"auto"`: shades with `units`, else the group colour); `"shades"`, `"group"` or one
+colour applies to either.
+
+## Signature plots on dark grounds {#signature-plots-on-dark-grounds}
+
+The meanmark, fluxbox and hexmatrix judge every ink against the ground they are drawn on. On a
 dark theme:
 
 - point rims lighten instead of darkening, and the shades stay at least 20 lightness units above
   the ground;
-- the mean and median inks lift off their marks instead of deepening;
+- the fluxbox's median ink lifts off its box instead of deepening, and the meanmark derives its
+  circle tint from its outline and the ground (`mark_fill_color="auto"` mixes the two), so the
+  tint reads on any ground; its notches are real cutouts and need no ground colour;
 - connectors take the theme's grid neutral, and a qualitative palette's group ink is the light
   neutral;
 - a hexmatrix's single-colour ramp turns around, running from deep near the ground to pale at the
   top. It is named `hexmatrix.mono-dark:#…`, so a rerun rebuilds it.
+
+<div class="doc-figure-pair"><figure class="doc-figure doc-plot"><img src="/assets/media/docs/plots/meanmark-paper.svg" alt="A paired meanmark on the paper theme: light background, dark axes, a blue and a red group." width="230" height="187" loading="lazy"></figure><figure class="doc-figure doc-plot"><img src="/assets/media/docs/plots/meanmark-dark.svg" alt="The same paired meanmark on the dark theme: dark background, light axes, with the mean circles’ tints derived from their strokes and the ground." width="230" height="187" loading="lazy"></figure></div>
+<p class="visual-credit">The same meanmark on the paper and dark themes. Synthetic values.</p>
 
 fluxplot's test suite checks a WCAG contrast of at least 1.5 for every mark, and at least 3 for
 bracket and identity lines, under the light, paper and dark themes.
@@ -188,7 +210,7 @@ For example, use observation counts as `alpha_by` to make sparsely sampled regio
 Higher channel values receive higher opacity, so transform an uncertainty measure explicitly if
 lower values should be more prominent.
 
-## Accessibility lint
+## Accessibility lint {#accessibility-lint}
 
 `fp.colorcheck` asks what a plot's colours do for the reader:
 
@@ -208,14 +230,14 @@ to `SaveResult.warnings` and the manifest's `quality.color`; `lint="error"` refu
 Linting is off by default.
 
 The house colour cycles are ordered so that no two *adjacent* colours collapse for a
-colour-deficient reader: `fp.CYCLE_ORDER` is blue, orange, purple, green, magenta, yellow, cyan,
+colour-deficient reader: `fp.style.CYCLE_ORDER` is blue, orange, purple, green, magenta, yellow, cyan,
 red. The smallest adjacent distance under any deficiency is ΔE 20 in the light cycle and 15 in
 the dark one. This order was introduced on 30 September 2026 (cyan used to sit next to magenta,
 at ΔE 5.6), so plots that let the cycle pick their colours changed from the third series on when
 regenerated. Order alone cannot guarantee greyscale separation; vary the marker or line style
 for a figure that must print in black and white.
 
-## Colour controls in the recipe
+## Colour controls in the recipe {#colour-controls-in-the-recipe}
 
 Every colour scale is a recipe control: `fp.save` writes its complete state under
 `recipe.params.__fluxplot__[<key>]`, and Flux's **Colour scales** editor edits it and regenerates
@@ -244,12 +266,12 @@ orphan an edit. A second colour-mapped series with the same name gets `panel.<na
 positional key are still honoured. Other recipe options are described in
 [Recipes and parameters](/docs/save-and-recipes.html#recipes-and-parameters).
 
-## Share a scale across panels
+## Share a scale across panels {#share-a-scale-across-panels}
 
 Use `fp.color_scale` to give multiple plots a common range and colour map. The [matrices and colour scales guide](/docs/matrices-and-scales.html#shared-scales) gives the pattern and explains how limits are combined.
 
 ::: {.next-reading}
 **Related guides**
 
-[Matrices, contours and colour scales](/docs/matrices-and-scales.html) · [Glowbar, fluxbox and hexmatrix](/docs/signature-plots.html) · [Python API reference](/docs/fluxplot-api.html) · [Edit plots in Flux](/docs/plot-editing.html)
+[Matrices, contours and colour scales](/docs/matrices-and-scales.html) · [Meanmark, fluxbox and hexmatrix](/docs/signature-plots.html) · [Python API reference](/docs/fluxplot-api.html#use_light) · [Edit plots in Flux](/docs/plot-editing.html#colour-scales)
 :::

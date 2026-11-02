@@ -14,7 +14,7 @@ Inspect projects, make precise edits, and export work from a terminal.
 Scripts and agents can work on the same project as the app. Flux ships three programmatic
 surfaces over one shared core:
 
-- **The `flux` CLI** — around a hundred typed commands ("verbs") that operate on a project's
+- **The `flux` CLI** — more than a hundred typed commands ("verbs") that operate on a project's
   files directly: compose figures, restyle plot parts, manage references, compile the
   manuscript, build slide decks.
 - **The MCP server** — the same verbs exposed as typed tools for AI agents, plus a few
@@ -28,11 +28,13 @@ You never have to use any of this — the app is complete on its own. But it's w
 ## Invoking {#invoking}
 
 On first run Flux creates a stable launcher at `~/.local/share/flux/bin/flux` on Linux and
-macOS. Add that folder to PATH or use the full path; optional `~/.local/bin` shims delegate
-to it. Then:
+macOS (`%LOCALAPPDATA%\flux\bin\flux.cmd` on Windows). Add that folder to PATH or use the
+full path; the optional `~/.local/bin` shims (`flux` and `flux-connect`, created by the
+installer or `connect setup --create-local-bin`) delegate to it. Then:
 
 ```bash
 flux help                 # every verb, always current
+flux help read-log        # one verb's arguments and flags
 flux config               # this machine's resolved paths (FluxConfig, FluxLib, …)
 flux list                 # figures + references of the current project
 ```
@@ -66,6 +68,9 @@ flux set-series-color fig1 control '#205EA6'
 # Read the plot's data: exact x/y, bins, statistics and brackets
 flux get-plot-data fig1 --series control --limit 50
 
+# Resize a plot in physical units (a fluxplot ≥ 0.4 plot reflows; text keeps its point size)
+flux resize-plot el-3 --figure fig1 --width 3.5 --height 2.4 --unit in
+
 # Add a reference to the project, then compile the manuscript with Quarto
 flux cite-doi 10.1038/nature12373
 flux compile --to pdf
@@ -79,7 +84,7 @@ edits](/docs/projects-and-files.html#saving)).
 
 The [CLI and MCP command reference](/docs/commands.html) lists the project, figure, plot, document, library, slide and agent commands for the Flux version this site documents.
 
-Use `flux help` for the list in your installed version, or `flux help <verb>` for a command's flags. `flux version` identifies the installation. The same reference is available locally in `FluxConfig/Context/FluxContext/CLI-REFERENCE.md`.
+Use `flux help` for the list in your installed version, or `flux help <verb>` for a command's flags. `flux version` identifies the installation. The same reference ships inside Flux as `FluxConfig/Context/FluxContext/CLI-REFERENCE.md`, machine-checked against the code and synced to your machine with its real paths filled in; the rest of that `FluxContext/` folder is the manual your agents read ([Context and memory](/docs/context.html#the-stock-manual)).
 
 For example, `flux help read-log` prints:
 

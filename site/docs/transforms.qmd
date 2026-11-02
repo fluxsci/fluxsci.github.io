@@ -17,15 +17,22 @@ Move between views, change a plot’s data, or turn one object into another.
 
 Choose a transform to match what you want to show:
 
-| Transform | Use it to… |
+| What you want to show | Use |
 |---|---|
-| [Change](#change) | Move, resize, recolour or edit an object |
-| [Ghost](#ghost) | Send independent copies out from one source |
-| [Become](#become) | Turn an object into another object or plot parts |
+| Move, resize, recolour or rewrite an object | [Change](#change) |
+| Bring an object back to how it looked earlier | [Return to an earlier look](#return-to-design) |
+| Send independent copies out from one source | [Ghost](#ghost) |
+| Turn an object into another object, plot parts or another plot | [Become](#become) |
+| Zoom the camera toward something | [Camera](#camera-zoom-vs-fly) |
+| Zoom, pan or rescale the data inside a plot | [Axis view](#axis-view-data-space-transforms) |
+| Recolour a colour-mapped plot in data units | [Colour scale](#colour-scale-recolouring-in-data-units) |
+| Let a plot take the deck's colours | [Plots follow the deck theme](#plots-follow-the-deck-theme) |
 
-All three use the same [timing and easing controls](/docs/animation.html). An object, or a
-specific set of plot parts, can have one transform per step; later steps can transform it again.
-While a transform is selected, **Before** and **After** choose which of its two endpoints you edit.
+Change, Ghost and Become use the same [timing and easing controls](/docs/animation.html). An
+object, or a specific set of plot parts, can have one transform per step; later steps can
+transform it again, and chained transforms compose. While a transform is selected, **Before** and
+**After** choose which of its two endpoints you edit. New transforms take 1.2 s on a Smooth curve
+([Default timing](/docs/animation.html#default-timing)).
 
 ### Change {#change}
 
@@ -43,25 +50,95 @@ A **Change** animates an object into a different version of itself.
 
 The bar above the stage tells you where edits go. **Before** selects the preceding step
 (or Design for the first change); **After** selects the current step. Only the properties
-you edit are recorded, so later changes build on earlier ones. To stop overriding a property,
-remove it from the Animation inspector’s **Δ** row.
+you edit are recorded, so later changes build on earlier ones; colours blend perceptually, and
+a rewritten number counts up in place. To stop overriding a property, remove it from the
+Animation inspector’s **Δ** row. A closed shape that starts at another corner or winds the other
+way no longer collapses on the way, and a path with a hole keeps its hole.
+
+#### Rewrite text {#text-morph}
 
 **Rewriting text** plays a *text morph*. Words the old and new text share glide from where
 they were to where they land, even when they change order, case or style; a word that grows
 into a longer one (*quick* → *quickly*, *Microscope* → *Microscopy*) glides and gains its new
-letters on the way. Everything else fades: old letters drift down and fade in reading
-order while the new ones rise in, so the line turns over left to right without ever going
-empty. Crossing words pass on slightly separated lanes, and a size, weight or colour change
-travels with each word. A rewrite of more than 200 characters moves line by line. A change
-of a single number still counts up in place.
+letters on the way. Everything else fades: old letters lift away and fade in reading order while
+the new ones rise in from below, so the line turns over left to right without ever going empty.
+Crossing words fan out onto separate lanes so they stay readable, and a size, weight or colour
+change travels with each word. A rewrite of more than 200 characters moves line by line. When a
+text is rearranged into an anagram (*listen* → *silent*), its letters fly to their new places.
+The line is the crisp resting text at both ends of the move.
+
+Two options on a text Change in the Animator set this look, and both are on for every new text
+Change: **Letters travel** (an anagram's letters fly to their partners) and **Fade style** —
+**Roll** (leftover words lift away and rise in by about a third of the text height) or **Drift**
+(the older look: a fade with a small nudge and scale). Saved decks play as they were made.
+
+#### Connectors and labels follow what they stick to {#connectors-follow}
+
+When a shape moves at a step — by a Change, an arc or a spring — the arrows and labels stuck to
+it move with it, in the editor, in Present and in every export, and a moving label glides
+without stepping. Sticking works exactly as in Figure: release a line end on a shape, or set the
+Inspector's **Sticks to** row ([Align and arrange on the stage](/docs/slides.html#align-and-arrange-on-slides)).
+Dragging a shape at a step writes the shape's Change only; a Change of a stuck label's own
+position is ignored, and an issue says so. A connector stuck to a shape that hands off in a
+Become stays where it rests. Plot parts and groups are not things to stick to. A deck that holds
+a stuck element is saved in a newer format, which older versions of Flux do not open.
+
+```bash
+flux slide-attach talk slide1 arrow1 --start box1 --end box2      # a connector follows two shapes
+flux slide-attach talk slide1 label1 --to box1 --side n --gap 8   # a label sits above a shape
+flux slide-attach talk slide1 label1 --detach
+```
+
+`--start` and `--end` take `<id>[:anchor[:gap]]`, with anchor `auto` (aims at the other end),
+`center`, `n`, `e`, `s`, `w` or `fx,fy`; a label takes `--to <id> --side n|e|s|w`, `--gap` and
+`--align center|start|end`. `figure-attach` takes the same arguments on a Figure canvas.
+
+#### Bend the path: Arc, Suggest arcs and Turn {#arc}
 
 For a box move, the **Arc** slider bends the path to either side of the straight line.
 Zero keeps it straight; the endpoints stay fixed. The small path preview shows the bend.
-Arc shares the transform's easing and can be inherited from an animation style.
+Arc shares the transform's easing and can be inherited from an animation style. A Become's
+flying pieces bend by it too (letters, shattered pieces, text and 3D models fly straight).
+
+**Suggest arcs** gives the moves of the current step that would pass through each other an
+arc — the smallest of 0.25, 0.45 and 0.83 (manim's 90° swap) that clears them — as one Undo. It
+leaves alone any move whose arc you have set, including an explicit 0.
+
+For a line or a straight connector, **Turn** chooses how it moves when its ends change:
+**Shrink** (the default: its ends move straight, so it shortens while it turns and stays joined
+to what it connects) or **Rigid** (it keeps its length, like a rotating arrow).
 
 ```bash
 flux set-transform talk slide1 step1 object1 --state '{"x":420,"y":160}' --arc 0.5
+flux set-transform talk slide1 step1 arrow1 --turn rigid    # on the arrow's Change at this step
+flux suggest-arcs talk slide1 step1
 ```
+
+<!-- MEDIA: Two boxes that swap places: straight paths pass through each other, then Suggest arcs bends them apart. -->
+
+#### Return to an earlier look {#return-to-design}
+
+**Return to Design** (in **Transform ▾**, or right-click a Change) brings an object back to how
+it looked at Design, as an ordinary Change at this step; **Return to before step N** brings it
+back to how it looked before that step. If the step already has a Change for the object, its
+other settings stay, and Flux tells you which of them the return replaced. A return is refused
+when the object's content has changed since then (a Become, a new plot).
+
+```bash
+flux restore-state talk slide1 step3 object1 --to 0              # back to Design
+flux restore-state talk slide1 step3 object1 --to 2 --keys x,y   # back to its place before step 2
+```
+
+#### Resize a plot {#plot-resize-changes}
+
+A Change that resizes a plot saved by fluxplot ≥ 0.4 **reflows** it: the axes resize while
+text, strokes and markers keep their physical sizes, and tick sets crossfade when the new size
+needs different ticks. Dense plots use a fast preview and settle to the exact layout at the
+endpoint; exported presentations use the same layout. The plot's **Layout** controls in the
+Object inspector (**Reflow** or **Stretch**) decide which happens, and the status line beneath
+them names the reason for a layout that cannot reflow (see the Figure guide,
+[Layout, drawing and typography](/docs/figure-layout.html)). A plot saved by an older fluxplot
+stretches until it is regenerated.
 
 ### Ghost {#ghost}
 
@@ -135,15 +212,17 @@ picking: every click on the canvas is a pick.
   without creating a transform and puts the source selection back. Changing slides or steps also
   cancels.
 - **Add mode** lets the source become something that does not exist yet. Press a drawing tool
-  key (**R** rect, **O** ellipse, **L** line, **P** pen, **T** text), **Ctrl+P** for a preset or
-  **Alt+G** for a gallery plot, or choose from **Add ▾** on the bar. The outline gains an inner
+  key (**Alt+R** rect, **O** ellipse, **L** line, **P** pen, **T** text), **Ctrl+P** for a preset,
+  place a plot from the [Plots rail](/docs/slides.html#the-plots-rail) (**Alt+G**, or
+  **Add ▾ → Plot…**), or choose from **Add ▾** on the bar. The outline gains an inner
   dashed line and the editor works as usual: everything you draw or insert joins the pick.
   **Enter** or **Done** returns to picking with those objects picked; **Escape** also returns,
   and a second **Escape** cancels.
-- **X-ray**: hover a plot and press **Alt+R**. Rows you select join the pick and rows you clear
-  leave it, live on the canvas; points picked on the canvas stay picked. Axis rows include their
-  spine, ticks and labels; expand them to choose only the spine. **Space** (or **B**) in the X-ray
-  confirms the whole pick, and closing the X-ray keeps it.
+- **X-ray**: hover a plot and press **R** (**Shift+Alt+R** adds the picks' families). Rows you
+  select join the pick and rows you clear leave it, live on the canvas; points picked on the
+  canvas stay picked. Axis rows include their spine, ticks and labels; expand them to choose only
+  the spine. **Space** (or **B**) in the X-ray confirms the whole pick, and closing the X-ray
+  keeps it.
 
 - **Several things at once.** Pick several things and the source becomes **all of them**: three
   loose ellipses, parts of two different plots, or a mix of shapes and plot parts. Your layers stay
@@ -151,6 +230,9 @@ picking: every click on the canvas is a pick.
   whole group). The source's outline splits into one piece per destination, and each piece lands
   exactly on its own object. The lane and the Destination row name the set (**Rect → 3 ellipses**)
   and list its members; a set cannot be swapped — author the reverse hand-offs from each object.
+  The pieces fly together by default; the Animator's **Piece lag** slider makes them **peel off
+  one after another**, in reading order, inside the same duration (a bar splitting into five dots
+  then reads as five dots leaving, not one slab breaking).
 
 </details>
 
@@ -163,6 +245,10 @@ A Become completes in one of two ways:
   the destination is hidden until the source lands, and the source is hidden afterwards. For
   example, a drawn chevron can become a plot's X and Y axis spines, or a box in a plot can
   become a rectangle.
+
+When the source and the destination sit on different sides of an object the flight crosses (one
+above it, one below), the flying shape sinks under that object, or rises out of it, over the whole
+flight instead of jumping behind or in front of it on the first frame.
 
 After you confirm, the canvas switches to **Edit after step**, with the new track selected in
 the **Animation** inspector; **Show hidden** shows the hidden side as a faint ghost. Groups and
@@ -191,10 +277,20 @@ on the destination axis. This supports **data ↔ summary**: points can become a
 or a summary can expand back into its points. Unmatched sources fade out; unmatched
 parts of the destination fade in. Images crossfade while their boxes move.
 
+**How a shape changes shape.** Convex shapes round off progressively (a square becomes a circle
+without a cushion at the corners), a line swells into the shape, and an arrowhead rides the tip
+as it melts. Dashed outlines keep their dash rhythm, and translucent and colormap-filled shapes
+keep their paint throughout. Shapes with a dent (a star, an L, a pen shape) keep the older, more
+organic morph, so one slide can mix both looks. A shape with corners keeps its sharp corners,
+stroke included, until they round off; an arrow's body starts inside its head; a donut closes
+its hole as it becomes a disc. Several objects becoming one (or one becoming several) fly to
+their places without crossing, and a crossfade between two boxes keeps full strength instead of
+dipping.
+
 **Text and shapes.** When a shape becomes text, it splits into one piece per letter, in
 reading order, and each piece pours into its letter's outline. When text becomes a shape,
-the letters fuse into it. A text that becomes another text plays the text morph described
-under Change, whether by Consume or by hand-off. Letter outlines come from the font
+the letters fuse into it. A text that becomes another text plays the [text morph](#text-morph)
+described under Change, whether by Consume or by hand-off. Letter outlines come from the font
 installed on your computer, and an exported presentation carries the outlines of the
 letters it needs. When no outline is readable, the letters land as rounded boxes and then
 fade into the text, and the Animation inspector reports it. This happens with the bundled
@@ -210,10 +306,13 @@ for example, “hands off to 3 ellipses” and lists each member below. Its cont
 
 - **Pair ▾** chooses auto, by position, by order, by data or tile; **Reveal** chooses flip or draw.
 - **Method ▾** chooses what a filled shape's interior does while its outline splits into
-  several pieces (or several pieces merge into it). **Shatter**, the default, splits it into
-  wedges that fly with the pieces; **dissolve** fades it away in place as the outline leaves;
+  several pieces (or several pieces merge into it). **Dissolve**, the default, fades it away in
+  place as the outline leaves; **shatter** splits it into wedges that fly with the pieces;
   **collapse** shrinks it into the shape's centre; **drain** empties it toward where the pieces
-  are going (and fills from that side when pieces merge).
+  are going (and fills from that side when pieces merge). A shape becoming letters always pours
+  its area into them.
+- **Piece lag** (0–1) makes the pieces of a hand-off peel off one after another in reading order
+  within the same duration; 0, the default, flies them together.
 - **↔ Swap direction** reverses the hand-off, including plot parts, in one Undo, keeping timing,
   styles and follower links. It is unavailable for a ghost's creation, a group source, a missing
   outline, or a destination that already has a transform in this step. The command twin is
@@ -223,6 +322,8 @@ for example, “hands off to 3 ellipses” and lists each member below. Its cont
 - **Auto-animate the rest…** builds the destination plot's remaining parts after the hand-off.
   Like the toast, it appears only for a hand-off to some of the plot's parts.
 - **Become** picks a different destination for this effect.
+
+<!-- MEDIA: A bar hands off to five dots: once with Piece lag 0 (one slab breaking), once with Piece lag 0.3 (the pieces peel off left to right). -->
 
 With a whole plot as the source, **From gallery…** keeps its frame and changes its content
 to another project plot. **Data from gallery…** and **Keep own data** in the Animation
@@ -239,14 +340,18 @@ authors them from the destination's side:
   parts. `appear-from --members` likewise reveals a destination set from one source.
 - Plots, images and part sets hand off by default, and whole drawn objects use Consume;
   `--mode` chooses either completion for whole objects.
-- `--pair` chooses how outlines match, `--reveal` chooses flip or draw, and `--method` chooses
-  shatter, dissolve, collapse or drain for a filled shape's interior.
+- `--pair` chooses how outlines match, `--reveal` chooses flip or draw, and
+  `--method dissolve|shatter|collapse|drain` chooses what a filled shape's interior does.
+- `appear-from --pair-lag 0..1` sets the piece lag of a new hand-off; `set-track --pair-lag`
+  edits it later.
 
 See the [slide command reference](/docs/commands.html#slide-commands) for the full syntax.
 
-In the Slides workspace, **Alt+G** opens the same [Plot gallery](/docs/plot-gallery.html#getting-plots-in)
-that Figure uses. Preview sizes, spacing and names are adjustable, and **Pin open** keeps the
-gallery in a separate window so you can insert several plots onto the active slide.
+In the Slides workspace, **Plots & videos** (or **Shift+Alt+G**) opens the same
+[Plot gallery](/docs/plot-gallery.html#getting-plots-in) that Figure uses, with adjustable preview
+sizes, spacing and names and a **Pin open** button that keeps it in a separate window for inserting
+several plots. **Alt+G** shows the [Plots rail](/docs/slides.html#the-plots-rail) beside the stage
+instead.
 
 ### Camera: Zoom vs Fly {#camera-zoom-vs-fly}
 
@@ -273,12 +378,15 @@ the same time. A ghost can therefore float away while zooming into a smaller dat
 A saved view also applies in the Figure workspace, Paper embeds and exports.
 
 Lines, points, bars, heatmap cells, hexagons, contour bands and box or violin bodies move
-through the new axis mapping. During the glide the existing ticks, gridlines and tick labels
-move with their data values and fade near the edges; at rest the viewed axis is re-ticked for its
-new limits (categories, dates and fixed labels keep their own ticks). A log view requires
-positive limits and positive data; an unsupported series keeps its original geometry and the
-animation reports why. Images and rasterized layers keep their geometry. A twin value axis
-(`y2` / `x2`, recorded from fluxplot schema 0.3.2) has its own limits in the view.
+through the new axis mapping. During the glide the ticks, gridlines and tick labels glide to
+their new values: ticks that exist at both ends walk, ticks that only the old view has leave and
+ticks that only the new view has arrive (they never coexist), and a label that is re-formatted
+for the same value ("1" to "1.0") swaps once. The last frame is exactly the viewed axis,
+re-ticked for its new limits. Categories, dates and fixed labels keep their own ticks, which move
+with their data values and fade near the edges. A log view requires positive limits and positive
+data; an unsupported series keeps its original geometry and the animation reports why. Images
+and rasterized layers keep their geometry. A twin value axis (`y2` / `x2`, recorded from fluxplot
+schema 0.3.2) has its own limits in the view.
 
 A plot needs a manifest with series and calibrated axes. Unsupported axes stay disabled with
 a reason. Select a plot and use **Axis view** in the Object inspector, or **x view** / **y view** in
@@ -287,19 +395,25 @@ placeholders. Choose **linear** or **log**, or **Reset** both axes. At **After s
 edit becomes a Change on that step, with one undo per edit. Scrubbing previews the axis glide.
 X-ray's axis-row **v · Axis view…** focuses the matching Inspector row.
 
-Ticks exactly on a new limit fade to zero (the outer 4% rule). Non-series marks, such as a
-dashed reference line, stay put. For multi-panel plots the same view applies to each panel;
-placeholders show the first panel's limits.
+On axes that keep their own ticks, ticks exactly on a new limit fade to zero (the outer 4%
+rule). Non-series marks, such as a dashed reference line, stay put. For multi-panel plots the
+same view applies to each panel; placeholders show the first panel's limits.
 
 Becomes between plots and Changes of a data view use the same projection, so one Change may
-combine new data, axis limits and movement. Shared semantic parts tween; removed parts fade out
-in the first 40% and added parts fade in during the last 40%.
+combine new data, axis limits and movement. Every mark travels in a straight line from where it
+sits in the first plot to where it sits in the second, even when the new version changes the
+axis's units or scale (a log ratio axis to percentage points); mean dots and outliers keep their
+size. When the two versions tick an axis at different values, the old ticks ride the moving axis
+and fade out while the new ones fade in. Shared semantic parts tween; removed parts fade out in
+the first 40% and added parts fade in during the last 40%. A chained Change starts from exactly
+the plot the step before it left.
 
 From fluxplot schema 0.3.2, bars carry stable keys by category, and heatmap cells and hexagons
 by row and column. Between two versions of such a plot, each member tweens to its namesake: a
 bar grows or shrinks to its new height, and a hexagon's colour passes through the colour scale
-at the intermediate value. A bar chart or a hexmatrix with new data can therefore be a Become
-even without lines or points.
+at the intermediate value. A bar that exists in only one version grows from, or shrinks onto,
+its own baseline instead of fading. A bar chart or a hexmatrix with new data can therefore be a
+Become even without lines or points.
 
 A local change in the SVG structure fades that part, and an SVG without semantic IDs crossfades
 as a whole. Matching ignores positional IDs (matplotlib's numbered `ytick_7`-style IDs and the

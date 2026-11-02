@@ -8,7 +8,7 @@ description: "Compose publication figures from plots, images, text and 3D models
 # Figure
 
 ::: {.doc-lead}
-Compose publication figures from plots, images, text and 3D models.
+Compose publication figures from plots, images, text and 3D models. This page tours the workspace, covers figures as a whole, and points you to the deeper guides.
 :::
 
 <figure class="doc-figure"><a href="/assets/media/figure.webp" data-enlarge data-caption="The Figure workspace keeps a multi-panel composition, its layers and its export controls together."><img src="/assets/media/figure.webp" alt="The Figure workspace with a multi-panel neuroscience figure on the canvas, the Figures and Layers sidebar on the left and the Inspector on the right." width="1500" height="950" loading="lazy"></a><figcaption>The Figure workspace keeps a multi-panel composition, its layers and its export controls together. Data and anatomy: <a href="https://brain-map.org/our-research/circuits-behavior/visual-coding">Allen Institute for Brain Science</a> and MICrONS. <a href="/docs/visual-credits.html">Visual credits</a>.</figcaption></figure>
@@ -18,13 +18,28 @@ Compose publication figures from plots, images, text and 3D models.
 Shortcuts are written with **Ctrl** and **Alt**. On macOS, press **⌘ Command** for Ctrl and
 **⌥ Option** for Alt; [Keyboard shortcuts](/docs/shortcuts.html#figure) lists every Figure shortcut.
 
-- **Tools** are single keys — **V** select, **K** scale, **H** hand (pan), **T** text,
-  **R** rectangle, **O** ellipse, **L** line, **A** arrow, **P** pen.
-- The **sidebar** lists Canvases (pages — add, rename, delete), Figures on the active canvas
-  (family-aware number badges — "2", "S2", "ED3"; double-click opens Figure-Meta’s Name tab), and
-  **Layers** — the z-ordered element tree, with per-row show/hide, lock, drag-to-reorder, and
-  collapsible groups. Drag its right edge to resize it; **Ctrl+B** hides it (bold still wins
-  when a text element is selected).
+A project has one or more **canvases** (pages). Each canvas holds **figures**, the framed panels
+that will appear in your paper, and each figure holds **elements**: plots, text, shapes, arrows,
+images and 3D models. Plots made with fluxplot stay [live](/docs/semantic-plots.html) after
+import, so you can restyle one line, axis or label, and that styling survives when the plot is
+regenerated.
+
+- **Tools**: **V** select, **K** scale, **H** hand (pan), **T** text, **Alt+R** rectangle,
+  **O** ellipse, **L** line, **Shift+L** arrow, **P** pen. **R** on its own opens the
+  [X-ray](/docs/plot-editing.html#x-ray) of the selected plot.
+- The **pointer** is a classic arrow that changes form over an edge, a corner or a handle; a
+  crosshair is available in **Settings → General → Cursor**. See
+  [Everyday editing](/docs/figure-layout.html#everyday-editing) for the pointer and for moving,
+  resizing, rotating and cropping.
+- The **sidebar** has two views, chosen with the tabs at its top. **Layers** lists Canvases
+  (add, rename, delete), the Figures on the active canvas (family-aware number badges — "2",
+  "S2", "ED3"; double-click opens Figure-Meta’s Name tab) and the z-ordered **Layers** tree of
+  the selected figure, with per-row show/hide, lock, drag-to-reorder and collapsible groups.
+  **Plots** is the [Plots rail](/docs/plot-gallery.html#the-plots-rail): your plot gallery and
+  the selected plot's dissections, beside the canvas. **Alt+G** switches between the two views.
+  Drag the sidebar's right edge to make it as wide as you like (the canvas always keeps a strip
+  beside the Inspector); double-click the edge to reset it. **Ctrl+B** hides the sidebar (bold
+  still wins when a text element is selected).
 - **Clicking a figure's name takes you to it** — the view centres on that figure at whatever
   zoom you are already working at, so a big canvas stays navigable without hunting. Your zoom
   is never changed for you. Click the name again after panning away to snap back to it.
@@ -34,15 +49,73 @@ Shortcuts are written with **Ctrl** and **Alt**. On macOS, press **⌘ Command**
   This changes the *order of the list only*: nothing moves on the canvas, and no figure is
   renumbered — reordering and renumbering are separate on purpose, so use Figure-Meta’s Name tab
   below when you want the numbers to follow.
-- The **Inspector** puts the selection’s position, size and appearance first. Alignment and
-  arrangement tools, the colour palette and journal export options can be expanded as needed; drag its left edge to resize it, **Ctrl+Shift+B** hides it for a
-  clean canvas.
+- The **Inspector** puts the selection’s position, size and appearance first. The colour
+  palette, a plot's layout controls and the journal export options expand as needed; drag its
+  left edge to resize it, and **Ctrl+Shift+B** hides it for a clean canvas. **F** opens the same
+  properties as a [menu beside the selection](/docs/figure-layout.html#property-menu).
 - **Ctrl+Z** undo, **Ctrl+Shift+Z** redo, zoom controls in the toolbar (5%–25600%).
   Undo and redo buttons show when a step is available. The toolbar distinguishes waiting
   changes, saving, and a failed save with **Retry**. If a save fails, switching between Figure
   and Slides keeps your edits in the original editor until they can be saved.
 
+## Where to go next {#where-to-go-next}
+
+The rest of this page is about figures as a whole: creating, naming, captioning, exporting.
+Everything you do *inside* a figure is in three guides, plus one for 3D models:
+
+- **[Plot gallery and source links](/docs/plot-gallery.html)** — the
+  [Plots rail](/docs/plot-gallery.html#the-plots-rail) beside the canvas
+  ([reading a tile](/docs/plot-gallery.html#read-a-tile),
+  [narrowing the gallery](/docs/plot-gallery.html#narrow-the-gallery),
+  [placing a plot](/docs/plot-gallery.html#place-a-plot),
+  [dissections and notes](/docs/plot-gallery.html#dissections-pane)), the
+  [full Plot gallery](/docs/plot-gallery.html#browse), the
+  [global plot library](/docs/plot-gallery.html#global-plot-library),
+  [importing files and pasted images](/docs/plot-gallery.html#import) and
+  [keeping linked sources current](/docs/plot-gallery.html#keeping-linked-sources-current).
+- **[Edit plot parts and data views](/docs/plot-editing.html)** —
+  [picking parts inside a plot](/docs/plot-editing.html#selecting-inside-plots),
+  [restyling them](/docs/plot-editing.html#restyling-parts), the
+  [X-ray](/docs/plot-editing.html#x-ray),
+  [dissecting a plot](/docs/plot-editing.html#dissecting-a-plot),
+  [axis view](/docs/plot-editing.html#axis-view),
+  [colour scales](/docs/plot-editing.html#colour-scales) and
+  [View as](/docs/plot-editing.html#view-as) (colour-vision simulation).
+- **[Layout, drawing and typography](/docs/figure-layout.html)** —
+  [everyday editing](/docs/figure-layout.html#everyday-editing) (the pointer, moving, resizing,
+  rotating, cropping), [Align & Arrange](/docs/figure-layout.html#align-and-arrange),
+  the [property menu](/docs/figure-layout.html#property-menu),
+  [colours and colormaps](/docs/figure-layout.html#colours-and-colormaps),
+  [resizing a figure](/docs/figure-layout.html#resizing-a-figure),
+  [resizing a plot](/docs/figure-layout.html#resizing-a-plot) (reflow),
+  [drawing](/docs/figure-layout.html#drawing),
+  [connectors and labels that stick](/docs/figure-layout.html#connectors-and-labels),
+  [text](/docs/figure-layout.html#arranging-text-in-its-box),
+  [cascade](/docs/figure-layout.html#cascade) and
+  [reusable designs](/docs/figure-layout.html#reusable-designs).
+- **[3D models in Flux](/docs/3d-models.html)** — importing a GLB or 3D fluxplot, orbiting,
+  parts, value fields and shape states.
+
+The agent and command-line side of Figure is in [Commands](/docs/commands.html#verb-reference).
+
 ## Finding and naming figures {#finding-and-naming-figures}
+
+### Create and duplicate figures {#create-and-duplicate-figures}
+
+Press **Ctrl+K**, choose **New figure**, then click the canvas where its upper-left corner
+should go; a dashed outline follows the pointer to show where it will land. Flux uses that
+point when it is free, or the closest position that keeps clear of other frames and their
+titles. **Escape** cancels placement.
+
+Hold **Alt** while dragging a figure's title to duplicate the whole figure, including its
+panels, captions and guides. The copy inherits its family and takes the next number (later
+figures of the family shift up by one) and a new permanent reference. A click without a drag
+creates no copy; **Escape** cancels a duplicate drag and **Ctrl+Z** undoes it.
+
+Selection handles remain usable when an element overhangs its frame, and you can begin a
+selection rectangle in the empty canvas outside a frame: it selects in the frame it covers.
+
+### Names, numbers and references {#names-numbers-and-references}
 
 Open **All…** in the Figure sidebar, or **Reference, sources & used in…** in the Inspector,
 for the project-wide figure catalog. Search by title, designation, reference key, or canvas.
@@ -93,9 +166,11 @@ filename, and you do not need to rename stored files to rename a figure.
   Remove it with its **×** button; metadata Undo can restore it.
 - **Shift+Alt+M** opens Figure-Meta already pinned in a separate window; **Pin open** and
   **Dock** move the same view between windows. You can keep editing the workspace while
-  it is pinned. **Shift+Alt+G** likewise opens the Plot gallery already pinned.
-- **Alt+T** enters **arrange**: reflow a messy selection into a tidy row, column, or grid from
-  the keyboard, live, as one undo step.
+  it is pinned. **Shift+Alt+G** likewise opens the full Plot gallery in its own window.
+- **A** opens **Align & Arrange** beside the selection with Align active; **Alt+T** opens it
+  with Arrange active, and **Space** switches panes. Line panels up, space them evenly, align
+  the axes of several plots, or reflow a messy selection into a row, column or grid — see
+  [Align & Arrange](/docs/figure-layout.html#align-and-arrange).
 - **Shift+R** shows rulers (drag from them for guides); **Shift+G** shows the background grid.
 
 ## Exporting figures {#exporting-figures}
@@ -117,13 +192,18 @@ its resolution. PDF pages use the figure’s physical dimensions.
 |---|---|
 | Ctrl+click won't select a part | The plot isn't semantic (imported without its manifest) → re-save via `fp.save` and re-import, or check `flux validate-plot` |
 | An import landed huge / outside the frame | True-size import of a large plot → **Ctrl+Shift+I** to bring it inside, then resize deliberately |
+| My plot stretches instead of reflowing | Read the Inspector's **Layout** status. Regenerate legacy plots with fluxplot ≥ 0.4; choose **Reflow** if **Stretch** was selected. Unsupported layouts (polar, 3D, subfigures, compressed layout) name their reason. See [Resizing a plot](/docs/figure-layout.html#resizing-a-plot). |
+| Ticks look crowded after a resize | Enlarge the plot or reduce **Content scale**; fixed date, category and custom labels do not re-tick. |
+| A label moved oddly after a resize | Check the Layout status and the source transform. Use **Stretch** for a positional fallback, or correct the annotation in the source and regenerate. |
 | Restyles vanished after regenerating | The plot's series names changed in the script → keep `series=` names stable (see [Semantic plots](/docs/semantic-plots.html#every-part-has-a-name)) |
+| An older Flux cannot open a canvas | The canvas holds a connector or label that sticks to a shape, which is saved in a newer file format → open the project in the current Flux; see [Connectors and labels that stick](/docs/figure-layout.html#connectors-and-labels) |
 | "These figures changed on disk" banner | Another tool or agent edited them → **Reload theirs** or **Overwrite with mine** — nothing is lost silently |
 | “Some figures could not be loaded” | A referenced canvas is missing or unreadable. Restore or repair it and reopen the project; saving is blocked to preserve the existing files. |
 | “Caption edits conflict” | Both the caption and its Markdown copy changed. Reconcile those versions before saving; changing panel labels alone does not create an external edit. |
 
 For 3D model problems (grey tiles, Orbit, missing GLB files), see
-[3D models troubleshooting](/docs/3d-models.html#troubleshooting).
+[3D models troubleshooting](/docs/3d-models.html#troubleshooting); for dissections and notes,
+see [Dissections troubleshooting](/docs/dissections.html#troubleshooting).
 
 ::: {.next-reading}
 **Related guides**

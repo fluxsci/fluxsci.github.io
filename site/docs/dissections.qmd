@@ -1,6 +1,6 @@
 ---
 title: "Dissections"
-description: "Keep the supporting panels and statistics one step away from the main plot."
+description: "Keep the supporting panels, statistics and notes one step away from the main plot."
 ---
 
 <p class="eyebrow">Plotting</p>
@@ -8,13 +8,19 @@ description: "Keep the supporting panels and statistics one step away from the m
 # Dissections
 
 ::: {.doc-lead}
-Keep the supporting panels and statistics one step away from the main plot.
+Keep the supporting panels, statistics and notes one step away from the main plot.
 :::
 
 A figure panel is a verdict: *caloric intake predicts body weight*. The evidence behind that
 verdict — twenty per-subject curves, the model comparison you didn't show, the ANOVA table —
 usually lives in a scratch folder far from the figure, or nowhere at all. **Dissections** give
-that material a home *attached to the plot itself*.
+that material a home *attached to the plot itself*: a folder beside the plot that Flux shows
+live in the sidebar while you compose, opens full-screen on **D**, and searches by note.
+
+The quickest start: with a figure open, press **Alt+G** to show the **Plots** view, click a
+plot, and read its **Dissections** in the lower pane. Press **+ Note** there to write the first
+note. Everything else on this page explains what the pane shows and how to fill it from your
+analysis script.
 
 ## The folder convention {#the-folder-convention}
 
@@ -26,7 +32,8 @@ plots/
 └── _dissections/
     └── growth/                     # ← growth.svg's dissections
         ├── overview.svg            #   loose files form the default group
-        ├── by_subject/             #   a subfolder is a named group (a tab in the viewer)
+        ├── notes.txt               #   a note: plain text, searchable
+        ├── by_subject/             #   a subfolder is a named group (a section in the viewer)
         │   ├── subj01.svg …
         └── _stats/
             └── anova.csv           #   CSVs/TSVs open as sortable tables
@@ -37,8 +44,8 @@ The name mirrors the plot's path under `plots/` (so `plots/models/fit.svg` owns
 work too — they're keyed by their file name.
 
 That's the whole contract. There is no manifest and no registration: **the folder is the
-API**. Your analysis script (or an agent) drops files in; Flux never writes or reorganizes
-anything there except when you ask it to create the folder.
+API**. Your analysis script (or an agent) drops files in. Flux can create a dissection folder
+and write the text notes you edit there; it leaves your images, tables and other files alone.
 
 ## What goes in {#what-goes-in}
 
@@ -46,55 +53,117 @@ Anything that explains the plot. Typical dissections:
 
 - **Breakdowns** — one panel per subject / session / condition behind a summary plot.
 - **Alternative analyses** — the same question answered another way (different model,
-  different normalization), kept honest next to the version you published.
-- **Statistics** — `_stats/` CSVs with the tests behind the asterisks.
+  different normalisation), kept honest next to the version you published.
+- **Statistics** — `_stats/` CSVs with the tests behind the asterisks. The
+  [`fp.stats`](/docs/statistics.html) functions return rows made to be saved there.
+- **Notes** — one or more `.txt` files with observations, decisions and searchable tags such
+  as `#check`.
 - Images of any kind (**svg**, **png**, **jpg**, **webp** — fluxplot outputs included) and
-  **csv**/**tsv** tables are first-class in the viewer; other files are listed by name.
+  **csv**/**tsv** tables are first-class in the viewer; `.txt` notes open in the note editor;
+  other files are listed by name.
 
 Dissections are deliberately **out of the way of composition**: nothing under `_dissections/`
-turns up in an ordinary plot-gallery search (**Alt+G**), lands in a figure by accident, or
-rides along into an export. They are context, not content.
+turns up in an ordinary plot search, lands in a figure by accident, or rides along into an
+export. They are context, not content.
 
-Out of the way is not locked away. In the importer, type **`_`** and the reserved folders
+Out of the way is not locked away. In the Plots rail's search box or the full
+[Plot gallery](/docs/plot-gallery.html#search-and-insert), type **`_`** and the reserved folders
 (`_dissections`, and `_lighttable` if the project has one) appear as rows you can enter with
 **Enter**. Inside one, searching only looks *within* that folder, so you can find a
-per-subject panel and insert it deliberately — **⌫** steps back out to the ordinary `plots/`
-search.
+per-subject panel and insert it deliberately — **Backspace** in an empty search steps back
+out to the ordinary `plots/` search. In the Dissections pane itself, you can also drag a
+panel straight onto a figure.
 
 ## Viewing them {#viewing-them}
 
-In the Figure workspace, select a plot and press **D** (or click **Dissections** in the
-Inspector — it shows a count). The viewer opens full-screen, and the **⧉** button shrinks it
-to a floating window you can keep beside the canvas:
+**Beside the canvas, live.** The sidebar's **Plots** view (**Alt+G**; it also opens a hidden
+sidebar, and **Alt+G** again returns to **Layers**) has the plot gallery on top and the
+**Dissections** of whichever plot you last clicked below — a plot clicked in the gallery or on
+the canvas — and follows each new click. Tables come first as small previews (a one-row
+statistics table reads as a list), then each folder of panels; very large folders show a few
+and **Show all**. Clicking a placed per-subject panel shows its siblings, the folder it came
+from. With a file selected, clicking another plot that has a file of the same name keeps it
+selected in the same place, so you can flip between plots and compare one subject. Clicking an
+empty spot keeps the last plot showing; the **pin** holds the pane on one plot while you work
+elsewhere. **Double-click**, **Enter** or **Space** opens a file in the full viewer. Drag the
+line between gallery and dissections to share the height, drag it to an edge to fold a part
+away, and double-click it to reset. A tile's **⧉ 12** mark means the plot has 12 dissection
+files; click it to show them. Slides have the same rail beside the slide list.
 
-- **Arrow keys** move through the grid; **\[** / **\]** change the column count; **1–9** switch
-  group tabs.
-- **Enter** expands a file. Images zoom at the cursor with **Ctrl+scroll**, pan with
-  **Space+drag** or plain scroll, and toggle fit/1:1 with **Enter**. CSV/TSV files open as
-  tables with a sticky header — click a column to sort, numeric columns right-align.
-- **Esc** steps back: detail → grid → closed.
+<figure class="doc-figure"><a href="/assets/media/docs/figure-plots-rail.png" data-enlarge data-caption="Click a plot and its dissections appear below the gallery: tables first as small previews, then each folder of panels. The folder shown here is illustrative."><img src="/assets/media/docs/figure-plots-rail.png" alt="The Figure workspace with the sidebar in its Plots view: a gallery of plot tiles under folder headings, and below it a Dissections pane listing a summary table and a folder of panels for the selected plot." width="2800" height="2000" loading="lazy"></a><figcaption>Click a plot and its dissections appear below the gallery: tables first as small previews, then each folder of panels. The folder shown here is illustrative.</figcaption></figure>
 
-The viewer is live: files dropped into the folder while it's open simply appear.
+**Full screen.** In the Figure workspace, select a plot and press **D** (or click
+**Dissections** in the Inspector — it shows a count). The viewer opens full-screen, and the
+**⧉** button shrinks it to a floating window you can keep beside the canvas. It is the rail's
+pane at full size: tables first as Summary previews, then each folder of panels as its own
+section at the panels' own shapes, then the remaining files as a list.
+
+| Key | In the full viewer |
+|---|---|
+| **Arrow keys** | move through the files |
+| **\[** / **\]** or **Ctrl+scroll** | make the tiles smaller or larger |
+| **1–9** | jump to a section; a section's ▾ folds it |
+| **Enter** | expand a file; on an image, toggle fit / 1:1 |
+| **Ctrl+scroll**, **Space+drag** or plain scroll | zoom an image at the cursor, pan it |
+| **Esc** | step back: detail → grid → closed |
+
+CSV/TSV files open as tables with a sticky header — click a column to sort, numeric columns
+right-align. The viewer is live: files dropped into the folder while it's open simply appear.
+
+Plot previews use the same readable background in the sidebar, Space preview, full gallery
+and this viewer: each image sits on its own page, transparent dark text on paper, light text
+on a dark surface. An image's own background remains part of the image.
+
+## Notes and finding plots {#notes-and-finding-plots}
+
+### Write notes {#notes}
+
+In the sidebar's Dissections pane, switch from **Files** to **✎ Notes**, or click **✎ Notes**
+in the full viewer, then **+ Note** to create a text file. Give each note a name; Flux adds
+`.txt` if needed, and a plot can have several named notes. Select a file to edit it;
+double-clicking a `.txt` among a plot's files opens it here too. Notes save as you type and
+when you leave the field; **Ctrl+S** saves immediately. A failed save keeps your draft, and an
+external edit is reported instead of being overwritten. The text files remain readable in any
+editor, and your scripts can write them too.
+
+<figure class="doc-figure doc-figure-compact"><a href="/assets/media/docs/figure-dissections-notes.png" data-enlarge data-caption="Notes are plain text files beside the plot’s dissections. They save as you type; tags such as #check are searchable across the project."><img src="/assets/media/docs/figure-dissections-notes.png" alt="The Plots view with the Dissections pane switched to Notes: a file tab named observations.txt, a + Note button and the note text being edited, with a #check tag in it." width="638" height="1746" loading="lazy"></a><figcaption>Notes are plain text files beside the plot’s dissections. They save as you type; tags such as <code>#check</code> are searchable across the project.</figcaption></figure>
+
+### Search notes {#search-notes}
+
+In the Plots rail's search, turn on **Notes** to search note contents across every plot in the
+project. For example, `#check` finds that tag wherever you wrote it. Each result shows the
+plot, note, line and the matching text; click it to select that plot and open the note in the
+Notes pane below. Switch **Notes** off to return to searching plot names.
+
+### Browse by folder {#folder-tree}
+
+To browse folders, click **Folders** in the Dissections pane or press **Alt+/** (from anywhere
+in Figure or Slide; it opens the Plots view if needed). The lower pane becomes a searchable
+folder tree with the number of plots under each folder. Click a folder (or use the **Arrow
+keys** and **Enter**) to show only its plots; choose the top folder to see everything again.
+Press **Alt+/** again, or **Esc**, to restore Dissections. The chosen folder stays in place
+while you switch the sidebar to Layers and back. Companion collections such as `_dissections`
+stay out of this tree.
+
+### From the command line {#command-line}
 
 For scripts and agents, `flux list-dissections [plot]` prints a plot's groups and files (or,
-with no argument, every plot that has dissections); see the
-[command reference](/docs/commands.html#verb-reference).
+with no argument, every plot that has dissections); writing needs no verb — drop files in the
+folder. See the [command reference](/docs/commands.html#verb-reference).
 
 ## Troubleshooting {#troubleshooting}
 
-- **Pressed D and got "select a plot"** — Dissect works on a single selected plot or image
-  (or a drilled part; the part's owning plot is used). Group selections don't map to one
-  dissection folder.
-- **The viewer says the folder doesn't exist** — nothing has created it yet. The empty state's
-  **Create dissection folder** button does it, and shows the exact path.
-- **Renamed a plot?** Flux never renames files in `plots/`, so rename the matching folder
-  under `plots/_dissections/` yourself — until you do, the plot reports no dissections
-  (nothing breaks, and the folder is never deleted).
-- **A file shows as a name card with no preview** — only images and CSV/TSV files have
-  viewers today. The file is still listed so you know it's there.
+| Symptom | Cause → fix |
+|---|---|
+| Pressed **D** and got "select a plot" | Dissect works on a selected plot or image (or a drilled part; the part's owning plot is used; with several selected, the last plot you added). Group selections don't map to one dissection folder → select one plot. |
+| The Plots view says **Library plots have no dissections** | Plots from your global plot library live outside the project; dissections belong to a project's `plots/_dissections` → place the plot in the project, or keep its evidence with the project it is used in. |
+| The viewer says the folder doesn't exist | Nothing has created it yet → the empty state's **Create dissection folder** button does it, and shows the exact path. |
+| Renamed a plot and its dissections vanished | Flux never renames files in `plots/` → rename the matching folder under `plots/_dissections/` yourself. Until you do, the plot reports no dissections; nothing breaks and the folder is never deleted. |
+| A file shows as a name card with no preview | Images and CSV/TSV files have previews; `.txt` notes open in the text editor → other files remain listed by name so you know they're there. |
+| A note won't save | Text notes are limited to 1 MiB and cannot follow symbolic links → shorten the note or keep large text elsewhere. If another editor changed the file, copy any draft text you want to keep, then choose **Discard draft and reload** to read the disk version before editing again. |
 
 ::: {.next-reading}
 **Related guides**
 
-[Semantic plots](/docs/semantic-plots.html) · [Statistics and comparison brackets](/docs/statistics.html) · [Edit plot parts and data views](/docs/plot-editing.html#dissecting-a-plot) · [Lighttable](/docs/lighttable.html)
+[Semantic plots](/docs/semantic-plots.html) · [Statistics and comparison brackets](/docs/statistics.html) · [Edit plot parts and data views](/docs/plot-editing.html#dissecting-a-plot) · [Plot gallery and source links](/docs/plot-gallery.html) · [Shortcuts: Figure](/docs/shortcuts.html#figure)
 :::

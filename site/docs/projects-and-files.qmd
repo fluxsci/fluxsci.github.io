@@ -71,7 +71,7 @@ Your analysis writes a source plot into `plots/`. Inserting it into Figure store
 
 When a linked SVG source changes, Flux refreshes the accepted SVG, manifest, and recipe. A 3D model instead offers an explicit **Update from source** action; its saved mesh stays in place until you accept that update. Figure, Paper, and Slides read that accepted version. Stable part identities let Flux retain edits to a named series while its data change.
 
-The figure catalog makes the link visible:
+The figure catalogue makes the link visible:
 
 - **Linked · current** — the accepted copy matches the source.
 - **Updating** — a source change is being processed.
@@ -91,6 +91,8 @@ Flux autosaves as you work. A successful file replacement writes a temporary fil
 Edits still waiting to save are not yet on disk. If a save fails, Flux keeps the editor dirty and reports the problem. Resolve it before closing; autosave is not a substitute for a backup.
 
 Flux also watches for edits made by another tool. If the affected file has no unsaved changes, the app reloads it. If you are mid-edit, it shows a conflict banner. Read the choices before deciding which version to keep. Figure’s **Overwrite with mine** preserves both versions in its conflict records before saving; newer or unreadable formats can refuse an overwrite.
+
+A canvas or deck that uses the newest features, such as connectors and labels stuck to shapes, is saved in a newer file format that an older Flux refuses to open rather than display wrongly ([format stamps](/docs/project-layout.html#notes-on-specific-pieces)). Keep Flux up to date on every machine that shares a project.
 
 Undo remains available in the editors, including for supported external edits brought into the live workspace.
 

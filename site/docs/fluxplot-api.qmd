@@ -1,6 +1,6 @@
 ---
 title: "Python API reference"
-description: "Signatures and behavior of the public fluxplot plotting, saving, 3D, colour and statistics functions."
+description: "Signatures and behaviour of the public fluxplot plotting, saving, signature-plot, 3D, colour and statistics functions."
 ---
 
 <p class="eyebrow">Plotting / Reference</p>
@@ -11,11 +11,28 @@ description: "Signatures and behavior of the public fluxplot plotting, saving, 3
 Find the function, its parameters and its return value. Import the library as `import fluxplot as fp`.
 :::
 
-Start with the [quickstart](/docs/fluxplot.html) for a complete script. The examples in this reference describe individual calls; variables such as `ax`, `x` and `data` come from your own analysis. Signatures are taken from the reviewed fluxplot source.
+Start with the [quickstart](/docs/fluxplot.html) for a complete script. The examples in this reference describe individual calls; variables such as `ax`, `x` and `data` come from your own analysis. Signatures are taken from the fluxplot source at the 0.4 release; every public name in `fluxplot.__all__` has an entry below.
 
-`**kwargs` generally pass through to the corresponding Matplotlib method. See the [plotting guides](/docs/plot-types.html), [colour guide](/docs/colors-and-style.html) and [3D guide](/docs/3d-plots.html) for worked patterns.
+`**kwargs` generally pass through to the corresponding Matplotlib method. See the [plotting guides](/docs/plot-types.html), [signature plots](/docs/signature-plots.html), [colour guide](/docs/colors-and-style.html) and [3D guide](/docs/3d-plots.html) for worked patterns, and [Plot format and identity](/docs/plot-format.html) for the files `fp.save` writes.
 
-## Styles and saving
+## Index {#index}
+
+| Section | Functions |
+|---|---|
+| [Styles and saving](#styles-and-saving) | [`use_paper`](#use_paper) · [`use_light`](#use_light) · [`use_dark`](#use_dark) · [`save`](#save) · [`params`](#params) · [`panel`](#panel) |
+| [Lines, points and summaries](#lines-points-and-summaries) | [`line`](#line) · [`scatter`](#scatter) · [`bar`](#bar) · [`barh`](#barh) · [`step`](#step) · [`stem`](#stem) · [`errorbar`](#errorbar) · [`area`](#area) · [`band`](#band) · [`box`](#box) · [`violin`](#violin) · [`hist`](#hist) · [`regression`](#regression) · [`kde`](#kde) |
+| [Fields, images and surfaces](#fields-images-and-surfaces) | [`heatmap`](#heatmap) · [`contour`](#contour) · [`contourf`](#contourf) · [`color_scale`](#color_scale) · [`colorbar`](#colorbar) · [`image`](#image) · [`scalebar`](#scalebar) · [`surface`](#surface) |
+| [Signature plots](#signature-plots) | [`meanmark`](#meanmark) · [`fluxbox`](#fluxbox) · [`hexmatrix`](#hexmatrix) |
+| [Labels and existing artists](#labels-and-existing-artists) | [`legend`](#legend) · [`secondary_axis`](#secondary_axis) · [`annotation`](#annotation) · [`reference_line`](#reference_line) · [`significance_bracket`](#significance_bracket) · [`brackets`](#brackets) · [`tag`](#tag) · [`tag_points`](#tag_points) · [`tag_seaborn`](#tag_seaborn) |
+| [3D scenes](#d-scenes) | [`scene3d`](#scene3d) · [`mesh3d`](#mesh3d) · [`surface3d`](#surface3d) · [`can_morph`](#can_morph) · [`Scene3D.view`](#scene-view) · [`Scene3D.axis`](#scene-axis) · [`Scene3D.show`](#scene-show) |
+| [Statistics](#statistics) (`fp.stats`) | [`anova_oneway`](#anova_oneway) · [`bh`](#bh) · [`bh_adjusted`](#bh_adjusted) · [`dunn`](#dunn) · [`friedman_kendall`](#friedman_kendall) · [`games_howell`](#games_howell) · [`holm`](#holm) · [`holm_adjusted`](#holm_adjusted) · [`kruskal_epsilon`](#kruskal_epsilon) · [`mann_whitney_cliff`](#mann_whitney_cliff) · [`paired_t_hedges`](#paired_t_hedges) · [`pairwise`](#pairwise) · [`rm_anova`](#rm_anova) · [`tukey_hsd`](#tukey_hsd) · [`welch_anova`](#welch_anova) · [`welch_hedges`](#welch_hedges) · [`wilcoxon_rank_biserial`](#wilcoxon_rank_biserial) |
+| [Colour checks](#colour-checks) (`fp.colorcheck`) | [`check_palette`](#check_palette) · [`check_colormap`](#check_colormap) · [`check_figure`](#check_figure) · [`simulate`](#simulate) · [`delta_e`](#delta_e) · [`contrast`](#contrast) |
+| [Portable colour laws](#portable-colour-laws) (`fp.colorscale`) | [`normalize`](#normalize) · [`lookup`](#lookup) · [`apply`](#apply) |
+| [Result objects and versions](#result-objects-and-versions) | `SaveResult`, `MeanmarkResult`, `FluxboxResult`, `HexMatrixResult`, `RegressionResult`, `KdeResult`, `ImageResult`; `__version__`, `SPEC_VERSION`, `SCENE3D_SPEC_VERSION` |
+
+Each entry gives a one-line summary, the signature, and — where the function has more than a few options — a collapsible **Parameters and details** block. The `fp.colors` palette and colormap library is described in the [colour guide](/docs/colors-and-style.html).
+
+## Styles and saving {#styles-and-saving}
 
 ### `fp.use_paper` {#use_paper}
 
@@ -47,7 +64,7 @@ Apply the dark theme before creating figures.
 fp.save(fig, path, *, recipe=None, validate=True, force_vectors=False, raster_threshold=None, raster_dpi=None, theme_vars=False, lint='off', _now=None) -> 'SaveResult'
 ```
 
-Emit `<path>.svg` + `<path>.fluxplot.json` + `<path>.recipe.json` for `fig`.
+Emit `<path>.svg` + `<path>.fluxplot.json` + `<path>.recipe.json` for `fig`, and return a `SaveResult` with the three paths, any warnings and the layers that were rasterized.
 
 <details class="api-detail"><summary>Parameters and details</summary>
 
@@ -102,7 +119,20 @@ the save with them.
 several plots can be re-run for one of them — set `FLUXPLOT_ONLY` to a
 comma-separated list of plot names (fnmatch patterns work: `fig2*`) and
 every non-matching `save` becomes a no-op (nothing written, siblings
-untouched on disk). `flux rerun-plot <recipe> --only` sets this for you.
+untouched on disk; `SaveResult.skipped` is `True`). `flux rerun-plot <recipe> --only` sets this for you.
+
+**Layout capture** (manifest schema 0.4). Every save also records a `layout` block in the
+manifest: the figure's layout engine and GridSpec inputs, each axes' position, domain and
+aspect rules, the anchor, extent and font of every text, the font advances matplotlib measured,
+the tick locator and formatter parameters of every axis, legends, colorbars and a coordinate
+frame for every part. With it a consumer can resize the plot to a new physical size without
+running Python — data follows the axes, numeric ticks are recomputed, text and strokes keep
+their point sizes. Nothing changes in the SVG, and the block adds no options to `save`:
+figures the capture cannot describe (polar or 3D axes, subfigures, compressed constrained
+layout, `usetex` text, custom transforms) still save normally and record a named refusal in
+`layout.reasons`. The inputs are taken before the layout draw and reused on repeated saves, so
+saving the same figure twice stays byte-identical. See [the layout
+block](/docs/plot-format.html#layout-capture) for the record's contents.
 
 </details>
 
@@ -134,7 +164,7 @@ fp.panel(ax, name)
 
 Give an axes a durable panel identity, independent of subplot layout/order.
 
-## Lines, points and summaries
+## Lines, points and summaries {#lines-points-and-summaries}
 
 ### `fp.line` {#line}
 
@@ -167,7 +197,7 @@ recolour or re-range the points live.
 fp.bar(ax, x, height, *, series, label=None, **kw)
 ```
 
-Add a named text annotation to the axes. `**kw` passes through to Matplotlib’s `ax.annotate`; supply `xy` and any desired arrow or text options.
+A named vertical bar series (`Axes.bar`): every bar is an addressable, indexed part of `series`, and the bars carry stable keys by category so two versions of the plot can be tweened bar by bar. `**kw` passes through to `Axes.bar`; returns the ordinary `BarContainer`.
 
 ### `fp.barh` {#barh}
 
@@ -335,7 +365,7 @@ the grid runs `cut` bandwidths past the data on either side.
 
 </details>
 
-## Fields, images and surfaces
+## Fields, images and surfaces {#fields-images-and-surfaces}
 
 ### `fp.heatmap` {#heatmap}
 
@@ -563,15 +593,19 @@ Returns the list of matplotlib collections drawn (in draw order).
 
 </details>
 
-## Signature plots
+## Signature plots {#signature-plots}
 
-### `fp.glowbar` {#glowbar}
+### `fp.meanmark` {#meanmark}
 
 ```python
-fp.glowbar(data=None, *, x, y, units=None, order: 'Optional[Sequence]' = None, unit_order: 'Optional[Sequence]' = None, ax=None, interval: 'Union[str, Callable]' = 'sem', center: 'str' = 'auto', show_mean: 'bool' = True, show_median: 'bool' = True, show_caps: 'bool' = True, bar_width: 'float' = 5.0, bar_offset: 'float' = 0.42, bar_side: 'str' = 'outer', glow_steps: 'int' = 28, glow_alpha: 'float' = 0.06, mean_line_width: 'float' = 1.2, mean_color=None, mean_halo_width: 'float' = 1.5, median_notch_depth: 'float' = 1.3, median_notch_height: 'float' = 2.2, cap_width: 'float' = 0.8, cap_color=None, cut_color=None, show_individual_points: 'bool' = True, point_size: 'float' = 18.0, jitter: 'float' = 0.14, point_edge='rim', point_edge_width: 'float' = 0.5, point_fill_alpha: 'float' = 1.0, palette=None, group_color_position: 'Optional[float]' = None, group_color=None, point_colors='auto', shade_range: 'tuple' = (88.0, 22.0), interleave_shades: 'bool' = True, connect_identical_points_across_x_values: 'bool' = False, connect_line_width: 'float' = 0.6, connect_color=None, connect_alpha: 'float' = 0.8, series=None, unit_series=None, label_axes: 'bool' = True, zorder: 'float' = 2.0) -> 'GlowbarResult'
+fp.meanmark(data=None, *, x, y, units=None, order: 'Optional[Sequence]' = None, unit_order: 'Optional[Sequence]' = None, ax=None, interval: 'Union[str, Callable]' = 'ci', confidence: 'float' = 0.95, orientation: 'str' = 'vertical', value_scale: 'Optional[str]' = None, mark_size: 'float' = 4.5, mark_edge_width: 'float' = 1.5, mark_color=None, mark_fill_color='auto', mark_fill_alpha: 'float' = 1.0, mark_fill_mix: 'float' = 0.25, mark_offset: 'Optional[float]' = None, mark_side: 'str' = 'right', show_notch: 'bool' = False, notch_depth: 'float' = 1.2, notch_height: 'float' = 2.0, show_error: 'bool' = True, error_width: 'float' = 1.7, error_color=None, show_caps: 'bool' = True, cap_size: 'float' = 3.5, cap_width: 'float' = 1.2, cap_color=None, show_individual_points: 'bool' = True, point_size: 'float' = 13.0, jitter: 'float' = 0.06, point_edge='rim', point_edge_width: 'float' = 0.2, point_fill_alpha: 'float' = 0.45, palette=None, group_color_position: 'Optional[float]' = None, group_color=None, point_colors='group', shade_range: 'tuple' = (88.0, 22.0), interleave_shades: 'bool' = True, connect_identical_points_across_x_values: 'Union[bool, str]' = 'auto', connect_line_width: 'float' = 0.5, connect_color='#5f5f5f', connect_alpha: 'float' = 0.2, series=None, unit_series=None, label_axes: 'bool' = True, zorder: 'float' = 2.0) -> 'MeanmarkResult'
 ```
 
-Draw a glowbar: the individual points plus a glowing interval bar with mean line and median notch.
+Draw the arithmetic mean of each category as an outlined circle with a tinted interior and two uncertainty arms (a 95% Student-t confidence interval by default), beside the individual observations — the compact mean-and-error mark of a scientific figure, with every part separately addressable.
+
+::: {#glowbar}
+**Replaces `fp.glowbar`.** fluxplot 0.4 removed `fp.glowbar` and `GlowbarResult`; `fp.meanmark` takes their place. The data, ordering, point, colour, connector and naming keywords are the ones [`fp.fluxbox`](#fluxbox) shares, so a glowbar call becomes a meanmark call by dropping the bar, glow, mean-line and median-notch keywords (`bar_*`, `glow_*`, `center`, `show_mean`, `show_median`, `mean_line_width`, `mean_color`, `mean_halo_width`, `median_notch_*`, `cut_color`) and choosing an `interval` — `"iqr"` is gone, and the default is now `"ci"` rather than `"sem"`. The point defaults also changed (smaller, translucent points in the group colour; connectors on whenever `units` is given). The manifest `plotType` and payload key are `meanmark`, and the summary parts are `<category>.mean`, `.error-low`, `.error-high`, `.cap-low`, `.cap-high` instead of `.glow`, `.caps`, `.mean`, `.median`.
+:::
 
 <details class="api-detail"><summary>Parameters and details</summary>
 
@@ -583,152 +617,201 @@ Draw a glowbar: the individual points plus a glowing interval bar with mean line
     passed as arrays.
 
 `x, y`
-:   Column names (or array-likes): `x` is categorical (one bar per value), `y` numeric. Rows
-    whose `x` or `y` is missing are not drawn.
+:   Column names (or array-likes): `x` is categorical (one mark per value), `y` numeric. Rows
+    whose `x` or `y` is missing or non-finite are not drawn and do not count. `x` stays the
+    category and `y` the value in either `orientation`.
 
 `units`
 :   Optional identity column (subject, animal, cell…). Each unit gets a fixed lane and colour
-    inside every category, derived from the table order (`unit_order`), never from the values
-    — so separate plots of different measures from the same table agree, even when a unit is
-    missing a value in one of them. Units are also what
-    `connect_identical_points_across_x_values` joins.
+    inside every category, derived from the table order (`unit_order`), never from the values,
+    so separate plots of different measures from the same table agree. Units identify the
+    paired points that `connect_identical_points_across_x_values` joins; the statistics use
+    every observation and do not aggregate repeated rows of a unit.
 
 `order, unit_order`
-:   Category order (left → right) and unit order (first lane → last). Default: first appearance
-    in the data (numeric categories are sorted). Categories missing from `order` are dropped.
+:   Category order (left → right, or bottom → top when horizontal) and unit order (first lane →
+    last). Default: first appearance in the data (numeric categories are sorted). Categories
+    missing from `order` are dropped.
 
 `ax`
 :   Target axes (default: the current axes).
 
 `interval`
-:   What the glowing bar and its caps span: `"sem"` (mean ± SEM — default), `"iqr"` (Q1–Q3,
-    the box of a box plot), `"sd"` (mean ± SD), or a callable `values -> (low, high)`.
+:   What the arms span: `"ci"` (a two-sided Student-t confidence interval of the mean at
+    `confidence`, from the sample SD — default), `"sem"` (mean ± SEM), `"sd"` (mean ± SD),
+    `"range"` (the smallest and largest observation), or a callable `values -> (low, high)`
+    returning absolute data values that are finite and contain the mean (anything else raises).
+    A category with one observation has a mean but no estimable SEM, SD or CI: only its circle is
+    drawn and the bounds are `null`. An empty category keeps its tick and gets no mark.
 
-`center`
-:   Where the glow is densest: `"auto"` (the median for `"iqr"`, else the mean), `"mean"`
-    or `"median"`. The glow fades from there toward each cap independently, so a skewed group
-    glows asymmetrically.
+`confidence`
+:   Confidence level of `interval="ci"` (default `0.95`); recorded in the payload only for a CI.
 
-`show_mean, show_median, show_caps`
-:   Toggle the mean line, the median notch and the interval caps.
+`orientation`
+:   `"vertical"` (default: categories along x, values up y) or `"horizontal"` (values along x,
+    categories up y). Significance brackets (`.brackets`) currently need a vertical plot.
 
-`bar_width`
-:   Bar width in points; the mean line and the caps span exactly this width.
+`value_scale`
+:   `None` (the value axis' current scale — default), `"linear"` or `"log"`. The statistics are
+    always taken in the original data units, including on a log axis (the mark is the arithmetic
+    mean; compare `fluxbox`, whose log-axis notch is the geometric mean). A log axis requires
+    positive observations and positive interval bounds; invalid bounds raise rather than clip.
 
-`bar_offset, bar_side`
-:   Distance (category units) of the bar from its category's centre, and its side: `"outer"`
-    (the first category's bar to the left, every other to the right, so the bars frame the
-    comparison — default), `"left"` or `"right"`.
+`mark_size, mark_edge_width`
+:   Circle diameter and outline stroke, in points. The circle is point-sized geometry anchored to
+    the mean: it stays round and the same size whatever the axis limits, scale or direction.
 
-`glow_steps, glow_alpha`
-:   The glow is `glow_steps` nested segments of opacity `glow_alpha`; their overlap builds the
-    gradient (peak opacity ≈ `1 - (1 - glow_alpha) ** glow_steps`).
+`mark_color, mark_fill_color, mark_fill_alpha, mark_fill_mix`
+:   The outline defaults to the group colour; `mark_color` overrides it. The interior:
+    `"auto"` (default) mixes the outline into the axes ground by `mark_fill_mix` (`0.25`),
+    giving an opaque tint that reads on light and dark grounds; `"stroke"` makes a solid dot;
+    `"none"` a hollow circle; any Matplotlib colour is accepted. `mark_fill_alpha` applies to the
+    interior only — the outline stays opaque.
 
-`mean_line_width, mean_color, mean_halo_width`
-:   Stroke of the mean line (points), its colour (default: the group colour deepened — or, on a
-    dark ground, lifted — just far enough to stand off the glow) and the width of the
-    background-coloured halo that lifts it off the glow (`0` disables it).
+`mark_offset, mark_side`
+:   Distance of the mark from its category's centre, in category units, and its side.
+    `mark_offset=None` resolves to `0.25` when points or connectors are drawn and `0` otherwise;
+    `0` centres every mark on its tick. `mark_side` is `"right"` (default), `"left"` or
+    `"outer"` (the first category's mark to the left, every other to the right); for a
+    horizontal plot these mean below / above.
 
-`median_notch_depth, median_notch_height`
-:   How far each V-cut reaches into the bar, and its height, in points. The notch is drawn above
-    the mean line, so it stays visible when the median meets the mean.
+`show_notch, notch_depth, notch_height`
+:   Cut two V-shaped notches into the circle's outline at the exact mean — genuine cut-outs,
+    not paint, so they are transparent on any ground. Depth and full height are in points; the
+    depth must be less than the radius and the height less than the diameter.
 
-`cap_width, cap_color`
-:   Stroke and colour (default: the group colour) of the interval caps.
+`show_error, error_width, error_color`
+:   Draw the lower and upper arms (default `True`), each its own part. Stroke in points; colour
+    defaults to the outline's. An arm runs from the circle's rim to the exact bound, so a hollow
+    or translucent circle never shows a line through its centre; an interval shorter than the
+    radius stays hidden inside the circle.
 
-`cut_color`
-:   Colour of the notch and halo "cuts" (default: the axes background).
+`show_caps, cap_size, cap_width, cap_color`
+:   End caps on the arms (default `True`), as separate editable parts. Length and stroke in
+    points; colour defaults to the arms'.
 
 `show_individual_points`
 :   Draw the individual observations (default `True`).
 
 `point_size, jitter`
-:   Marker area (points²), and the half-width of the lane spread (category units). Lanes are
-    evenly spaced, never random.
+:   Marker area (points², default `13`) and the half-width of the lane spread (category units,
+    default `0.06`). Lanes are evenly spaced, never random.
 
 `point_edge, point_edge_width`
-:   `"rim"` (a deeper shade of each point's own colour, which keeps pale points crisp —
-    default), `"none"` or any colour; and the edge width in points.
+:   `"rim"` (a deeper shade of each point's own colour — default), `"none"` or any colour; and
+    the edge width in points (default `0.2`).
 
 `point_fill_alpha`
-:   Opacity of the points' fill only (default `1.0`). The rim / edge keeps full opacity, so
-    translucent points stay crisply outlined where they overlap.
+:   Opacity of the points' fill only (default `0.45`); the rim keeps full opacity so overlapping
+    points stay crisply outlined.
 
 `palette`
 :   Per-category colour source, given once for every category, as a list (cycled in category
-    order) or as a `{category: spec}` mapping. A spec can be anything in fluxplot's colour
-    library — a colormap from `fp.colors.maps` (`"cmasher.emerald"`, `"crameri.batlow"`,
-    `"tol.sunset"`, a bare `"YlGnBu"`, `_r` reversed), a palette from
-    `fp.colors.palettes` (`"brewer.Set2"`, `"tol.bright"`, `"flexoki.blue"`), any
-    matplotlib colormap or `Colormap`, a list of colours, or a single colour. The glowbar
-    picks as many distinct point colours as each group needs plus one solid group colour:
-    sequential sources give equal perceptual steps (oriented light → dark, whatever their
-    source direction); diverging / cyclic maps are sampled evenly along their usable (not too
-    pale) stretches; qualitative palettes keep their own order. Default: the ColorBrewer
-    maps `YlGnBu`, `YlOrRd`, `RdPu`, `BuGn`, `Purples`, `YlOrBr`. (Because a palette list
-    like `["#123", "#456"]` means one spec per category, wrap a hand-made palette for a
-    single category in a mapping: `{"SD": ["#123", "#456", "#789"]}`.)
+    order) or a `{category: spec}` mapping — any colormap or palette in fluxplot's colour library
+    (`"cmasher.emerald"`, `"brewer.Set2"`, `"tol.bright"`, a bare `"YlGnBu"`, `_r` reversed), a
+    Matplotlib colormap, a list of colours, or one colour. The plot derives one solid group colour
+    and, for `point_colors="shades"`, as many distinct point shades as a category needs. Default:
+    the ColorBrewer maps `YlGnBu`, `YlOrRd`, `RdPu`, `BuGn`, `Purples`, `YlOrBr`.
 
 `group_color_position`
-:   Pin the group colour to a point of an ordered (sequential) source's light → dark ramp
-    (0 = palest, 1 = darkest). Default `None` chooses: 0.75 along a ColorBrewer ramp; for any
-    other source its most chromatic mid-lightness colour when its hues agree (e.g. cmasher
-    `emerald`), or a neutral ink when they spread around the wheel (diverging, rainbow,
-    qualitative) — no single hue honestly stands for those.
+:   Pin the group colour to a point of an ordered source's light → dark ramp (0 = palest,
+    1 = darkest). Default `None`: 0.75 along a ColorBrewer ramp, else the source's most chromatic
+    mid-lightness colour (or a neutral ink for multi-hue sources).
 
 `group_color`
-:   Override the group colour (glow, caps, mean shade) outright: one colour, or a
-    `{category: colour}` mapping. Point colours still come from `palette`.
+:   Override the group colour (the circle's outline and tint, the arms and caps) outright: one
+    colour or a `{category: colour}` mapping. Point colours still follow `point_colors`.
 
 `point_colors`
-:   `"shades"` (each unit its own shade of its category's map), `"group"` (every point in its
-    group colour), `"auto"` (shades with `units`, else group — default), one colour for all
-    points, or a `{unit: colour}` mapping.
+:   `"group"` (every point in its category's group colour — default), `"shades"` (each unit its
+    own shade of the category's source), `"auto"` (shades with `units`, else group), one colour
+    for all points, or a `{unit: colour}` mapping.
 
 `shade_range, interleave_shades`
 :   Lightness of the palest and darkest shade (0 = black, 100 = white), spaced in equal
     perceptual steps; and whether shades are dealt across lanes so neighbours always contrast
-    (default `True`) or run pale → dark in lane order. On a dark ground the dark bound is
-    lifted to stay at least 20 lightness units above the ground.
+    (default `True`) or run pale → dark in lane order. On a dark ground the dark bound is lifted
+    to stay readable.
 
 `connect_identical_points_across_x_values`
-:   Join each unit's points across the x categories with a line (needs `units`) — for paired
-    or repeated-measures designs. A unit missing from a category breaks its line there instead
-    of bridging the gap; several rows of one unit in one category are joined through their mean.
+:   Join each unit's points across the categories with a line, for paired or repeated-measures
+    designs: `"auto"` (default — on whenever `units` is given), `True` (requires `units`) or
+    `False`. A unit missing from a category breaks its line there instead of bridging the gap.
 
 `connect_line_width, connect_color, connect_alpha`
-:   Connector stroke (points), colour (a colour, or `"unit"` for each unit's own point colour)
-    and opacity. The default is a quiet neutral — the active theme's grid colour, else Flexoki
-    base-300 — so the lines never compete with the points.
+:   Connector stroke (points, default `0.5`), colour (default `"#5f5f5f"`; `None` takes the active
+    theme's grid neutral; `"unit"` each unit's own point colour) and opacity (default `0.2`).
 
 `series, unit_series`
 :   Override the series names — the roots of every part id — per category / per unit, as a
-    mapping or a callable. Defaults: the category and unit values (`"SD"` → `sd.glow`,
+    mapping or a callable. Defaults: the category and unit values (`"SD"` → `sd.mean`,
     `"B6_8"` → `b6-8.points`).
 
 `label_axes`
-:   Put the category names on the x ticks and the `y` column name on the y axis, and set the x
-    limits (default `True`).
+:   Put the category names on the categorical axis and the `y` column name on the value axis,
+    and set the categorical limits (widened to include offset marks) — default `True`.
 
 `zorder`
-:   Base z-order: connectors sit just below it, the points at it, the bar above.
+:   Base z-order: connectors sit just below it, the points at it, the arms and caps above them and
+    the circle on top.
 
 
 **Returns**
 
-`GlowbarResult`
-:   The axes, category order, statistics, colours, series names and artists.
+`MeanmarkResult`
+:   `.ax`, `.categories` (plotted order), `.stats` (category → `n`, `mean`, `meanKind`, `sd`,
+    `sem`, `interval`, `confidence`, `low`, `high`, `x`, `y`, `categoryPosition`, `orientation`,
+    `scale`, `groupColor`), `.group_colors`, `.point_colors` (unit → {category: colour}),
+    `.series` / `.unit_series` (the roots of every part id), `.orientation` and `.artists`
+    (`mean`, `error_low`, `error_high`, `cap_low`, `cap_high`, `points`, `lines` → artist lists;
+    every summary part is an independent Matplotlib artist). `.positions` (category name → x)
+    and `.brackets(rows, **kw)` feed [`fp.brackets`](#brackets) on a vertical plot.
 
+
+**Parts and payload**
+
+| part | default id | role / kind |
+|---|---|---|
+| mean circle (with its cut-outs) | `<category>.mean` | `mean` / shape — fill and stroke editable |
+| lower / upper arm | `<category>.error-low`, `<category>.error-high` | `errorbar` / line |
+| optional caps | `<category>.cap-low`, `<category>.cap-high` | `cap` / line |
+| a unit's points / connector | `<unit>.points`, `<unit>.point.<k>` / `<unit>.line` | `point` / `line` |
+| points without `units` | `<category>.points`, `<category>.point.<k>` | `point` |
+
+Ids persist when caps, points or notches are toggled, and *low* / *high* always refer to data
+values, including on an inverted axis. Each category series carries a `meanmark` payload in the
+manifest with the exact statistics drawn — `n`, `mean`, `meanKind`, `sd`, `sem`, `interval`,
+`confidence`, `low`, `high`, `x`, `y`, `categoryPosition`, `orientation`, `scale`, `groupColor`,
+`palette` — and each unit series its identity (`units`, `unit`, `categories`, `colors`); the
+manifest's `plotType` is `"meanmark"`. See [Plot format and identity](/docs/plot-format.html#plot-types-and-payloads).
+
+
+<figure class="doc-figure doc-plot"><img src="/assets/media/docs/plots/meanmark-styles.svg" alt="Six small meanmark panels: the tinted default with a 95 % confidence interval, a solid mark with caps, a hollow mark with mean ± SD, a notched mark, a horizontal layout, and the same plot on a dark ground." width="720" height="432" loading="lazy"><figcaption>Meanmark variants from <code>examples/meanmark_example.py</code>: tinted (default), solid with caps, hollow ± SD, notched, horizontal, and on a dark ground.</figcaption></figure>
+
+**Examples**
+
+```python
+mm = fp.meanmark(df, x="condition", y="signal", units="subject", ax=ax)   # paired points, 95% CI
+mm = fp.meanmark(df, x="condition", y="signal", ax=ax,                       # summary alone
+                 show_individual_points=False, interval="sem",
+                 mark_fill_color="stroke", show_caps=False)
+rows = fp.stats.pairwise(fp.stats.welch_hedges, {c: df.loc[df.condition == c, "signal"] for c in mm.categories})
+mm.brackets(rows)
+```
+
+The fluxplot repository's `examples/meanmark_example.py` draws the paired design and a sheet of
+styling variants (tinted, solid, hollow, notched, horizontal, dark ground), exposing its controls
+through `fp.params` for regeneration from Flux.
 
 </details>
 
 ### `fp.fluxbox` {#fluxbox}
 
 ```python
-fp.fluxbox(data=None, *, x, y, units=None, order: 'Optional[Sequence]' = None, unit_order: 'Optional[Sequence]' = None, ax=None, whis: 'Union[float, str, Sequence[float]]' = 1.5, show_mean: 'bool' = True, show_median: 'bool' = True, show_whiskers: 'bool' = True, show_caps: 'bool' = False, show_fliers: 'Union[bool, str]' = 'auto', box_width: 'float' = 7.0, box_alpha: 'float' = 0.5, box_offset: 'float' = 0.42, box_side: 'str' = 'outer', median_line_width: 'float' = 1.4, median_color=None, median_contrast: 'float' = 30.0, mean_notch_depth: 'float' = 1.5, mean_notch_height: 'float' = 2.6, whisker_width: 'float' = 1.0, whisker_color=None, cap_size: 'float' = 4.0, cap_width: 'float' = 0.8, cap_color=None, flier_size: 'float' = 8.0, cut_color=None, show_individual_points: 'bool' = True, point_size: 'float' = 18.0, jitter: 'float' = 0.14, point_edge='rim', point_edge_width: 'float' = 0.5, point_fill_alpha: 'float' = 1.0, palette=None, group_color_position: 'Optional[float]' = None, group_color=None, point_colors='auto', shade_range: 'tuple' = (88.0, 22.0), interleave_shades: 'bool' = True, connect_identical_points_across_x_values: 'bool' = False, connect_line_width: 'float' = 0.6, connect_color=None, connect_alpha: 'float' = 0.8, series=None, unit_series=None, label_axes: 'bool' = True, zorder: 'float' = 2.0) -> 'FluxboxResult'
+fp.fluxbox(data=None, *, x, y, units=None, order: 'Optional[Sequence]' = None, unit_order: 'Optional[Sequence]' = None, ax=None, whis: 'Union[float, str, Sequence[float]]' = 1.5, yscale: 'Optional[str]' = None, show_mean: 'bool' = True, show_median: 'bool' = True, show_whiskers: 'bool' = True, show_caps: 'bool' = False, show_fliers: 'Union[bool, str]' = 'auto', box_width: 'float' = 7.0, box_alpha: 'float' = 0.5, box_offset: 'float' = 0.42, box_side: 'str' = 'outer', median_line_width: 'float' = 1.4, median_color=None, median_contrast: 'float' = 30.0, mean_notch_depth: 'float' = 1.5, mean_notch_height: 'float' = 2.6, whisker_width: 'float' = 1.0, whisker_color=None, cap_size: 'float' = 4.0, cap_width: 'float' = 0.8, cap_color=None, flier_size: 'float' = 8.0, cut_color=None, show_individual_points: 'bool' = True, point_size: 'float' = 18.0, jitter: 'float' = 0.14, point_edge='rim', point_edge_width: 'float' = 0.5, point_fill_alpha: 'float' = 1.0, palette=None, group_color_position: 'Optional[float]' = None, group_color=None, point_colors='auto', shade_range: 'tuple' = (88.0, 22.0), interleave_shades: 'bool' = True, connect_identical_points_across_x_values: 'bool' = False, connect_line_width: 'float' = 0.6, connect_color=None, connect_alpha: 'float' = 0.8, series=None, unit_series=None, label_axes: 'bool' = True, zorder: 'float' = 2.0) -> 'FluxboxResult'
 ```
 
-Draw a fluxbox: the individual points plus a slim box plot with a median line and a mean notch.
+Draw a fluxbox: the individual points plus a slim box plot (Q1–Q3) with a solid median line and the mean as a true V-shaped gap cut into both edges of the box; on a log axis the statistics are taken in log space.
 
 <details class="api-detail"><summary>Parameters and details</summary>
 
@@ -762,6 +845,14 @@ Draw a fluxbox: the individual points plus a slim box plot with a median line an
     `plt.boxplot`), `"range"` (the minimum and maximum), or a `(low, high)` pair of
     percentiles. Each whisker ends on the most extreme observation within that reach.
 
+`yscale`
+:   `"linear"` or `"log"` (default: the axes' current y scale). On a log axis every statistic is
+    taken in log space and drawn back on the data scale: the quartiles and median are unchanged,
+    the mean notch marks the **geometric** mean, and the whisker reach is a factor of the IQR in
+    log units, so the box reads the way the axis does. Non-positive values cannot sit on such an
+    axis and are left out. The payload then records `scale: "log"` and `meanKind: "geometric"`,
+    and its `sd` / `sem` are multiplicative (geometric) factors.
+
 `show_mean, show_median, show_whiskers, show_caps`
 :   Toggle the mean notch, the median line, the whiskers and whisker caps (off by default).
 
@@ -788,7 +879,10 @@ Draw a fluxbox: the individual points plus a slim box plot with a median line an
 
 `mean_notch_depth, mean_notch_height`
 :   How far each V-cut of the mean notch reaches into the box, and its height, in points. The
-    notch is drawn above the median, so it stays visible when the mean meets the median.
+    notch is cut out of the box's outline — a real gap through which the ground, and anything
+    drawn behind the box, shows — and the median line is trimmed to the notched outline, so the
+    notch stays open where the mean meets the median. A mean outside the box (a strongly skewed
+    group) keeps its mark as the same two V's drawn solid in the ink, pointing in at the whisker.
 
 `whisker_width, whisker_color`
 :   Whisker stroke (points) and colour (default: the median's colour).
@@ -801,8 +895,8 @@ Draw a fluxbox: the individual points plus a slim box plot with a median line an
 :   Marker area (points²) of the fliers.
 
 `cut_color`
-:   Colour of the mean notch "cut" (default: the axes background); also the ground the median's
-    contrast is judged against.
+:   The ground the median's contrast is judged against (default: the axes background). The mean
+    notch is a real gap in the box and takes no colour.
 
 `show_individual_points`
 :   Draw the individual observations (default `True`).
@@ -823,7 +917,7 @@ Draw a fluxbox: the individual points plus a slim box plot with a median line an
 :   Per-category colour source, given once for every category, as a list (cycled in category
     order) or as a `{category: spec}` mapping — any colormap or palette in fluxplot's colour
     library, a matplotlib colormap, a list of colours, or a single colour; exactly as for
-    `fluxplot.glowbar`. Default: the ColorBrewer maps `YlGnBu`, `YlOrRd`, `RdPu`,
+    [`fp.meanmark`](#meanmark). Default: the ColorBrewer maps `YlGnBu`, `YlOrRd`, `RdPu`,
     `BuGn`, `Purples`, `YlOrBr`.
 
 `group_color_position`
@@ -871,7 +965,13 @@ Draw a fluxbox: the individual points plus a slim box plot with a median line an
 **Returns**
 
 `FluxboxResult`
-:   The axes, category order, statistics, colours, series names and artists.
+:   `.ax`, `.categories` (plotted order; category `i` sits at x = `i`), `.stats` (category →
+    `n`, `mean`, `median`, `sd`, `sem`, `q1`, `q3`, `iqr`, `whis`, `whiskerLow`, `whiskerHigh`,
+    `outliers`, `x`, plus `scale` and `meanKind` on a log axis), `.group_colors`, `.point_colors`
+    (unit → {category: colour}), `.series` / `.unit_series` (the roots of every part id) and
+    `.artists` (`box`, `whiskers`, `caps`, `median`, `mean`, `fliers`, `points`, `lines`).
+    `.positions` and `.brackets(rows, **kw)` feed [`fp.brackets`](#brackets). The same core
+    fields as a `MeanmarkResult`, without `orientation`.
 
 
 </details>
@@ -1051,7 +1151,7 @@ Draw a hexmatrix: hexagonal bins of a point cloud, or a 2D array on a hex lattic
 
 </details>
 
-## Labels and existing artists
+## Labels and existing artists {#labels-and-existing-artists}
 
 ### `fp.legend` {#legend}
 
@@ -1059,7 +1159,7 @@ Draw a hexmatrix: hexagonal bins of a point cloud, or a 2D array on a hex lattic
 fp.legend(ax, handles=None, labels=None, **kw)
 ```
 
-`ax.legend` with the entry → artist mapping kept, so the manifest can say which series each legend entry names even when the handles were chosen by hand (`fp.legend(ax, [ln], ["Control"])`). Without `handles` the axes' own labelled artists are used, in matplotlib's order, and the mapping is recovered from them at save.
+`ax.legend` with the entry → artist mapping kept, so the manifest can say which series each legend entry names even when the handles were chosen by hand (`fp.legend(ax, [ln], ["Control"])`). Without `handles` the axes' own labelled artists are used, in matplotlib's order, and the mapping is recovered from them at save. A legend title is tagged `legend.title` (role `legend-title`).
 
 ### `fp.secondary_axis` {#secondary_axis}
 
@@ -1075,7 +1175,7 @@ A secondary x (`"top"` / `"bottom"`) or y (`"right"` / `"left"`) axis showing th
 fp.annotation(ax, *, name, text, **kw)
 ```
 
-See the related guide for usage.
+A named text annotation: `ax.annotate(text, **kw)` tagged `annotation.<name>` (role `annotation`), with `text` recorded in the manifest. Supply `xy` and any `xytext` / `arrowprops` / text options through `**kw`; an arrow, when one is drawn, is tagged `annotation.<name>.arrow` (role `annotation-arrow`) so it can be restyled on its own. Returns the Matplotlib `Annotation`.
 
 ### `fp.reference_line` {#reference_line}
 
@@ -1083,7 +1183,7 @@ See the related guide for usage.
 fp.reference_line(ax, *, y=None, x=None, name, **kw)
 ```
 
-See the related guide for usage.
+A horizontal (`y=`) or vertical (`x=`) reference line — `ax.axhline` / `ax.axvline` — tagged `reference-line.<name>` (role `reference-line`) with its position recorded in the manifest. Exactly one of `x` / `y` is required; `**kw` (colour, `linestyle`, …) passes through to the line. Returns the `Line2D`.
 
 ### `fp.significance_bracket` {#significance_bracket}
 
@@ -1125,9 +1225,11 @@ Draw one significance bracket per `fp.stats` row, stacked so none overlap.
     `tukey_hsd`, `games_howell`, `dunn`; or any two-group row given `names=`).
 
 `positions`
-:   `{group name: x}`. Default: the axes' x tick labels (a glowbar / fluxbox / categorical
-    axis), which must name every group; `GlowbarResult.positions` and
-    `FluxboxResult.positions` give it directly.
+:   `{group name: x}`. Default: the axes' x tick labels (a meanmark / fluxbox / categorical
+    axis), which must name every group; `MeanmarkResult.positions` and
+    `FluxboxResult.positions` give it directly, and their `.brackets(rows)` is the one-liner.
+    Brackets stack above the data they span — including point-sized summary marks such as a
+    meanmark circle — and currently require a vertical plot.
 
 `pairs`
 :   Draw only these `(a, b)` pairs (either order), in this order of priority when several
@@ -1235,7 +1337,7 @@ Returns `{series_name: [roles tagged]}` so you can see exactly what got named.
 
 </details>
 
-## 3D scenes
+## 3D scenes {#d-scenes}
 
 ### `fp.scene3d` {#scene3d}
 
@@ -1499,7 +1601,7 @@ fp.can_morph(a, b)
 
 Check ordered faces and vertex counts, pairing named parts as Flux does.
 
-## Statistics
+## Statistics {#statistics}
 
 ### `fp.stats.anova_oneway` {#anova_oneway}
 
@@ -1973,7 +2075,7 @@ as 43–84% at n = 6.
 
 </details>
 
-## Colour checks
+## Colour checks {#colour-checks}
 
 ### `fp.colorcheck.check_palette` {#check_palette}
 
@@ -2033,7 +2135,7 @@ fp.colorcheck.contrast(fg, bg) -> 'float'
 
 WCAG 2 contrast ratio between a foreground and a background colour (1 … 21).
 
-## Portable colour laws
+## Portable colour laws {#portable-colour-laws}
 
 ### `fp.colorscale.normalize` {#normalize}
 
@@ -2059,7 +2161,7 @@ fp.colorscale.apply(record: 'dict', values) -> 'list'
 
 Reference implementation: the colour (`#rrggbbaa`) matplotlib paints each value with.
 
-## Scene methods
+## Scene methods {#scene-methods}
 
 A `Scene3D` stores mesh geometry and a view. These methods change its framing or notebook display; use `fp.save(scene, path)` to write the portable bundle.
 
@@ -2121,8 +2223,19 @@ scene.show(*, static=False)
 
 Display in a notebook; `static=True` shows only the PNG still.
 
-## Result objects and versions
+## Result objects and versions {#result-objects-and-versions}
 
-Plotting helpers return Matplotlib artists or result objects documented above. `fp.save` returns paths and warnings in a `SaveResult`. `fp.__version__` is the installed package version; `fp.SPEC_VERSION` and `fp.SCENE3D_SPEC_VERSION` identify the output formats, not the application version.
+Most helpers return the Matplotlib artists or containers they drew, so anything you would do with a plain `ax.plot` result still works. Helpers that compute something return a small result object, documented with the function: `RegressionResult` ([`regression`](#regression)), `KdeResult` ([`kde`](#kde)), `ImageResult` ([`image`](#image)), `MeanmarkResult` ([`meanmark`](#meanmark)), `FluxboxResult` ([`fluxbox`](#fluxbox)), `HexMatrixResult` ([`hexmatrix`](#hexmatrix)), and lists of `MeshPart` from the 3D helpers. `GlowbarResult` no longer exists; `MeanmarkResult` has the same core fields plus `orientation`.
+
+`fp.save` returns a `SaveResult`:
+
+| Field | Meaning |
+|---|---|
+| `svg`, `manifest`, `recipe` | The three paths written (`glb` takes the place of `svg` for a 3D scene). |
+| `warnings` | Lint findings, heavy-layer reports under `force_vectors`, geometry warnings. |
+| `rasterized` | Ids of the layers rasterized on the way out (empty on an ordinary save). |
+| `skipped` | `True` when `FLUXPLOT_ONLY` filtered this plot out — nothing was written. |
+
+`fp.__version__` is the installed package version. `fp.SPEC_VERSION` is the manifest and recipe schema version the build emits — `"0.4.0"` for fluxplot 0.4, carried in every manifest's `schemaVersion` — and `fp.SCENE3D_SPEC_VERSION` (`"0.1.0"`) the 3D scene manifest's. They identify output formats, not the application version. Schema 0.4.0 is additive over 0.3.2: a manifest written by fluxplot 0.4 differs from an older one by the `layout` block and a few new scaffold roles, and plots saved by older versions still open; they simply cannot be reflowed until regenerated. See [Plot format and identity](/docs/plot-format.html#layout-capture).
 
 [Format and identity](/docs/plot-format.html) · [Statistics guide](/docs/statistics.html) · [Source repository](https://github.com/fluxsci/fluxplot)

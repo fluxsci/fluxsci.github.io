@@ -16,7 +16,7 @@ Understand the files, stable IDs and data contracts used by Flux and other consu
 Saving a plot named `growth` with `fp.save` writes three files side by side: the artwork,
 a semantic index and a provenance recipe.
 
-### `growth.svg` — visible artwork
+### `growth.svg` — visible artwork {#growth.svg-visible-artwork}
 The SVG opens independently in a browser or vector editor. fluxplot adds two pieces of information to each meaningful element:
 
 - a **stable, meaningful `id`** — `control.line`, `control.point.3`, `axis.x.title`, `legend`;
@@ -32,13 +32,14 @@ The SVG opens independently in a browser or vector editor. fluxplot adds two pie
 Text stays as real, editable `<text>` (axis titles, tick labels) — not outlined to paths — so it can be
 restyled and read.
 
-### `growth.fluxplot.json` — the semantic index
+### `growth.fluxplot.json` — the semantic index {#growth.fluxplot.json-the-semantic-index}
 A sidecar that **points into the SVG by id** and adds everything SVG can't naturally express. It never
 duplicates geometry (no path data, no bounding boxes — those live authoritatively in the SVG). It
 holds:
 
 ```jsonc
 {
+  "spec": "fluxplot/manifest", "schemaVersion": "0.4.0", "plotType": "line",
   "axes": [{
     "x": { "scale": "linear", "domain": [-1.2, 25.2],
            "anchors": [{"data": -1.2, "svg": 57.6}, {"data": 25.2, "svg": 414.72}] },
@@ -54,13 +55,45 @@ holds:
                        "control.points","treatment.points","legend",
                        "significance-bracket.0"],
              "presets": { "line": {"animation": "draw-on"},
-                          "point": {"animation": "stagger-in"} } }
+                          "point": {"animation": "stagger-in"} } },
+  "layout": { "version": 1, "supported": true, "reasons": [],
+              "engine": { "kind": "constrained", … }, "axes": [ … ],
+              "texts": { … }, "fonts": { … }, "frames": { … } }
 }
 ```
 
-Flux uses this index to select named parts and interpret their data.
+Flux uses this index to select named parts and interpret their data; the `layout` block (schema
+0.4) is what lets it [resize a plot without Python](#layout-capture).
 
-### `growth.recipe.json` — the provenance
+### Plot types and payloads {#plot-types-and-payloads}
+
+`schemaVersion` is the manifest schema the writing fluxplot emitted — `"0.4.0"` for fluxplot 0.4
+(`fp.SPEC_VERSION`); the recipe's `$id` carries the same number. Each schema version is additive over
+the last, so a consumer written for 0.3.2 still reads a 0.4.0 manifest.
+
+`plotType` is a one-word hint for a consumer's gallery and defaults: the first of `meanmark`,
+`fluxbox`, `hexmatrix`, `image`, `regression`, `kde`, `line`, `scatter`, `bar`, `errorbar`,
+`area`, `box`, `violin`, `heatmap`, `contour`, `contourf`, `surface` found among the tagged marks,
+else `plot`. fluxplot 0.4 replaced the glowbar with the [meanmark](/docs/fluxplot-api.html#meanmark),
+so `"glowbar"` is no longer written; manifests saved earlier keep it.
+
+Beyond `data`, a series entry carries an additive **payload** named after the helper that drew it,
+holding exactly the numbers that were drawn so no consumer re-derives them from pixels:
+
+| payload | written by | contents |
+|---|---|---|
+| `meanmark` | `fp.meanmark` | per category (`part: "summary"`): `n`, `mean`, `meanKind` (`arithmetic`), `sd`, `sem`, `interval` (`ci` / `sem` / `sd` / `range` / a callable's name), `confidence` (CI only, else `null`), `low`, `high` (`null` for a single observation), `x`, `y`, `categoryPosition`, `orientation`, `scale`, `groupColor`, `palette`; per unit (`part: "unit"`): `units`, `unit`, `categories`, `colors` |
+| `fluxbox` | `fp.fluxbox` | per category: `n`, `mean`, `median`, `sd`, `sem`, `q1`, `q3`, `iqr`, `whis`, `whiskerLow`, `whiskerHigh`, `outliers`, `x`, `groupColor`, `palette`; on a log axis also `scale: "log"` and `meanKind: "geometric"`; unit entries as above |
+| `hexmatrix` | `fp.hexmatrix` | the lattice and bins drawn, the statistic and the dropped-point count, beside the usual `field` colour payload |
+| `bar`, `band`, `uncertainty`, `step`, `stem` | `fp.bar` / `barh`, `fp.area` / `band`, `fp.errorbar`, `fp.step`, `fp.stem` | bar keys by category and orientation; `{x, y1, y2}` or `{x, lo, hi, what}`; `xerr` / `yerr` broadcast to the points with `errShape`; `where`; the baseline |
+| `distribution` | `fp.hist` | `binEdges`, `counts` |
+| `regression`, `kde` | `fp.regression`, `fp.kde` | the fit (`kind`, `degree`, `coefficients`, `r2`, `p`, `n`, `ci`); the grid, density and bandwidth |
+| `field`, `image`, `surface` | `fp.heatmap` / `contour` / `contourf`, `fp.image`, `fp.surface` | the scalar field's colour scale (a `colorScales[]` entry; the values with `include_values` or `value_raster`); the image's `shape`, `channels` (name, LUT, display range, scale), `composite`, `origin`, `extent`, `pixelSize`; the surface map's kind, categories and range |
+
+Raw observations are never implied by a summary: `box`, `violin`, `hist`, `heatmap` and the
+signature plots record sample values only when the call asked for it (`include_values=True`).
+
+### `growth.recipe.json` — the provenance {#growth.recipe.json-the-provenance}
 The script (auto-discovered, or recorded explicitly), the parameters, references (+ hashes) of the
 input data, and a `provenance` block (script hash, interpreter, package versions, git state when
 available). Enough to **re-run the plot here** — which is what makes "rerun Figure 6d with a
@@ -72,7 +105,7 @@ A plot made in a notebook cell has no script to re-run. `fp.save(..., recipe={"n
 detected from what the host states outright — `$QUARTO_DOCUMENT_PATH`, or the
 `__vsc_ipynb_file__` / `__session__` globals — and never guessed from the working directory.
 
-### Consistency between the three files
+### Consistency between the three files {#consistency-between-the-three-files}
 The manifest records `artifact.svgSha256` — the checksum of the final SVG bytes. `save` stages all
 three files and commits them with atomic per-file renames (SVG → manifest → recipe), so a watcher
 never sees a partially written file, and a stale SVG/manifest pair is *detectable* via the checksum
@@ -109,7 +142,7 @@ fluxplot uses matplotlib's one real hook from "an artist" to "a named SVG elemen
 > post-pass is an *exact structural join on an id we authored* plus annotation with values our code
 > already had. Nothing is inferred from pixels. It's serialization, not divination.
 
-### Per-point addressability
+### Per-point addressability {#per-point-addressability}
 "The 4th point of the control series" needs each point to be its *own* element. matplotlib draws a
 set of markers as one artist: a marker glyph defined once in `<defs>`, then one `<use>` per point in
 data order. fluxplot's post-pass enumerates those `<use>` children and stamps each with
@@ -117,7 +150,7 @@ data order. fluxplot's post-pass enumerates those `<use>` children and stamps ea
 the count stops matching the data, fluxplot detects the mismatch and keeps the group addressable
 rather than mislabel indices.)
 
-### Heavy layers are rasterized by default
+### Heavy layers are rasterized by default {#heavy-layers-are-rasterized-by-default}
 An artist becomes as many SVG nodes as it draws primitives. A `LineCollection` built from per-edge
 segments — the ordinary way to draw an SWC reconstruction or a graph — emits **one `<path>` per
 segment**, and a `scatter` emits **one `<use>` per point**. At real data scale that is 10⁴–10⁵ nodes
@@ -152,7 +185,7 @@ then still reported, as a warning naming them and their node cost. A per-artist
 rather than a considered choice, and silently emitting an unusable SVG is the failure this exists to
 prevent. `force_vectors` is how you say you meant it.
 
-### Determinism — the same plot always produces the same bytes
+### Determinism — the same plot always produces the same bytes {#determinism-the-same-plot-always-produces-the-same-bytes}
 This is non-negotiable, because **morphing, diffing, and regeneration all break if ids or structure
 wobble between runs.** fluxplot pins the sources of nondeterminism:
 
@@ -165,7 +198,7 @@ wobble between runs.** fluxplot pins the sources of nondeterminism:
 Result: same input → byte-identical SVG and manifest. Timestamps and content hashes (which *must*
 vary) live only in the recipe, so the SVG/manifest stay stable for diffs and morphs.
 
-### Coordinate capture — why the manifest stores "anchors"
+### Coordinate capture — why the manifest stores "anchors" {#coordinate-capture-why-the-manifest-stores-anchors}
 A morph that moves a point from value 2 to value 8 on a **log** axis must travel correctly, which is
 impossible from pixels alone. So per axis fluxplot stores the scale type and two `(data, svg)` anchor
 pairs. A consumer interpolates between them — linearly, or in log space for a log axis — and gets the
@@ -173,6 +206,58 @@ exact pixel position for any data value, **without ever reconstructing matplotli
 anchors + a scale type is the complete, portable contract. (fluxplot computes them with a
 dpi-invariant fraction method that round-trips *exactly* against the positions matplotlib actually
 emits.)
+
+### Layout capture — resizing without rerunning Python {#layout-capture}
+Schema 0.4.0 adds one additive block, `layout`, captured after the final SVG-renderer draw while
+the layout is frozen. It is a set of constraints and measurements, never a second drawing: the SVG
+remains the only authority for geometry. With it a consumer such as Flux can reflow a placed plot to a
+new physical size with no browser text measurement and no Python — the axes and data areas resize,
+data follows each axes' affine, numeric ticks are recomputed, and glyphs, typography and stroke
+widths keep their point sizes. The block records:
+
+- `figure` — the size in points and the ids of `suptitle` / `supxlabel` / `supylabel`;
+- `engine` — the layout engine in force: `none` with the figure's `subplotpars`, `tight` with its
+  pads and `rect`, or `constrained` with `wPad` / `hPad` / `wSpace` / `hSpace` / `rect`;
+- `grids` — every GridSpec: rows, columns, width and height ratios, spacing, and the parent slot of
+  a nested grid;
+- `axes` and `colorbars` — per axes: its grid `slot` or inset bounds, `position` and
+  `initialPosition`, `initialDomain` and `dataLim`, the `aspect` / `adjustable` / `anchor` /
+  `boxAspect` rules, twin and shared axes, the title slots, `axisStyle` (tick direction, lengths and
+  pads, label pads, fonts, which sides are drawn) and `ticking` — the major and minor locator and
+  formatter as parameters (`maxn`, `multiple`, `log`, `fixed`, `category`, `date`, …; `scalar`,
+  `log-sci`, `percent`, `str-method`, …) with the tick values and labels actually drawn and a
+  `retick` flag saying whether new ticks may be computed. Colorbars add their parent axes,
+  location, orientation, fraction, shrink and pad;
+- `legends` — owner, requested and resolved `loc`, anchor box, size and, for `loc="best"`, the
+  collision data matplotlib used to place it;
+- `texts` — for every text part: bounding box, anchor point, alignment, rotation and font;
+- `fonts` — each distinct font with its ascent and descent, the advance of every digit and sign
+  character, and the mathtext metrics of exponent labels, measured by matplotlib's own SVG font
+  engine at 72 dpi;
+- `frames` — the coordinate frame of every part: `data`, `axes`, `figure`, `blend` (one data axis,
+  one axes fraction), `image`, `offset` and `arrow` for annotations, `axis` / `title` / `legend` for
+  scaffold, and `glyph` for point-sized geometry anchored to data — scatter markers (`anchorsPt`),
+  fluxbox boxes (`box`: ends and notch in data, width and cut in points) and meanmark circles, arms
+  and caps (`mark`: position, mean, bound, radius and cap length in points).
+
+<figure class="doc-figure doc-clip"><video poster="/assets/media/docs/clips/reflow-resize.png" width="1400" height="1000" muted loop playsinline autoplay controls preload="metadata" aria-label="A fluxplot line plot placed in a figure is dragged narrower; Flux re-solves its layout from the manifest so the axes shrink while text and strokes keep their point sizes."><source src="/assets/media/docs/clips/reflow-resize.mp4" type="video/mp4"></video><figcaption>Flux reflows the plot from the layout block: axes and data re-solve, typography keeps its point size, and no Python runs.</figcaption></figure>
+
+`supported` is `true` only when `reasons` is empty. Layouts the capture cannot describe record a
+named refusal and save normally — the plot simply cannot be reflowed, and a consumer falls back to
+stretching it: `subfigures`; `3d`; `projection:<name>` (polar and other non-rectilinear axes);
+`layout:compressed` (constrained layout with `compress=True`); `layout:custom` (a custom layout
+engine); `text:usetex:<id>`; `transform:custom:<id>` and `transform:annotation:<id>` (an artist or
+annotation endpoint in a transform that is neither data, axes nor figure); `transform:secondary-axis:<axes>`
+(a secondary axis whose conversion is not affine); `axes-locator:<axes>`; and
+`ticks:no-template:<axes>.<axis>` (a dynamic major locator that drew no ticks, so there is no SVG tick
+to clone). Date, category and custom-formatted ticks reposition without being recomputed.
+
+The inputs — axes positions, domains and subplot parameters — are taken before the layout draw and
+reused on repeated saves, so saving the same figure twice stays byte-identical even when a draw
+adjusts limits or spacing. Plots saved by fluxplot 0.3 and earlier carry no `layout` block;
+regenerate them with fluxplot ≥ 0.4 to make them reflowable. In Flux, see
+[True physical size](/docs/semantic-plots.html#true-physical-size) and
+[Resizing a figure](/docs/figure-layout.html#resizing-a-figure).
 
 ## Semantic IDs: the universal join key {#semantic-ids-the-universal-join-key}
 
@@ -214,13 +299,16 @@ restyle targets by role across the whole figure ("every `axis-title` → 8pt").
 ## The role vocabulary {#the-role-vocabulary}
 
 The part names aren't ad hoc — they're the **Grammar of Graphics** (the model behind ggplot2 and
-Vega-Lite): a plot is *data → marks + scales + guides + annotations*. fluxplot's v0 core roles:
+Vega-Lite): a plot is *data → marks + scales + guides + annotations*. fluxplot's core roles (schema 0.4):
 
-- **Containers:** `figure`, `panel`, `plot-area`, `legend`, `colorbar`, `title`
-- **Scaffold / guides:** `axis`, `spine`, `tick`, `tick-label`, `axis-title`, `gridline`, `background`
-- **Data marks:** `series`, `line`, `point`, `bar`, `area`, `errorbar`, `box`, `violin`
-- **Composite sub-parts:** `whisker`, `cap`, `flier`, `median`, `mean`, `segment`, `regions`
-- **Overlays:** `annotation`, `reference-line`, `highlight-region`, `significance-bracket`, `label`
+- **Containers:** `figure`, `panel`, `plot-area`, `legend`, `colorbar`, `title`, `subtitle`
+- **Scaffold / guides:** `axis`, `spine`, `tick`, `tick-label`, `tick-offset` (the shared `×10ⁿ` offset text), `axis-title`, `gridline`, `background`, `legend-title`, `legend-entry`, `legend-swatch`, `legend-label`, `annotation-arrow`, `colorbar-divider`
+- **Data marks:** `series`, `line`, `point`, `bar`, `area`, `errorbar`, `box`, `violin`, `contour`, `image`, `mesh`, `pane`, `scalebar`
+- **Composite sub-parts:** `whisker`, `cap`, `flier`, `median`, `mean`, `segment`
+- **Overlays:** `annotation`, `reference-line`, `highlight-region`, `significance-bracket`, `label`, `caption`
+- **Bookkeeping:** `extra` (untagged artists swept into addressable content at save) and `group` (a manifest-only container for sibling parts, such as all the x tick labels)
+
+A role fixes *what* a part is, not how it is drawn: every part also carries an editing `kind` (`line`, `shape`, `text`, `container`), so the `mean` of a box plot or fluxbox is a line while a meanmark's `mean` is a shape whose fill and stroke edit separately.
 
 Science is unbounded (heatmaps, networks, brain maps), so the vocabulary is a **versioned core plus a
 namespaced extension mechanism**: anything unrecognized becomes an `x-…` role. An unknown role still
@@ -241,5 +329,5 @@ The complete machine-readable definitions are maintained with the implementation
 ::: {.next-reading}
 **Related guides**
 
-[fluxplot](/docs/fluxplot.html) · [Python API reference](/docs/fluxplot-api.html) · [Edit plot parts and data views](/docs/plot-editing.html)
+[fluxplot](/docs/fluxplot.html) · [Python API reference](/docs/fluxplot-api.html) · [Semantic plots](/docs/semantic-plots.html) · [Signature plots](/docs/signature-plots.html) · [Edit plot parts and data views](/docs/plot-editing.html)
 :::

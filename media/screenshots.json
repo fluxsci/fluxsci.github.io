@@ -1,10 +1,10 @@
 {
   "source": {
     "repository": "https://github.com/fluxsci/flux.git",
-    "revision": "9f5c7ccbe3916107fbcf8b9d53d5cf4cf99bf58e",
-    "version": "0.2.0"
+    "revision": "fb766407e6c197470cb28d5a6d789d02a7137c02",
+    "version": "0.3.0-dev"
   },
-  "browser": "Chrome/154.0.8037.98",
+  "browser": "Chrome/156.0.8078.79",
   "project": "Owner-authorized source plots; isolated website presentation",
   "note": "Real Flux GUI in an isolated FileBridge. Two reviewed master figures retain their authored layout and plot content. Captions, website slides and manuscript are new. Public data and source terms are documented in visual credits. No owner test slides, personal library or context were used.",
   "errors": [],
@@ -12,63 +12,62 @@
     "site/assets/media/paper.webp": {
       "width": 1500,
       "height": 950,
-      "bytes": 299434,
-      "sha256": "20b22d01301d61e1d6d72194bd885f7356a874f2fcf55cb72c42b8d3e819f2d1"
+      "bytes": 301374,
+      "sha256": "feef8263e025cf0e1cb2f3afcffd73eeac32c1ae10e6bad7b0a4709f93c7d64b"
     },
     "site/assets/media/paper-detail.webp": {
       "width": 1158,
       "height": 760,
-      "bytes": 250156,
-      "sha256": "9498eb234e410f66f4b85b50fb7ac035c15633d87a33cff799774483066b087a"
+      "bytes": 245416,
+      "sha256": "4b15f8e11fd554604449cd4a107800f4786bbd27f7e2da936265e37adad44d2d"
     },
     "site/assets/media/figure.webp": {
       "width": 1500,
       "height": 950,
-      "bytes": 487098,
-      "sha256": "6a53e56bdbe16308b20ab801028a736b3918ac5d86b470412a3d47c0c9f265ab"
+      "bytes": 507686,
+      "sha256": "e12f32e5e80cf4355498479c2012a8a7e482ccec4d3d4ade7e90f24e734b6c53"
     },
     "site/assets/media/figure-materials.webp": {
       "width": 1500,
       "height": 950,
-      "bytes": 398510,
-      "sha256": "ceead5940fb0b0aafe0e6879347e7fe104fc77e13ccc82ec25aba4b9aab22fe7"
+      "bytes": 413416,
+      "sha256": "a5a54035689c0d07277863b6fc62b46ff703c9a6d54925c200dcaa74e0eafd64"
     },
     "site/assets/media/figure-properties.webp": {
       "width": 1500,
       "height": 950,
-      "bytes": 250430,
-      "sha256": "25ea680c78f5c98784fc4eff70b21f79aaaf9c3bdeb73d8630e767aa585b5d19"
+      "bytes": 263464,
+      "sha256": "4c404bc59e1edda9f06ae1d86edb5d6c2f24bf829227ee4ff24b9d19cb0faf06"
     },
     "site/assets/media/slides.webp": {
       "width": 1500,
       "height": 950,
-      "bytes": 206262,
-      "sha256": "e8dec88da11b38783e11fe7aacebc5c0866cc9aecd9da9e5721e120d415fbd6b"
+      "bytes": 321436,
+      "sha256": "cf9cefef54779518f51f4a5c30d804c13c5fe4457d28591a7eb880f2da3e3811"
     },
     "site/assets/media/library.webp": {
       "width": 1500,
       "height": 950,
-      "bytes": 112054,
-      "sha256": "3a20ad5a2afb08325d4e6874dc7c7861d9c09a2e7802af0729098a730b40cc5e"
+      "bytes": 133132,
+      "sha256": "fdf460ad7c0cfc4d72e8729d731a39499ae138a4f3091626efbdfae929a8672d"
     },
     "site/assets/media/reader.webp": {
       "width": 1500,
       "height": 950,
-      "bytes": 260786,
-      "sha256": "eade14376c89f0345ee6b791c2745d451c0f470c88b3d418d6ab3a0e43f45381"
+      "bytes": 282856,
+      "sha256": "4f86f49f6755863487817c8f46326e893f8236f7640f934a16feda92015358ff"
     },
     "site/assets/media/response-figure.webp": {
       "width": 1800,
       "height": 2086,
-      "bytes": 1737394,
-      "sha256": "c3a167f474c6bb7336bb51c1044357e077e48efd7b08cae2b77b6af4e0677233"
+      "bytes": 1753048,
+      "sha256": "ecf55b605d91d1218893bd63b63a2dbc65f6dd7f26fc2c655558005839572080"
     },
     "site/assets/media/materials-figure.webp": {
       "width": 1800,
       "height": 1486,
-      "bytes": 808714,
-      "sha256": "200cee88e85a1b47402f5637a68cd6577ac329402419662e7afdbb274c09e99f"
+      "bytes": 839384,
+      "sha256": "cf51e0255d0e688a2e1685372689e87ec3f5d9c9b358ca895234efcaee0785a2"
     }
-  },
-  "slidesNote": "slides.webp shows the launch-film slides (deck \"The Flux film\", exported unchanged from the owner-authorized master project) in the same pinned release GUI; captured by scripts/capture-slides.mjs."
+  }
 }

@@ -1,35 +1,35 @@
 {
   "source": {
     "repository": "https://github.com/fluxsci/flux.git",
-    "revision": "9f5c7ccbe3916107fbcf8b9d53d5cf4cf99bf58e",
-    "version": "0.2.0"
+    "revision": "fb766407e6c197470cb28d5a6d789d02a7137c02",
+    "version": "0.3.0-dev"
   },
   "description": "Focused captures of the native Flux GUI in an isolated in-memory fixture. Master-project plot bytes are copied without edits; the teaching deck is original.",
   "errors": [],
   "outputs": {
     "site/assets/media/docs/figure-xray.png": {
       "width": 922,
-      "height": 1482,
-      "bytes": 145466,
-      "sha256": "dadec2e882531934902c4772d872eb37753c4bb89f5eef5e4cedf940023c5c7b"
+      "height": 1480,
+      "bytes": 177067,
+      "sha256": "be9e0cdf0afb312df7fc1f92c2814dbab9b0ef41f98b52b92f1a538af3a1289c"
     },
     "site/assets/media/docs/figure-property-menu.png": {
       "width": 906,
       "height": 1078,
-      "bytes": 82316,
-      "sha256": "719c811090f9721290980b0c07a1400d50ec0bb48fe0c3e0bfa6187da46ae690"
+      "bytes": 79678,
+      "sha256": "ce24ee9780c87e05a73ce2db258c6d623f83dfd38a968085bf6a31596249f45d"
     },
     "site/assets/media/docs/slides-easing-workspace.png": {
       "width": 2800,
       "height": 2000,
-      "bytes": 443364,
-      "sha256": "46a2e08058f1e5cbe569a5e99035a30e8ff9c181f94821df9bcdfb837c581e66"
+      "bytes": 459917,
+      "sha256": "0f9a04ec21aded7f917d7d4b79ce69fb9e6ae31847e8b143d611cb56b214b5b7"
     },
     "site/assets/media/docs/slides-timeline.png": {
       "width": 1956,
       "height": 720,
-      "bytes": 124208,
-      "sha256": "e3188c9eba9a68c5cc48dade2b9a33c1e4df4829f73a0c9e9f3c27ed17703370"
+      "bytes": 125499,
+      "sha256": "31db97b6e5a7f502d106b29a3df9358159da1c29cfbad97854af90634a2ed4d6"
     }
   }
 }

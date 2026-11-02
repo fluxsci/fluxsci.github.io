@@ -1,22 +1,22 @@
 {
   "source": {
     "repository": "https://github.com/fluxsci/flux.git",
-    "revision": "9f5c7ccbe3916107fbcf8b9d53d5cf4cf99bf58e",
-    "version": "0.2.0"
+    "revision": "fb766407e6c197470cb28d5a6d789d02a7137c02",
+    "version": "0.3.0-dev"
   },
-  "description": "Two unchanged authored figures from the confirmed master project, rendered for the website screenshots, plus the Flux mark, fonts and runtime licenses. Public experimental data, computed examples and reference structures; see visual credits. The live slides are recorded in media/slides.json.",
+  "description": "Two unchanged authored figures from the confirmed master project, rendered for the website screenshots, plus the Flux mark, fonts and license. Public experimental data, computed examples and reference structures; see visual credits. The live slides are recorded in media/slides.json.",
   "project": {
     "id": "proj_website_showcase",
     "title": "Patterns across scales",
     "inputHashes": {
-      "project.json": "fa251ad1c153c37839da12bad4c7160a1b5321ebac7f47930c11f2e2283cd7a7",
-      "slides/website-showcase/deck.json": "baa476d21910bfd3d334e39201c5bece7e2d24c5a33ab5d078a557306a63df97",
-      "fig/index.json": "74e83de2aaf87c16227d2ff63e59a5aab34242895831ba459c115e12146510d3",
-      "fig/canvases/canvas-1.json": "1fef7b109680e9d03d4a9deadc6386e0f982a21f6d1c0d8fda390e8eee4aff95"
+      "project.json": "a352807e3ecc721a2da5888994a45705b8362a8025450f6e0f828b4d75d9b063",
+      "slides/website-showcase/deck.json": "1963e5328d79878a381c91b635e34415ec9781a9402fd0217f4c44821c330c3d",
+      "fig/index.json": "41e900ed72a0da362b744fd2c5dd48d891742675bb7f53fcb7c200d066410be9",
+      "fig/canvases/canvas-1.json": "7b1033b22a0ff6ace35bfdba46f9a084eeecc1167f86257b7662ea7174af7ae8"
     },
     "plotInputHashes": {
-      "fig/index.json": "d00002e26fb2dad85339f031bd35a7426617c537488a529be39ca8b71e76835c",
-      "fig/canvases/canvas-1.json": "bdc38f65bbbec739bb06df22b84ee6fa5e53308069e223a575dda9999e0c1bc8",
+      "fig/index.json": "8419e2e0d7679a8fd8813458033a1d5a763990a2ab43df9f57872814623906fd",
+      "fig/canvases/canvas-1.json": "758c10e18c59e4d499ce026d0564c5b6e7b85a20ef87f1166c12eb8d5176725f",
       "fig/assets/asset_muslfteiwsx2_35.fluxplot.json": "17430335b2d47786ab5968081c1f9b6e6f5dd80e66fe7f3e4ca8718c4df60e64",
       "fig/assets/asset_muslfteiwsx2_35.recipe.json": "1167d5f8ebd32037e889f56867ff9e0f0c470f0026f67c4236d7f5dd7b3bed73",
       "fig/assets/asset_muslfteiwsx2_35.svg": "f554c5f69a435b95584d746e0127f9a5e5c5f0e376cd7f70bd877032c8e67042",

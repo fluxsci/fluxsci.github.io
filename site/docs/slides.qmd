@@ -8,7 +8,7 @@ description: "Build a presentation from the plots and figures in your project."
 # Slides
 
 ::: {.doc-lead}
-Build a presentation from the plots and figures in your project.
+Build a presentation from the plots and figures in your project. The stage is the figure editor — the same tools, Inspector and live plots — with steps, an Animator and exports that play anywhere.
 :::
 
 <figure class="doc-figure"><a href="/assets/media/slides.webp" data-enlarge data-caption="Design the slide above and arrange its steps in the Animator below."><img src="/assets/media/slides.webp" alt="Flux Slides workspace: the deck “The Flux film” with its filmstrip on the left, the slide “Agreement, revealed” on the stage after its first step, and the Animator timeline below it." width="1500" height="950" loading="lazy"></a><figcaption>Design the slide above and arrange its steps in the Animator below. The slides from the Flux film; data: <a href="https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/BPX_J.htm">NHANES 2017–2018</a>. <a href="/docs/visual-credits.html#slides">Visual credits</a>.</figcaption></figure>
@@ -18,6 +18,19 @@ Build a presentation from the plots and figures in your project.
 <div class="doc-study-stage"><img src="/demos/studies/emphasis.svg" alt="The immune cluster stays bright while the other spots dim" width="1280" height="720" loading="lazy"><button class="doc-study-launch" type="button" data-study-start data-title="The immune cluster stays bright while the other spots dim" hidden><span aria-hidden="true">▶</span> Try this example</button></div>
 <div class="doc-study-caption"><span class="study-label">Interactive example · a slide from the Flux film</span><p><strong>Direct attention without removing context.</strong> The tissue section is ghosted aside into a UMAP of the same spots. Then <strong>Dim</strong> quiets every cluster except the immune cells, in both views at once. Simulated expression on a Visium-style spot grid. Use the next-step arrow to play; reset to watch again. Reduced motion shows each finished step.</p></div>
 </div>
+
+## Where to find things {#where-to-find-things}
+
+| To… | Read |
+|---|---|
+| Create decks and slides, place plots and clips, and choose where your edits go | This page: [Decks and the filmstrip](#decks-and-the-filmstrip), [Place a plot from the Plots rail](#the-plots-rail), [Steps and editing destination](#steps-and-editing-destination) |
+| Reveal things step by step, time them and reuse the timing | [Animation and timing](/docs/animation.html): [the Animator](/docs/animation.html#the-animator), [Auto-animate a plot](/docs/animation.html#auto-animate), [default timing](/docs/animation.html#default-timing), [effects](/docs/animation.html#appearances) |
+| Move an object, rewrite text, change a plot's data or turn one object into another | [Transforms and data morphs](/docs/transforms.html): [Change](/docs/transforms.html#change), [Ghost](/docs/transforms.html#ghost), [Become](/docs/transforms.html#become), [Axis view](/docs/transforms.html#axis-view-data-space-transforms) |
+| Show a 3D model or a video clip | [3D and video in slides](/docs/slide-media.html) |
+| Rehearse, and export HTML, PDF, PowerPoint or video | [Present and export](/docs/present-and-export.html) |
+| Look up a key | [Keyboard shortcuts: Slide](/docs/shortcuts.html#slide) |
+
+Shortcuts are written for Linux and Windows; on macOS, **Ctrl** is **⌘** and **Alt** is **⌥**.
 
 ## Decks and the filmstrip {#decks-and-the-filmstrip}
 
@@ -36,15 +49,43 @@ The right rail switches between four panels:
 - **Deck** sets the **theme** and the **stage size** (16:9, 4:3 or 16:10). There are seven
   built-in themes: *Flux Dark*, *Flux Light*, *Paper*, *Midnight*, *Slate*, *Sepia* and *Contrast*.
 
-**Ctrl+Shift+B** hides the right rail, and **Ctrl+B** hides the filmstrip when no text is
-selected. Drag the inner edge of either rail to resize it.
+**Ctrl+Shift+B** hides the right rail, and **Ctrl+B** hides the left rail (the filmstrip or
+the Plots view) when no text is selected. Drag the inner edge of either rail to resize it.
+
+## Place a plot from the Plots rail {#the-plots-rail}
+
+The left rail has two views. **Slides** holds the deck list and the filmstrip. **Plots** is the
+same plot gallery and live dissections pane the Figure workspace has: a searchable gallery on
+top (see [Plot gallery](/docs/plot-gallery.html#getting-plots-in)) and, below it, the
+[dissections](/docs/dissections.html) of the plot you last clicked. **Alt+G** switches to Plots
+with the cursor in its search box (it also opens a hidden rail); **Alt+G** again returns to the
+filmstrip. The two views keep their own widths.
+
+- **Double-click** a plot, or press **Enter**, to place it on the active slide. A **→** line at
+  the top of the rail names the slide that will receive it; click it to switch slides.
+  **Drag** a plot onto the stage to place it where you let go, at the size it will land.
+- Click a plot on the stage and the rail shows its dissections. The gallery marks the plots
+  already on this slide, and **⋯ → Show only → Unused** lists the plots on no slide of this
+  deck yet.
+- Type **`_vid`** in the search box to open **`_videos`**: clips show their poster frames and
+  place like plots. A clip that needs converting shows its progress at the top of the rail,
+  with **Cancel**. Clips come from this project only; the global library lists plots, not
+  clips. See [Video clips](/docs/slide-media.html#video-clips).
+- **Shift+Alt+G**, or the toolbar's **Plots & videos**, opens the full gallery in its own
+  window, with larger previews and **Pin open** for inserting several plots in a row.
+- During a **Become** pick, a plot placed from the rail joins the pick (the pick switches to
+  Add mode, exactly as when you draw something); **Enter** and **Space** in the rail place and
+  preview, and never confirm the pick. See [Become](/docs/transforms.html#become).
+- **F5** presents from the rail too.
+
+<!-- MEDIA: Alt+G opens the Plots view beside the stage; a plot is dragged onto the stage and lands at its final size; clicking it fills the dissections pane below the gallery. -->
 
 ## Steps and editing destination {#steps-and-editing-destination}
 
 A presentation is a sequence of named **steps** (called beats in the deck file and commands).
 **Start** is the initial presentation frame. Each later step runs **On click**, **With previous**,
-or **After previous** with a chosen delay. The step strip always stays visible while the timeline
-shows the selected step's effects.
+or **After previous** with a chosen delay (an After previous step waits 150 ms by default). The
+step strip always stays visible while the timeline shows the selected step's effects.
 
 
 <figure class="doc-figure"><a href="/assets/media/docs/slides-easing-workspace.png" data-enlarge data-caption="The stage, selected animation and timeline stay visible together. Design edits the starting objects; Edit after step shapes a later state."><img src="/assets/media/docs/slides-easing-workspace.png" alt="Flux Slides showing the six-curve comparison, with Design and Edit after step controls above the stage." width="2800" height="2000" loading="lazy"></a><figcaption>The stage, selected animation and timeline stay visible together. Design edits the starting objects; Edit after step shapes a later state. Click to enlarge.</figcaption></figure>
@@ -71,6 +112,50 @@ never deletes objects or changes what Present and the exports show.
 **Fit** keeps the whole stage visible as you resize the dock and rails; manual zoom or pan
 keeps your chosen view instead.
 
+## Animate the slide {#animate-the-slide}
+
+**Animate ⏱** opens the Animator, a dock below the stage with the step strip, a millisecond
+ruler and one lane per effect. Select something on the stage (**Ctrl+click** drills to a plot
+part), then choose what happens to it at the selected step:
+
+| Button | What it adds | Details |
+|---|---|---|
+| **Appear** (**Ctrl+Shift+A**) | An entrance. Text rises in, shapes and arrows grow in, lines and paths draw on | [Choose an effect](/docs/animation.html#appearances) |
+| **Transform ▾** | **Change** (**Ctrl+Shift+C**) a new state of the object; **Ghost…** (**Ctrl+Alt+G**) copies that move independently; **Become** (**B**) another object or plot parts | [Transforms](/docs/transforms.html#transforms) |
+| **Emphasize** | A **pulse**: a calm swell and return. **Highlight**, **Dim** and **Circle it** are in the Effect menu | [Emphasis](/docs/animation.html#appearances) |
+| **Disappear** (**Ctrl+Shift+D**) | An exit. Shapes shrink away, text and plots fade, lines draw off | [Choose an effect](/docs/animation.html#appearances) |
+| **Focus** / **Unfocus** | Dim everything but the selection to 30 %; on a later step, bring it all back | [Focus on one thing](/docs/animation.html#focus) |
+| **✨ Auto-animate** | A plot's whole build in three clicks: **Axes & grid**, **Data**, **Legend & annotations** | [Auto-animate a plot](/docs/animation.html#auto-animate) |
+| **🎥 Zoom** / **⤢ Reset** | A camera move toward the selection, and back to the full slide | [Camera](/docs/transforms.html#camera-zoom-vs-fly) |
+
+New effects start at a measured pace — entrances 0.7 s, exits 0.5 s, a Change or Become 1.2 s —
+on a smooth curve; [Default timing](/docs/animation.html#default-timing) lists them all. The
+Animator's lanes, alignment keys, easing editor, reusable styles and follow-timing links are
+described in [Animation and timing](/docs/animation.html).
+
+## Align and arrange on the stage {#align-and-arrange-on-slides}
+
+The stage shares the Figure workspace's drawing and layout tools, with the same keys: **V**
+select, **K** scale, **H** hand, **T** text, **Alt+R** rectangle, **O** ellipse, **L** line,
+**Shift+L** arrow, **P** pen, and **R** for the [X-ray](/docs/plot-editing.html#x-ray) of a
+selected plot.
+
+- **A** opens **Align & Arrange** with Align active; **Alt+T** opens it with Arrange active.
+  Both panes stay visible, and **Space** switches which one the keyboard drives. A selection
+  shows pink gap guides directly, spacing is signed (a negative value overlaps), the selection
+  pin opens a persistent **Keep fixed** chooser, and **1/2/3** choose start, centre or end on
+  the gap you are editing or hovering. **Enter** applies and **Esc** cancels. The panel is
+  described in the Figure guide: [Align & Arrange](/docs/figure-layout.html#align-and-arrange).
+- The Animator keeps its own keys: with the Animator focused, **Alt+A** / **Alt+D** align
+  effects' starts and ends rather than objects.
+- **Connectors and labels stick to shapes**, as in Figure: a line end released on a shape
+  follows it (a dashed outline marks the target while you drag; **Settings → Figure →
+  Connectors stick to shapes** turns this off), and the Inspector's **Sticks to** row shows or
+  changes the attachment. When the shape moves at a step, what is stuck to it moves with it —
+  see [Connectors and labels follow what they stick to](/docs/transforms.html#connectors-follow).
+  A deck that holds a stuck element is saved in a newer format, which older versions of Flux
+  cannot open.
+
 ## Between figures and slides {#between-figures-and-slides}
 
 **Send to deck…** (in the Figure workspace's Inspector) turns a figure into a slide.
@@ -89,9 +174,11 @@ that were never saved.
 | Symptom | Cause → fix |
 |---|---|
 | The animation shortcuts (such as **Ctrl+Shift+A**) do nothing | The Animator is closed → open it with **Animate ⏱** first |
+| **Alt+R** draws a rectangle instead of opening the X-ray | The X-ray moved to **R**, and **Alt+R** is now the rectangle tool (the arrow tool is **Shift+L**) → press **R** with a plot selected |
 | A plot Become fades a series instead of morphing its data | Continuous data motion requires shared series ids, supported data and matching axis scales. A series without a tweenable counterpart fades on its own (the Animation inspector lists it); only an SVG without semantic IDs crossfades as a whole. |
 | An animation issue appears | Select the issue to inspect the effect, then retarget missing objects/parts or adjust overlapping timing |
 | A shape becomes text and the letters land as boxes ("No readable outlines for …") | Flux cannot read letter outlines from the text's font. Gelasio, the bundled theme font, ships only as a web font, and a browser preview has no access to installed fonts → set the text in an installed font (Georgia, Arial, …). Until then the boxes still land on each letter and fade into the text |
+| An older Flux refuses to open the deck | The deck uses a newer format because it holds a stuck connector or label, or a stagger ordered **radial** → open it with the current version |
 | "Couldn't open that deck — its file may be missing or corrupt." appears while an agent edits the deck | Older versions of Flux could mistake a reload that the agent's next edit overtook for a damaged file → update Flux. The deck on disk is intact, so reopening it shows the agent's version |
 | Present shows placeholder "Title / Subtitle" text | The slide was created with a starter layout → delete the starters, or use the *blank* layout when composing by hand |
 

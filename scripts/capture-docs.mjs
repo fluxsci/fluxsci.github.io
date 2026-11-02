@@ -28,7 +28,7 @@ try{
  const mode=async name=>{await page.getByRole('button',{name,exact:true}).click();await settle();};
  await mode('Figure');await page.waitForFunction(()=>window.__flux.get(window.__flux.fig.project).figures.some(f=>f.id==='fig-1'));
  await page.evaluate(async()=>{const f=window.__flux,fig=f.get(f.fig.project).figures.find(v=>v.id==='fig-1'),plot=fig.elements.find(e=>e.id==='plot_muslftfswsx2_40');f.fig.project.update(p=>{plot.name='Stiffness and density';return p;});const {inspectorHidden}=await import('/src/lib/settings.ts');inspectorHidden.set(true);f.fig.activeFigureId.set(fig.id);f.fig.viewport.set({panX:70-fig.x*1.1,panY:150-fig.y*1.1,zoom:1.1});f.fig.selection.set(new Set([plot.id]));f.fig.partSelection.set(null);});
- await page.keyboard.press('Alt+r');await page.getByRole('dialog',{name:'X-ray',exact:true}).getByRole('button',{name:'Stiffness and density',exact:true}).waitFor();await capture('figure-xray','[role="dialog"][aria-label="X-ray"]');
+ await page.keyboard.press('r');await page.getByRole('dialog',{name:'X-ray',exact:true}).getByText('Stiffness and density').first().waitFor();await capture('figure-xray','[role="dialog"][aria-label="X-ray"]');
  await page.keyboard.press('Escape');await page.keyboard.press('f');await page.getByRole('dialog',{name:'Properties',exact:true}).waitFor();await capture('figure-property-menu','[role="dialog"][aria-label="Properties"]');await page.keyboard.press('Escape');
  await page.evaluate(async()=>{const {inspectorHidden}=await import('/src/lib/settings.ts');inspectorHidden.set(false);});
  await mode('Slide');await page.waitForFunction(()=>window.__flux.get(window.__flux.slide.deckOverlay)?.id==='docs-techniques');
@@ -36,5 +36,5 @@ try{
  await page.evaluate(()=>{const f=window.__flux,s=f.get(f.slide.deckOverlay).slides.find(s=>s.id==='easing');f.slide.selTrackIds.set([s.beats[1].tracks[4].id]);});
  await capture('slides-easing-workspace');await capture('slides-timeline','[aria-label="Animation timeline"]');
  if(errors.length)throw Error(errors.join('\n'));
- await fs.writeFile('media/docs-screenshots.json',JSON.stringify({source:pin,description:'Focused captures of the native Flux GUI in an isolated in-memory fixture. Master-project plot bytes are copied without edits; the teaching deck is original.',errors,outputs},null,2)+'\n');
+ await fs.writeFile('media/docs-screenshots.json',JSON.stringify({source:{repository:pin.repository,revision:pin.revision,version:pin.version},description:'Focused captures of the native Flux GUI in an isolated in-memory fixture. Master-project plot bytes are copied without edits; the teaching deck is original.',errors,outputs},null,2)+'\n');
 }finally{await browser.close();}

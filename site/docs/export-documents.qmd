@@ -1,6 +1,6 @@
 ---
 title: "Export documents"
-description: "Choose a file format, apply a journal style, and check the result."
+description: "Choose a file format, apply a journal style, keep citations live in Word, and install what Quarto exports need."
 ---
 
 <p class="eyebrow">Writing</p>
@@ -8,30 +8,47 @@ description: "Choose a file format, apply a journal style, and check the result.
 # Export documents
 
 ::: {.doc-lead}
-Choose a file format, apply a journal style, and check the result.
+Choose a file format, apply a journal style, keep citations live in Word, and install what Quarto exports need.
 :::
 
 ## Export {#export}
 
 The **Export** button in the status bar, or **Alt+E**, opens a dialog with two independent
-choices: the **file format** (PDF, Word, HTML) and the **journal style**.
+choices: the **file format** (**PDF**, **Word**, **HTML**) and the **journal style**. An
+**Engine** line says what will do the work, and **Output** shows where the file will land.
+
+| Format | Engine | Notes |
+|---|---|---|
+| **PDF** | Flux's in-app renderer — fast, nothing to install | Figures, captions, panel references and the bibliography are resolved by Flux. |
+| **HTML** | Flux's in-app renderer | Embedded slides keep their playback. |
+| **Word** | Quarto | Needs Quarto; the dialog offers **Install Quarto…** when it is missing (no admin rights needed). Journal styles and **Live Zotero citations** are available here. |
 
 - Every format saves where you choose, defaulting to the project's `exports/` folder. The
   suggested file name follows the format you pick, so switching to Word suggests a `.docx`
-  name; a name you typed yourself is kept.
-- Word and journal-styled PDF run through Quarto. The dialog says so when Quarto isn't
-  installed; see [PDF dependencies](#pdf-dependencies) and [Installation](/install/).
+  name; a name you typed yourself is kept. **Change…** picks another location.
 - A long render shows its progress and can be cancelled.
 - Figure renders, captions and panel references are resolved during export. A failure
   appears as a notification that names what to fix.
+- The app exports the document you have open. From a terminal, `flux compile` exports the
+  project's default document (or `--doc path.qmd`) through Quarto to PDF, HTML or Word; see
+  [Command line](/docs/cli.html).
 
 ### Journal styles {#journal-styles}
 
-Choosing a journal — **Nature**, say — makes the exported file follow that journal's house
-style: how figure and panel references read (`Fig. 1a,b`), how citations are marked
-(superscript numerals, before the punctuation), how reference entries are built (all
-authors up to five, then `et al.`), what order the sections appear in, and the submission
-formatting a manuscript needs (12pt Times, double-spaced, line-numbered).
+The **Style** menu offers **Flux house style** (the default manuscript look), **Nature** and
+**Nature Communications**. Choosing a journal makes the exported file follow that journal's house
+style: how figure and panel references read (`Fig. 1a,b`; Nature Communications spaces the list,
+`Fig. 1a, b`), how citations are marked (superscript numerals, before the punctuation), how
+reference entries are built (all authors up to five, then `et al.`), what order the sections
+appear in, and the submission formatting a manuscript needs (12pt Times, double-spaced,
+line-numbered).
+
+In the app, journal styles apply to **Word** export: with PDF or HTML selected and a journal
+chosen, the dialog says *Journal styles are available for Word export only* and waits until you
+switch to Word. Nature prefers Word for submission anyway, and a journal-styled `.docx` needs no
+TeX. A journal-styled **PDF** is available from the terminal —
+`flux compile --to pdf --style nature` — and runs through Quarto and LaTeX, which needs the
+[PDF dependencies](#pdf-dependencies) below.
 
 **Your writing never changes.** The editor keeps Flux's own conventions no matter which
 journal is selected — chips, figure references and caption leads look the same whether you
@@ -41,6 +58,27 @@ your manuscript on disk: a journal style is a lens on the way out, not an edit.
 
 Selecting a style is remembered per project, and agents can use the same one from the
 terminal with `flux compile --to docx --style nature`.
+
+### Live Zotero citations in Word {#live-zotero-citations}
+
+With **Word** selected, tick **Live Zotero citations** and the citations arrive in the `.docx`
+as real Zotero fields rather than plain text, so whoever opens the file in Word can refresh
+them, change the citation style, renumber after an edit, and add their own citations beside
+yours. Leave it unticked and the citations are ordinary text, which is fine for a file nobody
+will edit.
+
+Each live citation travels with its full reference details, so it works on any machine, even one
+that has never seen your library. If a co-author already sent you Word files written with
+Zotero, **Link to library from…** takes those files and matches your citations against the works
+in them; the ones they already have arrive attached to their own library entries instead of as
+separate copies, and the dialog says how many matched. Anything unmatched still works; it simply
+is not linked to anything.
+
+One boundary: a citation inside a footnote stays ordinary text rather than becoming a live
+field — the export tells you when that happened. Citations in the body, in figure captions and
+in the reference list are all live. From the terminal the same options are
+`flux compile --to docx --zotero-fields [--zotero-library a.docx,b.docx]`. Syncing your library
+from Zotero is a separate feature; see [Zotero](/docs/zotero.html).
 
 ### Journal Check {#journal-check}
 
@@ -61,43 +99,70 @@ prose.
 
 ## PDF dependencies {#pdf-dependencies}
 
-Flux's built-in PDF export needs neither Quarto nor TeX. Word and journal-styled exports use Quarto; Quarto PDF also needs TeX. **Set up Flux** can install Quarto and TinyTeX.
+Flux's own PDF export ships inside the app (as do its video encoder and the offline help) and
+needs neither Quarto nor TeX. Quarto powers **Word** export and `flux compile` (HTML, Word,
+PDF; it bundles its own pandoc), and Quarto's PDF builds additionally need TeX. Without TeX,
+`flux compile --to pdf` fails while HTML and Word still work.
 
-Journal styles may need additional TeX packages and an SVG converter. Install the packages for
-your TeX distribution.
+**Set up Flux** (**Settings → General → Setup**, or **Ctrl+K → Set up Flux…**) installs
+both: Quarto into `~/FluxConfig`, and TinyTeX through Quarto in your home folder. A Quarto you
+installed yourself — on your `PATH` or in its usual install folder — always wins over Flux's
+copy, and `quarto install tinytex` adds TeX to it. Nothing here needs admin rights.
 
-With **TinyTeX**:
-
-```bash
-tlmgr install lineno setspace
-```
-
-With **MacTeX**:
-
-```bash
-sudo tlmgr install lineno setspace
-```
-
-With **TeX Live on Debian or Ubuntu**:
+**TinyTeX is not added to your PATH.** It installs into `~/Library/TinyTeX` (macOS) or
+`~/.TinyTeX` (Linux). Flux and Quarto find it anyway, so exports work without any shell change,
+but TeX's own commands (`tlmgr`, `kpsewhich`, used below) need it on your PATH:
 
 ```bash
-sudo apt install texlive-latex-recommended \
-  texlive-humanities texlive-luatex \
-  texlive-fonts-recommended
+# macOS — add to ~/.zshrc to make it permanent
+export PATH="$HOME/Library/TinyTeX/bin/universal-darwin:$PATH"
+# Linux — add to ~/.bashrc
+export PATH="$HOME/.TinyTeX/bin/x86_64-linux:$PATH"
 ```
 
-Install `rsvg-convert` through `librsvg` on Homebrew or Arch, or `librsvg2-bin` on
-Debian/Ubuntu. Check the converter, and confirm that TeX can find the packages:
+### Extras for a journal-styled PDF {#journal-pdf-extras}
+
+`flux compile --to pdf --style nature` asks LaTeX for things a minimal install may not have:
+line numbers, double spacing, a Times-compatible font, and a way to place Flux's SVG figures in a
+PDF. How you add them depends on how TeX got onto the machine:
+
+| TeX install | Command | Needs admin? |
+|---|---|---|
+| TinyTeX (the setup window, or `quarto install tinytex`) | `tlmgr install lineno setspace` | No — TinyTeX lives in your home directory |
+| MacTeX | `sudo tlmgr install lineno setspace` | Yes |
+| Linux distro TeX Live (apt) | `sudo apt install texlive-latex-recommended texlive-humanities texlive-luatex texlive-fonts-recommended` | Yes — Debian and Ubuntu disable `tlmgr` package installs |
+
+Figures also need **`rsvg-convert`** (`librsvg2-bin` on Debian and Ubuntu, `librsvg` on Homebrew
+and Arch): Flux renders figures as SVG, and LaTeX cannot place those directly.
+
+Check what you have (both commands need TinyTeX on your PATH, see above):
 
 ```bash
-rsvg-convert --version
-kpsewhich lineno.sty setspace.sty
+kpsewhich lineno.sty setspace.sty   # both should print a path
+rsvg-convert --version              # needed for figures in PDF
+quarto check                        # quarto + tinytex, if you export papers
 ```
 
-TinyTeX's own commands may need its bin folder on your shell's PATH: `~/Library/TinyTeX/bin/universal-darwin` on macOS or `~/.TinyTeX/bin/x86_64-linux` on Linux. Flux and Quarto can find TinyTeX without that shell change. These dependencies do not affect Word export.
+None of this affects **Word**: a journal-styled `.docx` needs no TeX at all. When an export does
+hit a missing piece, Flux names the package to install instead of showing you the raw LaTeX log.
+
+## Troubleshooting {#troubleshooting}
+
+| Symptom | Cause → fix |
+|---|---|
+| With **Word** selected, **Export** is disabled and the dialog says Word export needs Quarto | Quarto isn't installed → **Install Quarto…** in the dialog, or **Set up Flux → Word export · Quarto** |
+| *Journal styles are available for Word export only* | A journal is chosen with PDF or HTML selected → switch to Word, or use `flux compile --to pdf --style nature` from a terminal |
+| `flux compile --to pdf` fails; HTML works | No TeX → **Set up Flux → PDF through Quarto**, or `quarto install tinytex` |
+| A journal PDF fails with `File 'lineno.sty' not found` (or `setspace.sty`) | Minimal TeX install → the table above |
+| A journal PDF fails mentioning `rsvg-convert` | SVG figures cannot be placed → install `librsvg2-bin` / `librsvg` |
+| A journal PDF fails with `luaotfload` or `not loadable: Metric` | lualatex is present but its fonts are not → `texlive-luatex` + `texlive-fonts-recommended`, or use TinyTeX |
+| `kpsewhich` or `tlmgr`: command not found, yet exports work | TinyTeX is not on your PATH → add the line above; Flux and Quarto never needed it |
+| A Word export says figures will be missing | No render could be produced for the named figures → open Figure so they load, then export again |
+| A citation came out as plain text in a Zotero export | It sits in a footnote, which stays ordinary text → move it into the body if it must be live |
+| Journal Check flags something you disagree with | It is advice and never blocks an export → dismiss it |
 
 ::: {.next-reading}
 **Related guides**
 
-[Paper](/docs/paper.html) · [Citations, figures and tables](/docs/citations-and-figures.html) · [Writing tools](/docs/writing-tools.html)
+[Paper](/docs/paper.html) · [Citations, figures and tables](/docs/citations-and-figures.html) · [Writing tools](/docs/writing-tools.html) · [Zotero](/docs/zotero.html) · [Installation](/install/)
 :::

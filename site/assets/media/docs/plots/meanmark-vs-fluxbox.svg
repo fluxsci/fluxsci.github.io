@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="460.8pt" height="208.8pt" viewBox="0 0 460.8 208.8" version="1.1" data-fluxplot="1" data-plot-type="meanmark">
+  <defs>
+    <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+  </defs>
+  <g id="figure" data-role="figure" data-kind="container">
+    <g id="figure.background" data-role="background" data-kind="shape" data-ink-fill="paper">
+      <path d="M 0 208.8  L 460.8 208.8  L 460.8 0  L 0 0  z " style="fill: #fffcf0"/>
+    </g>
+    <g id="panel.a.plot-area" data-role="plot-area" data-kind="container">
+      <g id="panel.a.axes.background" data-role="background" data-kind="shape" data-ink-fill="plot">
+        <path d="M 33.488164 193.976504  L 238.414082 193.976504  L 238.414082 22.848164  L 33.488164 22.848164  z " style="fill: #fffcf0"/>
+      </g>
+      <g id="panel.a.axis.x" data-role="axis" data-axis="x" data-kind="container">
+        <g id="xtick_1">
+          <g id="panel.a.axis.x.gridline.0" data-role="gridline" data-axis="x" data-index="0" data-kind="line" data-ink-stroke="grid">
+            <path d="M 94.965939 193.976504  L 94.965939 22.848164  " clip-path="url(#p4975f98106)" style="fill: none; stroke: #dad8ce; stroke-opacity: 0.9; stroke-width: 0.8; stroke-linecap: round"/>
+          </g>
+          <g id="panel.a.axis.x.tick.0" data-role="tick" data-axis="x" data-index="0" data-kind="line"/>
+          <g id="panel.a.axis.x.ticklabel.0" data-role="tick-label" data-axis="x" data-index="0" data-kind="text" data-ink-fill="ink">
+            <text style="font-size: 5px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #100f0f" x="94.965939" y="201.116641" transform="rotate(-0 94.965939 201.116641)">Baseline</text>
+          </g>
+        </g>
+        <g id="xtick_2">
+          <g id="panel.a.axis.x.gridline.1" data-role="gridline" data-axis="x" data-index="1" data-kind="line" data-ink-stroke="grid">
+            <path d="M 176.936307 193.976504  L 176.936307 22.848164  " clip-path="url(#p4975f98106)" style="fill: none; stroke: #dad8ce; stroke-opacity: 0.9; stroke-width: 0.8; stroke-linecap: round"/>
+          </g>
+          <g id="panel.a.axis.x.tick.1" data-role="tick" data-axis="x" data-index="1" data-kind="line"/>
+          <g id="panel.a.axis.x.ticklabel.1" data-role="tick-label" data-axis="x" data-index="1" data-kind="text" data-ink-fill="ink">
+            <text style="font-size: 5px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #100f0f" x="176.936307" y="201.116641" transform="rotate(-0 176.936307 201.116641)">Treated</text>
+          </g>
+        </g>
+      </g>
+      <g id="panel.a.axis.y" data-role="axis" data-axis="y" data-kind="container">
+        <g id="ytick_1">
+          <g id="panel.a.axis.y.gridline.1" data-role="gridline" data-axis="y" data-index="1" data-kind="line" data-ink-stroke="grid">
+            <path d="M 33.488164 172.372262  L 238.414082 172.372262  " clip-path="url(#p4975f98106)" style="fill: none; stroke: #dad8ce; stroke-opacity: 0.9; stroke-width: 0.8; stroke-linecap: round"/>
+          </g>
+          <g id="panel.a.axis.y.tick.1" data-role="tick" data-axis="y" data-index="1" data-kind="line" data-ink-fill="tick" data-ink-stroke="tick">
+            <path d="M 0 0  L -4.5 0  " transform="translate(33.488164 172.372262)" style="stroke: #575653; fill: #575653"/>
+          </g>
+          <g id="panel.a.axis.y.ticklabel.1" data-role="tick-label" data-axis="y" data-index="1" data-kind="text" data-ink-fill="ink">
+            <text style="font-size: 5px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #100f0f" x="25.488164" y="174.19233" transform="rotate(-0 25.488164 174.19233)">0.8</text>
+          </g>
+        </g>
+        <g id="ytick_2">
+          <g id="panel.a.axis.y.gridline.2" data-role="gridline" data-axis="y" data-index="2" data-kind="line" data-ink-stroke="grid">
+            <path d="M 33.488164 139.697969  L 238.414082 139.697969  " clip-path="url(#p4975f98106)" style="fill: none; stroke: #dad8ce; stroke-opacity: 0.9; stroke-width: 0.8; stroke-linecap: round"/>
+          </g>
+          <g id="panel.a.axis.y.tick.2" data-role="tick" data-axis="y" data-index="2" data-kind="line" data-ink-fill="tick" data-ink-stroke="tick">
+            <path d="M 0 0  L -4.5 0  " transform="translate(33.488164 139.697969)" style="stroke: #575653; fill: #575653"/>
+          </g>
+          <g id="panel.a.axis.y.ticklabel.2" data-role="tick-label" data-axis="y" data-index="2" data-kind="text" data-ink-fill="ink">
+            <text style="font-size: 5px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #100f0f" x="25.488164" y="141.518037" transform="rotate(-0 25.488164 141.518037)">1.0</text>
+          </g>
+        </g>
+        <g id="ytick_3">
+          <g id="panel.a.axis.y.gridline.3" data-role="gridline" data-axis="y" data-index="3" data-kind="line" data-ink-stroke="grid">
+            <path d="M 33.488164 107.023677  L 238.414082 107.023677  " clip-path="url(#p4975f98106)" style="fill: none; stroke: #dad8ce; stroke-opacity: 0.9; stroke-width: 0.8; stroke-linecap: round"/>
+          </g>
+          <g id="panel.a.axis.y.tick.3" data-role="tick" data-axis="y" data-index="3" data-kind="line" data-ink-fill="tick" data-ink-stroke="tick">
+            <path d="M 0 0  L -4.5 0  " transform="translate(33.488164 107.023677)" style="stroke: #575653; fill: #575653"/>
+          </g>
+          <g id="panel.a.axis.y.ticklabel.3" data-role="tick-label" data-axis="y" data-index="3" data-kind="text" data-ink-fill="ink">
+            <text style="font-size: 5px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #100f0f" x="25.488164" y="108.843745" transform="rotate(-0 25.488164 108.843745)">1.2</text>
+          </g>
+        </g>
+        <g id="ytick_4">
+          <g id="panel.a.axis.y.gridline.4" data-role="gridline" data-axis="y" data-index="4" data-kind="line" data-ink-stroke="grid">
+            <path d="M 33.488164 74.349384  L 238.414082 74.349384  " clip-path="url(#p4975f98106)" style="fill: none; stroke: #dad8ce; stroke-opacity: 0.9; stroke-width: 0.8; stroke-linecap: round"/>
+          </g>
+          <g id="panel.a.axis.y.tick.4" data-role="tick" data-axis="y" data-index="4" data-kind="line" data-ink-fill="tick" data-ink-stroke="tick">
+            <path d="M 0 0  L -4.5 0  " transform="translate(33.488164 74.349384)" style="stroke: #575653; fill: #575653"/>
+          </g>
+          <g id="panel.a.axis.y.ticklabel.4" data-role="tick-label" data-axis="y" data-index="4" data-kind="text" data-ink-fill="ink">
+            <text style="font-size: 5px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #100f0f" x="25.488164" y="76.169452" transform="rotate(-0 25.488164 76.169452)">1.4</text>
+          </g>
+        </g>
+        <g id="ytick_5">
+          <g id="panel.a.axis.y.gridline.5" data-role="gridline" data-axis="y" data-index="5" data-kind="line" data-ink-stroke="grid">
+            <path d="M 33.488164 41.675091  L 238.414082 41.675091  " clip-path="url(#p4975f98106)" style="fill: none; stroke: #dad8ce; stroke-opacity: 0.9; stroke-width: 0.8; stroke-linecap: round"/>
+          </g>
+          <g id="panel.a.axis.y.tick.5" data-role="tick" data-axis="y" data-index="5" data-kind="line" data-ink-fill="tick" data-ink-stroke="tick">
+            <path d="M 0 0  L -4.5 0  " transform="translate(33.488164 41.675091)" style="stroke: #575653; fill: #575653"/>
+          </g>
+          <g id="panel.a.axis.y.ticklabel.5" data-role="tick-label" data-axis="y" data-index="5" data-kind="text" data-ink-fill="ink">
+            <text style="font-size: 5px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #100f0f" x="25.488164" y="43.49516" transform="rotate(-0 25.488164 43.49516)">1.6</text>
+          </g>
+        </g>
+        <g id="panel.a.axis.y.title" data-role="axis-title" data-axis="y" data-kind="text" data-ink-fill="label">
+          <text style="font-size: 6px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #100f0f" x="11.275352" y="108.412334" transform="rotate(-90 11.275352 108.412334)">Response (a.u.)</text>
+        </g>
+      </g>
+      <g id="panel.a.s01.line" data-role="line" data-series="s01" data-kind="line">
+        <path d="M 90.047717 132.509625  L 172.018085 93.300474  " clip-path="url(#p4975f98106)" style="fill: none; stroke: #5f5f5f; stroke-opacity: 0.2; stroke-width: 0.5; stroke-linecap: round"/>
+      </g>
+      <g id="panel.a.s02.line" data-role="line" data-series="s02" data-kind="line">
+        <path d="M 91.140656 125.648023  L 173.111023 60.789553  " clip-path="url(#p4975f98106)" style="fill: none; stroke: #5f5f5f; stroke-opacity: 0.2; stroke-width: 0.5; stroke-linecap: round"/>
+      </g>
+      <g id="panel.a.s03.line" data-role="line" data-series="s03" data-kind="line">
+        <path d="M 92.233594 146.232828  L 174.203961 92.810359  " clip-path="url(#p4975f98106)" style="fill: none; stroke: #5f5f5f; stroke-opacity: 0.2; stroke-width: 0.5; stroke-linecap: round"/>
+      </g>
+      <g id="panel.a.s04.line" data-role="line" data-series="s04" data-kind="line">
+        <path d="M 93.326532 179.560606  L 175.296899 88.39933  " clip-path="url(#p4975f98106)" style="fill: none; stroke: #5f5f5f; stroke-opacity: 0.2; stroke-width: 0.5; stroke-linecap: round"/>
+      </g>
+      <g id="panel.a.s05.line" data-role="line" data-series="s05" data-kind="line">
+        <path d="M 94.41947 153.421172  L 176.389838 77.29007  " clip-path="url(#p4975f98106)" style="fill: none; stroke: #5f5f5f; stroke-opacity: 0.2; stroke-width: 0.5; stroke-linecap: round"/>
+      </g>
+      <g id="panel.a.s06.line" data-role="line" data-series="s06" data-kind="line">
+        <path d="M 95.512409 158.649059  L 177.482776 98.038246  " clip-path="url(#p4975f98106)" style="fill: none; stroke: #5f5f5f; stroke-opacity: 0.2; stroke-width: 0.5; stroke-linecap: round"/>
+      </g>
+      <g id="panel.a.s07.line" data-role="line" data-series="s07" data-kind="line">
+        <path d="M 96.605347 157.66883  L 178.575714 101.469047  " clip-path="url(#p4975f98106)" style="fill: none; stroke: #5f5f5f; stroke-opacity: 0.2; stroke-width: 0.5; stroke-linecap: round"/>
+      </g>
+      <g id="panel.a.s08.line" data-role="line" data-series="s08" data-kind="line">
+        <path d="M 97.698285 107.023677  L 179.668652 34.650119  " clip-path="url(#p4975f98106)" style="fill: none; stroke: #5f5f5f; stroke-opacity: 0.2; stroke-width: 0.5; stroke-linecap: round"/>
+      </g>
+      <g id="panel.a.s09.line" data-role="line" data-series="s09" data-kind="line">
+        <path d="M 98.791223 182.174549  L 180.76159 81.374357  " clip-path="url(#p4975f98106)" style="fill: none; stroke: #5f5f5f; stroke-opacity: 0.2; stroke-width: 0.5; stroke-linecap: round"/>
+      </g>
+      <g id="panel.a.s10.line" data-role="line" data-series="s10" data-kind="line">
+        <path d="M 99.884161 176.946663  L 181.854529 82.681329  " clip-path="url(#p4975f98106)" style="fill: none; stroke: #5f5f5f; stroke-opacity: 0.2; stroke-width: 0.5; stroke-linecap: round"/>
+      </g>
+      <g id="panel.a.s01.points" data-series="s01" data-kind="shape">
+        <defs>
+          <path id="C0_0_6083ef9f98" d="M 0 1.802776  C 0.478102 1.802776 0.936686 1.612824 1.274755 1.274755  C 1.612824 0.936686 1.802776 0.478102 1.802776 -0  C 1.802776 -0.478102 1.612824 -0.936686 1.274755 -1.274755  C 0.936686 -1.612824 0.478102 -1.802776 0 -1.802776  C -0.478102 -1.802776 -0.936686 -1.612824 -1.274755 -1.274755  C -1.612824 -0.936686 -1.802776 -0.478102 -1.802776 0  C -1.802776 0.478102 -1.612824 0.936686 -1.274755 1.274755  C -0.936686 1.612824 -0.478102 1.802776 0 1.802776  z "/>
+        </defs>
+        <g clip-path="url(#p4975f98106)">
+          <use xlink:href="#C0_0_6083ef9f98" x="90.047717" y="132.509625" style="fill: #225da8; fill-opacity: 0.45; stroke: #184175; stroke-width: 0.2" id="panel.a.s01.point.0" data-role="point" data-series="s01" data-index="0" data-x="-0.06" data-y="1.044" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p4975f98106)">
+          <use xlink:href="#C0_0_6083ef9f98" x="172.018085" y="93.300474" style="fill: #e2191c; fill-opacity: 0.45; stroke: #9e1214; stroke-width: 0.2" id="panel.a.s01.point.1" data-role="point" data-series="s01" data-index="1" data-x="0.94" data-y="1.284" data-kind="shape"/>
+        </g>
+      </g>
+      <g id="panel.a.s02.points" data-series="s02" data-kind="shape">
+        <defs>
+          <path id="C1_0_6083ef9f98" d="M 0 1.802776  C 0.478102 1.802776 0.936686 1.612824 1.274755 1.274755  C 1.612824 0.936686 1.802776 0.478102 1.802776 -0  C 1.802776 -0.478102 1.612824 -0.936686 1.274755 -1.274755  C 0.936686 -1.612824 0.478102 -1.802776 0 -1.802776  C -0.478102 -1.802776 -0.936686 -1.612824 -1.274755 -1.274755  C -1.612824 -0.936686 -1.802776 -0.478102 -1.802776 0  C -1.802776 0.478102 -1.612824 0.936686 -1.274755 1.274755  C -0.936686 1.612824 -0.478102 1.802776 0 1.802776  z "/>
+        </defs>
+        <g clip-path="url(#p4975f98106)">
+          <use xlink:href="#C1_0_6083ef9f98" x="91.140656" y="125.648023" style="fill: #225da8; fill-opacity: 0.45; stroke: #184175; stroke-width: 0.2" id="panel.a.s02.point.0" data-role="point" data-series="s02" data-index="0" data-x="-0.04666666666666667" data-y="1.086" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p4975f98106)">
+          <use xlink:href="#C1_0_6083ef9f98" x="173.111023" y="60.789553" style="fill: #e2191c; fill-opacity: 0.45; stroke: #9e1214; stroke-width: 0.2" id="panel.a.s02.point.1" data-role="point" data-series="s02" data-index="1" data-x="0.9533333333333334" data-y="1.483" data-kind="shape"/>
+        </g>
+      </g>
+      <g id="panel.a.s03.points" data-series="s03" data-kind="shape">
+        <defs>
+          <path id="C2_0_6083ef9f98" d="M 0 1.802776  C 0.478102 1.802776 0.936686 1.612824 1.274755 1.274755  C 1.612824 0.936686 1.802776 0.478102 1.802776 -0  C 1.802776 -0.478102 1.612824 -0.936686 1.274755 -1.274755  C 0.936686 -1.612824 0.478102 -1.802776 0 -1.802776  C -0.478102 -1.802776 -0.936686 -1.612824 -1.274755 -1.274755  C -1.612824 -0.936686 -1.802776 -0.478102 -1.802776 0  C -1.802776 0.478102 -1.612824 0.936686 -1.274755 1.274755  C -0.936686 1.612824 -0.478102 1.802776 0 1.802776  z "/>
+        </defs>
+        <g clip-path="url(#p4975f98106)">
+          <use xlink:href="#C2_0_6083ef9f98" x="92.233594" y="146.232828" style="fill: #225da8; fill-opacity: 0.45; stroke: #184175; stroke-width: 0.2" id="panel.a.s03.point.0" data-role="point" data-series="s03" data-index="0" data-x="-0.03333333333333333" data-y="0.96" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p4975f98106)">
+          <use xlink:href="#C2_0_6083ef9f98" x="174.203961" y="92.810359" style="fill: #e2191c; fill-opacity: 0.45; stroke: #9e1214; stroke-width: 0.2" id="panel.a.s03.point.1" data-role="point" data-series="s03" data-index="1" data-x="0.9666666666666667" data-y="1.287" data-kind="shape"/>
+        </g>
+      </g>
+      <g id="panel.a.s04.points" data-series="s04" data-kind="shape">
+        <defs>
+          <path id="C3_0_6083ef9f98" d="M 0 1.802776  C 0.478102 1.802776 0.936686 1.612824 1.274755 1.274755  C 1.612824 0.936686 1.802776 0.478102 1.802776 -0  C 1.802776 -0.478102 1.612824 -0.936686 1.274755 -1.274755  C 0.936686 -1.612824 0.478102 -1.802776 0 -1.802776  C -0.478102 -1.802776 -0.936686 -1.612824 -1.274755 -1.274755  C -1.612824 -0.936686 -1.802776 -0.478102 -1.802776 0  C -1.802776 0.478102 -1.612824 0.936686 -1.274755 1.274755  C -0.936686 1.612824 -0.478102 1.802776 0 1.802776  z "/>
+        </defs>
+        <g clip-path="url(#p4975f98106)">
+          <use xlink:href="#C3_0_6083ef9f98" x="93.326532" y="179.560606" style="fill: #225da8; fill-opacity: 0.45; stroke: #184175; stroke-width: 0.2" id="panel.a.s04.point.0" data-role="point" data-series="s04" data-index="0" data-x="-0.02" data-y="0.756" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p4975f98106)">
+          <use xlink:href="#C3_0_6083ef9f98" x="175.296899" y="88.39933" style="fill: #e2191c; fill-opacity: 0.45; stroke: #9e1214; stroke-width: 0.2" id="panel.a.s04.point.1" data-role="point" data-series="s04" data-index="1" data-x="0.98" data-y="1.314" data-kind="shape"/>
+        </g>
+      </g>
+      <g id="panel.a.s05.points" data-series="s05" data-kind="shape">
+        <defs>
+          <path id="C4_0_6083ef9f98" d="M 0 1.802776  C 0.478102 1.802776 0.936686 1.612824 1.274755 1.274755  C 1.612824 0.936686 1.802776 0.478102 1.802776 -0  C 1.802776 -0.478102 1.612824 -0.936686 1.274755 -1.274755  C 0.936686 -1.612824 0.478102 -1.802776 0 -1.802776  C -0.478102 -1.802776 -0.936686 -1.612824 -1.274755 -1.274755  C -1.612824 -0.936686 -1.802776 -0.478102 -1.802776 0  C -1.802776 0.478102 -1.612824 0.936686 -1.274755 1.274755  C -0.936686 1.612824 -0.478102 1.802776 0 1.802776  z "/>
+        </defs>
+        <g clip-path="url(#p4975f98106)">
+          <use xlink:href="#C4_0_6083ef9f98" x="94.41947" y="153.421172" style="fill: #225da8; fill-opacity: 0.45; stroke: #184175; stroke-width: 0.2" id="panel.a.s05.point.0" data-role="point" data-series="s05" data-index="0" data-x="-0.00666666666666667" data-y="0.916" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p4975f98106)">
+          <use xlink:href="#C4_0_6083ef9f98" x="176.389838" y="77.29007" style="fill: #e2191c; fill-opacity: 0.45; stroke: #9e1214; stroke-width: 0.2" id="panel.a.s05.point.1" data-role="point" data-series="s05" data-index="1" data-x="0.9933333333333333" data-y="1.382" data-kind="shape"/>
+        </g>
+      </g>
+      <g id="panel.a.s06.points" data-series="s06" data-kind="shape">
+        <defs>
+          <path id="C5_0_6083ef9f98" d="M 0 1.802776  C 0.478102 1.802776 0.936686 1.612824 1.274755 1.274755  C 1.612824 0.936686 1.802776 0.478102 1.802776 -0  C 1.802776 -0.478102 1.612824 -0.936686 1.274755 -1.274755  C 0.936686 -1.612824 0.478102 -1.802776 0 -1.802776  C -0.478102 -1.802776 -0.936686 -1.612824 -1.274755 -1.274755  C -1.612824 -0.936686 -1.802776 -0.478102 -1.802776 0  C -1.802776 0.478102 -1.612824 0.936686 -1.274755 1.274755  C -0.936686 1.612824 -0.478102 1.802776 0 1.802776  z "/>
+        </defs>
+        <g clip-path="url(#p4975f98106)">
+          <use xlink:href="#C5_0_6083ef9f98" x="95.512409" y="158.649059" style="fill: #225da8; fill-opacity: 0.45; stroke: #184175; stroke-width: 0.2" id="panel.a.s06.point.0" data-role="point" data-series="s06" data-index="0" data-x="0.00666666666666667" data-y="0.884" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p4975f98106)">
+          <use xlink:href="#C5_0_6083ef9f98" x="177.482776" y="98.038246" style="fill: #e2191c; fill-opacity: 0.45; stroke: #9e1214; stroke-width: 0.2" id="panel.a.s06.point.1" data-role="point" data-series="s06" data-index="1" data-x="1.0066666666666666" data-y="1.255" data-kind="shape"/>
+        </g>
+      </g>
+      <g id="panel.a.s07.points" data-series="s07" data-kind="shape">
+        <defs>
+          <path id="C6_0_6083ef9f98" d="M 0 1.802776  C 0.478102 1.802776 0.936686 1.612824 1.274755 1.274755  C 1.612824 0.936686 1.802776 0.478102 1.802776 -0  C 1.802776 -0.478102 1.612824 -0.936686 1.274755 -1.274755  C 0.936686 -1.612824 0.478102 -1.802776 0 -1.802776  C -0.478102 -1.802776 -0.936686 -1.612824 -1.274755 -1.274755  C -1.612824 -0.936686 -1.802776 -0.478102 -1.802776 0  C -1.802776 0.478102 -1.612824 0.936686 -1.274755 1.274755  C -0.936686 1.612824 -0.478102 1.802776 0 1.802776  z "/>
+        </defs>
+        <g clip-path="url(#p4975f98106)">
+          <use xlink:href="#C6_0_6083ef9f98" x="96.605347" y="157.66883" style="fill: #225da8; fill-opacity: 0.45; stroke: #184175; stroke-width: 0.2" id="panel.a.s07.point.0" data-role="point" data-series="s07" data-index="0" data-x="0.019999999999999993" data-y="0.89" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p4975f98106)">
+          <use xlink:href="#C6_0_6083ef9f98" x="178.575714" y="101.469047" style="fill: #e2191c; fill-opacity: 0.45; stroke: #9e1214; stroke-width: 0.2" id="panel.a.s07.point.1" data-role="point" data-series="s07" data-index="1" data-x="1.02" data-y="1.234" data-kind="shape"/>
+        </g>
+      </g>
+      <g id="panel.a.s08.points" data-series="s08" data-kind="shape">
+        <defs>
+          <path id="C7_0_6083ef9f98" d="M 0 1.802776  C 0.478102 1.802776 0.936686 1.612824 1.274755 1.274755  C 1.612824 0.936686 1.802776 0.478102 1.802776 -0  C 1.802776 -0.478102 1.612824 -0.936686 1.274755 -1.274755  C 0.936686 -1.612824 0.478102 -1.802776 0 -1.802776  C -0.478102 -1.802776 -0.936686 -1.612824 -1.274755 -1.274755  C -1.612824 -0.936686 -1.802776 -0.478102 -1.802776 0  C -1.802776 0.478102 -1.612824 0.936686 -1.274755 1.274755  C -0.936686 1.612824 -0.478102 1.802776 0 1.802776  z "/>
+        </defs>
+        <g clip-path="url(#p4975f98106)">
+          <use xlink:href="#C7_0_6083ef9f98" x="97.698285" y="107.023677" style="fill: #225da8; fill-opacity: 0.45; stroke: #184175; stroke-width: 0.2" id="panel.a.s08.point.0" data-role="point" data-series="s08" data-index="0" data-x="0.03333333333333332" data-y="1.2" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p4975f98106)">
+          <use xlink:href="#C7_0_6083ef9f98" x="179.668652" y="34.650119" style="fill: #e2191c; fill-opacity: 0.45; stroke: #9e1214; stroke-width: 0.2" id="panel.a.s08.point.1" data-role="point" data-series="s08" data-index="1" data-x="1.0333333333333332" data-y="1.643" data-kind="shape"/>
+        </g>
+      </g>
+      <g id="panel.a.s09.points" data-series="s09" data-kind="shape">
+        <defs>
+          <path id="C8_0_6083ef9f98" d="M 0 1.802776  C 0.478102 1.802776 0.936686 1.612824 1.274755 1.274755  C 1.612824 0.936686 1.802776 0.478102 1.802776 -0  C 1.802776 -0.478102 1.612824 -0.936686 1.274755 -1.274755  C 0.936686 -1.612824 0.478102 -1.802776 0 -1.802776  C -0.478102 -1.802776 -0.936686 -1.612824 -1.274755 -1.274755  C -1.612824 -0.936686 -1.802776 -0.478102 -1.802776 0  C -1.802776 0.478102 -1.612824 0.936686 -1.274755 1.274755  C -0.936686 1.612824 -0.478102 1.802776 0 1.802776  z "/>
+        </defs>
+        <g clip-path="url(#p4975f98106)">
+          <use xlink:href="#C8_0_6083ef9f98" x="98.791223" y="182.174549" style="fill: #225da8; fill-opacity: 0.45; stroke: #184175; stroke-width: 0.2" id="panel.a.s09.point.0" data-role="point" data-series="s09" data-index="0" data-x="0.04666666666666666" data-y="0.74" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p4975f98106)">
+          <use xlink:href="#C8_0_6083ef9f98" x="180.76159" y="81.374357" style="fill: #e2191c; fill-opacity: 0.45; stroke: #9e1214; stroke-width: 0.2" id="panel.a.s09.point.1" data-role="point" data-series="s09" data-index="1" data-x="1.0466666666666666" data-y="1.357" data-kind="shape"/>
+        </g>
+      </g>
+      <g id="panel.a.s10.points" data-series="s10" data-kind="shape">
+        <defs>
+          <path id="C9_0_6083ef9f98" d="M 0 1.802776  C 0.478102 1.802776 0.936686 1.612824 1.274755 1.274755  C 1.612824 0.936686 1.802776 0.478102 1.802776 -0  C 1.802776 -0.478102 1.612824 -0.936686 1.274755 -1.274755  C 0.936686 -1.612824 0.478102 -1.802776 0 -1.802776  C -0.478102 -1.802776 -0.936686 -1.612824 -1.274755 -1.274755  C -1.612824 -0.936686 -1.802776 -0.478102 -1.802776 0  C -1.802776 0.478102 -1.612824 0.936686 -1.274755 1.274755  C -0.936686 1.612824 -0.478102 1.802776 0 1.802776  z "/>
+        </defs>
+        <g clip-path="url(#p4975f98106)">
+          <use xlink:href="#C9_0_6083ef9f98" x="99.884161" y="176.946663" style="fill: #225da8; fill-opacity: 0.45; stroke: #184175; stroke-width: 0.2" id="panel.a.s10.point.0" data-role="point" data-series="s10" data-index="0" data-x="0.06" data-y="0.772" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p4975f98106)">
+          <use xlink:href="#C9_0_6083ef9f98" x="181.854529" y="82.681329" style="fill: #e2191c; fill-opacity: 0.45; stroke: #9e1214; stroke-width: 0.2" id="panel.a.s10.point.1" data-role="point" data-series="s10" data-index="1" data-x="1.06" data-y="1.349" data-kind="shape"/>
+        </g>
+      </g>
+      <g id="panel.a.baseline.error-low" data-role="errorbar" data-series="Baseline" data-kind="line">
+        <path d="M 115.458531 154.233503  L 115.458531 169.669561  " clip-path="url(#p4975f98106)" style="fill: none; stroke: #225da8; stroke-width: 1.7; stroke-linejoin: miter"/>
+      </g>
+      <g id="panel.a.baseline.cap-low" data-role="cap" data-series="Baseline" data-kind="line">
+        <path d="M 113.708531 169.669561  L 117.208531 169.669561  " clip-path="url(#p4975f98106)" style="fill: none; stroke: #225da8; stroke-width: 1.2; stroke-linejoin: miter"/>
+      </g>
+      <g id="panel.a.baseline.error-high" data-role="errorbar" data-series="Baseline" data-kind="line">
+        <path d="M 115.458531 149.733503  L 115.458531 134.297445  " clip-path="url(#p4975f98106)" style="fill: none; stroke: #225da8; stroke-width: 1.7; stroke-linejoin: miter"/>
+      </g>
+      <g id="panel.a.baseline.cap-high" data-role="cap" data-series="Baseline" data-kind="line">
+        <path d="M 113.708531 134.297445  L 117.208531 134.297445  " clip-path="url(#p4975f98106)" style="fill: none; stroke: #225da8; stroke-width: 1.2; stroke-linejoin: miter"/>
+      </g>
+      <g id="panel.a.treated.error-low" data-role="errorbar" data-series="Treated" data-kind="line">
+        <path d="M 197.428898 83.330288  L 197.428898 95.443472  " clip-path="url(#p4975f98106)" style="fill: none; stroke: #e2191c; stroke-width: 1.7; stroke-linejoin: miter"/>
+      </g>
+      <g id="panel.a.treated.cap-low" data-role="cap" data-series="Treated" data-kind="line">
+        <path d="M 195.678898 95.443472  L 199.178898 95.443472  " clip-path="url(#p4975f98106)" style="fill: none; stroke: #e2191c; stroke-width: 1.2; stroke-linejoin: miter"/>
+      </g>
+      <g id="panel.a.treated.error-high" data-role="errorbar" data-series="Treated" data-kind="line">
+        <path d="M 197.428898 78.830288  L 197.428898 66.717105  " clip-path="url(#p4975f98106)" style="fill: none; stroke: #e2191c; stroke-width: 1.7; stroke-linejoin: miter"/>
+      </g>
+      <g id="panel.a.treated.cap-high" data-role="cap" data-series="Treated" data-kind="line">
+        <path d="M 195.678898 66.717105  L 199.178898 66.717105  " clip-path="url(#p4975f98106)" style="fill: none; stroke: #e2191c; stroke-width: 1.2; stroke-linejoin: miter"/>
+      </g>
+      <g id="panel.a.axis.y.spine.left" data-role="spine" data-axis="y" data-kind="line" data-ink-stroke="axis">
+        <path d="M 33.488164 193.976504  L 33.488164 22.848164  " style="fill: none; stroke: #575653; stroke-width: 1.2; stroke-linejoin: miter; stroke-linecap: square"/>
+      </g>
+      <g id="panel.a.axis.x.spine.bottom" data-role="spine" data-axis="x" data-kind="line" data-ink-stroke="axis">
+        <path d="M 33.488164 193.976504  L 238.414082 193.976504  " style="fill: none; stroke: #575653; stroke-width: 1.2; stroke-linejoin: miter; stroke-linecap: square"/>
+      </g>
+      <g id="panel.a.baseline.mean" data-role="mean" data-series="Baseline" data-kind="shape">
+        <path d="M 115.458531 154.233503  C 116.055238 154.233503 116.627586 153.996429 117.049522 153.574493  C 117.471457 153.152558 117.708531 152.58021 117.708531 151.983503  C 117.708531 151.386796 117.471457 150.814448 117.049522 150.392513  C 116.627586 149.970577 116.055238 149.733503 115.458531 149.733503  C 114.861824 149.733503 114.289477 149.970577 113.867541 150.392513  C 113.445605 150.814448 113.208531 151.386796 113.208531 151.983503  C 113.208531 152.58021 113.445605 153.152558 113.867541 153.574493  C 114.289477 153.996429 114.861824 154.233503 115.458531 154.233503  z " clip-path="url(#p4975f98106)" style="fill: #c8d4de; stroke: #225da8; stroke-width: 1.5"/>
+      </g>
+      <g id="panel.a.treated.mean" data-role="mean" data-series="Treated" data-kind="shape">
+        <path d="M 197.428898 83.330288  C 198.025605 83.330288 198.597953 83.093214 199.019889 82.671279  C 199.441824 82.249343 199.678898 81.676995 199.678898 81.080288  C 199.678898 80.483581 199.441824 79.911234 199.019889 79.489298  C 198.597953 79.067362 198.025605 78.830288 197.428898 78.830288  C 196.832191 78.830288 196.259844 79.067362 195.837908 79.489298  C 195.415973 79.911234 195.178898 80.483581 195.178898 81.080288  C 195.178898 81.676995 195.415973 82.249343 195.837908 82.671279  C 196.259844 83.093214 196.832191 83.330288 197.428898 83.330288  z " clip-path="url(#p4975f98106)" style="fill: #f8c3bb; stroke: #e2191c; stroke-width: 1.5"/>
+      </g>
+      <g id="panel.a.figure.title" data-role="title" data-kind="text" data-ink-fill="ink">
+        <text style="font-size: 6px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #100f0f" x="135.951123" y="10.848164" transform="rotate(-0 135.951123 10.848164)">meanmark</text>
+      </g>
+    </g>
+    <g id="panel.b.plot-area" data-role="plot-area" data-kind="container">
+      <g id="panel.b.axes.background" data-role="background" data-kind="shape" data-ink-fill="plot">
+        <path d="M 249.394082 193.976504  L 454.32 193.976504  L 454.32 22.848164  L 249.394082 22.848164  z " style="fill: #fffcf0"/>
+      </g>
+      <g id="panel.b.axis.x" data-role="axis" data-axis="x" data-kind="container">
+        <g id="xtick_3">
+          <g id="panel.b.axis.x.gridline.0" data-role="gridline" data-axis="x" data-index="0" data-kind="line" data-ink-stroke="grid">
+            <path d="M 310.871857 193.976504  L 310.871857 22.848164  " clip-path="url(#p39fc40b555)" style="fill: none; stroke: #dad8ce; stroke-opacity: 0.9; stroke-width: 0.8; stroke-linecap: round"/>
+          </g>
+          <g id="panel.b.axis.x.tick.0" data-role="tick" data-axis="x" data-index="0" data-kind="line"/>
+          <g id="panel.b.axis.x.ticklabel.0" data-role="tick-label" data-axis="x" data-index="0" data-kind="text" data-ink-fill="ink">
+            <text style="font-size: 5px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #100f0f" x="310.871857" y="201.116641" transform="rotate(-0 310.871857 201.116641)">Baseline</text>
+          </g>
+        </g>
+        <g id="xtick_4">
+          <g id="panel.b.axis.x.gridline.1" data-role="gridline" data-axis="x" data-index="1" data-kind="line" data-ink-stroke="grid">
+            <path d="M 392.842225 193.976504  L 392.842225 22.848164  " clip-path="url(#p39fc40b555)" style="fill: none; stroke: #dad8ce; stroke-opacity: 0.9; stroke-width: 0.8; stroke-linecap: round"/>
+          </g>
+          <g id="panel.b.axis.x.tick.1" data-role="tick" data-axis="x" data-index="1" data-kind="line"/>
+          <g id="panel.b.axis.x.ticklabel.1" data-role="tick-label" data-axis="x" data-index="1" data-kind="text" data-ink-fill="ink">
+            <text style="font-size: 5px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #100f0f" x="392.842225" y="201.116641" transform="rotate(-0 392.842225 201.116641)">Treated</text>
+          </g>
+        </g>
+      </g>
+      <g id="panel.b.axis.y" data-role="axis" data-axis="y" data-kind="container">
+        <g id="ytick_6">
+          <g id="panel.b.axis.y.gridline.1" data-role="gridline" data-axis="y" data-index="1" data-kind="line" data-ink-stroke="grid">
+            <path d="M 249.394082 172.372262  L 454.32 172.372262  " clip-path="url(#p39fc40b555)" style="fill: none; stroke: #dad8ce; stroke-opacity: 0.9; stroke-width: 0.8; stroke-linecap: round"/>
+          </g>
+          <g id="panel.b.axis.y.tick.1" data-role="tick" data-axis="y" data-index="1" data-kind="line" data-ink-fill="tick" data-ink-stroke="tick">
+            <path d="M 0 0  L -4.5 0  " transform="translate(249.394082 172.372262)" style="stroke: #575653; fill: #575653"/>
+          </g>
+        </g>
+        <g id="ytick_7">
+          <g id="panel.b.axis.y.gridline.2" data-role="gridline" data-axis="y" data-index="2" data-kind="line" data-ink-stroke="grid">
+            <path d="M 249.394082 139.697969  L 454.32 139.697969  " clip-path="url(#p39fc40b555)" style="fill: none; stroke: #dad8ce; stroke-opacity: 0.9; stroke-width: 0.8; stroke-linecap: round"/>
+          </g>
+          <g id="panel.b.axis.y.tick.2" data-role="tick" data-axis="y" data-index="2" data-kind="line" data-ink-fill="tick" data-ink-stroke="tick">
+            <path d="M 0 0  L -4.5 0  " transform="translate(249.394082 139.697969)" style="stroke: #575653; fill: #575653"/>
+          </g>
+        </g>
+        <g id="ytick_8">
+          <g id="panel.b.axis.y.gridline.3" data-role="gridline" data-axis="y" data-index="3" data-kind="line" data-ink-stroke="grid">
+            <path d="M 249.394082 107.023677  L 454.32 107.023677  " clip-path="url(#p39fc40b555)" style="fill: none; stroke: #dad8ce; stroke-opacity: 0.9; stroke-width: 0.8; stroke-linecap: round"/>
+          </g>
+          <g id="panel.b.axis.y.tick.3" data-role="tick" data-axis="y" data-index="3" data-kind="line" data-ink-fill="tick" data-ink-stroke="tick">
+            <path d="M 0 0  L -4.5 0  " transform="translate(249.394082 107.023677)" style="stroke: #575653; fill: #575653"/>
+          </g>
+        </g>
+        <g id="ytick_9">
+          <g id="panel.b.axis.y.gridline.4" data-role="gridline" data-axis="y" data-index="4" data-kind="line" data-ink-stroke="grid">
+            <path d="M 249.394082 74.349384  L 454.32 74.349384  " clip-path="url(#p39fc40b555)" style="fill: none; stroke: #dad8ce; stroke-opacity: 0.9; stroke-width: 0.8; stroke-linecap: round"/>
+          </g>
+          <g id="panel.b.axis.y.tick.4" data-role="tick" data-axis="y" data-index="4" data-kind="line" data-ink-fill="tick" data-ink-stroke="tick">
+            <path d="M 0 0  L -4.5 0  " transform="translate(249.394082 74.349384)" style="stroke: #575653; fill: #575653"/>
+          </g>
+        </g>
+        <g id="ytick_10">
+          <g id="panel.b.axis.y.gridline.5" data-role="gridline" data-axis="y" data-index="5" data-kind="line" data-ink-stroke="grid">
+            <path d="M 249.394082 41.675091  L 454.32 41.675091  " clip-path="url(#p39fc40b555)" style="fill: none; stroke: #dad8ce; stroke-opacity: 0.9; stroke-width: 0.8; stroke-linecap: round"/>
+          </g>
+          <g id="panel.b.axis.y.tick.5" data-role="tick" data-axis="y" data-index="5" data-kind="line" data-ink-fill="tick" data-ink-stroke="tick">
+            <path d="M 0 0  L -4.5 0  " transform="translate(249.394082 41.675091)" style="stroke: #575653; fill: #575653"/>
+          </g>
+        </g>
+      </g>
+      <g id="panel.b.s01.points" data-series="s01" data-kind="shape">
+        <defs>
+          <path id="Ca_0_510bae7842" d="M 0 2.12132  C 0.562581 2.12132 1.102195 1.897805 1.5 1.5  C 1.897805 1.102195 2.12132 0.562581 2.12132 -0  C 2.12132 -0.562581 1.897805 -1.102195 1.5 -1.5  C 1.102195 -1.897805 0.562581 -2.12132 0 -2.12132  C -0.562581 -2.12132 -1.102195 -1.897805 -1.5 -1.5  C -1.897805 -1.102195 -2.12132 -0.562581 -2.12132 0  C -2.12132 0.562581 -1.897805 1.102195 -1.5 1.5  C -1.102195 1.897805 -0.562581 2.12132 0 2.12132  z "/>
+        </defs>
+        <g clip-path="url(#p39fc40b555)">
+          <use xlink:href="#Ca_0_510bae7842" x="299.396006" y="132.509625" style="fill: #bbe4b5; stroke: #83a07f; stroke-width: 0.5" id="panel.b.s01.point.0" data-role="point" data-series="s01" data-index="0" data-x="-0.14" data-y="1.044" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p39fc40b555)">
+          <use xlink:href="#Ca_0_510bae7842" x="381.366373" y="93.300474" style="fill: #fecf6b; stroke: #b2914b; stroke-width: 0.5" id="panel.b.s01.point.1" data-role="point" data-series="s01" data-index="1" data-x="0.86" data-y="1.284" data-kind="shape"/>
+        </g>
+      </g>
+      <g id="panel.b.s02.points" data-series="s02" data-kind="shape">
+        <defs>
+          <path id="Cb_0_510bae7842" d="M 0 2.12132  C 0.562581 2.12132 1.102195 1.897805 1.5 1.5  C 1.897805 1.102195 2.12132 0.562581 2.12132 -0  C 2.12132 -0.562581 1.897805 -1.102195 1.5 -1.5  C 1.102195 -1.897805 0.562581 -2.12132 0 -2.12132  C -0.562581 -2.12132 -1.102195 -1.897805 -1.5 -1.5  C -1.897805 -1.102195 -2.12132 -0.562581 -2.12132 0  C -2.12132 0.562581 -1.897805 1.102195 -1.5 1.5  C -1.102195 1.897805 -0.562581 2.12132 0 2.12132  z "/>
+        </defs>
+        <g clip-path="url(#p39fc40b555)">
+          <use xlink:href="#Cb_0_510bae7842" x="301.946195" y="125.648023" style="fill: #1d8dbe; stroke: #156385; stroke-width: 0.5" id="panel.b.s02.point.0" data-role="point" data-series="s02" data-index="0" data-x="-0.1088888888888889" data-y="1.086" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p39fc40b555)">
+          <use xlink:href="#Cb_0_510bae7842" x="383.916562" y="60.789553" style="fill: #f23924; stroke: #a9281a; stroke-width: 0.5" id="panel.b.s02.point.1" data-role="point" data-series="s02" data-index="1" data-x="0.8911111111111111" data-y="1.483" data-kind="shape"/>
+        </g>
+      </g>
+      <g id="panel.b.s03.points" data-series="s03" data-kind="shape">
+        <defs>
+          <path id="Cc_0_510bae7842" d="M 0 2.12132  C 0.562581 2.12132 1.102195 1.897805 1.5 1.5  C 1.897805 1.102195 2.12132 0.562581 2.12132 -0  C 2.12132 -0.562581 1.897805 -1.102195 1.5 -1.5  C 1.102195 -1.897805 0.562581 -2.12132 0 -2.12132  C -0.562581 -2.12132 -1.102195 -1.897805 -1.5 -1.5  C -1.897805 -1.102195 -2.12132 -0.562581 -2.12132 0  C -2.12132 0.562581 -1.897805 1.102195 -1.5 1.5  C -1.102195 1.897805 -0.562581 2.12132 0 2.12132  z "/>
+        </defs>
+        <g clip-path="url(#p39fc40b555)">
+          <use xlink:href="#Cc_0_510bae7842" x="304.496384" y="146.232828" style="fill: #97d6b9; stroke: #6a9681; stroke-width: 0.5" id="panel.b.s03.point.0" data-role="point" data-series="s03" data-index="0" data-x="-0.07777777777777779" data-y="0.96" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p39fc40b555)">
+          <use xlink:href="#Cc_0_510bae7842" x="386.466752" y="92.810359" style="fill: #feb34d; stroke: #b27d36; stroke-width: 0.5" id="panel.b.s03.point.1" data-role="point" data-series="s03" data-index="1" data-x="0.9222222222222222" data-y="1.287" data-kind="shape"/>
+        </g>
+      </g>
+      <g id="panel.b.s04.points" data-series="s04" data-kind="shape">
+        <defs>
+          <path id="Cd_0_510bae7842" d="M 0 2.12132  C 0.562581 2.12132 1.102195 1.897805 1.5 1.5  C 1.897805 1.102195 2.12132 0.562581 2.12132 -0  C 2.12132 -0.562581 1.897805 -1.102195 1.5 -1.5  C 1.102195 -1.897805 0.562581 -2.12132 0 -2.12132  C -0.562581 -2.12132 -1.102195 -1.897805 -1.5 -1.5  C -1.897805 -1.102195 -2.12132 -0.562581 -2.12132 0  C -2.12132 0.562581 -1.897805 1.102195 -1.5 1.5  C -1.102195 1.897805 -0.562581 2.12132 0 2.12132  z "/>
+        </defs>
+        <g clip-path="url(#p39fc40b555)">
+          <use xlink:href="#Cd_0_510bae7842" x="307.046574" y="179.560606" style="fill: #2073b2; stroke: #16517d; stroke-width: 0.5" id="panel.b.s04.point.0" data-role="point" data-series="s04" data-index="0" data-x="-0.046666666666666676" data-y="0.756" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p39fc40b555)">
+          <use xlink:href="#Cd_0_510bae7842" x="389.016941" y="88.39933" style="fill: #da141e; stroke: #980e15; stroke-width: 0.5" id="panel.b.s04.point.1" data-role="point" data-series="s04" data-index="1" data-x="0.9533333333333334" data-y="1.314" data-kind="shape"/>
+        </g>
+      </g>
+      <g id="panel.b.s05.points" data-series="s05" data-kind="shape">
+        <defs>
+          <path id="Ce_0_510bae7842" d="M 0 2.12132  C 0.562581 2.12132 1.102195 1.897805 1.5 1.5  C 1.897805 1.102195 2.12132 0.562581 2.12132 -0  C 2.12132 -0.562581 1.897805 -1.102195 1.5 -1.5  C 1.102195 -1.897805 0.562581 -2.12132 0 -2.12132  C -0.562581 -2.12132 -1.102195 -1.897805 -1.5 -1.5  C -1.897805 -1.102195 -2.12132 -0.562581 -2.12132 0  C -2.12132 0.562581 -1.897805 1.102195 -1.5 1.5  C -1.102195 1.897805 -0.562581 2.12132 0 2.12132  z "/>
+        </defs>
+        <g clip-path="url(#p39fc40b555)">
+          <use xlink:href="#Ce_0_510bae7842" x="309.596763" y="153.421172" style="fill: #71c8bd; stroke: #4f8c84; stroke-width: 0.5" id="panel.b.s05.point.0" data-role="point" data-series="s05" data-index="0" data-x="-0.015555555555555564" data-y="0.916" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p39fc40b555)">
+          <use xlink:href="#Ce_0_510bae7842" x="391.56713" y="77.29007" style="fill: #fd9841; stroke: #b16a2d; stroke-width: 0.5" id="panel.b.s05.point.1" data-role="point" data-series="s05" data-index="1" data-x="0.9844444444444445" data-y="1.382" data-kind="shape"/>
+        </g>
+      </g>
+      <g id="panel.b.s06.points" data-series="s06" data-kind="shape">
+        <defs>
+          <path id="Cf_0_510bae7842" d="M 0 2.12132  C 0.562581 2.12132 1.102195 1.897805 1.5 1.5  C 1.897805 1.102195 2.12132 0.562581 2.12132 -0  C 2.12132 -0.562581 1.897805 -1.102195 1.5 -1.5  C 1.102195 -1.897805 0.562581 -2.12132 0 -2.12132  C -0.562581 -2.12132 -1.102195 -1.897805 -1.5 -1.5  C -1.897805 -1.102195 -2.12132 -0.562581 -2.12132 0  C -2.12132 0.562581 -1.897805 1.102195 -1.5 1.5  C -1.102195 1.897805 -0.562581 2.12132 0 2.12132  z "/>
+        </defs>
+        <g clip-path="url(#p39fc40b555)">
+          <use xlink:href="#Cf_0_510bae7842" x="312.146952" y="158.649059" style="fill: #225aa6; stroke: #183f74; stroke-width: 0.5" id="panel.b.s06.point.0" data-role="point" data-series="s06" data-index="0" data-x="0.015555555555555564" data-y="0.884" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p39fc40b555)">
+          <use xlink:href="#Cf_0_510bae7842" x="394.117319" y="98.038246" style="fill: #bd0026; stroke: #84001b; stroke-width: 0.5" id="panel.b.s06.point.1" data-role="point" data-series="s06" data-index="1" data-x="1.0155555555555555" data-y="1.255" data-kind="shape"/>
+        </g>
+      </g>
+      <g id="panel.b.s07.points" data-series="s07" data-kind="shape">
+        <defs>
+          <path id="C10_0_510bae7842" d="M 0 2.12132  C 0.562581 2.12132 1.102195 1.897805 1.5 1.5  C 1.897805 1.102195 2.12132 0.562581 2.12132 -0  C 2.12132 -0.562581 1.897805 -1.102195 1.5 -1.5  C 1.102195 -1.897805 0.562581 -2.12132 0 -2.12132  C -0.562581 -2.12132 -1.102195 -1.897805 -1.5 -1.5  C -1.897805 -1.102195 -2.12132 -0.562581 -2.12132 0  C -2.12132 0.562581 -1.897805 1.102195 -1.5 1.5  C -1.102195 1.897805 -0.562581 2.12132 0 2.12132  z "/>
+        </defs>
+        <g clip-path="url(#p39fc40b555)">
+          <use xlink:href="#C10_0_510bae7842" x="314.697141" y="157.66883" style="fill: #48b9c3; stroke: #328189; stroke-width: 0.5" id="panel.b.s07.point.0" data-role="point" data-series="s07" data-index="0" data-x="0.04666666666666666" data-y="0.89" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p39fc40b555)">
+          <use xlink:href="#C10_0_510bae7842" x="396.667508" y="101.469047" style="fill: #fd7c37; stroke: #b15727; stroke-width: 0.5" id="panel.b.s07.point.1" data-role="point" data-series="s07" data-index="1" data-x="1.0466666666666666" data-y="1.234" data-kind="shape"/>
+        </g>
+      </g>
+      <g id="panel.b.s08.points" data-series="s08" data-kind="shape">
+        <defs>
+          <path id="C11_0_510bae7842" d="M 0 2.12132  C 0.562581 2.12132 1.102195 1.897805 1.5 1.5  C 1.897805 1.102195 2.12132 0.562581 2.12132 -0  C 2.12132 -0.562581 1.897805 -1.102195 1.5 -1.5  C 1.102195 -1.897805 0.562581 -2.12132 0 -2.12132  C -0.562581 -2.12132 -1.102195 -1.897805 -1.5 -1.5  C -1.897805 -1.102195 -2.12132 -0.562581 -2.12132 0  C -2.12132 0.562581 -1.897805 1.102195 -1.5 1.5  C -1.102195 1.897805 -0.562581 2.12132 0 2.12132  z "/>
+        </defs>
+        <g clip-path="url(#p39fc40b555)">
+          <use xlink:href="#C11_0_510bae7842" x="317.24733" y="107.023677" style="fill: #243f99; stroke: #192c6b; stroke-width: 0.5" id="panel.b.s08.point.0" data-role="point" data-series="s08" data-index="0" data-x="0.07777777777777775" data-y="1.2" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p39fc40b555)">
+          <use xlink:href="#C11_0_510bae7842" x="399.217698" y="34.650119" style="fill: #9d0026; stroke: #6e001b; stroke-width: 0.5" id="panel.b.s08.point.1" data-role="point" data-series="s08" data-index="1" data-x="1.0777777777777777" data-y="1.643" data-kind="shape"/>
+        </g>
+      </g>
+      <g id="panel.b.s09.points" data-series="s09" data-kind="shape">
+        <defs>
+          <path id="C12_0_510bae7842" d="M 0 2.12132  C 0.562581 2.12132 1.102195 1.897805 1.5 1.5  C 1.897805 1.102195 2.12132 0.562581 2.12132 -0  C 2.12132 -0.562581 1.897805 -1.102195 1.5 -1.5  C 1.102195 -1.897805 0.562581 -2.12132 0 -2.12132  C -0.562581 -2.12132 -1.102195 -1.897805 -1.5 -1.5  C -1.897805 -1.102195 -2.12132 -0.562581 -2.12132 0  C -2.12132 0.562581 -1.897805 1.102195 -1.5 1.5  C -1.102195 1.897805 -0.562581 2.12132 0 2.12132  z "/>
+        </defs>
+        <g clip-path="url(#p39fc40b555)">
+          <use xlink:href="#C12_0_510bae7842" x="319.79752" y="182.174549" style="fill: #2fa4c2; stroke: #217388; stroke-width: 0.5" id="panel.b.s09.point.0" data-role="point" data-series="s09" data-index="0" data-x="0.10888888888888888" data-y="0.74" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p39fc40b555)">
+          <use xlink:href="#C12_0_510bae7842" x="401.767887" y="81.374357" style="fill: #fc5d2e; stroke: #b14120; stroke-width: 0.5" id="panel.b.s09.point.1" data-role="point" data-series="s09" data-index="1" data-x="1.1088888888888888" data-y="1.357" data-kind="shape"/>
+        </g>
+      </g>
+      <g id="panel.b.s10.points" data-series="s10" data-kind="shape">
+        <defs>
+          <path id="C13_0_510bae7842" d="M 0 2.12132  C 0.562581 2.12132 1.102195 1.897805 1.5 1.5  C 1.897805 1.102195 2.12132 0.562581 2.12132 -0  C 2.12132 -0.562581 1.897805 -1.102195 1.5 -1.5  C 1.102195 -1.897805 0.562581 -2.12132 0 -2.12132  C -0.562581 -2.12132 -1.102195 -1.897805 -1.5 -1.5  C -1.897805 -1.102195 -2.12132 -0.562581 -2.12132 0  C -2.12132 0.562581 -1.897805 1.102195 -1.5 1.5  C -1.102195 1.897805 -0.562581 2.12132 0 2.12132  z "/>
+        </defs>
+        <g clip-path="url(#p39fc40b555)">
+          <use xlink:href="#C13_0_510bae7842" x="322.347709" y="176.946663" style="fill: #182a7a; stroke: #111d55; stroke-width: 0.5" id="panel.b.s10.point.0" data-role="point" data-series="s10" data-index="0" data-x="0.14" data-y="0.772" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p39fc40b555)">
+          <use xlink:href="#C13_0_510bae7842" x="404.318076" y="82.681329" style="fill: #800026; stroke: #5a001b; stroke-width: 0.5" id="panel.b.s10.point.1" data-role="point" data-series="s10" data-index="1" data-x="1.1400000000000001" data-y="1.349" data-kind="shape"/>
+        </g>
+      </g>
+      <g id="panel.b.baseline.whiskers" data-role="whisker" data-series="Baseline" data-kind="line">
+        <path d="M 276.444303 172.372262  L 276.444303 182.174549  M 276.444303 135.940425  L 276.444303 107.023677  " clip-path="url(#p39fc40b555)" style="fill: none; stroke: #225da8"/>
+      </g>
+      <g id="panel.b.treated.whiskers" data-role="whisker" data-series="Treated" data-kind="line">
+        <path d="M 427.269779 93.177945  L 427.269779 101.469047  M 427.269779 78.311142  L 427.269779 60.789553  " clip-path="url(#p39fc40b555)" style="fill: none; stroke: #b31416"/>
+      </g>
+      <g id="panel.b.axis.y.spine.left" data-role="spine" data-axis="y" data-kind="line" data-ink-stroke="axis">
+        <path d="M 249.394082 193.976504  L 249.394082 22.848164  " style="fill: none; stroke: #575653; stroke-width: 1.2; stroke-linejoin: miter; stroke-linecap: square"/>
+      </g>
+      <g id="panel.b.axis.x.spine.bottom" data-role="spine" data-axis="x" data-kind="line" data-ink-stroke="axis">
+        <path d="M 249.394082 193.976504  L 454.32 193.976504  " style="fill: none; stroke: #575653; stroke-width: 1.2; stroke-linejoin: miter; stroke-linecap: square"/>
+      </g>
+      <g id="panel.b.baseline.box" data-role="box" data-series="Baseline" data-kind="shape">
+        <path d="M 272.944303 172.372262  L 279.944303 172.372262  L 279.944303 153.283503  L 278.444303 151.983503  L 279.944303 150.683503  L 279.944303 135.940425  L 272.944303 135.940425  L 272.944303 150.683503  L 274.444303 151.983503  L 272.944303 153.283503  z " clip-path="url(#p39fc40b555)" style="fill: #225da8; opacity: 0.5"/>
+      </g>
+      <g id="panel.b.treated.box" data-role="box" data-series="Treated" data-kind="shape">
+        <path d="M 423.769779 93.177945  L 430.769779 93.177945  L 430.769779 82.380288  L 429.269779 81.080288  L 430.769779 79.780288  L 430.769779 78.311142  L 423.769779 78.311142  L 423.769779 79.780288  L 425.269779 81.080288  L 423.769779 82.380288  z " clip-path="url(#p39fc40b555)" style="fill: #e2191c; opacity: 0.5"/>
+      </g>
+      <g id="panel.b.figure.title" data-role="title" data-kind="text" data-ink-fill="ink">
+        <text style="font-size: 6px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #100f0f" x="351.857041" y="10.848164" transform="rotate(-0 351.857041 10.848164)">fluxbox</text>
+      </g>
+      <g id="panel.b.baseline.median" data-role="median" data-series="Baseline" data-kind="line">
+        <defs>
+          <path id="mc0351cdeec" d="M 3.5 0  L -3.5 -0  " style="stroke: #225da8; stroke-width: 1.4"/>
+        </defs>
+        <g clip-path="url(#p55be44aeef)">
+          <use xlink:href="#mc0351cdeec" x="276.444303" y="155.545001" style="fill: #225da8; stroke: #225da8; stroke-width: 1.4"/>
+        </g>
+      </g>
+      <g id="panel.b.treated.median" data-role="median" data-series="Treated" data-kind="line">
+        <defs>
+          <path id="mc52e15ec3f" d="M 3.5 0  L -3.5 -0  " style="stroke: #b31416; stroke-width: 1.4"/>
+        </defs>
+        <g clip-path="url(#p9181efc407)">
+          <use xlink:href="#mc52e15ec3f" x="427.269779" y="85.540329" style="fill: #b31416; stroke: #b31416; stroke-width: 1.4"/>
+        </g>
+      </g>
+      <g id="panel.b.baseline.mean" data-role="mean" data-series="Baseline" data-kind="line">
+        <defs>
+          <path id="m72129f9682" d="M -3.5 1.3  L -2 0  L -3.5 -1.3  z M 3.5 1.3  L 2 0  L 3.5 -1.3  z "/>
+        </defs>
+        <g clip-path="url(#p39fc40b555)">
+          <use xlink:href="#m72129f9682" x="276.444303" y="151.983503" style="fill-opacity: 0"/>
+        </g>
+      </g>
+      <g id="panel.b.treated.mean" data-role="mean" data-series="Treated" data-kind="line">
+        <g clip-path="url(#p39fc40b555)">
+          <use xlink:href="#m72129f9682" x="427.269779" y="81.080288" style="fill-opacity: 0"/>
+        </g>
+      </g>
+    </g>
+  </g>
+  <defs>
+    <clipPath id="p4975f98106">
+      <rect x="33.488164" y="22.848164" width="204.925918" height="171.12834"/>
+    </clipPath>
+    <clipPath id="p39fc40b555">
+      <rect x="249.394082" y="22.848164" width="204.925918" height="171.12834"/>
+    </clipPath>
+    <clipPath id="p55be44aeef">
+      <path d="M 272.944303 172.372262  L 279.944303 172.372262  L 279.944303 153.283503  L 278.444303 151.983503  L 279.944303 150.683503  L 279.944303 135.940425  L 272.944303 135.940425  L 272.944303 150.683503  L 274.444303 151.983503  L 272.944303 153.283503  z "/>
+    </clipPath>
+    <clipPath id="p9181efc407">
+      <path d="M 423.769779 93.177945  L 430.769779 93.177945  L 430.769779 82.380288  L 429.269779 81.080288  L 430.769779 79.780288  L 430.769779 78.311142  L 423.769779 78.311142  L 423.769779 79.780288  L 425.269779 81.080288  L 423.769779 82.380288  z "/>
+    </clipPath>
+  </defs>
+</svg>

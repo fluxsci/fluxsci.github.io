@@ -23,7 +23,7 @@ A Flux project is a plain folder whose marker is `project.json`. Here is the can
 ├── plots/                       # YOURS — analysis output lands here, any structure you like
 │   ├── growth.{svg,fluxplot.json,recipe.json}   #   a semantic plot + manifest + recipe
 │   ├── neuron.{glb,fluxplot.json,recipe.json}   #   a 3D mesh + semantic manifest + recipe
-│   ├── _dissections/growth/     #   growth's companion material (per-subject panels, stats CSVs)
+│   ├── _dissections/growth/     #   growth's companion material (per-subject panels, stats CSVs, .txt notes)
 │   ├── _lighttable/             #   Lighttable collections for exploratory image sets
 │   ├── _videos/                 #   video clips for slides
 │   ├── pasted/                  #   originals of images pasted from the clipboard
@@ -93,13 +93,22 @@ A Flux project is a plain folder whose marker is `project.json`. Here is the can
     holds every region you snip out of a PDF. The pixels you contribute live somewhere you
     own, not only inside the app's `fig/assets/` copy.
   - Three names starting with `_` are reserved: `plots/_dissections/` holds each plot's
-    [companion material](/docs/dissections.html) (press **D** in Figure to view it);
+    [companion material](/docs/dissections.html) — the sidebar's Plots view shows it live
+    beside the canvas and **D** opens it full screen — including the `.txt` notes you write
+    in its Dissections pane (ordinary text files, `plots/_dissections/<plot>/*.txt`);
     `plots/_lighttable/` holds [Lighttable](/docs/lighttable.html) collections, the sweeps
     and per-cell batches you triage before choosing a panel; and `plots/_videos/` holds
-    video clips for slides.
-  - Reserved folders stay out of an ordinary plot-importer search, however many thousands
-    of images they hold. Type **`_`** in the importer to list them and **Enter** to search
-    inside one.
+    video clips for slides (type `_vid` in the Slide workspace's Plots rail to reach them).
+  - Reserved folders stay out of an ordinary plot search, however many thousands of
+    images they hold. Type **`_`** in the Plots view's search or the Plot gallery to list
+    them and **Enter** to search inside one. Flux creates a dissection folder and writes
+    the notes you edit there; it leaves your images, tables and other files alone.
+- **Canvases and decks carry a format stamp.** `fig/canvases/<id>.json` and
+  `slides/<deckId>/deck.json` record a `schemaVersion` derived from what they contain. A
+  canvas or deck that holds a connector or label stuck to a shape, or a deck that uses a
+  radial stagger order, is written in a newer format (canvas `0.3.0`, deck `0.7.0`) that
+  older Flux versions refuse to open rather than play wrongly; remove the last such element
+  and the stamp drops back. Keep Flux current on every machine that shares a project.
 - **3D fluxplots** keep the source GLB and its `.fluxplot.json` beside each other in `plots/`.
   Import copies the accepted bundle into `fig/assets/`. Camera settings, shape weights and
   part restyles live in the figure composition. `fig/renders/model3d/` contains rebuildable

@@ -16,6 +16,11 @@ accepts either), and **Alt** means **⌥ Option**. Press **?** inside the app fo
 quick reference. One rule worth knowing: whatever is mid-flight, **Escape** backs out one
 level at a time — a gesture, a sub-mode, a pane, an overlay.
 
+The sections follow the workspaces. Figure is the longest: its main table is followed by
+separate lists for the [Plots rail](#figure-plots-rail), the [property menu](#figure-property-menu),
+the [X-ray](#figure-x-ray), [Align & Arrange](#figure-align-arrange) and the
+[mouse](#figure-mouse). Everything in the Figure section also works on a slide.
+
 ## Everywhere in a project {#everywhere-in-a-project}
 
 | Shortcut | Action |
@@ -89,13 +94,13 @@ also appears in the global and Paper palettes and Library's **Commands…** menu
 | **Alt+R** | Reference search pane |
 | **Alt+J** | Journal Check pane |
 | **Alt+E** | Export… (file format × journal style) |
-| **Alt+F** | Figures pane |
+| **Alt+F** | Figures pane (insert a figure, or a figure or panel reference) |
 | **Alt+A** | Comments pane |
 | **Alt+C** | Edit the citation at the cursor |
 | **Alt+P** / **Ctrl+Alt+P** | Close the active margin pane / close all panes |
 | **Ctrl+Alt+M** | Comment on the current selection |
-| **Alt+D** / **Alt+Shift+D** | Toggle the selected word in the personal / project dictionary |
-| **Alt+Shift+W** | Word tools for the selected term — dictionaries and aliases |
+| **Alt+D** / **Shift+Alt+D** | Toggle the selected word in the personal / project dictionary |
+| **Shift+Alt+W** | Word tools for the selected term — dictionaries and aliases |
 | **Ctrl+Enter** | Follow the item under the caret (figure ref → figure; citation → group editor) |
 | **Ctrl+F** / **Ctrl+Alt+F** | Find / find & replace |
 | **Ctrl+B** / **Ctrl+I** / **Ctrl+E** | Bold / italic / inline code |
@@ -119,22 +124,30 @@ see [Vim, and how the caret feels](/docs/writing-tools.html#vim-and-how-the-care
 
 ## Figure {#figure}
 
-Tools (single keys): **V** select · **K** scale · **H** hand · **T** text · **R** rectangle ·
-**O** ellipse · **L** line · **A** arrow · **P** pen.
+Tools: **V** select · **K** scale · **H** hand · **T** text · **Alt+R** rectangle ·
+**O** ellipse · **L** line · **Shift+L** arrow · **P** pen. (**R** on its own is the
+[X-ray](#figure-x-ray).)
 
 | Shortcut | Action |
 |---|---|
-| **F** | Property menu beside the selection (keys inside it are listed below the table) |
+| **F** | Property menu beside the selection ([keys inside it](#figure-property-menu)) |
+| **R** | X-ray the selected plot(s) or group — several selected plots x-ray together with the parts they share ([keys inside it](#figure-x-ray)) |
+| **Shift+Alt+R** | X-ray the drilled part's **family** (one tick label → all the tick labels), selected on the canvas too |
 | **X** | Hide/show the selection (or drilled plot part) |
-| **D** | Dissect — view the selected plot's companion material |
-| **Alt+G** / **Alt+Shift+G** | Open the Plot gallery / open it pinned |
-| **Alt+1** / **Alt+2** | In the Plot gallery: browse the project's plots / your global plot library |
+| **D** | Dissect — view the selected plot's companion material full screen ([keys inside it](#figure-sub-modes)) |
+| **A** | Open **Align & Arrange** with Align active — **W/A/S/D** edges, **H/V** X/Y centres, **X/Y** plot spines ([details](#figure-align-arrange)) |
+| **Alt+T** | Open **Align & Arrange** with Arrange active — **A** row/column, **G** grid, **D**/**F** rows, **Enter** apply, **Escape** cancel |
+| **Space** | Switch the active Align / Arrange pane while the tool surface has focus; both panes stay visible |
+| **1** / **2** / **3** while editing or hovering a gap | Choose start / centre / end as the fixed point on that axis; the choice persists across tool visits, and numeric inputs keep normal typing |
+| **Alt+G** | Toggle the sidebar between **Plots** and **Layers**; a hidden sidebar opens to Plots with search focused ([Plots rail keys](#figure-plots-rail)) |
+| **Shift+Alt+G** | Open the full Plot gallery in its own window (the toolbar's **Gallery** opens it in place) — also from the Plots view's search box |
+| **Alt+Shift+C** | Copy the selected plot's full source path (several plots: one path per line) |
+| **Ctrl+K → New figure** | Click to place a new figure at the closest free position; **Escape** cancels |
+| **Alt+drag** *(a figure's title)* | Duplicate the entire figure in its family |
 | **Ctrl+Shift+K** | Import image files |
 | **Ctrl+Shift+I** | Bring selection inside the frame (never resizes) |
-| **Alt+R** | X-ray the selected plot(s) or group; several selected plots x-ray together with the parts they share (keys inside it are listed below the table) |
-| **Alt+M** / **Alt+Shift+M** | Figure-Meta / open it pinned (Figure and Paper) |
+| **Alt+M** / **Shift+Alt+M** | Figure-Meta / open it pinned (Figure and Paper) |
 | **Alt+L** | Mark selected text as a panel label |
-| **Alt+T** | Arrange mode — then **A** row/column, **G** grid, **D**/**F** rows, **Enter** apply |
 | **Ctrl+Shift+C** | Cascade a stepped delta across the selection |
 | **Ctrl+P** | Insert a design preset |
 | **Ctrl+G** / **Ctrl+Shift+G** | Group / ungroup |
@@ -143,10 +156,10 @@ Tools (single keys): **V** select · **K** scale · **H** hand · **T** text · 
 | **Ctrl+Alt+C** / **Ctrl+Alt+V** | Copy style / paste style |
 | **Ctrl+Alt+A** | Select all elements with the same fill (**+Shift**: whole project) |
 | **Alt+A** / **Alt+W** / **Alt+S** / **Alt+D** | Align left / top / bottom / right |
-| **Alt+H** / **Alt+V** | Center horizontally / vertically |
+| **Alt+H** / **Alt+V** | Centre horizontally / vertically |
 | **Shift+H** / **Shift+V** | Flip horizontal / vertical |
 | **\[** / **\]** | Send to back / bring to front (**+Ctrl**: one step; **+Ctrl+Shift**: all the way) |
-| **Arrows** | Nudge 1 px (**Shift**: 10 px) — also nudges a drilled plot part |
+| **Arrows** | Nudge 1 px (**Shift**: 10 px) — also nudges a drilled plot part, or every picked part |
 | **Alt+↑** / **Alt+↓** | Move the figure up / down the sidebar's Figures list (the picked rows move as a block; nothing moves on the canvas, nothing is renumbered) |
 | **Ctrl+R** | Name the figure — family (Figure / Supplementary / Extended Data / custom), number (insert-and-shift), nickname |
 | **Ctrl+B** / **Ctrl+I** / **Ctrl+U** | Bold / italic / underline on text (and text-like plot parts) — inside the editor with part of the text selected, only that part; with nothing selected, only what you type next |
@@ -157,42 +170,94 @@ Tools (single keys): **V** select · **K** scale · **H** hand · **T** text · 
 | **Ctrl+Shift+B** | Hide/show the right rail |
 | **Delete** | Delete selection |
 
-**In the property menu (F).** Each row shows its own key on the left; press it to arm the
-row. Then the **mouse wheel** (anywhere on screen) or **↑/↓** adjusts a number, an expanded
-choice takes **w/a/s/d**, **1–9** or the wheel, and a colour row opens the palette (hover
-previews, click applies). **Space** or **Enter** applies, **Escape** reverts and **s** searches.
-In a plot's menu, **v** / **b** open the x / y axis view (follow the displayed key if crop
-controls occupy **v**); in an axis view the wheel adjusts the focused limit and **Space**
-accepts min → max → done.
+### In the Plots rail (Alt+G) {#figure-plots-rail}
 
-**In the X-ray (Alt+R).** **Shift+click** / **Ctrl+click** pick several rows, a press-and-drag
-sweeps a run (**Ctrl** at the press adds), **Ctrl+A** picks all, **Alt+A** every search result
-and **a** the siblings (counterpart parts first, then everything under the parent). **x** hides
-the pick, **Enter** or **F** opens its properties, **double-click** re-roots the tree, and **v**
-on an axis row focuses that axis in the Inspector (**Axis view…**).
+The sidebar's **Plots** view holds the plot gallery on top and the live Dissections pane
+below ([the Plots rail](/docs/plot-gallery.html)). Typing anywhere in the rail goes to its
+search box, so tool keys never change your tool by accident.
 
-**Mouse:**
+| Shortcut | Action |
+|---|---|
+| **Alt+G** | Show the Plots view with the search focused; again, back to Layers |
+| **Enter** / *double-click* *(a plot)* | Place the selected plots in the figure named at the top (**→ Fig 3**; click it to pick another figure). Dragging a plot onto a figure places it where you let go |
+| **Space** | Full-window preview of the selected plot |
+| **Shift+Space** | Peek at the selected plot (again: close) — resting the pointer on a plot for a moment peeks too |
+| **Enter** / *double-click* *(a stack)* | Open a variant stack in place (**⋯ → Stack variants**) |
+| **Backspace** *(empty search)* | Leave Similar names, climb out of a folder shown alone, then out of a companion collection |
+| **`_`** in the search | Offer the companion collections (`_dissections`, `_lighttable`); **Enter** goes in |
+| **Alt+1** / **Alt+2** | **Proj** / **Glob**: this project's plots / your global plot library (also in the Plot gallery) |
+| **Alt+/** | Swap the lower pane between Dissections and a searchable **Folders** tree (**↑/↓**, **←/→**, **Enter** choose a folder); again, or **Escape**, back to Dissections |
+| **Ctrl+Z** | Undo a placement without leaving the rail |
+| **Ctrl+S** *(in a note)* | Save a Dissections note now (notes also save as you type) |
+
+### In the property menu (F) {#figure-property-menu}
+
+Each row shows its own key on the left; press it to arm the row. Then the **mouse wheel**
+(anywhere on screen) or **↑/↓** adjusts a number, an expanded choice takes **w/a/s/d**,
+**1–9** or the wheel, and a colour row opens the palette (hover previews, click applies).
+**Space** or **Enter** applies, **Escape** reverts and **s** searches. In a plot's menu,
+**v** / **b** open the x / y axis view (follow the displayed key if crop controls occupy
+**v**); in an axis view the wheel adjusts the focused limit and **Space** accepts
+min → max → done.
+
+### In the X-ray (R) {#figure-x-ray}
+
+**Shift+click** / **Ctrl+click** pick several rows, a press-and-drag sweeps a run (**Ctrl** at
+the press adds), **Ctrl+A** picks all, **Alt+A** every search result and **a** the siblings
+(counterpart parts first, then everything under the parent). **Shift+A** takes the picked part
+to every plot of the figure that has it (**Backspace** comes back). **←** steps up to a row's
+family — one tick label to all the tick labels — and **→** back down into it. **x** hides
+the pick, **Enter** or **F** opens its properties, **Ctrl+Z** undoes without closing the
+X-ray, **double-click** (or **Ctrl+Enter**) re-roots the tree, and **v** on an axis row
+focuses that axis in the Inspector (**Axis view…**). Hovering a row outlines its parts on the
+canvas. **Ctrl+click** a part on the canvas and press **R** to open the X-ray on it;
+**Shift+Alt+R** opens on its family instead.
+
+### Align & Arrange (A, Alt+T) {#figure-align-arrange}
+
+**A** opens the panel with Align active; **Alt+T** opens it with Arrange active; **Space**
+switches the active pane while both stay visible. With Align active, **W/A/S/D** align
+top/left/bottom/right, **H** / **V** align X / Y centres, and **X** / **Y** align the plots'
+x / y spines (semantic plots only; the reference plot stays fixed). With Arrange active,
+**A** toggles row/column, **G** picks a balanced grid, **D** / **F** change the row count,
+**Enter** applies and **Escape** cancels (one **Escape** first cancels a drag or field edit).
+An evenly spaced selection shows pink gap guides even without the panel: drag one to change
+every gap on that axis (**Shift** faster, **Alt** finer; negative gaps overlap), and press
+**1** / **2** / **3** while editing or hovering a gap to keep the start / centre / end fixed.
+
+### Mouse {#figure-mouse}
 
 - **Drag a figure's sidebar row** to reorder figures (**Shift+click** picks a run,
   **Ctrl/⌘+click** adds or drops one).
 - **Click** selects the whole plot or group; **Ctrl+click** pierces to the part under the
   cursor (hold Ctrl to preview); **Shift+click** adds to the selection.
+- **Ctrl+Shift+click** adds or drops a part in the pick (once a plot has a picked part, a
+  plain **Shift+click** on a sibling part adds too). **Ctrl+drag** on a plot's empty space
+  draws a marquee inside the plot: parts fully inside are picked, data marks first
+  (**+Shift** adds). Dragging a picked part moves the whole pick.
 - **Double-click** descends: group → inside, text → edit, plot → part, path → node edit.
-- **Alt+drag** duplicates; **Shift+drag** constrains to an axis; **Ctrl+drag a resize handle**
-  crops; hold **Alt** while dragging to disable snapping and **Shift** while resizing to keep
-  the aspect ratio.
+- **Drag inside a selected object's box** moves it (a click there keeps it selected; a click
+  on one member of a multi-selection selects just it). **Drag an edge** resizes that axis
+  (anywhere along it; edges snap like moves); **drag a corner** resizes both; **drag just
+  outside a corner** rotates (**Shift** snaps to 15°).
+- **Alt+drag** duplicates; **Shift+drag** constrains to an axis; **Ctrl+drag a handle or edge**
+  crops an image or plot; hold **Alt** while resizing to resize from the centre, **Alt** while
+  dragging to disable snapping and **Shift** while resizing to keep the aspect ratio.
 - **Space+drag** or the middle button pans; **Ctrl+wheel** zooms; **Shift+wheel** pans
   horizontally.
 - **Drag a rail edge** to resize the sidebar or Inspector (double-click resets).
+
+### Paths, the Dissect viewer and 3D models {#figure-sub-modes}
 
 In path node-edit (Enter or double-click a path): **v** edit · **p** pen (extend/merge at
 endpoints) · **d** delete nodes · **Ctrl+drag a segment** bends it · **Enter** finishes ·
 **Escape** ladders out.
 
-In the Dissect viewer (**D** on a plot): **arrows** move through the grid · **Enter** expands
-a file (again: fit ↔ 1:1) · **\[** / **\]** column count · **1–9** switch group tabs ·
-**Ctrl+wheel** zoom at the cursor · **Space+drag** pan · **0** reset zoom · **←** / **→**
-previous/next file · **Escape** ladders out (detail → grid → closed).
+In the Dissect viewer (**D** on a plot): **arrows** move through the files · **Enter** expands
+a file (again: fit ↔ 1:1) · **\[** / **\]** or **Ctrl+wheel** make the tiles smaller or
+larger · **1–9** jump to a section · **Ctrl+wheel** zooms an expanded image at the cursor ·
+**Space+drag** pan · **0** reset zoom · **←** / **→** previous/next file · **Escape**
+ladders out (detail → grid → closed).
 
 While orbiting a [3D model](/docs/3d-models.html#3d-models) (double-click the mesh, or
 **Orbit** in the Inspector): **drag** orbit · **Shift+drag** pan · **Alt+drag** roll ·
@@ -201,13 +266,15 @@ While orbiting a [3D model](/docs/3d-models.html#3d-models) (double-click the me
 
 ## Slide {#slide}
 
-Everything in the Figure table works on the stage. Additionally:
+Everything in the Figure section works on the stage, including the Plots rail, X-ray and
+Align & Arrange. Additionally:
 
 | Shortcut | Action |
 |---|---|
 | **F5** / **Shift+F5** | Present from the start / from the current slide |
 | **↓** / **↑** (nothing selected) | Next / previous slide |
-| **Ctrl+B** (nothing text-like selected) | Hide/show the filmstrip |
+| **Ctrl+B** (nothing text-like selected) | Hide/show the left rail (filmstrip or Plots) |
+| **Alt+G** | Toggle the left rail between **Plots** and **Slides**; a hidden rail opens to Plots with search focused (type `_vid` for the `_videos` folder) |
 | **Ctrl+Shift+A** | Add appearance for the selection *(animator open)* |
 | **Ctrl+Shift+D** | Add disappearance *(animator open)* |
 | **Ctrl+Shift+C** | Transform ▸ Change: add one, or toggle Before ↔ After *(animator open)* |
@@ -218,14 +285,16 @@ Everything in the Figure table works on the stage. Additionally:
 | **M** *(in the X-ray)* | Animate the picked rows: **1** Appear, **2** Emphasize, **3** Disappear, **4** Change, **5** Appear from…, **6** Animate like… |
 | **Escape** | Leave a t₁/t₂ endpoint checkout, then the usual ladder |
 
-In the animator dock: **←/→** beats · **↑/↓** tracks · **Ctrl+D** duplicate tracks ·
+### In the animator dock {#slide-animator}
+
+**←/→** beats · **↑/↓** tracks · **Ctrl+D** duplicate tracks ·
 **Ctrl+G**/**Ctrl+Shift+G** group/ungroup tracks · **Alt+←/→** nudge start ·
 **Alt+Shift+←/→** trim duration · **Alt+A** / **Alt+D** align starts / ends (press again for
 the next lane above; **+Shift** resizes instead of moving) · **Ctrl+Alt-drag** a bar onto another
 lane to inherit that effect's animation (**+Shift** at release also copies its start) ·
 **\[** / **\]** move track to previous/next beat ·
 **X** disable · **Delete**/**Backspace** remove · **Enter** jump to the properties fields ·
-**Space** play/pause · **Ctrl+A** select this step’s effects · **Escape** stop preview or clear
+**Space** play/pause · **Ctrl+A** select this step's effects · **Escape** stop preview or clear
 the selection/endpoint edit. **P** focuses Effect/Action, **D** Duration, **T** Start/Offset,
 **G** Stagger, and **E** opens Easing.
 
@@ -233,11 +302,16 @@ In the Easing editor: **1–9** choose a tile in the focused group · **arrows**
 bezier handle by 0.01 (**Shift+arrows** by 0.1) · **Ctrl+V** pastes a curve · **Enter** commits ·
 **Escape** restores the opening curve and duration. See [Easing and springs](/docs/animation.html#easing-and-springs).
 
-While presenting: **→ / Space / PageDown** next beat (**+Shift**: next slide) ·
+### While presenting {#slide-presenting}
+
+**→ / Space / PageDown** next beat (**+Shift**: next slide) ·
 **← / Backspace / PageUp** previous (**+Shift**: previous slide) · **↑/↓** whole slides ·
 **Home/End** first/last · type a **number + Enter** to jump · **B**/**W** blank black/white ·
 **S** presenter notes · **F** fullscreen · **R** reset timer · **M** reduce motion ·
-**Escape** exit. Click left quarter = back, elsewhere = forward.
+**Escape** exit. Click left quarter = back, elsewhere = forward. **Back plays the step you
+just saw in reverse** and lands on the previous step; press it twice quickly to jump
+instead. **Settings → Figure → Slides** turns the rewind off in Present (exported decks
+always rewind).
 
 ### While picking for Become or Appear from… {#become-pick}
 
@@ -250,8 +324,8 @@ While presenting: **→ / Space / PageDown** next beat (**+Shift**: next slide) 
 | **A** | Widen the last pick to its siblings |
 | **Backspace** | Drop the last pick |
 | **B**, **Space** or **Enter** | Confirm the pick (**Enter** first leaves Add mode) |
-| **R**, **O**, **L**, **P**, **T**, **Ctrl+P** or **Alt+G** | Add mode: draw or insert objects; each one joins the pick (**Enter** returns to picking) |
-| **Alt+R** | X-ray the hovered plot; its rows join or leave the pick live |
+| **Alt+R**, **O**, **L**, **P**, **T**, **Ctrl+P**, or placing a plot from the Plots rail | Add mode: draw or insert objects; each one joins the pick (**Enter** returns to picking) |
+| **R** | X-ray the hovered plot; its rows join or leave the pick live (**Shift+Alt+R**: with the picks' families) |
 | **B** in the X-ray | Become: confirm the whole pick |
 | **Escape** | Leave Add mode or close the X-ray first; then cancel without creating a transform |
 

@@ -25,8 +25,21 @@ Selection follows Figma's logic, tuned for plots:
   bracket's test and p — read from the plot's manifest, never from the picture.
 - **Double-click** descends a level: into a group, into a plot's parts, into text editing,
   into a path's nodes.
-- Whatever part you've drilled stays plain-draggable, and **Escape** steps back out one level
-  at a time.
+- **Ctrl+Shift+click** adds the part under the cursor to the pick (click it again to drop it).
+  Once a plot has a picked part, a plain **Shift+click** on another of its parts adds that one
+  too — so Ctrl+click the first point, Shift+click the rest. Every picked part is outlined.
+- **Ctrl+drag** from a plot's empty space draws a **marquee inside the plot**: every part that
+  ends up fully inside the box is picked. Data marks win over furniture (a box around three
+  points and the tick labels under them picks the points), and when no data mark is inside the
+  furniture is picked. Hold **Shift** as well to add to what you already have; **Escape**
+  mid-drag drops the box.
+- Whatever you've picked stays plain-draggable — drag any picked part and the whole pick moves
+  together (**Shift** locks the axis), the arrow keys nudge them all — and **Escape** steps
+  back out one level at a time.
+
+Moving, resizing, rotating and cropping the plot *as a whole* is covered in
+[Everyday editing](/docs/figure-layout.html#everyday-editing); changing a plot's size so that
+its axes reflow is [Resizing a plot](/docs/figure-layout.html#resizing-a-plot).
 
 ## Restyling parts {#restyling-parts}
 
@@ -47,8 +60,8 @@ its [**Colour scale**](#colour-scales) instead. From the command line, the same 
 
 ## X-ray {#x-ray}
 
-**Alt+R** opens the **X-ray**: the anatomy of the selected plot (or group) as a tree, placed
-beside the selection.
+**R** opens the **X-ray**: the anatomy of the selected plot (or group) as a tree, placed
+beside the selection. (**Alt+R** is the rectangle tool.)
 
 - Walk the tree with the arrow keys, and hide or show any part with **x**.
 - **Enter** (or **F**) selects the picked parts and opens their properties.
@@ -57,38 +70,82 @@ beside the selection.
   the plot you regenerated.
 - **Double-click** a row (or press **Ctrl+Enter**) to re-root the X-ray on it. Keyboard
   navigation keeps the active row in view.
+- **Ctrl+Z** undoes without closing the X-ray.
+
+<figure class="doc-figure doc-figure-compact"><a href="/assets/media/docs/figure-xray.png" data-enlarge data-caption="X-ray separates the stiffness–density plot into axes, material families and individual marks."><img src="/assets/media/docs/figure-xray.png" alt="The native X-ray panel lists X axis, Y axis, metals, ceramics, polymers and other named plot parts." width="922" height="1482" loading="lazy"></a><figcaption>X-ray separates the stiffness–density plot into axes, material families and individual marks. Click to enlarge.</figcaption></figure>
+
+### Pick several rows {#x-ray-several-rows}
 
 Rows **multi-select**: **Shift+click** picks a run, **Ctrl+click** toggles one, **Ctrl+A**
 picks everything, **Alt+A** picks every search result, and a press-and-drag over rows picks
 the run you sweep (hold **Ctrl** when you press to add a second sweep to the pick). **a**
 widens the pick to its siblings: first the same part under each sibling of its parent
 (*X axis › Tick marks* adds *Y axis › Tick marks*), then, pressed again, every row under the
-same parent. **x**, **Enter** and the property menu then act on all of them, so you can hide
+same parent. **Shift+A** takes the picked part to every plot in the figure that has it: the
+X-ray re-roots on those plots with the part picked on all of them, and **Backspace** comes
+back. **x**, **Enter** and the property menu then act on all of them, so you can hide
 five series at once or restyle them together.
 
-Select **several plots** before pressing **Alt+R** and the X-ray shows each plot's tree plus a
+Select **several plots** before pressing **R** and the X-ray shows each plot's tree plus a
 **Common parts** list of what they all share, so hiding the x-axis of four plots is one row
-and one keypress.
+and one keypress. Each plot row and search header is named by what sets it apart (the part of
+the file names they all share is shown once, on the *N plots* row: *…bandpower-* →
+**low-gamma**), beside its title and a tiny map of the figure with that plot lit, so you can
+tell "the bottom-left one" at a glance; search results gather under those headers.
 
+### Read a row {#x-ray-rows}
 
-<figure class="doc-figure doc-figure-compact"><a href="/assets/media/docs/figure-xray.png" data-enlarge data-caption="X-ray separates the stiffness–density plot into axes, material families and individual marks."><img src="/assets/media/docs/figure-xray.png" alt="The native X-ray panel lists X axis, Y axis, metals, ceramics, polymers and other named plot parts." width="922" height="1482" loading="lazy"></a><figcaption>X-ray separates the stiffness–density plot into axes, material families and individual marks. Click to enlarge.</figcaption></figure>
+Every row says what it is without a hover. Search results and common parts carry their place —
+*X axis › Tick labels*, *Y axis › Tick marks*, *Panel b › Colorbar* — and, on the right, what
+they show: tick values (*0 · 800 · 1600 · 2400*), an axis's title, a series' kind, size and
+colour. A common part whose value differs between the plots reads *varies*. Search matches
+words anywhere in a row's place and value: *x tick* finds only the x axes' ticks, *y lab* the y
+tick labels, *SWS* the tick label that reads it. A small dot marks a restyled part (hollow:
+something inside it), **◐** a partly hidden one, and a series shows its colour. The strip above
+the buttons describes the row under the pointer (else the picked one) in full: its whole path,
+its values or data readout, its kind, effective style, what is restyled or hidden and its part
+id. Hovering a row outlines its parts on the canvas — on every plot, for a common part.
+
+### Families {#x-ray-families}
+
+A group's members are rows too: open *Tick labels* to see each tick label and its text (big
+groups show their first 60, then **+ N more**). **Ctrl+click** one tick label on the canvas and
+press **R**: the X-ray opens on it. **←** then steps up to its family — all the tick labels —
+and **→** back down; **Shift+Alt+R** opens on the family directly, and selects it on the
+canvas. Hiding a family with **x** hides all of it; showing one member inside a hidden family
+shows just that member.
+
+Hiding parts tightens the plot's selection outline to what is still visible, which Align &
+Arrange and snapping then use; see [Resizing a plot](/docs/figure-layout.html#resizing-a-plot).
 
 ## Dissecting a plot {#dissecting-a-plot}
 
 A summary plot usually hides a story — twenty subjects behind one regression line, a table
-of statistics behind one asterisk. **D** with a plot selected opens **Dissect**: a viewer for
-that plot's *companion material*, which lives in
-[`plots/_dissections/<plot name>/`](/docs/dissections.html). Drop per-subject panels,
-alternative analyses, or stats CSVs there (subfolders become tabs) and they're one keypress
-away from the composed figure — without ever appearing in the plot importer or your figures.
+of statistics behind one asterisk. Its *companion material* lives in
+[`plots/_dissections/<plot name>/`](/docs/dissections.html#the-folder-convention): drop
+per-subject panels, alternative analyses, stats CSVs or `.txt` notes there (subfolders become
+sections) and they are one keypress away from the composed figure, without ever appearing in
+the plot importer or your figures.
 
-Inside the viewer: **arrow keys** move around the grid, **Enter** expands a file
-(**Ctrl+scroll** zooms images at the cursor, **Space+drag** pans, **Enter** toggles fit/1:1),
-CSV and TSV files open as sortable tables, and **Escape** steps back out. The **⧉** button
-shrinks the viewer to a floating window you can keep beside the canvas; files dropped into
-the folder while it's open appear live. The Inspector's **Dissections** button (with a count)
-does the same as **D** — and for a plot with no dissections yet, it offers to create the
-folder.
+You meet dissections in two places:
+
+- **Beside the canvas, live.** The [Plots rail's](/docs/plot-gallery.html#the-plots-rail)
+  lower pane shows the dissections of whichever plot you last clicked and follows each new
+  click, with a pin to hold it and a **Notes** view for writing and searching `.txt` notes. See
+  [Dissections and notes beside the canvas](/docs/plot-gallery.html#dissections-pane).
+- **Full screen.** **D** with a plot selected opens **Dissect**, the same pane at full size:
+  tables first as Summary previews, then each folder of panels as its own section at the
+  panels' own shapes, then the remaining files as a list. The Inspector's **Dissections** button
+  (with a count) does the same — and for a plot with no dissections yet, it offers to create
+  the folder.
+
+Inside the full viewer: **arrow keys** move through the files, **[** / **]** (or
+**Ctrl+scroll**) make the tiles smaller or larger, **1–9** jump to a section and a section's
+**▾** folds it. **Enter** expands a file (**Ctrl+scroll** zooms images at the cursor,
+**Space+drag** pans, **Enter** toggles fit/1:1); CSV and TSV files open as sortable tables;
+**Escape** steps back out, detail → grid → closed. The **⧉** button shrinks the viewer to a
+floating window you can keep beside the canvas, and files dropped into the folder while it is
+open appear live. **Notes** here is the same control as in the rail.
 
 ## Axis view {#axis-view}
 

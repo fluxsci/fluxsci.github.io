@@ -1,6 +1,6 @@
 ---
 title: "Settings and setup"
-description: "Adjust Flux's general settings, Figure controls, Paper margins, correction tools and external dependencies."
+description: "Every control in the Settings dialog, section by section: General, Figure, Paper and Corrections, plus where other preferences live."
 ---
 
 <p class="eyebrow">Reference</p>
@@ -8,47 +8,122 @@ description: "Adjust Flux's general settings, Figure controls, Paper margins, co
 # Settings and setup
 
 ::: {.doc-lead}
-Open the gear in the title bar to adjust the workspace. Use Set up Flux for tools that need installation.
+Click **Settings** in the title bar to open the dialog. It has four sections — **General**, **Figure**, **Paper** and **Corrections** — and every change applies immediately; **Done** closes it. Settings are per device, not per project.
 :::
+
+Shortcuts are written with **Ctrl** and **Alt**; on macOS use **⌘** and **⌥**.
 
 ## General {#general}
 
-**Set up Flux…** checks the terminal launcher, Python plotting, Word export through Quarto, PDF through Quarto, and AI integrations. See [Installation](/install/) for requirements and commands.
+### Setup {#setup}
 
-**FluxConfig folder** shows where your shared library and context live. Use **Reveal** to open it or **Move…** to relocate it through Flux. Projects remain separate folders. See [Library and configuration](/docs/configuration.html).
+**Set up Flux…** opens the setup window, which checks the `flux` terminal command, Word export through Quarto, PDF through Quarto (TinyTeX), fluxplot and AI agents, with one button per missing piece. See [Installation](/install/) and [Export documents](/docs/export-documents.html#pdf-dependencies).
 
-**Agents** controls access to the current Flux window and the agent runners used by Ask. Window access applies to that project's Flux window. [Connect an agent](/docs/connect.html) describes setup; [Comments and Inbox](/docs/comments.html) describes Ask, watching and live pairing.
+### FluxConfig folder {#fluxconfig-folder}
 
-**Updates** controls checking for a newer desktop version on launch. **Palette** controls whether new projects include the Flexoki palette.
+Shows where everything user-level lives: the reference library (FluxLib) and the agent Context folders. **Reveal** opens the folder; **Move…** relocates it through Flux. Projects are separate folders and are not affected. See [Library and configuration](/docs/configuration.html).
 
-## Figure {#figure}
+### Agents {#agents}
 
 | Setting | Effect |
 |---|---|
-| Rulers | Show rulers; drag from a ruler to place a guide. Shortcut: **Shift+R**. |
-| Background grid | Show the grid. While visible, pen nodes use its vertices. Shortcut: **Shift+G**. |
-| Snap to grid / grid size | Set alignment to a regular interval. |
-| Snap to pixel | Round coordinates when an edit is committed. |
-| Figure-Meta font size | Change the caption editor's typing size, from 9 to 28 px. |
-| Plot gallery search scope | Choose whether search reaches project plots, global plots, or both. |
-| Folder click behavior | Choose whether a gallery folder click also expands its subtree. |
-| Palette and colormap collection | Choose which collection a colour picker opens first. |
+| **Allow agents to view the Flux window** | Lets a connected agent see this project's Flux window. |
+| **Agent** | Which installed CLI (Claude Code or Codex) Flux launches for Ask. It runs with your own login, so usage counts against your plan. |
+| **Model** / **Effort** | Overrides for that CLI; blank means the CLI's default. |
+| **Background runs** | How many background items run at a time (1–3). |
 
-Inside a colour picker, **Tab** changes between palettes and colormaps; **Shift+Tab** cycles collections. Press **F** with objects selected to open the property menu. See [Layout, drawing and typography](/docs/figure-layout.html) and [Edit plot parts and data views](/docs/plot-editing.html).
+[Connect an agent](/docs/connect.html) describes setup; [Comments and Inbox](/docs/comments.html) describes Ask, watching and live pairing.
+
+### Updates and Palette {#updates-and-palette}
+
+| Setting | Effect |
+|---|---|
+| **Check for a newer version on launch** | Desktop app only. Flux checks at most once a day. |
+| **Include the Flexoki palette in new projects** | New projects start with the Flexoki palette in their colour pickers. |
+
+### Cursor {#cursor}
+
+The pointer of the Figure and Slide editors; Paper, Reader and Library keep the system cursor. It is one mark that changes form: over a handle or edge it becomes the resize arrows, just outside a corner the rotate arc, and it keeps that form for the whole drag. The preview tiles at the top (rest, hover, press, resize, corner, rotate, move, duplicate) show each form; hover a tile to see the real cursor.
+
+| Setting | Effect |
+|---|---|
+| **Style** | **Classic arrow** (the default) or **Crosshair**. |
+| **Press on click** *(arrow)* | A small, tip-led press into the surface, then a quiet return; the tip stays on the point you click. **Press depth** (0.25–1.5×) and **Return time** (60–200 ms) tune it, and **Click to try the press** demonstrates it. |
+| **Fill**, **Outline**, **Dot colour** *(arrow)* | The arrow's colours. The resize and rotate arrows use the same fill and outline; the dot colour marks the rotate centre and the duplicate badge. |
+| **Size**, **Outline width**, **Corner rounding**, **Shadow**, **Tilt** *(arrow)* | The arrow's shape: 16–23 px tall, outline 0–2.5 px, rounding 0–3 px, shadow 0 (none) to 1 (strong), tilt −30° to 30°. |
+| **Colours** *(crosshair)* | A preset — **Adaptive** (ink on paper, light on dark), **Outlined** (dark mark under a light halo) or **Accent** (blue everywhere) — or **Custom** once you change a colour. |
+| **Adapt the colour to the surface** *(crosshair)* | One colour over paper and other light surfaces, another over the dark canvas, chrome and dark fills. Pick both colours below it. |
+| **Halo colour**, **Halo width**, **Halo opacity** *(crosshair)* | An outline drawn under the crosshair. Off by default (width 0) because the adaptive colour already keeps the mark legible; give it a width for the outlined look. |
+| **Centre at rest** *(crosshair)* | **Empty gap**, **Dot** or **Ring** at the crosshair's centre, with **Size** (20–32 px), **Centre gap** and **Crosshair stroke** widths. |
+| **Dot over anything you can select** *(crosshair)* | The accent dot appears when the pointer is over a selectable object. |
+| **Arms pull in while pressing** *(crosshair)* | The crosshair contracts on mouse-down. |
+| **Use the system's resize, rotate and move cursors instead** | Keeps Flux's mark at rest but hands the drag states to the operating system's cursors. |
+| **Reset cursor to defaults** | Restores the pink-and-indigo classic arrow. |
+
+<figure class="doc-figure"><a href="/assets/media/docs/settings-cursor.png" data-enlarge data-caption="Settings → General → Cursor: the tiles preview every form of the pointer; hover a tile to try the real cursor."><img src="/assets/media/docs/settings-cursor.png" alt="The Settings dialog’s General section scrolled to Cursor: eight preview tiles for rest, hover, press, resize, corner, rotate, move and duplicate, each on a dark and a light swatch, with the Style menu set to Classic arrow." width="1560" height="1200" loading="lazy"></a><figcaption>Settings → General → Cursor: the tiles preview every form of the pointer; hover a tile to try the real cursor.</figcaption></figure>
+
+## Figure {#figure}
+
+### Rulers & grid {#rulers-and-grid}
+
+| Setting | Effect |
+|---|---|
+| **Show rulers** | Rulers around the canvas; drag from a ruler to place a guide. Shortcut **Shift+R**. |
+| **Show background grid** | The grid; while it is visible the pen places nodes on its vertices. Shortcut **Shift+G**. |
+| **Snap to grid** / **Grid size** | Snap moves and resizes to a regular interval, in pixels. |
+| **Snap to pixel** | Round coordinates when an edit is committed, for crisp exports. |
+| **Connectors stick to shapes** | A line or arrow end released on a shape follows that shape afterwards (the Inspector shows what it **Sticks to**). A canvas with stuck elements is saved in a newer file format that older Flux versions cannot open. |
+
+See [Layout, drawing and typography](/docs/figure-layout.html).
+
+### Slides {#slides}
+
+**Back plays the step in reverse** — in Present, **Back** rewinds the step you just saw instead of cutting to the one before. Pressing Back twice quickly still jumps; slides with video or 3D always cut. Exported decks always rewind, whatever this setting says. See [Present and export](/docs/present-and-export.html#presenting).
+
+### Figure-Meta captions {#figure-meta-captions}
+
+**Font size** sets the typing size in Figure-Meta (**Alt+M**), 9–28 px. Each field grows to fit its text; scroll the fields column to move between captions. See [Panels and captions](/docs/figure.html#panels-and-captions).
+
+### Physical sizes {#physical-sizes}
+
+**Show sizes in** **Inches** or **Millimetres**: how the Inspector and the Plots rail's Peek report a plot's or figure's printed size. Inches match matplotlib's `figsize`.
+
+### Plot gallery {#plot-gallery}
+
+| Setting | Effect |
+|---|---|
+| **Search reaches** | What typing in the Plot gallery (**Shift+Alt+G**) searches: everything in the selected scope (Project or Global), only the current folder and its subfolders, only project plots, only global plots, or everything. **Project** is this project's `plots/` folder; **Global** is your plot library in `FluxConfig/plot_library`, shared by every project. |
+| **Clicking a gallery folder expands/collapses it** | Off: a click on a folder in the gallery's **Folders** sidebar only shows its contents, and the **›** arrow expands the subtree. On: the click does both. |
+
+See [Plot gallery](/docs/plot-gallery.html#global-plot-library).
+
+### Colour pickers and the property menu {#colour-pickers}
+
+**Palette collection** and **Colormap collection** choose which collection a colour picker opens on (including the **Project palette**). Inside a picker, **Tab** switches between palettes and colormaps and **Shift+Tab** cycles collections. The **Property menu** has no settings: press **F** with objects selected, use each row's left-hand key, and adjust the armed value with the mouse wheel. See [Colours and colormaps](/docs/figure-layout.html#colours-and-colormaps) and [The property menu](/docs/figure-layout.html#property-menu).
 
 ## Paper {#paper}
 
-Choose the dynamic margin's background, set the maximum number of open panes (1–6), and enable **Clean dynamic margin** to close panes when focus returns to the editor.
+| Setting | Effect |
+|---|---|
+| **Dynamic margin background** | The ambient scene the margin shows when no helper pane is open: **Harmonograph**, **Neurons**, **Ink wind**, **Loom** or **Vines**. |
+| **Max panes open at once** | How many helper panes can stack in the margin (1–6). |
+| **Clean dynamic margin** | Close all panes when focus returns to the editor. |
 
-Caret motion has its own feel setting. **Chase** settles toward the target; **Smooth** uses a short, constant-pace glide. Document text size is adjusted in Paper and is independent of export typography. See [Writing tools](/docs/writing-tools.html).
+Text size is a reading preference set in Paper itself, not here; see [Writing tools](/docs/writing-tools.html#text-size). Helper panes and their shortcuts are described in [The margin](/docs/paper.html#the-margin).
 
 ## Corrections {#corrections}
 
-Configure local spelling and punctuation corrections, dictionaries and aliases. Optional sentence judgment has a separate provider choice and setup. The local managed model and cloud provider are explicit choices; see [Writing tools](/docs/writing-tools.html#local-corrections) for behavior, downloads and data handling.
+| Setting | Effect |
+|---|---|
+| **Local corrections** — *Correct clear typing and spacing errors as I write* | The on-device checker. A blue pulse marks each correction; click it for details or **Undo** to restore the original, which teaches this project what to leave alone. The **Local** item in Paper's status bar is the same switch. |
+| **Reset correction learning** | Clears those automatic lessons. Explicit dictionaries and aliases are kept. |
+| **English dialect** | **US**, **British**, **Canadian** or **Australian English**. |
+
+Click or hover an underlined word for spelling suggestions, type your own correction, or add the word to your personal dictionary; accepted corrections are remembered across projects, and common neuroscience and biology terms are included in the personal dictionary from the start. Everything runs on this device. [Writing tools](/docs/writing-tools.html#local-corrections) describes the behaviour in full.
 
 ## Where to find other preferences {#other-preferences}
 
-Some controls belong beside the work: slide themes and animation styles live in [Slides](/docs/slides.html); library services and Zotero settings live in [Library](/docs/library.html); export styles are chosen when [exporting a document](/docs/export-documents.html).
+Some controls belong beside the work: slide themes and animation styles live in [Slides](/docs/slides.html); library services and Zotero settings live in [Library](/docs/library.html) and [Zotero](/docs/zotero.html); the export format, journal style and Zotero options are chosen when [exporting a document](/docs/export-documents.html). Vim mode is switched on from the command palette ([Writing tools](/docs/writing-tools.html#vim-and-how-the-caret-feels)).
 
 ::: {.next-reading}
 **Related guides**

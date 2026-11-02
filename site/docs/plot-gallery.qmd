@@ -13,18 +13,137 @@ Find plots, insert them at their intended size, and keep their sources current.
 
 ## Getting plots in {#getting-plots-in}
 
-### Browse the gallery {#browse}
+Plots reach a figure three ways: from the sidebar's **Plots rail**, which keeps the gallery
+beside the canvas; from the full **Plot gallery**, a contact sheet for browsing a large
+`plots/` tree; or by importing files and pasted images. Whichever way, every plot lands at its
+[true physical size](/docs/semantic-plots.html#true-physical-size).
 
-**Alt+G** opens the **Plot gallery**, showing SVG and PNG previews in the current folder,
-including GLB meshes marked **3D**. Choose **Gallery** or **List**, and adjust **Size**,
-**Space** and **Names** to make the contact sheet comfortable; Size reaches **800 px** for large
-previews. Flux remembers these display choices.
+### The Plots rail {#the-plots-rail}
+
+The sidebar's **Plots** view keeps your plots beside the canvas while you compose: the
+**gallery** on top, and below it the [dissections](#dissections-pane) of whichever plot you
+last clicked.
+
+- **Alt+G** shows it and puts the cursor in its search box; it also opens a hidden sidebar.
+  Press **Alt+G** again to go back to **Layers**. The two views keep their own widths (drag the
+  sidebar's edge), and the canvas stays where it is when you switch. [Slides](/docs/slides.html)
+  have the same rail beside the slide list.
+- **Folders are headings**, not places you go into: every folder of `plots/` is a section you
+  scroll through. Click a heading's arrow to fold it (deeper folders start folded);
+  **Alt+click** a heading shows that folder alone. Type to search names and folders; **`_`**
+  offers the companion collections (`_dissections`, `_lighttable`) — **Enter** goes in,
+  **Backspace** in an empty search comes back out. **Proj** / **Glob** (**Alt+1** / **Alt+2**)
+  switch between this project and your [global plot library](#global-plot-library).
+- Plots sit at their true shape, several to a row, and every one is drawn on a background
+  chosen so **all of it shows**: dark ink on paper, white ink (a plot made for a dark slide) on
+  dark, both on grey, and a plot's own paper colour when it declares one. The **⋯** menu can set
+  the background yourself (paper, dark, a checkerboard, or the figure's own), sort **Recent
+  first** (newest-changed plots on top) and hide names. **Tiles → Gallery** and
+  **Tiles → Dissections** size each pane separately (or **Ctrl+wheel** over it; **Reset sizes**
+  goes back to 112 and 84 px).
+- Typing anywhere in the rail goes to its search box, so tool keys never change your tool by
+  accident. Files that appear or change in `plots/` show up on their own.
+- While you work, Flux prepares the previews of the plots you have not scrolled to yet, a
+  little at a time, so the next scroll or project open is instant. It pauses while you drag on
+  the canvas, leaves very large files (over 2 MB) until you scroll to them, and stops for the
+  session if a file crashes the preview renderer.
+- Drag the line between the gallery and the dissections to share the height; drag it to an
+  edge to fold a pane away; double-click it to reset.
+
+<figure class="doc-figure"><a href="/assets/media/docs/figure-plots-rail.png" data-enlarge data-caption="The Plots view: folders are headings, ◆ marks an editable fluxplot, and the Dissections pane below follows the plot you last clicked. The dissections folder and its note here are illustrative."><img src="/assets/media/docs/figure-plots-rail.png" alt="The Figure workspace with the sidebar in its Plots view: a gallery of plot tiles under folder headings, and below it a Dissections pane listing a summary table and a folder of panels for the selected plot." width="2800" height="2000" loading="lazy"></a><figcaption>The Plots view: folders are headings, ◆ marks an editable fluxplot, and the Dissections pane below follows the plot you last clicked. The dissections folder and its note here are illustrative.</figcaption></figure>
+
+### Read a tile {#read-a-tile}
+
+Small marks on a tile tell you where a plot stands:
+
+- **●** — the plot is placed in the active figure (dimmer: placed elsewhere in the project,
+  with a count).
+- **⧉ 12** — it has 12 dissection files; click the mark to show them.
+- **◆** — an editable fluxplot (a [semantic plot](/docs/semantic-plots.html)).
+- A **dashed outline** marks the plot selected on the canvas, and the rail scrolls to it
+  (switch that off in **⋯**).
+- An accent **dot** marks a plot that is new or was regenerated since the rail last listed
+  it — handy after a re-run of your analysis. Clicking the plot clears it, and **⋯ → Clear the
+  new-file dots** clears them all.
+- **⋯ → Width class badge** adds the journal width each plot will print at: **1c** (one
+  column, up to about 90 mm), **1.5c**, **2c** (full page, about 180 mm).
+
+**Rest the pointer on a plot** for a moment to **peek** at it: a larger picture beside the
+rail with its full name and folder, its printed size (in inches, as for matplotlib's `figsize`;
+**Settings → Figure → Physical sizes** switches Peek and the Inspector to millimetres) and width
+class, when it changed, where it is placed, its dissection folders, and why its tile has the
+background it has. If the plot's ink would read poorly on the active figure's background, Peek
+says so. **Shift+Space** peeks at the selected tile from the keyboard (and closes it again).
+Peek never takes clicks and vanishes when the pointer leaves the rail; **⋯ → Peek on hover**
+turns the hover off.
+
+### Narrow the gallery {#narrow-the-gallery}
+
+- **⋯ → Show only** filters to **Unused** (in no figure yet — slides are not counted),
+  **Fluxplots** (editable ones) or **Has dissections**. Active filters show as chips under the
+  search box; click one to remove it.
+- Right-click a plot (or a folder heading) for **Show only this folder**; **Backspace** in an
+  empty search climbs back out one folder at a time.
+- **Similar names** lists a plot's variants across all folders (`_v2`, `_s07`, …), even from
+  inside a folder shown alone; **Escape** returns to where you were.
+- **⋯ → Stack variants** folds runs of variants in one folder — `fig1_a` … `fig1_f`,
+  `latency`, `latency_v2` … — into one tile showing the newest, with a **×6** badge. **Enter**,
+  a double-click or the badge opens the stack in place; the first variant's **◂** badge folds it
+  again. Dragging a stack places the variant it shows.
+- **Alt+/** switches the lower pane between Dissections and a **Folders** tree: the plot
+  folders and how many plots each holds, with a search box for finding a nested directory.
+  Choose a folder to show only its plots; **↑/↓**, **←/→** and **Enter** navigate and choose
+  from the tree. The folder stays chosen while you flip to Layers and back. Companion
+  directories stay out of this tree. **Alt+/** again returns to dissections.
+
+### Place a plot {#place-a-plot}
+
+**Double-click** a tile or press **Enter** to place the selected plots in the figure named at
+the top of the rail (**→ Fig 3** — click it to pick another figure). **Drag** a plot onto any
+figure to place it where you let go; over the canvas it shows at the size it will land.
+**Space** opens a full-window preview. **Ctrl+Z** undoes a placement without leaving the rail.
+When the rail is too small for the job, **Shift+Alt+G** (also from the rail's search box) opens
+the [full gallery](#browse) in its own window.
+
+<figure class="doc-figure doc-clip"><video poster="/assets/media/docs/clips/plots-rail-place.png" width="1400" height="1000" muted loop playsinline autoplay controls preload="metadata" aria-label="A plot tile is dragged from the Plots view onto an empty figure; a peek of the plot appears while the pointer rests on the tile, the plot shows at its landing size over the canvas and lands there when released."><source src="/assets/media/docs/clips/plots-rail-place.mp4" type="video/mp4"></video><figcaption>Rest on a tile to peek at it, then drag it onto a figure: it shows at the size it will land and arrives at its true printed size.</figcaption></figure>
+
+### Dissections and notes beside the canvas {#dissections-pane}
+
+The lower pane shows the [dissections](/docs/dissections.html) of the plot you last clicked, in
+the gallery or on the canvas. Tables come first as small previews (a one-row statistics table
+reads as a list), then each folder of panels; very large folders show a few and **Show all**.
+If you were looking at a file (say `by_subject/s07`) and click another plot with the same
+file, it stays selected in the same place, so you can compare subjects plot to plot. Clicking
+an empty spot keeps the last plot showing; the **pin** keeps it while you click elsewhere.
+**Double-click**, **Enter** or **Space** opens a file in the full
+[Dissect viewer](/docs/plot-editing.html#dissecting-a-plot); drag a panel onto a figure to
+place it. Plots from the global library show "Library plots have no dissections": dissections
+belong to a project's `plots/_dissections/`.
+
+**Notes** lets you create and edit ordinary `.txt` companions. Switch the pane from **Files**
+to **Notes** and press **+ Note**; a plot can have several named notes. They save as you type,
+and **Ctrl+S** saves now. The full Dissect viewer has the same **Notes** control. To search
+their contents across the project, switch on **Notes** beside the gallery search and type a
+word or tag such as `#check`; choose a match to select its plot and open the note here. If
+another writer changed a note, Flux keeps your draft and explains the conflict before replacing
+anything. See [Dissections](/docs/dissections.html#viewing-them) for the folder convention and
+the viewer.
+
+### Browse the full gallery {#browse}
+
+The toolbar's **Gallery** button opens the full **Plot gallery** in place; **Shift+Alt+G**
+opens it in its own window, from anywhere. It shows SVG and PNG previews in the current folder,
+including GLB meshes marked **3D**. **Gallery** lays plots out as the Plots rail does — rows of
+pages at each plot's own shape, under a folder header — and each subfolder previews the first
+plots inside it, with a count. **List** shows one name per row. Adjust **Size**, **Space** and
+**Names** to make the contact sheet comfortable; Size reaches **800 px** for large previews.
+Flux remembers these display choices.
 
 **Folders** shows or collapses a directory tree. Clicking a folder shows what is in it, and the
 **›** arrow beside it expands or collapses its branches, so you can browse files without losing
-your picks. The **Folder click behavior** setting in **Settings → Figure** can make the click do
-both. The root button (**plots** or **plot_library**) returns to the top, and **Up** or
-**Backspace** goes to the parent folder.
+your picks. **Clicking a gallery folder expands/collapses it**, in **Settings → Figure → Plot
+gallery**, makes the click do both. The root button (**plots** or **plot_library**) returns to
+the top, and **Up** or **Backspace** goes to the parent folder.
 
 **◆** marks semantic plots and **◇** marks plain images; **List** also shows semantic and
 paper-snip badges. In Slides, the gallery also previews MP4/MOV clips: select **Play video** to
@@ -33,10 +152,10 @@ play, pause, seek, or mute a clip in the full-window view (see
 
 ### Project and global plots {#global-plot-library}
 
-**Project** / **Global** at the top of the gallery (**Alt+1** / **Alt+2**) switches between this
-project's `plots/` folder and your **global plot library**, the `plot_library` folder inside your
-FluxConfig folder (by default `~/FluxConfig/plot_library`). Picks from both scopes can go in
-together.
+**Project** / **Global** at the top of the gallery (**Proj** / **Glob** in the Plots rail;
+**Alt+1** / **Alt+2** in both) switches between this project's `plots/` folder and your
+**global plot library**, the `plot_library` folder inside your FluxConfig folder (by default
+`~/FluxConfig/plot_library`). Picks from both scopes can go in together.
 
 Put plots you reuse everywhere in the global library, such as logos, schematics, reference
 panels and colour keys. Organise it with any folders you like, as you would a project's
@@ -48,11 +167,11 @@ The global library holds SVG, PNG and GLB plots; video clips live in a project's
 
 ### Search, select and insert {#search-and-insert}
 
-By default, search reaches ordinary folders throughout the tree you are browsing. The **Plot
-gallery search scope** setting in **Settings → Figure** can widen or narrow that: everything in
-the scope you are browsing (the default), only the current folder and its subfolders, only
-project plots, only global plots, or everything in both. When results come from outside the
-scope you are browsing, each one is labelled **Project** or **Global**.
+By default, search reaches ordinary folders throughout the tree you are browsing. **Search
+reaches**, in **Settings → Figure → Plot gallery**, can widen or narrow that: everything in the
+scope you are browsing (the default), only the current folder and its subfolders, only project
+plots, only global plots, or everything in both. When results come from outside the scope you
+are browsing, each one is labelled **Project** or **Global**.
 
 The reserved [`_dissections/`](/docs/dissections.html) and `_lighttable/` companion collections
 stay out of ordinary results. Type **`_`** to list them and **Enter** to go in, or open them in
@@ -70,11 +189,11 @@ return to normal browsing.
 
 ### Pin the gallery {#pin-the-gallery}
 
-**Pin open** moves the gallery into its own resizable window. Move it to another screen and keep
-arranging figures in the editor. The current folder and selection are preserved, and you can
-still browse the entire `plots/` tree and the global library. Insertions leave the window open
-and use the figure named in its footer; successful insertions clear the submitted picks, ready
-for the next batch.
+**Pin open** moves the gallery into its own resizable window (**Shift+Alt+G** opens it there
+directly). Move it to another screen and keep arranging figures in the editor. The current
+folder and selection are preserved, and you can still browse the entire `plots/` tree and the
+global library. Insertions leave the window open and use the figure named in its footer;
+successful insertions clear the submitted picks, ready for the next batch.
 
 **Dock** returns the same gallery to the editor, and **Alt+G** brings an already pinned gallery
 forward. **Refresh** reloads files and previews. Preview columns adjust as you resize the pinned
@@ -83,14 +202,20 @@ window, including while the editor is minimized. Closing the project also closes
 ### Import from files or the clipboard {#import}
 
 **Drag files in** from your file manager (an SVG with its `.fluxplot.json` sibling imports as a
-semantic plot), or **paste an image** straight from the clipboard. A pasted image has no file
-behind it, so Flux keeps the original for you in [`plots/pasted/`](/docs/project-layout.html).
+semantic plot), use the toolbar's **Import** button (**Ctrl+Shift+K**), or **paste an image**
+straight from the clipboard. A pasted image has no file behind it, so Flux keeps the original
+for you in [`plots/pasted/`](/docs/project-layout.html).
 
 Everything imports at **true physical size**: a 6.4 × 4.8 inch plot lands exactly that big,
 never silently rescaled. If an import is larger than its figure frame, a notification says so;
-**Ctrl+Shift+I** brings the selection inside the frame (moving it, never resizing it).
+**Ctrl+Shift+I** brings the selection inside the frame (moving it, never resizing it). To
+change a plot's size afterwards, see [Resizing a plot](/docs/figure-layout.html#resizing-a-plot).
 
 ## Keeping linked sources current {#keeping-linked-sources-current}
+
+Select a plot and press **Alt+Shift+C** to copy its full source path (with several plots
+selected, one path per line); **Ctrl+K → Copy selected plot path** does the same. A plot
+imported without a linked source copies the path of its saved SVG in the project.
 
 Imported plots retain an accepted SVG and its semantic metadata in the project. When analysis
 regenerates a linked source, Flux updates that accepted bundle automatically, including changes

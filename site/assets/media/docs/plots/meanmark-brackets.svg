@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="259.2pt" height="216pt" viewBox="0 0 259.2 216" version="1.1" data-fluxplot="1" data-plot-type="meanmark">
+  <defs>
+    <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+  </defs>
+  <g id="figure" data-role="figure" data-kind="container">
+    <g id="figure.background" data-role="background" data-kind="shape" data-ink-fill="paper">
+      <path d="M 0 216  L 259.2 216  L 259.2 0  L 0 0  z " style="fill: #fffcf0"/>
+    </g>
+    <g id="plot-area" data-role="plot-area" data-kind="container">
+      <g id="axes.background" data-role="background" data-kind="shape" data-ink-fill="plot">
+        <path d="M 36.368164 201.176504  L 252.72 201.176504  L 252.72 7.993536  L 36.368164 7.993536  z " style="fill: #fffcf0"/>
+      </g>
+      <g id="axis.x" data-role="axis" data-axis="x" data-kind="container">
+        <g id="xtick_1">
+          <g id="axis.x.gridline.0" data-role="gridline" data-axis="x" data-index="0" data-kind="line" data-ink-stroke="grid">
+            <path d="M 82.729272 201.176504  L 82.729272 7.993536  " clip-path="url(#p0ff29c50b4)" style="fill: none; stroke: #dad8ce; stroke-opacity: 0.9; stroke-width: 0.8; stroke-linecap: round"/>
+          </g>
+          <g id="axis.x.tick.0" data-role="tick" data-axis="x" data-index="0" data-kind="line"/>
+          <g id="axis.x.ticklabel.0" data-role="tick-label" data-axis="x" data-index="0" data-kind="text" data-ink-fill="ink">
+            <text style="font-size: 5px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #100f0f" x="82.729272" y="208.316641" transform="rotate(-0 82.729272 208.316641)">Control</text>
+          </g>
+        </g>
+        <g id="xtick_2">
+          <g id="axis.x.gridline.1" data-role="gridline" data-axis="x" data-index="1" data-kind="line" data-ink-stroke="grid">
+            <path d="M 144.544082 201.176504  L 144.544082 7.993536  " clip-path="url(#p0ff29c50b4)" style="fill: none; stroke: #dad8ce; stroke-opacity: 0.9; stroke-width: 0.8; stroke-linecap: round"/>
+          </g>
+          <g id="axis.x.tick.1" data-role="tick" data-axis="x" data-index="1" data-kind="line"/>
+          <g id="axis.x.ticklabel.1" data-role="tick-label" data-axis="x" data-index="1" data-kind="text" data-ink-fill="ink">
+            <text style="font-size: 5px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #100f0f" x="144.544082" y="208.316641" transform="rotate(-0 144.544082 208.316641)">Low dose</text>
+          </g>
+        </g>
+        <g id="xtick_3">
+          <g id="axis.x.gridline.2" data-role="gridline" data-axis="x" data-index="2" data-kind="line" data-ink-stroke="grid">
+            <path d="M 206.358892 201.176504  L 206.358892 7.993536  " clip-path="url(#p0ff29c50b4)" style="fill: none; stroke: #dad8ce; stroke-opacity: 0.9; stroke-width: 0.8; stroke-linecap: round"/>
+          </g>
+          <g id="axis.x.tick.2" data-role="tick" data-axis="x" data-index="2" data-kind="line"/>
+          <g id="axis.x.ticklabel.2" data-role="tick-label" data-axis="x" data-index="2" data-kind="text" data-ink-fill="ink">
+            <text style="font-size: 5px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #100f0f" x="206.358892" y="208.316641" transform="rotate(-0 206.358892 208.316641)">High dose</text>
+          </g>
+        </g>
+      </g>
+      <g id="axis.y" data-role="axis" data-axis="y" data-kind="container">
+        <g id="ytick_1">
+          <g id="axis.y.gridline.1" data-role="gridline" data-axis="y" data-index="1" data-kind="line" data-ink-stroke="grid">
+            <path d="M 36.368164 189.828978  L 252.72 189.828978  " clip-path="url(#p0ff29c50b4)" style="fill: none; stroke: #dad8ce; stroke-opacity: 0.9; stroke-width: 0.8; stroke-linecap: round"/>
+          </g>
+          <g id="axis.y.tick.1" data-role="tick" data-axis="y" data-index="1" data-kind="line" data-ink-fill="tick" data-ink-stroke="tick">
+            <path d="M 0 0  L -4.5 0  " transform="translate(36.368164 189.828978)" style="stroke: #575653; fill: #575653"/>
+          </g>
+          <g id="axis.y.ticklabel.1" data-role="tick-label" data-axis="y" data-index="1" data-kind="text" data-ink-fill="ink">
+            <text style="font-size: 5px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #100f0f" x="28.368164" y="191.649047" transform="rotate(-0 28.368164 191.649047)">0.75</text>
+          </g>
+        </g>
+        <g id="ytick_2">
+          <g id="axis.y.gridline.2" data-role="gridline" data-axis="y" data-index="2" data-kind="line" data-ink-stroke="grid">
+            <path d="M 36.368164 163.90335  L 252.72 163.90335  " clip-path="url(#p0ff29c50b4)" style="fill: none; stroke: #dad8ce; stroke-opacity: 0.9; stroke-width: 0.8; stroke-linecap: round"/>
+          </g>
+          <g id="axis.y.tick.2" data-role="tick" data-axis="y" data-index="2" data-kind="line" data-ink-fill="tick" data-ink-stroke="tick">
+            <path d="M 0 0  L -4.5 0  " transform="translate(36.368164 163.90335)" style="stroke: #575653; fill: #575653"/>
+          </g>
+          <g id="axis.y.ticklabel.2" data-role="tick-label" data-axis="y" data-index="2" data-kind="text" data-ink-fill="ink">
+            <text style="font-size: 5px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #100f0f" x="28.368164" y="165.723418" transform="rotate(-0 28.368164 165.723418)">1.00</text>
+          </g>
+        </g>
+        <g id="ytick_3">
+          <g id="axis.y.gridline.3" data-role="gridline" data-axis="y" data-index="3" data-kind="line" data-ink-stroke="grid">
+            <path d="M 36.368164 137.977721  L 252.72 137.977721  " clip-path="url(#p0ff29c50b4)" style="fill: none; stroke: #dad8ce; stroke-opacity: 0.9; stroke-width: 0.8; stroke-linecap: round"/>
+          </g>
+          <g id="axis.y.tick.3" data-role="tick" data-axis="y" data-index="3" data-kind="line" data-ink-fill="tick" data-ink-stroke="tick">
+            <path d="M 0 0  L -4.5 0  " transform="translate(36.368164 137.977721)" style="stroke: #575653; fill: #575653"/>
+          </g>
+          <g id="axis.y.ticklabel.3" data-role="tick-label" data-axis="y" data-index="3" data-kind="text" data-ink-fill="ink">
+            <text style="font-size: 5px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #100f0f" x="28.368164" y="139.797789" transform="rotate(-0 28.368164 139.797789)">1.25</text>
+          </g>
+        </g>
+        <g id="ytick_4">
+          <g id="axis.y.gridline.4" data-role="gridline" data-axis="y" data-index="4" data-kind="line" data-ink-stroke="grid">
+            <path d="M 36.368164 112.052092  L 252.72 112.052092  " clip-path="url(#p0ff29c50b4)" style="fill: none; stroke: #dad8ce; stroke-opacity: 0.9; stroke-width: 0.8; stroke-linecap: round"/>
+          </g>
+          <g id="axis.y.tick.4" data-role="tick" data-axis="y" data-index="4" data-kind="line" data-ink-fill="tick" data-ink-stroke="tick">
+            <path d="M 0 0  L -4.5 0  " transform="translate(36.368164 112.052092)" style="stroke: #575653; fill: #575653"/>
+          </g>
+          <g id="axis.y.ticklabel.4" data-role="tick-label" data-axis="y" data-index="4" data-kind="text" data-ink-fill="ink">
+            <text style="font-size: 5px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #100f0f" x="28.368164" y="113.872161" transform="rotate(-0 28.368164 113.872161)">1.50</text>
+          </g>
+        </g>
+        <g id="ytick_5">
+          <g id="axis.y.gridline.5" data-role="gridline" data-axis="y" data-index="5" data-kind="line" data-ink-stroke="grid">
+            <path d="M 36.368164 86.126464  L 252.72 86.126464  " clip-path="url(#p0ff29c50b4)" style="fill: none; stroke: #dad8ce; stroke-opacity: 0.9; stroke-width: 0.8; stroke-linecap: round"/>
+          </g>
+          <g id="axis.y.tick.5" data-role="tick" data-axis="y" data-index="5" data-kind="line" data-ink-fill="tick" data-ink-stroke="tick">
+            <path d="M 0 0  L -4.5 0  " transform="translate(36.368164 86.126464)" style="stroke: #575653; fill: #575653"/>
+          </g>
+          <g id="axis.y.ticklabel.5" data-role="tick-label" data-axis="y" data-index="5" data-kind="text" data-ink-fill="ink">
+            <text style="font-size: 5px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #100f0f" x="28.368164" y="87.946532" transform="rotate(-0 28.368164 87.946532)">1.75</text>
+          </g>
+        </g>
+        <g id="ytick_6">
+          <g id="axis.y.gridline.6" data-role="gridline" data-axis="y" data-index="6" data-kind="line" data-ink-stroke="grid">
+            <path d="M 36.368164 60.200835  L 252.72 60.200835  " clip-path="url(#p0ff29c50b4)" style="fill: none; stroke: #dad8ce; stroke-opacity: 0.9; stroke-width: 0.8; stroke-linecap: round"/>
+          </g>
+          <g id="axis.y.tick.6" data-role="tick" data-axis="y" data-index="6" data-kind="line" data-ink-fill="tick" data-ink-stroke="tick">
+            <path d="M 0 0  L -4.5 0  " transform="translate(36.368164 60.200835)" style="stroke: #575653; fill: #575653"/>
+          </g>
+          <g id="axis.y.ticklabel.6" data-role="tick-label" data-axis="y" data-index="6" data-kind="text" data-ink-fill="ink">
+            <text style="font-size: 5px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #100f0f" x="28.368164" y="62.020903" transform="rotate(-0 28.368164 62.020903)">2.00</text>
+          </g>
+        </g>
+        <g id="ytick_7">
+          <g id="axis.y.gridline.7" data-role="gridline" data-axis="y" data-index="7" data-kind="line" data-ink-stroke="grid">
+            <path d="M 36.368164 34.275206  L 252.72 34.275206  " clip-path="url(#p0ff29c50b4)" style="fill: none; stroke: #dad8ce; stroke-opacity: 0.9; stroke-width: 0.8; stroke-linecap: round"/>
+          </g>
+          <g id="axis.y.tick.7" data-role="tick" data-axis="y" data-index="7" data-kind="line" data-ink-fill="tick" data-ink-stroke="tick">
+            <path d="M 0 0  L -4.5 0  " transform="translate(36.368164 34.275206)" style="stroke: #575653; fill: #575653"/>
+          </g>
+          <g id="axis.y.ticklabel.7" data-role="tick-label" data-axis="y" data-index="7" data-kind="text" data-ink-fill="ink">
+            <text style="font-size: 5px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #100f0f" x="28.368164" y="36.095275" transform="rotate(-0 28.368164 36.095275)">2.25</text>
+          </g>
+        </g>
+        <g id="ytick_8">
+          <g id="axis.y.gridline.8" data-role="gridline" data-axis="y" data-index="8" data-kind="line" data-ink-stroke="grid">
+            <path d="M 36.368164 8.349578  L 252.72 8.349578  " clip-path="url(#p0ff29c50b4)" style="fill: none; stroke: #dad8ce; stroke-opacity: 0.9; stroke-width: 0.8; stroke-linecap: round"/>
+          </g>
+          <g id="axis.y.tick.8" data-role="tick" data-axis="y" data-index="8" data-kind="line" data-ink-fill="tick" data-ink-stroke="tick">
+            <path d="M 0 0  L -4.5 0  " transform="translate(36.368164 8.349578)" style="stroke: #575653; fill: #575653"/>
+          </g>
+          <g id="axis.y.ticklabel.8" data-role="tick-label" data-axis="y" data-index="8" data-kind="text" data-ink-fill="ink">
+            <text style="font-size: 5px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #100f0f" x="28.368164" y="10.169646" transform="rotate(-0 28.368164 10.169646)">2.50</text>
+          </g>
+        </g>
+        <g id="axis.y.title" data-role="axis-title" data-axis="y" data-kind="text" data-ink-fill="label">
+          <text style="font-size: 6px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #100f0f" x="11.374883" y="104.58502" transform="rotate(-90 11.374883 104.58502)">Response (a.u.)</text>
+        </g>
+      </g>
+      <g id="control.points" data-series="Control" data-kind="shape">
+        <defs>
+          <path id="C0_0_92fa694c85" d="M 0 1.802776  C 0.478102 1.802776 0.936686 1.612824 1.274755 1.274755  C 1.612824 0.936686 1.802776 0.478102 1.802776 -0  C 1.802776 -0.478102 1.612824 -0.936686 1.274755 -1.274755  C 0.936686 -1.612824 0.478102 -1.802776 0 -1.802776  C -0.478102 -1.802776 -0.936686 -1.612824 -1.274755 -1.274755  C -1.612824 -0.936686 -1.802776 -0.478102 -1.802776 0  C -1.802776 0.478102 -1.612824 0.936686 -1.274755 1.274755  C -0.936686 1.612824 -0.478102 1.802776 0 1.802776  z "/>
+        </defs>
+        <g clip-path="url(#p0ff29c50b4)">
+          <use xlink:href="#C0_0_92fa694c85" x="79.020383" y="189.291978" style="fill: #225da8; fill-opacity: 0.45; stroke: #184175; stroke-width: 0.2" id="control.point.0" data-role="point" data-series="Control" data-index="0" data-x="-0.06" data-y="0.755178277519137" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p0ff29c50b4)">
+          <use xlink:href="#C0_0_92fa694c85" x="79.694727" y="171.830424" style="fill: #225da8; fill-opacity: 0.45; stroke: #184175; stroke-width: 0.2" id="control.point.1" data-role="point" data-series="Control" data-index="1" data-x="-0.04909090909090909" data-y="0.9235594758345711" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p0ff29c50b4)">
+          <use xlink:href="#C0_0_92fa694c85" x="80.36907" y="180.139332" style="fill: #225da8; fill-opacity: 0.45; stroke: #184175; stroke-width: 0.2" id="control.point.2" data-role="point" data-series="Control" data-index="2" data-x="-0.03818181818181818" data-y="0.8434369475109377" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p0ff29c50b4)">
+          <use xlink:href="#C0_0_92fa694c85" x="81.043413" y="177.323903" style="fill: #225da8; fill-opacity: 0.45; stroke: #184175; stroke-width: 0.2" id="control.point.3" data-role="point" data-series="Control" data-index="3" data-x="-0.027272727272727275" data-y="0.8705860416919041" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p0ff29c50b4)">
+          <use xlink:href="#C0_0_92fa694c85" x="81.717757" y="146.300493" style="fill: #225da8; fill-opacity: 0.45; stroke: #184175; stroke-width: 0.2" id="control.point.4" data-role="point" data-series="Control" data-index="4" data-x="-0.01636363636363636" data-y="1.1697437797417727" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p0ff29c50b4)">
+          <use xlink:href="#C0_0_92fa694c85" x="82.3921" y="177.30229" style="fill: #225da8; fill-opacity: 0.45; stroke: #184175; stroke-width: 0.2" id="control.point.5" data-role="point" data-series="Control" data-index="5" data-x="-0.00545454545454545" data-y="0.8707944519468965" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p0ff29c50b4)">
+          <use xlink:href="#C0_0_92fa694c85" x="83.066443" y="164.442963" style="fill: #225da8; fill-opacity: 0.45; stroke: #184175; stroke-width: 0.2" id="control.point.6" data-role="point" data-series="Control" data-index="6" data-x="0.00545454545454545" data-y="0.9947965272087167" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p0ff29c50b4)">
+          <use xlink:href="#C0_0_92fa694c85" x="83.740787" y="149.229197" style="fill: #225da8; fill-opacity: 0.45; stroke: #184175; stroke-width: 0.2" id="control.point.7" data-role="point" data-series="Control" data-index="7" data-x="0.01636363636363636" data-y="1.141502378781308" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p0ff29c50b4)">
+          <use xlink:href="#C0_0_92fa694c85" x="84.41513" y="173.586683" style="fill: #225da8; fill-opacity: 0.45; stroke: #184175; stroke-width: 0.2" id="control.point.8" data-role="point" data-series="Control" data-index="8" data-x="0.027272727272727275" data-y="0.9066239307610717" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p0ff29c50b4)">
+          <use xlink:href="#C0_0_92fa694c85" x="85.089474" y="165.756753" style="fill: #225da8; fill-opacity: 0.45; stroke: #184175; stroke-width: 0.2" id="control.point.9" data-role="point" data-series="Control" data-index="9" data-x="0.038181818181818185" data-y="0.9821276880665345" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p0ff29c50b4)">
+          <use xlink:href="#C0_0_92fa694c85" x="85.763817" y="162.070484" style="fill: #225da8; fill-opacity: 0.45; stroke: #184175; stroke-width: 0.2" id="control.point.10" data-role="point" data-series="Control" data-index="10" data-x="0.0490909090909091" data-y="1.017674262919917" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p0ff29c50b4)">
+          <use xlink:href="#C0_0_92fa694c85" x="86.43816" y="162.845057" style="fill: #225da8; fill-opacity: 0.45; stroke: #184175; stroke-width: 0.2" id="control.point.11" data-role="point" data-series="Control" data-index="11" data-x="0.06" data-y="1.0102050838808099" data-kind="shape"/>
+        </g>
+      </g>
+      <g id="low-dose.points" data-series="Low dose" data-kind="shape">
+        <defs>
+          <path id="C1_0_92fa694c85" d="M 0 1.802776  C 0.478102 1.802776 0.936686 1.612824 1.274755 1.274755  C 1.612824 0.936686 1.802776 0.478102 1.802776 -0  C 1.802776 -0.478102 1.612824 -0.936686 1.274755 -1.274755  C 0.936686 -1.612824 0.478102 -1.802776 0 -1.802776  C -0.478102 -1.802776 -0.936686 -1.612824 -1.274755 -1.274755  C -1.612824 -0.936686 -1.802776 -0.478102 -1.802776 0  C -1.802776 0.478102 -1.612824 0.936686 -1.274755 1.274755  C -0.936686 1.612824 -0.478102 1.802776 0 1.802776  z "/>
+        </defs>
+        <g clip-path="url(#p0ff29c50b4)">
+          <use xlink:href="#C1_0_92fa694c85" x="140.835193" y="147.934089" style="fill: #e2191c; fill-opacity: 0.45; stroke: #9e1214; stroke-width: 0.2" id="low-dose.point.0" data-role="point" data-series="Low dose" data-index="0" data-x="0.94" data-y="1.153991067773169" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p0ff29c50b4)">
+          <use xlink:href="#C1_0_92fa694c85" x="141.509537" y="126.34412" style="fill: #e2191c; fill-opacity: 0.45; stroke: #9e1214; stroke-width: 0.2" id="low-dose.point.1" data-role="point" data-series="Low dose" data-index="1" data-x="0.9509090909090909" data-y="1.3621824368603215" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p0ff29c50b4)">
+          <use xlink:href="#C1_0_92fa694c85" x="142.18388" y="105.061325" style="fill: #e2191c; fill-opacity: 0.45; stroke: #9e1214; stroke-width: 0.2" id="low-dose.point.2" data-role="point" data-series="Low dose" data-index="2" data-x="0.9618181818181818" data-y="1.5674117474786462" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p0ff29c50b4)">
+          <use xlink:href="#C1_0_92fa694c85" x="142.858224" y="153.278317" style="fill: #e2191c; fill-opacity: 0.45; stroke: #9e1214; stroke-width: 0.2" id="low-dose.point.3" data-role="point" data-series="Low dose" data-index="3" data-x="0.9727272727272728" data-y="1.1024568514994428" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p0ff29c50b4)">
+          <use xlink:href="#C1_0_92fa694c85" x="143.532567" y="113.348246" style="fill: #e2191c; fill-opacity: 0.45; stroke: #9e1214; stroke-width: 0.2" id="low-dose.point.4" data-role="point" data-series="Low dose" data-index="4" data-x="0.9836363636363636" data-y="1.4875012300834558" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p0ff29c50b4)">
+          <use xlink:href="#C1_0_92fa694c85" x="144.20691" y="125.6271" style="fill: #e2191c; fill-opacity: 0.45; stroke: #9e1214; stroke-width: 0.2" id="low-dose.point.5" data-role="point" data-series="Low dose" data-index="5" data-x="0.9945454545454545" data-y="1.3690966441114532" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p0ff29c50b4)">
+          <use xlink:href="#C1_0_92fa694c85" x="144.881254" y="138.251004" style="fill: #e2191c; fill-opacity: 0.45; stroke: #9e1214; stroke-width: 0.2" id="low-dose.point.6" data-role="point" data-series="Low dose" data-index="6" data-x="1.0054545454545454" data-y="1.2473647369428447" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p0ff29c50b4)">
+          <use xlink:href="#C1_0_92fa694c85" x="145.555597" y="94.415753" style="fill: #e2191c; fill-opacity: 0.45; stroke: #9e1214; stroke-width: 0.2" id="low-dose.point.7" data-role="point" data-series="Low dose" data-index="7" data-x="1.0163636363636364" data-y="1.6700666474147878" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p0ff29c50b4)">
+          <use xlink:href="#C1_0_92fa694c85" x="146.22994" y="114.95975" style="fill: #e2191c; fill-opacity: 0.45; stroke: #9e1214; stroke-width: 0.2" id="low-dose.point.8" data-role="point" data-series="Low dose" data-index="8" data-x="1.0272727272727273" data-y="1.471961553933554" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p0ff29c50b4)">
+          <use xlink:href="#C1_0_92fa694c85" x="146.904284" y="147.506554" style="fill: #e2191c; fill-opacity: 0.45; stroke: #9e1214; stroke-width: 0.2" id="low-dose.point.9" data-role="point" data-series="Low dose" data-index="9" data-x="1.038181818181818" data-y="1.1581137756631643" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p0ff29c50b4)">
+          <use xlink:href="#C1_0_92fa694c85" x="147.578627" y="126.371066" style="fill: #e2191c; fill-opacity: 0.45; stroke: #9e1214; stroke-width: 0.2" id="low-dose.point.10" data-role="point" data-series="Low dose" data-index="10" data-x="1.049090909090909" data-y="1.3619225966034343" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p0ff29c50b4)">
+          <use xlink:href="#C1_0_92fa694c85" x="148.252971" y="118.038804" style="fill: #e2191c; fill-opacity: 0.45; stroke: #9e1214; stroke-width: 0.2" id="low-dose.point.11" data-role="point" data-series="Low dose" data-index="11" data-x="1.06" data-y="1.4422703333872298" data-kind="shape"/>
+        </g>
+      </g>
+      <g id="high-dose.points" data-series="High dose" data-kind="shape">
+        <defs>
+          <path id="C2_0_92fa694c85" d="M 0 1.802776  C 0.478102 1.802776 0.936686 1.612824 1.274755 1.274755  C 1.612824 0.936686 1.802776 0.478102 1.802776 -0  C 1.802776 -0.478102 1.612824 -0.936686 1.274755 -1.274755  C 0.936686 -1.612824 0.478102 -1.802776 0 -1.802776  C -0.478102 -1.802776 -0.936686 -1.612824 -1.274755 -1.274755  C -1.612824 -0.936686 -1.802776 -0.478102 -1.802776 0  C -1.802776 0.478102 -1.612824 0.936686 -1.274755 1.274755  C -0.936686 1.612824 -0.478102 1.802776 0 1.802776  z "/>
+        </defs>
+        <g clip-path="url(#p0ff29c50b4)">
+          <use xlink:href="#C2_0_92fa694c85" x="202.650004" y="74.486523" style="fill: #ad017e; fill-opacity: 0.45; stroke: #790158; stroke-width: 0.2" id="high-dose.point.0" data-role="point" data-series="High dose" data-index="0" data-x="1.94" data-y="1.86224357492985" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p0ff29c50b4)">
+          <use xlink:href="#C2_0_92fa694c85" x="203.324347" y="56.407184" style="fill: #ad017e; fill-opacity: 0.45; stroke: #790158; stroke-width: 0.2" id="high-dose.point.1" data-role="point" data-series="High dose" data-index="1" data-x="1.950909090909091" data-y="2.0365820534390413" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p0ff29c50b4)">
+          <use xlink:href="#C2_0_92fa694c85" x="203.99869" y="71.950689" style="fill: #ad017e; fill-opacity: 0.45; stroke: #790158; stroke-width: 0.2" id="high-dose.point.2" data-role="point" data-series="High dose" data-index="2" data-x="1.961818181818182" data-y="1.8866965359701169" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p0ff29c50b4)">
+          <use xlink:href="#C2_0_92fa694c85" x="204.673034" y="56.732036" style="fill: #ad017e; fill-opacity: 0.45; stroke: #790158; stroke-width: 0.2" id="high-dose.point.3" data-role="point" data-series="High dose" data-index="3" data-x="1.9727272727272727" data-y="2.0334495121668654" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p0ff29c50b4)">
+          <use xlink:href="#C2_0_92fa694c85" x="205.347377" y="40.735404" style="fill: #ad017e; fill-opacity: 0.45; stroke: #790158; stroke-width: 0.2" id="high-dose.point.4" data-role="point" data-series="High dose" data-index="4" data-x="1.9836363636363636" data-y="2.1877045183312305" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p0ff29c50b4)">
+          <use xlink:href="#C2_0_92fa694c85" x="206.021721" y="84.584661" style="fill: #ad017e; fill-opacity: 0.45; stroke: #790158; stroke-width: 0.2" id="high-dose.point.5" data-role="point" data-series="High dose" data-index="5" data-x="1.9945454545454546" data-y="1.7648675497988693" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p0ff29c50b4)">
+          <use xlink:href="#C2_0_92fa694c85" x="206.696064" y="66.35789" style="fill: #ad017e; fill-opacity: 0.45; stroke: #790158; stroke-width: 0.2" id="high-dose.point.6" data-role="point" data-series="High dose" data-index="6" data-x="2.0054545454545454" data-y="1.9406277220779218" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p0ff29c50b4)">
+          <use xlink:href="#C2_0_92fa694c85" x="207.370407" y="80.180319" style="fill: #ad017e; fill-opacity: 0.45; stroke: #790158; stroke-width: 0.2" id="high-dose.point.7" data-role="point" data-series="High dose" data-index="7" data-x="2.0163636363636366" data-y="1.8073384846923168" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p0ff29c50b4)">
+          <use xlink:href="#C2_0_92fa694c85" x="208.044751" y="67.931476" style="fill: #ad017e; fill-opacity: 0.45; stroke: #790158; stroke-width: 0.2" id="high-dose.point.8" data-role="point" data-series="High dose" data-index="8" data-x="2.0272727272727273" data-y="1.925453682245166" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p0ff29c50b4)">
+          <use xlink:href="#C2_0_92fa694c85" x="208.719094" y="95.194098" style="fill: #ad017e; fill-opacity: 0.45; stroke: #790158; stroke-width: 0.2" id="high-dose.point.9" data-role="point" data-series="High dose" data-index="9" data-x="2.038181818181818" data-y="1.662561094429972" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p0ff29c50b4)">
+          <use xlink:href="#C2_0_92fa694c85" x="209.393438" y="82.586093" style="fill: #ad017e; fill-opacity: 0.45; stroke: #790158; stroke-width: 0.2" id="high-dose.point.10" data-role="point" data-series="High dose" data-index="10" data-x="2.0490909090909093" data-y="1.7841396806994654" data-kind="shape"/>
+        </g>
+        <g clip-path="url(#p0ff29c50b4)">
+          <use xlink:href="#C2_0_92fa694c85" x="210.067781" y="74.64029" style="fill: #ad017e; fill-opacity: 0.45; stroke: #790158; stroke-width: 0.2" id="high-dose.point.11" data-role="point" data-series="High dose" data-index="11" data-x="2.06" data-y="1.8607608054391005" data-kind="shape"/>
+        </g>
+      </g>
+      <g id="significance-bracket.control-low-dose" data-role="significance-bracket" data-name="Control-Low dose" data-kind="line" data-ink-stroke="ink">
+        <path d="M 82.729272 84.076216  L 82.729272 80.629703  L 144.544082 80.629703  L 144.544082 84.076216  " clip-path="url(#p0ff29c50b4)" style="fill: none; stroke: #100f0f; stroke-linecap: round"/>
+      </g>
+      <g id="significance-bracket.low-dose-high-dose" data-role="significance-bracket" data-name="Low dose-High dose" data-kind="line" data-ink-stroke="ink">
+        <path d="M 144.544082 30.395867  L 144.544082 26.949354  L 206.358892 26.949354  L 206.358892 30.395867  " clip-path="url(#p0ff29c50b4)" style="fill: none; stroke: #100f0f; stroke-linecap: round"/>
+      </g>
+      <g id="significance-bracket.control-high-dose" data-role="significance-bracket" data-name="Control-High dose" data-kind="line" data-ink-stroke="ink">
+        <path d="M 82.729272 16.609817  L 82.729272 13.163304  L 206.358892 13.163304  L 206.358892 16.609817  " clip-path="url(#p0ff29c50b4)" style="fill: none; stroke: #100f0f; stroke-linecap: round"/>
+      </g>
+      <g id="control.error-low" data-role="errorbar" data-series="Control" data-kind="line">
+        <path d="M 98.182974 170.593296  L 98.182974 176.291255  " clip-path="url(#p0ff29c50b4)" style="fill: none; stroke: #225da8; stroke-width: 1.7; stroke-linejoin: miter"/>
+      </g>
+      <g id="control.cap-low" data-role="cap" data-series="Control" data-kind="line">
+        <path d="M 96.432974 176.291255  L 99.932974 176.291255  " clip-path="url(#p0ff29c50b4)" style="fill: none; stroke: #225da8; stroke-width: 1.2; stroke-linejoin: miter"/>
+      </g>
+      <g id="control.error-high" data-role="errorbar" data-series="Control" data-kind="line">
+        <path d="M 98.182974 166.093296  L 98.182974 160.395338  " clip-path="url(#p0ff29c50b4)" style="fill: none; stroke: #225da8; stroke-width: 1.7; stroke-linejoin: miter"/>
+      </g>
+      <g id="control.cap-high" data-role="cap" data-series="Control" data-kind="line">
+        <path d="M 96.432974 160.395338  L 99.932974 160.395338  " clip-path="url(#p0ff29c50b4)" style="fill: none; stroke: #225da8; stroke-width: 1.2; stroke-linejoin: miter"/>
+      </g>
+      <g id="low-dose.error-low" data-role="errorbar" data-series="Low dose" data-kind="line">
+        <path d="M 159.997785 128.178011  L 159.997785 137.453353  " clip-path="url(#p0ff29c50b4)" style="fill: none; stroke: #e2191c; stroke-width: 1.7; stroke-linejoin: miter"/>
+      </g>
+      <g id="low-dose.cap-low" data-role="cap" data-series="Low dose" data-kind="line">
+        <path d="M 158.247785 137.453353  L 161.747785 137.453353  " clip-path="url(#p0ff29c50b4)" style="fill: none; stroke: #e2191c; stroke-width: 1.2; stroke-linejoin: miter"/>
+      </g>
+      <g id="low-dose.error-high" data-role="errorbar" data-series="Low dose" data-kind="line">
+        <path d="M 159.997785 123.678011  L 159.997785 114.402668  " clip-path="url(#p0ff29c50b4)" style="fill: none; stroke: #e2191c; stroke-width: 1.7; stroke-linejoin: miter"/>
+      </g>
+      <g id="low-dose.cap-high" data-role="cap" data-series="Low dose" data-kind="line">
+        <path d="M 158.247785 114.402668  L 161.747785 114.402668  " clip-path="url(#p0ff29c50b4)" style="fill: none; stroke: #e2191c; stroke-width: 1.2; stroke-linejoin: miter"/>
+      </g>
+      <g id="high-dose.error-low" data-role="errorbar" data-series="High dose" data-kind="line">
+        <path d="M 221.812595 73.232222  L 221.812595 80.324448  " clip-path="url(#p0ff29c50b4)" style="fill: none; stroke: #ad017e; stroke-width: 1.7; stroke-linejoin: miter"/>
+      </g>
+      <g id="high-dose.cap-low" data-role="cap" data-series="High dose" data-kind="line">
+        <path d="M 220.062595 80.324448  L 223.562595 80.324448  " clip-path="url(#p0ff29c50b4)" style="fill: none; stroke: #ad017e; stroke-width: 1.2; stroke-linejoin: miter"/>
+      </g>
+      <g id="high-dose.error-high" data-role="errorbar" data-series="High dose" data-kind="line">
+        <path d="M 221.812595 68.732222  L 221.812595 61.639996  " clip-path="url(#p0ff29c50b4)" style="fill: none; stroke: #ad017e; stroke-width: 1.7; stroke-linejoin: miter"/>
+      </g>
+      <g id="high-dose.cap-high" data-role="cap" data-series="High dose" data-kind="line">
+        <path d="M 220.062595 61.639996  L 223.562595 61.639996  " clip-path="url(#p0ff29c50b4)" style="fill: none; stroke: #ad017e; stroke-width: 1.2; stroke-linejoin: miter"/>
+      </g>
+      <g id="axis.y.spine.left" data-role="spine" data-axis="y" data-kind="line" data-ink-stroke="axis">
+        <path d="M 36.368164 201.176504  L 36.368164 7.993536  " style="fill: none; stroke: #575653; stroke-width: 1.2; stroke-linejoin: miter; stroke-linecap: square"/>
+      </g>
+      <g id="axis.x.spine.bottom" data-role="spine" data-axis="x" data-kind="line" data-ink-stroke="axis">
+        <path d="M 36.368164 201.176504  L 252.72 201.176504  " style="fill: none; stroke: #575653; stroke-width: 1.2; stroke-linejoin: miter; stroke-linecap: square"/>
+      </g>
+      <g id="control.mean" data-role="mean" data-series="Control" data-kind="shape">
+        <path d="M 98.182974 170.593296  C 98.779681 170.593296 99.352029 170.356222 99.773965 169.934287  C 100.1959 169.512351 100.432974 168.940003 100.432974 168.343296  C 100.432974 167.746589 100.1959 167.174242 99.773965 166.752306  C 99.352029 166.330371 98.779681 166.093296 98.182974 166.093296  C 97.586267 166.093296 97.01392 166.330371 96.591984 166.752306  C 96.170049 167.174242 95.932974 167.746589 95.932974 168.343296  C 95.932974 168.940003 96.170049 169.512351 96.591984 169.934287  C 97.01392 170.356222 97.586267 170.593296 98.182974 170.593296  z " clip-path="url(#p0ff29c50b4)" style="fill: #c8d4de; stroke: #225da8; stroke-width: 1.5"/>
+      </g>
+      <g id="low-dose.mean" data-role="mean" data-series="Low dose" data-kind="shape">
+        <path d="M 159.997785 128.178011  C 160.594492 128.178011 161.166839 127.940936 161.588775 127.519001  C 162.01071 127.097065 162.247785 126.524718 162.247785 125.928011  C 162.247785 125.331304 162.01071 124.758956 161.588775 124.33702  C 161.166839 123.915085 160.594492 123.678011 159.997785 123.678011  C 159.401078 123.678011 158.82873 123.915085 158.406794 124.33702  C 157.984859 124.758956 157.747785 125.331304 157.747785 125.928011  C 157.747785 126.524718 157.984859 127.097065 158.406794 127.519001  C 158.82873 127.940936 159.401078 128.178011 159.997785 128.178011  z " clip-path="url(#p0ff29c50b4)" style="fill: #f8c3bb; stroke: #e2191c; stroke-width: 1.5"/>
+      </g>
+      <g id="high-dose.mean" data-role="mean" data-series="High dose" data-kind="shape">
+        <path d="M 221.812595 73.232222  C 222.409302 73.232222 222.98165 72.995148 223.403585 72.573212  C 223.825521 72.151277 224.062595 71.578929 224.062595 70.982222  C 224.062595 70.385515 223.825521 69.813167 223.403585 69.391232  C 222.98165 68.969296 222.409302 68.732222 221.812595 68.732222  C 221.215888 68.732222 220.64354 68.969296 220.221605 69.391232  C 219.799669 69.813167 219.562595 70.385515 219.562595 70.982222  C 219.562595 71.578929 219.799669 72.151277 220.221605 72.573212  C 220.64354 72.995148 221.215888 73.232222 221.812595 73.232222  z " clip-path="url(#p0ff29c50b4)" style="fill: #eabdd3; stroke: #ad017e; stroke-width: 1.5"/>
+      </g>
+      <g id="significance-bracket.control-low-dose.label" data-role="label" data-name="Control-Low dose" data-kind="text" data-ink-fill="ink">
+        <text style="font-size: 6px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #100f0f" x="113.636677" y="79.367008" transform="rotate(-0 113.636677 79.367008)">***</text>
+      </g>
+      <g id="significance-bracket.low-dose-high-dose.label" data-role="label" data-name="Low dose-High dose" data-kind="text" data-ink-fill="ink">
+        <text style="font-size: 6px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #100f0f" x="175.451487" y="25.686659" transform="rotate(-0 175.451487 25.686659)">***</text>
+      </g>
+      <g id="significance-bracket.control-high-dose.label" data-role="label" data-name="Control-High dose" data-kind="text" data-ink-fill="ink">
+        <text style="font-size: 6px; font-family: 'Arial', 'Helvetica', 'Lato', 'Helvetica Neue', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #100f0f" x="144.544082" y="11.900609" transform="rotate(-0 144.544082 11.900609)">***</text>
+      </g>
+    </g>
+  </g>
+  <defs>
+    <clipPath id="p0ff29c50b4">
+      <rect x="36.368164" y="7.993536" width="216.351836" height="193.182968"/>
+    </clipPath>
+  </defs>
+</svg>

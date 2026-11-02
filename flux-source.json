@@ -1,7 +1,7 @@
 {
   "repository": "https://github.com/fluxsci/flux.git",
-  "revision": "9f5c7ccbe3916107fbcf8b9d53d5cf4cf99bf58e",
-  "version": "0.2.0",
+  "revision": "fb766407e6c197470cb28d5a6d789d02a7137c02",
+  "version": "0.3.0-dev",
   "slidePlayer": {
     "revision": "2f110436eafc445fe6a6ec9686203046367ba37c",
     "note": "Slides from the launch film need slide-engine changes made after v0.2.0 (Become pairs morph outline to outline; transforms repaint their complete end state; dissolve is the default transform method). The website's slide player is built from this public revision plus the listed patches.",

@@ -1,6 +1,6 @@
 ---
 title: "Writing tools"
-description: "Adjust the reading surface, manage technical vocabulary, and choose how corrections work."
+description: "Adjust the reading surface, fix spelling with on-device suggestions, and manage technical vocabulary."
 ---
 
 <p class="eyebrow">Writing</p>
@@ -8,8 +8,10 @@ description: "Adjust the reading surface, manage technical vocabulary, and choos
 # Writing tools
 
 ::: {.doc-lead}
-Adjust the reading surface, manage technical vocabulary, and choose how corrections work.
+Adjust the reading surface, fix spelling with on-device suggestions, and manage technical vocabulary.
 :::
+
+Shortcuts are written with **Ctrl** and **Alt**; on macOS use **⌘** for Ctrl and **⌥** for Alt. [Keyboard shortcuts](/docs/shortcuts.html#paper) lists every Paper shortcut.
 
 ## Text size {#text-size}
 
@@ -30,83 +32,104 @@ of panels come back the next time you open Flux. At least one panel always stays
 
 ## Local corrections {#local-corrections}
 
-Paper fixes clear typing slips when you finish a word, using a local Harper worker. This first layer sends no manuscript text to a service. It leaves code, math, citations, links, tables and technical identifiers alone.
+Paper fixes unmistakable typing slips as soon as you finish a word: transposed letters such as
+*compelx* and an accidental space such as *o bject*. The replacement fades into place with a small
+blue pulse beneath it, and the caret never moves. Anything less certain — a missing or extra
+letter, a word with several plausible neighbours — is not guessed at: it is underlined for you to
+decide (see [Spelling suggestions](#sentence-judgment)).
 
-Turn local checking on or off with **Local** in the status bar or in **Settings → Corrections**.
+Checking runs in a local Harper worker and never sends manuscript text anywhere. Acronyms,
+mixed-case scientific names, numbers, code, math, citations, links and table source are left
+alone. Project titles, authors, references, figure captions and recurring technical terms feed the
+local vocabulary.
 
-A correction briefly pulses blue. Click the word to inspect it, undo it or add it to the dictionary. **Ctrl+Z** also undoes a correction batch. Undoing teaches the project to leave that correction alone.
+| To | Do this |
+|---|---|
+| See what changed | Click the pulsed word. The popover shows *original → replacement*. |
+| Take a correction back | **Undo** in the popover, or **Ctrl+Z**. Each correction is its own undo step, so word-by-word changes stay independently undoable. Undoing also teaches this project not to repeat that correction. |
+| Keep the word for good | **Add to dictionary** in the popover stores it as project vocabulary. |
+| Switch checking on or off | Click **Local** in the status bar (blue when the checker is ready), use **Settings → Corrections → Local corrections**, or the command palette. |
+
+This layer does not rephrase, make stylistic edits or guess at the spelling of scientific
+compounds; those are choices, not safe automatic corrections.
+
+## Spelling suggestions {#sentence-judgment}
+
+A word the checker cannot resolve is underlined in red.
+
+1. **Hover** the word to see up to five ranked suggestions. The keyboard stays in the manuscript.
+2. **Click** the word to put the keyboard in the list: **↑** and **↓** move, **Enter** picks,
+   **Escape** closes. Start typing to write your own spelling in the box below the list, then
+   press **Replace** (or **Enter**).
+3. If the word is correct, press **+** in the popover to add it to your **Personal** dictionary.
+   The underline disappears at once, including other occurrences in open documents.
+
+<figure class="doc-figure doc-figure-compact"><a href="/assets/media/docs/paper-spelling.png" data-enlarge data-caption="Hover a red underline for ranked suggestions; + adds the word to your Personal dictionary."><img src="/assets/media/docs/paper-spelling.png" alt="A sentence in the Paper editor with a misspelled word underlined in red and a popover above it listing ranked spelling suggestions, with buttons to add the word to the dictionary or dismiss it." width="1240" height="660" loading="lazy"></a><figcaption>Hover a red underline for ranked suggestions; <strong>+</strong> adds the word to your Personal dictionary.</figcaption></figure>
+
+Flux remembers the correction — picked from the list, typed in the box, or retyped by hand as one
+of the suggestions — and applies it automatically the next time you type that misspelling
+followed by a space or punctuation. The automatic correction gets the same blue pulse: **Ctrl+Z**
+restores what you typed, and clicking it offers **Forget** to stop making that correction.
+Learned corrections are remembered across projects.
+
+Your Personal dictionary starts with common neuroscience and biology vocabulary (*interneuron*,
+*GABAergic*, *parvalbumin*, *synaptogenesis* and many more), so those words are never flagged.
+Remove a supplied term through [Word tools](#dictionaries); the removal stays in effect after
+reopening Flux.
+
+Opening an existing document scans its prose in the background and flags possible issues without
+changing the text — a few hundred marks at most. The scan skips the sentence you are writing in,
+along with code, math, tables, citations, links and front matter. Edit a flagged sentence and the
+normal checking takes over.
 
 ## Dictionaries and aliases {#dictionaries}
 
-Select a word and open **Word tools** in the floating toolbar, or press **Shift+Alt+W**. Add it to the **Project** dictionary for this project, or **Personal** for all projects on this device. **Shift+Alt+D** toggles project recognition; **Alt+D** toggles personal recognition.
+Select one word — ordinary selection and Vim visual mode work the same — and click **Word tools**
+(the small book in the floating toolbar), or press **Shift+Alt+W**. Add the word at either scope:
 
-An alias expands a short form when you finish typing it. For example, `igf` can expand to `iGluSnFR4f`. Choose its scope in Word tools. Project aliases take precedence over personal ones; **Ctrl+Z** restores the typed form. Remove aliases through Word tools or the recent expansion's menu.
+| Scope | Where it applies | Toggle without the dialog |
+|---|---|---|
+| **Project** | Only inside the current Flux project | **Shift+Alt+D** |
+| **Personal** | Every Flux project on this device | **Alt+D** |
 
-Dictionaries help nearby misspellings resolve to a known technical term. They do not make every similar scientific name equivalent: recognizing `SLAP2` does not turn `SLAP3` into it.
+The buttons and shortcuts are true toggles: select the term again to remove it. Dictionary terms
+are protected from ordinary corrections and become high-confidence targets for nearby mechanical
+mistakes — after adding *iGluSnFR4f*, a typed *IgluSnrf4* can resolve to the canonical spelling.
+Flux stays conservative around plausible scientific variants: a stored *SLAP2* does not turn
+*SLAP3* into *SLAP2*.
 
-## Optional sentence judgment {#sentence-judgment}
+**Aliases** expand a short form when you finish typing it. Select *iGluSnFR4f*, enter `igf`, choose
+Project or Personal, and add it. The next time `igf` is typed as its own word, the delimiter
+(space, punctuation or Return) morphs it into *iGluSnFR4f* with the same blue pulse. One **Ctrl+Z**
+restores `igf`; clicking the pulsed expansion offers **Remove alias**, and every saved alias has
+its own **×** in **Word tools**. Project aliases take priority over Personal aliases when both use
+the same short form.
 
-Sentence judgment is a separate, optional layer that considers completed sentences to resolve uncertain spellings. It proposes individual word corrections, not sentence rewrites. Flux checks the suggestion again and discards it if you have changed the source text.
+## Correction settings {#correction-settings}
 
-| Underline | Meaning |
+**Settings → Corrections** holds the few choices the checker offers; see the
+[Settings reference](/docs/settings.html#corrections) for the whole dialog.
+
+| Setting | Effect |
 |---|---|
-| Red | The local checker flagged an unresolved word. |
-| Blue, fading | A correction was applied. |
-| Orange | Sentence judgment kept the word. Click to inspect the decision. |
+| **Local corrections** — *Correct clear typing and spacing errors as I write* | The on-device checker described above. The same switch is **Local** in the status bar. |
+| **Reset correction learning** | Clears the automatic "leave alone" lessons taught by undoing corrections. Dictionaries and aliases are kept. |
+| **English dialect** | **US**, **British**, **Canadian** or **Australian English** — which spellings count as correct. |
 
-Opening an existing document adds flags without correcting old text or sending it for sentence judgment. Editing a flagged sentence brings it into the normal checking workflow.
-
-Choose a provider explicitly: **Flux managed** runs a downloaded local model; an existing **Ollama** installation is another local option; the optional cloud provider has its own key and disclosure. A local failure never enables cloud processing automatically.
-
-<details><summary>Model setup, correction strength and learned preferences</summary>
-
-**Correction strength.** Settings offers three levels. **Standard** is the default: one typing
-edit for short words and two otherwise. **Aggressive** can explore three edits for words of nine
-or more letters. **Really aggressive** explores every bounded candidate, allows three edits from
-seven letters and four from ten, and is intended for testing. All three keep the same safeguards:
-no sentence rewrites, and respect for syntax, scientific word forms, your dictionaries, the
-surrounding context and the exact source text. Wider levels can be slower, and they still leave
-a word alone when a safeguard fails.
-
-**Flux managed model.** This is the default provider. Install the 2.33 GB Qwen3 4B Instruct 2507
-model explicitly in Settings. The download resumes after an interruption, is SHA-256 verified
-under `FluxConfig/Models/corrections/`, and can be unloaded or removed there. Flux runs the model
-through its own pinned `llama-server` helper, which only this computer can reach and which
-requires authentication, and never starts it from the Home screen. Apple Silicon packages run the
-model fully on Metal; Linux packages use the pinned Vulkan backend when a GPU is available.
-Settings names the active acceleration path. “Ready” means the model has returned a valid test
-answer, not merely that its process has started. Use **Update local model** if Settings offers a
-newer verified version.
-
-**Ollama.** An existing Ollama installation can be selected as an advanced local provider. Flux
-loads the selected Ollama model ahead of use, keeps it loaded for 15 minutes, and fixes its
-context at 2,048 tokens so a small correction request cannot allocate the model's much larger
-default context. Loading may take longer in the background, but each correction must still
-arrive within the editor's short window; a late result never changes the manuscript.
-
-**Cloud provider.** GPT-5.6 Luna is separately opt-in. Its API key is encrypted by the operating
-system, requests use `store: false`, and Settings discloses what is sent and shows the session
-cost estimate. A local failure never switches to the cloud.
-
-**What the judgment learns from.** Personal guidance, project guidance, dialect, explicit terms,
-aliases and learned “leave alone” decisions all inform it. **Reset correction learning** in the
-same Settings section clears automatic lessons without deleting dictionaries or aliases;
-individual lessons can also be removed from the visible list. Quoted material, code, math,
-citations, links, tables, front matter and technical identifiers remain protected in both layers.
-
-</details>
+Everything in this section runs on your device.
 
 ## Vim, and how the caret feels {#vim-and-how-the-caret-feels}
 
-For keyboard fans, **Ctrl+K → Enable Vim mode** turns on modal editing, with two flavors:
+For keyboard fans, **Ctrl+K → Enable Vim mode** turns on modal editing, with two flavours:
 plain **Vim**, or **flux-ViM** — Vim plus Flux's opt-in refinements (the first: `jj` in insert
 mode is Escape). If you do not use Vim, leave it off.
 
-Separately, **Settings → Paper** offers **Caret motion**: *chase* (the default — the caret
-pursues your typing with a lively, immediate feel) or *smooth* (a fixed soft glide).
+The caret glides after your typing: it arrives quickly and settles softly. Large jumps move
+directly to the new position, and the caret blinks softly once you pause. There is nothing to
+configure.
 
 ::: {.next-reading}
 **Related guides**
 
-[Paper](/docs/paper.html) · [Citations, figures and tables](/docs/citations-and-figures.html) · [Export documents](/docs/export-documents.html)
+[Paper](/docs/paper.html) · [Citations, figures and tables](/docs/citations-and-figures.html) · [Export documents](/docs/export-documents.html) · [Settings and setup](/docs/settings.html#corrections)
 :::

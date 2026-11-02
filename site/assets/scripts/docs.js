@@ -40,6 +40,14 @@
   const select=button=>{buttons.forEach(b=>b.setAttribute('aria-pressed',String(b===button)));panels.forEach(p=>p.hidden=p.id!==button.getAttribute('aria-controls'));};
   buttons.forEach(button=>button.addEventListener('click',()=>select(button)));select(buttons[0]);
  }
+ // Clips play muted while in view; reduced motion keeps them still until the visitor presses play.
+ const clips=[...document.querySelectorAll('.doc-clip video')];
+ if(clips.length){
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)');
+  const apply=()=>{for(const v of clips){if(reduce.matches){v.removeAttribute('autoplay');v.pause();}else v.setAttribute('autoplay','');}};
+  apply();reduce.addEventListener('change',apply);
+  if('IntersectionObserver' in window){const io=new IntersectionObserver(entries=>{for(const entry of entries){const v=entry.target;if(entry.isIntersecting){if(!reduce.matches)v.play().catch(()=>{});}else v.pause();}},{threshold:.25});clips.forEach(v=>io.observe(v));}
+ }
  // Mark the current section without moving focus or changing the URL.
  const toc=[...document.querySelectorAll('.doc-toc a')],sections=toc.map(a=>document.getElementById(decodeURIComponent(a.hash.slice(1))));
  let scheduled=false;

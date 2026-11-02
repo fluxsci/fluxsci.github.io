@@ -13,8 +13,8 @@ Import a model, choose its view, and work with named parts, value fields and sha
 
 ## Import a model {#3d-models}
 
-Import a **GLB** mesh through **Import**, drag it onto the canvas, or pick its **3D** tile in
-the gallery. Flux keeps a project copy, so sharing the project does not depend on the
+Import a **GLB** mesh through the toolbar's **Import** (**Ctrl+Shift+K**), drag it onto the
+canvas, or pick its **3D** tile in the [Plot gallery](/docs/plot-gallery.html#browse). Flux keeps a project copy, so sharing the project does not depend on the
 original file. A plain GLB supplies geometry and colours. A **3D fluxplot** also supplies
 named parts, physical size, axes, labels, value fields and optional shapes through the
 matching `.fluxplot.json` file. Keep that file beside the GLB when importing. An invalid,
@@ -108,8 +108,10 @@ the stub. The axis line, ticks and grid stay.
 
 ## Parts, value fields and shapes {#parts-and-fields}
 
-Use **Alt+R** for the model's **X-ray**. Named mesh parts can be recoloured, hidden or made
-transparent; labels can be restyled independently. Mesh-part colours show while **Colours**
+Use **R** for the model's **X-ray** (**Alt+R** is the rectangle tool). Named mesh parts can be recoloured, hidden or made
+transparent; labels can be restyled independently. The X-ray works as it does for a 2D plot
+([X-ray](/docs/plot-editing.html#x-ray)): pick rows, hide with **x**, open properties with
+**Enter**. Mesh-part colours show while **Colours**
 is **From file**, so painting a mesh part on a Uniform model switches it to From file (one
 undo, with a notice). For a continuous value field, change its colormap and **Min / Max** under
 **Value fields**: the mesh and colorbar update together, without rerunning Python. A part

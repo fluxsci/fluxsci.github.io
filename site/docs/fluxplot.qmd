@@ -29,6 +29,8 @@ python -m pip install fluxplot
 
 For mesh-file loading and optional simplification, install `fluxplot[mesh]`. For a notebook kernel, use `fluxplot[notebook]`. The plotting library can be used independently of the Flux desktop app.
 
+Flux reads plots saved by any fluxplot version. Plots saved with fluxplot 0.4 or later also carry a layout block, so Flux can resize them without rerunning Python; regenerate an older plot once to get that (see [Saving, panels and recipes](/docs/save-and-recipes.html#layout-block)).
+
 ## Make your first plot {#first-plot}
 
 Save this as `plot_response.py` and run it in that environment. The values are synthetic.
@@ -60,7 +62,7 @@ The output is a bundle of three files:
 | File | Purpose |
 |---|---|
 | `response.svg` | The visible plot, with addressable parts. |
-| `response.fluxplot.json` | Series, axes, identities and data used by Flux. |
+| `response.fluxplot.json` | Series, axes, identities, data and layout facts used by Flux. |
 | `response.recipe.json` | How to regenerate the plot. |
 
 Keep them together. Put the bundle in a project's `plots/` folder, then open the [Plot gallery](/docs/plot-gallery.html). Insert the plot into a figure or slide.
@@ -76,13 +78,14 @@ Use `fp.panel(ax, name="response")` when a figure has several axes. Use stable p
 | Your task | Guide |
 |---|---|
 | Plot lines, observations, distributions or a fit | [Lines, points and distributions](/docs/plot-types.html) |
-| Show observations alongside a summary | [Glowbar, fluxbox and hexmatrix](/docs/signature-plots.html) |
+| Show observations alongside a mean or a box plot | [Meanmark, fluxbox and hexmatrix](/docs/signature-plots.html) |
 | Plot a heatmap, contour or shared colour scale | [Matrices, contours and colour scales](/docs/matrices-and-scales.html) |
 | Display calibrated images or projected surfaces | [Images and surface maps](/docs/images-and-surfaces.html) |
 | Use consistent colours and check readability | [Colour and style](/docs/colors-and-style.html) |
 | Report tests, intervals and comparisons | [Statistics and comparison brackets](/docs/statistics.html) |
 | Make an orbitable mesh or shape sequence | [3D plots](/docs/3d-plots.html) |
 | Set physical size, panels and regeneration | [Saving, panels and recipes](/docs/save-and-recipes.html) |
+| Keep per-subject panels, statistics and notes beside a plot | [Dissections](/docs/dissections.html) |
 | Look up a parameter | [Python API reference](/docs/fluxplot-api.html) |
 
 ## Existing Matplotlib or Seaborn code {#existing-code}

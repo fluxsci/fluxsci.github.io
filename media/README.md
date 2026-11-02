@@ -86,6 +86,32 @@ playback and at rest. Check mobile sizing, reduced motion, keyboard controls, no
 light/dark document surroundings. The browser suite covers these interactions. Normal builds audit
 every manifest without reading the source project or starting Flux.
 
+## Feature close-ups and clips (Flux 0.3)
+
+`scripts/capture-features.mjs` captures the 0.3 Figure, Paper and Settings features in the dev-server
+fixture: the Plots rail with a plot's dissections and notes, the Inspector's Layout controls, the Align &
+Arrange panel, Settings → Cursor and the Paper figures pane as PNG stills, plus five short clips
+(drag-to-place from the rail, a Reflow resize, the X-ray, Align & Arrange, a sticky connector) cut from
+one Playwright recording with ffmpeg into H.264 MP4s with poster frames. It needs the isolated showcase
+project, the illustrative plots and a small dissections folder:
+
+```sh
+cd /path/to/fluxplot && uv run python /path/to/site/media/docs-plots/make_docs_plots.py /path/to/site/.cache/review/docs-plots
+node scripts/capture-features.mjs --flux-source /path/to/pinned/flux --plots .cache/review/docs-plots --dissections .cache/review/dissections
+```
+
+The dissections folder holds two of the showcase plots, a small CSV and a `.txt` note (all illustrative,
+mirrored under `plots/_dissections/showcase/atlas/` in the fixture); recreate it from the showcase plots if
+`.cache/` was cleared. Outputs and their hashes are recorded in `media/feature-captures.json`.
+
+`media/docs-plots/make_docs_plots.py` also draws the meanmark and fluxbox illustrations used by the plotting
+guides (`site/assets/media/docs/plots/`), recorded in `media/docs-plots.json` together with the sheet from
+fluxplot's own `examples/meanmark_example.py`. Values are synthetic; the pages say so.
+
+The Slides workspace screenshot (`slides.webp`) now shows the retired website deck from the isolated
+project (captured by `capture-media.mjs`); `capture-slides.mjs` can replace it with the film slides when a
+master copy containing both film decks is available.
+
 ## Licenses and credit
 
 Runtime dependency licenses are under `site/assets/licenses/`; Gelasio's SIL OFL notice is in `site/assets/fonts/OFL.txt`. Scientific assets retain their own source terms. The website's visual credits page identifies Allen Institute, MICrONS, FermiSurfer and Crystallography Open Database sources and distinguishes measured, computed and illustrative content. Website licensing does not relicense source datasets.

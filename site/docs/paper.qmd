@@ -1,6 +1,6 @@
 ---
 title: "Paper"
-description: "Write and organize documents, with figures and references close at hand."
+description: "Write and organise documents, with figures and references close at hand."
 ---
 
 <p class="eyebrow">Writing</p>
@@ -8,41 +8,43 @@ description: "Write and organize documents, with figures and references close at
 # Paper
 
 ::: {.doc-lead}
-Write and organize documents, with figures and references close at hand.
+Write and organise documents, with figures and references close at hand.
 :::
 
 <figure class="doc-figure"><a href="/assets/media/paper.webp" data-enlarge data-caption="A manuscript in Paper with an embedded figure; the caption comes from the figure itself."><img src="/assets/media/paper.webp" alt="The Paper workspace: a manuscript with an embedded multi-panel figure and its caption, beside the Files and Outline sidebar." width="1500" height="950" loading="lazy"></a><figcaption>A manuscript in Paper with an embedded figure; the caption comes from the figure itself. <a href="/docs/visual-credits.html">Visual credits</a>.</figcaption></figure>
 
 ## The writing surface {#the-writing-surface}
 
-Click the title pill to edit a document's title and authors. Its small dot shows autosave status. Use **Ctrl+K** to find commands by name, or type **/** at the start of a line to insert a figure, slide, table, equation, citation, heading or callout. **Ctrl+F** finds text; **Ctrl+Alt+F** finds and replaces.
+Your document is plain text with light formatting — headings, **bold**, math like `$E = mc^2$`, tables — and Flux renders the finished look live, in place. The file on disk stays an ordinary Quarto `.qmd`: formatting marks hide themselves except on the line you are editing, so the screen reads like a manuscript while the text stays honest.
 
-Shortcuts are written with **Ctrl** and **Alt**. On macOS, press **⌘ Command** for Ctrl and **⌥ Option** for Alt unless a shortcut says otherwise; [Keyboard shortcuts](/docs/shortcuts.html) lists every Paper shortcut.
+Click the title pill to edit a document's title and authors (they are stored as front matter). Its small dot is the autosave indicator; you never save by hand. Use **Ctrl+K** to find any command by name, or type **/** at the start of a line for the block palette: `/figure`, `/slide`, `/table`, `/equation`, `/citation`, `/heading`, `/callout` and friends. **Ctrl+F** finds text; **Ctrl+Alt+F** finds and replaces.
 
-New projects start with `paper/notes.qmd`. Add drafts, protocols and working notes in the same project; no particular manuscript filename is required. Older `manuscript/` folders continue to work alongside `paper/`.
+Shortcuts are written with **Ctrl** and **Alt**. On macOS, press **⌘ Command** for Ctrl and **⌥ Option** for Alt unless a shortcut says otherwise; [Keyboard shortcuts](/docs/shortcuts.html#paper) lists every Paper shortcut.
 
-## Organize documents {#organize-documents}
+New projects start with `paper/notes.qmd`. Add drafts, protocols and working notes in the same project; no particular manuscript filename is required. Older `manuscript/` folders continue to work alongside `paper/`, and both appear under Documents. Flux remembers an ordinary document as the default for command-line exports; the app always exports the document you have open.
 
-**Alt+O** opens the left sidebar. Files and Outline share its height: drag the divider to resize, double-click to reset, or focus it and use the arrow keys. Click either section's label to hide or show it. Drag the sidebar's outer edge to change its width.
+## Organise documents {#organize-documents}
+
+**Alt+O** opens the left sidebar. Files and Outline share its height: drag the divider to resize, double-click to reset, or focus it and use **↑** / **↓** (**Home** resets). Click either section's label to hide or show it; the other takes the full height. Drag the sidebar's outer edge to change its width and double-click the edge to restore the default.
 
 | Task | Action |
 |---|---|
-| Create a document or folder | Use the folder's **+** or folder-plus control. The bottom buttons use the most recently selected folder. |
-| Move a document | Drag it onto a folder. Comments move with it and supported document links are adjusted. Existing files are never replaced. |
-| Reorder within a folder | Drag over another document, or focus its row and press **Alt+↑ / ↓**. |
-| Delete a document | Click its hover **×** or press **Delete** on its row, then confirm. The file and comments go to system trash where available. |
+| Create a document or folder | Use the folder's **+** or folder-plus control. The bottom **+ New document** and **New folder** buttons use the most recently selected folder. Folders nest as deeply as you need. |
+| Move a document | Drag it onto a folder, including between Documents and Context. Comments move with it, and Markdown links, Quarto includes and common front-matter paths are adjusted. Existing files are never replaced. |
+| Reorder within a folder | Drag over another document, or focus its row and press **Alt+↑** / **Alt+↓**. Only the list order changes; it is saved with the project. |
+| Delete a document | Click its hover **×** or press **Delete** on its row, then confirm. The file and its comments go to the system trash where available; figures and references stay. |
 
 Close a second Paper pane before moving files: a move may update links in other documents. Code examples and paths inside executable code remain unchanged. Standard Context files and an older project's designated main manuscript are protected from deletion or movement.
 
-Generated render and cache folders stay out of the file browser. Ordinary folders and intentional empty folders remain visible; filtering does not remove anything from disk.
+Generated render and cache folders stay out of the file browser. Ordinary folders and empty folders you create remain visible; nothing is deleted from disk.
 
 ## Context and reading views {#context-and-reading}
 
 The **Context** group contains `ProjectContext.qmd`, the append-only Log (`NOTEBOOK.md`) and project rules (`RULES.md`). They can be opened and commented on like other documents. See [Context and memory](/docs/context.html) for what to put there and when agents update the Log.
 
-**Ctrl+Shift+E** opens a full-width reading preview; **Escape** returns. The command palette switches between continuous and paginated views. **Ctrl+Shift+\[** folds a section and **Ctrl+Shift+\]** unfolds it (on macOS, **⌘⌥\[** and **⌘⌥\]**). Click the status-bar word count for document statistics.
+**Ctrl+Shift+E** opens a full-width reading preview; **Escape** returns. The command palette switches between continuous and paginated views. **Ctrl+Shift+\[** folds a section and **Ctrl+Shift+\]** unfolds it (on macOS, **⌘⌥\[** and **⌘⌥\]**). Click the status-bar word count for document statistics, and use the text-size slider above it to make the type larger or smaller ([Writing tools](/docs/writing-tools.html#text-size)).
 
-For spelling, vocabulary, aliases and caret preferences, see [Writing tools](/docs/writing-tools.html). For citations, equations, tables and embedded content, see [Citations, figures and tables](/docs/citations-and-figures.html).
+Spelling and typing corrections run on your device; the **Local** item in the status bar switches them on and off. For spelling suggestions, vocabulary and aliases, see [Writing tools](/docs/writing-tools.html#local-corrections). For citations, figures, equations, tables and embedded slides, see [Citations, figures and tables](/docs/citations-and-figures.html).
 
 ## The margin {#the-margin}
 
@@ -50,20 +52,20 @@ Helper panes summon beside your text and stack in one column:
 
 | Shortcut | Pane |
 |---|---|
-| **Alt+R** | Reference search — the whole library, filterable (`author:smith year:2020`) |
-| **Alt+F** | Figures — zoom/pan any figure, insert it, or open it in Figure |
+| **Alt+R** | Reference search — the whole library, filterable (`author:smith year:2020`); mark rows with **Space**, insert them as one citation with **Enter** |
+| **Alt+F** | Figures — zoom and pan any figure, insert it or a [figure or panel reference](/docs/citations-and-figures.html#figures-pane), or open it in Figure |
 | **Alt+A** | Comments — the review threads on this document |
 | **Alt+C** | Citation group — edit the citation at the caret |
 | **Alt+J** | [Journal Check](/docs/export-documents.html#journal-check) — the selected journal's rulebook, as advice |
 
 **Alt+P** closes the active pane, **Ctrl+Alt+P** closes them all, and **Escape** always
 returns focus to your writing. **Ctrl+Shift+B** hides the margin column entirely. When no
-pane is open, the margin shows an ambient background; choose its scene in
-**Settings → Paper**.
+pane is open, the margin shows an ambient background; choose its scene, and how many panes may
+stack, in **Settings → Paper** ([Settings](/docs/settings.html#paper)).
 
 ## Two manuscripts side by side {#two-manuscripts-side-by-side}
 
-**Alt+click** the Paper icon in the top bar (**⌘+click** on macOS) to split the workspace into two Paper panes —
+**Alt+click** the Paper icon in the top bar (**⌥+click** or **⌘+click** on macOS) to split the workspace into two Paper panes —
 the main text on the left, the supplement (or any other document) on the right. Each pane
 has its own outline, margin, and helper panes, and each edits its own document; asking a
 pane for a document that's already open in the other pane focuses that pane instead of
@@ -85,14 +87,15 @@ lost.
 |---|---|
 | A citation chip shows your typed text, dimmed | The key isn't in the project bib or library → check the spelling, or add the paper to the [Library](/docs/library.html) first |
 | Word export is disabled | Quarto isn't installed → **Install Quarto…** in the export dialog, or **Set up Flux** (**Settings → General → Setup**; see [Installation](/install/)) |
-| A journal-styled PDF fails but Word works | Missing LaTeX pieces → the error names the package; see [Installation](/install/) |
+| `flux compile --to pdf` with a journal style fails but Word works | Missing LaTeX pieces → the error names the package; see [PDF dependencies](/docs/export-documents.html#pdf-dependencies) |
 | Journal Check flags a figure reference that is fine | It's advice, not a rule — dismiss it. References to another paper's figures are skipped automatically when an author name is next to them |
 | A figure embed shows no caption | The figure has no caption yet → write it in **Figure-Meta** (**Alt+M**) |
 | A Word export says figures will be missing | No render could be produced for the named figures → open Figure so they load, then export again. A figure with no render is not in the document at all, so this is an error, not a warning |
+| A correct technical term is underlined in red | The checker does not know it → press **+** in its popover to add it to your Personal dictionary, or use **Word tools** (**Shift+Alt+W**); see [Writing tools](/docs/writing-tools.html#dictionaries) |
 | A comment shows as *Detached* | Its anchored text was edited away — the thread is preserved; re-select and start a fresh one if needed |
 
 ::: {.next-reading}
 **Related guides**
 
-[Citations, figures and tables](/docs/citations-and-figures.html) · [Writing tools](/docs/writing-tools.html) · [Export documents](/docs/export-documents.html)
+[Citations, figures and tables](/docs/citations-and-figures.html) · [Writing tools](/docs/writing-tools.html) · [Export documents](/docs/export-documents.html) · [Keyboard shortcuts](/docs/shortcuts.html#paper)
 :::

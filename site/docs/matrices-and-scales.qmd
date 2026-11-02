@@ -11,7 +11,7 @@ description: "Represent a field, define its value-to-colour mapping, and share a
 Represent a field, define its value-to-colour mapping, and share a scale across panels.
 :::
 
-## Make a heatmap
+## Make a heatmap {#make-a-heatmap}
 
 ```python
 import matplotlib.pyplot as plt
@@ -44,9 +44,9 @@ fp.colorbar(bands, name="energy", label="Energy")
 - Named colorbars expose the ramp, label and ticks, and link to the mappable. Ordinary
   `fig.colorbar` calls receive the same automatic guide capture.
 
-## Saved colour-scale metadata
+## Saved colour-scale metadata {#saved-colour-scale-metadata}
 
-<details><summary>How Flux retains values, normalization and colour keys</summary>
+<details class="doc-details"><summary>How Flux retains values, normalization and colour keys</summary>
 
 Every colour-mapped mark — a heatmap, a hexmatrix, a filled contour, a `fp.scatter(..., c=values)`,
 even a raw `ax.imshow` or `ax.pcolormesh` you never tagged — records its complete value → colour
@@ -88,7 +88,7 @@ mesh or contour set into the same kind of field, cells named and colour key link
 
 </details>
 
-## Shared scales
+## Shared scales {#shared-scales}
 
 Declare the scale once and let every panel join it:
 
@@ -127,12 +127,12 @@ ordering, **not a full cross-category depth buffer**: convex projections are sup
 arbitrary folded meshes can show occlusion differences between parts. The surface metadata
 records this limitation.
 
-## Colour and confidence
+## Colour and confidence {#colour-and-confidence}
 
 A colour-mapped mark can also carry an opacity channel (`alpha_by=` on `fp.hexmatrix`, `fp.heatmap` and `fp.scatter`), so sparsely sampled regions read lighter than well-sampled ones. The [colour guide](/docs/colors-and-style.html#value-and-confidence) describes the channel, its range and how Flux recomputes it live.
 
 ::: {.next-reading}
 **Related guides**
 
-[Colour and style](/docs/colors-and-style.html) · [Glowbar, fluxbox and hexmatrix](/docs/signature-plots.html) · [Python API reference](/docs/fluxplot-api.html) · [Edit plots in Flux](/docs/plot-editing.html#colour-scales)
+[Colour and style](/docs/colors-and-style.html) · [Meanmark, fluxbox and hexmatrix](/docs/signature-plots.html#hexmatrix) · [Python API reference](/docs/fluxplot-api.html#heatmap) · [Edit plots in Flux](/docs/plot-editing.html#colour-scales)
 :::

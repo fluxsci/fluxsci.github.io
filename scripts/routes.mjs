@@ -5,7 +5,7 @@ export const routes = [
     "source": "index.qmd",
     "output": "index.html",
     "url": "/",
-    "title": "Flux — a unified scientific workspace"
+    "title": "Flux — A unified scientific workspace"
   },
   {
     "source": "install/index.qmd",
@@ -256,7 +256,7 @@ export const routes = [
     "source": "docs/signature-plots.qmd",
     "output": "docs/signature-plots.html",
     "url": "/docs/signature-plots.html",
-    "title": "Glowbar, fluxbox and hexmatrix",
+    "title": "Meanmark, fluxbox and hexmatrix",
     "kind": "guide"
   },
   {
@@ -389,12 +389,12 @@ export const groups = [
       {
         "title": "Writing tools",
         "url": "/docs/writing-tools.html",
-        "description": "Adjust the reading surface, manage technical vocabulary, and choose how corrections work."
+        "description": "Adjust the reading surface, fix spelling with on-device suggestions, and manage technical vocabulary."
       },
       {
         "title": "Export documents",
         "url": "/docs/export-documents.html",
-        "description": "Choose a file format, apply a journal style, and check the result."
+        "description": "Choose a file format, apply a journal style, keep citations live in Word, and install what Quarto exports need."
       }
     ]
   },
@@ -405,12 +405,12 @@ export const groups = [
       {
         "title": "Figure",
         "url": "/docs/figure.html",
-        "description": "Compose publication figures from plots, images, text and 3D models."
+        "description": "Tour the Figure workspace, create and name figures, write captions, export, and find the deeper guides."
       },
       {
         "title": "Plot gallery and source links",
         "url": "/docs/plot-gallery.html",
-        "description": "Find plots, insert them at their intended size, and keep their sources current."
+        "description": "Place plots from the Plots rail or the full gallery at their true size, and keep their sources current."
       },
       {
         "title": "Edit plot parts and data views",
@@ -420,7 +420,7 @@ export const groups = [
       {
         "title": "Layout, drawing and typography",
         "url": "/docs/figure-layout.html",
-        "description": "Arrange panels, draw annotations, and control the details of a figure."
+        "description": "Move, align and arrange panels, resize plots so they reflow, draw sticky connectors, and set type."
       },
       {
         "title": "3D models in Flux",
@@ -436,7 +436,7 @@ export const groups = [
       {
         "title": "Slides",
         "url": "/docs/slides.html",
-        "description": "Build a presentation from the plots and figures in your project."
+        "description": "Build a presentation from the plots and figures in your project: decks, the Plots rail, steps, the Animator and exports that play anywhere."
       },
       {
         "title": "Animation and timing",
@@ -446,7 +446,7 @@ export const groups = [
       {
         "title": "Transforms and data morphs",
         "url": "/docs/transforms.html",
-        "description": "Move between views, change a plot’s data, or turn one object into another."
+        "description": "Move, rewrite or resize an object, change a plot’s data or view, or turn one object into another."
       },
       {
         "title": "3D and video in slides",
@@ -493,7 +493,7 @@ export const groups = [
       {
         "title": "Dissections",
         "url": "/docs/dissections.html",
-        "description": "Keep the supporting panels and statistics one step away from the main plot."
+        "description": "Keep the supporting panels, statistics and notes one step away from the main plot."
       },
       {
         "title": "Lines, points and distributions",
@@ -506,7 +506,7 @@ export const groups = [
         "description": "Show calibrated images, channels and projected mesh data alongside ordinary plots."
       },
       {
-        "title": "Glowbar, fluxbox and hexmatrix",
+        "title": "Meanmark, fluxbox and hexmatrix",
         "url": "/docs/signature-plots.html",
         "description": "Show observations, summaries and density with individually named plot parts."
       },
@@ -611,12 +611,12 @@ export const groups = [
       {
         "title": "Python API reference",
         "url": "/docs/fluxplot-api.html",
-        "description": "Signatures and behavior of the public fluxplot plotting, saving, 3D, colour and statistics functions."
+        "description": "Signatures and behaviour of the public fluxplot plotting, saving, signature-plot, 3D, colour and statistics functions."
       },
       {
         "title": "Settings and setup",
         "url": "/docs/settings.html",
-        "description": "Adjust Flux's general settings, Figure controls, Paper margins, correction tools and external dependencies."
+        "description": "Every control in the Settings dialog, section by section: General, Figure, Paper and Corrections, plus where other preferences live."
       },
       {
         "title": "CLI and MCP command reference",

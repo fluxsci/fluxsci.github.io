@@ -11,11 +11,25 @@ description: "Save at a known physical size and record the information needed to
 Save at a known physical size and record the information needed to regenerate the plot.
 :::
 
-## Save a plot
+## Save a plot {#save-a-plot}
 
 `fp.save(fig, "plots/result.svg")` writes an SVG, a semantic manifest (`result.fluxplot.json`) and a regeneration recipe (`result.recipe.json`). For a [3D scene](/docs/3d-plots.html) it writes a GLB instead of an SVG. Keep these files together. The [API reference](/docs/fluxplot-api.html#save) lists every save option.
 
-## Physical size and named panels
+```python
+import matplotlib.pyplot as plt
+import fluxplot as fp
+
+fp.use_paper()
+fig, ax = plt.subplots(figsize=(90 / 25.4, 65 / 25.4), layout="constrained")
+fp.line(ax, [0, 1, 2, 3], [1.0, 1.4, 1.1, 1.8], series="control", label="Control")
+fp.legend(ax)
+result = fp.save(fig, "plots/result.svg")
+print(result.svg, result.manifest, result.recipe, result.warnings)
+```
+
+The returned `SaveResult` names the three files and lists any warnings, such as a rasterized heavy layer or a colour-lint finding. Saving the same figure twice produces the same bytes.
+
+## Physical size and named panels {#physical-size-and-named-panels}
 
 Set the figure size before saving. Matplotlib's `figsize` is in inches: divide millimetres by 25.4. For a 90 × 65 mm plot, use `plt.subplots(figsize=(90 / 25.4, 65 / 25.4), layout="constrained")`. The saved physical size is available when you insert the plot in Flux.
 
@@ -38,7 +52,7 @@ and insets), IDs are namespaced by panel: the explicit names above produce
 whenever identities must survive rearrangement. Colorbars belong to their source panel and are
 not counted as additional plotting axes.
 
-<details><summary>Saved data, coordinates and panel identities</summary>
+<details class="doc-details"><summary>Saved data, coordinates and panel identities</summary>
 
 Saving captures the current artist state: edit a line with `set_data`, remove an annotation,
 then save again. Scientific numbers retain their precision; NaN and masked observations become
@@ -74,7 +88,17 @@ and leaves addressable extras; it never guesses scientific identity from colour.
 
 </details>
 
-## Recipes and parameters
+## The layout block {#layout-block}
+
+From fluxplot 0.4 (manifest schema 0.4.0) every save also records a `layout` block, captured after the final SVG-renderer draw while the layout is frozen: the layout engine and GridSpec inputs, each axes' domain and aspect rule, text anchors and extents, font advances, numeric locator and formatter parameters, legends, colorbars and coordinate frames. Flux uses these facts to **reflow** a placed plot at a new physical size without rerunning Python: data follows the axes, while text, strokes and markers keep their point sizes. Point-sized marks anchored to data, such as fluxbox boxes and meanmark circles, arms and caps, carry their own frames and are rebuilt exactly. See [Semantic plots](/docs/semantic-plots.html#layout-block) for what this looks like in Flux.
+
+You do not need to change your script. The block is additive, and a manifest with it validates against the same contract as before. Three things are worth knowing:
+
+- **Repeated saves stay deterministic.** A layout draw adjusts axes positions and limits; fluxplot preserves the initial layout inputs across repeated saves of the same figure, so saving twice produces the same files even when a draw moved something. Deliberate changes you make to a position or a limit between saves are detected and used.
+- **Older plots keep stretching.** A plot saved before fluxplot 0.4 has no layout block, so Flux resizes it the old way (**Stretch**) until you regenerate it once.
+- **Unsupported layouts say why.** Polar and 3D projections, subfigures, compressed layout, `usetex`, non-affine secondary axes and a dynamic major locator that emits no native ticks record a named refusal in the block. The SVG still saves normally and Flux shows the reason in the Layout status.
+
+## Recipes and parameters {#recipes-and-parameters}
 
 A recipe records the producing script, parameters, inputs and output. An SVG stays viewable without its analysis environment; regeneration needs the recorded script and dependencies. Flux's **Regenerate** control and `flux rerun-plot` use this information.
 
@@ -96,7 +120,7 @@ This is a pattern to add to your own script: `fig` and the input file must exist
 
 A recipe can also override `args`, `cwd` and `output`; paths for `cwd` and `output` resolve relative to the recipe directory. When one script saves several plots, setting `FLUXPLOT_ONLY` to a comma-separated list of plot names (wildcards such as `fig2*` work) skips every other save before layout or file output; `flux rerun-plot <recipe> --only` sets it for you.
 
-## Check and regenerate
+## Check and regenerate {#check-and-regenerate}
 
 ```bash
 flux validate-plot plots/result.svg

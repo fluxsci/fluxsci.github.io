@@ -1,0 +1,50 @@
+{
+  "source": {
+    "repository": "https://github.com/fluxsci/fluxplot.git",
+    "note": "Drawn with the fluxplot checkout at the version below: media/docs-plots/make_docs_plots.py (synthetic values, labelled as illustrative on the pages) and the library's own examples/meanmark_example.py (meanmark-styles).",
+    "fluxplot": "0.4.0",
+    "specVersion": "0.4.0"
+  },
+  "outputs": {
+    "site/assets/media/docs/plots/meanmark-vs-fluxbox.svg": {
+      "viewBox": [
+        460.8,
+        208.8
+      ],
+      "bytes": 52218,
+      "sha256": "4a973d0ae74e517852321e6785c336b2ee6fc722d5b1c134a9b6fd146a26b73f"
+    },
+    "site/assets/media/docs/plots/meanmark-brackets.svg": {
+      "viewBox": [
+        259.2,
+        216.0
+      ],
+      "bytes": 35971,
+      "sha256": "9e311ec0dd552a49f4ab845c0085b977a2cf3cdc13f82fabe46ba2b4e4d3a3e9"
+    },
+    "site/assets/media/docs/plots/meanmark-paper.svg": {
+      "viewBox": [
+        230.4,
+        187.2
+      ],
+      "bytes": 29625,
+      "sha256": "f631394e0c060088f124bf9b60d71682524223d869b3f55c552ee829339d5ac9"
+    },
+    "site/assets/media/docs/plots/meanmark-dark.svg": {
+      "viewBox": [
+        230.4,
+        187.2
+      ],
+      "bytes": 26927,
+      "sha256": "92ab40ef96ebb8dedc62bfa4de2d48ff6b9e93dca6258042f39dec3ff7288d2d"
+    },
+    "site/assets/media/docs/plots/meanmark-styles.svg": {
+      "viewBox": [
+        720.0,
+        432.0
+      ],
+      "bytes": 122386,
+      "sha256": "c3e4fbf02bced54dad3b63efa59526c04e83f1b0c78bf0a3abf00bdb84c6ecd1"
+    }
+  }
+}

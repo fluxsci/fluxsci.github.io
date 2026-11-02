@@ -11,12 +11,14 @@ description: "Show calibrated images, channels and projected mesh data alongside
 Show calibrated images, channels and projected mesh data alongside ordinary plots.
 :::
 
-## Images and scale bars
+## Images and scale bars {#images-and-scale-bars}
 
-These patterns assume `import numpy as np`, `import fluxplot as fp`, an axes `ax`, and image
-arrays (`dapi`, `gfp`) from your analysis.
+These patterns assume `import numpy as np`, `import matplotlib.pyplot as plt`,
+`import fluxplot as fp`, and image arrays (`dapi`, `gfp`, two `(H, W)` arrays of the same
+shape) from your analysis.
 
 ```python
+fig, ax = plt.subplots(figsize=(3, 3), layout="constrained")
 im = fp.image(
     ax, np.stack([dapi, gfp]), series="cells", channels=["dapi", "gfp"],
     luts=["blue", "green"],
@@ -26,6 +28,7 @@ im = fp.image(
 )
 fp.scalebar(ax, 10, "µm")             # a vector bar exactly 10 data units long
 fp.colorbar(im.mappables["gfp"], ax=ax, name="gfp", label="GFP")
+fp.save(fig, "plots/cells.svg")
 ```
 
 `fp.image` takes a `(H, W)` image or a `(C, H, W)` / `(H, W, C)` stack. It gives every channel a
@@ -44,7 +47,7 @@ payload records the channels, LUTs, display ranges, pixel size, units, extent an
 drawn in the theme's ink. Its label (`"<length> <units>"`) is the part `scalebar.<n>.label`. The
 fluxplot repository's `examples/image_example.py` draws a complete two-channel field.
 
-## Surface maps
+## Surface maps {#surface-maps}
 
 ```python
 # lh_vertices, lh_faces, ... and the per-vertex labels come from your analysis.

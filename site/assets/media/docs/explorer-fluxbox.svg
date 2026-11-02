@@ -213,19 +213,19 @@
         <path d="M 32.361685 149.97642  L 220.19976 149.97642  " style="fill: none; stroke: #575653; stroke-width: 1.2; stroke-linejoin: miter; stroke-linecap: square"/>
       </g>
       <g id="control.box" data-role="box" data-series="Control" data-kind="shape">
-        <path d="M 50.072132 136.294209  L 50.072132 114.684539  " clip-path="url(#p2c4ec60cac)" style="fill: none; stroke: #225da8; stroke-opacity: 0.5; stroke-width: 7"/>
+        <path d="M 46.572132 136.294209  L 53.572132 136.294209  L 53.572132 126.140195  L 52.072132 124.840195  L 53.572132 123.540195  L 53.572132 114.684539  L 46.572132 114.684539  L 46.572132 123.540195  L 48.072132 124.840195  L 46.572132 126.140195  z " clip-path="url(#p2c4ec60cac)" style="fill: #225da8; opacity: 0.5"/>
       </g>
       <g id="low-dose.box" data-role="box" data-series="Low dose" data-kind="shape">
-        <path d="M 148.821292 94.106442  L 148.821292 76.285134  " clip-path="url(#p2c4ec60cac)" style="fill: none; stroke: #e2191c; stroke-opacity: 0.5; stroke-width: 7"/>
+        <path d="M 145.321292 94.106442  L 152.321292 94.106442  L 152.321292 88.994684  L 150.821292 87.694684  L 152.321292 86.394684  L 152.321292 76.285134  L 145.321292 76.285134  L 145.321292 86.394684  L 146.821292 87.694684  L 145.321292 88.994684  z " clip-path="url(#p2c4ec60cac)" style="fill: #e2191c; opacity: 0.5"/>
       </g>
       <g id="high-dose.box" data-role="box" data-series="High dose" data-kind="shape">
-        <path d="M 202.489313 44.092951  L 202.489313 20.384565  " clip-path="url(#p2c4ec60cac)" style="fill: none; stroke: #ad017e; stroke-opacity: 0.5; stroke-width: 7"/>
+        <path d="M 198.989313 44.092951  L 205.989313 44.092951  L 205.989313 34.774867  L 204.489313 33.474867  L 205.989313 32.174867  L 205.989313 20.384565  L 198.989313 20.384565  L 198.989313 32.174867  L 200.489313 33.474867  L 198.989313 34.774867  z " clip-path="url(#p2c4ec60cac)" style="fill: #ad017e; opacity: 0.5"/>
       </g>
       <g id="control.median" data-role="median" data-series="Control" data-kind="line">
         <defs>
           <path id="mca9e8ce024" d="M 3.5 0  L -3.5 -0  " style="stroke: #225da8; stroke-width: 1.4"/>
         </defs>
-        <g clip-path="url(#p2c4ec60cac)">
+        <g clip-path="url(#p10ae50cf97)">
           <use xlink:href="#mca9e8ce024" x="50.072132" y="129.535629" style="fill: #225da8; stroke: #225da8; stroke-width: 1.4"/>
         </g>
       </g>
@@ -233,7 +233,7 @@
         <defs>
           <path id="m76fd17cb76" d="M 3.5 0  L -3.5 -0  " style="stroke: #b31416; stroke-width: 1.4"/>
         </defs>
-        <g clip-path="url(#p2c4ec60cac)">
+        <g clip-path="url(#pfb9ea3ad68)">
           <use xlink:href="#m76fd17cb76" x="148.821292" y="86.529718" style="fill: #b31416; stroke: #b31416; stroke-width: 1.4"/>
         </g>
       </g>
@@ -241,26 +241,26 @@
         <defs>
           <path id="m0273343beb" d="M 3.5 0  L -3.5 -0  " style="stroke: #9a0170; stroke-width: 1.4"/>
         </defs>
-        <g clip-path="url(#p2c4ec60cac)">
+        <g clip-path="url(#p7f60a96f36)">
           <use xlink:href="#m0273343beb" x="202.489313" y="33.279224" style="fill: #9a0170; stroke: #9a0170; stroke-width: 1.4"/>
         </g>
       </g>
       <g id="control.mean" data-role="mean" data-series="Control" data-kind="line">
         <defs>
-          <path id="m234fb843dd" d="M -3.8 1.3  L -2 0  L -3.8 -1.3  z M 3.8 1.3  L 2 0  L 3.8 -1.3  z "/>
+          <path id="md5e4c91670" d="M -3.5 1.3  L -2 0  L -3.5 -1.3  z M 3.5 1.3  L 2 0  L 3.5 -1.3  z "/>
         </defs>
         <g clip-path="url(#p2c4ec60cac)">
-          <use xlink:href="#m234fb843dd" x="50.072132" y="124.840195" style="fill: #ffffff"/>
+          <use xlink:href="#md5e4c91670" x="50.072132" y="124.840195" style="fill-opacity: 0"/>
         </g>
       </g>
       <g id="low-dose.mean" data-role="mean" data-series="Low dose" data-kind="line">
         <g clip-path="url(#p2c4ec60cac)">
-          <use xlink:href="#m234fb843dd" x="148.821292" y="87.694684" style="fill: #ffffff"/>
+          <use xlink:href="#md5e4c91670" x="148.821292" y="87.694684" style="fill-opacity: 0"/>
         </g>
       </g>
       <g id="high-dose.mean" data-role="mean" data-series="High dose" data-kind="line">
         <g clip-path="url(#p2c4ec60cac)">
-          <use xlink:href="#m234fb843dd" x="202.489313" y="33.474867" style="fill: #ffffff"/>
+          <use xlink:href="#md5e4c91670" x="202.489313" y="33.474867" style="fill-opacity: 0"/>
         </g>
       </g>
     </g>
@@ -268,6 +268,15 @@
   <defs>
     <clipPath id="p2c4ec60cac">
       <rect x="32.361685" y="3.162992" width="187.838075" height="146.813428"/>
+    </clipPath>
+    <clipPath id="p10ae50cf97">
+      <path d="M 46.572132 136.294209  L 53.572132 136.294209  L 53.572132 126.140195  L 52.072132 124.840195  L 53.572132 123.540195  L 53.572132 114.684539  L 46.572132 114.684539  L 46.572132 123.540195  L 48.072132 124.840195  L 46.572132 126.140195  z "/>
+    </clipPath>
+    <clipPath id="pfb9ea3ad68">
+      <path d="M 145.321292 94.106442  L 152.321292 94.106442  L 152.321292 88.994684  L 150.821292 87.694684  L 152.321292 86.394684  L 152.321292 76.285134  L 145.321292 76.285134  L 145.321292 86.394684  L 146.821292 87.694684  L 145.321292 88.994684  z "/>
+    </clipPath>
+    <clipPath id="p7f60a96f36">
+      <path d="M 198.989313 44.092951  L 205.989313 44.092951  L 205.989313 34.774867  L 204.489313 33.474867  L 205.989313 32.174867  L 205.989313 20.384565  L 198.989313 20.384565  L 198.989313 32.174867  L 200.489313 33.474867  L 198.989313 34.774867  z "/>
     </clipPath>
   </defs>
 </svg>

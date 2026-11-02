@@ -13,22 +13,125 @@ Arrange panels, draw annotations, and control the details of a figure.
 
 ## Everyday editing {#everyday-editing}
 
-Everywhere in Flux the pointer is a **crosshair** built to stay visible on any background — a
-white halo under a dark core, with a small gap at the centre so the exact pixel you are
-pointing at is never covered. Over anything you can click or select — a button, a layer, a
-swatch, an object — it gains an accent dot, and it tightens while you press.
-Text fields keep the I-beam; handles keep their resize arrows and pan keeps the hand.
+**The pointer.** In the Figure and Slide editors the pointer is Flux's own: by default a
+**classic arrow** in Figma's style — a pink, slightly leaning arrowhead with a deep indigo
+outline — and it is one mark that changes form rather than a set of unrelated system arrows.
+Over an object's edge or corner it becomes a double-headed resize arrow in the same colours,
+just outside a corner a curved rotate arrow, with a small **+** while **Alt** is duplicating,
+and it keeps that form for the whole drag. Paper, Reader and Library keep the system's
+cursors; text fields keep the I-beam and pan keeps the hand.
 
-Drag to move (with smart snapping and alignment guides), arrows to nudge, **Alt+drag** to
-duplicate, **Shift+drag** to constrain to an axis. To move something to a **different
-figure**, just drag it there: the figure under the pointer lights up, and releasing puts the
-selection into that figure where you dropped it (groups and panel captions come along; one
-Undo brings it back). **Ctrl+X** cuts, **Ctrl+C** copies and **Ctrl+V** pastes, so a cut in
-one figure and a paste in another is the keyboard way to do the same thing. **Ctrl+G** groups
-(**Ctrl+Shift+G** ungroups), **]** brings to front and **[** sends to back (with **Ctrl** they
-move one step), **Shift+H** / **Shift+V** flip, **Delete** removes, **Escape** cancels whatever
-you're midway through. The Inspector's Align row lines selections up, distributes them, and
-sets exact gaps.
+**Settings → General → Cursor** tunes the pointer with a live preview. **Style** chooses
+**Classic arrow** or **Crosshair**. The arrow has fill and outline colours, size, outline
+width, corner rounding, shadow and tilt; **Press on click** adds a subtle tip-led depression on
+the canvas while the button is down, with **Press depth** (1.25× by default) and **Return
+time** (80 ms by default), and **Click to try the press** lets you feel a change. The
+**crosshair** is a precise cross with a gap at the centre, so the pixel you point at is never
+covered; its colour follows the surface (dark ink over paper and other light surfaces,
+paper-white over the dark canvas and chrome), with its own colours, stroke, optional halo,
+centre mark, hover dot and press contraction, and **Adaptive**, **Outlined** and **Accent**
+presets. Either style can hand the resize, rotate and move states back to the system's own
+cursors.
+
+**Selecting and moving.** Click an object to select it; a path, line or hollow shape is
+selected by clicking on or near its stroke. Once selected, its **bounding box is the handle**:
+drag from anywhere inside the box — an open path's empty interior, a hollow ellipse's middle,
+the gaps of a group, even over a plot the path annotates — to move it, and a click there keeps
+it selected (a click on an object lying beneath the selection selects that object instead; an
+object drawn on top of the selection still wins its own click). A drag has to travel a few
+pixels before anything moves, so a shaky click never nudges. With several objects selected, a
+click on one of them selects just that one; a drag still moves them all.
+
+**Resizing and rotating.** The selection shows four corner handles. Drag a **corner** to resize
+both axes, or grab **anywhere along an edge** to resize that axis alone — the edge follows your
+drag from wherever you took hold of it, and snaps to neighbouring edges, centres and guides
+the way a move does. **Shift** keeps the proportions (from an edge it grows about the opposite
+edge's middle), **Alt** resizes about the centre (press or release it mid-drag and the box
+follows at once), and the live **W × H** readout under the box shows the size as you go.
+Thin objects — a scale bar, a one-line label — have no edge bands across their short side, so
+their whole body stays grabbable; their corners still resize them from the outside. To
+rotate, drag the knob above the box or simply drag from **just outside any corner**;
+**Shift** snaps to 15°. **Ctrl+drag** a handle or edge of an image or plot to crop instead
+(on a plot, **Ctrl** just inside the edge still picks the part under the pointer). Images and
+plots resize freely by an edge, so use a corner or **Shift** when the proportions matter. What
+happens to a plot's axes and type when you resize it is in [Resizing a plot](#resizing-a-plot).
+
+**Moving between figures and the rest.** Drag to move (with smart snapping and alignment
+guides), arrows to nudge, **Alt+drag** to duplicate, **Shift+drag** to constrain to an axis. To
+move something to a **different figure**, just drag it there: the figure under the pointer
+lights up, and releasing puts the selection into that figure where you dropped it (groups and
+panel captions come along; one Undo brings it back). **Ctrl+X** cuts, **Ctrl+C** copies and
+**Ctrl+V** pastes, so a cut in one figure and a paste in another is the keyboard way to do the
+same thing. **Ctrl+G** groups (**Ctrl+Shift+G** ungroups), **]** brings to front and **[**
+sends to back (with **Ctrl** they move one step), **Shift+H** / **Shift+V** flip, **Delete**
+removes, **Escape** cancels whatever you're midway through. To line things up, space them
+evenly or reflow them into a grid, press **A** for [Align & Arrange](#align-and-arrange).
+
+## Align & Arrange {#align-and-arrange}
+
+Select objects and press **A** to open **Align & Arrange** beside them, with Align active;
+**Alt+T** opens it with Arrange active. Both panes stay visible — click a pane or one of its
+controls to activate it, or press **Space** while the tool surface has focus to switch. The
+panel works the same way on slides.
+
+<figure class="doc-figure doc-clip"><video poster="/assets/media/docs/clips/align-arrange.png" width="1400" height="1000" muted loop playsinline autoplay controls preload="metadata" aria-label="Three plots at different heights are aligned to their top edge with one click, then spaced evenly with Distribute horizontal spacing."><source src="/assets/media/docs/clips/align-arrange.mp4" type="video/mp4"></video><figcaption>Align top, then even horizontal spacing: each click is one undo step and the panel stays open.</figcaption></figure>
+
+<figure class="doc-figure"><a href="/assets/media/docs/figure-align-arrange.png" data-enlarge data-caption="Press A with objects selected. Align is active on the left; Arrange stays visible on the right, and Space switches between them."><img src="/assets/media/docs/figure-align-arrange.png" alt="The Align &amp; Arrange panel open beside three selected plots: the Align pane with its six edge and centre buttons and their key hints, Even spacing, Match plot area and Plot spines controls, and the Arrange pane with Row, Grid and Column, spacing and Keep fixed." width="2800" height="2000" loading="lazy"></a><figcaption>Press <strong>A</strong> with objects selected. Align is active on the left; Arrange stays visible on the right, and <strong>Space</strong> switches between them.</figcaption></figure>
+
+**Align.** Click an alignment button or use **W/A/S/D** for top/left/bottom/right; **H**
+aligns X centres along a vertical line and **V** aligns Y centres along a horizontal line.
+**To** chooses what you align to: **Selection bounds**, a named **Reference object**, or the
+**Figure** frame (one selected object aligns to the figure). **Even spacing → Horizontal /
+Vertical** distributes three or more objects, keeping the outermost ones fixed. Each alignment
+is one undo step and the panel stays open. A plot with parts hidden in X-ray aligns and
+arranges by its visible outline. Without the panel, **Alt+A / Alt+W / Alt+S / Alt+D** align
+left/top/bottom/right and **Alt+H / Alt+V** centre horizontally/vertically.
+
+**Plot spines.** For semantic plots, the Align pane adds **X spines** (**X**), which aligns
+horizontal axes, and **Y spines** (**Y**), which aligns vertical axes. The **Reference** plot
+stays fixed. Whole groups move together, annotations included. For multi-panel plots, open
+**Plot, panel & spine choices** to identify the intended axis. Unavailable spines are explained
+in the pane, and ordinary alignment remains available. These commands move plots without
+changing their domains, sizes or internal geometry. **Match plot area** sits in the same pane
+and changes the plots' sizes so their data areas match; see [Resizing a plot](#resizing-a-plot).
+
+**Arrange.** An existing row, column or simple grid keeps its order and internal offsets while
+uneven gaps are tidied, and a regular arrangement stays where it is. An ambiguous selection gets
+a **Suggested grid** preview. **Row**, **Grid** and **Column** reflow the selection into centred
+cells; **A** toggles row/column, **G** chooses a balanced grid, and **D** / **F** add or remove
+rows.
+
+**Gap guides and spacing.** Selecting an already evenly spaced row, column or simple grid shows
+pink gap guides without opening the panel; this recognition leaves the objects unchanged, and
+ambiguous overlaps show no guides. Drag a guide to edit the spacing as one undo step. In the
+panel, drag a gap guide to adjust all gaps on that axis, or enter, scroll or scrub a value in
+the spacing field (**Horizontal gap** / **Vertical gap**, or **Column gap** / **Row gap** in a
+grid). Right/down increases spacing, left/up decreases it; **Shift** adjusts faster and **Alt**
+more finely. Spacing is signed: negative gaps overlap objects, which is what stacked traces or
+waveforms want, and there is no zero floor — very negative spacing can move successive tracks
+past one another while they keep their members, sizes and stacking order. Grid gaps measure the
+space between column and row tracks, so smaller objects can have more visible clearance within
+their cells.
+
+**Keep fixed** chooses which edge or centre stays in place while the spacing changes; a grid
+offers nine anchor points. Click the small pin on the selection to open the same chooser
+without opening the panel. Centre is the initial default, and your choice stays selected across
+selections and tool visits in the current session. **1 / 2 / 3** chooses start/centre/end on
+the gap axis you are editing or hovering (numeric fields keep normal typing). Choosing a
+different anchor moves nothing until you change the spacing, and the fixed point always uses
+the actual selection bounds, overlap included.
+
+**Enter** or **Apply** keeps the Arrange preview as one undo step. **Escape** cancels the
+current drag or field edit first; another **Escape** restores the arrangement from when you
+entered. Switching back to Align keeps the arrangement. Input fields keep normal typing —
+**Enter** accepts a field — and keyboard-focused buttons keep their normal **Enter**/**Space**
+activation. Middle-button and wheel navigation stay available between edits. These tools set
+ordinary object positions; they do not create an automatic layout that later moves newly added
+objects.
+
+From the command line, `flux arrange` takes `--mode tidy|reflow`, signed `--gap-x` /
+`--gap-y` and start/centre/end anchors, and `flux align-plot-spines` aligns spines to a
+reference ([command reference](/docs/commands.html#verb-reference)).
 
 ## The property menu {#property-menu}
 
@@ -96,7 +199,8 @@ The map's colours are stored on the element itself, so the gradient travels into
 (SVG, PNG, TIFF), headless render and exported deck exactly as drawn;
 the menu chip and the Inspector swatch show the map and name it (`crameri.batlow · along y`),
 and picking any plain swatch returns the element to a solid colour. Plot *parts* take solid
-colours only. **Settings → Figure** chooses which palette and colormap collection a picker opens on.
+colours only. **Settings → Figure → Colour pickers** chooses which palette and colormap
+collection a picker opens on.
 
 ## Numeric fields and layers {#numeric-fields-and-layers}
 
@@ -125,13 +229,60 @@ elements and ruler guides adjust their local coordinates to stay in place. Artwo
 the new frame remains in the project and reappears if you enlarge the boundary again.
 Dragging the title still moves the whole figure. Slides use a shared deck stage size.
 
-**Resizing a plot and its content scale.** Resizing a placed plot changes its axes and data
-area but keeps its text and line widths at their true point size, the way changing a
-figure's size in matplotlib does. The Inspector's **Content scale** (or the **K** scale tool)
-is the other dial: it makes the plot's text and lines bigger or smaller inside the same box.
-Pictures that have no text or lines, such as a PNG saved inside an SVG, have nothing for
-content scale to change, so the Inspector says so instead of showing the field. Resize the
-box to make them bigger.
+## Resizing a plot {#resizing-a-plot}
+
+Plots saved with fluxplot 0.4 or later include measured layout information. Drag a plot's edge
+or corner, or type its width and height in the Inspector, to **Reflow** it: the axes and data
+areas change size, numeric ticks are recomputed, and text, strokes and markers keep their
+physical point sizes — the way changing a figure's size in matplotlib does, without Python.
+**Native size** (in the Inspector's **Layout** controls) restores the dimensions from Python. A
+deliberate size chosen in Flux survives regeneration; an untouched plot follows the new Python
+size.
+
+<figure class="doc-figure doc-figure-compact"><a href="/assets/media/docs/figure-plot-layout.png" data-enlarge data-caption="The Inspector’s plot section: Reflow or Stretch, the Layout status, the printed size and Native size."><img src="/assets/media/docs/figure-plot-layout.png" alt="The Inspector for a selected plot: width and height, a Layout switch between Reflow and Stretch with the status Exact, the plot’s size in inches beside a Native size button, Axis view limits, Content scale, Dissections, and a Sticks to section." width="496" height="1240" loading="lazy"></a><figcaption>The Inspector’s plot section: <strong>Reflow</strong> or <strong>Stretch</strong>, the Layout status, the printed size and <strong>Native size</strong>.</figcaption></figure>
+
+<figure class="doc-figure doc-clip"><video poster="/assets/media/docs/clips/reflow-resize.png" width="1400" height="1000" muted loop playsinline autoplay controls preload="metadata" aria-label="A fluxplot line plot is dragged narrower by its right edge: the axes and data area shrink, tick labels re-space, and the title, legend and tick text keep their size."><source src="/assets/media/docs/clips/reflow-resize.mp4" type="video/mp4"></video><figcaption>Drag an edge and a fluxplot ≥ 0.4 plot reflows: axes and data follow, text and strokes keep their point sizes, and the status reads Exact.</figcaption></figure>
+
+**Legends** wrap onto more rows when they need more room, keeping their labels and swatches at
+their original size where possible: a one-row legend wraps left to right like text, and a
+multi-column legend drops columns. A legend that still cannot fit shrinks together with its
+frame; a titled legend keeps its composition and shrinks as a unit. Shaded confidence bands
+follow the axes like the lines they surround. Returning to a wider plot restores the original
+legend layout.
+
+**Reflow, Stretch and the Layout status.** The Inspector's **Layout** controls offer
+**Reflow** and **Stretch**, the previous behaviour, in which the whole picture scales. The
+status line beneath them says whether the result is **Exact**, **Reflowed**, **Approximate** or
+**Stretch**, with a reason — "regenerate with fluxplot ≥ 0.4 to reflow", "polar axes not
+supported", "ticks crowded", "labels fixed in source" and so on. Legacy plots need one
+regeneration to enable reflow. Polar plots, 3D, subfigures, compressed layout and unsupported
+transforms use Stretch with a named reason. Date, category and custom ticks keep their source
+positions and labels. Extremely small sizes may crowd decorations; enlarge the plot when the
+status reports this.
+
+**Content scale** (or the **K** scale tool) is the other dial: it changes the physical size of
+text, strokes and markers within the chosen box. Crop boundaries remain figure fractions during
+reflow. Pictures without text or lines, such as a PNG inside an SVG, have nothing for content
+scale to change, so the Inspector explains this instead of showing the field; resize the box to
+make them bigger.
+
+**Hidden parts.** Hiding plot parts in [X-ray](/docs/plot-editing.html#x-ray) tightens the
+selection and hover outline around the remaining visible content. The plot keeps its saved
+dimensions, so showing those parts restores its original frame. Selection, dragging, snapping,
+Align & Arrange and resize previews use the visible bounds; cropping continues to work against
+the saved plot frame.
+
+**Match plot area.** Select several reflow-capable plots and use **Match plot area → Height /
+Width / Both** in the Align pane of [Align & Arrange](#align-and-arrange) to match their data
+areas in one undo step. The reference is the plot chosen in the pane; otherwise the first
+selected plot. Then **X spines** / **Y spines** can align their reflowed spines. Aspect
+constraints and infeasible sizes are reported. A single panel picked in X-ray scopes that
+plot's data area for Match; other selected plots use their full panel union. Locked or
+excluded plots cannot be changed by Match.
+
+From the command line, `flux resize-plot` resizes a plot's figsize, `flux set-plot-layout-mode
+--mode auto|stretch` chooses reflow or stretch, and `flux match-plot-areas --dimension
+height|width|both` matches data areas ([command reference](/docs/commands.html#verb-reference)).
 
 ## Drawing {#drawing}
 
@@ -147,6 +298,31 @@ the pen snaps to its vertices.
 **p** continues drawing — connect to an endpoint to extend or merge the path — **d** deletes
 nodes, and **Ctrl+drag** on a segment **bends** it. The Inspector's *Closed path* checkbox
 opens or closes any path.
+
+## Connectors and labels that stick {#connectors-and-labels}
+
+A line or arrow (**L** / **Shift+L**) drawn from one shape to another **sticks** to both: a
+dashed outline shows the shape an end will stick to, and dragging one of its ends onto a shape
+sticks that end. A filled end handle marks a stuck end. On a shape the end meets its outline,
+facing the other end; on a plot, an image, a 3D model or a video it stays exactly where you
+released it (hold **Ctrl** as you release to keep the exact spot on a shape too). Move a shape
+and its connectors and labels follow it, live while you drag. A connector never points
+backwards: as the shapes close in it thins out, and while they overlap it is hidden.
+
+<figure class="doc-figure doc-clip"><video poster="/assets/media/docs/clips/sticky-connector.png" width="1400" height="1000" muted loop playsinline autoplay controls preload="metadata" aria-label="Two rectangles are drawn, an arrow is drawn from one to the other with a dashed outline showing the shape it will stick to, and when the second rectangle is dragged away the arrow follows it."><source src="/assets/media/docs/clips/sticky-connector.mp4" type="video/mp4"></video><figcaption>An arrow drawn from one shape to another sticks to both; move a shape and the arrow follows, live while you drag.</figcaption></figure>
+
+Any element can sit beside another. In the Inspector, **Sticks to** picks the element, the
+side, the gap and the alignment (a line shows **Connector** with its two ends instead); a
+rotated label sits beside it as it looks. Editing a stuck label (its text, bold, size, width or
+rotation) keeps it stuck; moving it by hand frees it, and deleting the shape frees what hung on
+it. **Settings → Figure → Connectors stick to shapes** turns the sticking off.
+
+From the command line, `flux figure-attach <figure> <element> --start A --end B:e:4` sets a
+connector's ends (`<id>[:anchor[:gap]]`), `--to A --side n --gap 8` sits an element beside
+another, and `--detach` frees it ([command reference](/docs/commands.html#verb-reference)).
+
+A canvas that holds a stuck element is saved in a newer file format, which older Flux
+versions do not open.
 
 ## Arranging text in its box {#arranging-text-in-its-box}
 
@@ -177,6 +353,11 @@ you pressed Enter, never between the lines of one wrapped paragraph. **Tracking*
 spacing — the space added after every letter. Both are in **points**, like the font size, and a
 negative tracking pulls letters together. Tracking changes how much fits on a line, so a
 wrapping box re-wraps as you adjust it.
+
+**Halo** puts a ring of the background colour behind the letters, so a label stays readable
+where it crosses a plot's lines or an image. Set its width in pixels (0 turns it off); it takes
+the figure's or slide's background unless you pick a **Halo colour**. It shows in the editor,
+in exported figures and papers, and in slides; PowerPoint text boxes have no halo.
 
 **Italic for one word, not the whole box.** Double-click the text to edit it, select the part
 you want — a species name, a gene symbol, a single letter — and press **Ctrl+I**, **Ctrl+B** or

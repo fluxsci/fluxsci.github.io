@@ -26,25 +26,35 @@ Rehearse a talk, share an interactive HTML deck, or export PDF, PowerPoint and v
 
 The full list is in [Keyboard shortcuts](/docs/shortcuts.html#slide).
 
+**Back plays the step in reverse.** Pressing Back rewinds the step you just saw — the same
+frames in reverse, in about 70 % of its time and never longer than 0.8 s — and lands exactly on
+the previous step, in Present and in exported decks. Back during a step rewinds it from where it
+is; Next during a rewind replays the step. Pressing Back twice quickly jumps, because you are
+navigating rather than watching. Slides with video or 3D, reduced motion (**M**) and slides
+embedded in Paper always cut. To cut instead in Present, turn off **Settings → Figure → Slides →
+Back plays the step in reverse**; exported decks always rewind.
+
+<!-- MEDIA: Present: a step draws a line and raises a label; Back plays the same frames in reverse and lands on the previous step; two quick Backs jump. -->
+
 ## Export {#export}
 
 **Export ▾** offers these formats, each written to the project's `exports/`:
 
-- **HTML** — **one self-contained `.html`** with every slide, step, animation, transform and
-  font, playing in any web browser with the same keys as Present. No Flux on the
-  presenting machine, no network, nothing to install: open the file, give the talk.
-- **PDF** — one page per slide, showing the slide with every build step applied: a handout or
-  a copy to send before the talk (`<deck>.pdf`). Plots and text stay sharp at any zoom.
-- **PDF, each step** — one page per build step, so a slide that reveals three things becomes
-  three pages (`<deck>-steps.pdf`).
-- **PowerPoint** — an editable `.pptx` (`<deck>.pptx`) that **plays your builds and
-  transitions** in PowerPoint's slide show. Text arrives as real text boxes (bold, italic,
-  colour, superscript and subscript kept), and rectangles, ellipses, lines, arrows and drawn
-  paths as real PowerPoint shapes you can restyle. Plots arrive as **vector** pictures:
-  right-click one and choose **Convert to Shape** (**Group ▸ Ungroup** in older versions) to
-  edit its individual lines, points and labels.
-- **PowerPoint, final state** — the same, but one PowerPoint slide per slide with every build
-  step applied and no animation (`<deck>-final.pptx`): the easiest file to edit further.
+| Format | File | What you get |
+|---|---|---|
+| **HTML** | `<deck>.html` | One self-contained file with every slide, step, animation, transform and font. It plays in any web browser with the same keys as Present, and Back rewinds there too. No Flux on the presenting machine, no network, nothing to install: open the file, give the talk |
+| **PDF** | `<deck>.pdf` | One page per slide, showing the slide with every build step applied: a handout, or a copy to send before the talk. Plots and text stay sharp at any zoom |
+| **PDF, each step** | `<deck>-steps.pdf` | One page per build step, so a slide that reveals three things becomes three pages |
+| **PowerPoint** | `<deck>.pptx` | An editable deck that **plays your builds and transitions** in PowerPoint's slide show (below) |
+| **PowerPoint, final state** | `<deck>-final.pptx` | One PowerPoint slide per slide with every build step applied and no animation: the easiest file to edit further |
+| **Video…** | an `.mp4` you name | The **current slide** and all of its steps as one continuous video ([Video](#video)) |
+
+In PowerPoint, text arrives as real text boxes (bold, italic, colour, superscript and subscript
+kept; a text **halo** is not, because PowerPoint text boxes have no equivalent), and rectangles,
+ellipses, lines, arrows and drawn paths as real PowerPoint shapes you can restyle. Plots arrive
+as **vector** pictures: right-click one and choose **Convert to Shape** (**Group ▸ Ungroup** in
+older versions) to edit its individual lines, points and labels. 3D models export as stills
+([Exports and missing files](/docs/slide-media.html#model-exports)).
 
 ### How builds play in PowerPoint {#powerpoint-builds}
 
@@ -57,8 +67,9 @@ the effect's duration:
 - effects that play one after another within a click become extra slides that advance by
   themselves after the same gap; an **auto** step advances after its delay; steps chained
   **with previous** land on the same click;
-- entrances and exits fade; **Rise in** and **Pop in** keep their lift or pop, and **Pop
-  out** its shrink;
+- entrances and exits fade; **Rise in** and **Pop in** keep their lift or pop, **Pop out** its
+  shrink, and **Scale in** and **Scale out** their growth and shrink; **Pulse** and **Circle
+  it** add no PowerPoint slide;
 - the slide's transition (fade, slide, push) plays when the slide is entered.
 
 Objects are named with a leading `!!` (the Selection Pane shows it) — that is how Morph pairs
@@ -79,7 +90,7 @@ replaced by PowerPoint.
 
 **Video…** exports the **current slide** and all of its animation steps as one continuous
 `.mp4`. Set **Delay between steps**, **Hold at start**, and **Hold at end**, then choose
-where to save. Defaults are a 0.5-second step delay, a 1-second start hold, a 2-second end
+where to save. Defaults are a 1-second step delay, a 1-second start hold, a 2-second end
 hold, and **1080p at 60 fps**. Settings are remembered for the next export.
 
 The start hold sets when the first animation begins. Later manual steps use your chosen
@@ -90,8 +101,10 @@ initial design regardless of the step you are editing.
 
 Choose 720p, 1080p or 2160p, and 30 or 60 fps. The slide's aspect ratio is preserved
 (portrait slides work too); the displayed pixel dimensions show the exact output size.
-MP4s use H.264 with AAC audio from unmuted clips. Individual timing holds can be 0–60 seconds; a
-single-slide video can be up to 30 minutes long. Static slides export as a still video.
+MP4s use H.264 with AAC audio from unmuted clips. Videos are BT.709 limited range and tagged as
+such, so their colours match the slide on screen; imported video clips are transcoded
+separately. Individual timing holds can be 0–60 seconds; a single-slide video can be up to
+30 minutes long. Static slides export as a still video.
 
 Flux saves the slide before export and renders a snapshot in the background. You can keep
 editing while progress is shown, or **Cancel export**. An existing MP4 is replaced only
@@ -99,18 +112,19 @@ after its replacement finishes successfully. **Show in folder** reveals the comp
 Export warnings identify missing assets or animation issues that also need attention in
 the slide. Video export is available in the desktop app.
 
-The CLI uses the same exporter (timings here are milliseconds):
+The CLI uses the same exporter and the same defaults (timings here are milliseconds):
 
 ```bash
 flux export-slide-video <deck-id> <slide-id> --out slide.mp4 \
-  --step-delay 500 --start-hold 1000 --end-hold 2000 --height 1080 --fps 60
+  --step-delay 1000 --start-hold 1000 --end-hold 2000 --height 1080 --fps 60
 ```
 
 ## Embedding a slide in a document {#embedding-a-slide-in-a-document}
 
 In [Paper](/docs/paper.html), choose **Insert slide…** or type **/slide**, then select this deck
 and a slide. The document keeps a live reference. Renaming, reordering, and saved edits
-update the linked block; playback begins at step 0 and advances one step per click.
+update the linked block; playback begins at step 0 and advances one step per click, and
+stepping back cuts rather than rewinding.
 
 Deleting a referenced slide or removing its deck lists the affected documents, including
 open unsaved documents, before you can choose to proceed. Deleting a block in Paper does

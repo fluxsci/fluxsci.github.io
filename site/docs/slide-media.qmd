@@ -23,17 +23,27 @@ this changes the original camera. In **Edit after step N**, it writes that step'
 endpoint; the original view stays available. Picking a Become destination temporarily
 blocks orbit and tells you why, so a drag cannot accidentally change both actions.
 
-Select a model and choose **Turntable** to add a full, constant-speed turn. It is an ordinary
-Change effect: edit its duration or combine it with a Shape change. If the step already has a
-Change for that model, Turntable joins it and sets its timing to 6 seconds, linear, and Flux
-tells you when that re-times it. Complete turns remain complete turns, even when the starting
-and ending views look identical. Zoom changes smoothly in proportion, and projection changes
-at the endpoint.
+### Turn a model {#turntable}
+
+Select a model and choose **Turntable** to add a full turn that eases in and out: it never
+jumps to full speed on its first frame. It is an ordinary Change effect: edit its duration or
+combine it with a Shape change. For a loop, or spins chained step after step, set the track's
+**Pace** to **Constant speed** in the Animator (**Soft start** is the default). If the step
+already has a Change for that model, Turntable joins it and sets its timing to 6 seconds with a
+soft start, and Flux tells you when that re-times it. Complete turns remain complete turns, even
+when the starting and ending views look identical. Zoom changes smoothly in proportion, and
+projection changes at the endpoint.
+
+```bash
+flux add-turntable talk slide1 step2 model1 --turns 1 --duration 6000 [--pace soft|constant] [--direction cw|ccw]
+```
 
 For a scene with shape states, use the **Shape** sliders or **Frame** scrubber at the desired
 editing destination. To reveal a named mesh or furniture part independently, select it in
-**X-ray** and use **Animate selected**. Orbit, shape, colours and part visibility travel with
-the slide and use the same playback in Present and portable HTML.
+**X-ray** (**R**) and use **Animate selected**. A mesh part fades in and out: **Scale in** and
+**Scale out** have no equivalent for it, and **Pulse** and **Circle it** act on a model's labels
+and axes, not on its mesh (the Animation inspector reports it). Orbit, shape, colours and part
+visibility travel with the slide and use the same playback in Present and portable HTML.
 
 ### Ghost and Become with models {#ghost-and-become-with-models}
 
@@ -64,7 +74,8 @@ shows (a part that appears later is absent from earlier pages); PowerPoint does 
 editable 3D object. Command-line exports and a portable HTML deck's stills follow the same
 rule. If a GLB is missing, Flux shows a placeholder and refuses to save an incomplete deck:
 restore the named file or remove the model. A WebGL fallback is a still or placeholder with an
-issue, not a simulated animation.
+issue, not a simulated animation. In Present, **Back** cuts to the previous step on a slide
+with a model rather than [playing the step in reverse](/docs/present-and-export.html#presenting).
 
 A whole-slide preset embeds a copy of each model file, so the slide works in another project.
 The preset picker shows a saved preview. Metadata from a newer or mismatched fluxplot version is
@@ -73,11 +84,21 @@ such metadata, Flux refuses and asks for a matching re-export; the saved preset 
 
 ## Video clips {#video-clips}
 
-Keep **`.mp4` and `.mov`** files in **`plots/_videos`**. Open **Plots & videos** in the Slides workspace (or press **Alt+G**),
-choose a clip by its poster thumbnail, and import it onto the current slide. Drag, resize,
-rotate, group, and duplicate it with the same tools used for images. The inspector includes
-**Muted** and **Loop** options. Imported clips keep their originals; the deck stores a
-compatible MP4 playback copy and a poster frame. Longer imports show progress and can be cancelled.
+Keep **`.mp4` and `.mov`** files in **`plots/_videos`**. Then bring a clip onto the current
+slide in either of two ways:
+
+- In the [Plots rail](/docs/slides.html#the-plots-rail) (**Alt+G**), type **`_vid`** in the
+  search box to open **`_videos`**. Clips show their poster frames and place like plots:
+  double-click, press **Enter**, or drag one onto the stage to put it where you let go. A clip
+  that needs converting shows its progress at the top of the rail, with **Cancel**.
+- Open **Plots & videos** in the toolbar (or press **Shift+Alt+G**) for the full gallery,
+  choose a clip by its poster thumbnail, and import it.
+
+Clips come from this project only; the global plot library lists plots, not clips. Drag, resize,
+rotate, group, and duplicate a placed clip with the same tools used for images. The inspector
+includes **Muted** and **Loop** options. Imported clips keep their originals; the deck stores a
+compatible MP4 playback copy and a poster frame. Longer imports show progress and can be
+cancelled.
 
 A clip starts on its poster frame. **Appear** reveals it, and **Start video** begins playback.
 These are separate actions: put Appear on step 1 and Start video on step 2 to show the poster
@@ -87,11 +108,13 @@ while the presenter waits between steps. **Pause video** holds the current frame
 The command's start offset controls when it runs within its step.
 
 Preview and Present support pausing video after a step's animations finish. Leaving a slide,
-blanking the presentation, or hiding the player pauses its media. Portable HTML includes the
+blanking the presentation, or hiding the player pauses its media. In Present, **Back** cuts
+on a slide with video rather than rewinding the step. Portable HTML includes the
 clips and audio; a browser that requires a gesture for sound shows a **Play video** button.
 Continuous MP4 export includes moving clip frames and mixes unmuted audio. The last active
 clip finishes before the final hold; looping clips end with the export's configured timeline.
-Video clips belong to the Slides workspace; Figure canvases hold static content only.
+Video clips belong to the Slides workspace; Figure canvases hold static content only. A clip
+cannot take part in a Become; use Change to move or resize it.
 
 ::: {.next-reading}
 **Related guides**

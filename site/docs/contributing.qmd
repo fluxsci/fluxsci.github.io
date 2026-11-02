@@ -31,7 +31,24 @@ Every guide has an **Improve this page** link. Website sources live in [fluxsci.
 | [fluxplot](https://github.com/fluxsci/fluxplot) | Python plotting, schemas and regeneration recipes. |
 | [fluxsci.github.io](https://github.com/fluxsci/fluxsci.github.io) | Public website, documentation, reviewed media and publishing checks. |
 
-Follow each repository's current README and contributor instructions for its development environment and checks. Keep changes focused, explain the behavior they change, and include a reproducible validation result.
+Follow each repository's current README and contributor instructions for its development environment and checks. Keep changes focused, explain the behaviour they change, and include a reproducible validation result.
+
+### Run Flux from source {#run-from-source}
+
+Flux needs **Git** and **Node.js 22 (22.15 or newer)**; the repository's `.nvmrc` selects it for nvm. On macOS, install the Xcode Command Line Tools once with `xcode-select --install`.
+
+```bash
+git clone https://github.com/fluxsci/flux.git
+cd flux
+npm ci
+node node_modules/electron/install.js   # Electron no longer downloads itself at install
+npm run fetch:video-encoder
+npm run electron:dev                    # the desktop app with live reload; Ctrl+C stops it
+```
+
+`npm run check` runs the Svelte and TypeScript checks, `npm run test:pure` the core regression suite and `npm run test:ui` the browser-driven suite (some checks need Chrome or Chromium; set `FLUX_CHROME` if it is not at the default Linux path). `npm run build` produces the renderer, the browser extension, the export assets and the CLI/MCP bundles. A checkout's launcher pins the Node it was set up with; **AI status → Use this Flux for agents** points your agents at the checkout rather than an installed Flux. [Lighttable](/docs/lighttable.html#running-it) has its own dependencies and build inside `lighttable/`.
+
+For fluxplot, `python -m pytest` runs the test suite (output determinism is byte-checked, and a marker-DOM probe guards matplotlib upgrades) and `python examples/growth_plot.py` writes the worked example to `examples/out/`.
 
 ## Licenses and visual sources {#licenses}
 

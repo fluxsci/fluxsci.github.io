@@ -11,7 +11,23 @@ description: "Reveal the right information at the right moment. Control steps, e
 Reveal the right information at the right moment. Control steps, effects, timing and reusable styles.
 :::
 
-<nav class="quick-path" aria-label="Jump to a technique"><a href="#entrance-examples">Entrance effects ↓</a><a href="#align-starts-and-ends">Align timing ↓</a><a href="#easing-and-springs">Compare easing ↓</a></nav>
+<nav class="quick-path" aria-label="Jump to a technique"><a href="#entrance-examples">Entrance effects ↓</a><a href="#auto-animate">Auto-animate a plot ↓</a><a href="#align-starts-and-ends">Align timing ↓</a><a href="#easing-and-springs">Compare easing ↓</a></nav>
+
+## On this page {#on-this-page}
+
+| To… | Go to |
+|---|---|
+| Add an entrance, an emphasis or an exit | [The Animator](#the-animator), [Choose an effect](#appearances) |
+| Build a plot in three clicks, or draw a line along x | [Auto-animate a plot](#auto-animate), [Draw a line along x](#draw-along-x) |
+| Make one thing stand out | [Focus on one thing](#focus) |
+| Know how long a new effect will take | [Default timing](#default-timing) |
+| Arrange and retime effects in the timeline | [Select and arrange effects](#select-and-arrange-effects), [Align starts and ends](#align-starts-and-ends), [Cascading tracks](#cascading-tracks) |
+| Shape the motion | [Easing and springs](#easing-and-springs) |
+| Give several effects one look or one clock | [Inherit an effect's animation](#inherit-an-effects-animation), [Animation styles](#animation-styles), [Follow timing](#follow-timing) |
+| Animate parts of a plot | [Animate plot parts from the X-ray](#animate-from-the-x-ray), [Stagger order and spacing](#stagger) |
+| Preview what you made | [Playback and inspection](#playback-and-inspection) |
+
+Shortcuts are written for Linux and Windows; on macOS, **Ctrl** is **⌘** and **Alt** is **⌥**.
 
 ## The Animator {#the-animator}
 
@@ -23,27 +39,72 @@ plot parts. Selecting an object identifies its effects in the current step.
 
 <figure class="doc-figure"><a href="/assets/media/docs/slides-timeline.png" data-enlarge data-caption="The Animator gives each effect a lane. These six Change tracks share a duration, while their faint curves show different timing."><img src="/assets/media/docs/slides-timeline.png" alt="The native animation timeline, with Linear, Smooth, Enter, Overshoot, Bouncy and Steps lanes." width="1956" height="720" loading="lazy"></a><figcaption>The Animator gives each effect a lane. These six Change tracks share a duration, while their faint curves show different timing. Click to enlarge.</figcaption></figure>
 
-To animate something, select it on the stage (**Ctrl/Cmd+click** drills to a plot part), then use:
+To animate something, select it on the stage (**Ctrl+click** drills to a plot part), then use:
 
 - **Appear** / **Ctrl+Shift+A** — add an entrance.
 - **Transform ▾** — one action, three ways: **Change** (**Ctrl+Shift+C**) shapes a new state of the
   object at this step; **Ghost…** (**Ctrl+Alt+G**) creates copies that transform independently;
   **Become** (**B**) turns the object into another one. See [Transforms](/docs/transforms.html#transforms).
-- **Emphasize** — add a highlight.
+- **Emphasize** — add a **pulse**, a calm swell and return. **Highlight**, **Dim** and **Circle it**
+  are in the Effect menu of the Animation inspector.
 - **Disappear** / **Ctrl+Shift+D** — add an exit.
+- **Focus** / **Unfocus** — dim everything else, then bring it back. See [Focus on one thing](#focus).
 
-Flux chooses an entrance suited to the object: text rises, shapes pop, and lines draw on.
-Adding another effect keeps the existing ones. Effects on the same target start after its
-existing effects by default.
+Flux chooses an entrance suited to the object: text, images and plots rise in, shapes and arrows
+grow in, and lines and paths draw on. Adding another effect keeps the existing ones. Effects on the
+same target start after its existing effects by default.
 
-**Auto-animate** builds a plot in four phases: axes and colour key, gridlines, data, then
-legend and annotations. Lines draw on, bars grow from their baseline, and points stagger in.
-For multi-panel plots, choose **panel by panel** to run that sequence for each panel, with
-the title first and shared legend last.
+### Auto-animate a plot {#auto-animate}
+
+**✨ Auto-animate** builds a plot's entrance from its semantic anatomy and the plot's own hints,
+in three clicks:
+
+1. **Axes & grid** — the axes and their colour key. Each gridline fades in alongside its own
+   axis's ticks, which arrive one by one along the axis.
+2. **Data** — lines draw on, bars grow from their baseline, points and hexagons stagger in,
+   however many there are. A data line draws **along x**, at an even pace from left to right; its
+   confidence band opens behind the same front, its markers grow in as the line reaches each one,
+   and a line without markers is led by a small dot. A mean marker draws itself on as its points
+   arrive, its error bars grow out of it and their caps close them.
+3. **Legend & annotations** — the legend's frame, then its entries, then annotations and
+   brackets, each bracket with its own label.
+
+Each click starts after the short delay the plot suggests, and everything the plot draws is part
+of the build: nothing sits on the slide before its click. A multi-panel plot offers **panel by
+panel**: the same three clicks for each panel in turn (an inset right after its host), with the
+figure's title first and its shared legend last. Auto-animate replaces the plot's generated build
+and keeps the effects you added by hand. It needs the plot's parts tree, so a plot saved by an old
+fluxplot adds nothing until it is regenerated.
+
+The same build is available from the command line and to agents; `--pace classic` keeps the
+older timing numbers:
+
+```bash
+flux animate-plot talk slide1 plot1 [--per-panel] [--pace classic|v2]
+```
+
+<!-- MEDIA: Auto-animate on a line plot with a confidence band and markers: Axes & grid arrive tick by tick, the line draws along x with the band opening behind it and the markers growing in as it reaches them, then the legend and a bracket with its label. -->
+
+### Focus on one thing {#focus}
+
+**Focus** dims everything else on the slide to 30 % at this step, so the selection stands out.
+A label inside a selected object, and anything grouped with it, stays bright; a selected object
+that an earlier Focus dimmed comes back to full. Objects that are already dimmed, or that play
+another appearance in this step, are skipped (Flux lists them), and objects not yet on screen are
+left alone. **Unfocus**, on a later step, brings back everything a dim left below full opacity,
+smoothly from exactly where it is. Both are ordinary **Dim** and **Highlight** effects collected
+in a lane group, so you can retime or remove them like any other effect.
+
+```bash
+flux focus talk slide1 step2 plot1 label1 [--level 0.3]
+flux unfocus talk slide1 step3
+```
+
+<!-- MEDIA: Focus on a slide with a plot and three labels: everything but the chosen label and its box dims to 30 %, then Unfocus on the next step brings the rest back. -->
 
 ### See an entrance {#entrance-examples}
 
-Use **Fade** for a quiet reveal, **Pop** to bring attention to a shape, or **Wipe** to uncover it across the frame. In the slide below, from the Flux film, sample means pop in and a curve draws on.
+Use **Fade in** for a quiet reveal, **Scale in** or **Pop in** to bring attention to a shape, or **Wipe in** to uncover text across its line. In the slide below, from the Flux film, sample means pop in and a curve draws on.
 
 <div class="doc-study" data-doc-study="/demos/studies/entrances.html">
 <div class="doc-study-stage"><img src="/demos/studies/entrances.svg" alt="Sample means pop in and a normal curve draws on" width="1280" height="720" loading="lazy"><button class="doc-study-launch" type="button" data-study-start data-title="Sample means pop in and a normal curve draws on" hidden><span aria-hidden="true">▶</span> Try this example</button></div>
@@ -142,13 +203,14 @@ flux inherit-track talk slide1 --from rect2 --to e3,e4,e5,e6 [--include-start]
 
 ### Animate plot parts from the X-ray {#animate-from-the-x-ray}
 
-The **X-ray** (**Alt+R**) lists a plot's named parts as a tree, and you can animate from it:
+The **X-ray** (**R**) lists a plot's named parts as a tree, and you can animate from it:
 
-1. Select one plot, or several, and press **Alt+R**. A multi-plot X-ray lists the parts every
-   plot shares.
+1. Select one plot, or several, and press **R**. A multi-plot X-ray lists the parts every
+   plot shares. (**Shift+Alt+R** x-rays a drilled part's whole family, such as every tick label.)
 2. Pick the rows you want: **Shift+click** a run, **Ctrl/Cmd+click** to toggle a row,
    **Ctrl/Cmd+A** for all.
-3. Press **M** and choose **Appear**, **Emphasize**, **Disappear** or **Change**.
+3. Press **M** and choose **Appear**, **Emphasize**, **Disappear** or **Change** (**5** starts
+   **Appear from…** and **6** **Animate like…** from the same rows).
 
 Appear, Emphasize and Disappear give each picked part its own effect on the current step, ready
 to retime. **Change** selects the plots that own the parts; edits to part styles are captured in
@@ -175,6 +237,37 @@ Keyboard commands belong to the focused surface:
 - **In a text field**: keys keep their normal editing behaviour.
 
 **Ctrl/Cmd+Z** undoes one edit or gesture wherever you are.
+
+### Default timing {#default-timing}
+
+New effects are written at a measured pace. Nothing in an existing deck is retimed: an effect
+authored before this pace keeps its own numbers, and so does every effect you have edited.
+
+| New effect | Duration | Curve |
+|---|---|---|
+| Entrances — Fade in, Rise in, Pop in, Stagger in | 0.7 s | Quick smooth |
+| Scale in | 0.6 s | Quick smooth |
+| Draw on, Wipe in, Grow bars | 0.9 s | Quick smooth |
+| Count up | 0.9 s | Smooth |
+| Exits — Fade out, Pop out, Scale out, Draw off, Wipe out | 0.5 s | Quick smooth |
+| Highlight, Dim | 0.7 s | Quick smooth |
+| Pulse | 0.7 s | Smooth |
+| Circle it | 0.9 s | Smooth |
+| Change, Ghost, Become | 1.2 s | Smooth |
+| Camera | 0.9 s | Smooth |
+
+**Quick smooth** is the Smooth S-curve with its slow first moments removed, so a click shows
+motion at once. Three rules shape how steps feel in Present and in exported decks:
+
+- An **After previous** step waits 150 ms before it starts.
+- A click while an effect is still moving finishes that effect in at most 0.12 s, then starts
+  the next step, so a presenter can never outrun a build.
+- Selecting three or more objects and choosing **Appear** or **Disappear** lags them in reading
+  order, at most one second in all; two objects stay together, and shapes that start together
+  grow about their shared centre.
+
+The alignment diagrams above use their own example durations; the rules here only decide what a
+*new* effect is given before you touch it.
 
 ### Easing and springs {#easing-and-springs}
 
@@ -212,7 +305,7 @@ influence curves keep their handles horizontal; dragging vertically converts the
 bezier. The spacing chart shows 13 positions at equal times: close dots mean slower motion.
 
 Use the **Paste a curve…** field and **Paste** button, or **Ctrl+V** in the editor, to enter
-names such as `bouncy`, or strings such as
+names such as `bouncy`, `quick smooth` or `glide`, or strings such as
 `spring(0.35, v=2)`, `cubic-bezier(.2,1.4,.4,1)` and `steps(8)`. **Copy** copies the current curve.
 Invalid text shows an error without changing the effect. Different selected curves show
 **Mixed**; choosing a curve applies to all selected effects as one edit. **Enter**, **Done**,
@@ -297,8 +390,8 @@ stored start. `set-track --start` adjusts an anchored effect's offset; `--no-anc
 current resolved start. `--no-style` detaches its style. A start cascade adjusts anchor offsets;
 a duration cascade writes local overrides on linked effects.
 
-Successive appearance effects follow the prior effect's end. **Auto-animate** links a plot's
-Data-phase geometry to the points' start, plus half of the original stagger delay.
+Successive appearance effects follow the prior effect's end. [Auto-animate](#auto-animate)
+links a plot's Data-phase geometry to the points' start, plus half of the original stagger delay.
 
 ### Playback and inspection {#playback-and-inspection}
 
@@ -309,20 +402,85 @@ the document or changing the edit destination. Playback retains the last frame f
 **Loop** repeats the chosen playback range. Editing a property cancels the old preview so the next
 preview uses the updated document. Use Present for manual click-by-click rehearsal.
 
-### Appearances {#appearances}
+### Choose an effect {#appearances}
 
-The preset menu covers entrances (**fade**, **fadeRise**, **popIn**, **growBaseline**,
-**drawOn**, **writeOn**), exits (**fadeOut**, **popOut**, **drawOff**, **wipeOut**), emphasis
-(**highlight**, **dim**), **stagger** — members of a group or points of a series arrive in
-sequence, ordered by position or index, from either end or the center — and **countUp**, which
-tweens a number in a text element ("n = 1,247" counts up in place). Draw-on/off expose full
-**trim path** control (direction, anchor, single/both-ends/middle-out, partial windows), and
-wipes pick their direction.
+The Effect menu of the Animation inspector lists every appearance effect; the deck file and the
+commands know them by the preset names in the second column.
 
-**By** sets the stagger order: **order** (target order), **x →** or **y ↑** (data position), **value**
-(each part's own value — a hexagon's mean, a cell's value, a bar's height — low to high),
-**count** (observations per hexagon) or **data index** (the generator's index). The order comes
-from the plot's data, so a hexmatrix can fill from its emptiest hexagon to its fullest.
+| Effect | Preset | What happens |
+|---|---|---|
+| **Fade in** / **Fade out** | `fade` / `fadeOut` | Opacity rises from, or falls to, nothing |
+| **Rise in** | `fadeRise` | Fades in while rising into place |
+| **Pop in** / **Pop out** | `popIn` / `popOut` | Fades in while growing from 90 % of its size; fades out while shrinking to 92 % |
+| **Scale in** / **Scale out** | `scaleIn` / `scaleOut` | Grows from nothing, and shrinks back to it, about a point: the centre, an arrow's tail, or the shared centre of the objects that appear together. Never fades. The default for rectangles, ellipses and arrows |
+| **Grow bars** | `growBaseline` | Each bar grows from its own zero line: vertical bars up (down when negative), horizontal bars from the left (right when negative) |
+| **Draw on** / **Draw off** | `drawOn` / `drawOff` | A pen traces the stroke; see [Draw like a pen](#draw-like-a-pen) |
+| **Wipe in** / **Wipe out** | `writeOn` / `wipeOut` | Sweeps the text's own ink left to right, right to left, top to bottom or bottom to top, with no dead lead or tail (a rotated or flipped target sweeps its whole box). **Wipe edge** chooses **Soft**, a feathered leading edge on text, or **Hard**, the plain clip; new wipes are soft |
+| **Stagger in** | `stagger` | Members of a group or points of a series arrive in sequence; see [Stagger order and spacing](#stagger) |
+| **Highlight** | `highlight` | Dips to 40 % opacity and returns, easing into the dip from where the object is |
+| **Dim** | `dim` | Lowers opacity to 30 % and stays there, starting from the object's current opacity |
+| **Pulse** | `pulse` | Swells by 12–30 %, sized to the object and never past the slide edge, and returns. Emphasize's default |
+| **Circle it** | `encircle` | Traces a rounded band round the object, or round a sentence's ink, and leaves nothing behind |
+| **Count up** | `countUp` | Tweens a number in a text element ("n = 1,247" counts up in place). The digits stay put while counting, each in its place-value slot, for centred and right-aligned numbers too |
+
+A new **Appear** writes Rise in for text, images and plots, Scale in for rectangles, ellipses and
+arrows, and Draw on for lines and paths; **Disappear** writes their exits. Pop in and Highlight
+remain, and saved decks keep playing as made. Pulse and Circle it add no PowerPoint slide. Scatter
+points and axis ticks animate under Pop in, Rise in and Stagger in. Every effect starts and lands
+without a pop: a draw grows from nothing, and text that glides lands on the crisp resting text.
+
+#### Draw like a pen {#draw-like-a-pen}
+
+Draw on and Draw off expose full **trim path** control: direction, anchor, single, both ends or
+middle-out, and partial windows. A draw behaves like a pen. A filled shape traces its outline
+first and fills as the pen comes round, an arrowhead grows out of the end of its shaft, a dashed
+line draws dash by dash, and a dotted line draws solid and takes its dots when the draw ends. The
+stroke finishes at about 94 % of the duration, so draws in older decks end about 100 ms later
+than they used to.
+
+A Draw on an axis's tick marks with no stagger set plays the ticks one by one along the axis, in
+the pen's direction, in the same total time; set **Stagger → Each** to 0 ms to opt out.
+
+**Trace strokes in order**, a toggle on a Draw, draws the strokes of an imported drawing with
+several paths one after another at one pen speed, each weighted by its length (a Draw off takes
+the last stroke first). Flux turns it on for such drawings, never for a plot.
+
+#### Draw a line along x {#draw-along-x}
+
+**Draw along x**, a toggle on the Draw of a plot's data line, draws the line at an even pace
+along its x axis instead of along its length, so a steep stretch no longer rushes past. Its
+confidence band, error bars and markers ride the same front, and **Lead dot** adds a dot at the
+tip that exists only while it rides. [Auto-animate](#auto-animate) writes all of this for every
+line series, and a fit line beside a scatter keeps drawing as the points arrive.
+
+A line that doubles back in x, a step or ECDF line, a closed line or one that runs outside its
+axes keeps drawing along its length, and a draw along x takes a curve that stays between its
+ends (no spring, overshoot or steps). From the command line, for one series:
+
+```bash
+flux draw-along-x talk slide1 plot1 growth [--pen auto|on|off] [--duration 1400]
+flux draw-along-x talk slide1 plot1 growth --off   # draw by length again; effects and timing stay
+```
+
+`--pen auto` adds the lead dot only when no markers ride along. `--off`, or unticking the box,
+turns the x clock off and leaves the effects and their timing as they are.
+
+<!-- MEDIA: A sine-like data line drawn by length (racing through its steep parts) beside the same line drawn along x with a lead dot, its band opening behind the front and markers growing in as it reaches them. -->
+
+#### Stagger order and spacing {#stagger}
+
+**By** sets the stagger order: **order** (target order), **x →** or **y ↑** (data position),
+**value** (each part's own value — a hexagon's mean, a cell's value, a bar's height — low to
+high), **count** (observations per hexagon), **data index** (the generator's index) or
+**radial**. The order comes from the plot's data, so a hexmatrix can fill from its emptiest
+hexagon to its fullest. **Radial** ranks a plot's points (or bars, hexagons, cells) by their
+distance from the centre of the group, as it looks on screen: from **start** they ripple
+outwards, from **end** they collapse inwards. A deck that uses it is saved in the newer format,
+which older Flux versions do not open.
+
+With **x →** or **y ↑** from the start or the end, **spacing** chooses **even** (one step per
+item) or **true** (each item waits in proportion to its distance along the axis, so markers
+that sit unevenly appear exactly as a line drawn along x reaches them).
 
 Use **Stagger → Each** for the delay between ranks, or **Total** for the time between the
 first and last item starting. Switching modes preserves the current span. **From → Random**
@@ -337,7 +495,13 @@ flux set-track talk slide1 effect1 --stagger-total 800 --stagger-curve enter \
   --stagger-from random --seed 42
 flux set-track talk slide1 effect1 --stagger-each 30
 flux set-track talk slide1 effect1 --stagger-each 30 --stagger-by count
+flux set-track talk slide1 effect1 --stagger-each 40 --stagger-by x --stagger-spacing true
+flux set-track talk slide1 effect1 --stagger-total 900 --stagger-by radial \
+  --stagger-origin 2.5,1   # ripple out from (2.5, 1), in the plot's data units
 ```
+
+`--stagger-origin` gives a radial order another centre, in the plot's data units; without it the
+parts' own centre is used.
 
 ### Cascading tracks {#cascading-tracks}
 

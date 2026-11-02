@@ -121,7 +121,7 @@ try {
  await plate.evaluate(()=>document.images[0].decode());
  await plate.screenshot({path:path.join(root,`site/assets/media/${name}.webp`),type:'webp',quality:96});await record(name,1800,plateHeight);await plate.close();
 }
- await fs.writeFile(path.join(root,'media/screenshots.json'),JSON.stringify({source:pin,browser:await browser.version(),project:'Owner-authorized source plots; isolated website presentation',note:'Real Flux GUI in an isolated FileBridge. Two reviewed master figures retain their authored layout and plot content. Captions, website slides and manuscript are new. Public data and source terms are documented in visual credits. No owner test slides, personal library or context were used.',errors,outputs},null,2)+'\n');
+ await fs.writeFile(path.join(root,'media/screenshots.json'),JSON.stringify({source:{repository:pin.repository,revision:pin.revision,version:pin.version},browser:await browser.version(),project:'Owner-authorized source plots; isolated website presentation',note:'Real Flux GUI in an isolated FileBridge. Two reviewed master figures retain their authored layout and plot content. Captions, website slides and manuscript are new. Public data and source terms are documented in visual credits. No owner test slides, personal library or context were used.',errors,outputs},null,2)+'\n');
  const home=path.join(root,'site/index.qmd');let homeText=await fs.readFile(home,'utf8');
  for(const [rel,size] of Object.entries(outputs)){const filename=path.basename(rel);const re=new RegExp('(src="assets/media/'+filename.replaceAll('.','\\.')+'"[\\s\\S]*?width=")\\d+("\\s+height=")\\d+(")','g');homeText=homeText.replace(re,`$1${size.width}$2${size.height}$3`);}
  await fs.writeFile(home,homeText);

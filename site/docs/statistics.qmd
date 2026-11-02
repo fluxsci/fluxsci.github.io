@@ -11,7 +11,9 @@ description: "Compute reporting rows with effect sizes and intervals, then attac
 Compute reporting rows with effect sizes and intervals, then attach the same results to a plot.
 :::
 
-## Two-group comparisons
+`fp.stats` holds the tests behind the plots. Every function returns a **reporting row**, a plain dict with the test, its statistic and p-value, the effect size and its 95 % confidence interval, so the same numbers can be written to a CSV in the plot's `_stats` [dissection](/docs/dissections.html) and drawn as significance brackets over a [meanmark or fluxbox](/docs/signature-plots.html). In the examples, the samples (`sd_values`, `ctl`, …) are arrays from your own analysis.
+
+## Two-group comparisons {#two-group-comparisons}
 
 Each two-group test takes two samples `(a, b)`, orients signs as `a − b`, and returns one
 reporting row: a dict ready to save as a CSV in the plot's `_stats`
@@ -56,7 +58,7 @@ rank-based CIs stay non-degenerate at complete separation (`delta` or `r` = ±1)
 n = 6. Rank tests report `dof = None`. fluxplot's test suite (`tests/test_stats.py`) checks each
 test against SciPy and against the equation that defines its interval.
 
-## Multiple comparisons
+## Multiple comparisons {#multiple-comparisons}
 
 A row on its own has `p_corrected_holm == p-value` (a family of one).
 Holm's step-down correction needs every p-value in the family, so it is a separate pass over the
@@ -74,7 +76,7 @@ rows = fp.stats.holm(rows)
 `bh_adjusted(p)` fill `p_corrected_bh` with Benjamini–Hochberg (false-discovery-rate) values for a
 screen of many measures. NaN p-values pass through both untouched.
 
-## Three or more groups
+## Three or more groups {#three-or-more-groups}
 
 The omnibus tests return one row, in which `groups` lists every group and F tests carry `dof`
 and `dof_error`. The post-hoc tests return one row per pair. `pairwise` runs any two-group test
@@ -104,22 +106,22 @@ The group-based functions take the samples as positional arguments with optional
 example `fp.stats.welch_anova(ctl, drug, sham, names=("ctl", "drug", "sham"))`. The
 repeated-measures functions take a long table and its column names:
 `fp.stats.rm_anova(table, subject, within, dv)`. Exact signatures are in the
-[API reference](/docs/fluxplot-api.html#statistics). fluxplot's test suite
+[API reference](/docs/fluxplot-api.html#anova_oneway). fluxplot's test suite
 (`tests/test_stats_multi.py`) checks them against pingouin and scikit-posthocs reference values.
 
-## Draw the comparisons
+## Draw the comparisons {#draw-the-comparisons}
 
 `fp.brackets(ax, rows, positions=…)` draws one significance bracket per
 post-hoc row and stacks them automatically: shortest span first, each bracket one `step` above the
 data it spans and above every bracket it overlaps in x (multiplicative steps on a log axis), so
-nothing crosses. `positions` maps group name → x; a glowbar / fluxbox result provides it, and
-`gb.brackets(rows)` is the one-liner:
+nothing crosses. `positions` maps group name → x; a meanmark or fluxbox result provides it as
+`.positions`, and `gb.brackets(rows)` is the one-liner:
 
 ```python
 # ctl, drug and sham are the samples; df["group"] holds the same three names.
 rows = fp.stats.pairwise(fp.stats.welch_hedges,
                          {"ctl": ctl, "drug": drug, "sham": sham})
-gb = fp.glowbar(data=df, x="group", y="value", ax=ax)
+gb = fp.meanmark(data=df, x="group", y="value", ax=ax)
 
 # Stars (***, **, *, ns) from p_corrected_holm:
 gb.brackets(rows)
@@ -128,13 +130,18 @@ gb.brackets(rows, label="p", ns=False, p_column="p_corrected_bh")
 ```
 
 `label` is `"stars"`, `"p"`, `"both"` or a callable on the row. `thresholds`, `top`, `step` and
-`tip` shape the stack, and extra keywords are passed to `fp.significance_bracket`. Each bracket's manifest
+`tip` shape the stack, and extra keywords are passed to
+[`fp.significance_bracket`](/docs/fluxplot-api.html#significance_bracket). Without a result object,
+`fp.brackets(ax, rows)` reads the positions from the x tick labels, which must name every group.
+Brackets need a vertical plot: a horizontal meanmark (`orientation="horizontal"`) raises. Each bracket's manifest
 overlay carries `between: [a, b]`, `p` and a `stats` block — test, statistic, raw and corrected p,
 correction, effect size and its CI, sizes — so the figure states exactly which test each star came
-from.
+from, and `flux get-plot-data` reports it.
+
+<figure class="doc-figure doc-plot doc-figure-compact"><img src="/assets/media/docs/plots/meanmark-brackets.svg" alt="A meanmark of three groups, Control, Low dose and High dose, with three significance brackets stacked above the data, each labelled with stars." width="259" height="216" loading="lazy"><figcaption>Reporting rows from <code>fp.stats.pairwise</code> become stacked brackets with <code>mm.brackets(rows)</code>; stars follow the Holm-corrected p. Synthetic values.</figcaption></figure>
 
 ::: {.next-reading}
 **Related guides**
 
-[Glowbar, fluxbox and hexmatrix](/docs/signature-plots.html) · [Dissections](/docs/dissections.html) · [Python API reference](/docs/fluxplot-api.html) · [fluxplot quickstart](/docs/fluxplot.html)
+[Meanmark, fluxbox and hexmatrix](/docs/signature-plots.html) · [Dissections](/docs/dissections.html) · [Python API reference](/docs/fluxplot-api.html#brackets) · [fluxplot quickstart](/docs/fluxplot.html)
 :::

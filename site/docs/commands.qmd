@@ -11,6 +11,16 @@ description: "The complete Flux command catalog, flags, root resolution, MCP too
 The full command catalog for scripts and connected agents. Start with the [command-line guide](/docs/cli.html) for setup and examples.
 :::
 
+How to read the tables: the first column is the CLI verb with its arguments (`\|` separates
+alternatives, `…` means "and more of the same"); the second is the MCP tool of the same
+operation; the third says what it does. Related verbs share a row. The tables follow the
+reference shipped inside Flux (`FluxConfig/Context/FluxContext/CLI-REFERENCE.md`), and
+`flux help <verb>` always prints the flags of the version you have installed. Sections:
+[invocation](#invocation-and-root-resolution), [connection](#connection-protocol), the
+[project, figure and library verbs](#verb-reference) (with [align, arrange and reflow](#align-arrange-reflow)),
+[3D models](#figure-3d-models), [slides](#slide-commands), the [MCP server](#mcp-server),
+[provenance and locks](#provenance-and-locks) and [agent setup](#agent-installation-and-health).
+
 ## Invocation and root resolution {#invocation-and-root-resolution}
 
 Use this machine's stable launcher; shell commands below use `flux` as shorthand:
@@ -89,20 +99,25 @@ Read relevant changes before acting. Refresh does not authorize new work or watc
 | `create-figure [--id slug] [--family f --number n --nickname N]` | `create_figure` | blank figure (default: appended to the main **figure** family; the display name derives from family + number) |
 | `set-figure-family <figId> [--family figure\|supplementary\|extended-data\|<custom>] [--number n] [--nickname N \| --clear-nickname]` | `set_figure_family` | structured identity — `--number` inserts at that position and shifts the rest (refs stay valid; numbers are always contiguous 1..N) |
 | `define-figure-family --id slug --display-name N [--ref-template "Mov. {num}{panel}"] [--caption-template "Movie {num} \| "]`<br>`remove-figure-family <id>` | `define_figure_family`<br>`remove_figure_family` | define/update a custom family / drop one (members move to the figure family) |
-| `arrange <figId> [--rows N\|--cols N]`<br>`auto-label <figId>` | `arrange_figure`<br>`auto_label` | grid panels / letter panels a,b,c… (panels missing a label get one created first, so import-plots → arrange → auto-label just works) |
+| `arrange <figId> [--ids a,b,c] [--mode tidy\|reflow] [--rows N\|--cols N] [--gap N \| --gap-x N --gap-y N] [--anchor-x start\|center\|end] [--anchor-y start\|center\|end] [--scope groupId]`<br>`auto-label <figId>` | `arrange_figure`<br>`auto_label` | tidy an existing row, column or grid, or reflow panels into a new one — signed gaps overlap, anchors fix the selection bounds ([details](#align-arrange-reflow)) / letter panels a,b,c… (panels missing a label get one created first, so import-plots → arrange → auto-label just works) |
 | `add-fig-text <figId> "text" [--x --y --size-pt n] [--panel-label]` | `add_fig_text` | add a text element; `--panel-label` = a semantic panel label auto-label letters |
 | `toggle-text-run-style <elId> <from> <to> <bold\|italic\|underline>`<br>`toggle-text-run-script <elId> <from> <to> <super\|sub>`<br>`set-text-run-color <elId> <from> <to> <#hex\|inherit>` | `toggle_text_run_style`<br>`toggle_text_run_script`<br>`set_text_run_color` | format a character range of one text element (0-based offsets into its text, `to` exclusive) — what selecting letters in the editor does; `toggle-text-style <bold\|italic\|underline> <ids…>` still styles whole elements |
 | `restyle <figId> <partId> [--stroke c] [--fill c] …` | `restyle_part` | restyle a plot or 3D part by **stable id** (`restyle-part` is an alias) (survives regeneration) |
 | `set-series-color <figureId\|deckId/slideId> <seriesId> <#rrggbb\|--clear> [--element id]` | `set_series_color` | one colour for a whole plot series — line stroke, marker faces + edges, bar / band fills, error bars and its legend swatch, one override per part (survives regeneration); `--clear` restores the generated colours; a colour-mapped series is refused (use `set-plot-color-scale`); `restyle` of a series' whole line / points also repaints its legend swatch |
-| `get-plot-data <figureId\|deckId/slideId> [elementId] [--series id --fields series,colorScales,axes,overlays,guides,style,lut --offset n --limit n]` | `get_plot_data` | a plot's data from its fluxplot manifest: series with exact x/y, per-point ids and colour; hexmatrix bins, glowbar / fluxbox statistics, distributions, field values, image channels, bands; colour scales (tables only with `lut`); axis domains and scales; overlays with a bracket's test / p / effect size. Arrays longer than `--limit` (default 1000) are windowed from `--offset` and listed in `pages` with their true length — read data precisely instead of from a PNG |
+| `get-plot-data <figureId\|deckId/slideId> [elementId] [--series id --fields series,colorScales,axes,overlays,guides,style,lut --offset n --limit n]` | `get_plot_data` | a plot's data from its fluxplot manifest: series with exact x/y, per-point ids and colour; hexmatrix bins, meanmark / fluxbox statistics, distributions, field values, image channels, bands; colour scales (tables only with `lut`); axis domains and scales; overlays with a bracket's test / p / effect size. Arrays longer than `--limit` (default 1000) are windowed from `--offset` and listed in `pages` with their true length — read data precisely instead of from a PNG |
 | `set-style <ids…> [--fill] [--stroke] [--fill-opacity 0–1] [--stroke-opacity 0–1] …` | `set_style` | element-level style; the channel alphas are independent of `--opacity`, which multiplies both |
 | `delete-element <ids…>`<br>`delete-figure <figId>`<br>`duplicate-figure <figId>` | `delete_elements`<br>`delete_figure`<br>`duplicate_figure` | remove elements / remove or copy a whole figure |
-| `align <figId> <edge> [--ids a,b,c]`<br>`group <ids…>`<br>`ungroup <ids…>` | `align_figure`<br>`group_elements`<br>`ungroup_elements` | align (left/right/top/bottom/centerH/centerV) / group / ungroup |
+| `align <figId> <edge> [--ids a,b,c] [--target selection\|figure\|reference --reference <id>] [--scope groupId]`<br>`group <ids…>`<br>`ungroup <ids…>` | `align_figure`<br>`group_elements`<br>`ungroup_elements` | align (left/right/top/bottom/centerH/centerV) to the selection bounds, the figure frame or a reference element / group / ungroup |
+| `align-plot-spines <figId> --ids a,b --axis x\|y --reference e:<elementId>\|g:<groupId> [--scope groupId] [--choices JSON]` | `align_plot_spines` | align the plots' actual x spines (vertically) or y spines (horizontally) to one reference plot, which stays fixed; whole groups move rigidly; ambiguous or invisible spines are refused atomically, nothing moves ([details](#align-arrange-reflow)) |
+| `resize-plot <elementId> --width 3.5 --height 2.4 [--unit in\|cm\|pt\|px] [--figure figId] [--keep-aspect]` | `resize_plot` | resize a plot's figsize without Python: fluxplot ≥ 0.4 plots **reflow** (text, strokes and markers keep their point sizes); older or unsupported plots stretch, with the reason; content scale is respected; returns the relayout report |
+| `match-plot-areas <ids…> --dimension height\|width\|both [--reference id] [--panel id] [--figure figId]` | `match_plot_areas` | match the plots' data areas in one edit using reflowed geometry; the reference (else the first element) keeps its size; `--panel` scopes a multi-panel reference; returns the sizes and any feasibility warnings |
+| `set-plot-layout-mode <ids…> --mode auto\|stretch [--figure figId]` | `set_plot_layout_mode` | choose automatic reflow (`auto`, the default, stored as absence) or explicit stretch for plot elements; legacy plots need one regeneration with fluxplot ≥ 0.4 before they can reflow |
+| `figure-attach <figId> <elementId> [--start <id>[:anchor[:gap]]] [--end <id>[:anchor[:gap]]] \| [--to <id> --side n\|e\|s\|w [--gap px] [--align center\|start\|end]] \| [--detach]` | `figure_attach` | stick a line's ends to shapes (a connector; anchor `auto` aims at the other end, or `center`, `n`/`e`/`s`/`w`, `fx,fy`) or sit any element beside another (a label); the stuck element then follows what it is attached to; `--detach` frees it. A canvas holding a stuck element is saved in a newer format older Flux versions do not open |
 | `cascade <figId> <property> <ids…> [--delta n\|--factor n] [--dl --dc --dh] [--order selection\|layer\|x\|y] [--reverse] [--first-fixed]` | `cascade` | stepped delta across elements — rank k gets `value + delta·step` (step = k with `--first-fixed`, else k+1; `--factor` = ×factor^step); property ∈ x/y/rotation/width/height/opacity/strokeWidth/cornerRadius/fontSize(pt)/fill/stroke/color (colours step in OKLCh via `--dl/--dc/--dh`); a group is one rigid rank |
 | `set-z <figId> <front\|back\|forward\|backward> --ids a,b,c`<br>`set-figure-layout <figId> [--x --y --width --height --background --name]` | `set_z`<br>`set_figure_layout` | stacking order / figure frame (`--name` legacy seam: a designation like "Figure S3" routes to family+number, anything else becomes the nickname — prefer `set-figure-family`) |
 | `render-figure <id> [--png] [--out f] [--scale n]` | `get_figure_image {id}`<br>`render_figure {id}` (SVG) | render to SVG/**PNG** — the **look** step (warns when panels are stale vs `plots/`) |
 | `render-canvas [canvasId] [--png] [--out f]` | `get_canvas_image` | render the whole canvas (all figures at their x/y) — catches overlap/layout problems per-figure renders can't |
-| `sync-figure [figId]` | `sync_figure` | refresh `fig/assets` copies from regenerated `plots/` sources in place (captions/restyles survive); a changed intrinsic plot size resizes the element true-size + grows the figure frame — re-`arrange` if the grid should reflow |
+| `sync-figure [figId]` | `sync_figure` | refresh `fig/assets` copies from regenerated `plots/` sources in place (captions/restyles survive); a size you chose deliberately in Flux stays fixed, while an untouched native-size plot follows the new Python size |
 | `caption <id>`<br>`set-caption <id> <md> [--panel a]` | `get_caption`<br>`set_caption` | read / write the caption; the `Lead. **a**, … **b**, …` convention is distributed into per-panel blocks; `--panel` writes one panel; `--panel __ps__` writes unlabelled closing prose |
 | `normalize-embeds` | `normalize_embeds` | clear legacy alt-text captions from embed lines (canonical embeds are `![](…){#fig-id}`) |
 | `manuscript [--doc r]`<br>`set-manuscript [--doc r] <text\|--file f>` | `get_manuscript`<br>`set_manuscript` | read / overwrite a `.qmd` |
@@ -142,6 +157,36 @@ Read relevant changes before acting. Refresh does not authorize new work or watc
 | — | `get_app_context`<br>`dispatch_command`<br>`act_on_selection` | the **live bridge** (app open only) |
 | `view --png --out <file> [--max-edge n] [--root R]` | `get_view {maxEdge?}` | capture the open project's Flux window as PNG plus current context; maxEdge defaults to 1600, clamped to 256–1600; requires viewing enabled in Settings |
 
+### Align, arrange and reflow from the command line {#align-arrange-reflow}
+
+These verbs are the file-based twins of the editor's **Align & Arrange** panel (**A**, with
+**Alt+T** for Arrange) and the plot **Layout** controls — see
+[Keyboard shortcuts](/docs/shortcuts.html#figure-align-arrange).
+
+- `arrange <figId> --ids a,b,c --mode tidy --gap-x 16 --anchor-x center --anchor-y center`
+  infers a row, column or simple grid from the selection and tidies uneven gaps while
+  preserving internal offsets. Omit the gap overrides to keep already uniform spacing
+  exactly. `--mode reflow --rows N` or `--cols N` deliberately changes the topology
+  (`cols` wins if both are given; `tidy` rejects rows/cols). `--gap` sets both axes; `--gap-x`
+  / `--gap-y` take precedence. Every gap accepts a finite signed value: negative values
+  overlap tracks, with no lower floor, and extreme negative spacing may reverse physical
+  positions while keeping track membership, sizes and stacking order. Anchors are
+  `start|center|end` and fix the actual selection bounds, overlaps included. `--scope`
+  addresses the children of an entered group. Calls without the new flags keep the old
+  top-left grid defaults.
+- `align` also accepts `--target selection|figure|reference`, `--reference <unit key or
+  member id>` and `--scope`. `align-plot-spines` aligns semantic spines: `--reference` names
+  a stable unit, `e:<element-id>` or `g:<group-id>`; `--choices` maps unit keys to
+  `{plotId, panelId, spineId}` for multi-panel plots. The command reports per-unit
+  eligibility problems instead of moving a subset, and never changes domains, sizes or
+  source assets. It needs the project's accepted SVG and its asset-local semantic sidecar;
+  refresh or reimport plots whose accepted metadata is missing. Discover the exact schemas
+  with `flux_verbs` before constructing advanced choices.
+- `resize-plot`, `match-plot-areas` and `set-plot-layout-mode` act on the plot's measured
+  layout (fluxplot ≥ 0.4). A deliberate size survives `sync-figure` and regeneration; plots
+  saved by older fluxplot versions, polar and 3D plots, subfigures and compressed layouts
+  stretch, and the relayout report names the reason.
+
 ### Figure 3D models {#figure-3d-models}
 
 | Verb (CLI) | MCP tool | What it does |
@@ -167,19 +212,26 @@ parameters, `target` or the current selection) as one Undo step. Posters, `--no-
 | `set-theme <deck> <theme>` | `set_deck_theme` | flux-dark\|flux-light\|flux-paper\|flux-midnight\|flux-slate\|flux-sepia\|flux-contrast |
 | `add-text <deck> <s> "…"`<br>`add-figure <deck> <s> <figId>` | `add_slide_text`<br>`add_slide_figure` | add content (add-figure copies a project figure in — panels stay addressable; slide text is the figure text element: no math/rich-text slide elements) |
 | `add-slide-model <deck> <s> <source.glb> [--x n --y n --width n --height n --name N --no-poster]` | `add_slide_model` | Import a project-owned GLB and sidecars; returns element/asset IDs and warnings. |
-| `add-turntable <deck> <s> <beat> <element> [--turns n --direction cw\|ccw --duration ms --start ms]` | `add_turntable` | Add a linear, unwrapped model orbit Change; defaults to one clockwise turn over 6000 ms. |
+| `add-turntable <deck> <s> <beat> <element> [--turns n --direction cw\|ccw --duration ms --start ms --pace soft\|constant]` | `add_turntable` | Turn a 3D model on one step as an ordinary Change: a soft start and stop by default, `--pace constant` for loops and spins chained step after step; defaults to one clockwise turn over 6000 ms. Shape-state edits can share the same Change. |
 | `add-video <deck> <s> plots/_videos/clip.mov` | `add_slide_video` | import MP4/MOV, preserving original; optional `--x`, `--y`, `--width`, `--height`, `--muted`, `--loop` |
 | `set-video-track <deck> <s> <beat> <el> start` | `set_video_track` | playback command (`start`, `pause`, `stop`), independent of appearance; `--start ms` offset, after Design |
 | `set-video-settings <deck> <s> <el> --muted true --loop false` | `set_video_settings` | set clip audio/loop options |
 | `add-beat <deck> <s> [--label L]`<br>`set-animation <deck> <s> <beat> --target E [--preset P …]` | `add_beat`<br>`set_animation` | build timeline + appearance tracks (drawOn/writeOn/fades, trim windows) |
+| `animate-element <deck> <s> <elId> [--exit] [--preset P] [--beat-index n] [--part id]`<br>`animate-part <deck> <s> <elId> <part> [--beat-index n]` | `animate_element`<br>`animate_part` | an enter or exit with the per-kind default (text, image, plot → fadeRise; rect, ellipse, arrow → scaleIn / scaleOut; line, path → drawOn / drawOff) / one plot part's suggested reveal on a build beat |
+| `animate-plot <deck> <s> <elId> [--per-panel] [--pace classic\|v2]` | `animate_plot` | the whole plot build, as **Auto-animate** does: three clicks — axes & grid, data, legend & annotations; `--per-panel` builds panel by panel; `--pace classic` keeps the older timings. Replaces the element's generated build; manual tracks are kept |
+| `draw-along-x <deck> <s> <elId> <seriesId> [--pen auto\|on\|off] [--duration ms] [--off]` | `draw_along_x` | one data line draws along x at an even pace; its band and error bars open behind the same front and its markers grow in as it reaches them; `--pen` adds a lead dot (`auto`: only when no markers ride along); `--off` removes the x clock and leaves the effects and their timing as they are |
 | `set-plot-view <figureId\|deckId/slideId> <elementId> [--x-min N --x-max N --y-min N --y-max N --x-scale linear\|log --y-scale linear\|log --y2-min N --y2-max N --y2-scale linear\|log --reset] [--beat ID]` | `set_plot_view` | save a data-unit Axis view (lines, points, bars, cells and hexagons re-project; the viewed axis is re-ticked; `--y2-*` / `--x2-*` address a twin value axis); a deck beat writes a Change, reset restores generated axes |
 | `set-plot-color-scale <figureId\|deckId/slideId> <elementId> [--scale ID --cmap NAME --reversed --norm linear\|log\|symlog\|power\|twoslope\|centered --vmin N --vmax N --center N --gamma N --linthresh N --linscale N --extend neither\|min\|max\|both --reset] [--beat ID] [--regenerate]`<br>`get-plot-color-scales <figureId\|deckId/slideId> <elementId> [--beat ID]` | `set_plot_color_scale`<br>`get_plot_color_scales` | recolour a plot's colour scale live in data units (colormap, limits, norm, extend); a deck beat writes a Change the colours tween through; `--regenerate` writes the complete `__fluxplot__` control and re-runs the recipe; get lists scales, editability and the live view |
-| `set-transform <deck> <s> <beat> E [--curve grammar --arc -1..1] […]`<br>`apply-anim-template <deck> <s>`<br>`group-tracks` / `ungroup-tracks` | `set_transform`<br>`apply_anim_template`<br>`group_tracks` / `ungroup_tracks` | transform tracks (element tweens to a changed version of itself; plot-content Become) / role-matched templates / animator lanes |
+| `set-transform <deck> <s> <beat> E --state '<json patch>' [--replace-state] [--curve grammar] [--arc -1..1] [--turn rigid\|shrink] [--to-asset id] […]`<br>`apply-anim-template <deck> <s>`<br>`group-tracks` / `ungroup-tracks` | `set_transform`<br>`apply_anim_template`<br>`group_tracks` / `ungroup_tracks` | transform tracks (element tweens to a changed version of itself; plot-content Become); `--arc` bends a box move (Become pieces too); `--turn` says how a line or straight connector turns — `shrink` (default: the ends move straight, so it shortens mid-turn) or `rigid` (keeps its length) / role-matched templates / animator lanes |
+| `restore-state <deck> <s> <beat> <elId> --to N [--keys x,y]` | `restore_state` | **Return to Design** (`--to 0`) or **Return to before step N**: a Change at this step back to the element's earlier look, merged into an existing Change for it (the restored keys win and the others stay); `--keys` narrows it. Refused after a content change such as a Become |
+| `suggest-arcs <deck> <s> <beat>` | `suggest_arcs` | the Animator's **Suggest arcs**: give the box moves of one step that would cross mid-flight the smallest of 0.25, 0.45 and 0.83 that clears them; moves whose arc you set are left alone; returns the tracks written and how many pairs collided |
+| `focus <deck> <s> <beat> <elementIds…> [--level 0.3]`<br>`unfocus <deck> <s> <beat>` | `focus`<br>`unfocus` | **Focus**: dim everything visible at that step to 30 % (`--level`) except the given elements, the labels inside them and their groups, as one group of dim tracks (an element an earlier Focus dimmed climbs back to full) / **Unfocus**: on a later step, bring everything a dim left below full back to 100 % from where it is |
+| `slide-attach <deck> <s> <elId> [--start <id>[:anchor[:gap]]] [--end <id>[:anchor[:gap]]] \| [--to <id> --side n\|e\|s\|w [--gap px] [--align center\|start\|end]] \| [--detach]` | `slide_attach` | the slide twin of `figure-attach`: a connector's ends stick to shapes, or an element sits beside another; the stuck element follows moves, Changes, arcs and springs of what it is attached to, in the editor, Present and every export. A deck holding a stuck element is saved in a newer format older Flux versions do not open |
 | `anim-style create <deck> --name L --family F --preset P [--curve grammar --params json --influence json --arc -1..1 --stagger json]`<br>`anim-style set <deck> <id> [--curve grammar --params json --influence json --arc -1..1 --stagger json]`<br>`anim-style delete <deck> <id>`<br>`anim-style list <deck>` | `anim_style` | deck-level linked effect settings; deletion preserves linked tracks' resolved settings |
-| `animate-like <deck> <s> --from t1 --to t2,t3 [--beat beatId]`<br>`set-track <deck> <s> <t> [--style id\|--no-style] [--anchor t1:end:0\|--no-anchor] [--start ms --duration ms --curve grammar] [--stagger-each ms\|--stagger-total ms] [--stagger-curve curve --stagger-from random --stagger-by index\|x\|y\|value\|count\|data-index --seed n]` | `animate_like`<br>`set_track` | link effects by family; follow same-step timing; resolved start is reported with an anchored marker |
+| `animate-like <deck> <s> --from t1 --to t2,t3 [--beat beatId]`<br>`set-track <deck> <s> <t> [--style id\|--no-style] [--anchor t1:end:0\|--no-anchor] [--start ms --duration ms --curve grammar] [--stagger-each ms\|--stagger-total ms] [--stagger-curve curve --stagger-from start\|end\|center\|edges\|random --stagger-by index\|x\|y\|value\|count\|data-index\|radial --stagger-origin x,y --stagger-spacing even\|true --seed n] [--pair-lag 0..1]` | `animate_like`<br>`set_track` | link effects by family; follow same-step timing; resolved start is reported with an anchored marker. Stagger: `--stagger-spacing true` (with `x`/`y` from `start`/`end`) waits each part in proportion to its distance along the axis, `even` is one step per part; `--stagger-by radial` ranks parts by distance from `--stagger-origin x,y` (data units; absent = their centre) — from `start` they ripple out, from `end` they collapse in (the deck is saved in the newer format). `--pair-lag` sets a hand-off Become's piece lag (0 = all pieces at once) |
 | `align-tracks <deck> <s> --tracks t1,t2 --edge start\|end --to ms\|t3[:start\|end] [--beat id\|index] [--resize]`<br>`inherit-track <deck> <s> --from t1 --to t2,t3 [--beat id\|index] [--include-start]` | `align_tracks`<br>`inherit_track` | the Animator's Alt+A / Alt+D (land resolved starts or ends on a time or another effect's edge; `--resize` keeps the opposite edge; a moved start detaches an anchor) and Ctrl+Alt-drag Inherit (exact animation parameters: a linked source links the targets; otherwise duration, curve, stagger, and same-phase preset/params/arc copy; start only with `--include-start`) |
 | `ghost-transform <deck> <s> <beat> <source> [--count 3 --original stay\|disappear\|transform --states '<json array>']` | `ghost_transform` | create independent copies that begin at the source's prior-step state and transform to separate destinations; returns copy/track IDs for later edits |
-| `become <deck> <s> <beat> <source> --target E [--part a,b --source-part c,d --mode consume\|handoff --pair auto\|spatial\|order\|data\|tile --reveal flip\|draw --method shatter\|dissolve\|collapse\|drain]` | `become` | Become a live destination; `--to E` (repeatable) or `--members '[{"element":E,"parts":[…]},…]'` instead of `--target` names a destination set (objects and parts of any plots, always a hand-off); `--asset ID [--force]` instead performs a data-only Become; all forms accept `--start`, `--duration`, `--easing` |
+| `become <deck> <s> <beat> <source> --target E [--part a,b --source-part c,d --mode consume\|handoff --pair auto\|spatial\|order\|data\|tile --reveal flip\|draw --method dissolve\|shatter\|collapse\|drain --pair-lag 0..1]` | `become` | Become a live destination; `--to E` (repeatable) or `--members '[{"element":E,"parts":[…]},…]'` instead of `--target` names a destination set (objects and parts of any plots, always a hand-off); `--asset ID [--force]` instead performs a data-only Become; `--method` picks how a filled interior goes (dissolve is the default); `--pair-lag` makes a hand-off's pieces peel off one after another in reading order (a new hand-off of 3+ pieces gets 0.15; 0 = unison); all forms accept `--start`, `--duration`, `--easing` |
 | `appear-from <deck> <s> <beat> --dest E --from S [--part a,b --source-part c,d --pair P --reveal flip\|draw --method M --start ms --duration ms --easing E]` | `appear_from` | Appear from… authors the same source-owned hand-off; `--members <json>` instead of `--dest` reveals a destination set |
 | `swap-become <deck> <s> <track>` | `swap_become` | reverse a hand-off Become, preserving timing, style and follower links |
 | `set-beat <deck> <s> <beat> [--label L --advance click\|with-prev\|auto --auto-delay ms]` | `set_beat` | edit step label and advance timing |
@@ -191,13 +243,13 @@ parameters, `target` or the current selection) as one Undo step. Posters, `--no-
 | `set-part-visibility <deck> <element> <part> [--mode show\|animate\|mask]` | `set_part_visibility` | retained headless/back-compat resting visibility control; no GUI tri-state |
 | `set-part-style <deck> <element> <part> --patch '<json>'` | `set_part_style` | merge part-style overrides; null deletes a key |
 | `validate-deck [deck]`<br>`export-deck <deck> [--out F]` | `validate_deck`<br>`export_deck` | schema-check / export one offline `.html` |
-| `export-slide-video <deck> <slide> [--out F]` | `export_slide_video` | single-slide MP4; `--step-delay`, `--start-hold`, `--end-hold` in milliseconds; `--height 720\|1080\|2160`, `--fps 30\|60` |
+| `export-slide-video <deck> <slide> [--out F]` | `export_slide_video` | single-slide MP4; `--step-delay` (default 1000), `--start-hold`, `--end-hold` in milliseconds; `--height 720\|1080\|2160`, `--fps 30\|60` |
 
 `--curve` accepts the grammar and catalog names in [animation curves](/docs/animation.html#easing-and-springs):
 `spring(0.35[, v=2])`, `spring(k=170,c=26,m=1)`, `bezier(x1,y1,x2,y2)` /
 `cubic-bezier(...)`, `steps(n[,start|end])`, or `standard`, `smooth`, `enter`, `exit`,
 `linear`, `gentle`, `overshoot`, `anticipate`, `anticipate + overshoot`, `settle`,
-`snappy`, `bouncy`, `playful`, `steps`, `hold`. Legacy `--easing` remains supported.
+`snappy`, `bouncy`, `playful`, `steps`, `hold`, `quick smooth`, `glide`. Legacy `--easing` remains supported.
 
 ## MCP server {#mcp-server}
 
@@ -240,7 +292,6 @@ line each; `flux_verbs {query}` returns the matches with their schemas; `flux_ve
 tool, including tools the core list does not show. Select `--toolset full` or `FLUX_MCP_TOOLSET=full` to
 expose all dedicated tools. The MCP `connect` prompt provides a skill-free entry.
 
-
 ## Agent installation and health {#agent-installation-and-health}
 
 Setup is a user-authorized CLI operation, outside the MCP verb registry:
@@ -259,3 +310,9 @@ Codex users review the installed refresh hook in `/hooks`. The read-only core MC
 `connect_doctor` returns the same per-check diagnostics; it cannot change agent config.
 Personal UserContext skills publish only to connected vendors, with collisions and
 edited copies left intact. The flux-connect skill itself requires explicit invocation.
+
+::: {.next-reading}
+**Related guides**
+
+[Command line](/docs/cli.html) · [Connect an agent](/docs/connect.html) · [Keyboard shortcuts](/docs/shortcuts.html) · [Project layout](/docs/project-layout.html)
+:::

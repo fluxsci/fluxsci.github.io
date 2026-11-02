@@ -72,7 +72,14 @@ clear source-vs-derived split:
 
 Because it's all files, moving machines is copying a folder: `~/FluxConfig` carries your
 library (`FluxLib/`), your agent context and skills (`Context/UserContext/`, including `Skills/`),
-and your global plot library (`plot_library/`). Back it up like you'd back up your documents — it *is* documents.
+your global plot library (`plot_library/`) and your saved design, animation and slide presets
+(`presets/`). Back it up like you'd back up your documents — it *is* documents.
+
+Flux also keeps a few things there that it regenerates or reinstalls itself: the stock
+agent manual (`Context/FluxContext/`, rewritten on every update with this machine's paths),
+its logs (`logs/`) and a Quarto it installed for you from the setup window (`tools/quarto/`).
+Those need no backup. **Settings** can move the whole folder; `flux config` prints where it
+is now.
 
 ::: {.next-reading}
 **Related guides**

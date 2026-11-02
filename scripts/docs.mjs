@@ -31,6 +31,8 @@ export async function decorateDocuments(){
   const filename=path.join(OUTPUT,route.output),$=load(await readFile(filename,'utf8'));
   $('link[rel="canonical"]').remove();$('head').append(`<link rel="canonical" href="${ORIGIN}${route.url}">`);
   $('meta[property="og:url"]').attr('content',ORIGIN+route.url);
+  // The homepage title already names Flux; drop the site-name suffix Quarto appends.
+  if(route.url==='/')$('title').text(route.title);
   if(route.kind){
    $('#title-block-header, .quarto-title-block').remove();
    const group=groups.find(g=>g.items.some(item=>item.url===route.url));

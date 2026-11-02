@@ -267,3 +267,11 @@
 .doc-content[data-page="fluxplot-api"] pre.python,.doc-content[data-page="fluxplot-api"] pre.python code,.doc-content[data-page="fluxplot-api"] pre.python code>span{white-space:pre-wrap;overflow-wrap:anywhere}
 .directory-heading{align-self:start;position:sticky;top:calc(var(--header) + 24px)}
 @media(max-width:600px){.directory-heading{position:static}}
+
+/* Short clips of the app (muted, looping; paused under reduced motion and off-screen) and paired plot figures. */
+.doc-clip video{display:block;width:100%;height:auto;background:#1c1b1a}
+.doc-figure-pair{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:30px 0}
+.doc-figure-pair .doc-figure{margin:0}
+.doc-figure.doc-plot{background:var(--paper)}
+.doc-figure.doc-plot img{padding:12px}
+@media(max-width:600px){.doc-figure-pair{grid-template-columns:1fr}}

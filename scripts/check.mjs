@@ -57,7 +57,7 @@ export async function checkSource() {
   assert(/^[a-f0-9]{40}$/.test(player?.revision ?? ''), 'flux-source.json must pin the slide player to a full commit hash.');
   for (const patch of player.patches) assert.equal(createHash('sha256').update(await readFile(path.join(ROOT, patch.path))).digest('hex'), patch.sha256, `Slide player patch changed: ${patch.path}`);
   const playerSource = { repository: pin.repository, revision: player.revision, patches: player.patches.map(({ path, sha256 }) => ({ path, sha256 })) };
-  for (const [manifestFile, expected] of [['media/native-assets.json', release], ['media/screenshots.json', release], ['media/docs-demos.json', release], ['media/docs-screenshots.json', release], ['media/slides.json', playerSource]]) {
+  for (const [manifestFile, expected] of [['media/native-assets.json', release], ['media/screenshots.json', release], ['media/docs-demos.json', release], ['media/docs-screenshots.json', release], ['media/feature-captures.json', release], ['media/slides.json', playerSource]]) {
     const manifest = JSON.parse(await readFile(path.join(ROOT, manifestFile), 'utf8'));
     assert.deepEqual(manifest.source, expected, `${manifestFile} does not match the pinned Flux source.`);
     assert(Object.keys(manifest.outputs).length, `${manifestFile} has no output provenance.`);
@@ -68,6 +68,15 @@ export async function checkSource() {
       assert.equal(bytes.length, expected.bytes, `Asset size changed; refresh provenance for ${file}`);
       assert.equal(createHash('sha256').update(bytes).digest('hex'), expected.sha256, `Asset hash changed; refresh provenance for ${file}`);
     }
+  }
+  // Illustrative plots drawn with fluxplot for the guides: bytes and hashes are recorded in media/docs-plots.json.
+  const drawings = JSON.parse(await readFile(path.join(ROOT, 'media/docs-plots.json'), 'utf8'));
+  assert(drawings.source?.fluxplot && Object.keys(drawings.outputs).length, 'media/docs-plots.json must record the fluxplot version and its outputs.');
+  for (const [file, expected] of Object.entries(drawings.outputs)) {
+    assert(file.startsWith('site/') && allowedAsset(file.slice(5)), `Provenance references an unapproved public asset: ${file}`);
+    const bytes = await readFile(path.join(ROOT, file));
+    assert.equal(bytes.length, expected.bytes, `Drawing changed; refresh provenance for ${file}`);
+    assert.equal(createHash('sha256').update(bytes).digest('hex'), expected.sha256, `Drawing hash changed; refresh provenance for ${file}`);
   }
   const film = await filmManifest();
   const filmFiles = files.filter(file => file.startsWith('assets/film/')).map(file => `site/${file}`);
@@ -150,7 +159,7 @@ export async function checkOutput() {
     const published = await readFile(path.join(OUTPUT, file.slice(5)));
     assert.equal(createHash('sha256').update(published).digest('hex'), expected.sha256, `Published film file differs from media/film.json: ${file}. Rebuild the site.`);
   }
-  for (const manifestFile of ['media/native-assets.json', 'media/screenshots.json', 'media/docs-demos.json', 'media/docs-screenshots.json', 'media/slides.json']) {
+  for (const manifestFile of ['media/native-assets.json', 'media/screenshots.json', 'media/docs-demos.json', 'media/docs-screenshots.json', 'media/feature-captures.json', 'media/docs-plots.json', 'media/slides.json']) {
     const manifest = JSON.parse(await readFile(path.join(ROOT, manifestFile), 'utf8'));
     for (const [file, expected] of Object.entries(manifest.outputs)) {
       const published = await readFile(path.join(OUTPUT, file.slice(5)));

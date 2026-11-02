@@ -1,0 +1,131 @@
+{
+  "source": {
+    "repository": "https://github.com/fluxsci/flux.git",
+    "revision": "fb766407e6c197470cb28d5a6d789d02a7137c02",
+    "version": "0.3.0-dev"
+  },
+  "description": "Stills and short clips of the 0.3 Figure, Paper and Settings features in the native Flux GUI (dev-server fixture, isolated in-memory project). Plots are the authorized showcase plots and the tutorial plot drawn by media/docs-plots/make_docs_plots.py; the dissections folder and notes are illustrative. Clips are cut from one Playwright recording with ffmpeg.",
+  "errors": [],
+  "problems": [],
+  "outputs": {
+    "site/assets/media/docs/figure-plots-rail.png": {
+      "width": 2800,
+      "height": 2000,
+      "bytes": 1292072,
+      "sha256": "a284f2159182fbc827e299234f28f171cc675bccdc9ff4c3838cb1f63b3476bd"
+    },
+    "site/assets/media/docs/figure-dissections-notes.png": {
+      "width": 638,
+      "height": 1746,
+      "bytes": 409518,
+      "sha256": "6f240da720ae2cee2bae35bf9da8fc8fb7fe8878215a0f6fe89a92b8c7dfbff1"
+    },
+    "site/assets/media/docs/figure-plot-layout.png": {
+      "width": 496,
+      "height": 1240,
+      "bytes": 66603,
+      "sha256": "cb404e9b3dae5718736baad97c061badf246f6874d869848dd3fa41655bf66e7"
+    },
+    "site/assets/media/docs/figure-plot-reflowed.png": {
+      "width": 2800,
+      "height": 2000,
+      "bytes": 548571,
+      "sha256": "0f9fe9547166807971242e282c62b38926e21b638875b3c25d1599fd1bbd3433"
+    },
+    "site/assets/media/docs/figure-align-arrange.png": {
+      "width": 2800,
+      "height": 2000,
+      "bytes": 325753,
+      "sha256": "5d5f2cc399ef06c1f5b3a402d353fc6cf973cfc28ec5e9dee76de2254bca2923"
+    },
+    "site/assets/media/docs/figure-sticky-connector.png": {
+      "width": 2800,
+      "height": 2000,
+      "bytes": 232318,
+      "sha256": "e419e362d7e5a753d26e92507678c125987c875a9d4c622d5cb9c0b8f817bb55"
+    },
+    "site/assets/media/docs/settings-cursor.png": {
+      "width": 1560,
+      "height": 1200,
+      "bytes": 140344,
+      "sha256": "17b3a6c489379705b44195707408caf00a7468ede1371cf667aece43a55adc90"
+    },
+    "site/assets/media/docs/paper-figures-pane.png": {
+      "width": 704,
+      "height": 1906,
+      "bytes": 461759,
+      "sha256": "5c62253545018fa248bfc691849568602c7dc1214bd7af66142c0dd3a3f1a28d"
+    },
+    "site/assets/media/docs/paper-spelling.png": {
+      "width": 1408,
+      "height": 840,
+      "bytes": 83717,
+      "sha256": "91b39c0578b72a93eded24260a5b6d7c3d91efea70ec3202e2f143ae78b4035b"
+    },
+    "site/assets/media/docs/clips/plots-rail-place.mp4": {
+      "width": 1400,
+      "height": 1000,
+      "bytes": 447625,
+      "sha256": "a809f909a61edeea9138cb69aff5d354c7d37cc1aaf4a18e17e9ed1e323f05e8",
+      "durationMs": 7419
+    },
+    "site/assets/media/docs/clips/plots-rail-place.png": {
+      "width": 1400,
+      "height": 1000,
+      "bytes": 648224,
+      "sha256": "cd24cfe1753b2013e5a335dfc81b71a4b8298843470c4bec5ce599c09ff79044"
+    },
+    "site/assets/media/docs/clips/reflow-resize.mp4": {
+      "width": 1400,
+      "height": 1000,
+      "bytes": 382753,
+      "sha256": "449acaecbaff5396c1763b79963aa23453859375dbbe9e5f0b69f16bc1a707d3",
+      "durationMs": 7869
+    },
+    "site/assets/media/docs/clips/reflow-resize.png": {
+      "width": 1400,
+      "height": 1000,
+      "bytes": 596920,
+      "sha256": "601cb5aa975920a2dd50f7e3efdb967b1a2aa098631aa043391a2e7cb10e3961"
+    },
+    "site/assets/media/docs/clips/xray.mp4": {
+      "width": 1400,
+      "height": 1000,
+      "bytes": 452159,
+      "sha256": "ad9f0060afd88f53db65bbff0198fc4e098062d4d0d8bd409515edd179e8b142",
+      "durationMs": 8808
+    },
+    "site/assets/media/docs/clips/xray.png": {
+      "width": 1400,
+      "height": 1000,
+      "bytes": 554955,
+      "sha256": "065f8394d78d28c1e72a1bf96e07d7efa08da727aa704f9828bd484ee031752a"
+    },
+    "site/assets/media/docs/clips/align-arrange.mp4": {
+      "width": 1400,
+      "height": 1000,
+      "bytes": 142382,
+      "sha256": "a01fce304a3f1dee9e64ebc98af07b2938a52856951220b43bab07786dac7e66",
+      "durationMs": 5960
+    },
+    "site/assets/media/docs/clips/align-arrange.png": {
+      "width": 1400,
+      "height": 1000,
+      "bytes": 409594,
+      "sha256": "295a8a8c9b2482118a662b24d5a017f610478545a5346cc8be472609e54afd33"
+    },
+    "site/assets/media/docs/clips/sticky-connector.mp4": {
+      "width": 1400,
+      "height": 1000,
+      "bytes": 340133,
+      "sha256": "92f4118ec180cad1b63f581c3db6a9db680a3e625122c1c5d4deafbcbe29119c",
+      "durationMs": 13593
+    },
+    "site/assets/media/docs/clips/sticky-connector.png": {
+      "width": 1400,
+      "height": 1000,
+      "bytes": 259104,
+      "sha256": "e4c5dd29a0d8803374534f855c2fb4c1763e5d32d3b6b96f8e8a31aaa667f063"
+    }
+  }
+}
