@@ -1,6 +1,9 @@
 import {test,expect} from '@playwright/test';
 import {groups, routes} from '../../scripts/routes.mjs';
 import AxeBuilder from '@axe-core/playwright';
+import {readFileSync} from 'node:fs';
+// The install page may announce only the release the installer record points at (media/installer.json).
+const installer=JSON.parse(readFileSync(new URL('../../media/installer.json',import.meta.url),'utf8'));
 const pages=['/install/','/docs/','/docs/first-project.html','/docs/projects-and-files.html',...['paper','figure','slides','library','reader','fluxplot','3d-plots','fluxplot-api','commands','animation'].map(name=>`/docs/${name}.html`)];
 for(const url of pages)test(`document ${url} is readable, linked and accessible`,async({page})=>{
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
@@ -18,7 +21,7 @@ for(const url of pages)test(`document ${url} is readable, linked and accessible`
 });
 test('installer availability is honest and code copies exactly',async({page,request})=>{
  await page.addInitScript(()=>{Object.defineProperty(navigator,'clipboard',{value:{writeText:async text=>window.copied=text}})});
- await page.goto('/install/');await expect(page.locator('.availability-note')).toContainText('Flux v0.2.0 is available');
+ await page.goto('/install/');await expect(page.locator('.availability-note')).toContainText(`Flux v${installer.source.version} is available`);
  await page.locator('[data-copy]').first().click();
  expect(await page.evaluate(()=>window.copied)).toBe('curl -fsSL https://fluxsci.org/install.sh | bash');
  await expect(page.locator('[data-copy]').first()).toHaveText('Copied');

@@ -57,7 +57,7 @@ Helper panes summon beside your text and stack in one column:
 | **Alt+A** | Comments — the review threads on this document |
 | **Alt+C** | Citation group — edit the citation at the caret |
 | **Alt+J** | [Journal Check](/docs/export-documents.html#journal-check) — the selected journal's rulebook, as advice |
-| **Alt+K** | Manuscript Check — deterministic pre-submission checks: undefined cross-references and missing citekeys (with did-you-mean fixes), figures and tables cited out of order or never cited, empty captions, placeholders such as `TODO` and `[??]`, abbreviations used before they are defined, inconsistent spellings, open comments. Findings jump to their line; a fix is one undoable edit. The same checks run as `flux check` |
+| **Alt+K** | Manuscript Check — deterministic pre-submission checks: undefined cross-references and missing citekeys (with did-you-mean fixes), figures and tables cited out of order or never cited, empty captions, placeholders such as to-do notes and `[??]`, abbreviations used before they are defined, inconsistent spellings, open comments. Findings jump to their line; a fix is one undoable edit. The same checks run as `flux check` |
 
 **Alt+P** closes the active pane, **Ctrl+Alt+P** closes them all, and **Escape** always
 returns focus to your writing. **Ctrl+Shift+B** hides the margin column entirely. When no
