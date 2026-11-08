@@ -17,7 +17,7 @@ Write and organise documents, with figures and references close at hand.
 
 Your document is plain text with light formatting — headings, **bold**, math like `$E = mc^2$`, tables — and Flux renders the finished look live, in place. The file on disk stays an ordinary Quarto `.qmd`: formatting marks hide themselves except on the line you are editing, so the screen reads like a manuscript while the text stays honest.
 
-Click the title pill to edit a document's title and authors (they are stored as front matter). Its small dot is the autosave indicator; you never save by hand. Use **Ctrl+K** to find any command by name, or type **/** at the start of a line for the block palette: `/figure`, `/slide`, `/table`, `/equation`, `/citation`, `/heading`, `/callout` and friends. **Ctrl+F** finds text; **Ctrl+Alt+F** finds and replaces.
+Click the title pill to open **Document properties**: the title, each author's name, email, ORCID, roles and affiliations (stored as front matter; a save changes only the values you edited). Its small dot is the autosave indicator; you never save by hand. Use **Ctrl+K** to find any command by name, or type **/** at the start of a line for the block palette: `/figure`, `/slide`, `/table`, `/equation`, `/citation`, `/heading`, `/callout` and friends. **Ctrl+F** finds text; **Ctrl+Alt+F** finds and replaces.
 
 Shortcuts are written with **Ctrl** and **Alt**. On macOS, press **⌘ Command** for Ctrl and **⌥ Option** for Alt unless a shortcut says otherwise; [Keyboard shortcuts](/docs/shortcuts.html#paper) lists every Paper shortcut.
 
@@ -42,7 +42,7 @@ Generated render and cache folders stay out of the file browser. Ordinary folder
 
 The **Context** group contains `ProjectContext.qmd`, the append-only Log (`NOTEBOOK.md`) and project rules (`RULES.md`). They can be opened and commented on like other documents. See [Context and memory](/docs/context.html) for what to put there and when agents update the Log.
 
-**Ctrl+Shift+E** opens a full-width reading preview; **Escape** returns. The command palette switches between continuous and paginated views. **Ctrl+Shift+\[** folds a section and **Ctrl+Shift+\]** unfolds it (on macOS, **⌘⌥\[** and **⌘⌥\]**). Click the status-bar word count for document statistics, and use the text-size slider above it to make the type larger or smaller ([Writing tools](/docs/writing-tools.html#text-size)).
+**Ctrl+Shift+E** opens a full-width reading preview; **Escape** returns. The command palette switches between continuous and paginated views. **Ctrl+Shift+\[** folds a section and **Ctrl+Shift+\]** unfolds it (on macOS, **⌘⌥\[** and **⌘⌥\]**). Click the status-bar word count for per-section counts against your journal's limits and the document statistics, and use the text-size slider above it to make the type larger or smaller ([Writing tools](/docs/writing-tools.html#text-size)).
 
 Spelling and typing corrections run on your device; the **Local** item in the status bar switches them on and off. For spelling suggestions, vocabulary and aliases, see [Writing tools](/docs/writing-tools.html#local-corrections). For citations, figures, equations, tables and embedded slides, see [Citations, figures and tables](/docs/citations-and-figures.html).
 
@@ -57,6 +57,7 @@ Helper panes summon beside your text and stack in one column:
 | **Alt+A** | Comments — the review threads on this document |
 | **Alt+C** | Citation group — edit the citation at the caret |
 | **Alt+J** | [Journal Check](/docs/export-documents.html#journal-check) — the selected journal's rulebook, as advice |
+| **Alt+K** | Manuscript Check — deterministic pre-submission checks: undefined cross-references and missing citekeys (with did-you-mean fixes), figures and tables cited out of order or never cited, empty captions, placeholders such as `TODO` and `[??]`, abbreviations used before they are defined, inconsistent spellings, open comments. Findings jump to their line; a fix is one undoable edit. The same checks run as `flux check` |
 
 **Alt+P** closes the active pane, **Ctrl+Alt+P** closes them all, and **Escape** always
 returns focus to your writing. **Ctrl+Shift+B** hides the margin column entirely. When no
