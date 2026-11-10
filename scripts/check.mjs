@@ -78,6 +78,14 @@ export async function checkSource() {
     assert.equal(bytes.length, expected.bytes, `Drawing changed; refresh provenance for ${file}`);
     assert.equal(createHash('sha256').update(bytes).digest('hex'), expected.sha256, `Drawing hash changed; refresh provenance for ${file}`);
   }
+  // Clips for the pitch article, filmed in the real app by media/pitch/make.mjs.
+  const pitch = JSON.parse(await readFile(path.join(ROOT, 'media/pitch.json'), 'utf8'));
+  assert.deepEqual(files.filter(file => file.startsWith('assets/media/pitch/')).map(file => `site/${file}`).sort(), Object.keys(pitch.outputs).sort(), 'site/assets/media/pitch differs from media/pitch.json; re-run media/pitch/make.mjs.');
+  for (const [file, expected] of Object.entries(pitch.outputs)) {
+    const bytes = await readFile(path.join(ROOT, file));
+    assert.equal(bytes.length, expected.bytes, `Pitch clip size changed: ${file}`);
+    assert.equal(createHash('sha256').update(bytes).digest('hex'), expected.sha256, `Pitch clip hash changed: ${file}`);
+  }
   const film = await filmManifest();
   const filmFiles = files.filter(file => file.startsWith('assets/film/')).map(file => `site/${file}`);
   assert.deepEqual(filmFiles.sort(), Object.keys(film.outputs).sort(), 'site/assets/film differs from media/film.json; re-run media/film/encode.mjs.');
@@ -159,7 +167,7 @@ export async function checkOutput() {
     const published = await readFile(path.join(OUTPUT, file.slice(5)));
     assert.equal(createHash('sha256').update(published).digest('hex'), expected.sha256, `Published film file differs from media/film.json: ${file}. Rebuild the site.`);
   }
-  for (const manifestFile of ['media/native-assets.json', 'media/screenshots.json', 'media/docs-demos.json', 'media/docs-screenshots.json', 'media/feature-captures.json', 'media/docs-plots.json', 'media/slides.json']) {
+  for (const manifestFile of ['media/native-assets.json', 'media/screenshots.json', 'media/docs-demos.json', 'media/docs-screenshots.json', 'media/feature-captures.json', 'media/docs-plots.json', 'media/slides.json', 'media/pitch.json']) {
     const manifest = JSON.parse(await readFile(path.join(ROOT, manifestFile), 'utf8'));
     for (const [file, expected] of Object.entries(manifest.outputs)) {
       const published = await readFile(path.join(OUTPUT, file.slice(5)));

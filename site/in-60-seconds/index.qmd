@@ -1,0 +1,29 @@
+---
+title: "Flux in 60 seconds"
+description: "A one-minute look at Flux, a unified workspace for scientific figures, papers, talks and the literature behind them."
+---
+
+<p class="eyebrow">A one-minute look</p>
+
+# Flux in 60 seconds
+
+::: {.doc-lead}
+Flux is a unified workspace for creating scientific and technical materials: figures, papers,
+talks, and the reading behind them. It is designed to be a joy to use, and to take the details
+that software should handle off your mind.
+:::
+
+## Restyle a plot without rerunning it {#restyle-a-plot}
+
+A plot arrives in Flux with its parts still named and its colours still tied to the data.
+Select a panel, press **F**, and choose another colormap. The plot, its colour bar and its
+ticks change together, straight away, and the analysis never runs again.
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/colormap.webp" width="1920" height="1440" muted loop playsinline autoplay controls preload="metadata" aria-label="A five-panel figure. The view moves in on one panel, a stress map, which is selected; F opens its properties, the colour scale editor opens, and three colormaps are tried in turn. The plot and its colour bar change with each click, and the view returns to the whole figure."><source src="/assets/media/pitch/colormap-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/colormap.mp4" type="video/mp4"></video><figcaption><span>Select the panel, press <strong>F</strong>, open its colour scale, and try three colormaps.</span></figcaption></figure>
+```
+
+::: {.article-next}
+<a class="article-install" href="/install/">Install Flux</a>
+<a href="/docs/first-project.html">Or follow the 20-minute first project</a>
+:::

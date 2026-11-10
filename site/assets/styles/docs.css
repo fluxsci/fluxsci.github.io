@@ -275,3 +275,20 @@
 .doc-figure.doc-plot{background:var(--paper)}
 .doc-figure.doc-plot img{padding:12px}
 @media(max-width:600px){.doc-figure-pair{grid-template-columns:1fr}}
+
+/* An article: one centred reading column for a short piece that is read top to bottom, with
+   4:3 clips of the app that fill a phone screen's width and stand wider than the text on a desk. */
+.docs-layout.article-layout{display:block;max-width:calc(660px + 2*var(--gutter));padding-top:64px}
+.article-layout .doc-content h1{font-size:clamp(42px,7vw,62px);margin:14px 0 26px}
+.article-layout .doc-content .doc-lead{font-size:21px;line-height:1.6;max-width:none;margin-bottom:8px}
+.article-layout .doc-content h2{margin-top:58px}
+.doc-content figure.article-clip{--clip:min(960px,calc(100vw - 2*var(--gutter)),calc((100dvh - var(--header) - 110px)*4/3));width:var(--clip);max-width:none;margin:36px 0 48px calc((100% - var(--clip))/2)}
+.article-clip video{aspect-ratio:4/3;width:100%;height:auto;border:1px solid var(--rule);border-radius:14px;background:#26272b;box-shadow:var(--shadow);cursor:pointer}
+.article-clip video:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
+.doc-content .article-clip figcaption{display:flex;justify-content:space-between;gap:18px;margin:13px 4px 0;font:13px/1.55 var(--sans);color:var(--muted)}
+.article-clip.is-paused figcaption::after{content:'Paused · tap to play';flex:none;color:var(--blue)}
+@media(hover:hover) and (pointer:fine){.article-clip.is-paused figcaption::after{content:'Paused · click to play'}}
+.article-next{margin-top:56px;padding-top:26px;border-top:1px solid var(--rule);font:15px/1.5 var(--sans)}
+.doc-content .article-next p{display:flex;flex-wrap:wrap;gap:16px 26px;align-items:center;margin:0}
+.doc-content .article-next a.article-install{background:var(--button);color:var(--button-ink)!important;text-decoration:none!important;padding:11px 20px;border-radius:6px;font-weight:500}
+@media(max-width:600px){.doc-content .article-next p{flex-direction:column;align-items:flex-start}.docs-layout.article-layout{padding-top:34px}.article-layout .doc-content .doc-lead{font-size:19px}.doc-content figure.article-clip{margin:26px calc(12px - var(--gutter)) 36px;width:auto}.article-clip video{border-radius:12px}.doc-content .article-clip figcaption{margin-inline:calc(var(--gutter) - 12px)}}

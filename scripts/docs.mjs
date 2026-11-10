@@ -41,7 +41,7 @@ export async function decorateDocuments(){
     const words=$('body').text().trim().split(/\s+/).length;
     if(!$('.guide-meta').length)$('.doc-lead').first().after(`<div class="guide-meta"><span>${Math.max(2,Math.round(words/220))} min read</span><span>${escape(group?.title||'Flux guide')}</span></div>`);
    }
-   $('h2[id],h3[id]').each((i,el)=>{const heading=$(el);heading.append(`<a class="heading-link" href="#${heading.attr('id')}" aria-label="Link to ${escape(heading.text())}"><span aria-hidden="true">#</span></a>`);});
+   if(route.kind!=='article')$('h2[id],h3[id]').each((i,el)=>{const heading=$(el);heading.append(`<a class="heading-link" href="#${heading.attr('id')}" aria-label="Link to ${escape(heading.text())}"><span aria-hidden="true">#</span></a>`);});
    // Wide reference tables scroll inside the column instead of squeezing their last column.
    // Pipe tables escape | inside code spans; the escape is not part of the command.
    $('table code').each((i,el)=>{const code=$(el);if(code.text().includes('\\|'))code.text(code.text().replace(/\\\|/g,'|'));});
@@ -54,13 +54,16 @@ export async function decorateDocuments(){
    const content=$('body').html();
    // Minimal Quarto documents have no app chrome. The site owns the shared frame.
    const headings=$($('h2[id]').length<=2?'h2[id],h3[id]':'h2[id]').toArray().map(el=>({title:$(el).clone().find('.heading-link').remove().end().text(),id:$(el).attr('id')}));
-   const toc=route.kind==='directory'?'':`<aside class="doc-toc" aria-label="On this page"><p>On this page</p><nav>${headings.map(h=>`<a href="#${h.id}">${escape(h.title.replace(/^\d+\.\s*/,''))}</a>`).join('')}</nav></aside>`;
-   const side=route.kind==='install'?'':`<aside class="docs-sidebar"><details class="docs-mobile-nav" open><summary>Browse documentation</summary><nav aria-label="Documentation"><a class="docs-overview" href="/docs/"${route.url==='/docs/'?' aria-current="page"':''}>Documentation home</a>${groups.map((g,i)=>`<details class="docs-nav-group" ${i===0||g.items.some(item=>item.url===route.url)?'open':''}><summary>${escape(g.title)}</summary>${g.items.map(item=>link(item,route.url)).join('')}</details>`).join('')}</nav></details></aside>`;
+   // An article is one centred reading column: no documentation sidebar, no page contents.
+   const article=route.kind==='article';
+   const toc=route.kind==='directory'||article?'':`<aside class="doc-toc" aria-label="On this page"><p>On this page</p><nav>${headings.map(h=>`<a href="#${h.id}">${escape(h.title.replace(/^\d+\.\s*/,''))}</a>`).join('')}</nav></aside>`;
+   const side=route.kind==='install'||article?'':`<aside class="docs-sidebar"><details class="docs-mobile-nav" open><summary>Browse documentation</summary><nav aria-label="Documentation"><a class="docs-overview" href="/docs/"${route.url==='/docs/'?' aria-current="page"':''}>Documentation home</a>${groups.map((g,i)=>`<details class="docs-nav-group" ${i===0||g.items.some(item=>item.url===route.url)?'open':''}><summary>${escape(g.title)}</summary>${g.items.map(item=>link(item,route.url)).join('')}</details>`).join('')}</nav></details></aside>`;
    // Previous and next run through the whole reading order, so no section ends in a dead end.
    const sequence=groups.flatMap(g=>g.items.map(item=>({...item,group:g.title}))),current=sequence.findIndex(item=>item.url===route.url);
    const pageLinks=route.kind==='guide'?`<nav class="guide-pagination" aria-label="Previous and next guide">${[sequence[current-1],sequence[current+1]].map((item,i)=>item?`<a href="${item.url}"><span>${i?'Next →':'← Previous'}${item.group!==group?.title?` · ${escape(item.group)}`:''}</span><strong>${escape(item.title)}</strong></a>`:'<span></span>').join('')}</nav>`:'';
-   $('body').html(`${header(route.url)}<div class="docs-layout ${route.kind==='install'?'install-layout':''} ${route.kind==='directory'?'directory-layout':''}">${side}<main id="main-content" class="doc-content ${route.kind==='directory'?'docs-directory':''}" data-page="${route.output.replace(/^docs\//,'').replace(/\/?index\.html$|\.html$/,'')}">${content}${pageLinks}<div class="doc-source"><a href="https://github.com/fluxsci/fluxsci.github.io/blob/main/site/${route.source}">Improve this page on GitHub ↗</a></div></main>${toc}</div>${footer()}${mediaDialog}${searchDialog}`);
-   search.push({title:route.title,url:route.url,description:$('.doc-lead').text().trim(),text:$('.doc-content').text().replace(/\s+/g,' ').trim(),external:false});
+   $('body').html(`${header(route.url)}<div class="docs-layout ${route.kind==='install'?'install-layout':''} ${route.kind==='directory'?'directory-layout':''} ${article?'article-layout':''}">${side}<main id="main-content" class="doc-content ${route.kind==='directory'?'docs-directory':''}" data-page="${route.output.replace(/^docs\//,'').replace(/\/?index\.html$|\.html$/,'')}">${content}${pageLinks}${article?'':`<div class="doc-source"><a href="https://github.com/fluxsci/fluxsci.github.io/blob/main/site/${route.source}">Improve this page on GitHub ↗</a></div>`}</main>${toc}</div>${footer()}${mediaDialog}${searchDialog}`);
+   if(route.unlisted)$('head').append('<meta name="robots" content="noindex">');
+   else search.push({title:route.title,url:route.url,description:$('.doc-lead').text().trim(),text:$('.doc-content').text().replace(/\s+/g,' ').trim(),external:false});
   }else{
    // The homepage and the error page keep their own main content inside the shared frame.
    $('#title-block-header, .quarto-title-block').remove();

@@ -1,0 +1,33 @@
+{
+  "$doc": "Clips for the pitch article, made by media/pitch/make.mjs from the real Flux app. Each take records the Flux revision it was filmed in; outputs are verified by the site build.",
+  "takes": {
+    "colormap": {
+      "recorded": "2026-11-10T04:16:22.366Z",
+      "flux": {
+        "revision": "c82f681f6a35c8ff71c9cc73f0c37d30c9802afc",
+        "dirty": false
+      },
+      "window": {
+        "width": 1840,
+        "height": 1100,
+        "scale": 4
+      },
+      "project": "MASTER_DEMO_FluxProj",
+      "seconds": 16.39
+    }
+  },
+  "outputs": {
+    "site/assets/media/pitch/colormap.mp4": {
+      "bytes": 6849939,
+      "sha256": "d541c890505cb22ca4d028ae8d6566f7377f315afecf1b09a9b14de71df816d4"
+    },
+    "site/assets/media/pitch/colormap.webp": {
+      "bytes": 107006,
+      "sha256": "a07a2db83977961334b52d4b7c2da93523a905f99a20d9a5de6f82b2eb9b36f8"
+    },
+    "site/assets/media/pitch/colormap-1280.mp4": {
+      "bytes": 4005200,
+      "sha256": "5787007eb0e2beb51e714ca82f2b975af00ee34d08d2a4e041a8158a16ef7e95"
+    }
+  }
+}

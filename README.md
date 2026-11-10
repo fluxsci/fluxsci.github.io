@@ -54,6 +54,25 @@ npm test
 
 `media/film.json` records every published film file by size and SHA-256; the build refuses a film that differs from it. The film has its own publication budget (600 MB, beside the 150 MB site budget) and every segment stays under the 15 MB per-file limit. GitHub Pages serves up to 1 GB per site and has a soft bandwidth limit of about 100 GB a month: one full viewing costs roughly 40 MB at 720p and 150–250 MB at 4K. If traffic grows, move the same ladder to a video host or CDN and point `data-film-src` in `site/index.qmd` at the new master playlist.
 
+## Article clips
+
+`site/in-60-seconds/` is the pitch article: one reading column (`kind: "article"` in `scripts/routes.mjs`) with 4:3 clips of the app. It is `unlisted` (built and checked, but absent from the sitemap, search and navigation, and marked `noindex`) until it is announced.
+
+Each clip is filmed in the real desktop app, never in a mock-up:
+
+```sh
+FLUX_XVFB=/path/to/Xvfb node media/pitch/make.mjs --flux-source /path/to/flux --project /path/to/MASTER_DEMO_FluxProj --take colormap
+node media/pitch/make.mjs … --take colormap --reuse <take dir>    # new framing or encoding, same recording
+```
+
+- `media/pitch/stage.mjs` copies the project to a scratch folder, isolates HOME, and runs the production Electron build on a private X display at 4x pixel density (a 1840x1100 window, 7360x4400 pixels).
+- `media/pitch/record.mjs` sizes the window to fill that display, drives the app with real input events and grabs the screen losslessly at 60 fps (the whole figure, about 18 megapixels a frame). A take is a function in `takes`; it logs the pointer's glides as formulas (an arc, a duration, a reaching ease: quick off the mark, a long soft landing, timed by distance), clicks, keys and named moments on the page clock. One 8 px square outside every camera frame carries that clock as a colour, so each grabbed frame knows its own time.
+- `media/pitch/cursors.mjs` renders the pointer. The take records which of Flux's cursor images was showing at every moment (the pink arrow by default); those images, and the press frames from Flux's own `cursorFamily.ts`, are drawn at 8x. The pointer in a clip is always the app's own cursor, never a stand-in.
+- `media/pitch/compose.py` renders the clip: a 4:3 camera that eases between framings (defined per take in `CAMERAS`: start on the whole figure, move in for each action, pull back when a whole panel appears), that pointer (slightly enlarged so it reads on a phone, playing the app's press on every click), a soft ring at each click, key badges, and a dissolve back to the first frame for a seamless loop. It refuses a framing with fewer real pixels than the output is wide (480 CSS px at 4x for 1920), so nothing is ever enlarged. Frames go to a lossless master first; the published files are encoded from it: 1920x1440 (H.264 High, level 5.1, BT.709, 60 fps, about 7 MB for 16 seconds), a 1280x960 copy for phones (level 4.2, about 4 MB), and the first frame as the poster.
+- `media/pitch.json` records the Flux revision of every take and the bytes and SHA-256 of every output; the build refuses clips that differ. `media/pitch/review.mjs <dir>` screenshots the built page on desktop and phone with the clip playing.
+
+On the page a clip is `<figure class="doc-clip article-clip">`: muted, looping, inline, playing only while in view, with no control bar; a click, tap, Enter or Space pauses it. Narrow screens get the 1280 source (`media="(max-width: 700px)"`), everything else the 1920 one. On a desk the clip stands wider than the text column (up to 960 px); on a phone it runs nearly edge to edge. Reduced motion keeps the still frame and the native controls. To keep interface text readable on a phone, hold a framing no wider than about 600 CSS pixels of the app while something small is being read or clicked; wider framings are for showing where things are.
+
 ## Visual material
 
 The previous bundled example and download have been retired. The confirmed master demonstration project supplies two authored figures and their accepted assets. Their plot content and layout are preserved. Refreshing media creates an isolated copy with original captions, a new manuscript, a small demonstration bibliography, and three new slides. Existing test slides and the owner's personal configuration or library are never read.

@@ -46,7 +46,19 @@
   const reduce=matchMedia('(prefers-reduced-motion: reduce)');
   const apply=()=>{for(const v of clips){if(reduce.matches){v.removeAttribute('autoplay');v.pause();}else v.setAttribute('autoplay','');}};
   apply();reduce.addEventListener('change',apply);
-  if('IntersectionObserver' in window){const io=new IntersectionObserver(entries=>{for(const entry of entries){const v=entry.target;if(entry.isIntersecting){if(!reduce.matches)v.play().catch(()=>{});}else v.pause();}},{threshold:.25});clips.forEach(v=>io.observe(v));}
+  // A visitor who pauses a clip keeps it paused when it scrolls back into view.
+  if('IntersectionObserver' in window){const io=new IntersectionObserver(entries=>{for(const entry of entries){const v=entry.target;if(entry.isIntersecting){if(!reduce.matches&&!v.dataset.held)v.play().catch(()=>{});}else v.pause();}},{threshold:.25});clips.forEach(v=>io.observe(v));}
+  // Article clips read like moving pictures: no control bar while they loop, and a click, tap,
+  // Enter or Space pauses and resumes. Reduced motion keeps the native controls and a still frame.
+  for(const v of clips){
+   const figure=v.closest('.article-clip');if(!figure)continue;
+   const toggle=()=>{if(v.paused){delete v.dataset.held;v.play().catch(()=>{});}else{v.dataset.held='1';v.pause();}};
+   const sync=()=>{v.controls=reduce.matches;v.tabIndex=reduce.matches?-1:0;v.title=reduce.matches?'':'Click to pause or play';};
+   sync();reduce.addEventListener('change',sync);
+   v.addEventListener('click',e=>{if(!v.controls){e.preventDefault();toggle();}});
+   v.addEventListener('keydown',e=>{if(!v.controls&&(e.key===' '||e.key==='Enter')){e.preventDefault();toggle();}});
+   for(const type of ['play','pause'])v.addEventListener(type,()=>figure.classList.toggle('is-paused',v.paused&&!!v.dataset.held));
+  }
  }
  // Mark the current section without moving focus or changing the URL.
  const toc=[...document.querySelectorAll('.doc-toc a')],sections=toc.map(a=>document.getElementById(decodeURIComponent(a.hash.slice(1))));

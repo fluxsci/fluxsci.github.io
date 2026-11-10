@@ -1,5 +1,7 @@
 export const ORIGIN = 'https://fluxsci.org';
 // Reviewed publication inventory. Every guide is local and has substantive content.
+// An `unlisted` route is built and checked like the rest but stays out of the sitemap, the
+// search index and the navigation until it is announced.
 export const routes = [
   {
     "source": "index.qmd",
@@ -13,6 +15,14 @@ export const routes = [
     "url": "/install/",
     "title": "Install Flux",
     "kind": "install"
+  },
+  {
+    "source": "in-60-seconds/index.qmd",
+    "output": "in-60-seconds/index.html",
+    "url": "/in-60-seconds/",
+    "title": "Flux in 60 seconds",
+    "kind": "article",
+    "unlisted": true
   },
   {
     "source": "docs/index.qmd",

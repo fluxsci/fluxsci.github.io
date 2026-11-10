@@ -18,6 +18,6 @@ await rm(path.join(OUTPUT, 'search.json'), { force:true });
 await decorateDocuments();
 await writeFile(path.join(OUTPUT, '.nojekyll'), '');
 // Minimal HTML is intentional: only public routes belong in the search-engine sitemap.
-await writeFile(path.join(OUTPUT,'sitemap.xml'), '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+routes.filter(r=>r.source!=='404.qmd').map(r=>`<url><loc>${ORIGIN}${r.url}</loc></url>`).join('')+'</urlset>\n');
+await writeFile(path.join(OUTPUT,'sitemap.xml'), '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+routes.filter(r=>r.source!=='404.qmd'&&!r.unlisted).map(r=>`<url><loc>${ORIGIN}${r.url}</loc></url>`).join('')+'</urlset>\n');
 await checkOutput();
 console.log(`Built and verified ${path.relative(ROOT, OUTPUT)}/`);

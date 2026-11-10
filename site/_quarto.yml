@@ -5,6 +5,7 @@ project:
     - index.qmd
     - 404.qmd
     - install/index.qmd
+    - in-60-seconds/index.qmd
     - docs/*.qmd
   resources:
     - assets/**
