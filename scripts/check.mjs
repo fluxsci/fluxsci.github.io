@@ -11,9 +11,9 @@ const PUBLIC_ASSET = /^(?:assets|demos)\/(?:[\w@().-]+\/)*[\w@().-]+\.(?:html|cs
 // The homepage film is an HLS ladder of fragmented-MP4 segments (playlists, init and media segments) with its own budget.
 const FILM_ASSET = /^assets\/film\/(?:[\w-]+\/)?[\w.-]+\.(?:m3u8|m4s|mp4|webp|vtt)$/;
 const FILM_BUDGET_MB = 600;
-// Clips for the tour article (media/pitch.json): two sizes of each, about 10 MB a clip.
+// Clips for the tour article (media/pitch.json): two sizes of each, about 6–16 MB a clip, 21 clips.
 const CLIP_ASSET = /^assets\/media\/pitch\//;
-const CLIP_BUDGET_MB = 250;
+const CLIP_BUDGET_MB = 320;
 const SITE_BUDGET_MB = 150;
 const FONT_LICENSE = /^assets\/fonts\/(?:OFL|LICENSE)[\w.-]*\.txt$/;
 const RUNTIME_LICENSE = /^assets\/licenses\/[\w.-]+\.txt$/;

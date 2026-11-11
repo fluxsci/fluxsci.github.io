@@ -25,10 +25,30 @@ The composed frames are first written losslessly (<take dir>/master.mkv); the pu
 are encoded from that master: the full-size clip, and optionally a 1280-wide one for phones
 (a third of the bytes, still at least the pixels of a phone screen).
 """
-import argparse, json, math, os, subprocess
+import argparse, atexit, json, math, os, shutil, subprocess, time
 from PIL import Image, ImageDraw
 
 FPS = 60
+LOCK = "/tmp/flux-pitch-record.lock"
+
+
+def hold_lock():
+    """One heavy job at a time on this machine: composing or encoding while another take is being
+    recorded starves its screen grab of frames. Same lock as record.mjs (a directory holding the
+    owner's pid; a dead owner's lock is taken over)."""
+    while True:
+        try:
+            os.mkdir(LOCK)
+            open(os.path.join(LOCK, "pid"), "w").write(str(os.getpid()))
+            atexit.register(lambda: shutil.rmtree(LOCK, ignore_errors=True))
+            return
+        except FileExistsError:
+            try:
+                os.kill(int(open(os.path.join(LOCK, "pid")).read()), 0)
+            except (OSError, ValueError):
+                shutil.rmtree(LOCK, ignore_errors=True)
+                continue
+            time.sleep(1.5)
 
 
 def minimum_jerk(s):
@@ -83,6 +103,7 @@ def main():
     ap.add_argument("--encode-only", action="store_true")
     args = ap.parse_args()
 
+    hold_lock()
     master = os.path.join(args.take, "master.mkv")
     if args.encode_only:
         return encode(master, args)

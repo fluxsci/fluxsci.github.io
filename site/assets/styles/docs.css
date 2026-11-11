@@ -291,7 +291,7 @@
 .tour-parts a.tour-part-name::after{content:' →';color:var(--blue);font:15px var(--sans)}
 .tour-parts p{margin:0;font-size:15.5px;line-height:1.72}
 /* A numbered point of the tour, each followed by its clip. */
-.article-layout .doc-content h3{counter-reset:tour-step}
+.article-layout .doc-content h2,.article-layout .doc-content h3{counter-reset:tour-step}
 .tour-step{counter-increment:tour-step;position:relative;margin-top:44px}
 .tour-step::before{content:counter(tour-step);position:absolute;left:-46px;top:1px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font:500 13px/1 var(--sans);color:var(--blue);border:1px solid color-mix(in srgb,var(--blue) 45%,var(--paper))}
 @media(max-width:820px){.tour-step::before{position:static;float:left;margin:1px 12px 2px 0}}
@@ -306,3 +306,20 @@
 .doc-content .article-next p{display:flex;flex-wrap:wrap;gap:16px 26px;align-items:center;margin:0}
 .doc-content .article-next a.article-install{background:var(--button);color:var(--button-ink)!important;text-decoration:none!important;padding:11px 20px;border-radius:6px;font-weight:500}
 @media(max-width:600px){.doc-content .article-next p{flex-direction:column;align-items:flex-start}.docs-layout.article-layout{padding-top:34px}.article-layout .doc-content .doc-lead{font-size:19px}.doc-content figure.article-clip{margin:26px calc(12px - var(--gutter)) 36px;width:auto}.article-clip video{border-radius:12px}.doc-content .article-clip figcaption{margin-inline:calc(var(--gutter) - 12px)}}
+/* Two exported pages side by side under the export clip. */
+.doc-content figure.tour-pages{margin:-18px 0 48px}
+.tour-pages-pair{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.tour-pages-pair>div{position:relative;border:1px solid var(--rule);border-radius:8px;overflow:hidden;background:#fff;box-shadow:var(--shadow)}
+.tour-pages-pair img{display:block;width:100%;height:auto}
+.tour-pages-pair span{position:absolute;left:10px;bottom:10px;padding:3px 9px;border-radius:4px;background:#100f0fd9;color:#fffcf0;font:500 11px/1.6 var(--sans);letter-spacing:.02em}
+.doc-content .tour-pages figcaption{margin:13px 4px 0;font:13px/1.55 var(--sans);color:var(--muted)}
+.doc-content .tour-live{margin:30px 0 44px}
+@media(max-width:600px){.tour-pages-pair{grid-template-columns:1fr;gap:12px}}
+.tour-jump{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center;margin:34px 0 0;font:13px/1.5 var(--sans)}
+.tour-jump span{color:var(--muted);margin-right:4px}
+.doc-content .tour-jump a{padding:5px 13px;border:1px solid var(--rule);border-radius:999px;color:var(--ink)!important;text-decoration:none!important;background:var(--inset)}
+.doc-content .tour-jump a:hover{border-color:var(--blue);color:var(--blue)!important}
+.tour-credits{margin:64px 0 0;padding:20px 24px;border:1px solid var(--rule);border-radius:8px;background:var(--inset);font:13px/1.7 var(--sans);color:var(--muted)}
+.doc-content .tour-credits p{margin:0}
+.tour-credits strong{color:var(--ink)}
+.doc-content .article-next{margin-top:34px}

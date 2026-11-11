@@ -96,9 +96,15 @@ const driver={
   async doubleClick({hold=70,gap=90}={}){await driver.down();await sleep(hold);await driver.up();await sleep(gap);await driver.down({count:2});await sleep(hold);await driver.up();},
   /** Tap a key; the compositor shows `label` as a key badge (null: no badge). `where` places the
    *  badge as fractions of the frame, default lower right. */
-  async key(k,{label=k.length===1?k.toUpperCase():k,hold=90,where}={}){
+  async key(k,{label,hold=90,where}={}){
+    // 'f', 'Escape', or a chord such as 'Alt+a' / 'Control+Shift+b' (shown as one badge: Alt+A).
+    const parts=k.length>1&&k.includes('+')?k.split('+'):[k],main=parts.pop();
+    const pretty=p=>p==='Control'?'Ctrl':p.length===1?p.toUpperCase():p;
+    label=label===undefined?[...parts,main].map(pretty).join('+'):label;
     const entry={down:pageTime(),label,where};
-    await page.keyboard.down(k);await sleep(hold);await page.keyboard.up(k);
+    for(const m of parts)await page.keyboard.down(m);
+    await page.keyboard.down(main);await sleep(hold);await page.keyboard.up(main);
+    for(const m of parts.reverse())await page.keyboard.up(m);
     entry.up=pageTime();if(label)log.keys.push(entry);
   },
   /** Hold a modifier (Shift, Control, Alt) across clicks; its badge stays until release(). */

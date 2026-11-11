@@ -20,7 +20,7 @@ const xvfb=process.env.FLUX_XVFB||'Xvfb';
 
 const scratch=fs.mkdtempSync(path.join(os.tmpdir(),'flux-pitch-stage-'));
 const project=path.join(scratch,path.basename(original));
-fs.cpSync(original,project,{recursive:true,filter:p=>!/[\\/]\.meta[\\/](locks|live|feedback)([\\/]|$)/.test(p)&&!/feedback\.ndjson$/.test(p)});
+fs.cpSync(original,project,{recursive:true,filter:p=>!p.startsWith(path.join(original,'exports')+path.sep)&&!/[\\/]\.meta[\\/](locks|live|feedback)([\\/]|$)/.test(p)&&!/feedback\.ndjson$/.test(p)});
 for(const d of ['home','xdg'])fs.mkdirSync(path.join(scratch,d));
 // The owner's notes stay behind; the app expects the file to exist.
 fs.mkdirSync(path.join(project,'.meta'),{recursive:true});fs.writeFileSync(path.join(project,'.meta/feedback.ndjson'),'');
@@ -28,7 +28,7 @@ fs.mkdirSync(path.join(project,'.meta'),{recursive:true});fs.writeFileSync(path.
 if(opt('take')){const take=(await import(path.resolve(opt('take')))).default;await take.prepare?.(project,{source});}
 
 const children=[];
-const stop=()=>{for(const c of children)try{c.kill('SIGKILL');}catch{}};
+const stop=()=>{for(const c of children)try{c.kill('SIGKILL');}catch{}if(!process.env.PITCH_KEEP_SCRATCH)try{fs.rmSync(scratch,{recursive:true,force:true});}catch{}};
 process.on('SIGINT',()=>{stop();process.exit(0);});process.on('SIGTERM',()=>{stop();process.exit(0);});
 
 const server=spawn(xvfb,[display,'-screen','0',`${width*scale}x${height*scale}x24`,'-nolisten','tcp','-s','0','-dpms'],{stdio:'ignore'});

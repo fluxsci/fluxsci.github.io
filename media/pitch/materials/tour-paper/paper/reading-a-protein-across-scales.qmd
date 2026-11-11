@@ -1,0 +1,66 @@
+---
+title: "Reading a protein across scales"
+author:
+  - name: Ada Lindqvist
+    corresponding: true
+    affiliations: [nu]
+  - name: Rafael Moreno-Ishikawa
+    affiliations: [nu]
+  - name: Nkechi Bramwell
+    affiliations: [nu]
+affiliations:
+  - id: nu
+    department: Department of Molecular Biophysics
+    name: Northgate University
+bibliography: ../references/library.bib
+---
+
+# Abstract
+
+A protein can be described at many scales at once: as a sequence with a confidence profile, as a shape in three dimensions, as residues that differ in how buried and how conserved they are, as a structure that breathes, as a catalyst with measurable kinetics, and as a trajectory through time. Each scale has its own measurement, and each measurement has its own way of being misread. This primer walks through one figure whose six panels show six of these views side by side. We begin with the confidence that AlphaFold assigns to each residue of its model of the tumour suppressor p53, where a folded DNA-binding domain stands out against long, disordered tails. We then show the spike glycoprotein of SARS-CoV-2 as a ribbon and as a surface, and explain what each rendering hides. Four panels use simulated data, generated to show textbook behaviour rather than to report new results: the relation between burial, conservation and crystallographic B-factors; hydrogen–deuterium exchange from the surface of a protein to its core; the signatures of three classes of enzyme inhibitor; and eight simulated molecules as they fold. For each panel we state what the axes mean, what a reader can safely conclude, and what they cannot.
+
+# Introduction
+
+Figures in structural biology are dense. A single figure may combine a prediction, an experimental structure, a statistical summary and a simulation, each drawn in the conventions of its own field. Readers from neighbouring fields often know one of these conventions well and the others only by sight.
+
+Here we use one six-panel figure (@fig-fig-mw9xvia2yeq4-20) as a worked example. Panels a and b are drawn from public data: a model from the AlphaFold Protein Structure Database [@varadiAlphaFoldProteinStructure2024] and a cryo-EM structure from the Protein Data Bank [@bermanProteinDataBank2000]. The remaining panels (@fig-fig-mw9xvia2yeq4-20-c-f) are simulations with known parameters, chosen so that the correct reading is not in doubt. We treat them as exercises, not as findings.
+
+![](../fig/renders/fig_mw9xvia2yeq4_20.svg){#fig-fig-mw9xvia2yeq4-20}
+
+# Results
+
+## Confidence along the sequence
+
+For every residue, AlphaFold reports a predicted local distance difference test score, pLDDT, between 0 and 100 [@jumperHighlyAccurateProtein2021]. It estimates how well the model would agree with an experimental structure under the lDDT measure [@marianiLDDTLocalSuperposition2013]. For human p53 the 393-residue profile is far from uniform (@fig-fig-mw9xvia2yeq4-20-a). The DNA-binding domain (residues 94–292) and the short tetramerisation helix score above 90, where the backbone and most side chains are expected to be accurate. The transactivation domain, the proline-rich region and the C-terminal domain fall to between 30 and 50.
+
+Low confidence here is not a failure of the model. These regions are intrinsically disordered in solution [@wrightIntrinsicallyUnstructuredProteins1999; @joergerStructuralBiologyTumor2008], and very low pLDDT predicts disorder well across the human proteome [@tunyasuvunakoolHighlyAccurateProtein2021; @ruffAlphaFoldImplicationsIntrinsically2021]. About 40% of the residues of p53 score below 70. They should be read as flexible, not as wrong.
+
+## Two renderings of one structure
+
+The prefusion spike trimer [@wrappCryoEMStructure2020], with one receptor-binding domain raised, is shown twice in @fig-fig-mw9xvia2yeq4-20-b. The ribbon traces the backbone, which makes the secondary structure and the raised domain easy to follow. The surface shows what a binding partner meets: a closed envelope dotted with the first sugars of the glycans. Neither is more correct. The ribbon hides how crowded the molecule is, and the surface hides the fold.
+
+## Burial, conservation and mobility
+
+The hexagonal map in @fig-fig-mw9xvia2yeq4-20-c summarises 60,000 simulated residues by how buried each one is, counted as neighbouring residues within 10 Å, and how conserved it is, in bits of information in its alignment column [@capraPredictingFunctionallyImportant2007]. Each hexagon is coloured by the mean B-factor of its residues, so buried, conserved residues should be the least mobile. They are, but the map alone cannot say which property matters: burial and conservation are themselves correlated, and only a model that separates them can apportion the effect [@franzosaStructuralDeterminantsProtein2009]. Real B-factors also carry crystal contacts, resolution and refinement, which is why they are normalised within each structure before they are pooled [@sunUtilityBFactors2019].
+
+## Exchange from surface to core
+
+Hydrogen–deuterium exchange reports how quickly backbone amide hydrogens trade places with deuterium from the solvent [@massonRecommendationsPerformingInterpreting2019]. Six simulated peptides span more than three orders of magnitude in rate (@fig-fig-mw9xvia2yeq4-20-d). The exposed loop is nearly saturated within a minute, while the peptide from the buried core has exchanged about a third of its amides after ten hours. Slow uptake signals protection by hydrogen bonds and burial, not slow chemistry: unstructured peptides exchange orders of magnitude faster, at rates that can be predicted from sequence [@baiPrimaryStructureEffects1993].
+
+## Three ways to inhibit an enzyme
+
+Each plot shows twelve simulated initial rates against substrate concentration, a Michaelis–Menten fit [@johnsonOriginalMichaelisConstant2011] and, dashed, the uninhibited curve (@fig-fig-mw9xvia2yeq4-20-e). Without inhibitor, V~max~ is 100 µM s^−1^ and K~m~ is 4 mM. A competitive inhibitor raises the apparent K~m~ to 12 mM and leaves V~max~ unchanged, because enough substrate outcompetes it. A non-competitive inhibitor lowers V~max~ to 45 µM s^−1^ and leaves K~m~ alone. An uncompetitive inhibitor binds only the enzyme–substrate complex and lowers both by the same factor, so the initial slope at low substrate does not change.
+
+## Folding in silico
+
+The last panel follows the Cα root-mean-square deviation from the native structure, after optimal superposition [@kabschSolutionBestRotation1976], in eight simulated folding runs of 1 µs (@fig-fig-mw9xvia2yeq4-20-f). Each run starts unfolded near 10 Å and drops to about 2 Å at its own moment, between roughly 150 and 760 ns. The mean declines smoothly, and its band is widest in the middle: the average describes none of the runs. Long simulations of small proteins look like this, long waits broken by fast transitions [@lindorfflarsenFastFoldingProteins2011], which is why a folding rate is estimated from many runs rather than one.
+
+# Methods
+
+**Public data.** The p53 model (UniProt P04637) and its pLDDT values were taken from the AlphaFold Protein Structure Database [@varadiAlphaFoldProteinStructure2024]. The spike is PDB entry 6VSB [@wrappCryoEMStructure2020], drawn as cartoon and molecular surface with open-source PyMOL. Domain boundaries for p53 follow Joerger and Fersht [@joergerStructuralBiologyTumor2008].
+
+**Simulated data.** Panels c–f were generated from stated models with fixed random seeds. Panel c: burial and conservation drawn from a bivariate normal distribution (r = 0.55), with B-factor z-scores falling linearly in both, plus Gaussian noise; hexagons with fewer than four residues are left empty. Panel d: stretched-exponential uptake with rates from 8 to 6 × 10^−4^ min^−1^. Panel e: Michaelis–Menten rates with 4.5% proportional and 1.2 µM s^−1^ additive noise, fitted by non-linear least squares. Panel f: logistic folding transitions with correlated noise.
+
+**Figure.** Plots were drawn with fluxplot and composed in Flux.
+
+# References

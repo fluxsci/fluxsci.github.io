@@ -1,0 +1,10 @@
+{
+  "key": "tunyasuvunakoolHighlyAccurateProtein2021",
+  "source": "ingest",
+  "url": "https://www.nature.com/articles/s41586-021-03828-1.pdf",
+  "finalUrl": "https://www.nature.com/articles/s41586-021-03828-1.pdf",
+  "sha256": "151dd2bb0b3ff3a8109aed904cc3e37c47516f025ed42aca8d7de8b2797ea66b",
+  "bytes": 7356472,
+  "fetchedAt": "2026-11-11T06:17:56.999Z",
+  "license": "CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)"
+}

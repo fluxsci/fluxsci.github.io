@@ -43,8 +43,11 @@ const at=process.argv.indexOf('--flux-source');
 if(at<0)throw Error('Pass --flux-source <checkout>');
 const STEPS=16;
 const frames=JSON.parse(execFileSync(process.execPath,['--import','tsx','-e',`import('./src/lib/cursor/cursorFamily.ts').then(m=>console.log(JSON.stringify({press:m.CURSOR_PRESS_DEFAULTS,frames:Array.from({length:${STEPS+1}},(_,i)=>m.drawArrowPress({},i/${STEPS},m.CURSOR_PRESS_DEFAULTS.depth,false).css)})))`],{cwd:path.resolve(process.argv[at+1]),encoding:'utf8'}));
-const arrow=take.pointer.images.indexOf(frames.frames[0]);
-if(arrow<0)throw Error('The recorded cursor is not the default Flux arrow; press frames would not match it.');
+// Paper, Reader and Library keep the system cursor, and a take filmed only there never shows
+// Flux's arrow. The clips use Flux's arrow throughout (the compositor falls back to it for every
+// system cursor), so make sure it is among the rendered images.
+let arrow=take.pointer.images.indexOf(frames.frames[0]);
+if(arrow<0){arrow=images.length;images.push(await sprite(String(arrow),frames.frames[0]));}
 const press=[];
 for(const [index,value] of frames.frames.entries())press.push(await sprite('press-'+index,value));
 await browser.close();

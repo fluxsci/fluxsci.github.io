@@ -52,6 +52,10 @@ For more on any part of Flux, see [the documentation](/docs/) or watch
 [installing takes one copied line](/install/). What follows is a brief visual tour of a small
 fraction of what Flux can do.
 
+```{=html}
+<nav class="tour-jump" aria-label="Sections of this tour"><span>The tour</span><a href="#flux-figure">Figure</a><a href="#flux-slides">Slides</a><a href="#flux-paper">Paper</a><a href="#agents">Your own AI agent</a></nav>
+```
+
 ## Flux Figure: the ideal visual editor for science {#flux-figure}
 
 ### Restyle any part of a plot with ease {#restyle}
@@ -115,7 +119,182 @@ text and lines keep their sizes.
 <figure class="doc-clip article-clip"><video poster="/assets/media/pitch/arrange.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="A blank figure beside the Plots rail. Four spectrum plots are picked in the rail and dragged onto the figure, landing at their printed size. Align and Arrange turns them into a two-by-two grid; one corner drag shrinks all four together; dragging the pink gap guides sets the spacing between columns and rows. Three galaxy-profile plots are dragged in below as a column and overlapped by dragging their gap guide; they are aligned to the y axis of the plot above, then their shared right edge is dragged out to the figure's width, and their axes stretch while the text keeps its size."><source src="/assets/media/pitch/arrange-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/arrange.mp4" type="video/mp4"></video><figcaption><span>Seven plots from the rail become a finished figure: a grid, one resize for all four, the pink spacing guides, alignment on the y axis, and a stretch that reflows the axes.</span></figcaption></figure>
 ```
 
+## Flux Slides: the same editor, plus first-class motion {#flux-slides}
+
+A slide in Flux is a figure with time added. It is the same canvas, the same plots and the same
+tools you have just seen, so nothing is exported, pasted or rebuilt to give a talk.
+
+### From figure to slide {#figure-to-slide}
+
+::: {.tour-step}
+Any figure becomes a slide in one click. **Send to deck…** copies the whole figure into a talk, and every panel on the slide is still a live plot: delete panels, or drag one wider and its axes lay themselves out again while the type keeps its size.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/slide-send.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="A six-panel protein figure in Flux Figure. Send to deck copies it into the talk Protein structure talk; Ctrl+3 opens Slides on the title slide and the down arrow moves to the new slide, which holds the whole figure. The four kinetics plots are selected with a drag and deleted, then the uptake curves and the simulation panel are dragged wider by their right edges, and their axes stretch while the text keeps its size."><source src="/assets/media/pitch/slide-send-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/slide-send.mp4" type="video/mp4"></video><figcaption><span>Send Figure 1 to the talk, then edit the slide like any figure: delete panel e and widen the curves into its place.</span></figcaption></figure>
+```
+
+::: {.tour-step}
+Plots know how to build themselves. Select a plot and click **Auto-animate**: Flux reads the plot's anatomy and writes its entrance as three steps, the axes, then the data, then the labels.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/slide-autoanimate.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="A talk slide with six deuterium-uptake curves. The plot is selected and Auto-animate adds three steps to the Animator below the slide. When the slide plays, the axes tick in, the points and curves draw on from left to right, and the two labels fade in last."><source src="/assets/media/pitch/slide-autoanimate-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/slide-autoanimate.mp4" type="video/mp4"></video><figcaption><span>One click writes the build, and the slide plays it: the axes, then the six curves along x, then the labels.</span></figcaption></figure>
+```
+
+### Motion that understands the data {#data-motion}
+
+::: {.tour-step}
+Any edit can be a step. The edits you make in Figure, such as an axis view or a colour map, become steps of a talk when you make them after a step. They play in the plot's own units: the axis glides, the data follow, and the colours pass through every value on the way.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/slide-steps.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="A slide with a simulation plot showing 200 to 600 nanoseconds and a hexagon map in rainbow colours. A second step is added, the map is selected and its colour scale set to roma from the F menu. When the slide plays, the simulation plot&#x27;s axis glides out to 0 to 1000 nanoseconds as the curves extend, then the map&#x27;s colours sweep from rainbow to roma."><source src="/assets/media/pitch/slide-steps-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/slide-steps.mp4" type="video/mp4"></video><figcaption><span>The two edits from the Figure clips, now steps: the x axis glides out to the whole run, then the map turns from rainbow to roma.</span></figcaption></figure>
+```
+
+::: {.tour-step}
+One thing can become another. Select parts of a plot, press **B**, and pick what they should become. Here six fitted curves become six bars of their half-times: each curve leaves its plot and lands as its own bar, so an audience sees where every number comes from.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/slide-become.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="A slide with deuterium uptake curves for six peptides beside a bar chart of their half-times. The six curves are selected, B starts a Become, and a box drawn round the six bars picks them, numbered one to six. After Space, the new clip on the timeline is dragged longer and to start a moment later. Then the step plays: after a beat with the bar chart empty, each curve swells into a ribbon, slides right and settles as the bar in its own row and colour."><source src="/assets/media/pitch/slide-become-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/slide-become.mp4" type="video/mp4"></video><figcaption><span>Select the six curves, press <strong>B</strong>, box the six bars and press <strong>Space</strong>; give the clip more time on the timeline, and play. Each curve becomes its bar.</span></figcaption></figure>
+```
+
+::: {.tour-step}
+3D models move too. A model on a slide can turn, change shape and bring the camera in close, and each is an ordinary step you can retime. Here the spike protein of SARS-CoV-2 turns once, then opens: one receptor-binding domain swings up as the ribbon morphs between two cryo-EM structures, and the view moves in on it.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/slide-3d.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="The Flux slide editor shows a dark slide with a title, a short text and the SARS-CoV-2 spike protein drawn as a ribbon, with its four steps listed below. Slide is clicked and the steps play: the protein turns a full circle, then one orange receptor-binding domain swings upward as the ribbon changes from the closed to the open structure, and the text says so. The view then moves in on the raised domain while the title becomes The receptor-binding domain. Stop returns to the editor."><source src="/assets/media/pitch/slide-3d-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/slide-3d.mp4" type="video/mp4"></video><figcaption><span>Press <strong>Slide</strong> to play every step: a full turn, the spike opening, and a camera move onto the domain that binds ACE2.</span></figcaption></figure>
+```
+
+### Timing, and taking it on stage {#timing}
+
+::: {.tour-step}
+Every step is a clip on a timeline, the **Animator**. Drag a clip's end to give it more time, and raise **Piece lag** so the pieces of one transformation leave one after another instead of all at once.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/slide-animator.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="The same slide with its timeline below. The Become&#x27;s clip is selected and its end is dragged out to 3 seconds, and the Piece lag slider is raised to 0.5. Playing the step, the curves now leave one at a time from the top, each landing as its bar while the playhead runs along the clip."><source src="/assets/media/pitch/slide-animator-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/slide-animator.mp4" type="video/mp4"></video><figcaption><span>Drag the Become's clip out to 3 s and raise <strong>Piece lag</strong>: the curves now land one at a time.</span></figcaption></figure>
+```
+
+::: {.tour-step}
+A deck exports as one self-contained HTML file that plays in any browser, with nothing to
+install, and also as PowerPoint (with its builds), PDF and video. This is the slide from above,
+exported from Flux and running in this page.
+:::
+
+```{=html}
+<div class="doc-study tour-live" data-doc-study="/demos/tour/become.html" data-study-aspect="0.75"><div class="doc-study-stage"><img src="/demos/tour/become.webp" alt="A slide titled Each fitted curve becomes its half-time: six uptake curves beside a bar chart" width="1280" height="960" loading="lazy"><button class="doc-study-launch" type="button" data-study-start data-title="Each fitted curve becomes its half-time" hidden><span aria-hidden="true">▶</span> Open the live slide</button></div><div class="doc-study-caption"><p>The slide itself, exported from Flux as one HTML file. Open it, then click it or press <strong>→</strong> to play the step and <strong>←</strong> to rewind.</p></div></div>
+```
+
+## Flux Paper: write once, export anywhere {#flux-paper}
+
+In Flux you write the paper once and think only about what it says. Its figures and references
+are the live ones from the project, and a journal's formatting is applied when you export, never
+to your text.
+
+### The manuscript knows the project {#manuscript}
+
+::: {.tour-step}
+Figures are live, not pasted. The manuscript shows the real figure with its caption, and a reference to a panel is a link that keeps its own number: give the figure a new number in **Figure-Meta** (**Alt+M**) and every reference in the text follows.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/paper-figures.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="A paragraph of a manuscript. Typing @@ opens a figure picker; the protein figure is chosen and its panels c to f picked, and a chip reading Fig. 1c–f appears mid-sentence. Typing /figure below the paragraph embeds the whole six-panel figure with its caption. In Figure-Meta the figure&#x27;s number is changed from 1 to 2, and back in the text the chip reads Fig. 2c–f and the figure&#x27;s caption begins Figure 2."><source src="/assets/media/pitch/paper-figures-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/paper-figures.mp4" type="video/mp4"></video><figcaption><span>Type <code>@@</code> to cite panels c to f and <code>/figure</code> to place the figure, then renumber it in <strong>Figure-Meta</strong>: the text and the caption renumber themselves.</span></figcaption></figure>
+```
+
+::: {.tour-step}
+Change the figure, and the paper has already changed. There is no export step between the two, so the paper can never show an old version. With Paper and Figure side by side, change a colour map on the canvas and the manuscript's copy changes with it.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/paper-live.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="The window is split: a manuscript with the six-panel figure embedded on the left, the same figure on its canvas on the right. Panel c, a hexagon map, is selected, its colour-scale editor opens, and the Crameri map vik is chosen; the hexagons change colour on the canvas. The view moves to the manuscript, where the embedded figure already shows the new colours."><source src="/assets/media/pitch/paper-live-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/paper-live.mp4" type="video/mp4"></video><figcaption><span>Change panel c's colour map in Figure, and the figure in the manuscript beside it changes at once.</span></figcaption></figure>
+```
+
+::: {.tour-step}
+Cite from your library as you write. Type **@** and a name, pick the paper, and the citation and its reference-list entry appear. Hover a citation for its card, and one click opens the PDF in Reader beside your text.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/paper-cite.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="A paragraph about AlphaFold confidence scores. Typing @jumper opens a list from the reference library; choosing the AlphaFold paper inserts Jumper et al., 2021 in the sentence and adds the paper to the reference list in the margin. Hovering the citation shows a card with its authors and DOI, and Read PDF opens the paper&#x27;s first page in a reader beside the text."><source src="/assets/media/pitch/paper-cite-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/paper-cite.mp4" type="video/mp4"></video><figcaption><span>Cite a paper from your library by typing <code>@</code> and a name, then open its PDF in Reader without leaving the manuscript.</span></figcaption></figure>
+```
+
+### One manuscript, every format {#formats}
+
+::: {.tour-step}
+The journal style is a menu choice. Pick a journal in the **Export** dialog (**Alt+E**) and Flux builds that journal's submission file from the same manuscript, then tells you what it did and what is left to check. Your text is never changed.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/paper-export.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="The Flux paper editor shows the abstract of a manuscript. Alt+E opens the Export dialog, the style is set to Nature and the PDF is rendered; a summary lists what Flux did, such as numbering the 17 references in order of citation and dropping the Introduction and Results headings that Nature does not print. The same is repeated with the bioRxiv preprint style, and the manuscript is shown again, unchanged."><source src="/assets/media/pitch/paper-export-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/paper-export.mp4" type="video/mp4"></video><figcaption><span>One manuscript exported as a Nature submission and as a bioRxiv preprint, with no edits in between.</span></figcaption></figure>
+```
+
+```{=html}
+<figure class="tour-pages"><div class="tour-pages-pair"><div><img src="/assets/media/tour/export-nature-1.webp" width="1400" height="1050" alt="First page of the Nature export: 12 point Times, double-spaced, numbered lines, a bold summary paragraph, and citations as superscript numbers." loading="lazy"><span>Nature</span></div><div><img src="/assets/media/tour/export-biorxiv-1.webp" width="1400" height="1050" alt="First page of the bioRxiv export: 11 point Arial, an Abstract heading, an Introduction heading, and author and year citations." loading="lazy"><span>bioRxiv preprint</span></div></div><figcaption>The first page of the two files Flux wrote. Nature: Times, double spacing, a bold summary paragraph, numbered citations, no “Introduction” heading. bioRxiv: Arial, an Abstract heading, author and year citations. This build also has Nature Communications, Science and Cell.</figcaption></figure>
+```
+
+::: {.tour-step}
+Flux checks the submission for you. **Alt+J** opens Journal Check, which reads the manuscript against the chosen journal's rules: abstract length, headings the journal does not print, missing sections. It updates as you write, and it is only advice: it never blocks an export.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/paper-check.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="Journal Check opens beside the manuscript and lists seven items for a Nature submission, including an abstract of about 205 words against a limit of 200. The writer goes to the Abstract from the outline and deletes one sentence. The outline&#x27;s word count drops to 189 and the abstract item disappears from the list, leaving six."><source src="/assets/media/pitch/paper-check-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/paper-check.mp4" type="video/mp4"></video><figcaption><span>Journal Check flags a 205-word abstract against Nature's 200; one sentence goes and the item clears.</span></figcaption></figure>
+```
+
+Co-authors can stay in Word. Export to Word and the citations are live Zotero fields, so a
+collaborator can keep working on the references with the tools they already use.
+
+## Bring your own agent: Flux gives it the tools {#agents}
+
+Flux does not come with an AI of its own, and it does not need one. Take the agent you already
+use, such as Claude Code or Codex, and run one command:
+
+```bash
+flux-connect ~/projects/my-paper
+```
+
+The agent now knows how to use every part of Flux, and can see, read and edit the open project.
+From then on you can point at anything on the screen and ask.
+
+::: {.tour-step}
+In Figure, point at it and say what you want. Press **Ctrl+Shift+M** anywhere in Flux, draw an arrow to what you mean, and type. The note keeps the exact part you pointed at, so “these” means something. Your agent claims it, makes the change on the canvas with Flux's own commands, and answers in the note's thread.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/ai-figure.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="Figure 1 is on the canvas. The user opens Annotate, draws an arrow to a dashed reference curve in panel e and types: make these dashed reference curves the blue of the uninhibited enzyme, in all three plots. A connected Claude Code session named heron claims the note, and the dashed curves turn blue one plot at a time. In the Inbox, heron&#x27;s reply says the three dashed curves are now the uninhibited blue and still dashed, so they read as the reference."><source src="/assets/media/pitch/ai-figure-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/ai-figure.mp4" type="video/mp4"></video><figcaption><span>An arrow names the dashed curve; the agent recolours it in all three plots and says what it did.</span></figcaption></figure>
+```
+
+::: {.tour-step}
+In Slides, ask for the animation you can picture. The agent builds it from the same steps and clips you would use, so the Animator shows exactly what it made and you can retime it. Then press play.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/ai-animate.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="An uptake-curve slide is open with an empty Animator. The user points at the curves and asks for them to be drawn one at a time, fastest exchange first, then the labels. The agent heron adds a step and the Animator fills with eight clips in a staircase. Pressing Step plays it: six curves draw left to right in turn, then the two labels rise in, and heron&#x27;s reply confirms what it built."><source src="/assets/media/pitch/ai-animate-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/ai-animate.mp4" type="video/mp4"></video><figcaption><span>Asked for the curves one at a time, the agent writes one clip per curve, fastest exchange first.</span></figcaption></figure>
+```
+
+::: {.tour-step}
+In Paper, ask what the literature says. The agent can search your library and the open literature from inside the sentence you are writing. Select a claim, press **Ctrl+Shift+M** and ask; the agent answers in the note's thread, and can add the citation to the sentence itself.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/ai-paper.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="A paragraph of a manuscript in Flux Paper. The writer selects the claim that low pLDDT predicts disorder, opens Annotate and asks the connected agent what to cite and whether anyone disagrees. The agent claims the note, the citation Tunyasuvunakool et al., 2021 appears in the sentence, and its reply in the Inbox names that paper and two that push back, each with one line on why."><source src="/assets/media/pitch/ai-paper-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/ai-paper.mp4" type="video/mp4"></video><figcaption><span>A claim, a question, and the citation in the sentence, with the papers that push back named in the reply.</span></figcaption></figure>
+```
+
+::: {.tour-step}
+In Reader, ask the paper. Select a passage, click **✦ Annotate this passage** and ask; the agent answers against the paper's own text, and can leave its answer as a highlight on the passage.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/ai-reader.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="The AlphaFold paper open in Flux Reader. The reader selects the sentence that defines pLDDT and asks the connected agent what a score below 50 means for Figure 1a. The agent highlights the passage with a short note, and its reply in the Inbox explains that this paper defines pLDDT as local accuracy, while the companion paper reads long stretches below 50 as disorder, so the p53 tails in Figure 1a are likely disordered."><source src="/assets/media/pitch/ai-reader-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/ai-reader.mp4" type="video/mp4"></video><figcaption><span>A question about the AlphaFold paper, answered from its text and its companion paper, and pinned to the passage.</span></figcaption></figure>
+```
+
+::: {.tour-credits}
+**About the material.** Everything in this tour was filmed in Flux itself. The figures are demonstration material: panels a and b of the protein figure use public data, the AlphaFold Protein Structure Database model of human p53 and the cryo-EM structures of the SARS-CoV-2 spike, PDB 6VSB (Wrapp et al., *Science*, 2020) and 6VXX (Walls et al., *Cell*, 2020); the other panels are simulated. The manuscript "Reading a protein across scales" and its authors were invented for this tour; its references are real. The paper open in Reader is Jumper et al., "Highly accurate protein structure prediction with AlphaFold", *Nature* **596**, 583–589 (2021), shown under its CC BY 4.0 licence. The agent in the last section is Claude, working through Flux's own agent tools: its edits are made live during recording, and its replies are the answers it gave to these requests, replayed so that each clip could be filmed more than once.
+:::
+
 ::: {.article-next}
 <a class="article-install" href="/install/">Install Flux</a>
-<a href="/docs/figure.html">Read the Figure guide</a>
+<a href="/docs/first-project.html">Make your first project</a>
+<a href="/docs/">Read the documentation</a>
 :::

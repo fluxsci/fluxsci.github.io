@@ -3,6 +3,7 @@
  *    node media/pitch/make.mjs --flux-source <checkout> --project <FluxProj> --take colormap [--keep <dir>]
  *    node media/pitch/make.mjs … --reuse <dir>     (recompose an existing take: new framing, same recording)
  *    node media/pitch/make.mjs … --no-install [--display N --port N]   (compose into the working folder only)
+ *    node media/pitch/make.mjs … --crf 22 --small-crf 23   (a text-heavy clip that moves a lot can exceed the 15 MB per-file limit at the default 19/20)
  *
  *  record.mjs drives the real app and grabs the screen; cursors.mjs renders the app's own cursor
  *  images and badges.mjs the key badges; compose.py frames the capture and draws that pointer; the clip (1920x1440, with a 1280x960 copy for phones) and its poster land in site/assets/media/pitch/ and media/pitch.json
@@ -36,7 +37,7 @@ if(process.argv.includes('--no-install')){
 }
 const dir='site/assets/media/pitch';fs.mkdirSync(path.join(root,dir),{recursive:true});
 const clip=`${dir}/${take}.mp4`,small=`${dir}/${take}-1280.mp4`,poster=`${dir}/${take}.webp`;
-run('python3',[path.join(here,'compose.py'),work,'--out',path.join(root,clip),'--small',path.join(root,small),'--poster',path.join(root,poster),'--sheet',path.join(work,'sheet.png'),'--frames',path.join(work,'frames')]);
+run('python3',[path.join(here,'compose.py'),work,...pass('crf'),...pass('small-crf'),'--out',path.join(root,clip),'--small',path.join(root,small),'--poster',path.join(root,poster),'--sheet',path.join(work,'sheet.png'),'--frames',path.join(work,'frames')]);
 const recorded=JSON.parse(fs.readFileSync(path.join(work,'take.json'),'utf8'));
 const manifestFile=path.join(root,'media/pitch.json');
 const manifest=fs.existsSync(manifestFile)?JSON.parse(fs.readFileSync(manifestFile,'utf8')):{$doc:'Clips for the pitch article, made by media/pitch/make.mjs from the real Flux app. Each take records the Flux revision it was filmed in; outputs are verified by the site build.',takes:{},outputs:{}};

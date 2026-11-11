@@ -1,0 +1,10 @@
+{
+  "key": "jumperHighlyAccurateProtein2021",
+  "source": "ingest",
+  "url": "https://www.nature.com/articles/s41586-021-03819-2.pdf",
+  "finalUrl": "https://www.nature.com/articles/s41586-021-03819-2.pdf",
+  "sha256": "6eae057a9faf4f671c3101e0745ed704460c6d3dec77243dfd3a9f2d2ab68970",
+  "bytes": 3651992,
+  "fetchedAt": "2026-11-11T06:17:56.279Z",
+  "license": "CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)"
+}

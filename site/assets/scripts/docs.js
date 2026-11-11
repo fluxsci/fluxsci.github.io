@@ -22,7 +22,9 @@
    const iframe=document.createElement('iframe');iframe.src=box.dataset.docStudy;
    iframe.title=button.dataset.title;iframe.setAttribute('allow','fullscreen');
    const stage=box.querySelector('.doc-study-stage');
-   iframe.style.height=Math.ceil(stage.clientWidth*440/800+64)+'px';
+   // Film studies are 16:9 players with a control bar; a slide exported whole names its own shape.
+   const aspect=Number(box.dataset.studyAspect);
+   iframe.style.height=(aspect?Math.ceil(stage.clientWidth*aspect):Math.ceil(stage.clientWidth*440/800+64))+'px';
    stage.querySelector('img').hidden=true;button.hidden=true;stage.append(iframe);frames.set(box,iframe);
    iframe.addEventListener('load',()=>iframe.focus({preventScroll:true}),{once:true});
   });
@@ -49,7 +51,11 @@
   const apply=()=>{for(const v of clips){if(reduce.matches){v.removeAttribute('autoplay');v.pause();}else if(!v.closest('.article-clip'))v.setAttribute('autoplay','');}};
   apply();reduce.addEventListener('change',apply);
   // A visitor who pauses a clip keeps it paused when it scrolls back into view.
-  if('IntersectionObserver' in window){const io=new IntersectionObserver(entries=>{for(const entry of entries){const v=entry.target;if(entry.isIntersecting){if(!reduce.matches&&!v.dataset.held)v.play().catch(()=>{});}else v.pause();}},{threshold:.25});clips.forEach(v=>io.observe(v));}
+  // An article holds many clips. One that has been out of view for a few seconds is unloaded
+  // (back to its still, its connection and decoder released), so a long page never runs out of
+  // either; it starts again from the top when scrolled back to.
+  const release=new WeakMap();
+  if('IntersectionObserver' in window){const io=new IntersectionObserver(entries=>{for(const entry of entries){const v=entry.target;clearTimeout(release.get(v));if(entry.isIntersecting){if(!reduce.matches&&!v.dataset.held)v.play().catch(()=>{});}else{v.pause();if(v.closest('.article-clip')&&v.networkState!==v.NETWORK_EMPTY)release.set(v,setTimeout(()=>v.load(),2500));}}},{threshold:.25});clips.forEach(v=>io.observe(v));}
   // Article clips read like moving pictures: no control bar while they loop, and a click, tap,
   // Enter or Space pauses and resumes. Reduced motion keeps the native controls and a still frame.
   for(const v of clips){

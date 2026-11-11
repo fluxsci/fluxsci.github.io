@@ -59,3 +59,26 @@ test('unlisted routes stay out of the sitemap and the search index',async({reque
   expect(await (await request.get(route.url)).text()).toContain('name="robots" content="noindex"');
  }
 });
+
+test('the tour\'s live slide is a still until asked for, then the exported slide itself',async({page})=>{
+ await page.goto('/in-60-seconds/');
+ const box=page.locator('.tour-live');
+ await box.scrollIntoViewIfNeeded();
+ await expect(box.locator('iframe')).toHaveCount(0);
+ await expect(box.locator('img')).toBeVisible();
+ await box.locator('[data-study-start]').click();
+ const frame=box.locator('iframe');
+ await expect(frame).toHaveCount(1);
+ await expect(frame).toHaveAttribute('title',/becomes its half-time/);
+ const size=await frame.boundingBox();
+ expect(Math.abs(size.height/size.width-0.75)).toBeLessThan(0.02);
+ expect((await page.request.get(await frame.getAttribute('src'))).status()).toBe(200);
+});
+
+test('the tour links each of its sections from the top',async({page})=>{
+ await page.goto('/in-60-seconds/');
+ for(const id of ['flux-figure','flux-slides','flux-paper','agents']){
+  await expect(page.locator(`.tour-jump a[href="#${id}"]`)).toHaveCount(1);
+  await expect(page.locator(`h2#${id}`)).toHaveCount(1);
+ }
+});

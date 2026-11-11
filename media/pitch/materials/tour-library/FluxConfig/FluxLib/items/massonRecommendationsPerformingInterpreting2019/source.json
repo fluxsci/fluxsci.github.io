@@ -1,0 +1,10 @@
+{
+  "key": "massonRecommendationsPerformingInterpreting2019",
+  "source": "ingest",
+  "url": "https://www.nature.com/articles/s41592-019-0459-y.pdf",
+  "finalUrl": "https://www.nature.com/articles/s41592-019-0459-y.pdf",
+  "sha256": "b19270fb73c433e53485c712664d89c1f7fbcc2cb5728dd1e8abbd74d2cb216e",
+  "bytes": 1911301,
+  "fetchedAt": "2026-11-11T06:17:57.773Z",
+  "license": "CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)"
+}

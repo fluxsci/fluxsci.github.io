@@ -70,8 +70,8 @@ export const centre=r=>({x:r.x+r.w/2,y:r.y+r.h/2});
 /** Switch to Figure and open a canvas by its name in the sidebar. */
 export async function openCanvas({page,rect,need},name){
   await need('shell',()=>page.evaluate(()=>!!document.querySelector('button[aria-label=Figure]')),30000);
-  await page.evaluate(()=>document.querySelector('button[aria-label=Figure]').click());
-  await need('figure mode',()=>rect('.canvas-host'),20000);
+  // At 4x the app can take a while to answer its first click: press Figure until the canvas exists.
+  await need('figure mode',async()=>{if(await rect('.canvas-host'))return true;await page.evaluate(()=>document.querySelector('button[aria-label=Figure]').click());await sleep(1500);return rect('.canvas-host');},45000);
   await sleep(1500);
   await page.getByText(name,{exact:true}).click();
   await sleep(3000);
@@ -105,3 +105,13 @@ export async function panCanvas({page,rect},selector,to){
 }
 /** Boxes of the figure pages on the canvas, in document order (the active one flagged). */
 export const figurePages=({page})=>page.evaluate(()=>[...document.querySelectorAll('.canvas-host rect.figure-bg')].map(n=>{const r=n.getBoundingClientRect();return {x:r.x,y:r.y,w:r.width,h:r.height,active:n.classList.contains('active')};}));
+
+// ---- materials -----------------------------------------------------------------------------
+/** Copy a materials overlay (media/pitch/materials/<name>/, laid out like a project) over the
+ *  scratch project. For a take's `prepare`: decks, documents or library files a clip starts
+ *  from that the demonstration project does not hold. save-overlay.mjs makes one. */
+export function applyOverlay(projectDir,name){
+  const dir=new URL(`./materials/${name}/`,import.meta.url).pathname;
+  if(!fs.existsSync(dir))throw Error('No materials overlay: '+dir);
+  fs.cpSync(dir,projectDir,{recursive:true});
+}
