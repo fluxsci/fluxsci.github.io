@@ -1,22 +1,30 @@
-/** Developer aid: screenshot the article at desktop and phone sizes, with the clip at a chosen time.
+/** Developer aid: open the built article on desktop and phone sizes in installed Chrome (the clips
+ *  are H.264), scroll to each clip as a visitor would, and report whether it loads and plays by
+ *  itself. Screenshots the moment each clip has played for `seconds`.
  *    node media/pitch/review.mjs <out dir> [seconds] */
 import {chromium,devices} from '@playwright/test';
-const [out,seconds='6.4']=process.argv.slice(2);
+const [out,seconds='2.0']=process.argv.slice(2);
 const url='http://127.0.0.1:'+(process.env.PORT||1430)+'/in-60-seconds/';
-// Installed Chrome, not Playwright's Chromium: the clip is H.264.
 const browser=await chromium.launch({channel:'chrome'});
-for(const [name,options] of [['desktop',{viewport:{width:1440,height:900},deviceScaleFactor:2}],['phone',{...devices['iPhone 14']}],['phone-dark',{...devices['iPhone 14'],colorScheme:'dark'}]]){
+let failures=0;
+for(const [name,options] of [['desktop',{viewport:{width:1440,height:900},deviceScaleFactor:2}],['phone',{...devices['iPhone 14']}]]){
   const context=await browser.newContext(options);const page=await context.newPage();
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.goto(url);await page.evaluate(()=>document.fonts.ready);
-  // Scroll the clip into view and let it play by itself to the requested moment: this is the
-  // visitor's path (no seeking), so it also proves the in-view autoplay.
-  await page.locator('.article-clip video').scrollIntoViewIfNeeded();
-  await page.evaluate(()=>{const v=document.querySelector('.article-clip video');const b=v.getBoundingClientRect();scrollBy(0,b.top-(innerHeight-b.height)/2);});
-  await page.waitForFunction(seconds=>document.querySelector('.article-clip video').currentTime>=seconds,+seconds,{timeout:40000});
-  const state=await page.evaluate(()=>{const v=document.querySelector('.article-clip video');const playing=!v.paused;v.pause();const b=v.getBoundingClientRect();return {playing,time:+v.currentTime.toFixed(2),controls:v.controls,w:b.width,h:b.height,video:[v.videoWidth,v.videoHeight],overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth};});
-  await page.screenshot({path:`${out}/${name}.png`});
-  console.log(name,JSON.stringify(state),errors.join('; '));
+  const clips=await page.locator('.article-clip video').all();
+  for(const [i,video] of clips.entries()){
+    await video.evaluate(v=>{const b=v.getBoundingClientRect();scrollBy(0,b.top-(innerHeight-b.height)/2);});
+    let state;
+    try{
+      await video.evaluate((v,s)=>new Promise((res,rej)=>{const t=setTimeout(()=>rej(Error('not playing')),20000);const check=()=>{if(v.currentTime>=s){clearTimeout(t);res();}else requestAnimationFrame(check);};check();}),+seconds);
+      state=await video.evaluate(v=>({ok:true,time:+v.currentTime.toFixed(2),size:[v.videoWidth,v.videoHeight],src:v.currentSrc.split('/').pop()}));
+    }catch(e){failures++;state=await video.evaluate(v=>({ok:false,paused:v.paused,readyState:v.readyState,src:v.currentSrc.split('/').pop()}));}
+    if(i===0)await page.screenshot({path:`${out}/${name}.png`});
+    console.log(name,i+1,JSON.stringify(state));
+    await video.evaluate(v=>v.pause());
+  }
+  console.log(name,'overflow',await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth),errors.join('; '));
   await context.close();
 }
 await browser.close();
+process.exit(failures?1:0);
