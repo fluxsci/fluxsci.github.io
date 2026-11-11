@@ -28,8 +28,9 @@ test('every article clip is a muted, looping, inline 4:3 picture with a still fr
   await expect(video).toHaveJSProperty('loop',true);
   await expect(video).toHaveJSProperty('controls',false);
   await expect(video).toHaveAttribute('playsinline','');
-  // Clips start when scrolled to, never all at once on load.
+  // Clips load and start when scrolled to, never all at once on load.
   await expect(video).not.toHaveAttribute('autoplay');
+  await expect(video).toHaveAttribute('preload','none');
   expect((await video.getAttribute('aria-label')).length).toBeGreaterThan(40);
   await video.scrollIntoViewIfNeeded();
   const box=await video.boundingBox();
