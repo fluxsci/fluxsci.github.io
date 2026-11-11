@@ -20,7 +20,7 @@ export const routes = [
     "source": "in-60-seconds/index.qmd",
     "output": "in-60-seconds/index.html",
     "url": "/in-60-seconds/",
-    "title": "Flux in 60 seconds",
+    "title": "Flux: a brief tour",
     "kind": "article",
     "unlisted": true
   },

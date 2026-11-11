@@ -44,7 +44,9 @@
  const clips=[...document.querySelectorAll('.doc-clip video')];
  if(clips.length){
   const reduce=matchMedia('(prefers-reduced-motion: reduce)');
-  const apply=()=>{for(const v of clips){if(reduce.matches){v.removeAttribute('autoplay');v.pause();}else v.setAttribute('autoplay','');}};
+  // Article pages hold many clips: those start only when scrolled into view (below), so a
+  // visitor's connection is not spent on clips they never reach.
+  const apply=()=>{for(const v of clips){if(reduce.matches){v.removeAttribute('autoplay');v.pause();}else if(!v.closest('.article-clip'))v.setAttribute('autoplay','');}};
   apply();reduce.addEventListener('change',apply);
   // A visitor who pauses a clip keeps it paused when it scrolls back into view.
   if('IntersectionObserver' in window){const io=new IntersectionObserver(entries=>{for(const entry of entries){const v=entry.target;if(entry.isIntersecting){if(!reduce.matches&&!v.dataset.held)v.play().catch(()=>{});}else v.pause();}},{threshold:.25});clips.forEach(v=>io.observe(v));}

@@ -5,16 +5,17 @@
     python3 media/pitch/compose.py <take dir> --encode-only --out … [--small …]     (re-encode the existing master)
 
 Input: <take dir>/capture.mkv (lossless grab of the stage region at device pixels), take.json
-(the pointer's glides, clicks, keys, named moments, on-screen boxes) from record.mjs, and
-cursors.json (the app's own cursor images) from cursors.mjs.
+(the pointer's glides, clicks, keys, wheel turns, named moments, on-screen boxes and camera keys)
+from record.mjs, cursors.json (the app's own cursor images) from cursors.mjs and badges.json
+(key badges) from badges.mjs.
 
 Each output frame is one moment on the page clock: the grabbed frame the app was showing
-then, seen through a camera (a 4:3 crop that eases between framings, resampled with Lanczos so
-a move never lands on a half pixel), with the pointer, click rings and key badges drawn on
-top from the logged input. The pointer is Flux's own cursor: the image the app was showing at
-that moment, and on every click the app's own press frames; its position comes from the same
-formula that drove the real mouse, so it is exact at every frame. The last frames dissolve into
-the first so the clip loops without a jump.
+then, seen through a camera (a crop of the take's aspect that eases between the take's
+framings, resampled with Lanczos so a move never lands on a half pixel), with the pointer,
+click rings and key badges drawn on top from the logged input. The pointer is Flux's own
+cursor: the image the app was showing at that moment, and on every press the app's own press
+frames; its position comes from the same formula that drove the real mouse, so it is exact at
+every frame. The last frames dissolve into the first so the clip loops without a jump.
 
 Resolution: the stage is grabbed at 4 device pixels per CSS pixel, so any framing at least
 (output width / 4) CSS pixels wide is resampled DOWN from real pixels; nothing is ever
@@ -27,9 +28,7 @@ are encoded from that master: the full-size clip, and optionally a 1280-wide one
 import argparse, json, math, os, subprocess
 from PIL import Image, ImageDraw
 
-HERE = os.path.dirname(os.path.abspath(__file__))
 FPS = 60
-ASPECT = 4 / 3
 
 
 def minimum_jerk(s):
@@ -43,61 +42,18 @@ def reach(s):
     return minimum_jerk(1 - (1 - s) ** 1.6)
 
 
-# ---- framings ------------------------------------------------------------------------------
-def frame(x0, x1, *, cy=None, top=None, bottom=None, within=None):
-    """A 4:3 camera frame spanning x0..x1, placed vertically by its centre, top or bottom, then
-    slid to stay inside `within`. Returned as (centre x, centre y, width)."""
-    w = x1 - x0
-    h = w / ASPECT
-    y = cy - h / 2 if cy is not None else top if top is not None else bottom - h
-    if within:
-        x0 = min(max(x0, within["x"]), within["x"] + within["w"] - w)
-        y = min(max(y, within["y"]), within["y"] + within["h"] - h)
-    return (x0 + w / 2, y + h / 2, w)
-
-
-def camera_colormap(take):
-    """The whole figure; in to the panel and the place its menu opens; closer on the row being
-    used; out for the whole colour-scale editor; in on the palettes beside the plot; tight on
-    the result; back out to the figure."""
-    b, m = take["boxes"], take["marks"]
-    plot, est = b["plot"], b["establish"]
-    right, mid = plot["x"] + plot["w"] + 22, plot["y"] + plot["h"] / 2
-    floor = take["window"]["height"] - 2
-    whole = frame(est["x"], est["x"] + est["w"], top=est["y"])
-    menu = frame(b["menu"]["x"] - 18, right, bottom=floor, within=est)
-    edit = frame(b["edit"]["x"] - 8, right, cy=mid, within=est)
-    editor = frame(b["editor"]["x"] - 18, right, bottom=floor, within=est)
-    # from the collection tabs down to the foot of the plot
-    tabs_top, tabs_height = b["tab"]["y"] - 24, plot["y"] + plot["h"] + 20 - (b["tab"]["y"] - 24)
-    tabs = frame(right - max(tabs_height * ASPECT, right - (b["palette"]["x"] - 14)), right, top=tabs_top, within=est)
-    swatch = frame(b["rows"]["managua"]["x"] - 12, right, cy=mid, within=est)
-    panel = frame(plot["x"] + plot["w"] / 2 - 240, plot["x"] + plot["w"] / 2 + 240, top=plot["y"] - 32, within=est)
-    return [
-        (m["start"], whole),
-        (m["start"] + 450, whole), (m["start"] + 1650, menu),
-        (m["menu"] + 500, menu), (m["menu"] + 1250, edit),
-        (m["editor"] + 20, edit), (m["editor"] + 820, editor),
-        (m["editor"] + 950, editor), (m["editor"] + 1700, tabs),
-        (m["tab"] + 200, tabs), (m["tab"] + 950, swatch),
-        (m["close"] + 60, swatch), (m["close"] + 960, panel),
-        (m["reveal"], panel), (m["reveal"] + 1250, whole),
-        (m["end"], whole),
-    ]
-
-
-CAMERAS = {"colormap": camera_colormap}
-
-
 def camera_at(keys, t):
-    if t <= keys[0][0]:
-        return keys[0][1]
-    for (t0, a), (t1, b) in zip(keys, keys[1:]):
-        if t <= t1:
-            e = minimum_jerk((t - t0) / (t1 - t0)) if t1 > t0 else 1.0
-            # centre moves linearly, width geometrically: a zoom that feels even
-            return (a[0] + (b[0] - a[0]) * e, a[1] + (b[1] - a[1]) * e, a[2] * (b[2] / a[2]) ** e)
-    return keys[-1][1]
+    """Camera (centre x, centre y, width) at page time t: ease between the take's keys. The
+    centre moves linearly and the width geometrically, so a zoom feels even."""
+    if t <= keys[0]["t"]:
+        k = keys[0]
+        return (k["cx"], k["cy"], k["w"])
+    for a, b in zip(keys, keys[1:]):
+        if t <= b["t"]:
+            e = minimum_jerk((t - a["t"]) / (b["t"] - a["t"])) if b["t"] > a["t"] else 1.0
+            return (a["cx"] + (b["cx"] - a["cx"]) * e, a["cy"] + (b["cy"] - a["cy"]) * e, a["w"] * (b["w"] / a["w"]) ** e)
+    k = keys[-1]
+    return (k["cx"], k["cy"], k["w"])
 
 
 def pointer_at(take, t):
@@ -122,8 +78,8 @@ def main():
     ap.add_argument("--sheet")
     ap.add_argument("--frames", help="directory for a few full-size review frames")
     ap.add_argument("--small", help="also encode a 1280-wide clip to this path")
-    ap.add_argument("--crf", default="17")
-    ap.add_argument("--small-crf", default="18")
+    ap.add_argument("--crf", default="19")
+    ap.add_argument("--small-crf", default="20")
     ap.add_argument("--encode-only", action="store_true")
     args = ap.parse_args()
 
@@ -131,24 +87,25 @@ def main():
     if args.encode_only:
         return encode(master, args)
     take = json.load(open(os.path.join(args.take, "take.json")))
-    S, region = take["window"]["scale"], take["region"]
+    S, region, ASPECT = take["window"]["scale"], take["region"], take.get("aspect", 4 / 3)
     NW = args.width
     NH = int(round(NW / ASPECT / 2)) * 2
     W, H = region["w"] * S, region["h"] * S
     marks = take["marks"]
-    keys = CAMERAS[take["take"]](take)
+    keys = take["camera"]
     t_start, t_end = marks["start"], marks["end"]
     total = int(round((t_end - t_start) / 1000 * FPS))
     fade = int(0.45 * FPS)
 
     clock = take["clock"]
-    for (t0, _), (t1, _) in zip(keys, keys[1:]):
-        assert t1 >= t0, f"camera keys out of order: {t0 - t_start:.0f} then {t1 - t_start:.0f} ms"
-    for _, (cx, cy, w) in keys:
+    for a, b in zip(keys, keys[1:]):
+        assert b["t"] >= a["t"], f"camera keys out of order: {a['t'] - t_start:.0f} then {b['t'] - t_start:.0f} ms"
+    for k in keys:
+        cx, cy, w = k["cx"], k["cy"], k["w"]
         h = w / ASPECT
         assert w * S >= NW - 0.5, f"a {w:.0f} px framing has only {w * S:.0f} real pixels across; the output needs {NW}"
         assert cx - w / 2 >= region["x"] + clock["x"] + clock["size"] or cy - h / 2 >= region["y"] + clock["y"] + clock["size"], "camera frame shows the clock square"
-        assert cx - w / 2 >= region["x"] and cy - h / 2 >= region["y"] and cx + w / 2 <= region["x"] + region["w"] + 0.01 and cy + h / 2 <= region["y"] + region["h"] + 0.01, "camera frame leaves the grabbed region"
+        assert cx - w / 2 >= region["x"] - 0.01 and cy - h / 2 >= region["y"] - 0.01 and cx + w / 2 <= region["x"] + region["w"] + 0.01 and cy + h / 2 <= region["y"] + region["h"] + 0.01, f"camera frame at {k['t'] - t_start:.0f} ms leaves the grabbed region"
 
     # Flux's cursor images, padded so a sub-pixel shift never samples outside the sprite.
     PAD = 16
@@ -170,8 +127,15 @@ def main():
                 break
             index = i
         return index
-    badges = {k: Image.open(os.path.join(HERE, f"overlays/key-{k}.png")).convert("RGBA") for k in ("f", "esc")}
+    badges = {label: {**b, "image": Image.open(os.path.join(args.take, b["file"])).convert("RGBA")} for label, b in json.load(open(os.path.join(args.take, "badges.json"))).items()}
     unit = NW / 1080.0  # overlay sizes are designed on a frame 1080 wide
+    # Wheel turns less than 350 ms apart are one scroll gesture.
+    scrolls = []
+    for wheel in take.get("wheels", []):
+        if scrolls and wheel["t"] - scrolls[-1][1] <= 350:
+            scrolls[-1][1] = wheel["t"]
+        else:
+            scrolls.append([wheel["t"], wheel["t"], wheel.get("where")])
 
     decoder = subprocess.Popen(["ffmpeg", "-loglevel", "error", "-i", os.path.join(args.take, "capture.mkv"), "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], stdout=subprocess.PIPE, bufsize=1 << 24)
     frame_bytes = W * H * 3
@@ -188,7 +152,7 @@ def main():
         "-c:v", "libx264rgb", "-preset", "ultrafast", "-qp", "0", "-threads", "32", master], stdin=subprocess.PIPE)
 
     current, upcoming = grabbed(), grabbed()
-    clocks, used = [current[0]], 0
+    clocks = [current[0]]
     base_key, base = None, None
     first, sheet, written = None, [], 0
     clock_t = lambda t: int(round(t)) & 0xFFFFFF
@@ -206,7 +170,6 @@ def main():
         if key != base_key:
             base = Image.frombuffer("RGB", (W, H), current[1], "raw", "RGB", 0, 1).resize((NW, NH), Image.LANCZOS, box=box)
             base_key = key
-            used += 1
         out = base.copy()
         to_out = lambda x, y: ((x - left) * NW / w, (y - top) * NH / h)
 
@@ -224,24 +187,52 @@ def main():
                 ring = ring.resize((2 * m, 2 * m), Image.LANCZOS).point(lambda v: v * alpha // 255)
                 out.paste((255, 96, 252), (int(round(x)) - m, int(round(y)) - m), ring)
 
-        # key badges, lower right over the empty canvas
-        pressed = [k for k in take["keys"] if k["down"] <= t]
-        for kpress in pressed[-1:]:
-            age = t - kpress["down"]
-            if age < 900:
-                badge = badges[kpress["label"].lower()]
-                appear, vanish = minimum_jerk(age / 90), 1 - minimum_jerk((age - 560) / 340)
-                held = age < (kpress["up"] - kpress["down"]) + 60
-                bw = int(badge.width / 4 * 1.45 * unit)
-                bh = int(badge.height / 4 * 1.45 * unit)
-                b = badge.resize((bw, bh), Image.LANCZOS)
-                alpha = min(appear, vanish)
+        # key badges: a tap shows for about a second, a held modifier for as long as it is held,
+        # a scroll badge while the wheel turns. Several at once sit side by side.
+        active = []
+        for i, k in enumerate(take["keys"]):
+            if t < k["down"]:
+                continue
+            # the same key tapped again replaces its badge rather than doubling it
+            if not k.get("held") and any(o["label"] == k["label"] and not o.get("held") and k["down"] < o["down"] <= t for o in take["keys"][i + 1:]):
+                continue
+            age = t - k["down"]
+            if k.get("held"):
+                end = k["up"] if k.get("up") is not None else t_end
+                alpha = min(minimum_jerk(age / 90), 1 - minimum_jerk((t - end) / 300))
+                pressed = t < end
+            else:
+                alpha = min(minimum_jerk(age / 90), 1 - minimum_jerk((age - 560) / 340))
+                pressed = age < (k["up"] - k["down"]) + 60
+            if alpha > 0.004:
+                active.append((k["label"], alpha, pressed, k.get("where"), minimum_jerk(age / 90)))
+        for start, end, where in scrolls:
+            if start <= t:
+                alpha = min(minimum_jerk((t - start) / 90), 1 - minimum_jerk((t - end - 250) / 300))
+                if alpha > 0.004:
+                    active.append(("scroll", alpha, t < end + 120, where, minimum_jerk((t - start) / 90)))
+        groups = {}
+        for item in active:
+            groups.setdefault(tuple(item[3]) if item[3] else (0.80, 0.905), []).append(item)
+        for (fx, fy), items in groups.items():
+            drawn = []
+            for label, alpha, pressed, _, appear in items:
+                badge = badges[label]
+                bw, bh = int(badge["width"] * 1.45 * unit), int(badge["height"] * 1.45 * unit)
+                b = badge["image"].resize((bw, bh), Image.LANCZOS)
                 if alpha < 1:
                     b.putalpha(b.getchannel("A").point(lambda v: int(v * alpha)))
-                out.paste(b, (int(NW * 0.80 - bw / 2), int(NH * 0.905 - bh / 2 + (4 * unit if held else 0) + (1 - appear) * 10 * unit)), b)
+                drawn.append((b, bw, bh, pressed, appear))
+            # sprites carry their own shadow margin (44 px each side at 1x), so let them overlap it
+            overlap = int(62 * 1.45 * unit)
+            span = sum(d[1] for d in drawn) - overlap * (len(drawn) - 1)
+            x = int(NW * fx - span / 2)
+            for b, bw, bh, pressed, appear in drawn:
+                out.paste(b, (x, int(NH * fy - bh / 2 + (4 * unit if pressed else 0) + (1 - appear) * 10 * unit)), b)
+                x += bw - overlap
 
-        # pointer: the image the app showed, and on a click the app's own press (a fast dip, a
-        # held pose, a quiet return: the timing of cursor/cursorPress.ts)
+        # pointer: the image the app showed, and on a press the app's own press frames (a fast
+        # dip, held while the button is down, a quiet return: the timing of cursor/cursorPress.ts)
         px, py = pointer_at(take, t)
         x, y = to_out(px, py)
         index, amount = shown_at(t), 0.0
@@ -250,7 +241,7 @@ def main():
                 u = min(1.0, (t - c["down"]) / press_down)
                 amount = 0.18 + 0.82 * (1 - (1 - u) ** 3)
             elif c["up"] <= t < c["up"] + press_up:
-                amount = (1 - (t - c["up"]) / press_up) ** 3
+                amount = max(amount, (1 - (t - c["up"]) / press_up) ** 3)
         cur = shown[index] if shown[index] else shown[arrow]
         if amount > 0 and (index == arrow or shown[index] is None):
             cur = press_frames[round(amount * (len(press_frames) - 1))]
@@ -274,7 +265,7 @@ def main():
         encoder.stdin.write(out.tobytes())
         written += 1
         if args.sheet and n % 30 == 0:
-            sheet.append(out.resize((384, 288), Image.LANCZOS))
+            sheet.append(out.resize((384, int(384 / ASPECT)), Image.LANCZOS))
         if args.frames and n % 75 == 40:
             os.makedirs(args.frames, exist_ok=True)
             out.save(os.path.join(args.frames, f"f{n:04d}.png"))
@@ -283,17 +274,18 @@ def main():
     encoder.wait()
     decoder.kill()
     if args.poster:
+        os.makedirs(os.path.dirname(os.path.abspath(args.poster)), exist_ok=True)
         first.save(args.poster, quality=92, method=6)
     if args.sheet:
-        cols = 5
+        cols, tw, th = 5, 388, int(384 / ASPECT) + 4
         rows = (len(sheet) + cols - 1) // cols
-        page = Image.new("RGB", (cols * 388, rows * 292), "white")
+        page = Image.new("RGB", (cols * tw, rows * th), "white")
         for i, im in enumerate(sheet):
-            page.paste(im, ((i % cols) * 388 + 2, (i // cols) * 292 + 2))
+            page.paste(im, ((i % cols) * tw + 2, (i // cols) * th + 2))
         page.save(args.sheet)
     steps = [b - a for a, b in zip(clocks, clocks[1:])]
     late = sum(1 for s in steps if s > 25)
-    narrowest = min(w for _, (_, _, w) in keys)
+    narrowest = min(k["w"] for k in keys)
     print(f"{written} frames ({written / FPS:.2f} s) at {NW}x{NH}; tightest framing {narrowest:.0f} px = {narrowest * S:.0f} real pixels across; {len(clocks)} distinct app frames, {late} gaps over 25 ms (longest {max(steps)} ms)")
     encode(master, args)
 

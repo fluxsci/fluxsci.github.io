@@ -11,6 +11,9 @@ const PUBLIC_ASSET = /^(?:assets|demos)\/(?:[\w@().-]+\/)*[\w@().-]+\.(?:html|cs
 // The homepage film is an HLS ladder of fragmented-MP4 segments (playlists, init and media segments) with its own budget.
 const FILM_ASSET = /^assets\/film\/(?:[\w-]+\/)?[\w.-]+\.(?:m3u8|m4s|mp4|webp|vtt)$/;
 const FILM_BUDGET_MB = 600;
+// Clips for the tour article (media/pitch.json): two sizes of each, about 10 MB a clip.
+const CLIP_ASSET = /^assets\/media\/pitch\//;
+const CLIP_BUDGET_MB = 250;
 const SITE_BUDGET_MB = 150;
 const FONT_LICENSE = /^assets\/fonts\/(?:OFL|LICENSE)[\w.-]*\.txt$/;
 const RUNTIME_LICENSE = /^assets\/licenses\/[\w.-]+\.txt$/;
@@ -119,11 +122,11 @@ async function resolveLocal(reference, from, label) {
 export async function checkOutput() {
   const files = await filesIn(OUTPUT);
   for (const required of OUTPUT_FILES) assert(files.includes(required), `Required output missing: ${required}`);
-  let bytes = 0, filmBytes = 0;
+  let bytes = 0, filmBytes = 0, clipBytes = 0;
   for (const file of files) {
     assert(OUTPUT_FILES.has(file) || allowedAsset(file), `Unexpected output: ${file}. The publication allowlist must be deliberately reviewed.`);
     const stat = await lstat(path.join(OUTPUT, file));
-    if (file.startsWith('assets/film/')) filmBytes += stat.size; else bytes += stat.size;
+    if (file.startsWith('assets/film/')) filmBytes += stat.size; else if (CLIP_ASSET.test(file)) clipBytes += stat.size; else bytes += stat.size;
     const limitMB = 15;
     assert(stat.size <= limitMB * 1024 * 1024, `Oversized public asset (>${limitMB} MB): ${file}`);
     if (!/\.(?:html|css|js|svg|xml|txt)$/.test(file)) continue;
@@ -163,6 +166,7 @@ export async function checkOutput() {
   assert.equal(createHash('sha256').update(await readFile(path.join(OUTPUT,'install.sh'))).digest('hex'),installer.sha256,'Published installer differs from reviewed upstream script');
   assert(bytes <= SITE_BUDGET_MB * 1024 * 1024, `Site exceeds ${SITE_BUDGET_MB} MB publication budget.`);
   assert(filmBytes <= FILM_BUDGET_MB * 1024 * 1024, `The film exceeds its ${FILM_BUDGET_MB} MB budget.`);
+  assert(clipBytes <= CLIP_BUDGET_MB * 1024 * 1024, `The article clips exceed their ${CLIP_BUDGET_MB} MB budget.`);
   for (const [file, expected] of Object.entries((await filmManifest()).outputs)) {
     const published = await readFile(path.join(OUTPUT, file.slice(5)));
     assert.equal(createHash('sha256').update(published).digest('hex'), expected.sha256, `Published film file differs from media/film.json: ${file}. Rebuild the site.`);
@@ -174,7 +178,7 @@ export async function checkOutput() {
       assert.equal(createHash('sha256').update(published).digest('hex'), expected.sha256, `Published asset differs from reviewed provenance: ${file}. Rebuild the site.`);
     }
   }
-  console.log(`Publication checks: ${files.length} approved files, ${(bytes / 1024 / 1024).toFixed(2)} MB site + ${(filmBytes / 1024 / 1024).toFixed(2)} MB film; local links and metadata pass.`);
+  console.log(`Publication checks: ${files.length} approved files, ${(bytes / 1024 / 1024).toFixed(2)} MB site + ${(clipBytes / 1024 / 1024).toFixed(2)} MB clips + ${(filmBytes / 1024 / 1024).toFixed(2)} MB film; local links and metadata pass.`);
   return files;
 }
 

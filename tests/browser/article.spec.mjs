@@ -19,19 +19,25 @@ test('articles read as one column without sideways scroll, on any screen',async(
  expect(errors).toEqual([]);
 });
 
-test('an article clip is a muted, looping, inline 4:3 picture with a still frame and no control bar',async({page})=>{
+test('every article clip is a muted, looping, inline 4:3 picture with a still frame and no control bar',async({page})=>{
  await page.goto('/in-60-seconds/');
- const video=page.locator('.article-clip video').first();
- await expect(video).toHaveJSProperty('muted',true);
- await expect(video).toHaveJSProperty('loop',true);
- await expect(video).toHaveJSProperty('controls',false);
- await expect(video).toHaveAttribute('playsinline','');
- const box=await video.boundingBox();
- expect(Math.abs(box.width/box.height-4/3)).toBeLessThan(0.02);
- expect(box.width).toBeLessThanOrEqual(page.viewportSize().width);
- const poster=await video.getAttribute('poster');
- expect((await page.request.get(poster)).status()).toBe(200);
- for(const source of await video.locator('source').all())expect((await page.request.get(await source.getAttribute('src'))).status()).toBe(200);
+ const clips=await page.locator('.article-clip video').all();
+ expect(clips.length).toBeGreaterThan(0);
+ for(const video of clips){
+  await expect(video).toHaveJSProperty('muted',true);
+  await expect(video).toHaveJSProperty('loop',true);
+  await expect(video).toHaveJSProperty('controls',false);
+  await expect(video).toHaveAttribute('playsinline','');
+  // Clips start when scrolled to, never all at once on load.
+  await expect(video).not.toHaveAttribute('autoplay');
+  expect((await video.getAttribute('aria-label')).length).toBeGreaterThan(40);
+  await video.scrollIntoViewIfNeeded();
+  const box=await video.boundingBox();
+  expect(Math.abs(box.width/box.height-4/3)).toBeLessThan(0.02);
+  expect(box.width).toBeLessThanOrEqual(page.viewportSize().width);
+  expect((await page.request.get(await video.getAttribute('poster'))).status()).toBe(200);
+  for(const source of await video.locator('source').all())expect((await page.request.get(await source.getAttribute('src'))).status()).toBe(200);
+ }
 });
 
 test('reduced motion keeps an article clip still and gives the visitor the controls',async({page})=>{

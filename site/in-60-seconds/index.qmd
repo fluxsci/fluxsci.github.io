@@ -1,29 +1,121 @@
 ---
-title: "Flux in 60 seconds"
-description: "A one-minute look at Flux, a unified workspace for scientific figures, papers, talks and the literature behind them."
+title: "Flux: a brief tour"
+description: "What Flux is and why it exists, followed by a short visual tour of Flux Figure: restyling any part of a plot, changing its axes, turning 3D models and arranging panels."
 ---
 
-<p class="eyebrow">A one-minute look</p>
-
-# Flux in 60 seconds
+# Flux: a brief tour
 
 ::: {.doc-lead}
-Flux is a unified workspace for creating scientific and technical materials: figures, papers,
-talks, and the reading behind them. It is designed to be a joy to use, and to take the details
-that software should handle off your mind.
+Flux is a studio for creating scientific and technical materials: figures, posters, slide decks,
+and documents such as journal articles, grant applications and book chapters. It is a set of
+tools that work as one.
 :::
 
-## Restyle a plot without rerunning it {#restyle-a-plot}
+Making these materials usually takes a long chain of separate tools, none of them designed for
+science. Figures are arranged in Adobe Illustrator, Figma or Inkscape, then exported and pasted
+into Word or Overleaf. Pieces of them are screenshotted into PowerPoint or After Effects for
+talks and posters. When the analysis changes, every figure has to be updated, exported and
+inserted again by hand. Each journal then asks for its own formatting: how figures are cited in
+the text, which fonts and sizes to use, what order the sections come in. Those edits are tedious
+and add nothing to the science. And because none of these tools was made with science in mind,
+the results are often less inspiring than they could be.
 
-A plot arrives in Flux with its parts still named and its colours still tied to the data.
-Select a panel, press **F**, and choose another colormap. The plot, its colour bar and its
-ticks change together, straight away, and the analysis never runs again.
+Flux aims to solve all of these problems. For each part of the work it provides a tool designed
+for science from the ground up, and it connects them so that every piece of a project can work
+with every other. Flux has five parts:
 
 ```{=html}
-<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/colormap.webp" width="1920" height="1440" muted loop playsinline autoplay controls preload="metadata" aria-label="A five-panel figure. The view moves in on one panel, a stress map, which is selected; F opens its properties, the colour scale editor opens, and three colormaps are tried in turn. The plot and its colour bar change with each click, and the view returns to the whole figure."><source src="/assets/media/pitch/colormap-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/colormap.mp4" type="video/mp4"></video><figcaption><span>Select the panel, press <strong>F</strong>, open its colour scale, and try three colormaps.</span></figcaption></figure>
+<ol class="tour-parts">
+<li><a class="tour-part-name" href="/docs/figure.html">Figure</a><p>Take the plots you make in Python and compose them into complete multi-panel figures. Think of it as Figma, had Figma been designed for science from the start. Flux Figure knows what each part of a plot is, so “hide the x-axis title on this plot” or “align the y-axis spines of these plots” is a single step. Plots stay tied to the data and scripts that made them: regenerate one with new data and it updates in place on the figure, with every visual edit you have made still applied.</p></li>
+<li><a class="tour-part-name" href="/docs/paper.html">Paper</a><p>Write the manuscript once, and think only about what it says. From that one source, Flux exports the paper with the structure and formatting of any format you define: one copy for submission to Nature, another for bioRxiv. Everything the paper refers to in the project (figures, statistics, references) updates live.</p></li>
+<li><a class="tour-part-name" href="/docs/slides.html">Slides</a><p>Once there is a figure editor designed for science, slides should be easy: the same editing surface and the same objects, gathered into decks, with first-class motion. Any figure becomes a slide in one click, and beautiful animation is simple to add. If you can picture an animation, you can probably build it. Flux Slides is meant to replace both PowerPoint and After Effects, and to be easier than either without giving up their power.</p></li>
+<li><a class="tour-part-name" href="/docs/library.html">Library</a><p>One library for all of your references, shared by every project. It does what a reference manager should: it fetches abstracts and full text automatically, extracts the text, labels papers by meaning, and draws on open indexes such as OpenAlex and Semantic Scholar. For any paper, one click finds the papers that cite it, the papers it cites, and papers like it. Zotero already does much of this well and is open source, so Flux can also work with <a href="/docs/zotero.html">your existing Zotero library</a>.</p></li>
+<li><a class="tour-part-name" href="/docs/reader.html">Reader</a><p>A PDF reader with features made for reading science.</p></li>
+</ol>
+```
+
+Each part is designed, first of all, to be the best tool for a person. AI integration is built
+in, and optional. Take any agent you already use (Claude Code, Codex and others), however you
+already use it (the command line, a desktop app), and give it one
+[`flux-connect`](/docs/connect.html) command. It then knows how to use every part of Flux, and
+can see, read and edit anything in the project. While you work, you can point at anything on the
+screen and ask a connected agent to do what you want: it sees exactly what you see, and works
+live alongside you.
+
+Flux was inspired in part by the "file over app" philosophy. A project is a folder of ordinary
+files, so at any time you can take those files and do whatever you like with them. Flux is free,
+open source, and runs on your own machine. With AI programming agents, that also puts changing
+Flux itself, whether to fix, extend or personalise it, within easy reach.
+
+For more on any part of Flux, see [the documentation](/docs/) or watch
+[the short introductory film](/#film). To try it,
+[installing takes one copied line](/install/). What follows is a brief visual tour of a small
+fraction of what Flux can do.
+
+## Flux Figure: the ideal visual editor for science {#flux-figure}
+
+### Restyle any part of a plot with ease {#restyle}
+
+Flux has a companion Python package, [fluxplot](/docs/fluxplot.html), which saves plots as
+ordinary SVG files with one or two small "sidecar" files beside each. You never need to look at
+the sidecars. They tell Flux which marks belong to which part of the plot.
+
+::: {.tour-step}
+Say you want to change the colormap of a plot. There is no need to rerun the script or notebook
+that made it: Flux comes with a curated set of the best colormaps for science, and any of them
+can be applied with a click.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/colormap.webp" width="1920" height="1440" muted loop playsinline controls preload="metadata" aria-label="A six-panel figure. The view moves in on panel c, a map of hexagons in rainbow colours. The panel is selected, F opens its properties, the colour scale editor opens beside it, and three scientific colormaps are tried in turn; the plot and its colour bar change with each click. The view returns to the whole figure."><source src="/assets/media/pitch/colormap-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/colormap.mp4" type="video/mp4"></video><figcaption><span>Select the panel, press <strong>F</strong>, open its colour scale, and try three of Fabio Crameri’s scientific colour maps.</span></figcaption></figure>
+```
+
+::: {.tour-step}
+Any other part of a plot can be reached and restyled the same way. The **X-ray** lays out a plot's
+anatomy as a list, down to single tick marks: show or hide a whole axis with a click, or find
+every line in the plot and restyle them together.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/xray-lines.webp" width="1920" height="1440" muted loop playsinline controls preload="metadata" aria-label="The view moves in on panel d, uptake curves for six peptides. R opens the X-ray beside it, a list of the plot's parts; the x axis is hidden and shown again, then the y axis. Searching the list for line finds the six fitted curves; all six are picked, F opens their shared properties, and the wheel raises their stroke width from 0.1 to 1 as the curves thicken together. The view returns to the whole figure."><source src="/assets/media/pitch/xray-lines-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/xray-lines.mp4" type="video/mp4"></video><figcaption><span>Open the <strong>X-ray</strong> to reach any part of a plot by name: hide an axis, or find every fitted line and thicken all six at once.</span></figcaption></figure>
+```
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/xray-axes.webp" width="1920" height="1440" muted loop playsinline controls preload="metadata" aria-label="The view moves in on panel e, four enzyme-kinetics plots in a grid. The top two are selected together, and the X-ray lists the parts they share. One click hides both plots' x-axis tick labels and a second hides both x-axis titles, since the plots below already show them. The view returns to the whole figure."><source src="/assets/media/pitch/xray-axes-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/xray-axes.mp4" type="video/mp4"></video><figcaption><span>Select several plots and the X-ray lists the parts they share: one click hides the x-axis labels on both.</span></figcaption></figure>
+```
+
+::: {.tour-step}
+Because Flux knows where the data lie, it can also change the axes themselves, smoothly and
+without rerunning anything. Here the panel was cropped to part of a simulation; scrolling the
+limits zooms it out to the whole run, and the data and tick marks follow as you go.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/axisview.webp" width="1920" height="1440" muted loop playsinline controls preload="metadata" aria-label="The view moves in on panel f, a plot of RMSD over simulation time showing 200 to 600 nanoseconds. F opens its properties below it; the x view editor opens, and the wheel scrolls the minimum down to 0 and then the maximum up to 1000. The curves extend in from both sides and the axis re-ticks as the limits move. The view returns to the whole figure."><source src="/assets/media/pitch/axisview-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/axisview.mp4" type="video/mp4"></video><figcaption><span>Open the plot’s <strong>x view</strong> and scroll its limits: the data re-project and the axis re-ticks as you go.</span></figcaption></figure>
+```
+
+::: {.tour-step}
+3D models live on the same canvas as everything else. Double-click one to turn it in place, and
+set the view that tells your story.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/model3d.webp" width="1920" height="1440" muted loop playsinline controls preload="metadata" aria-label="The view moves in on panel b: a protein drawn as a ribbon on the left, standing upright, and the same protein as a surface on the right, tipped on its back. A double-click on the surface starts turning it in place, and one drag stands it upright to match the ribbon, its angles reading zero. The view returns to the whole figure."><source src="/assets/media/pitch/model3d-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/model3d.mp4" type="video/mp4"></video><figcaption><span>Double-click a model to turn it right on the figure, and drag until it stands like its neighbour.</span></figcaption></figure>
+```
+
+### Resize and arrange {#arrange}
+
+Plots arrive at the size they will print. From there, Flux works like a design tool that knows
+it is holding plots: line panels up in rows, columns and grids, space them evenly by dragging
+the pink gap guides, align plots by their axes rather than their outer boxes, and resize them
+freely. A resized plot lays itself out again like a fresh one, so its axes stretch while its
+text and lines keep their sizes.
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/arrange.webp" width="1920" height="1440" muted loop playsinline controls preload="metadata" aria-label="A blank figure beside the Plots rail. Four spectrum plots are picked in the rail and dragged onto the figure, landing at their printed size. Align and Arrange turns them into a two-by-two grid; one corner drag shrinks all four together; dragging the pink gap guides sets the spacing between columns and rows. Three galaxy-profile plots are dragged in below as a column and overlapped by dragging their gap guide; they are aligned to the y axis of the plot above, then their shared right edge is dragged out to the figure's width, and their axes stretch while the text keeps its size."><source src="/assets/media/pitch/arrange-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/arrange.mp4" type="video/mp4"></video><figcaption><span>Seven plots from the rail become a finished figure: a grid, one resize for all four, the pink spacing guides, alignment on the y axis, and a stretch that reflows the axes.</span></figcaption></figure>
 ```
 
 ::: {.article-next}
 <a class="article-install" href="/install/">Install Flux</a>
-<a href="/docs/first-project.html">Or follow the 20-minute first project</a>
+<a href="/docs/figure.html">Read the Figure guide</a>
 :::

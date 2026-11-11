@@ -5,7 +5,7 @@
  *  window needs, and launches the production Electron build with a remote-debugging port so
  *  record.mjs can drive it (record.mjs also sizes the app window to fill the display). Stays up until killed; prints one JSON line when the app is ready.
  *
- *    node media/pitch/stage.mjs --flux-source <checkout> --project <FluxProj> [--width 1400 --height 900 --scale 3 --display 97 --port 9333]
+ *    node media/pitch/stage.mjs --flux-source <checkout> --project <FluxProj> [--width 1400 --height 900 --scale 3 --display 97 --port 9333 --take <module> --extra "<electron flags>"]
  */
 import fs from 'node:fs';
 import os from 'node:os';
@@ -22,6 +22,10 @@ const scratch=fs.mkdtempSync(path.join(os.tmpdir(),'flux-pitch-stage-'));
 const project=path.join(scratch,path.basename(original));
 fs.cpSync(original,project,{recursive:true,filter:p=>!/[\\/]\.meta[\\/](locks|live|feedback)([\\/]|$)/.test(p)&&!/feedback\.ndjson$/.test(p)});
 for(const d of ['home','xdg'])fs.mkdirSync(path.join(scratch,d));
+// The owner's notes stay behind; the app expects the file to exist.
+fs.mkdirSync(path.join(project,'.meta'),{recursive:true});fs.writeFileSync(path.join(project,'.meta/feedback.ndjson'),'');
+// A take may set up its scratch project before the app opens it (e.g. start from an earlier clip's result).
+if(opt('take')){const take=(await import(path.resolve(opt('take')))).default;await take.prepare?.(project,{source});}
 
 const children=[];
 const stop=()=>{for(const c of children)try{c.kill('SIGKILL');}catch{}};
