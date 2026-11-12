@@ -22,5 +22,15 @@ test('preview serves only built public files and returns a real 404', async () =
     assert.equal((await request('/', 'POST')).status, 405);
     const head = await request('/', 'HEAD'); assert.equal(head.status, 200); assert.equal(head.body, '');
     assert.match(head.headers['content-type'], /text\/html/);
+    // Byte ranges, as a video player asks for them.
+    const ranged = (url, range) => new Promise((resolve, reject) => {
+      const req = http.request({ host:'127.0.0.1', port, path:url, headers:{ Range:range } }, response => {
+        let size = 0; response.on('data', chunk => size += chunk.length); response.on('end', () => resolve({ status:response.statusCode, headers:response.headers, size }));
+      }); req.on('error', reject); req.end();
+    });
+    assert.equal(head.headers['accept-ranges'], 'bytes');
+    const first = await ranged('/robots.txt', 'bytes=0-9'); assert.equal(first.status, 206); assert.equal(first.size, 10); assert.match(first.headers['content-range'], /^bytes 0-9\/\d+$/);
+    const tail = await ranged('/robots.txt', 'bytes=-5'); assert.equal(tail.status, 206); assert.equal(tail.size, 5);
+    assert.equal((await ranged('/robots.txt', 'bytes=999999-')).status, 416);
   } finally { await new Promise(resolve => server.close(resolve)); }
 });

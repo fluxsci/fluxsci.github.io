@@ -27,10 +27,23 @@ export function createStaticServer(root = OUTPUT) {
       let status = 200;
       if (!stat?.isFile() || stat.isSymbolicLink()) { filename = path.join(root, '404.html'); stat = await lstat(filename).catch(() => null); status = 404; }
       if (!stat?.isFile() || !isInside(await realpath(root), await realpath(filename))) { response.writeHead(404); response.end('Not found'); return; }
-      const headers = { 'Content-Type': MIME[path.extname(filename)] ?? 'application/octet-stream', 'Content-Length':stat.size };
+      const headers = { 'Content-Type': MIME[path.extname(filename)] ?? 'application/octet-stream', 'Content-Length':stat.size, 'Accept-Ranges':'bytes' };
+      // Byte ranges, as the published host serves them: Safari will not play a video without them.
+      const range = status === 200 ? /^bytes=(\d*)-(\d*)$/.exec(request.headers.range ?? '') : null;
+      let span = null;
+      if (range && (range[1] || range[2])) {
+        const start = range[1] ? Number(range[1]) : Math.max(0, stat.size - Number(range[2]));
+        const end = range[1] && range[2] ? Math.min(Number(range[2]), stat.size - 1) : stat.size - 1;
+        if (start > end || start >= stat.size) { response.writeHead(416, { 'Content-Range':`bytes */${stat.size}` }); response.end(); return; }
+        span = { start, end }; status = 206;
+        headers['Content-Range'] = `bytes ${start}-${end}/${stat.size}`; headers['Content-Length'] = end - start + 1;
+      }
       response.writeHead(status, headers);
-      if (request.method === 'HEAD') response.end();
-      else createReadStream(filename).on('error', () => response.destroy()).pipe(response);
+      if (request.method === 'HEAD') { response.end(); return; }
+      const stream = createReadStream(filename, span ?? {});
+      stream.on('error', () => response.destroy()).pipe(response);
+      // A player that abandons a request must not leave the file open.
+      response.on('close', () => stream.destroy());
     } catch (error) {
       response.writeHead(error instanceof URIError ? 400 : 500); response.end('Request failed');
     }

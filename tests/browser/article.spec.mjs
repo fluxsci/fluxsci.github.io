@@ -20,27 +20,25 @@ test('articles read as one column without sideways scroll, on any screen',async(
 });
 
 test('every article clip is a muted, looping, inline 4:3 picture with a still frame and no control bar',async({page})=>{
- test.setTimeout(120000);
  await page.goto('/in-60-seconds/');
- const clips=await page.locator('.article-clip video').all();
+ // Read every clip where it stands: scrolling to each would start all of them playing.
+ const clips=await page.locator('.article-clip video').evaluateAll(videos=>videos.map(v=>{const b=v.getBoundingClientRect();return {muted:v.muted,loop:v.loop,controls:v.controls,inline:v.hasAttribute('playsinline'),autoplay:v.hasAttribute('autoplay'),preload:v.getAttribute('preload'),label:v.getAttribute('aria-label')||'',poster:v.getAttribute('poster'),sources:[...v.querySelectorAll('source')].map(s=>s.getAttribute('src')),width:b.width,height:b.height};}));
  expect(clips.length).toBeGreaterThan(0);
- for(const video of clips){
-  await expect(video).toHaveJSProperty('muted',true);
-  await expect(video).toHaveJSProperty('loop',true);
-  await expect(video).toHaveJSProperty('controls',false);
-  await expect(video).toHaveAttribute('playsinline','');
+ const urls=new Set();
+ for(const clip of clips){
+  expect(clip.muted&&clip.loop&&clip.inline,clip.poster).toBe(true);
+  expect(clip.controls,clip.poster).toBe(false);
   // Clips load and start when scrolled to, never all at once on load.
-  await expect(video).not.toHaveAttribute('autoplay');
-  await expect(video).toHaveAttribute('preload','none');
-  expect((await video.getAttribute('aria-label')).length).toBeGreaterThan(40);
-  await video.scrollIntoViewIfNeeded();
-  const box=await video.boundingBox();
-  expect(Math.abs(box.width/box.height-4/3)).toBeLessThan(0.02);
-  expect(box.width).toBeLessThanOrEqual(page.viewportSize().width);
-  // Existence only (HEAD): the build's publication checks already verify every clip's bytes and hash.
-  expect((await page.request.head(await video.getAttribute('poster'))).status()).toBe(200);
-  for(const source of await video.locator('source').all())expect((await page.request.head(await source.getAttribute('src'))).status()).toBe(200);
+  expect(clip.autoplay,clip.poster).toBe(false);
+  expect(clip.preload,clip.poster).toBe('none');
+  expect(clip.label.length,clip.poster).toBeGreaterThan(40);
+  expect(Math.abs(clip.width/clip.height-4/3),clip.poster).toBeLessThan(0.02);
+  expect(clip.width).toBeLessThanOrEqual(page.viewportSize().width);
+  expect(clip.sources.length).toBe(2);
+  for(const url of [clip.poster,...clip.sources])urls.add(url);
  }
+ // Existence only (HEAD): the build's publication checks already verify every clip's bytes and hash.
+ for(const url of urls)expect((await page.request.head(url,{timeout:10000})).status(),url).toBe(200);
 });
 
 test('reduced motion keeps an article clip still and gives the visitor the controls',async({page})=>{
