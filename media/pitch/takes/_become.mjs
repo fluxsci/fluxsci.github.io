@@ -77,14 +77,14 @@ export function buildBecomeSlide(project,{source}={}){
 
 /** The Become that "slide-become" makes on camera, written into the deck exactly as the app
  *  writes it there (one step, one hand-off track: the six curve lines to the six bars, pair auto,
- *  Smooth), with the timing that take gives it on the timeline (2.4 s, starting at 0.6 s).
+ *  Smooth, source stays: the curves remain and copies of them fly), with the timing that take gives it on the timeline (2.4 s, starting at 0.6 s).
  *  "slide-animator" starts from it. */
 export function addBecomeStep(project,{deckId,slideId,uptake,bars},{start=600,duration=2400}={}){
   const file=path.join(project,'slides',deckId,'deck.json'),deck=JSON.parse(fs.readFileSync(file,'utf8'));
   const slide=deck.slides.find(s=>s.id===slideId);
   slide.beats=[slide.beats[0],{id:'beat_tourbecome_1',label:'Beat 1',advance:'click',tracks:[{
     id:'track_tourbecome_1',target:uptake,preset:'transform',duration,
-    to:{become:{ref:{element:bars,parts:[1,2,3,4,5,6].map(i=>`peptide-${i}-half-time.bar.0`)},mode:'handoff',pair:'auto',reveal:'flip'},state:{}},
+    to:{become:{ref:{element:bars,parts:[1,2,3,4,5,6].map(i=>`peptide-${i}-half-time.bar.0`)},mode:'handoff',pair:'auto',reveal:'flip',keepSource:true},state:{}},
     parts:[1,2,3,4,5,6].map(i=>`peptide-${i}-fit.line`),start,easing:'smooth'}]}];
   fs.writeFileSync(file,JSON.stringify(deck,null,2));
 }

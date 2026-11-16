@@ -79,7 +79,7 @@ Each builder has a private X display and debugging port (given in your assignmen
 ```sh
 cd ~/fluxsci.github.io
 P=~/FluxProjects/flux_demo_master/MASTER_DEMO_FluxProj
-export FLUX_XVFB=/tmp/flux-analysis-xvfb/root/usr/bin/Xvfb
+export FLUX_XVFB=$HOME/.local/share/flux-xvfb/root/usr/bin/Xvfb
 
 # explore: set the stage (prepare + setup) and leave the app up; poke it from /tmp scripts
 (nohup node media/pitch/record.mjs --flux-source ~/flux --project $P --take <name> --explore --scale 2 --display <D> --port <PORT> > /tmp/explore-<name>.log 2>&1 &)

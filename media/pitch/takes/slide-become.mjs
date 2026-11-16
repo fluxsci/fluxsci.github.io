@@ -1,8 +1,10 @@
 /** Slides 4: one thing becomes another. On a slide made from Figure 1's uptake curves (panel d,
  *  finished) beside a bar chart of the six peptides' half-times, the six fitted curves Become the
- *  six bars: Ctrl+click one curve, Shift+click the other five, B, drag a box round the bars,
- *  Space. Then ▶ Play in the Animator, framed on the slide alone: each curve swells, lifts off and
- *  lands as its own bar, in its own colour, in its own row.
+ *  six bars and stay where they are: Ctrl+click one curve, Shift+click the other five, B, K (the
+ *  source stays: the picker bar now reads "sends copies to…"), drag a box round the bars, Space. On the timeline the clip is
+ *  dragged to 2.4 s and moved to start at 0.6 s. Then ▶ Play, framed on the slide alone: the
+ *  curves stay in their plot while a copy of each lifts off and lands as its own bar, in its own
+ *  colour, in its own row; the slide holds with curves and bars both present.
  *
  *  Materials: the deck is built in the scratch project by _become.mjs (Flux CLI, every run). Its
  *  bar chart, plots/protein_structure/hdx_half_times, was made for this from the uptake model of
@@ -96,7 +98,7 @@ export default {
     const text=()=>page.evaluate(()=>document.body.innerText);
     const g=boxes.grips;
     mark('start');
-    await sleep(900);
+    await sleep(650);
     // ---- the six curves: Ctrl+click drills to one, Shift+click adds its siblings ----
     await glide(g[0],{bow:0.12});
     await sleep(180);
@@ -114,11 +116,15 @@ export default {
     }
     await release('Shift');mark('curves');
     await need('six curves picked',async()=>/PLOT PARTS\s*·\s*6\b/.test(await text()));
-    await sleep(650);
+    await sleep(450);
     // ---- B: the Become picker; a box round the six bars picks them, numbered ----
     await key('b',{label:'B',where:[0.12,0.9]});mark('picker');
     await need('picker',async()=>/becomes…/.test(await text()));
-    await sleep(700);
+    await sleep(650);
+    // K: the source stays; copies of the curves will fly ("sends copies to…")
+    await key('k',{label:'K',where:[0.12,0.9]});mark('keep');
+    await need('source stays',async()=>/sends copies to/.test(await text()));
+    await sleep(1450);
     const b1=boxes.bar1,b6=boxes.bar6;
     const from={x:b1.x-16,y:b1.y-14},to={x:b6.x+b6.w+12,y:b6.y+b6.h+8};
     await glide(from,{bow:0.1});
@@ -127,15 +133,15 @@ export default {
     await glide(to,{bow:0,ms:1000});
     await sleep(240);await up();mark('picked');
     await need('six bars picked',async()=>/6 picked/.test(await text()));
-    await sleep(750);
+    await sleep(650);
     await key(' ',{label:'Space',where:[0.12,0.9]});mark('confirm');
-    await need('hand-off made',async()=>/hands off to/.test(await text()));
+    await need('hand-off made',async()=>/sends copies to ‹/.test(await text())&&!!await button(page,t=>t==='▶ Play'));
     // The track as written: curve n hands off to bar n's set (six line parts, six bars).
     const {project}=JSON.parse(fs.readFileSync(handoff(portOf(process.argv)),'utf8'));
     const deckFile=fs.readdirSync(path.join(project,'slides')).map(d=>path.join(project,'slides',d,'deck.json')).find(f=>{try{return JSON.parse(fs.readFileSync(f,'utf8')).title===DECK_TITLE;}catch{return false;}});
     const track=await need('track saved',()=>{try{return JSON.parse(fs.readFileSync(deckFile,'utf8')).slides[0].beats[1]?.tracks[0]??null;}catch{return null;}},8000);
     const want=[1,2,3,4,5,6].map(i=>`peptide-${i}-fit.line`).join(),got=[...track.parts].sort().join();
-    if(got!==want||track.to.become.ref.parts.length!==6)throw Error('The Become does not hand the six curves to the six bars: '+JSON.stringify({parts:track.parts,to:track.to.become.ref}));
+    if(got!==want||track.to.become.ref.parts.length!==6||track.to.become.keepSource!==true)throw Error('The Become does not hand the six curves to the six bars: '+JSON.stringify({parts:track.parts,to:track.to.become.ref}));
     await sleep(400);
     // ---- its timing on the timeline: drag the clip's end out to 2.4 s, then the clip itself to
     //      start at 0.6 s (a beat of stillness after the click, so the before state reads) ----
@@ -165,7 +171,7 @@ export default {
     await glide(rest,{bow:0.1,ms:420});
     await sleep(600+2400-420);
     mark('played');
-    await sleep(1650+1000);
+    await sleep(2300+1000);
     mark('end');
   },
 
@@ -183,13 +189,15 @@ export default {
     // the timeline: the clip's label and the ruler, from 0 s to past 3 s
     const c=b.clip,timing=frame(c.x-40,c.end+60,{bottom:c.y+c.h+105,within});   // above the hand-off toast
     const tight=around(s,{pad:6,within});
+    // the picker bar's sentence, close enough to read (it changes to "sends copies to…" on K)
+    const bar=frame(165,165+700,{top:104,within});
     return [
       [m.start,wide],[m.start+450,wide],[m.start+1350,slide],
-      [m.curves+250,slide],[m.picker+100,wide],
+      [m.curves+250,slide],[m.picker+120,wide],[m.keep-150,wide],[m.keep+350,bar],[m.keep+1500,bar],[m.keep+2100,wide],
       [m.confirm+700,wide],[m.timing-100,timing],
       [m.later+350,timing],[m.play-150,play],
       [m.play+120,play],[m.play+560,tight],
-      [m.played+1650,tight],[m.played+2550,wide],[m.end,wide],
+      [m.played+2300,tight],[m.played+3200,wide],[m.end,wide],
     ];
   },
 };

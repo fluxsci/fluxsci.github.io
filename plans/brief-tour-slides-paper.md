@@ -12,11 +12,11 @@ Lead: A slide in Flux is a figure with time added: the same canvas, the same plo
 
 ## Motion that understands the data
 1. Any edit can be a step. Video: the two edits from the Figure clips as steps: the RMSD axis glides from 200–600 out to 0–1000, then the hexagon map turns from rainbow to roma (made on camera, then played).
-2. One thing can become another. Video: the six fitted curves are selected, **B**, the six half-time bars are boxed, **Space**; the clip is retimed on the timeline and played: each curve becomes its bar. (New plot: `plots/protein_structure/hdx_half_times`.)
+2. One thing can become another. Video: the six fitted curves are selected, **B**, then **K** so the curves stay (a ghost Become, added to Flux for this, 2026-11-16), the six half-time bars are boxed, **Space**; the clip is retimed on the timeline and played: the curves stay and a copy of each becomes its bar. (New plot: `plots/protein_structure/hdx_half_times`.)
 3. 3D models move too. Video: the SARS-CoV-2 spike turns once, opens (one receptor-binding domain swings up, a morph between PDB 6VXX and 6VSB), and the camera moves in on the domain. (New model: `plots/protein_structure/spike_opening`.)
 
 ## Timing, and taking it on stage
-1. The Animator. Video: the Become's clip is dragged out to 3 s and **Piece lag** raised, so the curves land one at a time.
+1. The Animator. Video: the Become's clip is dragged out to 3 s and **Piece lag** raised, so the copies leave one at a time while the curves stay.
 2. It plays anywhere. No video: the Become slide itself, exported from Flux as one HTML file, embedded in the page and playable there.
 
 # Flux Paper: write once, export anywhere (as built)

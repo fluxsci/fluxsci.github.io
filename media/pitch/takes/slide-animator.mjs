@@ -1,8 +1,8 @@
 /** Slides 6: the Animator. The slide from "slide-become", its Become already made (one step, one
- *  clip on the timeline: the six curves hand off to the six bars together, 2.4 s from 0.6 s). Select the
- *  clip, drag its end out to 3 s, raise Piece lag to 0.5, and play the step: now the curves peel
- *  off one after another, top to bottom, each landing as its bar while the playhead runs along
- *  the clip.
+ *  clip on the timeline: the six curves send copies to the six bars together, 2.4 s from 0.6 s;
+ *  the curves themselves stay). Select the clip, drag its end out to 3 s, raise Piece lag to 0.5,
+ *  and play the step: now the copies peel off one after another, top to bottom, each landing as
+ *  its bar while the curves stay and the playhead runs along the clip.
  *
  *  Plan point 6 asked for six bar clips dragged into a stagger and a spring with a small bounce.
  *  In Flux a Become with a set of parts is ONE clip whose pieces fly together; their stagger is
@@ -42,6 +42,7 @@ export default {
     for(let i=0;i<4;i++){await page.mouse.move(900,980);await page.keyboard.down('Control');await page.mouse.wheel(0,100);await page.keyboard.up('Control');await sleep(450);}
     boxes.bar=await need('the Become clip',()=>page.evaluate(()=>{const t=[...document.querySelectorAll('.lane-row .bar-time')].find(n=>n.textContent.trim()==='2.40s');const r=t?.parentElement.getBoundingClientRect();return r&&r.width?{x:r.x,y:r.y,w:r.width,h:r.height}:null;}));
     boxes.lane=await rectOf(page,'.lane-row');
+    if(!await page.evaluate(()=>/source stays/.test(document.querySelector('.lane-row')?.textContent||'')))throw Error('The lane does not read "source stays"');
     boxes.slide=await need('slide',()=>slideBox(page));
     boxes.step=await need('Step',()=>button(page,t=>t==='▶ Step'));
     boxes.rest={x:Math.round(boxes.slide.x-120),y:Math.round(boxes.slide.y+boxes.slide.h*0.6)};
@@ -76,6 +77,7 @@ export default {
     await glide(at(LAG),{bow:0,ms:850});
     await sleep(200);await up();mark('lag1');
     await need('Piece lag 0.5',async()=>Math.abs((track()?.pairLag??0)-LAG)<1e-6,4000).catch(async()=>{throw Error('Piece lag is '+track()?.pairLag);});
+    if(track()?.to?.become?.keepSource!==true)throw Error('The Become no longer keeps its source');
     await sleep(800);
     // ---- play the step ----
     const st=boxes.step;

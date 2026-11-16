@@ -100,9 +100,9 @@
       "seconds": 20.71
     },
     "slide-become": {
-      "recorded": "2026-11-11T15:16:29.336Z",
+      "recorded": "2026-11-16T15:52:01.445Z",
       "flux": {
-        "revision": "122ef4b14cf9d096d1e2439a308b1b8e0d54a545",
+        "revision": "ef546390c372ce8f2b659407416b6ca65701c345",
         "dirty": false
       },
       "window": {
@@ -111,12 +111,12 @@
         "scale": 3
       },
       "project": "MASTER_DEMO_FluxProj",
-      "seconds": 21.66
+      "seconds": 23.23
     },
     "slide-animator": {
-      "recorded": "2026-11-11T15:24:26.529Z",
+      "recorded": "2026-11-16T15:55:28.906Z",
       "flux": {
-        "revision": "122ef4b14cf9d096d1e2439a308b1b8e0d54a545",
+        "revision": "ef546390c372ce8f2b659407416b6ca65701c345",
         "dirty": false
       },
       "window": {
@@ -125,7 +125,7 @@
         "scale": 3
       },
       "project": "MASTER_DEMO_FluxProj",
-      "seconds": 19.04
+      "seconds": 19.08
     },
     "ai-paper": {
       "recorded": "2026-11-11T10:53:21.848Z",
@@ -382,28 +382,28 @@
       "sha256": "5bf07f9927d65056fc6859583526a9859506fab2a345fd01f3db948903d5ec52"
     },
     "site/assets/media/pitch/slide-become.mp4": {
-      "bytes": 6092662,
-      "sha256": "884a761ceb4c2912db16dac9a3f87ac7dd477da9f05c94451c88e8a080849e0a"
+      "bytes": 7403094,
+      "sha256": "0b2ae8404c8eccd31acc630081274c8431c2a9dcfac3effa3ba99206cb758645"
     },
     "site/assets/media/pitch/slide-become-1280.mp4": {
-      "bytes": 3577768,
-      "sha256": "3bb60ee83adf70ed3324eb8cfb5a65769c186bc0aa7ce9889fb67ced2d5878c5"
+      "bytes": 4361447,
+      "sha256": "02bfdbb8c8450ecfe1dda6f2b9d2c30c45a334b5d7df0b6a39c60cc0fb5b4068"
     },
     "site/assets/media/pitch/slide-become.webp": {
       "bytes": 100686,
       "sha256": "d5bcedbb6e51f374a7e979af62be97fb653e380ce369b60859e4c4c665a866bf"
     },
     "site/assets/media/pitch/slide-animator.mp4": {
-      "bytes": 4023928,
-      "sha256": "4895eb6e4be0a912f653afc786f764006e30e3cfd1aff45679e809e476f9b9f7"
+      "bytes": 4109240,
+      "sha256": "8e9378e640698f9049d56196673c7c7ad8dcdb9cac01d8f1f9512da830b4bb59"
     },
     "site/assets/media/pitch/slide-animator-1280.mp4": {
-      "bytes": 2405362,
-      "sha256": "e6a59a700ea7a33bf824d60661157836862890887e1f825f4c8f11674b712e82"
+      "bytes": 2446592,
+      "sha256": "883c73becf673b403d25f7f1bbf03e6f1d70964943c489222760323aa31d34db"
     },
     "site/assets/media/pitch/slide-animator.webp": {
-      "bytes": 88312,
-      "sha256": "174b7477821543bd2598252031cab3ed57d070d6ed464f014e6f9674d0d69388"
+      "bytes": 88550,
+      "sha256": "f059d3a01351af304a0c88c355b814dd1f446f0bbcf918f3aa7ebd9ee6baab1a"
     },
     "site/assets/media/pitch/ai-paper.mp4": {
       "bytes": 5843110,
