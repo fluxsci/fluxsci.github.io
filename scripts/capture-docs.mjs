@@ -15,8 +15,10 @@ const errors=[];page.on('pageerror',e=>errors.push(e.message));
 const outputs={};await fs.mkdir('site/assets/media/docs',{recursive:true});
 const settle=async()=>{await page.evaluate(()=>document.fonts.ready);await page.waitForTimeout(450);};
 const capture=async(name,locator)=>{await page.mouse.move(1395,995);await settle();const rel=`site/assets/media/docs/${name}.png`;if(locator)await page.locator(locator).screenshot({path:rel});else await page.screenshot({path:rel});const bytes=await fs.readFile(rel);outputs[rel]={width:bytes.readUInt32BE(16),height:bytes.readUInt32BE(20),bytes:bytes.length,sha256:createHash('sha256').update(bytes).digest('hex')};console.log('Captured '+name);};
+// A dev server that hit an error paints Vite's overlay over the app; page errors do not report it.
+const noOverlay=async()=>{if(await page.$('vite-error-overlay'))throw Error('The Flux dev server shows its error overlay (it would be in every capture): start it with npm run dev from the pinned checkout, then capture again.');};
 try{
- await page.goto(url+'?fixture=demo');await page.waitForFunction(()=>!!window.__flux?.get(window.__flux.shell.projectModel));
+ await page.goto(url+'?fixture=demo');await page.waitForFunction(()=>!!window.__flux?.get(window.__flux.shell.projectModel));await noOverlay();
  // Mirror only accepted project assets. This fixture has an in-memory FileBridge;
  // it cannot touch the user's context, library, project or test slides.
  const files=[];async function walk(dir,prefix){for(const e of await fs.readdir(dir,{withFileTypes:true})){const rel=prefix+'/'+e.name;if(e.isDirectory())await walk(path.join(dir,e.name),rel);else files.push(rel);}}
@@ -36,5 +38,6 @@ try{
  await page.evaluate(()=>{const f=window.__flux,s=f.get(f.slide.deckOverlay).slides.find(s=>s.id==='easing');f.slide.selTrackIds.set([s.beats[1].tracks[4].id]);});
  await capture('slides-easing-workspace');await capture('slides-timeline','[aria-label="Animation timeline"]');
  if(errors.length)throw Error(errors.join('\n'));
+ await noOverlay();
  await fs.writeFile('media/docs-screenshots.json',JSON.stringify({source:{repository:pin.repository,revision:pin.revision,version:pin.version},description:'Focused captures of the native Flux GUI in an isolated in-memory fixture. Master-project plot bytes are copied without edits; the teaching deck is original.',errors,outputs},null,2)+'\n');
 }finally{await browser.close();}

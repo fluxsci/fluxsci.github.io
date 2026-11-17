@@ -24,6 +24,8 @@ const errors=[];page.on('pageerror',e=>errors.push(e.message));
 const stable=()=>page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
 const settle=async()=>{await page.evaluate(()=>document.fonts.ready);await new Promise(r=>setTimeout(r,700));await stable();};
 const outputs={};
+// A dev server that hit an error paints Vite's overlay over the app; page errors do not report it.
+const noOverlay=async()=>{if(await page.$('vite-error-overlay'))throw Error('The Flux dev server shows its error overlay (it would be in every capture): start it with npm run dev from the pinned checkout, then capture again.');};
 async function record(name,width,height){const rel=`site/assets/media/${name}.webp`,bytes=await fs.readFile(path.join(root,rel));outputs[rel]={width,height,bytes:bytes.length,sha256:createHash('sha256').update(bytes).digest('hex')};}
 const capture=async name=>{await page.mouse.move(1490,940);await settle();await page.screenshot({path:path.join(root,`media/masters/${name}.png`)});await page.screenshot({path:path.join(root,`site/assets/media/${name}.webp`),type:'webp',quality:92});await record(name,1500,950);console.log(`Captured ${name}`);};
 const clickMode=async mode=>{await page.evaluate(mode=>{const button=[...document.querySelectorAll('button[aria-label]')].find(e=>e.getAttribute('aria-label')===mode);if(!button)throw Error(`No mode ${mode}`);button.click();},mode);await stable();};
@@ -57,7 +59,7 @@ try {
 
  const bibliography=await fs.readFile(path.join(PROJECT_ROOT,'references/library.bib'),'utf8');
  await page.goto((process.env.FLUX_URL||'http://127.0.0.1:1420/')+'?fixture=demo',{waitUntil:'networkidle0'});
- await page.waitForFunction(()=>!!window.__flux?.get(window.__flux.shell.projectModel));
+ await page.waitForFunction(()=>!!window.__flux?.get(window.__flux.shell.projectModel));await noOverlay();
  for(const rel of await projectFiles()){const b64=(await fs.readFile(path.join(PROJECT_ROOT,rel))).toString('base64');await page.evaluate(async({rel,b64})=>{await window.fig.writeFile('/demo/visual-study/'+rel,Uint8Array.from(atob(b64),c=>c.charCodeAt(0)));},{rel,b64});}
  await page.evaluate(async({bibliography,references,pdfB64})=>{
    const ROOT='/demo/visual-study',f=window.__flux,fb=window.fig;
@@ -121,6 +123,7 @@ try {
  await plate.evaluate(()=>document.images[0].decode());
  await plate.screenshot({path:path.join(root,`site/assets/media/${name}.webp`),type:'webp',quality:96});await record(name,1800,plateHeight);await plate.close();
 }
+ await noOverlay();
  await fs.writeFile(path.join(root,'media/screenshots.json'),JSON.stringify({source:{repository:pin.repository,revision:pin.revision,version:pin.version},browser:await browser.version(),project:'Owner-authorized source plots; isolated website presentation',note:'Real Flux GUI in an isolated FileBridge. Two reviewed master figures retain their authored layout and plot content. Captions, website slides and manuscript are new. Public data and source terms are documented in visual credits. No owner test slides, personal library or context were used.',errors,outputs},null,2)+'\n');
  const home=path.join(root,'site/index.qmd');let homeText=await fs.readFile(home,'utf8');
  for(const [rel,size] of Object.entries(outputs)){const filename=path.basename(rel);const re=new RegExp('(src="assets/media/'+filename.replaceAll('.','\\.')+'"[\\s\\S]*?width=")\\d+("\\s+height=")\\d+(")','g');homeText=homeText.replace(re,`$1${size.width}$2${size.height}$3`);}

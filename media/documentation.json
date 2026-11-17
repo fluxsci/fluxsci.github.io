@@ -329,6 +329,6 @@
       "save-and-recipes"
     ],
     "runtime": "fluxplot 0.4.0 checkout (uv run) for the illustrative drawings; code examples verified against the HEAD signatures by reading the source",
-    "notes": "All guides were re-reviewed for Flux 0.3 (main at the revision above: Plots rail, Align & Arrange, plot reflow, sticky connectors, the simplified spelling checker, new slide effects and verbs) and fluxplot 0.4 (meanmark replaces glowbar; the layout block). Screenshots and clips were re-captured from that build in the isolated fixture. The normal build does not access either product checkout."
+    "notes": "All guides were re-reviewed for Flux 0.3 (main at the revision above: Plots rail, Align & Arrange, plot reflow, sticky connectors, the simplified spelling checker, new slide effects and verbs) and fluxplot 0.4 (meanmark replaces glowbar; the layout block). Screenshots and clips were re-captured from that build in the isolated fixture. The normal build does not access either product checkout. 2026-11-17: screenshots and feature clips were re-captured at Flux bb4f35be (new title-bar mode icons; the modes run Figure, Slide, Paper, Library, Reader), and the shortcuts and first-project guides were updated for that order. The other guides were not re-reviewed against that revision."
   }
 }

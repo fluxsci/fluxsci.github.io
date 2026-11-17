@@ -33,7 +33,8 @@ const outputs={},clips=[],problems=[];
 const sha=b=>createHash('sha256').update(b).digest('hex');
 const settle=async(ms=500)=>{await page.evaluate(()=>document.fonts.ready);await page.waitForTimeout(ms);};
 const park=()=>page.mouse.move(1395,995);
-const still=async(name,target)=>{await park();await settle();const rel=`${OUT}/${name}.png`,file=path.join(root,rel);if(target?.clip)await page.screenshot({path:file,clip:target.clip});else if(target?.locator)await target.locator.screenshot({path:file});else await page.screenshot({path:file});const bytes=await fs.readFile(file);outputs[rel]={width:bytes.readUInt32BE(16),height:bytes.readUInt32BE(20),bytes:bytes.length,sha256:sha(bytes)};console.log('still',name);};
+// keepPointer: a hover-opened popover closes when the pointer leaves, so that still must not park it.
+const still=async(name,target)=>{if(!target?.keepPointer)await park();await settle();const rel=`${OUT}/${name}.png`,file=path.join(root,rel);if(target?.clip)await page.screenshot({path:file,clip:target.clip});else if(target?.locator)await target.locator.screenshot({path:file});else await page.screenshot({path:file});const bytes=await fs.readFile(file);outputs[rel]={width:bytes.readUInt32BE(16),height:bytes.readUInt32BE(20),bytes:bytes.length,sha256:sha(bytes)};console.log('still',name);};
 const clip=async(name,run)=>{await park();await settle(600);const start=Date.now()-t0;try{await run();}catch(e){problems.push(`${name}: ${e.message}`);console.error('clip failed',name,e.message);return;}await settle(900);clips.push({name,start,end:Date.now()-t0});console.log('clip',name,((Date.now()-t0-start)/1000).toFixed(1)+'s');};
 const glide=async(x1,y1,x2,y2,steps=30,ms=1200)=>{for(let i=1;i<=steps;i++){const t=i/steps,e=t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;await page.mouse.move(x1+(x2-x1)*e,y1+(y2-y1)*e);await page.waitForTimeout(ms/steps);}};
 const write=(rel,bytes)=>page.evaluate(async({rel,b64})=>window.fig.writeFile(rel,Uint8Array.from(atob(b64),c=>c.charCodeAt(0))),{rel,b64:Buffer.from(bytes).toString('base64')});
@@ -46,8 +47,12 @@ const figure=id=>page.evaluate(id=>window.__flux.get(window.__flux.fig.project).
 const select=(ids)=>page.evaluate(ids=>{const f=window.__flux;f.fig.selection.set(new Set(ids));f.fig.partSelection.set(null);},ids);
 const selectionBox=async()=>{const boxes=await page.locator('rect.handle').evaluateAll(els=>els.map(e=>{const r=e.getBoundingClientRect();return [r.x,r.y,r.right,r.bottom];}));if(!boxes.length)throw Error('No selection handles');return {x:Math.min(...boxes.map(b=>b[0])),y:Math.min(...boxes.map(b=>b[1])),right:Math.max(...boxes.map(b=>b[2])),bottom:Math.max(...boxes.map(b=>b[3]))};};
 const mode=async name=>{await page.getByRole('button',{name,exact:true}).click();await settle(700);};
+// A dev server that hit an error paints Vite's overlay over the app; page errors do not report it.
+const OVERLAY='The Flux dev server shows its error overlay (it would be in every capture): start it with npm run dev from the pinned checkout, then capture again.';
+const hasOverlay=()=>page.$('vite-error-overlay').then(Boolean,()=>false);
+const noOverlay=async()=>{if(await hasOverlay())throw Error(OVERLAY);};
 try{
- await page.goto(url+'?fixture=demo');await page.waitForFunction(()=>!!window.__flux?.get(window.__flux.shell.projectModel));
+ await page.goto(url+'?fixture=demo');await page.waitForFunction(()=>!!window.__flux?.get(window.__flux.shell.projectModel));await noOverlay();
  // Mirror the isolated showcase project (figures + plots), the tutorial plot and a small dissections folder.
  for(const [file,rel] of [...await walk(path.join(project,'fig'),'fig'),...await walk(path.join(project,'plots'),'plots')]){if(rel.includes('/.'))continue;await write(`${ROOT}/${rel}`,await fs.readFile(file));}
  for(const name of ['growth.svg','growth.fluxplot.json','growth.recipe.json'])await write(`${ROOT}/plots/analysis/${name}`,await fs.readFile(path.join(plotsDir,name)));
@@ -137,11 +142,14 @@ try{
  }catch(e){problems.push('paper-figures-pane: '+e.message);}
  try{
   await page.keyboard.press('Escape');const content=page.locator('.cm-content').first();await content.click({position:{x:40,y:40}});await page.keyboard.press('Control+End');await page.keyboard.press('Enter');await page.keyboard.press('Enter');await page.keyboard.type('Firing rates were aproximatly stable across the hippocampal recordings. ',{delay:45});await settle(4500);await page.screenshot({path:path.join(root,'.cache/review/spelling-debug.png')});
-  const word=page.locator('.cm-content .cm-spelling-issue').first();await word.waitFor({timeout:8000});const b=await word.boundingBox();await page.mouse.move(b.x+b.width/2,b.y+b.height/2);await settle(1500);
-  await still('paper-spelling',{clip:{x:Math.max(0,b.x-260),y:Math.max(0,b.y-70),width:620,height:330}});
+  const word=page.locator('.cm-content .cm-spelling-issue').first();await word.waitFor({timeout:8000});const b=await word.boundingBox();await page.mouse.move(b.x+b.width/2,b.y+b.height/2,{steps:8});await page.locator('.cm-spelling-menu').first().waitFor({timeout:8000});await settle(900);
+  // The suggestions open above the word: frame the popover and the sentence under it.
+  const editorBox=await page.locator('.cm-editor').first().boundingBox();
+  await still('paper-spelling',{keepPointer:true,clip:{x:Math.max(editorBox.x,b.x-200),y:Math.max(0,b.y-220),width:620,height:330}});
  }catch(e){problems.push('paper-spelling: '+e.message);}
 }catch(error){await page.screenshot({path:path.join(root,'.cache/review/features-error.png')});console.error(error);problems.push('fatal: '+error.message);}
 finally{
+ const overlay=await hasOverlay(); // asked before the browser closes
  const videoPath=await page.video().path();await context.close();await browser.close();
  // Cut and encode the clips (H.264 MP4 with a poster frame) from the session recording.
  for(const c of clips){const name=c.name,mp4=path.join(root,CLIPS,`${name}.mp4`),poster=path.join(root,CLIPS,`${name}.png`);const ss=Math.max(0,(c.start-250)/1000),to=(c.end+200)/1000;
@@ -149,6 +157,7 @@ finally{
   execFileSync('ffmpeg',['-y','-loglevel','error','-ss',(ss+0.05).toFixed(2),'-i',videoPath,'-frames:v','1','-vf','scale=1400:1000:flags=lanczos',poster]);
   for(const [file,extra] of [[mp4,{durationMs:Math.round(to*1000-ss*1000)}],[poster,{}]]){const bytes=await fs.readFile(file);const rel=path.relative(root,file);outputs[rel]={...(file.endsWith('.png')?{width:bytes.readUInt32BE(16),height:bytes.readUInt32BE(20)}:{width:1400,height:1000}),bytes:bytes.length,sha256:sha(bytes),...extra};}
  }
+ if(overlay)throw Error(OVERLAY);
  await fs.writeFile(path.join(root,'media/feature-captures.json'),JSON.stringify({source:{repository:pin.repository,revision:pin.revision,version:pin.version},description:'Stills and short clips of the 0.3 Figure, Paper and Settings features in the native Flux GUI (dev-server fixture, isolated in-memory project). Plots are the authorized showcase plots and the tutorial plot drawn by media/docs-plots/make_docs_plots.py; the dissections folder and notes are illustrative. Clips are cut from one Playwright recording with ffmpeg.',errors,problems,outputs},null,2)+'\n');
  console.log(JSON.stringify({errors,problems,clips:clips.map(c=>c.name),stills:Object.keys(outputs).filter(k=>!k.includes('/clips/'))},null,1));
 }

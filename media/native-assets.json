@@ -1,16 +1,16 @@
 {
   "source": {
     "repository": "https://github.com/fluxsci/flux.git",
-    "revision": "fb766407e6c197470cb28d5a6d789d02a7137c02",
-    "version": "0.3.0-dev"
+    "revision": "bb4f35be2eb16fffa306ff8e285ef80dd9745564",
+    "version": "0.3.0+dev"
   },
   "description": "Two unchanged authored figures from the confirmed master project, rendered for the website screenshots, plus the Flux mark, fonts and license. Public experimental data, computed examples and reference structures; see visual credits. The live slides are recorded in media/slides.json.",
   "project": {
     "id": "proj_website_showcase",
     "title": "Patterns across scales",
     "inputHashes": {
-      "project.json": "a352807e3ecc721a2da5888994a45705b8362a8025450f6e0f828b4d75d9b063",
-      "slides/website-showcase/deck.json": "1963e5328d79878a381c91b635e34415ec9781a9402fd0217f4c44821c330c3d",
+      "project.json": "dcbd3cd4ed34c8c100615c13f392c07a1e57b2232120435748200aa735e64aa3",
+      "slides/website-showcase/deck.json": "0f1dd871d2f76da1979410111de2bfa06f0f0f24eb38c41a237c68d20494b067",
       "fig/index.json": "41e900ed72a0da362b744fd2c5dd48d891742675bb7f53fcb7c200d066410be9",
       "fig/canvases/canvas-1.json": "7b1033b22a0ff6ace35bfdba46f9a084eeecc1167f86257b7662ea7174af7ae8"
     },

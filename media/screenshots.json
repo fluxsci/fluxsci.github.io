@@ -1,10 +1,10 @@
 {
   "source": {
     "repository": "https://github.com/fluxsci/flux.git",
-    "revision": "fb766407e6c197470cb28d5a6d789d02a7137c02",
-    "version": "0.3.0-dev"
+    "revision": "bb4f35be2eb16fffa306ff8e285ef80dd9745564",
+    "version": "0.3.0+dev"
   },
-  "browser": "Chrome/156.0.8078.79",
+  "browser": "Chrome/157.0.8103.78",
   "project": "Owner-authorized source plots; isolated website presentation",
   "note": "Real Flux GUI in an isolated FileBridge. Two reviewed master figures retain their authored layout and plot content. Captions, website slides and manuscript are new. Public data and source terms are documented in visual credits. No owner test slides, personal library or context were used.",
   "errors": [],
@@ -12,62 +12,62 @@
     "site/assets/media/paper.webp": {
       "width": 1500,
       "height": 950,
-      "bytes": 301374,
-      "sha256": "feef8263e025cf0e1cb2f3afcffd73eeac32c1ae10e6bad7b0a4709f93c7d64b"
+      "bytes": 302552,
+      "sha256": "8ae8dc697cd34bbe51f49d0b5ce4d2f3ab7664ed894c1194e408218ede129004"
     },
     "site/assets/media/paper-detail.webp": {
       "width": 1158,
       "height": 760,
-      "bytes": 245416,
-      "sha256": "4b15f8e11fd554604449cd4a107800f4786bbd27f7e2da936265e37adad44d2d"
+      "bytes": 245400,
+      "sha256": "ea6a3ddf111e551e079fdd3229435862ae68262f433756bf9da2bf0bc893c758"
     },
     "site/assets/media/figure.webp": {
       "width": 1500,
       "height": 950,
-      "bytes": 507686,
-      "sha256": "e12f32e5e80cf4355498479c2012a8a7e482ccec4d3d4ade7e90f24e734b6c53"
+      "bytes": 486432,
+      "sha256": "bc6f15c6b15ebbf55f1582234f5f30dd09504c1ab6df0aad7c191e7237b953e1"
     },
     "site/assets/media/figure-materials.webp": {
       "width": 1500,
       "height": 950,
-      "bytes": 413416,
-      "sha256": "a5a54035689c0d07277863b6fc62b46ff703c9a6d54925c200dcaa74e0eafd64"
+      "bytes": 408700,
+      "sha256": "c25e48feceb933bdef2584ac01da4a8a596616bb38e30f7da1fc9e1d093b8614"
     },
     "site/assets/media/figure-properties.webp": {
       "width": 1500,
       "height": 950,
-      "bytes": 263464,
-      "sha256": "4c404bc59e1edda9f06ae1d86edb5d6c2f24bf829227ee4ff24b9d19cb0faf06"
+      "bytes": 267734,
+      "sha256": "de801ef99df412c85d038817d8050fa720736b47c7ec9f2fb3e418d6c1de6d57"
     },
     "site/assets/media/slides.webp": {
       "width": 1500,
       "height": 950,
-      "bytes": 321436,
-      "sha256": "cf9cefef54779518f51f4a5c30d804c13c5fe4457d28591a7eb880f2da3e3811"
+      "bytes": 305120,
+      "sha256": "de1f73f9590e32c89370ce7003df6f69d920aa5b2add004655a5c6bfb4ac3ae1"
     },
     "site/assets/media/library.webp": {
       "width": 1500,
       "height": 950,
-      "bytes": 133132,
-      "sha256": "fdf460ad7c0cfc4d72e8729d731a39499ae138a4f3091626efbdfae929a8672d"
+      "bytes": 133354,
+      "sha256": "0964c19cb8d06b582ff17eda8dbc5ecd1d9f6c7be065a14e996465259b02ae90"
     },
     "site/assets/media/reader.webp": {
       "width": 1500,
       "height": 950,
-      "bytes": 282856,
-      "sha256": "4f86f49f6755863487817c8f46326e893f8236f7640f934a16feda92015358ff"
+      "bytes": 283120,
+      "sha256": "d35e1aa4df29695301b805228afb4fa6c98dc23c8e8684f046ecc068dbdaa14f"
     },
     "site/assets/media/response-figure.webp": {
       "width": 1800,
       "height": 2086,
-      "bytes": 1753048,
-      "sha256": "ecf55b605d91d1218893bd63b63a2dbc65f6dd7f26fc2c655558005839572080"
+      "bytes": 1752490,
+      "sha256": "a1110a2951b0fa90219565991c3a04ee6228ca80fabb01a06488d8abd5ce6635"
     },
     "site/assets/media/materials-figure.webp": {
       "width": 1800,
       "height": 1486,
-      "bytes": 839384,
-      "sha256": "cf51e0255d0e688a2e1685372689e87ec3f5d9c9b358ca895234efcaee0785a2"
+      "bytes": 838942,
+      "sha256": "51969f1f07ad851011c1b1e41387c254c06784cf6e96995d925f1cdbad288d32"
     }
   }
 }

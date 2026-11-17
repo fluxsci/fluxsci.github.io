@@ -129,7 +129,7 @@ uv run python make_growth.py
 
 ## 5. Write with the figure in view {#write}
 
-Switch to **Paper** (**Ctrl+2**) and write a short paragraph. Three insertions connect the document to your work:
+Switch to **Paper** (**Ctrl+3**) and write a short paragraph. Three insertions connect the document to your work:
 
 - Type **`/figure`** and choose your figure to embed it with its caption. (**Alt+F** opens the Figures pane, which can also insert the figure or a reference to it or one of its panels.)
 - Type **`@@`** to insert a cross-reference to the figure in your prose; the number maintains itself.
@@ -142,7 +142,7 @@ Figure numbering follows the designation you choose in Figure. Reordering paragr
 ## 6. Let the explanation unfold {#present}
 
 1. Back in **Figure**, select the figure and choose **Send to deck…** in the Inspector. Flux copies the figure onto a new slide at its native size.
-2. Open **Slides** (**Ctrl+3**) and press **Animate ⏱** to open the animator. Select the plot and click **✨ Auto-animate**: Flux builds the plot's entrance from its own anatomy in three clicks — **Axes & grid**, then **Data** (the lines draw on), then **Legend & annotations**.
+2. Open **Slides** (**Ctrl+2**) and press **Animate ⏱** to open the animator. Select the plot and click **✨ Auto-animate**: Flux builds the plot's entrance from its own anatomy in three clicks — **Axes & grid**, then **Data** (the lines draw on), then **Legend & annotations**.
 3. Press **F5** to present. Advance with **→** or **Space**; **Back** plays the step you just saw in reverse. **Escape** leaves.
 4. **Export** produces a single `.html` file that plays the talk in any browser, offline.
 

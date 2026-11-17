@@ -31,7 +31,7 @@ the [X-ray](#figure-x-ray), [Align & Arrange](#figure-align-arrange) and the
 | **Ctrl+Shift+J** | Ask about this (read-only question to Claude Code or Codex) |
 | **?** | Keyboard shortcut overlay (works on the Home screen too) |
 | **Ctrl+Z** / **Ctrl+Shift+Z** | Undo / redo (in every editor) |
-| **Ctrl+1** … **Ctrl+5** | Switch workspace (Figure, Paper, Slide, Library, Reader) |
+| **Ctrl+1** … **Ctrl+5** | Switch workspace (Figure, Slide, Paper, Library, Reader) |
 | **Ctrl+Shift+N** | New window (a second project side by side; also in the taskbar icon's right-click menu) |
 
 Switch workspaces with the icons in the title bar (or **Ctrl+1**–**Ctrl+5**); **Alt+click**

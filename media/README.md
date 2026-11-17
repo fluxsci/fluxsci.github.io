@@ -12,7 +12,11 @@ The isolated `.cache/visual-project/` contains an original manuscript and a smal
 
 ## Refresh
 
-Prepare a clean Flux checkout at the pinned revision with locked Node dependencies installed. Start that checkout's development server on port 1420. From the website root:
+Prepare a clean Flux checkout at the pinned revision with locked Node dependencies installed. Start that checkout's development server on port 1420 with `npm run dev`: its pre-step generates files the page needs, and a server started without them paints Vite's error overlay (with a local path) over the app. The capture scripts stop when they see that overlay, but look at every image before committing all the same. If port 1420 is in use, run `node scripts/gen-slide-embed-assets.mjs` and then `npx vite --port <port> --strictPort` in the checkout, and set `FLUX_URL`.
+
+For `--project`, pass the copy of the master whose files still match `project.plotInputHashes` in `media/native-assets.json` (the October 2026 copy). The owner's working master has moved on since and no longer holds the response figure; `refresh-flux-assets.mjs` stops with "Expected the two reviewed master figures" when given it.
+
+From the website root:
 
 ```sh
 node scripts/refresh-flux-assets.mjs --flux-source /path/to/pinned/flux --project /path/to/MASTER_DEMO_FluxProj
