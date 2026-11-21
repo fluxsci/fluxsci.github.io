@@ -13,6 +13,8 @@ Click **Settings** in the title bar to open the dialog. It has four sections —
 
 Shortcuts are written with **Ctrl** and **Alt**; on macOS use **⌘** and **⌥**.
 
+Open the gear on the Home screen or from a project. Click a switch row to toggle it. Number fields have **− / +** controls, and the section heading stays visible as you scroll. In the title bar, **Docs** opens the relevant workspace guide and **?** opens searchable shortcuts. The **Guide** link in Settings or in the keyboard reference opens the documentation at your current section. When offline, Flux opens its bundled guide.
+
 ## General {#general}
 
 ### Setup {#setup}
@@ -60,7 +62,7 @@ The pointer of the Figure and Slide editors; Paper, Reader and Library keep the 
 | **Use the system's resize, rotate and move cursors instead** | Keeps Flux's mark at rest but hands the drag states to the operating system's cursors. |
 | **Reset cursor to defaults** | Restores the pink-and-indigo classic arrow. |
 
-<figure class="doc-figure"><a href="/assets/media/docs/settings-cursor.png" data-enlarge data-caption="Settings → General → Cursor: the tiles preview every form of the pointer; hover a tile to try the real cursor."><img src="/assets/media/docs/settings-cursor.png" alt="The Settings dialog’s General section scrolled to Cursor: eight preview tiles for rest, hover, press, resize, corner, rotate, move and duplicate, each on a dark and a light swatch, with the Style menu set to Classic arrow." width="1560" height="1200" loading="lazy"></a><figcaption>Settings → General → Cursor: the tiles preview every form of the pointer; hover a tile to try the real cursor.</figcaption></figure>
+<figure class="doc-figure"><a href="/assets/media/docs/settings-cursor.png" data-enlarge data-caption="Settings → General → Cursor: the tiles preview every form of the pointer; hover a tile to try the real cursor."><img src="/assets/media/docs/settings-cursor.png" alt="The Settings dialog’s General section scrolled to Cursor: eight preview tiles for rest, hover, press, resize, corner, rotate, move and duplicate, each on a dark and a light swatch, with the Style menu set to Classic arrow." width="1680" height="1280" loading="lazy"></a><figcaption>Settings → General → Cursor: the tiles preview every form of the pointer; hover a tile to try the real cursor.</figcaption></figure>
 
 ## Figure {#figure}
 
@@ -92,6 +94,7 @@ See [Layout, drawing and typography](/docs/figure-layout.html).
 
 | Setting | Effect |
 |---|---|
+| **Folders open** | Choose a separate panel beside the Plots rail, or dock Folders in the lower pane. |
 | **Search reaches** | What typing in the Plot gallery (**Shift+Alt+G**) searches: everything in the selected scope (Project or Global), only the current folder and its subfolders, only project plots, only global plots, or everything. **Project** is this project's `plots/` folder; **Global** is your plot library in `FluxConfig/plot_library`, shared by every project. |
 | **Clicking a gallery folder expands/collapses it** | Off: a click on a folder in the gallery's **Folders** sidebar only shows its contents, and the **›** arrow expands the subtree. On: the click does both. |
 
@@ -110,6 +113,10 @@ See [Plot gallery](/docs/plot-gallery.html#global-plot-library).
 | **Clean dynamic margin** | Close all panes when focus returns to the editor. |
 
 Text size is a reading preference set in Paper itself, not here; see [Writing tools](/docs/writing-tools.html#text-size). Helper panes and their shortcuts are described in [The margin](/docs/paper.html#the-margin).
+
+### Comment colours {#comment-colours}
+
+Open **Settings → Paper → Comments** to choose the default highlight colour and the colours of your tags. A passage with several tags uses the colour of its first tag. [Tag and filter passages](/docs/paper.html#comment-tags).
 
 ## Corrections {#corrections}
 

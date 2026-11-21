@@ -2,7 +2,7 @@
 
 The public Flux website at **https://fluxsci.org/**, built with Quarto and maintained independently from the application.
 
-The site includes a concise visual homepage, installation instructions, and 46 searchable guides and references covering all five workspaces, fluxplot, the command line, agent connections and integrations. Every documentation topic is local. The installation page reflects the current public desktop release.
+The site includes a concise visual homepage, installation instructions, and 47 searchable guides and references covering all five workspaces, fluxplot, scientific image stacks, the command line, agent connections and integrations. Every documentation topic is local. The installation page reflects the current public desktop release.
 
 ## Develop and verify
 
@@ -30,11 +30,11 @@ The preview is at **http://127.0.0.1:1430**. It serves only `dist/`, with a real
 | `site/assets/scripts/site.js`, `docs.js`, `explorer.js` | Accessible progressive interactions, search, copy controls, and the semantic-plot part explorer |
 | `site/assets/media/` | Reviewed app screenshots, original plot derivatives, and `docs/explorer-fluxbox.svg` (a synthetic fluxbox saved by fluxplot for the part explorer) |
 | `site/assets/film/` | The homepage film: an HLS ladder of fragmented-MP4 segments (2160p, 1440p, 1080p, 720p at 60 fps), poster and captions, produced by `media/film/encode.mjs` |
-| `site/demos/slides/` | The homepage player: six slides from the Flux film in Flux's native inline-slide player |
+| `site/demos/slides/` | The homepage player: authored examples from Plots in Motion and the Flux film in Flux’s native inline-slide player |
 | `site/demos/studies/` | One film slide per documentation example (`<id>.html` and its still) |
 | `site/demos/techniques/` | Animator timeline alignment diagrams |
 | `site/install.sh` | Byte-for-byte copy of the reviewed upstream installer |
-| `flux-source.json` | Exact Flux revision used for product assets and installer |
+| `flux-source.json` | Reviewed Flux revisions for product assets and the native slide player. The released installer has its own pin in `media/installer.json` |
 | `media/` | Provenance, refresh code, and website manuscript; never published |
 | `plans/` | Internal planning; never published |
 | `dist/` | Generated publication artifact; never committed |
@@ -84,7 +84,7 @@ The previous bundled example and download have been retired. The confirmed maste
 
 The showcase includes public Allen Brain Observatory recordings, anatomical models, calculated fields, crystallographic records and illustrative material properties. Sources and interpretation are documented on the [visual credits page](site/docs/visual-credits.qmd).
 
-The live slides on the homepage and in the guides are the slides from the Flux film, exported unchanged from the owner's film decks (`media/film-slides.mjs` selects them). They need slide-engine changes made after v0.2.0, so `flux-source.json` pins the slide player separately (`slidePlayer`: a public revision plus reviewed patches in `media/flux-patches/`). `media/slides.json` records their provenance.
+The homepage opens on Japan’s earthquakes from the owner’s Plots in Motion deck and includes film slides alongside those examples. The guides play examples from the film decks. `media/film-slides.mjs` selects the examples, `flux-source.json` pins the native player, and `media/slides.json` records provenance for both sources.
 
 Normal builds use reviewed, checked-in assets and need neither the source project nor a Flux checkout. See [media/README.md](media/README.md) for the deliberate refresh workflow. Input hashes and preservation checks protect the selected compositions. Interactive slides use Flux's native player, including its 3D runtime.
 

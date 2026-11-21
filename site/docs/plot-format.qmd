@@ -240,7 +240,7 @@ widths keep their point sizes. The block records:
   fluxbox boxes (`box`: ends and notch in data, width and cut in points) and meanmark circles, arms
   and caps (`mark`: position, mean, bound, radius and cap length in points).
 
-<figure class="doc-figure doc-clip"><video poster="/assets/media/docs/clips/reflow-resize.png" width="1400" height="1000" muted loop playsinline autoplay controls preload="metadata" aria-label="A fluxplot line plot placed in a figure is dragged narrower; Flux re-solves its layout from the manifest so the axes shrink while text and strokes keep their point sizes."><source src="/assets/media/docs/clips/reflow-resize.mp4" type="video/mp4"></video><figcaption>Flux reflows the plot from the layout block: axes and data re-solve, typography keeps its point size, and no Python runs.</figcaption></figure>
+<figure data-doc-clip="reflow-resize" data-clip-label="A fluxplot line plot placed in a figure is dragged narrower; Flux re-solves its layout from the manifest so the axes shrink while text and strokes keep their point sizes."><figcaption>Flux reflows the plot from the layout block: axes and data re-solve, typography keeps its point size, and no Python runs.</figcaption></figure>
 
 `supported` is `true` only when `reasons` is empty. Layouts the capture cannot describe record a
 named refusal and save normally — the plot simply cannot be reflowed, and a consumer falls back to
@@ -323,7 +323,7 @@ GLB assets accepted by Flux may be prepared for rendering. The saved asset hash 
 
 Values and validity masks travel with the mesh, so changing a colour range does not require analysis to run again. A shape state reuses exactly the same vertex count and triangle indices. Separate morph partners also need matching names and topology. See [3D plots](/docs/3d-plots.html) for authoring and validation.
 
-The complete machine-readable definitions are maintained with the implementation: [2D schemas](https://github.com/fluxsci/fluxplot/tree/main/schema) and [3D binary contract](https://github.com/fluxsci/fluxplot/blob/main/docs/SCENE3D_CONTRACT.md).
+The complete machine-readable definitions are maintained with the implementation: [2D schemas](https://github.com/fluxsci/fluxplot/tree/main/src/fluxplot/schemas) and [3D binary contract](https://github.com/fluxsci/fluxplot/blob/main/docs/SCENE3D_CONTRACT.md).
 
 
 ::: {.next-reading}

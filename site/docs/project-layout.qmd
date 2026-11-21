@@ -109,6 +109,8 @@ A Flux project is a plain folder whose marker is `project.json`. Here is the can
   radial stagger order, is written in a newer format (canvas `0.3.0`, deck `0.7.0`) that
   older Flux versions refuse to open rather than play wrongly; remove the last such element
   and the stamp drops back. Keep Flux current on every machine that shares a project.
+- **Scientific images** are folders such as `plots/specimen.fluximg/`. A saved project keeps an accepted bundle under `fig/assets/`; each placement records its crop and view in the figure. Keep the whole folder together when moving project assets. [Scientific images and stacks](/docs/fluximg.html).
+
 - **3D fluxplots** keep the source GLB and its `.fluxplot.json` beside each other in `plots/`.
   Import copies the accepted bundle into `fig/assets/`. Camera settings, shape weights and
   part restyles live in the figure composition. `fig/renders/model3d/` contains rebuildable

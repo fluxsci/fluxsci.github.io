@@ -11,6 +11,8 @@ description: "Show calibrated images, channels and projected mesh data alongside
 Show calibrated images, channels and projected mesh data alongside ordinary plots.
 :::
 
+For an interactive stack or movie, see [Scientific images and stacks](/docs/fluximg.html). That workflow saves a `.fluximg` bundle with its source channels, planes and registered layers. The Matplotlib examples below compose a chosen view into a plot.
+
 ## Images and scale bars {#images-and-scale-bars}
 
 These patterns assume `import numpy as np`, `import matplotlib.pyplot as plt`,

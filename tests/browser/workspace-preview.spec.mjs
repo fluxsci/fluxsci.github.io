@@ -3,9 +3,9 @@ import { test, expect } from '@playwright/test';
 const workspaces = [
   { name:'paper', title:'Paper', caption:'Write with your figures, citations, and working notes in reach.', alt:/Paper workspace.*demonstration manuscript/ },
   { name:'figure', title:'Figure', caption:'Compose the whole figure. Refine every individual part.', alt:/Figure workspace.*authored materials composition/ },
-  { name:'slides', title:'Slides', caption:'Give the same figures a timeline. Build the explanation step by step.', alt:/Slides workspace.*editable animation steps/ },
-  { name:'library', title:'Library', caption:'A lasting collection of references, ready for every project.', alt:/Library workspace.*illustrative study collection/ },
-  { name:'reader', title:'Reader', caption:'Read closely. Keep your notes connected to the evidence.', alt:/Reader workspace.*original Patterns across scales manuscript/ },
+  { name:'slides', title:'Slides', caption:'Give the same figures a timeline. Build the explanation step by step.', alt:/Slides.*Plots in Motion earthquake map.*editable animation steps/ },
+  { name:'library', title:'Library', caption:'A lasting collection of references, ready for every project.', alt:/Library workspace.*structural biology bibliography/ },
+  { name:'reader', title:'Reader', caption:'Read closely. Keep your notes connected to the evidence.', alt:/Reader.*AlphaFold paper.*highlighted passage/ },
 ];
 
 const filename = name => name === "figure" ? "figure-materials" : name;
@@ -55,13 +55,13 @@ test('five workspace choices keep the image, description, guide, and enlargement
 test('workspace choices support arrow wraparound, Home, and End with matching focus', async ({ page }) => {
   await page.goto('/');
   await settle(page);
-  await choice(page, 'paper').focus();
+  await choice(page, 'figure').focus();
   for (const [key, name] of [
     ['ArrowLeft', 'reader'],
-    ['ArrowRight', 'paper'],
     ['ArrowRight', 'figure'],
+    ['ArrowRight', 'slides'],
     ['End', 'reader'],
-    ['Home', 'paper'],
+    ['Home', 'figure'],
   ]) {
     await page.keyboard.press(key);
     await expect(choice(page, name)).toBeFocused();

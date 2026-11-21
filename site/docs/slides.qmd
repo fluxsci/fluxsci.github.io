@@ -11,7 +11,7 @@ description: "Build a presentation from the plots and figures in your project."
 Build a presentation from the plots and figures in your project. The stage is the figure editor — the same tools, Inspector and live plots — with steps, an Animator and exports that play anywhere.
 :::
 
-<figure class="doc-figure"><a href="/assets/media/slides.webp" data-enlarge data-caption="Design the slide above and arrange its steps in the Animator below."><img src="/assets/media/slides.webp" alt="Flux Slides workspace: the deck “The Flux film” with its filmstrip on the left, the slide “Agreement, revealed” on the stage after its first step, and the Animator timeline below it." width="1500" height="950" loading="lazy"></a><figcaption>Design the slide above and arrange its steps in the Animator below. The slides from the Flux film; data: <a href="https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/BPX_J.htm">NHANES 2017–2018</a>. <a href="/docs/visual-credits.html#slides">Visual credits</a>.</figcaption></figure>
+<figure class="doc-figure"><a href="/assets/media/slides.webp" data-enlarge data-caption="Design the slide above and arrange its steps in the Animator below."><img src="/assets/media/slides.webp" alt="Flux Slides showing Japan’s earthquakes, from the side, after step two. The Plots in Motion filmstrip is on the left and the Animator’s effect lanes are below." width="1500" height="950" loading="lazy"></a><figcaption>Design the slide above and arrange its steps in the Animator below. The Plots in Motion deck shows a cross-section marked on a map of Japan. Earthquakes: <a href="https://earthquake.usgs.gov/earthquakes/search/">USGS earthquake catalog</a>, magnitude 5 and above, 1975–2025. Relief: ETOPO1. <a href="/docs/visual-credits.html#slides">Visual credits</a>.</figcaption></figure>
 
 
 <div class="doc-study" data-doc-study="/demos/studies/emphasis.html">
@@ -35,8 +35,13 @@ Shortcuts are written for Linux and Windows; on macOS, **Ctrl** is **⌘** and *
 ## Decks and the filmstrip {#decks-and-the-filmstrip}
 
 The deck list sits above the filmstrip: create (**+ New deck**), duplicate, or remove decks —
-each is one readable file in the project. The filmstrip shows live thumbnails: drag to
-reorder, duplicate or delete from a thumb, **+ Add slide** for a new slide (layouts seed
+each is one readable file in the project. Double-click a deck name to rename it. Press **Enter**
+or click away to save the name, or press **Esc** to cancel. The title field at the top of the
+window edits the same name.
+
+Drag the filmstrip thumbnails to
+reorder slides. Double-click a thumbnail caption or press **F2** on the selected slide to
+rename it. Duplicate or delete from a thumbnail, or choose **+ Add slide** for a new slide (layouts seed
 starter text — title, section, two-column, or *blank* for a clean stage), and **+ Preset**
 inserts a slide from your machine-global **slide preset library** (save any slide there from
 the Slide panel — its animation, background, and media travel with it).
@@ -88,7 +93,7 @@ or **After previous** with a chosen delay (an After previous step waits 150 ms b
 step strip always stays visible while the timeline shows the selected step's effects.
 
 
-<figure class="doc-figure"><a href="/assets/media/docs/slides-easing-workspace.png" data-enlarge data-caption="The stage, selected animation and timeline stay visible together. Design edits the starting objects; Edit after step shapes a later state."><img src="/assets/media/docs/slides-easing-workspace.png" alt="Flux Slides showing the six-curve comparison, with Design and Edit after step controls above the stage." width="2800" height="2000" loading="lazy"></a><figcaption>The stage, selected animation and timeline stay visible together. Design edits the starting objects; Edit after step shapes a later state. Click to enlarge.</figcaption></figure>
+<figure class="doc-figure"><a href="/assets/media/docs/slides-easing-workspace.png" data-enlarge data-caption="The stage, selected animation and timeline stay visible together. Design edits the starting objects; Edit after step shapes a later state."><img src="/assets/media/docs/slides-easing-workspace.png" alt="Flux Slides showing six animation lanes, with Design and Edit after step controls above the stage." width="3000" height="1900" loading="lazy"></a><figcaption>The stage, selected animation and timeline stay visible together. Design edits the starting objects; Edit after step shapes a later state. Click to enlarge.</figcaption></figure>
 
 The bar above the stage states where your edits go:
 
@@ -121,7 +126,7 @@ part), then choose what happens to it at the selected step:
 | Button | What it adds | Details |
 |---|---|---|
 | **Appear** (**Ctrl+Shift+A**) | An entrance. Text rises in, shapes and arrows grow in, lines and paths draw on | [Choose an effect](/docs/animation.html#appearances) |
-| **Transform ▾** | **Change** (**Ctrl+Shift+C**) a new state of the object; **Ghost…** (**Ctrl+Alt+G**) copies that move independently; **Become** (**B**) another object or plot parts | [Transforms](/docs/transforms.html#transforms) |
+| **Transform ▾** | **Change** (**Ctrl+Shift+C**) a new state of the object; **Ghost…** (**Ctrl+Alt+G**) creates copies that move independently; **Become** (**B**) turns an object or its copies into another object or plot parts | [Transforms](/docs/transforms.html#transforms) |
 | **Emphasize** | A **pulse**: a calm swell and return. **Highlight**, **Dim** and **Circle it** are in the Effect menu | [Emphasis](/docs/animation.html#appearances) |
 | **Disappear** (**Ctrl+Shift+D**) | An exit. Shapes shrink away, text and plots fade, lines draw off | [Choose an effect](/docs/animation.html#appearances) |
 | **Focus** / **Unfocus** | Dim everything but the selection to 30 %; on a later step, bring it all back | [Focus on one thing](/docs/animation.html#focus) |
@@ -137,9 +142,17 @@ described in [Animation and timing](/docs/animation.html).
 
 The stage shares the Figure workspace's drawing and layout tools, with the same keys: **V**
 select, **K** scale, **H** hand, **T** text, **Alt+R** rectangle, **O** ellipse, **L** line,
-**Shift+L** arrow, **P** pen, and **R** for the [X-ray](/docs/plot-editing.html#x-ray) of a
-selected plot.
+**Shift+L** arrow and **P** pen.
 
+- **F** opens the [property menu](/docs/figure-layout.html#property-menu) for the selection.
+  For named plot parts, press **R** to open the [X-ray](/docs/plot-editing.html#x-ray),
+  pick the rows, then choose **Properties** (**Enter** or **F**) to edit them or
+  [**Animate**](/docs/animation.html#animate-from-the-x-ray) (**M**) to add an effect.
+  In the property menu, drag the opacity fader or rotation dial to adjust it. Press **Esc**
+  during a drag to restore its starting value.
+
+- **Shift+A** [crystallizes a loose selection](/docs/figure-layout.html#crystallize) into a row, column or grid. Plots align on their axes.
+  Use **Shift+Alt+A** to align their outer bounds.
 - **A** opens **Align & Arrange** with Align active; **Alt+T** opens it with Arrange active.
   Both panes stay visible, and **Space** switches which one the keyboard drives. A selection
   shows pink gap guides directly, spacing is signed (a negative value overlaps), the selection
@@ -174,7 +187,6 @@ that were never saved.
 | Symptom | Cause → fix |
 |---|---|
 | The animation shortcuts (such as **Ctrl+Shift+A**) do nothing | The Animator is closed → open it with **Animate ⏱** first |
-| **Alt+R** draws a rectangle instead of opening the X-ray | The X-ray moved to **R**, and **Alt+R** is now the rectangle tool (the arrow tool is **Shift+L**) → press **R** with a plot selected |
 | A plot Become fades a series instead of morphing its data | Continuous data motion requires shared series ids, supported data and matching axis scales. A series without a tweenable counterpart fades on its own (the Animation inspector lists it); only an SVG without semantic IDs crossfades as a whole. |
 | An animation issue appears | Select the issue to inspect the effect, then retarget missing objects/parts or adjust overlapping timing |
 | A shape becomes text and the letters land as boxes ("No readable outlines for …") | Flux cannot read letter outlines from the text's font. Gelasio, the bundled theme font, ships only as a web font, and a browser preview has no access to installed fonts → set the text in an installed font (Georgia, Arial, …). Until then the boxes still land on each letter and fade into the text |

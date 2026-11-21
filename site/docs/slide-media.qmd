@@ -40,7 +40,7 @@ flux add-turntable talk slide1 step2 model1 --turns 1 --duration 6000 [--pace so
 
 For a scene with shape states, use the **Shape** sliders or **Frame** scrubber at the desired
 editing destination. To reveal a named mesh or furniture part independently, select it in
-**X-ray** (**R**) and use **Animate selected**. A mesh part fades in and out: **Scale in** and
+**X-ray** (**R**) and choose **Animate** (**M**). A mesh part fades in and out: **Scale in** and
 **Scale out** have no equivalent for it, and **Pulse** and **Circle it** act on a model's labels
 and axes, not on its mesh (the Animation inspector reports it). Orbit, shape, colours and part
 visibility travel with the slide and use the same playback in Present and portable HTML.
@@ -57,7 +57,9 @@ triangles and vertex order. Export both shapes together, or use fluxplot's
 A crossfade is a valid result, not an animation issue.
 
 - **Hand-off** keeps both objects and reveals the destination when the source lands.
+  The picker’s **Source stays** control sends a copy and keeps the original visible.
   **Consume** replaces the source's content and removes the destination in one undoable edit.
+  See [The source stays](/docs/transforms.html#the-source-stays).
 - A mesh part cannot start a Become, because it has no outline to fly; use the whole model, or
   its labels and axes.
 - A Become **into** a mesh part crossfades in place: the source fades out while the part fades

@@ -99,14 +99,14 @@ uv run python make_growth.py
 1. Switch to **Figure** in the title bar (or **Ctrl+1**) and press **Alt+G**. The sidebar switches to its **Plots** view and lists `growth.svg`, marked **◆**: an editable fluxplot.
 2. **Double-click** the plot, or drag it onto the figure. It lands at its true printed size, 4.8 × 3.2 inches, exactly as Python saved it.
 
-   <figure class="doc-figure doc-clip"><video poster="/assets/media/docs/clips/plots-rail-place.png" width="1400" height="1000" muted loop playsinline autoplay controls preload="metadata" aria-label="The tutorial plot is dragged from the sidebar’s Plots view onto an empty figure and lands at its printed size."><source src="/assets/media/docs/clips/plots-rail-place.mp4" type="video/mp4"></video><figcaption>Drag <code>growth.svg</code> from the Plots view onto the figure. It lands at 4.8 × 3.2 inches, exactly as Python saved it.</figcaption></figure>
+   <figure data-doc-clip="plots-rail-place" data-clip-label="Alt+G opens the Plots view. Searching for growth shows the tutorial plot, which is dragged onto the empty figure at its printed size."><figcaption>Drag <code>growth.svg</code> from the Plots view onto the figure. It lands at 4.8 × 3.2 inches, exactly as Python saved it.</figcaption></figure>
 
 3. **Ctrl+click** the control line. You have selected one *part* of the plot, not the whole picture. Press **F** to open its property menu and change the stroke colour. The restyle is keyed to the series name `control`, so it survives when the plot is regenerated.
 
 
-4. Press **R** to open the **X-ray**: the plot's anatomy as a tree beside the selection. Hovering a row outlines that part on the canvas; **x** hides a part; **Regenerate** re-runs the recipe from inside the panel. **Escape** closes it.
+4. Finish the colour edit and close Properties. Press **R** to open **X-ray** on the selected plot part. Hover over a series row to outline it on the canvas and read its name and value below the tree. **X** hides or shows the picked part. **Properties** reopens its controls. For a plot with a recipe, **Regenerate** reruns the script. Press **Escape** to close X-ray.
 
-   <figure class="doc-figure doc-clip"><video poster="/assets/media/docs/clips/xray.png" width="1400" height="1000" muted loop playsinline autoplay controls preload="metadata" aria-label="Ctrl+click selects the control series line; pressing R opens the X-ray panel beside the plot, a tree of its parts; moving over rows outlines those parts on the canvas."><source src="/assets/media/docs/clips/xray.mp4" type="video/mp4"></video><figcaption><strong>Ctrl+click</strong> a part, press <strong>R</strong>: the X-ray lists the plot’s anatomy, and hovering a row lights that part on the canvas.</figcaption></figure>
+   <figure data-doc-clip="xray" data-clip-label="Ctrl+click selects the Control line, and R opens X-ray beside the plot. Searching for line reveals the Treatment line. Hovering its row outlines the stroke on the chart, and the visibility button hides and restores it."><figcaption><strong>Ctrl+click</strong> a plot part and press <strong>R</strong>. Search for <code>line</code>, hover a row to locate the stroke on the chart, and click its visibility button to hide or restore it.</figcaption></figure>
 
 5. Change a number in `make_growth.py` and run it again. Flux refreshes the linked plot in place and keeps the colour you chose. Resize the plot by dragging an edge or corner if you like: a fluxplot ≥ 0.4 plot **reflows**, so its text, strokes and markers keep their point size while the axes grow or shrink.
 6. Press **Alt+M** to open **Figure-Meta** and write the caption. For this example: "Synthetic growth profiles for two illustrative conditions. Points show constructed values at seven time points; lines connect successive observations."
@@ -148,11 +148,11 @@ Figure numbering follows the designation you choose in Figure. Reordering paragr
 
 **You now have** a slide built from the same plot source as your figure. Add a step for the next part of your explanation, then use the animation tools to reveal an element or transform it into a later state.
 
-An interactive slide can also live inside a Paper document. HTML preserves its steps; PDF and Word use a still. The example below runs in Flux's native player. These are the slides from the Flux film, made from plots in the demonstration project.
+An interactive slide can also live inside a Paper document. HTML preserves its steps; PDF and Word use a still. The native Flux player below opens on an example from the Flux film. Use its slide menu to explore the other examples from the demonstration project.
 
 ```{=html}
-<div class="slide-demo" id="slide-demo" data-demo-src="/demos/slides/index.html" data-demo-scene="2">
-<button type="button" class="demo-launch" aria-label="Load the interactive slides from the Flux film" data-demo-start><img src="/demos/studies/become.svg" alt="A slide titled “In Flux, any figure can become a slide”: the dots of the Flux mark have become five coloured shapes. Load the native slides to play them." width="1280" height="720" loading="lazy"><span class="demo-launch-prompt"><span class="play-disc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 6 9 6-9 6Z" /></svg></span><span>Play the slides<small>The slides from the film, running in your browser</small></span></span></button>
+<div class="slide-demo" id="slide-demo" data-demo-src="/demos/slides/index.html" data-demo-scene="5">
+<button type="button" class="demo-launch" aria-label="Load the interactive Flux slides" data-demo-start><img src="/demos/studies/become.svg" alt="A slide titled “In Flux, any figure can become a slide”: the dots of the Flux mark have become five coloured shapes. Load the native slides to play them." width="1280" height="720" loading="lazy"><span class="demo-launch-prompt"><span class="play-disc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 6 9 6-9 6Z" /></svg></span><span>Play the slides<small>Start with the Flux mark</small></span></span></button>
 </div>
 ```
 

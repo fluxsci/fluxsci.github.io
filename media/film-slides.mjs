@@ -1,29 +1,31 @@
 /** Slides selected from the owner's launch-film decks for the website. Each slide is exported
  *  unchanged; only the player title is shortened. Credits follow each slide's own source notes. */
-export const DECKS=['deck_muyqzusk33zg_21','deck_muzr6gljt5vd_46'];
+export const FILM_DECKS=['deck_muyqzusk33zg_21','deck_muzr6gljt5vd_46'];
 const FILM='deck_muyqzusk33zg_21',FIG11='deck_muzr6gljt5vd_46';
-const allen='<a href="https://download.alleninstitute.org/informatics-archive/current-release/mouse_ccf/" target="_top">Allen CCF2017</a>';
+export const MOTION='deck_mwlhqg7l74tm_533';
+const usgs='<a href="https://earthquake.usgs.gov/earthquakes/search/" target="_top">USGS earthquake catalog</a>';
+const cellTypes='<a href="https://celltypes.brain-map.org/experiment/morphology/480114344" target="_top">Allen Cell Types Database</a>';
 
-/** The homepage plays the launch film's slideshow, opening on the brain-region latencies; the rest follow the film's order. */
+/** The homepage opens on Japan’s earthquakes, followed by the other authored Plots in Motion and film slides. */
 export const HOMEPAGE=[
- {deck:FILM,slide:'slide_muz1bgcmzb92_3',title:'Visual response latency across brain regions',
-  alt:'Twelve brain regions on a mouse coronal section, each matched to a row of visual response latencies.',
-  credit:`Anatomy: ${allen}. Latency values are synthetic and illustrative`},
+ {deck:MOTION,slide:'slide_mwlr2r2w8f1w_1',posterStep:1,
+  alt:'Map of Japan showing earthquakes by depth and a band across northern Honshu that the slide turns into a depth section.',
+  credit:`Earthquakes: ${usgs}, magnitude 5 and above, 1975–2025. Relief: ETOPO1`},
+ {deck:MOTION,slide:'slide_mwlr2pnj1w9c_1',
+  alt:'The Moon’s illuminated face through its orbit and the corresponding phases as seen from Earth.',
+  credit:'Computed illustration of the lunar phases'},
+ {deck:MOTION,slide:'slide_mwlr2xk7bs6r_1',
+  alt:'A reconstructed visual-cortex neuron whose branches rearrange into a tree showing distance along each branch.',
+  credit:`Mouse visual cortex reconstruction 491771446, ${cellTypes}`},
+ {deck:MOTION,slide:'slide_mwlr2ptk1w9c_589',
+  alt:'Seeds radiating from a sunflower center, with the pattern changing as the angle between successive seeds changes.',
+  credit:'Computed phyllotaxis patterns'},
  {deck:FILM,slide:'slide_muz2tp5izb92_249',title:'Shapes that change shape',
   alt:'Two 3D surfaces on black: a sphere and a minimal surface.',
   credit:'Computed geometry: a superquadric and the catenoid–helicoid family'},
  {deck:FIG11,slide:'slide_muzr6gllt5vd_47',title:'Any figure can become a slide',
   alt:'A slide titled “In Flux, any figure can become a slide”: the dots of the Flux mark have become five coloured shapes in a frame and the caption “and adding motion is effortless”.',
   credit:'The Flux mark and shapes, drawn in Flux'},
- {deck:FILM,slide:'slide_muz991ncyfxw_867',title:'The fold becomes a fingerprint',
-  alt:'The folded backbone of the protein crambin and its residue contact map.',
-  credit:'Structure: crambin, <a href="https://www.rcsb.org/structure/1CRN" target="_top">PDB 1CRN</a>'},
- {deck:FILM,slide:'slide_muzb9z5cakd6_9141',title:'From genes to programs',
-  alt:'A heat map of 36 genes across eight airway samples, regrouped into three expression programs.',
-  credit:'Data: airway RNA-seq, <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE52778" target="_top">GEO GSE52778</a>'},
- {deck:FILM,slide:'slide_muzb9z5kakd6_13448',title:'Agreement, revealed',
-  alt:'240 paired blood-pressure readings as a scatter plot with r = 0.974, and the same pairs as a mean–difference plot.',
-  credit:'Data: <a href="https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/BPX_J.htm" target="_top">NHANES 2017–2018</a> systolic readings'},
 ];
 
 /** One film slide per documentation example. `id` names the page each guide loads. */

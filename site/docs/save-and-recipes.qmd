@@ -118,6 +118,8 @@ fp.save(fig, "plots/result.svg", recipe={
 
 This is a pattern to add to your own script: `fig` and the input file must exist. `fp.params` reads overrides from `FLUX_PARAMS`; a normal script run uses your defaults. Keep scientifically meaningful choices as explicit parameters. Colour-scale controls are recorded separately under `__fluxplot__`; see [colour controls](/docs/colors-and-style.html#colour-controls-in-the-recipe).
 
+A recipe can run the command recorded by its author. On the first rerun in a project, the app asks whether to trust it on this computer. The CLI and connected agents show the exact command before executing it. Once you have reviewed it, repeat the command with `--trust` (or `trust: true` via MCP). Flux remembers the decision for this project across the app and CLI. The same check applies to colour adjustments that regenerate the plot.
+
 A recipe can also override `args`, `cwd` and `output`; paths for `cwd` and `output` resolve relative to the recipe directory. When one script saves several plots, setting `FLUXPLOT_ONLY` to a comma-separated list of plot names (wildcards such as `fig2*` work) skips every other save before layout or file output; `flux rerun-plot <recipe> --only` sets it for you.
 
 ## Check and regenerate {#check-and-regenerate}

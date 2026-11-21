@@ -80,11 +80,15 @@ Edits made headless show up **live** in the open app, and if you're mid-edit in 
 command arrives, it defers politely instead of clobbering ([saving and outside
 edits](/docs/projects-and-files.html#saving)).
 
+### Inspect a placed image {#image-commands}
+
+For [scientific image bundles](/docs/fluximg.html), `flux place-image` returns the element ID of a new placement. Pass that ID to `flux image-info` to read the dimensions, channels and current view. A script can then change the view with `flux set-image-view` and render the same figure that Paper uses. [Arguments and examples](/docs/commands.html#figure-images).
+
 ## Full command reference {#command-reference}
 
 The [CLI and MCP command reference](/docs/commands.html) lists the project, figure, plot, document, library, slide and agent commands for the Flux version this site documents.
 
-Use `flux help` for the list in your installed version, or `flux help <verb>` for a command's flags. `flux version` identifies the installation. The same reference ships inside Flux as `FluxConfig/Context/FluxContext/CLI-REFERENCE.md`, machine-checked against the code and synced to your machine with its real paths filled in; the rest of that `FluxContext/` folder is the manual your agents read ([Context and memory](/docs/context.html#the-stock-manual)).
+Use `flux help` for the list in your installed version. For most commands, `flux help <verb>` prints that command’s flags. Some older commands return the general list. For example, the rendering options for `render-figure` appear in the [command reference](/docs/commands.html#verb-reference). `flux version` identifies the installation. The same reference ships inside Flux as `FluxConfig/Context/FluxContext/CLI-REFERENCE.md`, machine-checked against the code and synced to your machine with its real paths filled in; the rest of that `FluxContext/` folder is the manual your agents read ([Context and memory](/docs/context.html#the-stock-manual)).
 
 For example, `flux help read-log` prints:
 

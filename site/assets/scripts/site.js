@@ -19,9 +19,9 @@
     const workspaces = {
       paper: ["Paper", "Write with your figures, citations, and working notes in reach.", "Flux Paper workspace with the demonstration manuscript, project documents, and a connected scientific figure."],
       figure: ["Figure", "Compose the whole figure. Refine every individual part.", "Flux Figure workspace with the authored materials composition and its layers."],
-      slides: ["Slides", "Give the same figures a timeline. Build the explanation step by step.", "Flux Slides workspace with the slides from the Flux film and their editable animation steps."],
-      library: ["Library", "A lasting collection of references, ready for every project.", "Flux Library workspace with the illustrative study collection, paper metadata, and organization controls."],
-      reader: ["Reader", "Read closely. Keep your notes connected to the evidence.", "Flux Reader workspace displaying the original Patterns across scales manuscript and its reading tools."],
+      slides: ["Slides", "Give the same figures a timeline. Build the explanation step by step.", "Flux Slides with the Plots in Motion earthquake map and its editable animation steps."],
+      library: ["Library", "A lasting collection of references, ready for every project.", "Flux Library workspace showing a structural biology bibliography, the selected paper’s metadata and collection controls."],
+      reader: ["Reader", "Read closely. Keep your notes connected to the evidence.", "Flux Reader with the AlphaFold paper, a highlighted passage and the associated note."],
     };
     const loads = new Map();
     let request = 0;
@@ -245,34 +245,20 @@
   function markScene(index) {
     for (const tab of sceneTabs) tab.setAttribute("aria-pressed", String(Number(tab.dataset.scene) === index));
   }
-  // The exported player is same-origin; its own scene selector is driven, never replaced.
-  function playerDocument() {
-    try { return demoFrame?.contentDocument || null; } catch { return null; }
-  }
   function chooseScene(index, play) {
     requestedScene = index;
     markScene(index);
-    const doc = playerDocument();
-    if (!doc) return;
-    const select = doc.getElementById("slide-select");
-    if (select && select.value !== String(index)) {
-      select.value = String(index);
-      select.dispatchEvent(new Event("change", { bubbles: true }));
-    }
-    if (play && !reducedMotion.matches) {
-      const next = doc.querySelector('#native-player [aria-label="Next animation step"]');
-      const status = doc.querySelector(".flux-slide-bar [aria-live]");
-      if (next && !next.disabled && /Step 0 \//.test(status?.textContent || "")) next.click();
-    }
+    demoFrame?.contentWindow?.fluxWebsiteDemo?.select(index, play && !reducedMotion.matches);
   }
   // The native control bar can wrap on narrow screens or with larger text.
   window.addEventListener("message", (event) => {
-    if (
-      !demoFrame ||
-      event.source !== demoFrame.contentWindow ||
-      event.origin !== window.location.origin ||
-      event.data?.type !== "flux-demo-resize"
-    ) return;
+    if (!demoFrame || event.source !== demoFrame.contentWindow || event.origin !== window.location.origin) return;
+    if (event.data?.type === "flux-demo-selected" && sceneTabs.some(tab => Number(tab.dataset.scene) === event.data.index)) {
+      requestedScene = event.data.index;
+      markScene(requestedScene);
+      return;
+    }
+    if (event.data?.type !== "flux-demo-resize") return;
     const height = event.data.height;
     if (!Number.isFinite(height) || height <= 0 || height > 3000) return;
     demo.style.aspectRatio = "auto";
@@ -282,8 +268,8 @@
   function loadDemo() {
     if (demoFrame) return;
     demoFrame = document.createElement("iframe");
-    demoFrame.src = demo.dataset.demoSrc;
-    demoFrame.title = "Interactive Flux slides from the launch film";
+    demoFrame.src = `${demo.dataset.demoSrc}#scene=${requestedScene}`;
+    demoFrame.title = "Interactive Flux slides";
     demoFrame.setAttribute("allow", "fullscreen");
     demoFrame.setAttribute("loading", "eager");
     demoFrame.addEventListener(

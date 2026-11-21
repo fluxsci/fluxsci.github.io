@@ -8,113 +8,106 @@ Normal builds use checked-in screenshots, native player exports, fonts and figur
 
 `media/showcase.mjs` reads the two selected authored figures and their accepted `fig/assets` files. The plots, layout, labels, view settings and accepted asset bytes are preserved; figure titles and captions are supplied for the website. It does not read existing test decks, other manuscripts, context or a personal library. It checks the original figure inputs again after preparing the copy. Linked source paths are redirected to the copied assets, so capture never follows external research paths.
 
-The isolated `.cache/visual-project/` contains an original manuscript and a small demonstration bibliography (and the retired website deck, used only by a full screenshot refresh). It is neither a bundled editable example nor a published download. The source includes real public recordings, calculated examples and illustrative values, identified on the website's visual credits page. No source project files are changed.
+The isolated `.cache/visual-project/` is an internal capture fixture. The stage adds an original manuscript and a small demonstration bibliography to its copy. The source includes real public recordings, calculated examples and illustrative values, identified on the website's visual credits page. No source project files are changed.
 
-## Refresh
+## Refreshing stills
 
-Prepare a clean Flux checkout at the pinned revision with locked Node dependencies installed. Start that checkout's development server on port 1420 with `npm run dev`: its pre-step generates files the page needs, and a server started without them paints Vite's error overlay (with a local path) over the app. The capture scripts stop when they see that overlay, but look at every image before committing all the same. If port 1420 is in use, run `node scripts/gen-slide-embed-assets.mjs` and then `npx vite --port <port> --strictPort` in the checkout, and set `FLUX_URL`.
-
-For `--project`, pass the copy of the master whose files still match `project.plotInputHashes` in `media/native-assets.json` (the October 2026 copy). The owner's working master has moved on since and no longer holds the response figure; `refresh-flux-assets.mjs` stops with "Expected the two reviewed master figures" when given it.
-
-From the website root:
+Build the production app from a clean Flux checkout at the reviewed revision, with locked Node
+dependencies installed. Prepare the two authored figures from the October 2026 master whose
+files match `project.plotInputHashes` in `media/native-assets.json`:
 
 ```sh
-node scripts/refresh-flux-assets.mjs --flux-source /path/to/pinned/flux --project /path/to/MASTER_DEMO_FluxProj
-node scripts/capture-media.mjs --flux-source /path/to/pinned/flux
-npm test
+node scripts/refresh-flux-assets.mjs --flux-source /path/to/flux --project /path/to/october/MASTER_DEMO_FluxProj
+node media/stills/plates.mjs
 ```
 
-Set `FLUX_CHROME` to a Chrome/Chromium executable if Brave is not installed, and `FLUX_URL` if the app preview uses another port. Stop servers you started when finished.
+The first command prepares `.cache/visual-project` and renders both figures in Flux. The second
+rasterizes those native exports for the website at 2× display density.
 
-The screenshot script mirrors the isolated project through the real application's in-memory FileBridge. It seeds a demonstration Library and an original manuscript PDF without accessing a personal library. Screenshots show unmodified Flux UI at 2× display density; manifest dimensions describe the viewport. Figure plates come from the native figure renderer, with native 3D posters.
-
-Review all five workspaces, plot editing and both plates.
-
-`media/native-assets.json` records product and source input hashes and published runtime hashes. `media/screenshots.json` records capture conditions and image hashes. `media/installer.json` records the reviewed installer's exact bytes. `media/documentation.json` records the revisions used to write the guides and API reference.
-
-## Slides from the Flux film
-
-The homepage player and every documentation example play slides from the launch film. They are
-exported unchanged from the owner-authorized decks "Deck 6" and "Figure 11 deck" of
-`MASTER_DEMO_FluxProj` (the October 2026 film copy). `media/film-slides.mjs` selects the slides,
-their player titles, credits and alt text; credits follow each slide's own source notes.
-
-The film decks need slide-engine changes made after v0.2.0 (Become pairs morph outline to outline,
-transforms repaint their end state, dissolve is the default transform). `flux-source.json` therefore
-pins the slide player separately: `slidePlayer.revision` is a public Flux commit and
-`slidePlayer.patches` lists reviewed patches applied on top (FLUX-057: the caption letters of the
-Figure 11 Become fly as in Present). Prepare that checkout, then export:
+Use a separate private display and debugging port. From the website root, start the stage in one
+terminal and capture from another. This example uses the reviewed visual project:
 
 ```sh
-git -C /path/to/flux worktree add --detach /tmp/flux-player <slidePlayer.revision>
-git -C /tmp/flux-player apply "$PWD/media/flux-patches/flux-057-glyph-handoff.patch"   # each listed patch
-node scripts/refresh-slides.mjs --flux-source /tmp/flux-player --project /path/to/MASTER_DEMO_FluxProj
+node media/pitch/stage.mjs --flux-source /path/to/flux --project .cache/visual-project \
+  --width 1500 --height 950 --scale 2 --display 157 --port 9537 \
+  --take media/stills/prepare-showcase.mjs
+node media/stills/capture.mjs --app /path/to/flux --group workspaces --display 157 --port 9537
 ```
 
-It refuses a checkout that differs from the revision plus the listed patches. Outputs:
-`site/demos/slides/index.html` (homepage), `site/demos/studies/<id>.html` and `<id>.svg` (one page
-and still per guide example), `site/assets/media/slide-poster.svg`, and the bundled runtime license
-notices, all recorded in `media/slides.json`. Each slide keeps its own deck payload, because the
-decks differ in theme. The website hides the player's authoring notes (`.flux-slide-status`); the
-brain-region slide's text-to-text Become crossfades by design. Add `--review` to export every slide
-of both decks to `.cache/slides-review/` for choosing new ones.
+Pass `--display` to the capture command once per stage to size its window. Set `FLUX_XVFB` to
+your Xvfb executable if needed. On Linux systems where Xvfb's NVIDIA EGL vendor crashes,
+set `__EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json`. If inotify's
+watch limit is reached, set `CHOKIDAR_USEPOLLING=true` for the private stage.
 
-The export also writes `.cache/film-capture-project/` for the Slides workspace screenshot. With the
-pinned release's development server on port 1420:
+| Capture group | Project | Stage setup |
+|---|---|---|
+| `workspaces`, `properties`, `xray`, `comments` | `.cache/visual-project` | `--take media/stills/prepare-showcase.mjs` installs the demonstration manuscript. |
+| `metadata` | `.cache/visual-project` | Enable WebGL2 for the native Figure-Meta proof. The stage adds distinct panel captions to its copy. |
+| `reading` | `.cache/visual-project` | `--take media/stills/prepare-library.mjs` installs a demonstration bibliography and public CC BY PDFs into the stage's isolated home. |
+| `slides` | `.cache/film-slides/motion` | `--take media/stills/prepare-motion.mjs` selects the four approved Plots in Motion slides from the player export fixture. |
+| `features`, `techniques` | `.cache/visual-project` | `--take media/stills/prepare-features.mjs` loads the tutorial plots, dissections and teaching deck below. |
+| `images` | A standalone Fluorescence stack project | Place the generated image on Figure 2 and enable native WebGL2. |
+
+The illustrative fluorescence stack comes from `media/stills/make-image-stack.py` and
+requires NumPy, SciPy and a fluxplot build supporting `fluximg`. Generate the bundle under
+`plots/` of a new fixture. Use `flux create-figure --id fluorescence --width 650 --height 620`,
+then `flux place-image fluorescence /path/to/cells-in-motion.fluximg --x 110 --y 80 --width 430
+--view '{"furniture":{"scalebar":{},"channelLabels":{}}}'` in that project. On a private Xvfb stage,
+Electron can supply WebGL2 via `--extra '--ignore-gpu-blocklist --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader'`.
+
+Each capture runs actual Flux on an isolated copy and drives the app using its keyboard and pointer.
+Inspect every image in `.cache/review/stills/` before installing it. Pass the reviewed group
+directories to `node media/stills/install.mjs`. This installs the site assets, lossless screenshot
+masters and source metadata. Stop the private stages when finished. Run `npm test` after
+installation. `node scripts/generate-social-card.mjs` rasterizes the website-owned social preview.
+
+## Live slides
+
+The homepage combines four slides from the current master’s `plots_in_motion` deck and two
+slides from the October launch film. The guides use six film examples. `media/film-slides.mjs`
+selects the authored examples and records their player titles, credits and alt text.
+
+Prepare the Flux checkout at `slidePlayer.revision` in `flux-source.json`, install its locked
+dependencies, and apply any patches listed in that pin. Then export from the current master:
 
 ```sh
-node scripts/capture-slides.mjs --flux-source /path/to/pinned/flux
+node scripts/refresh-slides.mjs --flux-source /path/to/flux-player --project /path/to/MASTER_DEMO_FluxProj
 ```
 
-This replaces only `slides.webp` and its entry in `media/screenshots.json`.
+The exporter refreshes the native runtime for every slide. It reads the previously reviewed
+film payloads and guide posters from the website’s Git history and verifies their hashes.
+Supply `--film-project /path/to/october/MASTER_DEMO_FluxProj` to export from the original film
+decks instead. Add `--review` to export
+the animated slides in the supplied project decks into `.cache/slides-review/`.
+
+`media/slides.json` records the runtime revision, the motion deck input hashes, the film sources,
+and hashes for the homepage player and its per-slide compressed payloads (`site/demos/slides/`), guide players and stills
+(`site/demos/studies/`), the homepage poster and the bundled runtime license notices. Each
+slide keeps its own theme and styles. The website hides the player’s authoring notes.
 
 ## Documentation examples and close-ups
 
-`media/techniques.mjs` authors a small geometric deck. The Animator timeline diagrams use Flux's own
-alignment operations on it to calculate their before-and-after positions; its slides are no longer
-published.
+Prepare the teaching deck and tutorial plots before staging the guide captures:
 
 ```sh
-node scripts/refresh-docs-demos.mjs --flux-source /path/to/pinned/flux
-node scripts/capture-docs.mjs --flux-source /path/to/pinned/flux
+node scripts/refresh-docs-demos.mjs --flux-source /path/to/flux
+cd /path/to/fluxplot
+uv run python /path/to/site/media/docs-plots/make_docs_plots.py /path/to/site/.cache/review/docs-plots
 ```
 
-The first command draws the four Animator timing diagrams into `site/demos/techniques/`, records
-their hashes in `media/docs-demos.json`, and saves the geometric capture deck under
-`.cache/docs-techniques/`. The second needs the isolated visual project from the earlier refresh and
-the Flux development server. It captures the X-ray, property menu and Animator in the native
-in-memory fixture, recording image dimensions and hashes in `media/docs-screenshots.json`.
+The first command uses Flux's alignment operations to draw the four Animator timing diagrams into
+`site/demos/techniques/` and leaves the capture deck in `.cache/docs-techniques/`. In
+`.cache/review/dissections/atlas/`, use the showcase's `rose.svg` and `profiles.svg` as
+`preferred-directions.svg` and `direction-profiles.svg`. Add an illustrative
+`_stats/direction_counts.csv` and `observations.txt` with a `#check` tag. The stage copies
+those assets into the project before launch.
 
-Review the four alignment diagrams and, for the film slides, every documentation example during
-playback and at rest. Check mobile sizing, reduced motion, keyboard controls, no-script stills and
-light/dark document surroundings. The browser suite covers these interactions. Normal builds audit
-every manifest without reading the source project or starting Flux.
+`media/docs-plots/make_docs_plots.py` also draws the explicitly synthetic examples for the
+plotting guides. `media/docs-plots.json` records their hashes. Short guide recordings and their
+poster frames are tracked separately in `media/docs-clips.json`.
 
-## Feature close-ups and clips (Flux 0.3)
-
-`scripts/capture-features.mjs` captures the 0.3 Figure, Paper and Settings features in the dev-server
-fixture: the Plots rail with a plot's dissections and notes, the Inspector's Layout controls, the Align &
-Arrange panel, Settings → Cursor and the Paper figures pane as PNG stills, plus five short clips
-(drag-to-place from the rail, a Reflow resize, the X-ray, Align & Arrange, a sticky connector) cut from
-one Playwright recording with ffmpeg into H.264 MP4s with poster frames. It needs the isolated showcase
-project, the illustrative plots and a small dissections folder:
-
-```sh
-cd /path/to/fluxplot && uv run python /path/to/site/media/docs-plots/make_docs_plots.py /path/to/site/.cache/review/docs-plots
-node scripts/capture-features.mjs --flux-source /path/to/pinned/flux --plots .cache/review/docs-plots --dissections .cache/review/dissections
-```
-
-The dissections folder holds two of the showcase plots, a small CSV and a `.txt` note (all illustrative,
-mirrored under `plots/_dissections/showcase/atlas/` in the fixture); recreate it from the showcase plots if
-`.cache/` was cleared. Outputs and their hashes are recorded in `media/feature-captures.json`.
-
-`media/docs-plots/make_docs_plots.py` also draws the meanmark and fluxbox illustrations used by the plotting
-guides (`site/assets/media/docs/plots/`), recorded in `media/docs-plots.json` together with the sheet from
-fluxplot's own `examples/meanmark_example.py`. Values are synthetic; the pages say so.
-
-The Slides workspace screenshot (`slides.webp`) now shows the retired website deck from the isolated
-project (captured by `capture-media.mjs`); `capture-slides.mjs` can replace it with the film slides when a
-master copy containing both film decks is available.
+Review playback, small screens, reduced motion, keyboard controls and light/dark surroundings.
+Normal builds audit the manifests without reading any capture fixture or starting Flux.
 
 ## Licenses and credit
 

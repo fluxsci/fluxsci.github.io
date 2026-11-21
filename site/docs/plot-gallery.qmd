@@ -50,7 +50,7 @@ last clicked.
 - Drag the line between the gallery and the dissections to share the height; drag it to an
   edge to fold a pane away; double-click it to reset.
 
-<figure class="doc-figure"><a href="/assets/media/docs/figure-plots-rail.png" data-enlarge data-caption="The Plots view: folders are headings, ◆ marks an editable fluxplot, and the Dissections pane below follows the plot you last clicked. The dissections folder and its note here are illustrative."><img src="/assets/media/docs/figure-plots-rail.png" alt="The Figure workspace with the sidebar in its Plots view: a gallery of plot tiles under folder headings, and below it a Dissections pane listing a summary table and a folder of panels for the selected plot." width="2800" height="2000" loading="lazy"></a><figcaption>The Plots view: folders are headings, ◆ marks an editable fluxplot, and the Dissections pane below follows the plot you last clicked. The dissections folder and its note here are illustrative.</figcaption></figure>
+<figure class="doc-figure"><a href="/assets/media/docs/figure-plots-rail.png" data-enlarge data-caption="The Plots view: folders are headings, ◆ marks an editable fluxplot, and the Dissections pane below follows the plot you last clicked. The dissections folder and its note here are illustrative."><img src="/assets/media/docs/figure-plots-rail.png" alt="The Figure workspace with the sidebar in its Plots view: a gallery of plot tiles under folder headings, and below it a Dissections pane listing a summary table and a folder of panels for the selected plot." width="3000" height="1900" loading="lazy"></a><figcaption>The Plots view: folders are headings, ◆ marks an editable fluxplot, and the Dissections pane below follows the plot you last clicked. The dissections folder and its note here are illustrative.</figcaption></figure>
 
 ### Read a tile {#read-a-tile}
 
@@ -90,11 +90,7 @@ turns the hover off.
   `latency`, `latency_v2` … — into one tile showing the newest, with a **×6** badge. **Enter**,
   a double-click or the badge opens the stack in place; the first variant's **◂** badge folds it
   again. Dragging a stack places the variant it shows.
-- **Alt+/** switches the lower pane between Dissections and a **Folders** tree: the plot
-  folders and how many plots each holds, with a search box for finding a nested directory.
-  Choose a folder to show only its plots; **↑/↓**, **←/→** and **Enter** navigate and choose
-  from the tree. The folder stays chosen while you flip to Layers and back. Companion
-  directories stay out of this tree. **Alt+/** again returns to dissections.
+- **Alt+/** opens a searchable **Folders** panel beside the Plots rail. Type part of a folder name, walk matches with **↑ / ↓**, and press **Enter** to show its plots. **← / →** folds or opens branches, and **Alt+click** on a branch arrow folds or opens the subtree. **Esc** clears the search, then closes the panel. The header’s dock button moves Folders into the lower pane. Choose the default under **Settings → Figure → Plot gallery → Folders open**.
 
 ### Place a plot {#place-a-plot}
 
@@ -105,7 +101,7 @@ figure to place it where you let go; over the canvas it shows at the size it wil
 When the rail is too small for the job, **Shift+Alt+G** (also from the rail's search box) opens
 the [full gallery](#browse) in its own window.
 
-<figure class="doc-figure doc-clip"><video poster="/assets/media/docs/clips/plots-rail-place.png" width="1400" height="1000" muted loop playsinline autoplay controls preload="metadata" aria-label="A plot tile is dragged from the Plots view onto an empty figure; a peek of the plot appears while the pointer rests on the tile, the plot shows at its landing size over the canvas and lands there when released."><source src="/assets/media/docs/clips/plots-rail-place.mp4" type="video/mp4"></video><figcaption>Rest on a tile to peek at it, then drag it onto a figure: it shows at the size it will land and arrives at its true printed size.</figcaption></figure>
+<figure data-doc-clip="plots-rail-place" data-clip-label="Alt+G opens the Plots view and the search narrows it to growth. Hovering on the tile shows a larger preview. Dragging the tile onto the empty figure shows the plot at its printed size before release."><figcaption>Rest on a tile to peek at it, then drag it onto a figure: it shows at the size it will land and arrives at its true printed size.</figcaption></figure>
 
 ### Dissections and notes beside the canvas {#dissections-pane}
 
@@ -210,6 +206,10 @@ Everything imports at **true physical size**: a 6.4 × 4.8 inch plot lands exact
 never silently rescaled. If an import is larger than its figure frame, a notification says so;
 **Ctrl+Shift+I** brings the selection inside the frame (moving it, never resizing it). To
 change a plot's size afterwards, see [Resizing a plot](/docs/figure-layout.html#resizing-a-plot).
+
+### Image stacks {#image-stacks}
+
+A project `.fluximg` folder appears as one image-stack tile. Double-click it, press **Enter**, or drag it onto a saved figure. Its tile shows the image preview and dimensions. See [Scientific images and stacks](/docs/fluximg.html) for source updates, channels, segmentation and linked insets.
 
 ## Keeping linked sources current {#keeping-linked-sources-current}
 

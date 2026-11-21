@@ -951,6 +951,37 @@ html:not(.js) .film-launch {
 /* ------------------------------------------------------------------ */
 /* Semantic plots                                                      */
 /* ------------------------------------------------------------------ */
+.image-stack-feature {
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.72fr) minmax(0, 1.6fr);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 4rem);
+}
+.image-stack-intro h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+.image-stack-intro > p:not(.eyebrow) { line-height: 1.65; }
+.image-stack-feature figure { margin: 0; }
+.image-stack-feature figure > a {
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  cursor: zoom-in;
+}
+.image-stack-feature img { display: block; width: 100%; height: auto; }
+.image-stack-feature figcaption {
+  margin-top: .6rem;
+  color: var(--muted);
+  font: .875rem/1.5 var(--sans);
+}
+@media (max-width: 760px) {
+  .image-stack-feature { grid-template-columns: 1fr; }
+}
+
 .structure-section .part-explorer {
   max-width: 1000px;
   margin: 0 auto;

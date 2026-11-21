@@ -33,7 +33,7 @@ regenerated.
   resizing, rotating and cropping.
 - The **sidebar** has two views, chosen with the tabs at its top. **Layers** lists Canvases
   (add, rename, delete), the Figures on the active canvas (family-aware number badges — "2",
-  "S2", "ED3"; double-click opens Figure-Meta’s Name tab) and the z-ordered **Layers** tree of
+  "S2", "ED3"; double-click opens the name panel in Figure-Meta) and the z-ordered **Layers** tree of
   the selected figure, with per-row show/hide, lock, drag-to-reorder and collapsible groups.
   **Plots** is the [Plots rail](/docs/plot-gallery.html#the-plots-rail): your plot gallery and
   the selected plot's dissections, beside the canvas. **Alt+G** switches between the two views.
@@ -47,7 +47,7 @@ regenerated.
   **Alt+↑** / **Alt+↓**. **Shift+click** picks a run of rows and **Ctrl+click**
   adds or drops one, and the whole pick then moves as a block.
   This changes the *order of the list only*: nothing moves on the canvas, and no figure is
-  renumbered — reordering and renumbering are separate on purpose, so use Figure-Meta’s Name tab
+  renumbered — reordering and renumbering are separate on purpose, so use the name panel in Figure-Meta
   below when you want the numbers to follow.
 - The **Inspector** puts the selection’s position, size and appearance first. The colour
   palette, a plot's layout controls and the journal export options expand as needed; drag its
@@ -61,7 +61,9 @@ regenerated.
 ## Where to go next {#where-to-go-next}
 
 The rest of this page is about figures as a whole: creating, naming, captioning, exporting.
-Everything you do *inside* a figure is in three guides, plus one for 3D models:
+Choose a guide for the material you want to work with:
+
+- **[Scientific images and stacks](/docs/fluximg.html)** — place a movie, compare channels, inspect segmented objects and pull out a linked inset.
 
 - **[Plot gallery and source links](/docs/plot-gallery.html)** — the
   [Plots rail](/docs/plot-gallery.html#the-plots-rail) beside the canvas
@@ -150,17 +152,12 @@ filename, and you do not need to rename stored files to rename a figure.
   saved manuscript references and open editor buffers automatically. If removing a referenced
   panel would make its reference point somewhere else, the save stops with a clear conflict
   until you restore the panel or repair that reference.
-- **Alt+M** opens **Figure-Meta** in Figure or Paper, starting with the active figure.
-  Browse every canvas, search and filter families, and edit the **Captions** or **Name** tab.
-  The figure and composed caption preview sit beside the fields; drag the divider to resize
-  them. The Name tab includes family, number, title and custom families. Existing captions
-  and permanent references are preserved. Captions flow into the [manuscript](/docs/paper.html)
-  and exports automatically.
-- In Figure-Meta, each field grows to fit and the fields column scrolls. Set the
-  typing size with the **− / +** controls above the blocks (also in **Settings → Figure**).
-  Click a block's letter or heading to collapse or expand it.
-- The preview fits the entire figure **and caption** by default. **Ctrl+scroll** zooms around
-  the pointer; drag to pan, choose a percentage, or press **Fit** to see everything again.
+- **Alt+M** opens Figure-Meta on the active figure. Select a figure in the left column, inspect its page proof in the middle, and edit captions on the right. The figure list shows caption word counts, with a ring for an empty caption. In the search field, **↑ / ↓** selects a figure and **Enter** focuses its first field.
+- Click the name below the proof or press **Alt+N** to edit the title, family and number and see the permanent reference. **+ New family…** creates a custom family. Captions can still be edited with the name panel open.
+- Drag the divider to resize the proof, **Ctrl+wheel** to zoom, drag to pan and **Ctrl+0** to fit the figure with its caption. Expand or collapse caption blocks by their headings. The word count updates as you write. **Ctrl+S** saves immediately and the status bar reports the result.
+
+<figure class="doc-figure"><a href="/assets/media/docs/figure-meta-overview.png" data-enlarge data-caption="Choose a figure on the left, check its printed proof in the middle, and edit the figure and panel captions on the right. The open Name panel shows the title, family, number and permanent reference."><img src="/assets/media/docs/figure-meta-overview.png" alt="Figure-Meta showing two figures in the sidebar, the materials figure and its printed caption in the centre, title and permanent reference below, and panel caption fields on the right." width="2880" height="1804" loading="lazy"></a><figcaption>Choose a figure on the left, check its printed proof in the middle, and edit the figure and panel captions on the right. The open Name panel shows the title, family, number and permanent reference.</figcaption></figure>
+
 - **Add closing caption · ps** adds optional prose after the final panel caption. It appears
   as ordinary text, with no “ps” label, and stays at the end when panels are added or reordered.
   Remove it with its **×** button; metadata Undo can restore it.
@@ -172,6 +169,10 @@ filename, and you do not need to rename stored files to rename a figure.
   the axes of several plots, or reflow a messy selection into a row, column or grid — see
   [Align & Arrange](/docs/figure-layout.html#align-and-arrange).
 - **Shift+R** shows rulers (drag from them for guides); **Shift+G** shows the background grid.
+
+## Scientific images {#images}
+
+Place a calibrated image, movie or multidimensional stack from the project’s Plots rail. **R** or a double-click on the image opens its channel histograms, depth and time rails, and object layers. A frame, channel split or magnified inset refers back to the same pixels. [Work with scientific images and stacks](/docs/fluximg.html).
 
 ## Exporting figures {#exporting-figures}
 

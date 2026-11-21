@@ -102,6 +102,14 @@ export const routes = [
     "kind": "guide"
   },
   {
+    "source": "docs/fluximg.qmd",
+    "output": "docs/fluximg.html",
+    "url": "/docs/fluximg.html",
+    "title": "Scientific images and stacks",
+    "kind": "guide"
+  },
+
+  {
     "source": "docs/3d-models.qmd",
     "output": "docs/3d-models.html",
     "url": "/docs/3d-models.html",
@@ -432,6 +440,12 @@ export const groups = [
         "url": "/docs/figure-layout.html",
         "description": "Move, align and arrange panels, resize plots so they reflow, draw sticky connectors, and set type."
       },
+      {
+        "title": "Scientific images and stacks",
+        "url": "/docs/fluximg.html",
+        "description": "Place a calibrated fluximg bundle, inspect channels, depth, time and segmented objects, and export linked figure panels."
+      },
+
       {
         "title": "3D models in Flux",
         "url": "/docs/3d-models.html",

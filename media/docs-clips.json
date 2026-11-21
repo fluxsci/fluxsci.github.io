@@ -1,0 +1,250 @@
+{
+  "description": "Guide clips recorded in production Flux with real input and composed by media/pitch. The shared recorder adds the Flux cursor, click rings and keycaps.",
+  "takes": {
+    "fluximg-layers": {
+      "recorded": "2026-11-21T00:14:52.726Z",
+      "flux": {
+        "revision": "8a5ee8354b8f9608bd83bbd715afc5e0ee7f81da",
+        "dirty": false
+      },
+      "window": {
+        "width": 1040,
+        "height": 620,
+        "scale": 4
+      },
+      "width": 1920,
+      "height": 1080,
+      "seconds": 13.84
+    },
+    "reflow-resize": {
+      "recorded": "2026-11-20T23:47:45.695Z",
+      "flux": {
+        "revision": "8a5ee8354b8f9608bd83bbd715afc5e0ee7f81da",
+        "dirty": false
+      },
+      "window": {
+        "width": 1180,
+        "height": 680,
+        "scale": 4
+      },
+      "width": 1920,
+      "height": 1080,
+      "seconds": 12.38
+    },
+    "plots-rail-place": {
+      "recorded": "2026-11-20T23:46:52.146Z",
+      "flux": {
+        "revision": "8a5ee8354b8f9608bd83bbd715afc5e0ee7f81da",
+        "dirty": false
+      },
+      "window": {
+        "width": 1180,
+        "height": 680,
+        "scale": 4
+      },
+      "width": 1920,
+      "height": 1080,
+      "seconds": 12.33
+    },
+    "sticky-connector": {
+      "recorded": "2026-11-20T23:38:55.108Z",
+      "flux": {
+        "revision": "8a5ee8354b8f9608bd83bbd715afc5e0ee7f81da",
+        "dirty": false
+      },
+      "window": {
+        "width": 1180,
+        "height": 680,
+        "scale": 4
+      },
+      "width": 1920,
+      "height": 1080,
+      "seconds": 14.61
+    },
+    "fluximg-view": {
+      "recorded": "2026-11-21T00:13:44.195Z",
+      "flux": {
+        "revision": "8a5ee8354b8f9608bd83bbd715afc5e0ee7f81da",
+        "dirty": false
+      },
+      "window": {
+        "width": 1040,
+        "height": 620,
+        "scale": 4
+      },
+      "width": 1920,
+      "height": 1080,
+      "seconds": 16.67
+    },
+    "align-arrange": {
+      "recorded": "2026-11-20T23:48:09.305Z",
+      "flux": {
+        "revision": "8a5ee8354b8f9608bd83bbd715afc5e0ee7f81da",
+        "dirty": false
+      },
+      "window": {
+        "width": 1180,
+        "height": 680,
+        "scale": 4
+      },
+      "width": 1920,
+      "height": 1080,
+      "seconds": 12.34
+    },
+    "paper-comment-tags": {
+      "recorded": "2026-11-20T23:48:30.453Z",
+      "flux": {
+        "revision": "8a5ee8354b8f9608bd83bbd715afc5e0ee7f81da",
+        "dirty": false
+      },
+      "window": {
+        "width": 1180,
+        "height": 680,
+        "scale": 4
+      },
+      "width": 1920,
+      "height": 1080,
+      "seconds": 12.5
+    },
+    "xray": {
+      "recorded": "2026-11-21T00:17:41.245Z",
+      "flux": {
+        "revision": "d3dd41993773fd31c535b853f873cdd1e3ec9d36",
+        "dirty": false
+      },
+      "window": {
+        "width": 1180,
+        "height": 680,
+        "scale": 4
+      },
+      "width": 1920,
+      "height": 1080,
+      "seconds": 15.72
+    },
+    "property-menu": {
+      "recorded": "2026-11-21T00:18:06.165Z",
+      "flux": {
+        "revision": "d3dd41993773fd31c535b853f873cdd1e3ec9d36",
+        "dirty": false
+      },
+      "window": {
+        "width": 1280,
+        "height": 750,
+        "scale": 4
+      },
+      "width": 1920,
+      "height": 1080,
+      "seconds": 12.75
+    }
+  },
+  "outputs": {
+    "site/assets/media/docs/clips/fluximg-layers.mp4": {
+      "bytes": 3474817,
+      "sha256": "751cfc5e81efb89227e1260b9bcf98c37f5c8b8d76e49b0ae3a819e1fd4904a8"
+    },
+    "site/assets/media/docs/clips/fluximg-layers-1280.mp4": {
+      "bytes": 1850528,
+      "sha256": "9a0a6821ff59e83b9d3fad57d968c1152d4eb3e830ca5faf5f390de787787f5f"
+    },
+    "site/assets/media/docs/clips/fluximg-layers.webp": {
+      "bytes": 122148,
+      "sha256": "bb99801698a2c220a4dc11bee557017c4cec14b02c1397d810a0c81e5f91cb71"
+    },
+    "site/assets/media/docs/clips/reflow-resize.mp4": {
+      "bytes": 1768443,
+      "sha256": "c927b70f04181b723ab8550246bf4cf413fa534348bbde164b5c257722c42bae"
+    },
+    "site/assets/media/docs/clips/reflow-resize-1280.mp4": {
+      "bytes": 1081256,
+      "sha256": "8ca7fd9e19f1b85589e28e9ddb4aeb20fefa404637dc6b57adc1da118dab5eb4"
+    },
+    "site/assets/media/docs/clips/reflow-resize.webp": {
+      "bytes": 76074,
+      "sha256": "be648229af6ce1aa96197652a0a13a4e9a11b82eb65091e05a4336df1efce742"
+    },
+    "site/assets/media/docs/clips/plots-rail-place.mp4": {
+      "bytes": 3001612,
+      "sha256": "a35b7973892379e76d86212f603bd3277aefdd737afaa4e3984fc7bd88eb31ad"
+    },
+    "site/assets/media/docs/clips/plots-rail-place-1280.mp4": {
+      "bytes": 1733673,
+      "sha256": "0e8634312e74f55de7fca746e0f4be5d8c560fcb0d0b8c51cc0268dafef102bf"
+    },
+    "site/assets/media/docs/clips/plots-rail-place.webp": {
+      "bytes": 66068,
+      "sha256": "ee05d00fa6df97f4abf3f76f792fb65d5aaaa329d2a3a8766916ba21db1179ce"
+    },
+    "site/assets/media/docs/clips/sticky-connector.mp4": {
+      "bytes": 924926,
+      "sha256": "b8e6991d1c7b57ef76d85ed2ba6a2d6d2d1d746a291cbdc6454c3fdb9874be70"
+    },
+    "site/assets/media/docs/clips/sticky-connector-1280.mp4": {
+      "bytes": 565765,
+      "sha256": "1d61ddd34694d6b2cdcdca2d04b7d4f00d545d74c54ac40420909de8cfa6b4d4"
+    },
+    "site/assets/media/docs/clips/sticky-connector.webp": {
+      "bytes": 59192,
+      "sha256": "53b24f0737409ba6b9365b3eb19601b966ce6b3f22ad158936cd1b28b96d5d53"
+    },
+    "site/assets/media/docs/clips/fluximg-view.mp4": {
+      "bytes": 2638762,
+      "sha256": "a3bc3f69d26ca897ddf9f3bb3f788e5a7540e20cbbd55605a26c1af641205899"
+    },
+    "site/assets/media/docs/clips/fluximg-view-1280.mp4": {
+      "bytes": 1349141,
+      "sha256": "0f2d128b5a6649b0caa5c524849576802a07e3a56325a8c85f69d49064d1e8d6"
+    },
+    "site/assets/media/docs/clips/fluximg-view.webp": {
+      "bytes": 75844,
+      "sha256": "975b1ccef4e283516fda05649e473b1ae0200fb2f0151bddddf2a36a82f5d6f1"
+    },
+    "site/assets/media/docs/clips/align-arrange.mp4": {
+      "bytes": 3635658,
+      "sha256": "38c22cbc67bc5a7e23bea9390a3c5cf9ebd3de6408308eb77f4a60899c2b9d85"
+    },
+    "site/assets/media/docs/clips/align-arrange-1280.mp4": {
+      "bytes": 2077715,
+      "sha256": "705411b254c51a7b4629fdc2f1917548153543ce56e587f7969d58a1a1f70a7e"
+    },
+    "site/assets/media/docs/clips/align-arrange.webp": {
+      "bytes": 74608,
+      "sha256": "85840fd7ffe2e318cebdac6f0f689c44136d9537ec5a3fbe9b542de05c7cc3f4"
+    },
+    "site/assets/media/docs/clips/paper-comment-tags.mp4": {
+      "bytes": 2062452,
+      "sha256": "feeea0ea8609d5b8dcf37f6dd6c442886f2381deca78050b2e72f4f863b3cf54"
+    },
+    "site/assets/media/docs/clips/paper-comment-tags-1280.mp4": {
+      "bytes": 1144979,
+      "sha256": "abfebe8b96fdbbad8e94fd7047659ac732f20bb9254d6d39f9024fbd0b72a562"
+    },
+    "site/assets/media/docs/clips/paper-comment-tags.webp": {
+      "bytes": 81802,
+      "sha256": "1def873a6a6ba187bd5f0c24e1ab17a5c0dd46d4a11b6099ea7e242d70234b63"
+    },
+    "site/assets/media/docs/clips/xray.mp4": {
+      "bytes": 3242978,
+      "sha256": "f4199be1eb89d4a776494d3d3680a5a05d6c1f9680ac2667d6d79be484a7f0ac"
+    },
+    "site/assets/media/docs/clips/xray-1280.mp4": {
+      "bytes": 1927065,
+      "sha256": "c68ac69e60626708ca349ad4139f7e98ea15f65f2cad70fac95b1beecbcc6958"
+    },
+    "site/assets/media/docs/clips/xray.webp": {
+      "bytes": 73020,
+      "sha256": "85e6411d1d1e18fb07b72a74aa1451f13cf05e87638c12bfa3d526df983f95d8"
+    },
+    "site/assets/media/docs/clips/property-menu.mp4": {
+      "bytes": 2974188,
+      "sha256": "b49754d61e70ffdaa994e3db796e60e8c9dd8c980cb47e4d6cf02995f2f8764f"
+    },
+    "site/assets/media/docs/clips/property-menu-1280.mp4": {
+      "bytes": 1766283,
+      "sha256": "7c45c449fe4741f26eb5e5e3f50bc49326e4baa45b7f12ce5b1d19ebe36d3818"
+    },
+    "site/assets/media/docs/clips/property-menu.webp": {
+      "bytes": 66270,
+      "sha256": "6850020db967ea9ca7806c939f66cd2d677034c16e3964f78d0af33238c8c3bb"
+    }
+  }
+}

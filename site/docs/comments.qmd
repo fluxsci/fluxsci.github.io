@@ -12,28 +12,30 @@ Ask questions, leave feedback on the work, and follow replies in one place.
 :::
 
 Annotations combine your note with exactly what you were looking at. Paper margin
-comments stay attached to document text. Both appear in **Inbox**, where you can reply,
+comments stay attached to document text. Annotations and margin comments marked **For Flux AI** appear in **Inbox**, where you can reply,
 choose who handles each item, and see its status. Reader PDF **Highlights** remain in
 [your reference library](/docs/reader.html); annotate a passage to bring it into Inbox.
 
 ## Point out what needs attention {#point-out-what-needs-attention}
 
-- **Margin comments** anchor a discussion to document text.
+- In Paper, **Ctrl+Alt+M** adds a personal comment to selected text. **Ctrl+Shift+Alt+M** shares a comment with Flux AI. Change its audience later on the comment card. A tag labels the passage and acts as a filter. [Paper comment tags](/docs/paper.html#comment-tags).
 - **Ctrl+Shift+M** opens **Annotate** in Figure, Paper, Slide, Library, Reader, Present,
   and utility windows. Your current selection becomes a target chip. Type immediately:
   the note keeps keystrokes even while the frozen view is being captured.
 - **Annotate…** is also in the global and Paper palettes and Library's **Commands…** menu.
-- In Reader, select PDF text or open a saved highlight and click **✦ Annotate this passage**
+- In Reader, select PDF text or open a saved highlight and click **Annotate**
   to prefill a passage target.
+
+<figure class="doc-figure"><a href="/assets/media/docs/paper-comment-tags.png" data-enlarge data-caption="A personal comment stays with the selected passage. Its tag can be reused across threads."><img src="/assets/media/docs/paper-comment-tags.png" alt="A Paper comment attached to manuscript text and labelled with a check-units tag." width="1526" height="674" loading="lazy"></a><figcaption>A personal comment stays with the selected passage. Its tag can be reused across threads. <a href="/docs/paper.html#comment-tags">Create and filter comment tags</a>.</figcaption></figure>
 
 ### Point, type, add {#sec-annotate}
 
-The frozen view fills the window, with drawing tools at the top left and a focused note
+The frozen view fills the window, with drawing tools at the top centre and a focused note
 at the bottom right. Hover to see the target's outline and name: a plot series, text box,
 figure, caption, paragraph, slide, animation clip, PDF passage, or reference.
 
 **Drag** to draw a numbered arrow. **Alt+A**, **Alt+B**, and **Alt+P** select arrow, box,
-and pen. An arrow names its tip's target; a box names the objects inside; a pen names its
+and pen. The number sits at the start of an arrow and its tip names the target; a box names the objects inside; a pen names its
 starting target. **Alt+Z** undoes a mark. Use **Alt+↑ / ↓** or the wheel to widen/narrow the
 hovered target; each chip also has widening and remove controls.
 
@@ -62,7 +64,7 @@ recognized routing mentions are removed from the saved text. **#tags** appear as
 
 Open **Inbox** from the title bar (the badge counts open items), **Alt+Q**, or the **Inbox**
 command in the command palette. The composer's **Open inbox** link opens the same panel.
-It combines annotations with margin comments from every project document. **Pin open**
+It combines annotations with shared margin comments from every project document. **Pin open**
 keeps it in a separate window; **Dock** brings it back without losing a reply draft.
 
 The list groups items into **Needs input**, **Open**, **Claimed**, and a collapsed **Resolved**
@@ -70,6 +72,10 @@ section. Type a filter such as `draft_1 #claude figure`; chips show the document
 surface filters. You can also use `comments`, `annotations`, `figure:Density`, `deck:talk`,
 `status:resolved`, or free text. `archived` includes archived items; `all` includes withdrawn
 items. The same query works with `flux inbox`.
+
+The Flux AI mark uses blue for work in progress and gold when an agent needs an answer. A green lap signals completion and red flickers signal failure. The thread shows the agent’s name, state and actions in text. A claimed item’s dot is filled while its agent is connected and hollow when offline.
+
+Open **Full size** on an attached picture to fit it to the Inbox. Click the picture to inspect it at actual size, then press **Escape** to return. **Points at** groups numbered marks by target. Select a row to jump to it, or click a tag under the item’s status to filter the Inbox.
 
 Select an item to see its full text, picture, numbered anchors, and conversation. **R** focuses
 Reply; **Enter** sends, and **Shift+Enter** adds a newline. Agent replies show the agent's name.
@@ -186,10 +192,11 @@ usage counts against your plan. Install and sign in using that CLI first. Flux d
 handle vendor logins.
 
 Answers appear in a popover with expandable tool activity showing the actual inputs.
-Ask is read-only. **Stop** cancels the run. **Escape** or **Close Ask** discards the
-exchange from Flux; the CLI's own session history remains. **Keep** saves the question,
-answers, captured view, and targets as a resolved annotation. **Copy resume command**
-copies a command you can paste into your own terminal to continue the vendor session.
+Ask is read-only. **Stop** cancels the run. **Escape** or **Close Ask** closes the exchange. Answered Reader questions stay with their paper and appear in its [Flux AI tab](/docs/reader.html#paper-conversations). Outside Reader, use **Keep** before closing to retain the exchange in Flux. **Keep** saves the question,
+answers, captured view, and targets as a resolved annotation. **Resume in terminal** copies
+a command you can paste into a terminal to continue the same agent session. When a background
+agent is available, **Do it ▸** sends the question and answer as a task on the same anchor.
+Follow that task in the Inbox.
 
 ## Run an item in the background {#sec-background}
 
@@ -200,8 +207,7 @@ AI status finds an installed, signed-in CLI.
 
 The agent is a session like any other: it appears in **AI status → Sessions** and the
 title bar agents chip with a name such as **bg · claude · wren**, claims the item, and
-signs its replies with that name. The item shows a live activity strip with the actual
-tool inputs, progress and reported usage. **Stop** (on the strip or the session row)
+signs its replies with that name. The item shows a line naming the agent, its current task and elapsed time. Click the line or press **Enter** to inspect individual steps and tool inputs. **Stop** (on the strip or the session row)
 cancels the run and releases its claim; the item returns to Open, marked **last held by
 bg · claude · wren**, ready to run again or assign.
 
@@ -209,12 +215,7 @@ Replying in the item's thread continues the same session when it can; a reply se
 the agent is working waits for that turn to finish. If a run ends
 without replying or resolving, its last message is added to the thread.
 
-A background agent may edit the project and its analysis workspace, and use Flux's
-tools (and `uv run` in a uv workspace) without asking. Anything else Claude Code wants
-to do opens a dialog showing the **exact** command or input: **Allow once**
-or **Deny**. Closing the window, or leaving the dialog for two minutes, denies it. Codex
-runs with workspace-write access and refuses anything that would need more approval.
-Both are told never to push, publish or delete, and to propose those instead.
+A background agent works in the project and its analysis workspace. Claude Code uses its auto permission mode where available, which can refuse an action without prompting. If that account, model or CLI version lacks auto mode, Flux falls back to asking before additional actions. Codex uses workspace-write access. Both are instructed to propose a push, publication or deletion for the user to decide.
 
 One agent works on each item. **Agent that Flux launches** (Settings, or AI status)
 sets how many background runs go at once (1–3, default 2); further items wait for a

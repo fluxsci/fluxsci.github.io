@@ -39,10 +39,10 @@ These three kinds of files play different roles:
 | Kind and examples | How to work with it |
 |:---|:---|
 | **Source material**<br>`.qmd` documents, plot outputs, `references/library.bib` | Edit with Flux, a text editor, or the analysis script that produces them. |
-| **Managed composition**<br>Figure and deck JSON, captions, accepted SVG or GLB assets | Inspect freely. Make structural changes through Flux or its CLI so indexes and references stay coherent. |
+| **Managed composition**<br>Figure and deck JSON, captions, and accepted assets such as SVG, GLB and scientific image bundles | Inspect freely. Make structural changes through Flux or its CLI so indexes and references stay coherent. |
 | **Generated output**<br>`fig/renders/`, exported PDF and Word files, previews | Regenerate from sources. Keep a final export when it records a submitted or shared version. |
 
-A rendered preview is replaceable. An accepted plot or mesh in `fig/assets/` or a deck’s `assets/` is part of the saved composition: retain it when sharing or backing up a project.
+A rendered preview is replaceable. Keep accepted assets in `fig/assets/` and the deck’s `assets/` when sharing or backing up a project. A scientific image bundle is a folder, so keep its contents and folder structure together.
 
 ## One plot, several uses {#linked-plots}
 

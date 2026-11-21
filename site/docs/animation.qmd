@@ -37,7 +37,7 @@ Select a lane to select and outline its stage target. Hovering a lane outlines t
 plot parts. Selecting an object identifies its effects in the current step.
 
 
-<figure class="doc-figure"><a href="/assets/media/docs/slides-timeline.png" data-enlarge data-caption="The Animator gives each effect a lane. These six Change tracks share a duration, while their faint curves show different timing."><img src="/assets/media/docs/slides-timeline.png" alt="The native animation timeline, with Linear, Smooth, Enter, Overshoot, Bouncy and Steps lanes." width="1956" height="720" loading="lazy"></a><figcaption>The Animator gives each effect a lane. These six Change tracks share a duration, while their faint curves show different timing. Click to enlarge.</figcaption></figure>
+<figure class="doc-figure"><a href="/assets/media/docs/slides-timeline.png" data-enlarge data-caption="The Animator gives each effect a lane. These six Change tracks share a duration, while their faint curves show different timing."><img src="/assets/media/docs/slides-timeline.png" alt="The native animation timeline, with Linear, Smooth, Enter, Overshoot, Bouncy and Steps lanes." width="2156" height="720" loading="lazy"></a><figcaption>The Animator gives each effect a lane. These six Change tracks share a duration, while their faint curves show different timing. Click to enlarge.</figcaption></figure>
 
 To animate something, select it on the stage (**Ctrl+click** drills to a plot part), then use:
 
@@ -208,9 +208,11 @@ The **X-ray** (**R**) lists a plot's named parts as a tree, and you can animate 
 1. Select one plot, or several, and press **R**. A multi-plot X-ray lists the parts every
    plot shares. (**Shift+Alt+R** x-rays a drilled part's whole family, such as every tick label.)
 2. Pick the rows you want: **Shift+click** a run, **Ctrl/Cmd+click** to toggle a row,
-   **Ctrl/Cmd+A** for all.
-3. Press **M** and choose **Appear**, **Emphasize**, **Disappear** or **Change** (**5** starts
-   **Appear from…** and **6** **Animate like…** from the same rows).
+   **Ctrl/Cmd+A** for all. The readout below the tree shows the hovered or selected part’s
+   path, values and ID. Click the small **?** button in the X-ray footer for its keys.
+3. Choose **Animate** or press **M**. Choose **Appear**, **Emphasize**, **Disappear** or
+   **Change**. Press **5** in that menu for **Appear from…** or **6** for **Animate like…**.
+   After you choose an action, X-ray closes and the Animator takes over.
 
 Appear, Emphasize and Disappear give each picked part its own effect on the current step, ready
 to retime. **Change** selects the plots that own the parts; edits to part styles are captured in
@@ -282,7 +284,7 @@ The field shows the curve, when the motion first arrives at 90% of its travel, a
 settles. A faint curve inside each timeline bar shows the same timing; springs also have an
 arrival tick.
 
-![The Easing field shows arrival and settle times.](/assets/media/docs/animation-curve-field.png){fig-alt="The Effect section of the Animation inspector. Its Easing field reads Smooth, arrives 452 ms, settles 600 ms."}
+![The Easing field shows arrival and settle times.](/assets/media/docs/animation-curve-field.png){fig-alt="The Effect section of the Animation inspector. Its Easing field reads Smooth, arrives 1808 ms and settles 2400 ms."}
 
 Choose a tile from **Ease**, **Overshoot**, **Spring**, or **Discrete**. Hover a tile for one
 preview pass; reduced motion keeps that preview still. Focus a group and press **1–9** to
@@ -333,7 +335,7 @@ Select an effect and open **Style ▾** in the Animation inspector. Choose a dec
 same family, or **Save as new style…** and enter a name. Selecting several effects links them
 all; a selection spanning different families explains why linking is unavailable.
 
-<figure class="doc-figure"><a href="/assets/media/docs/animation-style-picker.png" data-enlarge data-caption="The style picker lists compatible deck styles and the save, edit and detach actions."><img src="/assets/media/docs/animation-style-picker.png" alt="Flux Slides with four rectangles on the stage and the Style menu open in the Animation inspector, listing a deck style and the Save as new style, Edit style and Detach actions." width="1600" height="1000" loading="lazy"></a><figcaption>The style picker lists compatible deck styles and the save, edit and detach actions. Click to enlarge.</figcaption></figure>
+<figure class="doc-figure"><a href="/assets/media/docs/animation-style-picker.png" data-enlarge data-caption="The style picker lists compatible deck styles and the save, edit and detach actions."><img src="/assets/media/docs/animation-style-picker.png" alt="Flux Slides with six lanes of coloured circles on the stage and the Style menu open in the Animation inspector, listing a deck style and the Save as new style, Edit style and Detach actions." width="3000" height="1900" loading="lazy"></a><figcaption>The style picker lists compatible deck styles and the save, edit and detach actions. Click to enlarge.</figcaption></figure>
 
 A local edit shows **override** beside **↺ use style**. Reset removes that field's override
 so it follows the style again. Setting stagger to zero turns it off for this effect. Setting
@@ -343,14 +345,15 @@ but the editor’s zero action restores inheritance. **Edit style…** opens the
 fields under an **Editing style ‹name› · N tracks** banner; **Back to effect** returns to local
 edits. **Detach** keeps the current settings as independent values.
 
-<figure class="doc-figure"><a href="/assets/media/docs/animation-style-override.png" data-enlarge data-caption="A linked effect with a duration override and its use-style reset."><img src="/assets/media/docs/animation-style-override.png" alt="The Animation inspector for an effect linked to a style. Its duration field is marked override, with a use style reset beside it." width="1600" height="1000" loading="lazy"></a><figcaption>A linked effect with a duration override and its use-style reset. Click to enlarge.</figcaption></figure>
+<figure class="doc-figure"><a href="/assets/media/docs/animation-style-override.png" data-enlarge data-caption="A linked effect with a duration override and its use-style reset."><img src="/assets/media/docs/animation-style-override.png" alt="The Animation inspector for an effect linked to a style. Its duration field is marked override, with a use style reset beside it." width="504" height="272" loading="lazy"></a><figcaption>A linked effect with a duration override and its use-style reset. Click to enlarge.</figcaption></figure>
 
 Right-click a timing bar and choose **Animate like…**, then click an object on the canvas.
 The picker's outline and hover show which object you are on and name its effect in this step;
 one click commits.
 Its effect in this step supplies the style. If it has no style, Flux creates **Like ‹object
 label›** and links both effects. A multi-selection links in bulk; incompatible families are
-reported. In the X-ray, **6** arms the same pick for the selected objects or parts. **Esc** cancels.
+reported. In the X-ray, select the rows and choose **Animate → Animate like…** (**M**, then
+**6**) to start the same pick. **Esc** cancels.
 
 In the animation **Library**, clicking a preset's name still applies a copy of it. Its
 **as a linked style** action instead creates a deck style from that preset and links the
@@ -364,7 +367,7 @@ guide turns solid; releasing creates a timing anchor with zero offset. A link gl
 follower. Retiming the source moves its followers live, including the source's stagger tail.
 You can also choose **⛓ Follow timing…** in the inspector and select a lane's start or end.
 
-<figure class="doc-figure"><a href="/assets/media/docs/animation-follow-timing.png" data-enlarge data-caption="The linked follower and the inspector’s after-lane-end row."><img src="/assets/media/docs/animation-follow-timing.png" alt="The Animator with a follower bar linked to the end of another bar. The inspector's start row reads after Lead end + 0 ms." width="1440" height="1000" loading="lazy"></a><figcaption>The linked follower and the inspector’s after-lane-end row. Click to enlarge.</figcaption></figure>
+<figure class="doc-figure"><a href="/assets/media/docs/animation-follow-timing.png" data-enlarge data-caption="The linked follower and the inspector’s after-lane-end row."><img src="/assets/media/docs/animation-follow-timing.png" alt="The Animator with a follower bar linked to the end of another bar. The inspector's start row reads after Smooth end + 0 ms." width="3000" height="1900" loading="lazy"></a><figcaption>The linked follower and the inspector’s after-lane-end row. Click to enlarge.</figcaption></figure>
 
 An anchored start row reads **after ‹lane› end + 0 ms** and displays the resolved start.
 Its primary input edits the **offset**. Choose **⛓ Detach** to retain the resolved start as

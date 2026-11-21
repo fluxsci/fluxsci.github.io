@@ -11,7 +11,7 @@ description: "Signatures and behaviour of the public fluxplot plotting, saving, 
 Find the function, its parameters and its return value. Import the library as `import fluxplot as fp`.
 :::
 
-Start with the [quickstart](/docs/fluxplot.html) for a complete script. The examples in this reference describe individual calls; variables such as `ax`, `x` and `data` come from your own analysis. Signatures are taken from the fluxplot source at the 0.4 release; every public name in `fluxplot.__all__` has an entry below.
+Start with the [quickstart](/docs/fluxplot.html) for a complete script. The examples in this reference describe individual calls; variables such as `ax`, `x` and `data` come from your own analysis. The plotting reference covers the published [fluxplot 0.4.0 package](https://pypi.org/project/fluxplot/0.4.0/). [Scientific image bundles](#scientific-image-bundles) describes the additional API in the image-enabled development source.
 
 `**kwargs` generally pass through to the corresponding Matplotlib method. See the [plotting guides](/docs/plot-types.html), [signature plots](/docs/signature-plots.html), [colour guide](/docs/colors-and-style.html) and [3D guide](/docs/3d-plots.html) for worked patterns, and [Plot format and identity](/docs/plot-format.html) for the files `fp.save` writes.
 
@@ -19,9 +19,10 @@ Start with the [quickstart](/docs/fluxplot.html) for a complete script. The exam
 
 | Section | Functions |
 |---|---|
-| [Styles and saving](#styles-and-saving) | [`use_paper`](#use_paper) · [`use_light`](#use_light) · [`use_dark`](#use_dark) · [`save`](#save) · [`params`](#params) · [`panel`](#panel) |
+| [Styles and saving](#styles-and-saving) | [`use_paper`](#use_paper) · [`use_light`](#use_light) · [`use_dark`](#use_dark) · [`save`](#save) · [`params`](#params) · [`panel`](#panel) · [`fp.style`](#style) |
 | [Lines, points and summaries](#lines-points-and-summaries) | [`line`](#line) · [`scatter`](#scatter) · [`bar`](#bar) · [`barh`](#barh) · [`step`](#step) · [`stem`](#stem) · [`errorbar`](#errorbar) · [`area`](#area) · [`band`](#band) · [`box`](#box) · [`violin`](#violin) · [`hist`](#hist) · [`regression`](#regression) · [`kde`](#kde) |
 | [Fields, images and surfaces](#fields-images-and-surfaces) | [`heatmap`](#heatmap) · [`contour`](#contour) · [`contourf`](#contourf) · [`color_scale`](#color_scale) · [`colorbar`](#colorbar) · [`image`](#image) · [`scalebar`](#scalebar) · [`surface`](#surface) |
+| [Scientific image bundles](#scientific-image-bundles) | [`imsave`](#imsave) · [`fluximg`](#fluximg) · [`imread`](#imread) · registered layers and named regions |
 | [Signature plots](#signature-plots) | [`meanmark`](#meanmark) · [`fluxbox`](#fluxbox) · [`hexmatrix`](#hexmatrix) |
 | [Labels and existing artists](#labels-and-existing-artists) | [`legend`](#legend) · [`secondary_axis`](#secondary_axis) · [`annotation`](#annotation) · [`reference_line`](#reference_line) · [`significance_bracket`](#significance_bracket) · [`brackets`](#brackets) · [`tag`](#tag) · [`tag_points`](#tag_points) · [`tag_seaborn`](#tag_seaborn) |
 | [3D scenes](#d-scenes) | [`scene3d`](#scene3d) · [`mesh3d`](#mesh3d) · [`surface3d`](#surface3d) · [`can_morph`](#can_morph) · [`Scene3D.view`](#scene-view) · [`Scene3D.axis`](#scene-axis) · [`Scene3D.show`](#scene-show) |
@@ -57,6 +58,14 @@ fp.use_dark(serif: 'bool' = False, grid: 'bool' = False, bg: 'str' = '#1C1B1A', 
 ```
 
 Apply the dark theme before creating figures.
+
+### `fp.style` {#style}
+
+The `style` module holds the theme functions and the default colour cycles. Use
+`fp.style.use_lighttable()` for 12-point type in plots intended for screen review.
+`fp.style.despine(ax, top=True, right=True, left=False, bottom=False)` hides the
+selected spines. Call `fp.style.title(ax, main, sub=None)` for a left-aligned title
+and an optional subtitle that `fp.save` records as a separate plot part.
 
 ### `fp.save` {#save}
 
@@ -592,6 +601,78 @@ Draw a per-vertex surface map as named, addressable parts.
 Returns the list of matplotlib collections drawn (in draw order).
 
 </details>
+
+## Scientific image bundles {#scientific-image-bundles}
+
+The image-enabled development source adds these functions. Importing them requires
+that source build of fluxplot. Placing the resulting bundle also requires an
+image-enabled build of the Flux desktop app. See [Scientific images and stacks](/docs/fluximg.html).
+
+### `fp.imsave` {#imsave}
+
+```python
+fp.imsave(path, data, dims=None, *, layers=None, recipe=None, regions="auto",
+          zstd_level=5, region_min_pixels=64, **keywords)
+```
+
+Write a `.fluximg` folder in one call and return a report with its path, encoding,
+layer list and manifest. Pass the same image metadata as to [`fp.fluximg`](#fluximg).
+Pass `recipe=True` for a recipe with automatic script discovery, or a recipe dictionary
+with explicit provenance. A default `recipe=None` writes only the bundle. Use `layers=`
+to copy layers from another bundle on the same pixel grid.
+
+### `fp.fluximg` {#fluximg}
+
+```python
+fp.fluximg(data, dims=None, *, pixel_size=None, unit="µm", channels=None,
+           coords=None, dt=None, t0=None, nodata=None, transform=None, meta=None,
+           name=None, lossless=False, photometric=None, default_index=None)
+```
+
+Build a `FluxImage` you can add layers and regions to before saving. Pass a NumPy
+array or an xarray DataArray. A two-dimensional array defaults to `("y", "x")`.
+For higher dimensions supply axis names or use the names already in the DataArray.
+
+| Parameter or method | What it records |
+|---|---|
+| `dims`, `coords`, `dt`, `t0` | Axis names, coordinates, seconds per frame and time origin. |
+| `pixel_size`, `unit`, `transform` | Physical size of one pixel, a unit such as µm, and an optional 4 × 4 pixel-to-world matrix. |
+| `channels`, `default_index` | Per-channel name, colour or LUT and display range, and the plane to show first. |
+| `lossless=True`, `nodata` | Preserve float values exactly and identify missing samples. Integer data are stored exactly. |
+| `add_image(id, data, ...)` | Register an intensity image on the same grid with its own range, colour and opacity. |
+| `add_labels(id, labels, table=..., key=...)` | Attach a 2D integer label map. Table rows join on integer label values. The key names an identifying field, such as a cell ID. |
+| `add_shapes(id, lines=..., circles=..., polygons=..., ...)` | Attach vector geometry in image-pixel coordinates. Use `coords="row_col"` for NumPy row and column indices. |
+| `add_region(name, rect)` | Name a rectangular region as `(x, y, width, height)` in full-resolution pixels. |
+| `save(path, recipe=True)` | Write the bundle and a companion recipe. |
+
+### `fp.imread` {#imread}
+
+```python
+fp.imread(path, *, level=0, layer=None)
+```
+
+Read a bundle back into Python. The result has `.values`, `.dims`, `.axes`,
+`.channels` and `.manifest`, plus `.layer(id)`, `.table(id)` and `.to_xarray()`.
+Level zero is full resolution. Larger images can have higher overview levels.
+Pass `layer="cells"` to read that layer’s array directly.
+
+```python
+import numpy as np
+import fluxplot as fp
+
+pixels = np.arange(64, dtype=np.uint16).reshape(8, 8)
+labels = np.zeros_like(pixels)
+labels[2:5, 2:5] = 1
+
+image = fp.fluximg(pixels, pixel_size=0.25)
+image.add_labels("cells", labels)
+image.add_region("Cell patch", (2, 2, 3, 3))
+report = image.save("plots/labelled", recipe=True)
+
+loaded = fp.imread(report.path)
+assert np.array_equal(loaded.values, pixels)
+assert np.array_equal(loaded.layer("cells"), labels)
+```
 
 ## Signature plots {#signature-plots}
 

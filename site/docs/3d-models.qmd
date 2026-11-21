@@ -63,8 +63,8 @@ metadata. Your box, camera and look stay in place; restyles and field settings r
 surviving part IDs, and shape weights remain for surviving names. Flux warns when parts
 disappear or bounds move substantially. **Undo** restores the previous stored model.
 Source changes never replace the model automatically. A missing original file leaves the
-saved copy available. For a recipe-backed model, **Regenerate** in X-ray reruns the recipe
-with its parameters and applies the same update after it succeeds.
+saved copy available. For a linked model with a recipe, **Regenerate** at the top of the X-ray runs the recipe
+with its parameters and applies the update when it succeeds.
 
 ## Orbit and views {#orbit}
 
@@ -108,10 +108,10 @@ the stub. The axis line, ticks and grid stay.
 
 ## Parts, value fields and shapes {#parts-and-fields}
 
-Use **R** for the model's **X-ray** (**Alt+R** is the rectangle tool). Named mesh parts can be recoloured, hidden or made
-transparent; labels can be restyled independently. The X-ray works as it does for a 2D plot
-([X-ray](/docs/plot-editing.html#x-ray)): pick rows, hide with **x**, open properties with
-**Enter**. Mesh-part colours show while **Colours**
+Select the model and press **R** to open its [X-ray](/docs/plot-editing.html#x-ray).
+Pick mesh or label rows, then choose **Properties** (**Enter** or **F**) to open the property
+menu. Use the eye beside a row or press **X** to change visibility. Mesh-part colours show
+while **Colours**
 is **From file**, so painting a mesh part on a Uniform model switches it to From file (one
 undo, with a notice). For a continuous value field, change its colormap and **Min / Max** under
 **Value fields**: the mesh and colorbar update together, without rerunning Python. A part

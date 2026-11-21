@@ -16,10 +16,12 @@ accepts either), and **Alt** means **⌥ Option**. Press **?** inside the app fo
 quick reference. One rule worth knowing: whatever is mid-flight, **Escape** backs out one
 level at a time — a gesture, a sub-mode, a pane, an overlay.
 
+The in-app reference opens on the active workspace. Search a word such as *zoom* or type a chord such as *alt+t* to search across workspaces. Each tab shows the number of matches. **↑ / ↓** changes workspace and **Escape** clears the query before closing the reference. The keycaps use your platform’s labels.
+
 The sections follow the workspaces. Figure is the longest: its main table is followed by
 separate lists for the [Plots rail](#figure-plots-rail), the [property menu](#figure-property-menu),
 the [X-ray](#figure-x-ray), [Align & Arrange](#figure-align-arrange) and the
-[mouse](#figure-mouse). Everything in the Figure section also works on a slide.
+[mouse](#figure-mouse). Most editing tools are shared with Slide. The scientific image live view is available in Figure.
 
 ## Everywhere in a project {#everywhere-in-a-project}
 
@@ -30,7 +32,7 @@ the [X-ray](#figure-x-ray), [Align & Arrange](#figure-align-arrange) and the
 | **Ctrl+Shift+M** | Annotate (note + picture for your agents) |
 | **Ctrl+Shift+J** | Ask about this (read-only question to Claude Code or Codex) |
 | **?** | Keyboard shortcut overlay (works on the Home screen too) |
-| **Ctrl+Z** / **Ctrl+Shift+Z** | Undo / redo (in every editor) |
+| **Ctrl+Z** / **Ctrl+Shift+Z** | Undo / redo in Figure, Slide and Paper |
 | **Ctrl+1** … **Ctrl+5** | Switch workspace (Figure, Slide, Paper, Library, Reader) |
 | **Ctrl+Shift+N** | New window (a second project side by side; also in the taskbar icon's right-click menu) |
 
@@ -99,7 +101,9 @@ also appears in the global and Paper palettes and Library's **Commands…** menu
 | **Alt+A** | Comments pane |
 | **Alt+C** | Edit the citation at the cursor |
 | **Alt+P** / **Ctrl+Alt+P** | Close the active margin pane / close all panes |
-| **Ctrl+Alt+M** | Comment on the current selection |
+| **Ctrl+Alt+M** | Add a personal comment to selected text |
+| **Ctrl+Shift+Alt+M** | Share a comment on selected text with Flux AI |
+| **Ctrl+Enter** on the comment card | Send the comment |
 | **Alt+D** / **Shift+Alt+D** | Toggle the selected word in the personal / project dictionary |
 | **Shift+Alt+W** | Word tools for the selected term — dictionaries and aliases |
 | **Ctrl+Enter** | Follow the item under the caret (figure ref → figure; citation → group editor) |
@@ -149,6 +153,8 @@ Tools: **V** select · **K** scale · **H** hand · **T** text · **Alt+R** rect
 | **Ctrl+Shift+K** | Import image files |
 | **Ctrl+Shift+I** | Bring selection inside the frame (never resizes) |
 | **Alt+M** / **Shift+Alt+M** | Figure-Meta / open it pinned (Figure and Paper) |
+| **Shift+A** / **Shift+Alt+A** | Crystallize a loose selection on its plot axes / bounding boxes |
+| **R** or **double-click** on a fluximg | Open the [image live view](/docs/fluximg.html#the-live-view). **T/Z** steps time/depth, **E** opens projection, **1–6** selects a channel, **S** splits channels, **V** frames and **X** draws an inset. |
 | **Alt+L** | Mark selected text as a panel label |
 | **Ctrl+Shift+C** | Cascade a stepped delta across the selection |
 | **Ctrl+P** | Insert a design preset |
@@ -188,7 +194,7 @@ search box, so tool keys never change your tool by accident.
 | **Backspace** *(empty search)* | Leave Similar names, climb out of a folder shown alone, then out of a companion collection |
 | **`_`** in the search | Offer the companion collections (`_dissections`, `_lighttable`); **Enter** goes in |
 | **Alt+1** / **Alt+2** | **Proj** / **Glob**: this project's plots / your global plot library (also in the Plot gallery) |
-| **Alt+/** | Swap the lower pane between Dissections and a searchable **Folders** tree (**↑/↓**, **←/→**, **Enter** choose a folder); again, or **Escape**, back to Dissections |
+| **Alt+/** | Open Folders beside the Plots rail. Type a name, **↑ / ↓** highlights a match, **Enter** chooses it and **Escape** clears the search then closes the panel. |
 | **Ctrl+Z** | Undo a placement without leaving the rail |
 | **Ctrl+S** *(in a note)* | Save a Dissections note now (notes also save as you type) |
 
@@ -197,7 +203,7 @@ search box, so tool keys never change your tool by accident.
 Each row shows its own key on the left; press it to arm the row. Then the **mouse wheel**
 (anywhere on screen) or **↑/↓** adjusts a number, an expanded choice takes **w/a/s/d**,
 **1–9** or the wheel, and a colour row opens the palette (hover previews, click applies).
-**Space** or **Enter** applies, **Escape** reverts and **s** searches. In a plot's menu,
+**Space** or **Enter** applies the edit. **Escape** cancels the preview or active drag. **S**, or the search button in the footer, finds properties by name. A lit switch on a group heading is on. In a plot's menu,
 **v** / **b** open the x / y axis view (follow the displayed key if crop controls occupy
 **v**); in an axis view the wheel adjusts the focused limit and **Space** accepts
 min → max → done.
@@ -211,7 +217,7 @@ to every plot of the figure that has it (**Backspace** comes back). **←** step
 family — one tick label to all the tick labels — and **→** back down into it. **x** hides
 the pick, **Enter** or **F** opens its properties, **Ctrl+Z** undoes without closing the
 X-ray, **double-click** (or **Ctrl+Enter**) re-roots the tree, and **v** on an axis row
-focuses that axis in the Inspector (**Axis view…**). Hovering a row outlines its parts on the
+focuses that axis in the Inspector (**Axis view**). **M** opens **Animate** in Slides. Click the **?** at the end of the X-ray footer for the local keys, or press **?** on the keyboard for the full shortcut reference. Hovering a row outlines its parts on the
 canvas. **Ctrl+click** a part on the canvas and press **R** to open the X-ray on it;
 **Shift+Alt+R** opens on its family instead.
 
@@ -221,7 +227,7 @@ canvas. **Ctrl+click** a part on the canvas and press **R** to open the X-ray on
 switches the active pane while both stay visible. With Align active, **W/A/S/D** align
 top/left/bottom/right, **H** / **V** align X / Y centres, and **X** / **Y** align the plots'
 x / y spines (semantic plots only; the reference plot stays fixed). With Arrange active,
-**A** toggles row/column, **G** picks a balanced grid, **D** / **F** change the row count,
+**R / C / G** choose row, column or grid and **− / +** change the number of rows,
 **Enter** applies and **Escape** cancels (one **Escape** first cancels a drag or field edit).
 An evenly spaced selection shows pink gap guides even without the panel: drag one to change
 every gap on that axis (**Shift** faster, **Alt** finer; negative gaps overlap), and press
@@ -255,11 +261,7 @@ In path node-edit (Enter or double-click a path): **v** edit · **p** pen (exten
 endpoints) · **d** delete nodes · **Ctrl+drag a segment** bends it · **Enter** finishes ·
 **Escape** ladders out.
 
-In the Dissect viewer (**D** on a plot): **arrows** move through the files · **Enter** expands
-a file (again: fit ↔ 1:1) · **\[** / **\]** or **Ctrl+wheel** make the tiles smaller or
-larger · **1–9** jump to a section · **Ctrl+wheel** zooms an expanded image at the cursor ·
-**Space+drag** pan · **0** reset zoom · **←** / **→** previous/next file · **Escape**
-ladders out (detail → grid → closed).
+The Dissect viewer opens on the first picture. **← / →** flips between files and **↑ / ↓** moves between groups. **G** shows the grid, where arrows choose a file and **Enter** opens it. In a picture, **Enter** toggles fit and 1:1. **Ctrl+wheel** zooms, **Space+drag** pans and **0** resets zoom. **Escape** closes the viewer or returns to the grid if you opened the picture there. [Dissections](/docs/dissections.html#viewing-them).
 
 While orbiting a [3D model](/docs/3d-models.html#3d-models) (double-click the mesh, or
 **Orbit** in the Inspector): **drag** orbit · **Shift+drag** pan · **Alt+drag** roll ·
@@ -280,7 +282,7 @@ Align & Arrange. Additionally:
 | **Ctrl+Shift+A** | Add appearance for the selection *(animator open)* |
 | **Ctrl+Shift+D** | Add disappearance *(animator open)* |
 | **Ctrl+Shift+C** | Transform ▸ Change: add one, or toggle Before ↔ After *(animator open)* |
-| **B** | Transform ▸ Become: pick the object the selection turns into (opens the animator if needed) |
+| **B** or **Ctrl+Shift+E** with the Animator open | Transform ▸ Become: pick the object the selection turns into (opens the animator if needed) |
 | **Ctrl+Alt+G** | Transform ▸ Ghost…: copies that transform independently *(animator open)* |
 | **Ctrl+Alt+A** | Appear from…: pick the object the selection appears from *(animator open)* |
 | **Ctrl+Alt+C** | Cascade across selected tracks; falls back to element cascade *(animator open)* |
@@ -324,6 +326,7 @@ always rewind).
 | **Drag** | Marquee: pick everything fully inside (**Alt+drag** removes) |
 | **Double-click** | Pick it and confirm at once |
 | **A** | Widen the last pick to its siblings |
+| **K** | Keep the source visible after the hand-off |
 | **Backspace** | Drop the last pick |
 | **B**, **Space** or **Enter** | Confirm the pick (**Enter** first leaves Add mode) |
 | **Alt+R**, **O**, **L**, **P**, **T**, **Ctrl+P**, or placing a plot from the Plots rail | Add mode: draw or insert objects; each one joins the pick (**Enter** returns to picking) |

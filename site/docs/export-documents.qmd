@@ -19,7 +19,7 @@ choices: the **file format** (**PDF**, **Word**, **HTML**) and the **journal sty
 
 | Format | Engine | Notes |
 |---|---|---|
-| **PDF** | Flux's in-app renderer — fast, nothing to install | Figures, captions, panel references and the bibliography are resolved by Flux. |
+| **PDF** | Flux’s in-app renderer for house style. Quarto and TeX for journal styles. | Figures, captions, panel references and the bibliography are resolved during export. |
 | **HTML** | Flux's in-app renderer | Embedded slides keep their playback. |
 | **Word** | Quarto | Needs Quarto; the dialog offers **Install Quarto…** when it is missing (no admin rights needed). Journal styles and **Live Zotero citations** are available here. |
 
@@ -33,31 +33,40 @@ choices: the **file format** (**PDF**, **Word**, **HTML**) and the **journal sty
   project's default document (or `--doc path.qmd`) through Quarto to PDF, HTML or Word; see
   [Command line](/docs/cli.html).
 
+The dialog previews the selected journal style’s citation form, figure call-outs and typography. Check the destination and engine along the bottom, then press **Enter** to export. A receipt above the status bar follows saving, preparation, rendering and finishing. **Cancel** is available while the active stage permits it. **Open** or **Reveal** takes you to the completed file. On failure, use **Details** to read or copy the engine log.
+
 ### Journal styles {#journal-styles}
 
-The **Style** menu offers **Flux house style** (the default manuscript look), **Nature** and
-**Nature Communications**. Choosing a journal makes the exported file follow that journal's house
-style: how figure and panel references read (`Fig. 1a,b`; Nature Communications spaces the list,
-`Fig. 1a, b`), how citations are marked (superscript numerals, before the punctuation), how
-reference entries are built (all authors up to five, then `et al.`), what order the sections
-appear in, and the submission formatting a manuscript needs (12pt Times, double-spaced,
-line-numbered).
+Choose a **Style** and check the **Engine** line before exporting. **Flux house style**
+supports PDF, HTML and Word. The submission styles below export to **Word** or **PDF**
+through Quarto. A submission PDF also needs the [PDF dependencies](#pdf-dependencies).
 
-In the app, journal styles apply to **Word** export: with PDF or HTML selected and a journal
-chosen, the dialog says *Journal styles are available for Word export only* and waits until you
-switch to Word. Nature prefers Word for submission anyway, and a journal-styled `.docx` needs no
-TeX. A journal-styled **PDF** is available from the terminal —
-`flux compile --to pdf --style nature` — and runs through Quarto and LaTeX, which needs the
-[PDF dependencies](#pdf-dependencies) below.
+| Submission style | What Flux formats |
+|---|---|
+| **Nature** | Title page, summary paragraph, superscript citations before punctuation, compact panel references such as `Fig. 1a,b`, and Methods after the references with its own numbered reference list. |
+| **Nature Communications** | Nature portfolio formatting, spaced panel references such as `Fig. 1a, b`, a Results heading when present, and one reference list. |
+| **Science** | Labelled abstract and one-sentence summary, italic numbered citations, panel references such as `Fig. 1, A and B`, and a References and Notes section. |
+| **Cell** | Lead-contact title page, Summary and Keywords, Cell’s citations and figure call-outs, STAR Methods and Resource Availability sections. |
+| **bioRxiv preprint** | Title page, abstract, line numbering, and figures beside their legends at initial submission. The document’s citation style carries over. |
 
-**Your writing never changes.** The editor keeps Flux's own conventions no matter which
-journal is selected — chips, figure references and caption leads look the same whether you
-are aiming at Nature or nowhere. Only the exported file and the preview follow the journal,
-so switching journals is instant, and switching back loses nothing. Nothing is rewritten in
-your manuscript on disk: a journal style is a lens on the way out, not an edit.
+In **Stage**, select **Initial submission** to include figures beside their legends at 300 dpi.
+Select **Revision files** to export the manuscript text with legends in the journal’s order,
+ready to send alongside separate figure files. The title page reads author, affiliation and
+role fields from [Document properties](/docs/paper.html#the-writing-surface).
 
-Selecting a style is remembered per project, and agents can use the same one from the
-terminal with `flux compile --to docx --style nature`.
+The export summary shows what Flux formatted, requirements that still need attention and
+submission items to prepare separately. Flux saves that summary as `<name>.submission.md`
+beside the export. Journal requirements such as word limits produce warnings and the
+manuscript remains editable in its original format. Flux remembers the export style per
+project. Use `flux compile --to pdf --style nature` to select the Nature style from a terminal.
+
+### Reference styles in Word {#reference-styles-in-word}
+
+With **Flux house style** selected, the **References** menu offers **Pandoc default
+(Chicago author–date)**, the shipped Nature, Science and Cell CSL styles, or **Load .csl
+file…**. Flux records the setting in the document’s `csl:` front matter. House-style Word
+uses the CSL for citations and the reference list. In-app house-style PDF and HTML
+continue to use Flux’s own reference formatter.
 
 ### Live Zotero citations in Word {#live-zotero-citations}
 
@@ -99,10 +108,9 @@ prose.
 
 ## PDF dependencies {#pdf-dependencies}
 
-Flux's own PDF export ships inside the app (as do its video encoder and the offline help) and
-needs neither Quarto nor TeX. Quarto powers **Word** export and `flux compile` (HTML, Word,
-PDF; it bundles its own pandoc), and Quarto's PDF builds additionally need TeX. Without TeX,
-`flux compile --to pdf` fails while HTML and Word still work.
+Flux’s house-style PDF export uses the bundled renderer. Word, journal-style PDF and
+`flux compile` use Quarto. Quarto includes Pandoc, and its PDF engine also needs TeX.
+A journal-style PDF from the app and a PDF from `flux compile --to pdf` share those dependencies.
 
 **Set up Flux** (**Settings → General → Setup**, or **Ctrl+K → Set up Flux…**) installs
 both: Quarto into `~/FluxConfig`, and TinyTeX through Quarto in your home folder. A Quarto you
@@ -151,7 +159,7 @@ hit a missing piece, Flux names the package to install instead of showing you th
 | Symptom | Cause → fix |
 |---|---|
 | With **Word** selected, **Export** is disabled and the dialog says Word export needs Quarto | Quarto isn't installed → **Install Quarto…** in the dialog, or **Set up Flux → Word export · Quarto** |
-| *Journal styles are available for Word export only* | A journal is chosen with PDF or HTML selected → switch to Word, or use `flux compile --to pdf --style nature` from a terminal |
+| HTML is disabled after choosing a journal style | Use Word or PDF with that style, or select Flux house style for HTML. |
 | `flux compile --to pdf` fails; HTML works | No TeX → **Set up Flux → PDF through Quarto**, or `quarto install tinytex` |
 | A journal PDF fails with `File 'lineno.sty' not found` (or `setspace.sty`) | Minimal TeX install → the table above |
 | A journal PDF fails mentioning `rsvg-convert` | SVG figures cannot be placed → install `librsvg2-bin` / `librsvg` |

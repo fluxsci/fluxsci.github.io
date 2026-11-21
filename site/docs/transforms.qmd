@@ -22,7 +22,7 @@ Choose a transform to match what you want to show:
 | Move, resize, recolour or rewrite an object | [Change](#change) |
 | Bring an object back to how it looked earlier | [Return to an earlier look](#return-to-design) |
 | Send independent copies out from one source | [Ghost](#ghost) |
-| Turn an object into another object, plot parts or another plot | [Become](#become) |
+| Turn an object or its copies into another object or plot parts | [Become](#become) |
 | Zoom the camera toward something | [Camera](#camera-zoom-vs-fly) |
 | Zoom, pan or rescale the data inside a plot | [Axis view](#axis-view-data-space-transforms) |
 | Recolour a colour-mapped plot in data units | [Colour scale](#colour-scale-recolouring-in-data-units) |
@@ -208,6 +208,8 @@ picking: every click on the canvas is a pick.
   its siblings: the other members of its group, then the same part of every series, then the
   rest of its series. **Backspace** drops the last pick.
 - **Double-click** picks something and confirms at once, the quick path for a single object.
+- **K** or the **Source leaves / Source stays** button chooses whether the
+  [source stays](#the-source-stays).
 - **Space**, **Enter** or the **Become** button confirms. **Escape** or **Cancel** leaves the picker
   without creating a transform and puts the source selection back. Changing slides or steps also
   cancels.
@@ -221,8 +223,8 @@ picking: every click on the canvas is a pick.
 - **X-ray**: hover a plot and press **R** (**Shift+Alt+R** adds the picks' families). Rows you
   select join the pick and rows you clear leave it, live on the canvas; points picked on the
   canvas stay picked. Axis rows include their spine, ticks and labels; expand them to choose only
-  the spine. **Space** (or **B**) in the X-ray confirms the whole pick, and closing the X-ray
-  keeps it.
+  the spine. Choose **Become** in the X-ray action row or press **Space** or **B** to confirm.
+  Closing the X-ray keeps the picks on the stage.
 
 - **Several things at once.** Pick several things and the source becomes **all of them**: three
   loose ellipses, parts of two different plots, or a mix of shapes and plot parts. Your layers stay
@@ -260,9 +262,8 @@ destination. Video clips cannot take part in a Become; use Change to move or res
 several objects, which then appear together from one source) and choose
 **Appear ▾ → Appear from…** (**Ctrl+Alt+A**); the main **Appear** button still adds a normal
 entrance. The same picker opens, and the bar names what **appears from…**. Pick the source and
-confirm with **Space** or **Enter**, or double-click it. In the X-ray, press **M**, then **5**
-(**Appear from…**) to start the same flow from the picked rows. Both routes create the same
-hand-off.
+confirm with **Space** or **Enter**, or double-click it. In the X-ray, choose **Animate →
+Appear from…** (**M**, then **5**) to start from the picked rows.
 
 **Merge many into one.** Pick several sources and confirm: each source gets its own hand-off
 into the same destination, all in one Undo. The destination is shared out among them (the
@@ -304,7 +305,8 @@ plot already reveals every part, so it offers no remainder.
 **Destination.** The Animation inspector names both sides of a hand-off; for a set it reads,
 for example, “hands off to 3 ellipses” and lists each member below. Its controls:
 
-- **Pair ▾** chooses auto, by position, by order, by data or tile; **Reveal** chooses flip or draw.
+- **Pair ▾** chooses auto, by position, by order, by data or tile. **Reveal** chooses flip or
+  draw. **Source** chooses whether the source leaves or stays.
 - **Method ▾** chooses what a filled shape's interior does while its outline splits into
   several pieces (or several pieces merge into it). **Dissolve**, the default, fades it away in
   place as the outline leaves; **shatter** splits it into wedges that fly with the pieces;
@@ -340,6 +342,8 @@ authors them from the destination's side:
   parts. `appear-from --members` likewise reveals a destination set from one source.
 - Plots, images and part sets hand off by default, and whole drawn objects use Consume;
   `--mode` chooses either completion for whole objects.
+- `--keep-source` works with `become` and `appear-from` to leave the original visible
+  and hand off copies to the destination.
 - `--pair` chooses how outlines match, `--reveal` chooses flip or draw, and
   `--method dissolve|shatter|collapse|drain` chooses what a filled shape's interior does.
 - `appear-from --pair-lag 0..1` sets the piece lag of a new hand-off; `set-track --pair-lag`
@@ -352,6 +356,23 @@ In the Slides workspace, **Plots & videos** (or **Shift+Alt+G**) opens the same
 sizes, spacing and names and a **Pin open** button that keeps it in a separate window for inserting
 several plots. **Alt+G** shows the [Plots rail](/docs/slides.html#the-plots-rail) beside the stage
 instead.
+
+#### The source stays {#the-source-stays}
+
+Choose **Source stays** or press **K** in the picker to send copies of the source into the
+destination. The original remains visible throughout. For example, select six fitted curves
+and six bars as the destination. Each curve stays in its plot as a copy flies across and
+becomes its bar.
+
+The copies use the same pairing, reveal method, piece lag, timing, easing and arc as a
+standard hand-off. The lane and Destination row describe the effect as **sends copies to**.
+For an existing hand-off, use the Animation inspector’s **Source** control to switch between
+**leaves** and **stays**. A source that stays uses a hand-off, so **Consume instead** is disabled.
+For a hand-off that supports **Swap direction**, the old destination becomes the source and
+sends the copies back. The **Appear from…** picker also supports **K**.
+
+Use **Source stays** when the copies should become destinations you pick on the slide.
+Use [Ghost](#ghost) to create independent copies of a whole object that you can move or restyle.
 
 ### Camera: Zoom vs Fly {#camera-zoom-vs-fly}
 
@@ -389,11 +410,12 @@ and rasterized layers keep their geometry. A twin value axis (`y2` / `x2`, recor
 schema 0.3.2) has its own limits in the view.
 
 A plot needs a manifest with series and calibrated axes. Unsupported axes stay disabled with
-a reason. Select a plot and use **Axis view** in the Object inspector, or **x view** / **y view** in
-its **F** menu. Enter limits in data units; empty fields use the generated limits shown as
+a reason. Select a plot and use **Axis view** in the Object inspector. You can also press **F** and
+choose **x view** or **y view** in the property menu. Enter limits in data units; empty fields use the generated limits shown as
 placeholders. Choose **linear** or **log**, or **Reset** both axes. At **After step N** the
 edit becomes a Change on that step, with one undo per edit. Scrubbing previews the axis glide.
-X-ray's axis-row **v · Axis view…** focuses the matching Inspector row.
+In the X-ray, pick an axis row and choose **Axis view** or press **V**. The X-ray closes
+and focuses that control in the Object inspector.
 
 On axes that keep their own ticks, ticks exactly on a new limit fade to zero (the outer 4%
 rule). Non-series marks, such as a dashed reference line, stay put. For multi-panel plots the

@@ -90,25 +90,13 @@ line between gallery and dissections to share the height, drag it to an edge to 
 away, and double-click it to reset. A tile's **⧉ 12** mark means the plot has 12 dissection
 files; click it to show them. Slides have the same rail beside the slide list.
 
-<figure class="doc-figure"><a href="/assets/media/docs/figure-plots-rail.png" data-enlarge data-caption="Click a plot and its dissections appear below the gallery: tables first as small previews, then each folder of panels. The folder shown here is illustrative."><img src="/assets/media/docs/figure-plots-rail.png" alt="The Figure workspace with the sidebar in its Plots view: a gallery of plot tiles under folder headings, and below it a Dissections pane listing a summary table and a folder of panels for the selected plot." width="2800" height="2000" loading="lazy"></a><figcaption>Click a plot and its dissections appear below the gallery: tables first as small previews, then each folder of panels. The folder shown here is illustrative.</figcaption></figure>
+<figure class="doc-figure"><a href="/assets/media/docs/figure-plots-rail.png" data-enlarge data-caption="Click a plot and its dissections appear below the gallery: tables first as small previews, then each folder of panels. The folder shown here is illustrative."><img src="/assets/media/docs/figure-plots-rail.png" alt="The Figure workspace with the sidebar in its Plots view: a gallery of plot tiles under folder headings, and below it a Dissections pane listing a summary table and a folder of panels for the selected plot." width="3000" height="1900" loading="lazy"></a><figcaption>Click a plot and its dissections appear below the gallery: tables first as small previews, then each folder of panels. The folder shown here is illustrative.</figcaption></figure>
 
-**Full screen.** In the Figure workspace, select a plot and press **D** (or click
-**Dissections** in the Inspector — it shows a count). The viewer opens full-screen, and the
-**⧉** button shrinks it to a floating window you can keep beside the canvas. It is the rail's
-pane at full size: tables first as Summary previews, then each folder of panels as its own
-section at the panels' own shapes, then the remaining files as a list.
+**Open a file.** Select a plot in Figure or Slide and press **D**. The viewer opens on its first picture with the rest of the files in a strip below. **← / →** flips between files, **↑ / ↓** changes group, **Home / End** goes to either end and **1–9** jumps to a section. Click a thumbnail to open it directly.
 
-| Key | In the full viewer |
-|---|---|
-| **Arrow keys** | move through the files |
-| **\[** / **\]** or **Ctrl+scroll** | make the tiles smaller or larger |
-| **1–9** | jump to a section; a section's ▾ folds it |
-| **Enter** | expand a file; on an image, toggle fit / 1:1 |
-| **Ctrl+scroll**, **Space+drag** or plain scroll | zoom an image at the cursor, pan it |
-| **Esc** | step back: detail → grid → closed |
+**G** switches to a grid of all files. There the arrows move between tiles, **[ / ]** sets their size and **Enter** opens one. On an open picture, **Enter** toggles fit and actual pixels, **Ctrl+wheel** zooms about the pointer and **Space+drag** pans. **Escape** returns to the grid if you opened the file there, or closes the viewer from its initial picture.
 
-CSV/TSV files open as tables with a sticky header — click a column to sort, numeric columns
-right-align. The viewer is live: files dropped into the folder while it's open simply appear.
+**Read a table.** Sort a CSV or TSV by clicking a heading. Long values are rounded to four significant digits, and small or large values use powers of ten. Hover a cell or choose **As written** to see the underlying text. A test-results table with a p-value and a test name or statistic also gets a **Reads as** section with a copyable sentence for each test. Files added to the dissection folder appear while the viewer is open.
 
 Plot previews use the same readable background in the sidebar, Space preview, full gallery
 and this viewer: each image sits on its own page, transparent dark text on paper, light text
@@ -126,7 +114,7 @@ when you leave the field; **Ctrl+S** saves immediately. A failed save keeps your
 external edit is reported instead of being overwritten. The text files remain readable in any
 editor, and your scripts can write them too.
 
-<figure class="doc-figure doc-figure-compact"><a href="/assets/media/docs/figure-dissections-notes.png" data-enlarge data-caption="Notes are plain text files beside the plot’s dissections. They save as you type; tags such as #check are searchable across the project."><img src="/assets/media/docs/figure-dissections-notes.png" alt="The Plots view with the Dissections pane switched to Notes: a file tab named observations.txt, a + Note button and the note text being edited, with a #check tag in it." width="638" height="1746" loading="lazy"></a><figcaption>Notes are plain text files beside the plot’s dissections. They save as you type; tags such as <code>#check</code> are searchable across the project.</figcaption></figure>
+<figure class="doc-figure doc-figure-compact"><a href="/assets/media/docs/figure-dissections-notes.png" data-enlarge data-caption="Notes are plain text files beside the plot’s dissections. They save as you type; tags such as #check are searchable across the project."><img src="/assets/media/docs/figure-dissections-notes.png" alt="The Plots view with the Dissections pane switched to Notes: a file tab named observations.txt, a + Note button and the note text being edited, with a #check tag in it." width="638" height="1646" loading="lazy"></a><figcaption>Notes are plain text files beside the plot’s dissections. They save as you type; tags such as <code>#check</code> are searchable across the project.</figcaption></figure>
 
 ### Search notes {#search-notes}
 
@@ -137,13 +125,7 @@ Notes pane below. Switch **Notes** off to return to searching plot names.
 
 ### Browse by folder {#folder-tree}
 
-To browse folders, click **Folders** in the Dissections pane or press **Alt+/** (from anywhere
-in Figure or Slide; it opens the Plots view if needed). The lower pane becomes a searchable
-folder tree with the number of plots under each folder. Click a folder (or use the **Arrow
-keys** and **Enter**) to show only its plots; choose the top folder to see everything again.
-Press **Alt+/** again, or **Esc**, to restore Dissections. The chosen folder stays in place
-while you switch the sidebar to Layers and back. Companion collections such as `_dissections`
-stay out of this tree.
+**Alt+/** opens a searchable **Folders** panel beside the Plots rail. Type part of a folder name, walk matches with **↑ / ↓**, and press **Enter** to show its plots. **← / →** folds or opens branches, and **Alt+click** on a branch arrow folds or opens the subtree. **Esc** clears the search, then closes the panel. The header’s dock button moves Folders into the lower pane. Choose the default under **Settings → Figure → Plot gallery → Folders open**.
 
 ### From the command line {#command-line}
 

@@ -261,6 +261,9 @@
 
 /* Short inline code stays on one line; only long tokens may break. */
 .doc-content code.is-short{white-space:nowrap}
+@media(max-width:480px){
+  .doc-content code.is-short{white-space:pre-wrap}
+}
 .doc-content :not(pre)>code{overflow-wrap:break-word}
 /* Only the API reference wraps its long signatures; other Python blocks scroll like every other block. */
 .doc-content pre.python,.doc-content pre.python code,.doc-content pre.python code>span{white-space:pre;overflow-wrap:normal}

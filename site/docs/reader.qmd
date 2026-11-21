@@ -11,7 +11,7 @@ description: "Read PDFs, compare papers, and keep notes attached to their source
 Read PDFs, compare papers, and keep notes attached to their source.
 :::
 
-<figure class="doc-figure"><a href="/assets/media/reader.webp" data-enlarge data-caption="Read the original demonstration manuscript with a highlight and an attached note."><img src="/assets/media/reader.webp" alt="The Flux Reader with the demonstration manuscript Patterns across scales open. A sentence on the page is highlighted in yellow, and the Highlights sidebar lists it with its attached note." width="1500" height="950" loading="lazy"></a><figcaption>Read the original demonstration manuscript with a highlight and an attached note. <a href="/docs/visual-credits.html">Visual credits</a>.</figcaption></figure>
+<figure class="doc-figure"><a href="/assets/media/reader.webp" data-enlarge data-caption="A highlight and its note beside the original PDF."><img src="/assets/media/reader.webp" alt="Flux Reader with the AlphaFold paper by John Jumper and colleagues. A passage is highlighted in yellow and its note appears in the Highlights sidebar." width="1500" height="950" loading="lazy"></a><figcaption>A highlight and its note beside the original PDF. Jumper et al., <em>Nature</em> (2021), <a href="https://doi.org/10.1038/s41586-021-03819-2">DOI 10.1038/s41586-021-03819-2</a>, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</figcaption></figure>
 
 Open a paper from the [Library](/docs/library.html) (the **Read PDF** button on a row, or
 **Ctrl+Shift+click** the row) and you get a fast PDF view whose highlights and
@@ -79,29 +79,21 @@ every workspace.)
 
 ## Highlights and notes {#highlights-and-notes}
 
-Select any text and a small colour menu appears, with five highlight colours (yellow, green,
-blue, pink, orange). Click one and the highlight is saved. Click a highlight later to open its
-popover: recolour it, attach a **comment**, copy the text, or delete it. The right sidebar's
-**Highlights** tab (**Alt+A**) lists every highlight with its page; click one to scroll to
-it, and edit or delete from there.
+Select a passage to open its menu. Choose one of five colours to highlight it, **Annotate** to send a note with the passage attached, or **Ask** to ask a question. **Escape** closes the menu and keeps the selection. Click a highlight later to change colour, add a note, copy the text or delete the highlight. **Ctrl+Enter** saves a note, as does closing its card.
 
-Highlights are anchored by the quoted text (with a little context on each side), not by pixel
-positions — so they re-attach correctly even if the PDF is re-fetched. If a paper's text
-changes so much that a quote can't be found, the note is kept and marked *detached* rather
-than lost.
+<figure class="doc-figure"><a href="/assets/media/docs/reader-selection-card.png" data-enlarge data-caption="Select a passage to highlight it, annotate it or ask about it."><img src="/assets/media/docs/reader-selection-card.png" alt="A selected passage in a paper, with five highlight colours and the Annotate and Ask actions next to it." width="1152" height="424" loading="lazy"></a><figcaption>Select a passage to highlight it, annotate it or ask about it. <a href="/docs/visual-credits.html">Source and licence</a>.</figcaption></figure>
 
-**Export notes…** (on the Highlights tab, and in the paper's details in the Library) writes all
-of a paper's highlights and comments to a tidy Markdown file — grouped by page, quotes with your
-notes beneath, citation and DOI in the header — ready to drop into your own notes system.
+The **Highlights** tab (**Alt+A**) lists passages in reading order with the page and your note. Click a row to return to its words. Flux anchors a highlight by its quoted text and surrounding context. If the text changes too much to locate it, the note stays available as *detached*. **Export notes…** writes a Markdown file grouped by page with the citation, DOI, quotations and your notes.
 
 ### Annotate a passage for an agent {#annotate-a-passage}
 
-To send a passage to an agent rather than keep a private note, select it (or open a saved
-highlight) and click **✦ Annotate this passage**. The shared Annotate surface opens with the
-citekey, page and selected text already attached. Add your note and choose **To:** Inbox, Any
-watching agent, or a named session. **Ctrl+Shift+M** does the same from the current Reader view;
-**Escape** closes the surface and keeps the draft. See
-[Annotations, comments and the inbox](/docs/comments.html).
+Choose **Annotate** from the passage or highlight. The shared Annotate surface includes the citekey, page and selected words. Choose the Inbox, any watching agent, or a connected session by name. **Ctrl+Shift+M** opens Annotate from the current Reader view. [Comments and Inbox](/docs/comments.html).
+
+### Conversations with Flux AI {#paper-conversations}
+
+An answered **Ask** stays with the paper in your library, including when you open it from a different project. A question about selected words creates a highlight with a fine underline. Click it to see conversations attached to that passage. A question about a whole page appears under that page.
+
+The **Flux AI** tab lists conversations in reading order with their page and originating project. Open a row to read the answer and jump to the passage. **Open in Inbox** returns to the project where a shared thread is being handled. **Ask a follow-up** carries the previous exchange into a new question. **Keep** additionally files an answered Ask in the project Inbox. **Remove** takes a conversation off the paper and offers Undo. Deleting the highlight leaves its conversation in the Flux AI tab.
 
 ## Search {#search}
 
@@ -113,6 +105,8 @@ with **‹ ›** (or **Enter** / **Shift+Enter** in the query box). Matches stay
 throughout the document, with the current one picked out. **Escape** clears the query and
 leaves the pane open. (Arriving from a full-text `ft:` search in the Library lands you here
 with the search already run.)
+
+A new search starts at the current page. Result rows mark the matching letters. For more than 200 hits, the sidebar uses compact rows with page numbers. **Enter / Shift+Enter** moves to the next or previous hit.
 
 ## Figures and snips {#figures-and-snips}
 
@@ -134,8 +128,9 @@ bibliography entry. Follow it, and **←** brings you back.
 ## Supplements {#supplements}
 
 The **⧉ PDF** switcher in the toolbar flips between the main paper and its supplementary
-files, and **Add supplement…** attaches new ones. Supplements live beside the paper in your
-library; highlights always anchor to the main text.
+files. **Add supplement…** attaches new ones, and **Show in folder** reveals the active PDF
+in your file manager. Supplements live beside the paper in your library. Highlights anchor
+to the main text.
 
 ## Working with an agent {#working-with-an-agent}
 

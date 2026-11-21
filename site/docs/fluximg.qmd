@@ -1,0 +1,91 @@
+---
+title: "Scientific images and stacks"
+description: "Save a calibrated fluximg from Python, inspect channels and segmented objects, and make linked figure panels from depth or time series."
+---
+
+<p class="eyebrow">Figures</p>
+
+# Scientific images and stacks
+
+::: {.doc-lead}
+Place a microscopy stack once. Scrub depth and time, inspect a segmented cell, or pull a magnified inset into the figure. Each panel stores its own view of the same image.
+:::
+
+**Build availability.** This guide describes the development builds of Flux and fluxplot with fluximg support. The Flux v0.3.0 desktop download and the fluxplot 0.4.0 release on PyPI predate this workflow. To check your Python environment, run `python -c "from fluxplot import imsave"`. [Installation and published releases](/install/).
+
+## Save a stack from Python {#save-a-stack}
+
+Start with the measured array. Identify its axes, name the channels, and supply the physical sampling from the acquisition. Here `stack` is a NumPy array in channel, depth, row, column order and `z_um` holds one depth in micrometres per plane.
+
+```python
+import fluxplot as fp
+
+img = fp.fluximg(
+    stack,
+    dims=("c", "z", "y", "x"),
+    pixel_size=0.25,
+    unit="µm",
+    coords={"z": z_um},
+    channels=[{"name": "membrane", "color": "#ba46ba"},
+              {"name": "nuclei", "color": "#26b5b5"}],
+)
+img.save("plots/specimen", recipe=True)
+```
+
+This writes `plots/specimen.fluximg/` and a companion recipe. For a single plane, `fp.imsave("plots/section", plane, pixel_size=0.25)` suffices. For a movie, include `t` in `dims` and give `dt` in seconds or supply frame times in `coords`. You can name other sampled dimensions, such as trial. The writer needs zstd support, supplied by the image-enabled build’s `images` extra or Python 3.14’s standard library.
+
+Integers retain their original values. For floats, the writer tests compact 16-bit storage against the variation between neighbouring pixels in each channel and keeps the original floats when rounding would exceed its tolerance. Set `lossless=True` for exact floats regardless of that test. The Inspector reports the encoding. [Python image API](/docs/fluxplot-api.html#scientific-image-bundles).
+
+## Place it in Figure {#place}
+
+Open a saved project. In its **Plots** rail or **Plot gallery**, the entire folder appears as one image-stack tile, with its channel count, dimensions and pixel type. Drag the tile onto a figure, double-click it, or select it and press **Enter**. From the file manager you can drop the bundle folder. In the **Import** dialog (**Ctrl+Shift+K**), pick the `fluximg.json` inside it.
+
+Each distinct bundle is copied into the project once. Repeated placements share those pixels. When the source bundle is regenerated, linked placements update together and retain their crop and view where the new dimensions allow. Flux reports any adjustment. One Undo restores the previous version.
+
+## Read a plane and make a projection {#the-live-view}
+
+Select the image and press **R**, or double-click it. Move the pointer over the image to read its coordinates and each channel’s intensity. The console shows one histogram strip per channel. Depth has a rail along the side, and time or another dimension has a rail below. Zoom the canvas out with **Ctrl+wheel** if the board needs room.
+
+<figure data-doc-clip="fluximg-view" data-clip-label="R opens the image board on a two-channel illustrative stack. The pointer scrubs depth and time, drags the Signal channel’s white point, then toggles that channel off and back on."><figcaption>Scrub the two rails, change the contrast on the Signal histogram, and compare the image with and without that channel. The image is synthetic.</figcaption></figure>
+
+<figure class="doc-figure"><a href="/assets/media/docs/fluximg-control-board.png" data-enlarge data-caption="Channel contrast, depth, time and layers surround an illustrative fluorescence stack."><img src="/assets/media/docs/fluximg-control-board.png" alt="A cyan and magenta cell image with depth and time rails, two channel histograms and a Cell outlines layer." width="1636" height="1070" loading="lazy"></a><figcaption>Channel contrast, depth, time and layers surround an illustrative fluorescence stack.</figcaption></figure>
+
+1. **Find the plane.** Roll over a rail, drag its flag, or use **↑ / ↓** for depth and **← / →** for the horizontal rail. Each coloured trace gives one channel’s mean signal per plane. The flag shows the current plane and its coordinate. Use **Space** or the rail’s play button to play through it. The speed dial covers ¼× to 4×.
+2. **Compare a range.** Use **E** or the rail’s projection button. Choose max, mean, min, sum or standard deviation. Drag either end of the highlighted interval to change its limits, drag inside to move it, or **Shift+drag** a new interval. Choose **Off** to return to the middle plane.
+3. **Set the display window.** Drag the black and white handles on a channel’s histogram, or click a value to type it exactly. The coloured histogram describes the visible pixels and the faint outline describes the whole image. Hover over a strip for its colour, transfer curve and solo controls. Click its lamp to toggle visibility.
+4. **Set Auto deliberately.** **A** cycles through the 0.1–99.9%, 1–99.8%, 1–99% and full ranges of the visible pixels. It acts on the channel in hand or, by default, all channels. Inspector **Auto** uses the bundle’s whole-image percentiles, giving a consistent window across planes.
+
+The pointer can work any visible control directly. To drive a control with the wheel from anywhere, press its key. **T** or **Z** takes a rail in hand. A channel digit (**1–6**) cycles through its white point, black point and gamma. With a channel in hand, dragging on the image changes its contrast. **Shift** makes wheel adjustments larger and **Alt** makes them finer. **Ctrl+Z** undoes one gesture. **Escape** releases the active tool or stops playback. **R** closes the board.
+
+## Make a channel panel or an inset {#linked-panels}
+
+- **Split channels (S)** creates one labelled grayscale panel per channel. Hover first to preview the layout. The panels go beside the original when there is room, or share its box as a grid.
+- **Frame (V)** lets you zoom about the pointer and drag the image under its frame. The navigator shows the visible region. Drag its rectangle to pan, use **N** for true or smoothed pixels, and **Shift+V** to fit the whole image into the same box.
+- **Inset (X)** lets you drag a rectangle on the original. The new panel magnifies that region. Drag the outline’s edge on the original to move the sampled region, or roll the wheel on it to change its size. If you already framed a region, press **X** twice to pull that frame out as an inset.
+- Linked panels follow changes to plane, projection and channel black/white points. Each keeps its own channel visibility, colours, crop and annotations. Choose **Unlink** in the Inspector to adjust one independently.
+
+## Inspect layers and objects {#layers}
+
+A bundle can carry additional image channels as image layers, labelled regions with an object table, and vector lines, circles or polygons. Add these in Python before saving. For a 2-D label map and a table indexed by the label values, for example, use `img.add_labels("cells", label_map, table=cell_table, key="cell_id")`.
+
+<figure data-doc-clip="fluximg-layers" data-clip-label="The Cell outlines layer becomes visible over the image. Expanding the layer shows its object list. Hovering over two rows in turn highlights their cells in the image."><figcaption>Turn on Cell outlines, expand the layer, and hover over its object rows to find the corresponding cells in the image.</figcaption></figure>
+
+The layers card lists the top layer first. Click a lamp to toggle visibility, adjust the percentage for opacity, and expand a layer to see its objects. Hover over a cell in the image to identify its row and read the attached values. Hover over a row to find the same cell in the image. Filter by name or value to reach entries beyond the first 300 displayed.
+
+Press **D** to navigate this card with the keyboard. **↑ / ↓** selects a row, **→ / ←** expands or collapses it, and **Shift+↑ / ↓** changes layer order. **X** toggles visibility, **E** adjusts opacity, **C** opens colours, **Q** toggles object names and **A** focuses the filter. **Escape** returns the keys to the board.
+
+## Add a scale bar and export {#export}
+
+Use **B** for a physical scale bar (the bundle needs a pixel size), **W** for the position stamp, **C** for channel names and **G** for an intensity calibration bar. Drag an annotation to a corner or hold **Shift** with its key to cycle corners. The wheel on the scale bar steps its physical length. On the other annotations it adjusts text size. The Inspector exposes numerical controls for these settings, plane, projection, channels, layers, crop, background and smoothing.
+
+Figure exports and embedded figures in Paper render the chosen plane or projection. PNG and TIFF use the requested raster resolution. SVG, PDF and Paper resolve the image at 300 dpi at its printed size, up to 4096 × 4096 pixels per placed image. The image is raster data. Object outlines, shape layers, labels and bars retain vector geometry in vector output. For reproducible edits and rendering, see [image commands](/docs/commands.html#figure-images).
+
+## Supported inputs and workspaces {#limits}
+
+Flux accepts a prepared `.fluximg` bundle for this workflow. Read TIFF or microscope data in Python and save it with fluxplot first. Place it from the project gallery into a **figure**. Depth supports planes and projections. Slides and the global plot library do not currently accept a live image bundle. The live view shows up to six channels and three image layers together. The resting figure and exports include all visible channels and layers.
+
+::: {.next-reading}
+**Related guides**
+
+[Figure](/docs/figure.html) · [Images and surface maps in Python](/docs/images-and-surfaces.html) · [CLI and MCP image commands](/docs/commands.html#figure-images)
+:::

@@ -48,14 +48,23 @@
   const reduce=matchMedia('(prefers-reduced-motion: reduce)');
   // Article pages hold many clips: those start only when scrolled into view (below), so a
   // visitor's connection is not spent on clips they never reach.
-  const apply=()=>{for(const v of clips){if(reduce.matches){v.removeAttribute('autoplay');v.pause();}else if(!v.closest('.article-clip'))v.setAttribute('autoplay','');}};
+  const observable='IntersectionObserver' in window, visible=new WeakSet();
+  const apply=()=>{
+   for(const v of clips){
+    if(reduce.matches){v.removeAttribute('autoplay');v.pause();}
+    else if(!v.closest('.article-clip')){
+     if(!observable)v.setAttribute('autoplay','');
+     else if(visible.has(v))v.play().catch(()=>{});
+    }
+   }
+  };
   apply();reduce.addEventListener('change',apply);
-  // A visitor who pauses a clip keeps it paused when it scrolls back into view.
+  // Article clips remember a visitor's pause when scrolling back into view.
   // An article holds many clips. One that has been out of view for a few seconds is unloaded
   // (back to its still, its connection and decoder released), so a long page never runs out of
   // either; it starts again from the top when scrolled back to.
   const release=new WeakMap();
-  if('IntersectionObserver' in window){const io=new IntersectionObserver(entries=>{for(const entry of entries){const v=entry.target;clearTimeout(release.get(v));if(entry.isIntersecting){if(!reduce.matches&&!v.dataset.held)v.play().catch(()=>{});}else{v.pause();if(v.closest('.article-clip')&&v.networkState!==v.NETWORK_EMPTY)release.set(v,setTimeout(()=>v.load(),2500));}}},{threshold:.25});clips.forEach(v=>io.observe(v));}
+  if(observable){const io=new IntersectionObserver(entries=>{for(const entry of entries){const v=entry.target;clearTimeout(release.get(v));if(entry.isIntersecting){visible.add(v);if(!reduce.matches&&!v.dataset.held)v.play().catch(()=>{});}else{visible.delete(v);v.pause();if(v.closest('.article-clip')&&v.networkState!==v.NETWORK_EMPTY)release.set(v,setTimeout(()=>v.load(),2500));}}},{threshold:.25});clips.forEach(v=>io.observe(v));}
   // Article clips read like moving pictures: no control bar while they loop, and a click, tap,
   // Enter or Space pauses and resumes. Reduced motion keeps the native controls and a still frame.
   for(const v of clips){

@@ -68,6 +68,8 @@ clear source-vs-derived split:
 - `.fluxlib/` — derived indexes (search, full-text, enrichment). Rebuildable caches, never the
   truth: delete them and Flux regenerates them from the files above.
 
+The Reader stores conversations about a paper in `FluxLib/items/<citekey>/conversations.json`. They follow that library item across projects. A project Inbox still owns the shared work item and its replies. [Reader conversations](/docs/reader.html#paper-conversations).
+
 ## Portability {#portability}
 
 Because it's all files, moving machines is copying a folder: `~/FluxConfig` carries your

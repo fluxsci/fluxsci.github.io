@@ -1,37 +1,47 @@
 {
-  "reviewed": "2026-10-30",
+  "reviewed": "2026-11-20",
   "sources": [
     {
       "repository": "https://github.com/fluxsci/flux.git",
-      "revision": "fb766407e6c197470cb28d5a6d789d02a7137c02",
-      "version": "0.3.0-dev",
+      "revision": "d3dd41993773fd31c535b853f873cdd1e3ec9d36",
+      "version": "0.3.0+dev",
       "files": {
-        "docs/index.qmd": "10bbdf9756b265d3803ea90f936c144504fb1a4639ce9b01ec5475612d21bd33",
-        "docs/installation.qmd": "1a08a056e16de9c06c43ef799fde8d53edde0715771dfec94553161ffbd0f7a5",
+        "docs/index.qmd": "e20e942ddc124434c0d38555efb6f84952dc15159c58880bbff295e61c72027f",
+        "docs/installation.qmd": "168ae6954d4806b2d8cee27ab27340b400747176199861ce6225a6eb3831296a",
         "docs/getting-started.qmd": "5744e42d979ecb2018472b285318176e33905fac15baf6a764440aae2a2f08fe",
         "docs/concepts/projects-and-files.qmd": "ccc7d1f4aec53e127213c70dcfdef43fc3b567818a193615417fe0da8871fa49",
-        "docs/modes/library.qmd": "0ca78e57b9a08e81b7830b0a5adcd2e03b573155c791ef02d2bba0b41e314645",
-        "docs/modes/reader.qmd": "25a5bb8a0019d43e7ab9e1708ffecbd8fbcc5c6e678ed9ffe1008107b5137009",
+        "docs/modes/library.qmd": "ddd9139735598269ce397ec39a4f34b15c1504bfc3b0817c49e7cf9431bc89b5",
+        "docs/modes/reader.qmd": "1742a7d350405a4f29ccbcb325f3e4d6bd1fdecc5ef9b4164a23ede33f6cebc5",
         "docs/concepts/semantic-plots.qmd": "5eceb72b0d99b8184c5bf62cd1cd9a995e7b84cc0e1f2b3967646dbca299a141",
-        "docs/concepts/dissections.qmd": "e358f661544ebac054a8c7fba029894222f850022fbc64f9889772415508be55",
+        "docs/concepts/dissections.qmd": "d7c2eff826447da8c5703af90f6f082889df35d1bb981279a402962281f16929",
         "docs/agents/connect.qmd": "8724e6f49f49157be1ac5adc78896e002d8df5c64cd2e4f69c40a59f3bcf7b61",
         "docs/agents/context.qmd": "2f8c89008a70382092c3c128116cc2d43cb87ba5674e10d634770fcc82c57f8c",
-        "docs/agents/annotations.qmd": "2a6b73988b05ab56ee54bc38ed92db65250c4685af8d0795e274d4e296af265a",
+        "docs/agents/annotations.qmd": "0dadd98914aa8bfbdf1d1cdce1e486d5a962fd2a76d87973411719cfcbc09047",
         "docs/integrations/zotero.qmd": "c7c69c8a5d409dd32443f83df138b7d20363d8b6f37188144a2351795a534dc1",
-        "docs/integrations/web-capture.qmd": "c8d0633d48a629bd1615a5cf99dcc507f4fa3ab3db555748cd1393a11ba2576f",
+        "docs/integrations/web-capture.qmd": "8350156b27e5d0304a490d86dde12dbaab78275a97ba844f2ab5da6ac20168fb",
         "docs/integrations/grobid.qmd": "e91f1fa7572903a1defdec047c8845f1742c04cb81af835e0ca8ac0099e2f929",
-        "docs/reference/cli.qmd": "de9c50319e5cdaabfcc21923dca4f90c8baff6b88871fbb5ad966227b3cbf504",
-        "docs/reference/shortcuts.qmd": "ce4f943025e78cc1a9d5b2f3bfcacc9187673169baa730183f484b33beeab780",
+        "docs/reference/cli.qmd": "28d344a2319b7d0771944dcb6c204c0599db78ea802b987ec09b47490f290cf4",
+        "docs/reference/shortcuts.qmd": "d0dc49848527ecd1b8c681f7df49a994096c391117e6d46112432d8282fa8d4f",
         "docs/reference/project-layout.qmd": "49e7dbcb4a3bbcd5a8d97613d171ee38149045a4e06ad2fec67d8d5ba82e1c40",
         "docs/concepts/library-and-fluxlib.qmd": "37ed0f32487093cf4dc1394a6d43a9f90af5e4a8621018c4fa8034601ed28bf8",
         "docs/lighttable.qmd": "f19fa486e12791b319507abcb9d17956906d4f5beefbd11bd1b46173a7cbb926",
-        "docs/modes/paper.qmd": "3de1ba27ecd93d1f8bdd77a1141a366da026cf5d3751f7054b7665f28d0c7781",
-        "docs/modes/figure.qmd": "8b94977768557d8891d7d554cf723fb89e9b19232a6e4fdf61817b08312d9562",
-        "docs/modes/slide.qmd": "6042f141651fa84bb05a523afa83b8076fb831198018eac75f39d70f03fbc181",
-        "resources/flux-context/CLI-REFERENCE.md": "cbe400cee02506317fc1a32329be421b31c70906258d1b6234eb1743a1a1ba53",
-        "resources/flux-context/SLIDES.md": "09297afb319a439c932316abb3b06fd39a2d60143bb9bf271b18db2c54c1ccdc",
-        "src/lib/Settings.svelte": "d94cd10ec2ad95cbd35d5eacfc2e4674952fed8abe81c8786409f8748e9b5cdd",
-        "flux-core/verbs.ts": "d3d36a881e979443422777cbaee64f8e8f39bd8459da15d496eb2f97c9943dae"
+        "docs/modes/paper.qmd": "ede90ff5f13f7d830079fc3966714b357165074726245e8fe0e972e18dea2107",
+        "docs/modes/figure.qmd": "1640b1f99e0c9eef5cae8285a928fd32554aa52c2ffcdb90e208c1d01c2c7fd2",
+        "docs/modes/slide.qmd": "d919739803d08212cbe12c12f723ba5985490df7a199b11e3d815947b2d05ba4",
+        "resources/flux-context/CLI-REFERENCE.md": "fcb3fbffdb3a3586754bf723f567ff5e0a926597552d41a89a7b43181061ea20",
+        "resources/flux-context/SLIDES.md": "9f53460bb1ccd31afbd19d8c7a343983ab7f9da2f7103066e56e127e281a85b9",
+        "src/lib/Settings.svelte": "f771a17bbbe3b96dbb42f12254f2c73f0fdaa62f922da7da9efe40159d9e36d1",
+        "flux-core/verbs.ts": "e0b625b59714306f13c8fb40b4e226fbb9f2ef72006067344229801c8654602e",
+        "docs/concepts/images.qmd": "0f5f36ef36f855328f669e616c6062bd2e4587c9b70a62dc0c403a2076929af0",
+        "docs/fluximg/SPEC.md": "ad94e83fdd7a442c760d83d108e48b5f7e50220093c26052636abef2230119d4",
+        "flux-core/fluximgVerbs.ts": "6951b6c65c726b6671242506f899b150fe147abd3b2c29e1d382b79b4fa9bdd1",
+        "flux-core/registry.ts": "b5f3e4b47c569d53df49db0808a513b91d3786dfdb5c9630a1b32e7e47ad798d",
+        "src/lib/FluxFigMenu.svelte": "eefb2ad2e6a5178ef2c905a81fc88b3fdafa39be5b35ebc72c59ef792df282c0",
+        "src/lib/help/shortcuts.ts": "ac970983a20329eccc6d94f3539ffdcc0dd08e354aca744fea131d2417e56ec5",
+        "src/lib/project/commentTags.ts": "4364ca245f8a174d44e029c4915f531ed80298532ffb6613fd93748287c76376",
+        "src/lib/fluximg/live/FluximgBoard.svelte": "9c7dc7c78cc76dee0374c8138076c54a110d0de6fa5b75cb12bfa557a55ac310",
+        "src/lib/plotsRail/DissectionsPane.svelte": "536418b687ad55f29b540bf9457f59b251edb4b3ef101874efde10d065b374af",
+        "src/lib/Xray.svelte": "43604dd1ecfbf4f77c24ef653fe0cc1b2c8ac45ab066a8a1c1de1be3e7a2ec35"
       }
     },
     {
@@ -85,6 +95,20 @@
         "src/fluxplot/signature_fluxplots/hexmatrix.py": "28cac31d7570c48f722b7da65827666d5a8962e0aa3e4aadafb2c275a01cb406",
         "src/fluxplot/schemas/manifest.schema.json": "885d78207831c91f49ae634639b1fd9ad489b4db8e61b2a72ca3a329766b7faa"
       }
+    },
+    {
+      "repository": "https://github.com/fluxsci/fluxplot.git",
+      "revision": "f594857ae0aa0082821be6ddbbfd8c307e4acde6",
+      "scope": "Development image writer and reader",
+      "files": {
+        "pyproject.toml": "acff26495ad9706f484ec7d21ec44d323742d8d85b72d916b4ce523dbeb6bb7a",
+        "src/fluxplot/__init__.py": "e621565bb9d623121a9e6135e8a3dcdc012d99e38daf47d45ae7b37b5406a5ab",
+        "src/fluxplot/_fluximg/writer.py": "aae048209d6cf2934f50c7988106ed9854883f59b5daf72ab19afb9bd1f2ed19",
+        "src/fluxplot/_fluximg/reader.py": "89c7fd5358d09815d40c4f8c8c4c9409fc6576d2d7fb4244a3bb192005b862fa",
+        "src/fluxplot/_fluximg/_tables.py": "c89c008693058286af6c5c17e7fd8b7cb023b77a395beb0c9951d8dd6794fc22",
+        "src/fluxplot/_fluximg/_encoding.py": "3f1fc66b1c1d904f6c50f4625e32bcc7709f462a1d282e2e03756f36f4acf76e",
+        "tests/test_fluximg_contract.py": "b3c16d95bd992d589f7d9ed7fba5fc28b35871888a84415e3ec2c9402737fea2"
+      }
     }
   ],
   "guides": [
@@ -137,6 +161,11 @@
       "source": "docs/figure-layout.qmd",
       "url": "/docs/figure-layout.html",
       "title": "Layout, drawing and typography"
+    },
+    {
+      "source": "docs/fluximg.qmd",
+      "url": "/docs/fluximg.html",
+      "title": "Scientific images and stacks"
     },
     {
       "source": "docs/3d-models.qmd",
@@ -256,7 +285,7 @@
     {
       "source": "docs/signature-plots.qmd",
       "url": "/docs/signature-plots.html",
-      "title": "Glowbar, fluxbox and hexmatrix"
+      "title": "Meanmark, fluxbox and hexmatrix"
     },
     {
       "source": "docs/statistics.qmd",
@@ -326,9 +355,15 @@
       "3d-plots",
       "colors-and-style",
       "matrices-and-scales",
-      "save-and-recipes"
+      "save-and-recipes",
+      "fluximg",
+      "comments",
+      "commands",
+      "animation",
+      "transforms",
+      "reader"
     ],
-    "runtime": "fluxplot 0.4.0 checkout (uv run) for the illustrative drawings; code examples verified against the HEAD signatures by reading the source",
-    "notes": "All guides were re-reviewed for Flux 0.3 (main at the revision above: Plots rail, Align & Arrange, plot reflow, sticky connectors, the simplified spelling checker, new slide effects and verbs) and fluxplot 0.4 (meanmark replaces glowbar; the layout block). Screenshots and clips were re-captured from that build in the isolated fixture. The normal build does not access either product checkout. 2026-11-17: screenshots and feature clips were re-captured at Flux bb4f35be (new title-bar mode icons; the modes run Figure, Slide, Paper, Library, Reader), and the shortcuts and first-project guides were updated for that order. The other guides were not re-reviewed against that revision."
+    "runtime": "Flux development desktop, CLI help, registered verbs and full MCP tools/list; fluxplot 0.4.0 for plotted examples; the separate development image writer for the scientific image bundle.",
+    "notes": "Verified all five scientific drawing hashes and the part explorer SVG and tree against fresh fluxplot outputs. Executed the published first-project Python source, composed its semantic plot into a figure, restyled the named series, inspected its data and exported it through the CLI. Used synthetic arrays to check Python image writing, recipes, label-table attachment, shared placement, per-placement views and native SVG export. Desktop stills, video encodes, figure exports and native player examples have individual capture and data provenance in the media manifests. The installation page identifies the public releases separately."
   }
 }

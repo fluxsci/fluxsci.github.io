@@ -27,7 +27,7 @@ Or, with pip:
 python -m pip install fluxplot
 ```
 
-For mesh-file loading and optional simplification, install `fluxplot[mesh]`. For a notebook kernel, use `fluxplot[notebook]`. The plotting library can be used independently of the Flux desktop app.
+For mesh-file loading and optional simplification, install `fluxplot[mesh]`. For a notebook kernel, use `fluxplot[notebook]`. The plotting library can be used independently of the Flux desktop app. These commands install the published [fluxplot package](https://pypi.org/project/fluxplot/). The scientific image-bundle API described in [Scientific images and stacks](/docs/fluximg.html) requires the image-enabled development build.
 
 Flux reads plots saved by any fluxplot version. Plots saved with fluxplot 0.4 or later also carry a layout block, so Flux can resize them without rerunning Python; regenerate an older plot once to get that (see [Saving, panels and recipes](/docs/save-and-recipes.html#layout-block)).
 
@@ -93,6 +93,10 @@ Use `fp.panel(ax, name="response")` when a figure has several axes. Use stable p
 You can adopt fluxplot gradually. `fp.tag` names an existing artist; `fp.tag_points` adds point identities to a scatter collection; `fp.tag_seaborn` names supported Seaborn plot types. Public, unambiguous Matplotlib labels are also captured at save time. Explicit helpers are preferable when the role matters: for example, a confidence band rather than an arbitrary filled polygon.
 
 For a complete project workflow, continue with [Your first project](/docs/first-project.html).
+
+### Scientific images {#scientific-images}
+
+Where an analysis produces a stack, movie or segmented image, the development image writer can save its measured values, coordinates, channels and layers together. Use `fp.imsave` for a single bundle or `fp.fluximg` to build it up. See [Scientific images and stacks](/docs/fluximg.html).
 
 ::: {.next-reading}
 **Related guides**

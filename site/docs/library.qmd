@@ -11,7 +11,7 @@ description: "Collect references and PDFs in a library shared by your projects."
 Collect references and PDFs in a library shared by your projects.
 :::
 
-<figure class="doc-figure"><a href="/assets/media/library.webp" data-enlarge data-caption="Browse a small demonstration collection, with metadata and organization controls beside it."><img src="/assets/media/library.webp" alt="The Flux Library workspace showing FluxLib with three demonstration references. One row is expanded into its details strip with keywords, tags and buttons such as Get PDF and Similar. The header holds the Library and World toggle, the search box, the add-by-DOI box and buttons such as Import and Zotero." width="1500" height="950" loading="lazy"></a><figcaption>Browse a small demonstration collection, with metadata and organization controls beside it. <a href="/docs/visual-credits.html">Visual credits</a>.</figcaption></figure>
+<figure class="doc-figure"><a href="/assets/media/library.webp" data-enlarge data-caption="Browse a small demonstration collection, with metadata and organization controls beside it."><img src="/assets/media/library.webp" alt="The Flux Library workspace showing FluxLib with a demonstration collection of structural biology papers. One row is expanded into its details strip with keywords, tags and actions for reading the paper and exporting notes. The header holds the Library and World toggle, the search box, the add-by-DOI box and buttons such as Import and Zotero." width="1500" height="950" loading="lazy"></a><figcaption>Browse a small demonstration collection, with metadata and organization controls beside it. <a href="/docs/visual-credits.html">Visual credits</a>.</figcaption></figure>
 
 Library is your reference manager. It manages **FluxLib**, the machine-global collection shared
 by all your projects — every paper you save, its PDF, your highlights, tags, and reading
@@ -111,20 +111,26 @@ One row, many verbs — the row tooltip is a cheat sheet:
 
 ## PDFs {#pdfs}
 
-- The **⬇** on a row fetches an **open-access** copy (PubMed Central, Europe PMC, arXiv,
-  bioRxiv — never scraping publisher sites). **Get PDFs** in the header does the whole library
-  in the background, and can be cancelled mid-run.
-- **Paywalled papers** go through your university library: open **⚙** (the Keys panel), set
-  your institution's **EZProxy prefix**, save your credentials (stored in the OS keychain), and
-  **Sign in**. After that, **Get via library ⚿** in a paper's details — and the bulk fetch —
-  route through the proxy.
-- Already have the file? **Add PDF…** in the details strip files a PDF you downloaded
+Flux gets a paper's PDF three ways:
+
+- **Open access, automatically.** The **⬇** on a row (or **Get PDF** in its details) fetches an
+  open-access copy, trying open repositories first (PubMed Central, Europe PMC, arXiv,
+  bioRxiv) and then other open-access copies. **Get PDFs** in the header does the whole
+  library in the background, and can be cancelled mid-run.
+- **From your browser.** For a paper with no open-access copy, open it in your own browser —
+  where your institution's access already works — and click **Add to FluxLib** in the
+  [browser extension](/docs/web-capture.html). The PDF and its supplementary files
+  arrive in one click.
+- **A file you already have.** **Add PDF…** in the details strip files a PDF you downloaded
   yourself — or just drop it in the inbox folder.
-- Fetch failures show as small pills (`no DOI`, `no OA`, `failed`) on the row, with the reason
-  in the row's details. To see them all together, click the header's **⬇ No PDF** filter until
-  it reads **⊘ Failed** — a **Retry all** button appears beside it, which tries them again even
-  though a bulk run would normally skip a known failure. (The step only appears when something
-  has actually failed.)
+
+Once a PDF is attached, **Show in folder** in the paper’s details opens the file manager with the PDF selected. **Export notes…** writes that paper’s highlights and notes as Markdown.
+
+When no open-access copy exists, the fetch says so and names the other two routes. Papers
+known to have none are remembered, so the next **Get PDFs** run doesn't check them again
+until their identifiers change or a month has passed; ticking rows and fetching them
+(**Alt+F**) always checks again. To see every paper still without a PDF, click the header's
+**⬇ No PDF** filter.
 
 ## Enrich {#enrich}
 
@@ -141,7 +147,7 @@ citing/similar lookups.
 | Add box rejects a URL | The page exposes no DOI metadata → paste the DOI itself |
 | `ft:` finds nothing for a paper you have | Its PDF isn't stored yet (full-text search scans stored PDFs) → fetch it with the row's **⬇** button or **Get PDFs** first |
 | No abstract / topics on a paper | Not enriched yet → **Enrich** |
-| Get PDFs starts but paywalled papers fail | Proxy session expired → **⚙ → Sign in**, run again |
+| A paper has no open-access PDF | Open it in a browser where you have access and use the web capture extension, or attach a downloaded PDF with **Add PDF…**. |
 | A dropped PDF didn't get filed | See `pdfs_to_assign/_unresolved/` — each file carries a note saying why it couldn't be identified |
 
 ::: {.next-reading}

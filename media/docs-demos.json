@@ -1,7 +1,7 @@
 {
   "source": {
     "repository": "https://github.com/fluxsci/flux.git",
-    "revision": "bb4f35be2eb16fffa306ff8e285ef80dd9745564",
+    "revision": "d3dd41993773fd31c535b853f873cdd1e3ec9d36",
     "version": "0.3.0+dev"
   },
   "description": "Schematic Animator timing diagrams. Bar positions come from the native Flux alignment operations applied to a small geometric deck; no research data or owner slides.",

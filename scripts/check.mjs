@@ -3,6 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
+import { gunzipSync } from 'node:zlib';
 import { load } from 'cheerio';
 import { ROOT, SOURCE, OUTPUT, isInside } from './paths.mjs';
 import {routes,ORIGIN} from './routes.mjs';
@@ -15,6 +16,7 @@ const FILM_BUDGET_MB = 600;
 const CLIP_ASSET = /^assets\/media\/pitch\//;
 const CLIP_BUDGET_MB = 320;
 const SITE_BUDGET_MB = 150;
+const SLIDE_PAYLOAD = /^demos\/slides\/slide_[a-z0-9_]+\.json\.gz$/;
 const FONT_LICENSE = /^assets\/fonts\/(?:OFL|LICENSE)[\w.-]*\.txt$/;
 const RUNTIME_LICENSE = /^assets\/licenses\/[\w.-]+\.txt$/;
 const SOURCE_FILES = new Set([...routes.map(r=>r.source), '_quarto.yml', 'robots.txt','install.sh']);
@@ -35,7 +37,7 @@ async function filesIn(directory, prefix = '') {
 
 function allowedAsset(file) {
   if (file.startsWith('assets/film/')) return FILM_ASSET.test(file);
-  return (PUBLIC_ASSET.test(file) && (!file.endsWith('.html') || file.startsWith('demos/'))) || FONT_LICENSE.test(file) || RUNTIME_LICENSE.test(file);
+  return (PUBLIC_ASSET.test(file) && (!file.endsWith('.html') || file.startsWith('demos/'))) || SLIDE_PAYLOAD.test(file) || FONT_LICENSE.test(file) || RUNTIME_LICENSE.test(file);
 }
 
 // Every published film file is recorded in media/film.json (bytes + SHA-256), produced by media/film/encode.mjs.
@@ -53,18 +55,32 @@ export async function checkSource() {
   const pin = JSON.parse(await readFile(path.join(ROOT, 'flux-source.json'), 'utf8'));
   assert(/^[a-f0-9]{40}$/.test(pin.revision), 'flux-source.json must pin a full commit hash.');
   assert.equal(pin.repository, 'https://github.com/fluxsci/flux.git');
-  // Screenshots, figures and diagrams come from the public release; the live slides need a later
-  // slide engine, pinned separately with its reviewed patches.
+  // An unaffected surface can be captured on an earlier reviewed build. Each still
+  // and recording must resolve to an explicit capture revision. The native player
+  // and the generated figure assets have their own exact source contracts.
+  const captureRevisions = new Set([pin.revision, ...(pin.captureRevisions ?? [])]);
+  for (const revision of captureRevisions) assert(/^[a-f0-9]{40}$/.test(revision), 'Invalid capture revision.');
+  const stillManifests = new Set(['media/screenshots.json', 'media/docs-screenshots.json', 'media/feature-captures.json']);
   const release = { repository: pin.repository, revision: pin.revision, version: pin.version };
+  const reviewedDocs = JSON.parse(await readFile(path.join(ROOT, 'media/documentation.json'), 'utf8'));
+  assert.equal(reviewedDocs.sources[0].revision, pin.revision, 'The guide audit must identify the reviewed application source.');
+  const publishedGuides = routes.filter(route => route.kind === 'guide').map(({source, url, title}) => ({source, url, title}));
+  assert.deepEqual(reviewedDocs.guides, publishedGuides, 'Guide audit differs from the published routes.');
   const player = pin.slidePlayer;
   assert(/^[a-f0-9]{40}$/.test(player?.revision ?? ''), 'flux-source.json must pin the slide player to a full commit hash.');
   for (const patch of player.patches) assert.equal(createHash('sha256').update(await readFile(path.join(ROOT, patch.path))).digest('hex'), patch.sha256, `Slide player patch changed: ${patch.path}`);
   const playerSource = { repository: pin.repository, revision: player.revision, patches: player.patches.map(({ path, sha256 }) => ({ path, sha256 })) };
   for (const [manifestFile, expected] of [['media/native-assets.json', release], ['media/screenshots.json', release], ['media/docs-demos.json', release], ['media/docs-screenshots.json', release], ['media/feature-captures.json', release], ['media/slides.json', playerSource]]) {
     const manifest = JSON.parse(await readFile(path.join(ROOT, manifestFile), 'utf8'));
-    assert.deepEqual(manifest.source, expected, `${manifestFile} does not match the pinned Flux source.`);
+    const still = stillManifests.has(manifestFile);
+    if (!still) assert.deepEqual(manifest.source, expected, `${manifestFile} does not match the pinned Flux source.`);
     assert(Object.keys(manifest.outputs).length, `${manifestFile} has no output provenance.`);
     for (const [file, expected] of Object.entries(manifest.outputs)) {
+      if (still) {
+        const source = expected.source ?? manifest.source;
+        assert(source && source.repository === pin.repository && source.version === pin.version &&
+          captureRevisions.has(source.revision), `Unreviewed screenshot source for ${file}`);
+      }
       assert(file.startsWith('site/') && isInside(SOURCE, path.resolve(ROOT, file)), `Invalid asset provenance path: ${file}`);
       assert(allowedAsset(file.slice(5)), `Provenance references an unapproved public asset: ${file}`);
       const bytes = await readFile(path.join(ROOT, file));
@@ -88,6 +104,23 @@ export async function checkSource() {
     const bytes = await readFile(path.join(ROOT, file));
     assert.equal(bytes.length, expected.bytes, `Pitch clip size changed: ${file}`);
     assert.equal(createHash('sha256').update(bytes).digest('hex'), expected.sha256, `Pitch clip hash changed: ${file}`);
+  }
+  const guideClips = JSON.parse(await readFile(path.join(ROOT, 'media/docs-clips.json'), 'utf8'));
+  const clipDirectory = 'site/assets/media/docs/clips/';
+  const guideFiles = Object.keys(guideClips.outputs).sort();
+  assert.deepEqual(files.filter(file => file.startsWith(clipDirectory.slice(5))).map(file => `site/${file}`).sort(), guideFiles, 'Guide clip files differ from media/docs-clips.json.');
+  const expectedGuideFiles = Object.entries(guideClips.takes).flatMap(([name, take]) => {
+    assert(/^[a-z][a-z0-9-]*$/.test(name), `Invalid guide clip name: ${name}`);
+    assert(take.window.scale === 4 && take.width === 1920 && take.height === 1080, `Guide clip must be a 1920×1080 encode from a 4× window: ${name}`);
+    assert(captureRevisions.has(take.flux.revision) && !take.flux.dirty, `Guide clip needs clean production build provenance: ${name}`);
+    assert(Number.isFinite(take.seconds) && take.seconds >= 12, `Guide clip must run for at least 12 seconds: ${name}`);
+    return ['.mp4', '-1280.mp4', '.webp'].map(suffix => clipDirectory + name + suffix);
+  }).sort();
+  assert.deepEqual(guideFiles, expectedGuideFiles, 'Each guide clip needs both video sizes and a poster.');
+  for (const [file, expected] of Object.entries(guideClips.outputs)) {
+    const bytes = await readFile(path.join(ROOT, file));
+    assert.equal(bytes.length, expected.bytes, `Guide clip size changed: ${file}`);
+    assert.equal(createHash('sha256').update(bytes).digest('hex'), expected.sha256, `Guide clip hash changed: ${file}`);
   }
   const film = await filmManifest();
   const filmFiles = files.filter(file => file.startsWith('assets/film/')).map(file => `site/${file}`);
@@ -129,6 +162,14 @@ export async function checkOutput() {
     if (file.startsWith('assets/film/')) filmBytes += stat.size; else if (CLIP_ASSET.test(file)) clipBytes += stat.size; else bytes += stat.size;
     const limitMB = 15;
     assert(stat.size <= limitMB * 1024 * 1024, `Oversized public asset (>${limitMB} MB): ${file}`);
+    if (SLIDE_PAYLOAD.test(file)) {
+      const data = gunzipSync(await readFile(path.join(OUTPUT, file))).toString('utf8');
+      assert(!/(?:file:\/\/|\/(?:Users|home)\/[\w.-]+\/)/i.test(data), `Local file path in slide: ${file}`);
+      const slides = JSON.parse(data).deck.slides;
+      assert.equal(slides.length, 1, `Expected one public slide in ${file}`);
+      assert.equal(path.basename(file), slides[0].id + '.json.gz', `Unexpected slide in ${file}`);
+      assert(!slides[0].notes && !slides[0].speakerNotes, `Private presenter notes in ${file}`);
+    }
     if (!/\.(?:html|css|js|svg|xml|txt)$/.test(file)) continue;
     const text = await readFile(path.join(OUTPUT, file), 'utf8');
     assert(!/(?:\/Users\/|\/home\/)[a-zA-Z0-9_-]+\//.test(text), `Local machine path in output: ${file}`);
@@ -171,7 +212,7 @@ export async function checkOutput() {
     const published = await readFile(path.join(OUTPUT, file.slice(5)));
     assert.equal(createHash('sha256').update(published).digest('hex'), expected.sha256, `Published film file differs from media/film.json: ${file}. Rebuild the site.`);
   }
-  for (const manifestFile of ['media/native-assets.json', 'media/screenshots.json', 'media/docs-demos.json', 'media/docs-screenshots.json', 'media/feature-captures.json', 'media/docs-plots.json', 'media/slides.json', 'media/pitch.json']) {
+  for (const manifestFile of ['media/native-assets.json', 'media/screenshots.json', 'media/docs-demos.json', 'media/docs-screenshots.json', 'media/feature-captures.json', 'media/docs-plots.json', 'media/slides.json', 'media/pitch.json', 'media/docs-clips.json']) {
     const manifest = JSON.parse(await readFile(path.join(ROOT, manifestFile), 'utf8'));
     for (const [file, expected] of Object.entries(manifest.outputs)) {
       const published = await readFile(path.join(OUTPUT, file.slice(5)));

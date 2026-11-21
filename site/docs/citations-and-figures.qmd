@@ -34,10 +34,11 @@ caret.
 
 ## Figures {#figures}
 
-Insert a figure with `/figure` (or **Ctrl+K → Insert figure…**). The picker shows every figure
-at full size. Scroll or use the arrow keys through long lists, and search by name or caption.
+Insert a figure with `/figure` (or **Ctrl+K → Insert figure…**). The picker shows a searchable thumbnail for each figure. Scroll or use the arrow keys through long lists, and search by name or caption.
 When the project has more than one canvas, the dropdown next to the search box limits the list,
 and your search, to a single canvas.
+
+In the figure picker, **↑ / ↓** selects a figure and **Enter** inserts it. Type **@@** when you want a reference in the prose. In that picker, choose a figure and press its panel letters to select individual panels. The preview can be zoomed and panned, and the Insert button shows the reference it will write. **Esc** returns to the figure list.
 
 In the text, the embed is a compact **⌗ name chip** with the live figure rendered beneath it:
 the real figure from [Figure](/docs/figure.html), with its caption. Put the caret on the chip's
@@ -78,7 +79,7 @@ to reset the view. Then:
 Inserting replaces your current selection and returns focus to the manuscript, so you can keep
 typing. The pane's thumbnails are bitmaps, so typing beside an open Figures pane stays instant.
 
-<figure class="doc-figure doc-figure-compact"><a href="/assets/media/docs/paper-figures-pane.png" data-enlarge data-caption="The Alt+F pane: choose panels, then insert the figure itself or a reference such as Fig. 2b."><img src="/assets/media/docs/paper-figures-pane.png" alt="The Figures pane in Paper’s margin: a zoomable preview of Figure 2, its caption, a row of panel toggles with b chosen, the buttons Insert figure, Insert Fig. 2b and Open in Figure, and thumbnails of the project’s other figures." width="704" height="1906" loading="lazy"></a><figcaption>The <strong>Alt+F</strong> pane: choose panels, then insert the figure itself or a reference such as <em>Fig. 2b</em>.</figcaption></figure>
+<figure class="doc-figure doc-figure-compact"><a href="/assets/media/docs/paper-figures-pane.png" data-enlarge data-caption="The Alt+F pane: choose panels, then insert the figure itself or a reference such as Fig. 2b."><img src="/assets/media/docs/paper-figures-pane.png" alt="The Figures pane in Paper’s margin: a zoomable preview of Figure 2, its caption, a row of panel toggles with b chosen, the buttons Insert figure, Insert Fig. 2b and Open in Figure, and thumbnails of the project’s other figures." width="680" height="1752" loading="lazy"></a><figcaption>The <strong>Alt+F</strong> pane: choose panels, then insert the figure itself or a reference such as <em>Fig. 2b</em>.</figcaption></figure>
 
 ## Slides in documents {#slides-in-documents}
 

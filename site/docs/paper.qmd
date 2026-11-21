@@ -34,6 +34,8 @@ New projects start with `paper/notes.qmd`. Add drafts, protocols and working not
 | Reorder within a folder | Drag over another document, or focus its row and press **Alt+↑** / **Alt+↓**. Only the list order changes; it is saved with the project. |
 | Delete a document | Click its hover **×** or press **Delete** on its row, then confirm. The file and its comments go to the system trash where available; figures and references stay. |
 
+Filter the Files tree by title or path. **Enter** opens the first match and **↓** moves into the results. In either Files or Outline, use **↑ / ↓** to walk visible rows, **→ / ←** to open or close a branch, and **Home / End** to jump. Outline remembers folded sections for each document.
+
 Close a second Paper pane before moving files: a move may update links in other documents. Code examples and paths inside executable code remain unchanged. Standard Context files and an older project's designated main manuscript are protected from deletion or movement.
 
 Generated render and cache folders stay out of the file browser. Ordinary folders and empty folders you create remain visible; nothing is deleted from disk.
@@ -59,6 +61,8 @@ Helper panes summon beside your text and stack in one column:
 | **Alt+J** | [Journal Check](/docs/export-documents.html#journal-check) — the selected journal's rulebook, as advice |
 | **Alt+K** | Manuscript Check — deterministic pre-submission checks: undefined cross-references and missing citekeys (with did-you-mean fixes), figures and tables cited out of order or never cited, empty captions, placeholders such as to-do notes and `[??]`, abbreviations used before they are defined, inconsistent spellings, open comments. Findings jump to their line; a fix is one undoable edit. The same checks run as `flux check` |
 
+Two other cards open from **Ctrl+K**. **References** lists the papers cited in the project and switches between author–year and numbered citations. **Statistics** gives the journal word count, the section breakdown and progress toward a word target. A click on a finding in either check pane selects its passage in the editor.
+
 **Alt+P** closes the active pane, **Ctrl+Alt+P** closes them all, and **Escape** always
 returns focus to your writing. **Ctrl+Shift+B** hides the margin column entirely. When no
 pane is open, the margin shows an ambient background; choose its scene, and how many panes may
@@ -74,13 +78,15 @@ opening it twice.
 
 ## Comments and review {#comments-and-review}
 
-Select text and click the comment button in the floating toolbar (or press **Ctrl+Alt+M**) to
-start a thread anchored to that exact passage. Threads live in the Comments pane: reply,
-**Resolve**, reopen, delete. They're stored beside the document — never inside your prose —
-and they're the shared review channel with agents ([Comments and Inbox](/docs/comments.html)): an agent
-addressing your comments resolves them with a note, and you watch threads close live in your
-margin. If the underlying text is edited away, a comment is kept as *Detached* rather than
-lost.
+Select a passage, then choose an audience from its floating toolbar. **Comment** (speech bubble, **Ctrl+Alt+M**) creates a personal thread. **Comment for Flux AI** (**Ctrl+Shift+Alt+M**) puts the thread in the project Inbox for agents. Write in the card on the selected text and press **Ctrl+Enter** to send. **Escape** drops the draft. The **Just for me / For Flux AI** switch lets you change the audience later.
+
+Hover over the tinted passage to read the thread. Click to keep the card open, reply, edit your message with the pencil, or resolve the thread. **In margin** opens the same thread in **Comments** (**Alt+A**). Resolved threads can be reopened. A thread whose underlying text was removed stays in the pane as **Detached**.
+
+### Comment tags {#comment-tags}
+
+Choose **+ tag**, type a label such as `needs-reference`, and press **Enter**. Reuse that label on other passages. The first tag sets the passage’s highlight colour. Click a tag in the Comments pane to filter the document, and click it again to restore all threads. The **Flux AI** filter appears when the document has both personal and shared comments. Set tag colours and the default highlight colour in **Settings → Paper → Comments**. [Working with the Inbox](/docs/comments.html).
+
+<figure data-doc-clip="paper-comment-tags" data-clip-label="Two manuscript threads are open. A needs-reference tag is created on one, and clicking that tag filters the pane to the tagged thread. Clicking again restores both."><figcaption>Create <code>needs-reference</code> on a thread, then select that tag in Comments to see matching threads. Select it again to show all comments.</figcaption></figure>
 
 ## Troubleshooting {#troubleshooting}
 

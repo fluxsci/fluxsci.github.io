@@ -1,5 +1,5 @@
 /** Prepare the isolated screenshot project and render its figures through the pinned Flux runtime.
- *  Source is read-only. The live slides come from the launch film (refresh-slides.mjs). */
+ *  The authored project is read-only. refresh-slides.mjs exports the live examples separately. */
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath,pathToFileURL} from 'node:url';

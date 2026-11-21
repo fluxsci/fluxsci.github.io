@@ -37,12 +37,12 @@ test('search works by title and content with keyboard navigation and focus resto
  await page.keyboard.press('Escape');await expect(dialog).not.toBeVisible();await expect(opener).toBeFocused();
  await page.keyboard.press('/');await expect(dialog).toBeVisible();await input.fill('zzzz-no-such-topic');await expect(dialog.locator('[role="status"]')).toContainText('No matching topics');
 });
-test('docs guide embeds the film slides on demand and opens on the Become slide',async({page})=>{
+test('first-project guide opens the live demo on the Flux-mark Become slide',async({page})=>{
  await page.goto('/docs/first-project.html');await expect(page.locator('#slide-demo iframe')).toHaveCount(0);
- await page.getByRole('button',{name:'Load the interactive slides from the Flux film'}).click();
- const frame=page.frameLocator('#slide-demo iframe');await expect(frame.getByRole('combobox',{name:'Choose a slide'})).toHaveValue('2');
+ await page.getByRole('button',{name:'Load the interactive Flux slides'}).click();
+ const frame=page.frameLocator('#slide-demo iframe');await expect(frame.getByRole('combobox',{name:'Choose a slide'})).toHaveValue('5');
  await expect(frame.locator('.flux-slide-bar [aria-live="polite"]')).toContainText('Step 1 / 1');
- await frame.getByRole('combobox',{name:'Choose a slide'}).selectOption('1');await frame.getByRole('button',{name:'Next animation step',exact:true}).click();await expect(frame.locator('.flux-slide-bar [aria-live="polite"]')).toContainText('/ 2');
+ await frame.getByRole('combobox',{name:'Choose a slide'}).selectOption('1');await expect(frame.locator('.flux-slide-bar [aria-live="polite"]')).toContainText('Step 0 / 3');await frame.getByRole('button',{name:'Next animation step',exact:true}).click();await expect(frame.locator('.flux-slide-bar [aria-live="polite"]')).toContainText('Step 1 / 3');
 });
 test.describe('progressive documents',()=>{
  test.use({javaScriptEnabled:false});
@@ -72,4 +72,14 @@ test('Python reference signatures copy cleanly and parameter details are readabl
  const details=page.locator('#regression').locator('xpath=following-sibling::details[1]');
  await details.locator('summary').click();await expect(details.locator('dt').first()).toContainText('kind');
  const result=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();expect(result.violations).toEqual([]);
+});
+
+test('expanded Python reference details fit a narrow screen', async ({ page }) => {
+ await page.setViewportSize({ width:320, height:800 });
+ await page.goto('/docs/fluxplot-api.html');
+ await page.evaluate(async () => {
+  await document.fonts.ready;
+  for (const detail of document.querySelectorAll('main details')) detail.open = true;
+ });
+ expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBeLessThanOrEqual(1);
 });

@@ -50,6 +50,8 @@ font, opacity, visibility, even a positional nudge in the plot's own units. The 
 legend swatch too, so the key never lies about the colour; recolouring one bar or one point is a
 highlight and leaves the key alone.
 
+<figure data-doc-clip="property-menu" data-clip-label="Ctrl+click selects the blue Control line. F opens Properties. The Stroke colour field opens a palette, where a green swatch changes the Control line and its legend swatch. The close button dismisses Properties."><figcaption><strong>Ctrl+click</strong> the Control line and press <strong>F</strong>. Open <strong>Stroke colour</strong>, then choose <code>green-600</code>. Flux recolours the line and its legend swatch together.</figcaption></figure>
+
 When the picked part belongs to a plain series, the **Plot part** section also offers **Series
 colour**: one colour for the whole series — its line, its markers' faces and edges, its bars or
 band, its error bars and its legend swatch — written as one override per part, so it survives
@@ -60,19 +62,22 @@ its [**Colour scale**](#colour-scales) instead. From the command line, the same 
 
 ## X-ray {#x-ray}
 
-**R** opens the **X-ray**: the anatomy of the selected plot (or group) as a tree, placed
-beside the selection. (**Alt+R** is the rectangle tool.)
+Select a plot or group and press **R**. The **X-RAY** header shows the object you opened. Its breadcrumb follows you into groups, and the line beneath identifies the source when one is available. Click an earlier breadcrumb to move back up.
+
+The tree sits beside the selection. Thin lines connect rows to their parents. Hover over a row to outline the matching part on the canvas, or pick it to keep that row highlighted while you work.
+
+<figure data-doc-clip="xray" data-clip-label="The Control line is drilled with Ctrl+click and selected when R opens X-ray. Searching for line shows the two series strokes. The Treatment row outlines its stroke, and clicking its visibility button hides and restores it."><figcaption>Search for <code>line</code> in X-ray. Hover over Treatment to locate its stroke, then click the visibility button to hide or restore it.</figcaption></figure>
 
 - Walk the tree with the arrow keys, and hide or show any part with **x**.
-- **Enter** (or **F**) selects the picked parts and opens their properties.
+- **Properties** (**Enter** or **F**) opens the property menu for the picked parts. On an axis row, **Axis view** (**V**) focuses the corresponding axis in the Inspector. In Slides, **Animate** (**M**) offers effects for the picked rows.
 - For recipe-backed plots, **Regenerate** reruns the script that made the plot, right from
   the panel. You can inspect another plot while a recipe runs; its result still belongs to
   the plot you regenerated.
 - **Double-click** a row (or press **Ctrl+Enter**) to re-root the X-ray on it. Keyboard
   navigation keeps the active row in view.
-- **Ctrl+Z** undoes without closing the X-ray.
+- **Ctrl+Z** undoes without closing the X-ray. The bottom line suggests keys for the current selection. Click its **?** button to expand all X-ray keys in place. Pressing **?** on the keyboard opens the app-wide shortcut reference.
 
-<figure class="doc-figure doc-figure-compact"><a href="/assets/media/docs/figure-xray.png" data-enlarge data-caption="X-ray separates the stiffness–density plot into axes, material families and individual marks."><img src="/assets/media/docs/figure-xray.png" alt="The native X-ray panel lists X axis, Y axis, metals, ceramics, polymers and other named plot parts." width="922" height="1482" loading="lazy"></a><figcaption>X-ray separates the stiffness–density plot into axes, material families and individual marks. Click to enlarge.</figcaption></figure>
+<figure class="doc-figure doc-figure-compact"><a href="/assets/media/docs/figure-xray.png" data-enlarge data-caption="Pick an axis in X-ray to see its context and open Axis view or Properties. Expand it to inspect its spine, ticks and title."><img src="/assets/media/docs/figure-xray.png" alt="The X-ray tree for Stiffness and density. The selected X axis is expanded above the material families. The readout shows the axis label and logarithmic scale, with Axis view and Properties available below." width="922" height="1406" loading="lazy"></a><figcaption>Pick an axis in X-ray to see its context and open Axis view or Properties. Expand it to inspect its spine, ticks and title. Click to enlarge.</figcaption></figure>
 
 ### Pick several rows {#x-ray-several-rows}
 
@@ -101,10 +106,7 @@ they show: tick values (*0 · 800 · 1600 · 2400*), an axis's title, a series' 
 colour. A common part whose value differs between the plots reads *varies*. Search matches
 words anywhere in a row's place and value: *x tick* finds only the x axes' ticks, *y lab* the y
 tick labels, *SWS* the tick label that reads it. A small dot marks a restyled part (hollow:
-something inside it), **◐** a partly hidden one, and a series shows its colour. The strip above
-the buttons describes the row under the pointer (else the picked one) in full: its whole path,
-its values or data readout, its kind, effective style, what is restyled or hidden and its part
-id. Hovering a row outlines its parts on the canvas — on every plot, for a common part.
+something inside it), **◐** a partly hidden one, and a series shows its colour. The readout beneath the tree follows the row under the pointer, or the picked row when the pointer leaves. The first line shows its path, name and value. The second gives its kind, effective style, any overrides or hidden parts, and its part ID. Hovering a common part outlines it on every participating plot.
 
 ### Families {#x-ray-families}
 
@@ -133,19 +135,9 @@ You meet dissections in two places:
   lower pane shows the dissections of whichever plot you last clicked and follows each new
   click, with a pin to hold it and a **Notes** view for writing and searching `.txt` notes. See
   [Dissections and notes beside the canvas](/docs/plot-gallery.html#dissections-pane).
-- **Full screen.** **D** with a plot selected opens **Dissect**, the same pane at full size:
-  tables first as Summary previews, then each folder of panels as its own section at the
-  panels' own shapes, then the remaining files as a list. The Inspector's **Dissections** button
-  (with a count) does the same — and for a plot with no dissections yet, it offers to create
-  the folder.
+- **Full viewer.** Select a plot in Figure or Slide and press **D**. The first picture opens with a file strip below. Use **← / →** to flip through files, **↑ / ↓** to jump between groups and **G** to switch to the grid. On an image, **Enter** toggles fit and 1:1. **Ctrl+wheel** zooms and **Space+drag** pans.
 
-Inside the full viewer: **arrow keys** move through the files, **[** / **]** (or
-**Ctrl+scroll**) make the tiles smaller or larger, **1–9** jump to a section and a section's
-**▾** folds it. **Enter** expands a file (**Ctrl+scroll** zooms images at the cursor,
-**Space+drag** pans, **Enter** toggles fit/1:1); CSV and TSV files open as sortable tables;
-**Escape** steps back out, detail → grid → closed. The **⧉** button shrinks the viewer to a
-floating window you can keep beside the canvas, and files dropped into the folder while it is
-open appear live. **Notes** here is the same control as in the rail.
+Tables retain their original cell values and can show rounded numbers or a copyable statistical result. Notes are editable in the full viewer and the rail. [Dissection files, tables and notes](/docs/dissections.html#viewing-them).
 
 ## Axis view {#axis-view}
 
@@ -161,7 +153,7 @@ row's displayed key when **v** is already assigned. Once a view is open there, t
 adjusts the focused limit wherever the pointer is (the canvas does not zoom); **Space** accepts
 the minimum and moves to the maximum, and **Space** again (or **Enter**) accepts it and returns to
 the menu. In X-ray, select an axis row and press
-**v** for **Axis view…** to focus that axis in the Inspector.
+**v** for **Axis view** to focus that axis in the Inspector.
 
 Lines, points, bars, heatmap cells, hexagons, contour bands and box or violin bodies re-project
 inside the existing plot frame; exports include the same view. A viewed axis is re-ticked: its

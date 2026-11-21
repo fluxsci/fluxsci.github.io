@@ -6,11 +6,11 @@ import AxeBuilder from '@axe-core/playwright';
 // runners. Scans wait for every running animation to finish first.
 const settle = page => page.evaluate(() => Promise.all(document.getAnimations().map(animation => animation.finished.catch(() => {}))));
 
-test('homepage has complete content, working imagery, and responsive geometry', async ({ page }) => {
+test('homepage has complete content, working imagery, and responsive geometry', async ({ page, baseURL }) => {
   const errors = [];
   const badResponses = [];
   page.on('pageerror', error => errors.push(error.message));
-  page.on('response', response => { if (response.url().startsWith('http://127.0.0.1:1430') && response.status() >= 400) badResponses.push(`${response.status()} ${response.url()}`); });
+  page.on('response', response => { if (new URL(response.url()).origin === new URL(baseURL).origin && response.status() >= 400) badResponses.push(`${response.status()} ${response.url()}`); });
   await page.goto('/');
   await expect(page).toHaveTitle(/Flux/);
   await expect(page.getByRole('main')).toHaveCount(1);
@@ -101,32 +101,32 @@ test('full-size imagery opens accessibly and restores focus', async ({ page }) =
   await expect(opener).toBeFocused();
 });
 
-const FILM_SLIDES=['slide_muz1bgcmzb92_3','slide_muz2tp5izb92_249','slide_muzr6gllt5vd_47','slide_muz991ncyfxw_867','slide_muzb9z5cakd6_9141','slide_muzb9z5kakd6_13448'];
-// Text-to-text Become crossfades by design; the player reports it as an authoring note, which the website hides.
-const CROSSFADE='Neither side of this Become has an outline; it crossfades';
+const HOMEPAGE_SLIDES=['slide_mwlr2r2w8f1w_1','slide_mwlr2pnj1w9c_1','slide_mwlr2xk7bs6r_1','slide_mwlr2ptk1w9c_589','slide_muz2tp5izb92_249','slide_muzr6gllt5vd_47'];
 
-test('homepage loads the film slides only on request, plays the chosen slide, and pauses offscreen', async ({ page }) => {
+test('homepage defaults to Japan’s earthquakes, loads slides only on request, plays the chosen slide, and pauses offscreen', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('#slide-demo iframe')).toHaveCount(0);
-  await expect(page.locator('.scene-tabs button')).toHaveCount(6);
+  await expect(page.locator('.scene-tabs button')).toHaveCount(HOMEPAGE_SLIDES.length);
   await expect(page.locator('.scene-tabs button[aria-pressed="true"]')).toHaveAttribute('data-scene', '0');
-  await page.getByRole('button', { name:'Load the interactive slides from the Flux film', exact:true }).click();
+  await page.getByRole('button', { name:'Load the interactive Flux slides', exact:true }).click();
   const iframe = page.locator('#slide-demo iframe');
   await expect(iframe).toHaveCount(1);
   const frame = page.frameLocator('#slide-demo iframe');
   await expect(frame.getByRole('combobox', { name:'Choose a slide' })).toHaveValue('0');
+  await expect(frame.locator('.source-credit:visible')).toContainText('USGS earthquake catalog');
   await expect(frame.getByRole('button', { name:'Next animation step', exact:true })).toBeVisible();
-  await expect(frame.locator('.flux-slide-bar [aria-live="polite"]')).toContainText('Step 1 / 2');
+  await expect(frame.locator('.flux-slide-bar [aria-live="polite"]')).toContainText('Step 1 / 3');
   await page.locator('.scene-tabs button[data-scene="1"]').click();
   await expect(frame.getByRole('combobox', { name:'Choose a slide' })).toHaveValue('1');
   await expect(page.locator('.scene-tabs button[aria-pressed="true"]')).toHaveAttribute('data-scene', '1');
-  await expect(frame.locator('.flux-slide-bar [aria-live="polite"]')).toContainText('Step 1 / 2');
+  await expect(frame.locator('.flux-slide-bar [aria-live="polite"]')).toContainText('Step 1 / 3');
   await page.locator('.scene-tabs button[data-scene="0"]').click();
   await expect(frame.getByRole('combobox', { name:'Choose a slide' })).toHaveValue('0');
-  await expect(frame.locator('.flux-slide-bar [aria-live="polite"]')).toContainText('Step 1 / 2');
-  await page.locator('.scene-tabs button[data-scene="3"]').click();
-  await expect(frame.getByRole('combobox', { name:'Choose a slide' })).toHaveValue('3');
-  await expect(frame.locator('.source-credit:visible')).toContainText('PDB 1CRN');
+  await expect(frame.locator('.source-credit:visible')).toContainText('USGS earthquake catalog');
+  await expect(frame.locator('.flux-slide-bar [aria-live="polite"]')).toContainText('Step 1 / 3');
+  await page.locator('.scene-tabs button[data-scene="5"]').click();
+  await expect(frame.getByRole('combobox', { name:'Choose a slide' })).toHaveValue('5');
+  await expect(frame.locator('.source-credit:visible')).toContainText('Flux mark');
   await page.evaluate(() => window.scrollTo({ top:0, behavior:'instant' }));
   await expect.poll(async () => {
     const child = await iframe.contentFrame();
@@ -134,7 +134,7 @@ test('homepage loads the film slides only on request, plays the chosen slide, an
   }).toBe(false);
 });
 
-test('a film slide is a real independent player with manual steps and reduced motion', async ({ page }) => {
+test('the earthquake slide is a real independent player with manual steps and reduced motion', async ({ page }) => {
   await page.emulateMedia({ reducedMotion:'reduce' });
   await page.goto('/demos/slides/');
   await expect.poll(() => page.evaluate(() => window.fluxWebsiteDemo?.state()?.beat)).toBe(0);
@@ -152,16 +152,15 @@ test('a film slide is a real independent player with manual steps and reduced mo
   expect(await page.evaluate(() => window.fluxWebsiteDemo.state().playing)).toBe(false);
   await page.getByRole('button', { name:'Reset to step 0', exact:true }).click();
   await expect.poll(() => page.evaluate(() => window.fluxWebsiteDemo.state().beat)).toBe(0);
-  // The first slide's text-to-text Become crossfades by design (an authoring note the website hides).
-  expect((await page.evaluate(() => window.fluxWebsiteDemo.state().issues)).filter(issue => issue.reason !== CROSSFADE)).toEqual([]);
-  await expect(page.locator('.flux-slide-bar')).toContainText('The Flux film');
+  expect((await page.evaluate(() => window.fluxWebsiteDemo.state().issues))).toEqual([]);
+  await expect(page.locator('.flux-slide-bar')).toContainText('Flux slides in motion');
 });
 
 test('a narrow phone keeps every native slide control inside the frame', async ({ page }) => {
   await page.setViewportSize({ width:320, height:800 });
   await page.emulateMedia({ reducedMotion:'reduce' });
   await page.goto('/');
-  await page.getByRole('button', { name:'Load the interactive slides from the Flux film', exact:true }).click();
+  await page.getByRole('button', { name:'Load the interactive Flux slides', exact:true }).click();
   const iframe = page.locator('#slide-demo iframe');
   const frame = page.frameLocator('#slide-demo iframe');
   await expect(frame.getByRole('button', { name:'Toggle animation', exact:true })).toBeVisible();
@@ -177,27 +176,25 @@ test('a narrow phone keeps every native slide control inside the frame', async (
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(320);
 });
 
-test('all six film slides can be explored, keep their own theme and retain their manual step', async ({ page }) => {
+test('all six homepage slides can be explored and retain their manual step', async ({ page }) => {
   const errors=[];page.on('pageerror',error=>errors.push(error.message));
   await page.emulateMedia({ reducedMotion:'reduce' });
   await page.goto('/demos/slides/');
   const select=page.getByRole('combobox', { name:'Choose a slide', exact:true });
-  await expect(select.locator('option')).toHaveCount(FILM_SLIDES.length);
+  await expect(select.locator('option')).toHaveCount(HOMEPAGE_SLIDES.length);
   const webgl=await page.evaluate(()=>{const gl=document.createElement('canvas').getContext('webgl2',{antialias:true,alpha:true,preserveDrawingBuffer:true});if(!gl)return false;gl.getExtension('WEBGL_lose_context')?.loseContext();return true;});
-  for (let index=0;index<FILM_SLIDES.length;index++) {
+  for (let index=0;index<HOMEPAGE_SLIDES.length;index++) {
     await select.selectOption(String(index));
-    await expect.poll(()=>page.evaluate(()=>window.fluxWebsiteDemo.selectedSlide())).toBe(FILM_SLIDES[index]);
+    await expect.poll(()=>page.evaluate(()=>window.fluxWebsiteDemo.selectedSlide())).toBe(HOMEPAGE_SLIDES[index]);
     await page.getByRole('button', { name:'Next animation step', exact:true }).click();
     await expect.poll(()=>page.evaluate(()=>window.fluxWebsiteDemo.state().beat)).toBeGreaterThanOrEqual(1);
     const reasons=[...new Set((await page.evaluate(()=>window.fluxWebsiteDemo.state().issues)).map(i=>i.reason))];
-    const allowed=[...(index===0?[CROSSFADE]:[]),...(index===1&&!webgl?['3D model rendered as a still']:[])];
-    for(const reason of reasons)expect(allowed,`${FILM_SLIDES[index]}: ${reason}`).toContain(reason);
+    const allowed=index===4&&!webgl?['3D model rendered as a still']:[];
+    for(const reason of reasons)expect(allowed,`${HOMEPAGE_SLIDES[index]}: ${reason}`).toContain(reason);
     await expect(page.locator('.flux-slide-status')).toBeHidden();
     await expect(page.locator('.source-credit:visible')).toHaveCount(1);
     expect(await page.locator('#native-player svg').count()).toBeGreaterThan(0);
   }
-  // The film's light slides keep their own deck theme rather than the Figure 11 deck's dark one.
-  expect(await page.evaluate(()=>JSON.parse(document.getElementById('payload').textContent).map(p=>p.deck.theme))).toEqual(['flux-light','flux-light','flux-dark','flux-light','flux-light','flux-light']);
   await select.selectOption('0');
   await expect.poll(()=>page.evaluate(()=>window.fluxWebsiteDemo.state().beat)).toBe(1);
   expect(errors).toEqual([]);
@@ -264,7 +261,7 @@ test('3D slides keep accurate saved views at every step when WebGL is unavailabl
   HTMLCanvasElement.prototype.getContext=function(kind,...options){return kind==='webgl2'?null:original.call(this,kind,...options);};
  });
  await page.goto('/demos/slides/');
- await page.getByRole('combobox',{name:'Choose a slide'}).selectOption('1');
+ await page.getByRole('combobox',{name:'Choose a slide'}).selectOption('4');
  await expect(page.getByRole('button',{name:'Toggle animation',exact:true})).toBeDisabled();
  const views=[];
  for(let beat=0;beat<=2;beat++){

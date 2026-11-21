@@ -1,131 +1,90 @@
 {
   "source": {
     "repository": "https://github.com/fluxsci/flux.git",
-    "revision": "bb4f35be2eb16fffa306ff8e285ef80dd9745564",
+    "revision": "8a5ee8354b8f9608bd83bbd715afc5e0ee7f81da",
     "version": "0.3.0+dev"
   },
-  "description": "Stills and short clips of the 0.3 Figure, Paper and Settings features in the native Flux GUI (dev-server fixture, isolated in-memory project). Plots are the authorized showcase plots and the tutorial plot drawn by media/docs-plots/make_docs_plots.py; the dissections folder and notes are illustrative. Clips are cut from one Playwright recording with ffmpeg.",
+  "description": "Production Flux desktop stills from isolated teaching projects. Demonstrations use reviewed showcase plots, original tutorial plots, an illustrative fluorescence stack and a small public reference library.",
   "errors": [],
   "problems": [],
   "outputs": {
     "site/assets/media/docs/figure-plots-rail.png": {
-      "width": 2800,
-      "height": 2000,
-      "bytes": 1294745,
-      "sha256": "07c98b780c11ee5b8d013cfe96fdd0f459373f79d5cdaf30a3b2f38ccc62d5bc"
+      "width": 3000,
+      "height": 1900,
+      "bytes": 1569177,
+      "sha256": "26e727da44612916e03ff0a319775b6612130832d807582890634a6e00dfb5b5"
     },
     "site/assets/media/docs/figure-dissections-notes.png": {
       "width": 638,
-      "height": 1746,
-      "bytes": 409854,
-      "sha256": "b72ee959edaa30ac7ca73f73f54d0b3fc28309085da4261f71f587a7811a62e0"
+      "height": 1646,
+      "bytes": 404474,
+      "sha256": "1bd3e52c16c8bb02c1614396a73f670f3b7543e3e649e3abb8e4d6b62d3bf8a9"
     },
     "site/assets/media/docs/figure-plot-layout.png": {
       "width": 496,
-      "height": 1240,
-      "bytes": 66883,
-      "sha256": "bf2b65b94b3a0a57b50ae2e50bd360fb577fa3349111c5795562fb7474e99afe"
+      "height": 1260,
+      "bytes": 68818,
+      "sha256": "c2c1ab51f4d93fbbe9554835afa8b9012e99c6c906db7e01ee21128032548a2d"
     },
     "site/assets/media/docs/figure-plot-reflowed.png": {
-      "width": 2800,
-      "height": 2000,
-      "bytes": 637494,
-      "sha256": "0c198819b73304c6ff077a07800cbffe424534cd2fd35297168696332f7cf3bc"
+      "width": 3000,
+      "height": 1900,
+      "bytes": 287429,
+      "sha256": "7cfe9b03be75dfc70d0b8ecaa17db0abdf5343c1ad8f2c203abd1f3320b052b4"
     },
     "site/assets/media/docs/figure-align-arrange.png": {
-      "width": 2800,
-      "height": 2000,
-      "bytes": 329318,
-      "sha256": "51bfbc612a0b34b555b28a38204932a771c489b39ec9611acc6a5ec87702839d"
+      "width": 3000,
+      "height": 1900,
+      "bytes": 348230,
+      "sha256": "2ea36d31c3dc8aefe9c87a866680e0e0e03ae2a954447378c04cf69c927d8bb3"
     },
     "site/assets/media/docs/figure-sticky-connector.png": {
-      "width": 2800,
-      "height": 2000,
-      "bytes": 234838,
-      "sha256": "dc9003609ae74b3a293c354133a80aa45166cfdbaad5c5582d1e45d265a9f006"
+      "width": 3000,
+      "height": 1900,
+      "bytes": 232758,
+      "sha256": "e6bdbb2442777c8f297f9e471eda6c412e4a3ed5351d3dc25b812a67bd257f0b"
     },
     "site/assets/media/docs/settings-cursor.png": {
-      "width": 1560,
-      "height": 1200,
-      "bytes": 140344,
-      "sha256": "17b3a6c489379705b44195707408caf00a7468ede1371cf667aece43a55adc90"
+      "width": 1680,
+      "height": 1280,
+      "bytes": 169403,
+      "sha256": "5901f6b26ffcffcf7a65d96381474b5e12c8f3e213770e3d979f515994823171"
     },
     "site/assets/media/docs/paper-figures-pane.png": {
-      "width": 704,
-      "height": 1906,
-      "bytes": 485056,
-      "sha256": "02d38a236c519072ed22eb62768a2697a15c755a43aa2b39d6084b2900852bc8"
+      "width": 680,
+      "height": 1752,
+      "bytes": 396493,
+      "sha256": "f4f4129474f5b469cf28aeec53bfd979c03184de419a6c717f6fef09b22f4511"
     },
     "site/assets/media/docs/paper-spelling.png": {
-      "width": 1240,
-      "height": 660,
-      "bytes": 58457,
-      "sha256": "2b424bb2325d9d3fd787bb9699bf450845829d9982c083ba5db7b9e16af05a20"
+      "width": 1072,
+      "height": 380,
+      "bytes": 35082,
+      "sha256": "d9692e7463619599232ded30c2468e26b964713ad2d6db1681d9876d6fc62f64"
     },
-    "site/assets/media/docs/clips/plots-rail-place.mp4": {
-      "width": 1400,
-      "height": 1000,
-      "bytes": 400929,
-      "sha256": "b0f7928993accbf2fb05a7c88664f9918d371bb469d61936d98c94959505f1de",
-      "durationMs": 7207
+    "site/assets/media/docs/fluximg-control-board.png": {
+      "width": 1636,
+      "height": 1070,
+      "bytes": 347294,
+      "sha256": "542dd34a3b4bc5198fee29aed9fc827bf2fc87a494cf03f269e2c50aada0b0ab"
     },
-    "site/assets/media/docs/clips/plots-rail-place.png": {
-      "width": 1400,
-      "height": 1000,
-      "bytes": 697598,
-      "sha256": "b7c3ed709d0ae9ae6ad45ad3c2380e5ecf3e7be65a8e23f7e94346d13762c8f8"
+    "site/assets/media/docs/reader-selection-card.png": {
+      "width": 1152,
+      "height": 424,
+      "bytes": 169274,
+      "sha256": "8409077c7a4ef68212055d8f2da66cb1443db3c526be267cb5bd3290b86c890c"
     },
-    "site/assets/media/docs/clips/reflow-resize.mp4": {
-      "width": 1400,
-      "height": 1000,
-      "bytes": 262440,
-      "sha256": "fbc977e51e18fff7817f91152be03970becb1d5ea1ef6db5bd5dacf2aea66caa",
-      "durationMs": 7867
+    "site/assets/media/docs/paper-comment-tags.png": {
+      "width": 1526,
+      "height": 674,
+      "bytes": 153795,
+      "sha256": "05a416c1c6ea522f1abe1c3e15ddde1251c89ec5805c802aed1da9506c79bb55"
     },
-    "site/assets/media/docs/clips/reflow-resize.png": {
-      "width": 1400,
-      "height": 1000,
-      "bytes": 559178,
-      "sha256": "e5118d17394f019e5a24bf9ef379079efc682925545b68fe7e0747ffe32213ab"
-    },
-    "site/assets/media/docs/clips/xray.mp4": {
-      "width": 1400,
-      "height": 1000,
-      "bytes": 429655,
-      "sha256": "a2ed7f2b7bfb468aff65b027ae5a33a3fdf1c69fc5c661f6b78e5275a3481af7",
-      "durationMs": 8779
-    },
-    "site/assets/media/docs/clips/xray.png": {
-      "width": 1400,
-      "height": 1000,
-      "bytes": 575432,
-      "sha256": "b3286a85b4b935f514496822a24855bbd19dc55197cca4ad73a3393dbf4e6ac2"
-    },
-    "site/assets/media/docs/clips/align-arrange.mp4": {
-      "width": 1400,
-      "height": 1000,
-      "bytes": 149490,
-      "sha256": "2619fc99bc65a1df422ff7603e0615d3f075b5f6197fefbd6e94ab741baf0018",
-      "durationMs": 5936
-    },
-    "site/assets/media/docs/clips/align-arrange.png": {
-      "width": 1400,
-      "height": 1000,
-      "bytes": 419330,
-      "sha256": "b46f3dfd0c974d75f8ba94558a5142ac048b7d875e319df55dc85e92e9ae5e44"
-    },
-    "site/assets/media/docs/clips/sticky-connector.mp4": {
-      "width": 1400,
-      "height": 1000,
-      "bytes": 305102,
-      "sha256": "e83fbebe5e4ecdc906131ca8d197cddd6630ee6a50e1147f11ab1e474f62f1c0",
-      "durationMs": 12986
-    },
-    "site/assets/media/docs/clips/sticky-connector.png": {
-      "width": 1400,
-      "height": 1000,
-      "bytes": 245618,
-      "sha256": "4df8e8416921d3914835a055fc608ad79707445128eed632d25fc144a8e79027"
+    "site/assets/media/docs/figure-meta-overview.png": {
+      "width": 2880,
+      "height": 1804,
+      "bytes": 757361,
+      "sha256": "642d13f678ace3b1213d1bd5135af82d49f0b164b4c526a8196cceec26308b02"
     }
   }
 }

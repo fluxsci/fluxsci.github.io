@@ -74,15 +74,20 @@ Select objects and press **A** to open **Align & Arrange** beside them, with Ali
 controls to activate it, or press **Space** while the tool surface has focus to switch. The
 panel works the same way on slides.
 
-<figure class="doc-figure doc-clip"><video poster="/assets/media/docs/clips/align-arrange.png" width="1400" height="1000" muted loop playsinline autoplay controls preload="metadata" aria-label="Three plots at different heights are aligned to their top edge with one click, then spaced evenly with Distribute horizontal spacing."><source src="/assets/media/docs/clips/align-arrange.mp4" type="video/mp4"></video><figcaption>Align top, then even horizontal spacing: each click is one undo step and the panel stays open.</figcaption></figure>
+<figure data-doc-clip="align-arrange" data-clip-label="Three plots at different heights are selected. A opens Align &amp; Arrange. Align Top lines up the plots, then Horizontal makes their gutters equal."><figcaption>Align top, then even horizontal spacing: each click is one undo step and the panel stays open.</figcaption></figure>
 
-<figure class="doc-figure"><a href="/assets/media/docs/figure-align-arrange.png" data-enlarge data-caption="Press A with objects selected. Align is active on the left; Arrange stays visible on the right, and Space switches between them."><img src="/assets/media/docs/figure-align-arrange.png" alt="The Align &amp; Arrange panel open beside three selected plots: the Align pane with its six edge and centre buttons and their key hints, Even spacing, Match plot area and Plot spines controls, and the Arrange pane with Row, Grid and Column, spacing and Keep fixed." width="2800" height="2000" loading="lazy"></a><figcaption>Press <strong>A</strong> with objects selected. Align is active on the left; Arrange stays visible on the right, and <strong>Space</strong> switches between them.</figcaption></figure>
+<figure class="doc-figure"><a href="/assets/media/docs/figure-align-arrange.png" data-enlarge data-caption="Press A with objects selected. Align is active on the left; Arrange stays visible on the right, and Space switches between them."><img src="/assets/media/docs/figure-align-arrange.png" alt="The Align &amp; Arrange panel open beside three selected plots: the Align pane with its six edge and centre buttons and their key hints, Even spacing, Match plot area and Plot spines controls, and the Arrange pane with Row, Grid and Column, spacing and Keep fixed." width="3000" height="1900" loading="lazy"></a><figcaption>Press <strong>A</strong> with objects selected. Align is active on the left; Arrange stays visible on the right, and <strong>Space</strong> switches between them.</figcaption></figure>
 
-**Align.** Click an alignment button or use **W/A/S/D** for top/left/bottom/right; **H**
+### Crystallize a loose selection {#crystallize}
+
+Select a roughly arranged row, column or grid and press **Shift+A**. Flux infers the layout from the positions, evens the spacing and aligns the selection in one Undo step. Hover over the small button at the selection’s lower right for a preview. When every item is a semantic plot with readable axes, rows line up on their X axes and columns line up on their Y axes. A plot grouped with its panel letter counts as one plot. For bounding-box alignment, press **Shift+Alt+A** or **Alt+click** the corner button. Mixed selections use their bounds. The pink gap guides let you fine-tune the result.
+
+### Align objects and axes {#align-objects}
+
+Click an alignment button or use **W/A/S/D** for top/left/bottom/right; **H**
 aligns X centres along a vertical line and **V** aligns Y centres along a horizontal line.
-**To** chooses what you align to: **Selection bounds**, a named **Reference object**, or the
-**Figure** frame (one selected object aligns to the figure). **Even spacing → Horizontal /
-Vertical** distributes three or more objects, keeping the outermost ones fixed. Each alignment
+**To** chooses what you align to: **Selection**, a named **Object**, or the
+**Figure** frame (one selected object aligns to the figure). **Shift+H / Shift+V** under **Distribute** spaces three or more objects, keeping the outermost ones fixed. Each alignment
 is one undo step and the panel stays open. A plot with parts hidden in X-ray aligns and
 arranges by its visible outline. Without the panel, **Alt+A / Alt+W / Alt+S / Alt+D** align
 left/top/bottom/right and **Alt+H / Alt+V** centre horizontally/vertically.
@@ -95,11 +100,11 @@ in the pane, and ordinary alignment remains available. These commands move plots
 changing their domains, sizes or internal geometry. **Match plot area** sits in the same pane
 and changes the plots' sizes so their data areas match; see [Resizing a plot](#resizing-a-plot).
 
-**Arrange.** An existing row, column or simple grid keeps its order and internal offsets while
+### Arrange a row, column or grid {#arrange-objects}
+
+An existing row, column or simple grid keeps its order and internal offsets while
 uneven gaps are tidied, and a regular arrangement stays where it is. An ambiguous selection gets
-a **Suggested grid** preview. **Row**, **Grid** and **Column** reflow the selection into centred
-cells; **A** toggles row/column, **G** chooses a balanced grid, and **D** / **F** add or remove
-rows.
+a **Suggested grid** preview. **R** chooses Row, **C** Column and **G** Grid. Use **− / +** beside the grid readout to change the row count. The link between the grid’s gap fields adjusts horizontal and vertical spacing together.
 
 **Gap guides and spacing.** Selecting an already evenly spaced row, column or simple grid shows
 pink gap guides without opening the panel; this recognition leaves the objects unchanged, and
@@ -135,13 +140,11 @@ reference ([command reference](/docs/commands.html#verb-reference)).
 
 ## The property menu {#property-menu}
 
-<figure class="doc-figure doc-figure-compact"><a href="/assets/media/docs/figure-property-menu.png" data-enlarge data-caption="Press F for the selected object’s geometry and axis-view controls. The blue key labels let you work without moving the pointer."><img src="/assets/media/docs/figure-property-menu.png" alt="Native property menu with geometry, content scale and axis-view controls." width="906" height="1078" loading="lazy"></a><figcaption>Press F for the selected object’s geometry and axis-view controls. The blue key labels let you work without moving the pointer. Click to enlarge.</figcaption></figure>
+<figure class="doc-figure doc-figure-compact"><a href="/assets/media/docs/figure-property-menu.png" data-enlarge data-caption="Press F for the selected object’s geometry and axis-view controls. The blue key labels let you work without moving the pointer."><img src="/assets/media/docs/figure-property-menu.png" alt="Native property menu with geometry, content scale and axis-view controls." width="546" height="754" loading="lazy"></a><figcaption>Press F for the selected object’s geometry and axis-view controls. The blue key labels let you work without moving the pointer. Click to enlarge.</figcaption></figure>
 
-Press **F** with anything selected for the **property menu**, the fastest way to edit with one
-hand on the keyboard and one on the mouse. It opens **beside the selection**, never on top of it
-(when nothing fits, it takes the side that covers the least), and lays its groups out in narrow
-columns, each row a key and a name over its control, so nothing scrolls. Opening a larger picker
-repositions the menu when needed to keep the selection clear.
+Press **F** with an object or part selected. The header identifies the selection by its Layers name and offers **Ask**. Cards group the controls that apply to the selection. Geometry pairs **x** with **width** and **y** with **height**. On a group heading, a lit key means its switch is on. Hover for its name, then click or press the displayed key. With one object selected in Figure, hover over position, size, rotation or corner radius to see the corresponding measure drawn on the object. The footer gives the next action and a search button (**S**).
+
+Drag a fader to change opacity, or drag the rotation dial to set an angle. Hold **Shift** on the dial to snap to 15°. Stroke width shows a sample line and corner radius shows the bend. Each drag is one undo step. Press **Escape** during the drag to cancel it. At rest a number shows up to two decimals. Click it for its exact value or type an expression such as `240/2`. To adjust a property while watching the object, use its key and the wheel.
 
 Every hotkey is a **left-hand key**: `1`–`6`, `q` `w` `e` `r` `t`, `a` `d` `g` and
 `z` `x` `c` `v` `b`, plus `h` for a plot's **content scale** or a text's **letter spacing** and
@@ -239,9 +242,9 @@ physical point sizes — the way changing a figure's size in matplotlib does, wi
 deliberate size chosen in Flux survives regeneration; an untouched plot follows the new Python
 size.
 
-<figure class="doc-figure doc-figure-compact"><a href="/assets/media/docs/figure-plot-layout.png" data-enlarge data-caption="The Inspector’s plot section: Reflow or Stretch, the Layout status, the printed size and Native size."><img src="/assets/media/docs/figure-plot-layout.png" alt="The Inspector for a selected plot: width and height, a Layout switch between Reflow and Stretch with the status Exact, the plot’s size in inches beside a Native size button, Axis view limits, Content scale, Dissections, and a Sticks to section." width="496" height="1240" loading="lazy"></a><figcaption>The Inspector’s plot section: <strong>Reflow</strong> or <strong>Stretch</strong>, the Layout status, the printed size and <strong>Native size</strong>.</figcaption></figure>
+<figure class="doc-figure doc-figure-compact"><a href="/assets/media/docs/figure-plot-layout.png" data-enlarge data-caption="The Inspector’s plot section: Reflow or Stretch, the Layout status, the printed size and Native size."><img src="/assets/media/docs/figure-plot-layout.png" alt="The Inspector for a selected plot: width and height, a Layout switch between Reflow and Stretch with the status Exact, the plot’s size in inches beside a Native size button, Axis view limits, Content scale, Dissections, and a Sticks to section." width="496" height="1260" loading="lazy"></a><figcaption>The Inspector’s plot section: <strong>Reflow</strong> or <strong>Stretch</strong>, the Layout status, the printed size and <strong>Native size</strong>.</figcaption></figure>
 
-<figure class="doc-figure doc-clip"><video poster="/assets/media/docs/clips/reflow-resize.png" width="1400" height="1000" muted loop playsinline autoplay controls preload="metadata" aria-label="A fluxplot line plot is dragged narrower by its right edge: the axes and data area shrink, tick labels re-space, and the title, legend and tick text keep their size."><source src="/assets/media/docs/clips/reflow-resize.mp4" type="video/mp4"></video><figcaption>Drag an edge and a fluxplot ≥ 0.4 plot reflows: axes and data follow, text and strokes keep their point sizes, and the status reads Exact.</figcaption></figure>
+<figure data-doc-clip="reflow-resize" data-clip-label="A fluxplot line plot is dragged narrower by its right edge: the axes and data area shrink, tick labels re-space, and the title, legend and tick text keep their size."><figcaption>Drag an edge and a fluxplot ≥ 0.4 plot reflows: axes and data follow, text and strokes keep their point sizes, and the status reads Exact.</figcaption></figure>
 
 **Legends** wrap onto more rows when they need more room, keeping their labels and swatches at
 their original size where possible: a one-row legend wraps left to right like text, and a
@@ -309,7 +312,7 @@ released it (hold **Ctrl** as you release to keep the exact spot on a shape too)
 and its connectors and labels follow it, live while you drag. A connector never points
 backwards: as the shapes close in it thins out, and while they overlap it is hidden.
 
-<figure class="doc-figure doc-clip"><video poster="/assets/media/docs/clips/sticky-connector.png" width="1400" height="1000" muted loop playsinline autoplay controls preload="metadata" aria-label="Two rectangles are drawn, an arrow is drawn from one to the other with a dashed outline showing the shape it will stick to, and when the second rectangle is dragged away the arrow follows it."><source src="/assets/media/docs/clips/sticky-connector.mp4" type="video/mp4"></video><figcaption>An arrow drawn from one shape to another sticks to both; move a shape and the arrow follows, live while you drag.</figcaption></figure>
+<figure data-doc-clip="sticky-connector" data-clip-label="Two rectangles are drawn, an arrow is drawn from one to the other with a dashed outline showing the shape it will stick to, and when the second rectangle is dragged away the arrow follows it."><figcaption>An arrow drawn from one shape to another sticks to both; move a shape and the arrow follows, live while you drag.</figcaption></figure>
 
 Any element can sit beside another. In the Inspector, **Sticks to** picks the element, the
 side, the gap and the alignment (a line shows **Connector** with its two ends instead); a

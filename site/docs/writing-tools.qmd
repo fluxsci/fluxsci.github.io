@@ -30,6 +30,22 @@ the slider resizes the manuscript only, so the sidebar and margin keep their siz
 make your text bigger. Each panel remembers its own size, and both the sizes and your choice
 of panels come back the next time you open Flux. At least one panel always stays ticked.
 
+## Word counts and targets {#word-counts}
+
+Click the word count in Paper’s status bar to see counts for the abstract, main text,
+Methods, legends and each section. Choose a journal to see its word limits. Select text
+in the editor to see how many words you’ve selected, or open **Statistics** in the word
+count popover for the complete view.
+
+The main-text count follows the selected journal. A figure reference such as
+`@fig-growth` counts the words it prints, such as “Fig. 2”. Citation keys, equations,
+code and formatting marks are excluded. Legends and table cells have separate counts.
+Journal Check and the journal export summary use the same rules.
+
+Enter a **Word target** in the word count popover. Flux saves it in the document’s front
+matter as, for example, `word-target: 3000`. The status bar then shows your count against
+the target. Click **Clear** in the popover to remove it.
+
 ## Local corrections {#local-corrections}
 
 Paper fixes unmistakable typing slips as soon as you finish a word: transposed letters such as
@@ -64,7 +80,7 @@ A word the checker cannot resolve is underlined in red.
 3. If the word is correct, press **+** in the popover to add it to your **Personal** dictionary.
    The underline disappears at once, including other occurrences in open documents.
 
-<figure class="doc-figure doc-figure-compact"><a href="/assets/media/docs/paper-spelling.png" data-enlarge data-caption="Hover a red underline for ranked suggestions; + adds the word to your Personal dictionary."><img src="/assets/media/docs/paper-spelling.png" alt="A sentence in the Paper editor with a misspelled word underlined in red and a popover above it listing ranked spelling suggestions, with buttons to add the word to the dictionary or dismiss it." width="1240" height="660" loading="lazy"></a><figcaption>Hover a red underline for ranked suggestions; <strong>+</strong> adds the word to your Personal dictionary.</figcaption></figure>
+<figure class="doc-figure doc-figure-compact"><a href="/assets/media/docs/paper-spelling.png" data-enlarge data-caption="Hover a red underline for ranked suggestions; + adds the word to your Personal dictionary."><img src="/assets/media/docs/paper-spelling.png" alt="A sentence in the Paper editor with a misspelled word underlined in red and a popover above it suggesting approximately, with buttons to add the word to the dictionary or dismiss it." width="1072" height="380" loading="lazy"></a><figcaption>Hover a red underline for ranked suggestions; <strong>+</strong> adds the word to your Personal dictionary.</figcaption></figure>
 
 Flux remembers the correction — picked from the list, typed in the box, or retyped by hand as one
 of the suggestions — and applies it automatically the next time you type that misspelling

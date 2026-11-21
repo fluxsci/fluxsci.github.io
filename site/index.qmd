@@ -18,21 +18,19 @@ description: "Flux is a free, open-source desktop workspace for scientists. Comp
       <path d="M9 5H5v14h14v-4M12 5h7v7M19 5 9 15" />
     </symbol>
     <symbol id="i-paper" viewBox="0 0 24 24">
-      <path d="M6 3h8l4 4v14H6zM14 3v5h4M9 12h6M9 16h6" />
+      <path d="M3 9h5M3 15h5M16 9h5M16 15h5" stroke-width="2"/><path d="M12 5.25v13.5M8.9 3.5c1.9 0 3.1.6 3.1 1.75 0-1.15 1.2-1.75 3.1-1.75M8.9 20.5c1.9 0 3.1-.6 3.1-1.75 0 1.15 1.2 1.75 3.1 1.75" stroke="#4385be" stroke-width="2.2"/>
     </symbol>
     <symbol id="i-figure" viewBox="0 0 24 24">
-      <path d="M4 4v16h16M7 15l4-5 4 2 5-7M7 5v2" />
+      <path d="M11.7 15.5H3.5V4H17v7.6" stroke-width="1.5" stroke-linejoin="miter"/><path d="M6.1 12.75c3.2 0 3-6 8.4-6" stroke="#2f6bb3" stroke-width="2.4"/><rect x="1.7" y="2.2" width="3.6" height="3.6" rx=".7" fill="currentColor" stroke="none"/><rect x="15.2" y="2.2" width="3.6" height="3.6" rx=".7" fill="currentColor" stroke="none"/><rect x="1.7" y="13.7" width="3.6" height="3.6" rx=".7" fill="currentColor" stroke="none"/><path d="M12.9 11.2L21.46 16.22L17.19 17.33L14.69 20.96z" fill="#ff60fc" stroke="#07043c" stroke-width="1.5" paint-order="stroke"/>
     </symbol>
     <symbol id="i-slides" viewBox="0 0 24 24">
-      <path d="M3 4h18v12H3zM12 16v5M8 21h8M9 8l5 2-5 3z" />
+      <path d="M1.94 14.88L5.13 13.78M11.58 17.1L11.86 17.92L3.92 20.65L1.94 14.88" stroke-width="1.6" opacity=".4"/><path d="M4.6 10L7.7 9.57M16.46 15.35L16.6 16.4L5.71 17.93L4.6 10" stroke-width="1.6" opacity=".72"/><rect x="7.7" y="5.85" width="13" height="9.5" rx="2" stroke-width="2"/><path d="M12.8 8.4v4.4l3.74-2.2z" fill="#7fc241" stroke="#7fc241" stroke-width="1.1"/>
     </symbol>
     <symbol id="i-library" viewBox="0 0 24 24">
-      <path d="M4 4h4v16H4zM11 4h4v16h-4zM18 5l3 14M4 8h4M11 8h4" />
+      <rect x="2.5" y="6.5" width="3.8" height="14" rx=".9" fill="#9a80e6" stroke="none"/><rect x="6.9" y="9" width="3.1" height="11.5" rx=".8" fill="currentColor" stroke="none"/><rect x="10.6" y="4.5" width="3.5" height="16" rx=".9" fill="currentColor" stroke="none"/><rect x="18.3" y="7" width="3.5" height="13.5" rx=".9" fill="#9a80e6" stroke="none" transform="rotate(-18 18.3 20.5)"/><path d="M2.5 22.1h19" stroke-width="1.4"/>
     </symbol>
     <symbol id="i-reader" viewBox="0 0 24 24">
-      <path
-        d="M12 6C8 3 4 4 2 5v14c3-2 7-2 10 0 3-2 7-2 10 0V5c-2-1-6-2-10 1zm0 0v13"
-      />
+      <path d="M3.3 6.76L6.8 5.95M12.23 19.58L6.56 20.89L3.3 6.76" stroke-width="1.6" opacity=".6"/><path d="M16.8 5.82L20.9 7.15L16.41 20.94L9.06 18.55" stroke-width="1.6" opacity=".85"/><rect x="6.8" y="4.05" width="10" height="14.5" rx="1.5" stroke-width="2"/><path d="M9.5 7.4h4.6M9.5 15.2h3" stroke-width="1.75"/><path d="M9.1 11.3h5.4" stroke="#d0a215" stroke-width="3.8" stroke-linecap="butt"/>
     </symbol>
     <symbol id="i-zoom" viewBox="0 0 24 24">
       <circle cx="10" cy="10" r="6" />
@@ -180,10 +178,10 @@ description: "Flux is a free, open-source desktop workspace for scientists. Comp
         ><span class="workspace-prompt">Explore the workspace</span>
       </div>
       <div class="workspace-choices" role="group" aria-label="Choose a Flux workspace" hidden>
+        <button type="button" data-workspace="figure" aria-pressed="true" style="--workspace-color:#2f6bb3"><svg class="icon" aria-hidden="true"><use href="#i-figure" /></svg>Figure<span>Compose &amp; refine</span></button>
+        <button type="button" data-workspace="slides" aria-pressed="false" style="--workspace-color:#7fc241"><svg class="icon" aria-hidden="true"><use href="#i-slides" /></svg>Slides<span>Build the explanation</span></button>
         <button type="button" data-workspace="paper" aria-pressed="false" style="--workspace-color:#4385be"><svg class="icon" aria-hidden="true"><use href="#i-paper" /></svg>Paper<span>Write &amp; publish</span></button>
-        <button type="button" data-workspace="figure" aria-pressed="true" style="--workspace-color:#3aa99f"><svg class="icon" aria-hidden="true"><use href="#i-figure" /></svg>Figure<span>Compose &amp; refine</span></button>
-        <button type="button" data-workspace="slides" aria-pressed="false" style="--workspace-color:#ce5d97"><svg class="icon" aria-hidden="true"><use href="#i-slides" /></svg>Slides<span>Build the explanation</span></button>
-        <button type="button" data-workspace="library" aria-pressed="false" style="--workspace-color:#8b7ec8"><svg class="icon" aria-hidden="true"><use href="#i-library" /></svg>Library<span>Collect &amp; connect</span></button>
+        <button type="button" data-workspace="library" aria-pressed="false" style="--workspace-color:#9a80e6"><svg class="icon" aria-hidden="true"><use href="#i-library" /></svg>Library<span>Collect &amp; connect</span></button>
         <button type="button" data-workspace="reader" aria-pressed="false" style="--workspace-color:#d0a215"><svg class="icon" aria-hidden="true"><use href="#i-reader" /></svg>Reader<span>Read &amp; understand</span></button>
       </div>
       <a
@@ -243,12 +241,12 @@ description: "Flux is a free, open-source desktop workspace for scientists. Comp
           <text x="913" y="346">export</text>
           <text x="285" y="410">re-run the script → the figure updates</text>
         </g>
-        <foreignObject x="20" y="22" width="210" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#8b7ec8"></i>Library</span><span class="flow-box-note">References and PDFs, shared by all your projects.</span></div></foreignObject>
+        <foreignObject x="20" y="22" width="210" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#9a80e6"></i>Library</span><span class="flow-box-note">References and PDFs, shared by all your projects.</span></div></foreignObject>
         <foreignObject x="340" y="22" width="210" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#d0a215"></i>Reader</span><span class="flow-box-note">Read, highlight and keep notes on the source.</span></div></foreignObject>
         <foreignObject x="660" y="22" width="210" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#4385be"></i>Paper</span><span class="flow-box-note">Write and cite. One manuscript, every output format.</span></div></foreignObject>
         <foreignObject x="20" y="222" width="210" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-code"><span class="flow-box-title">Python plots</span><span class="flow-box-note">fluxplot names every part:</span><code>control.line · axis.x.tick.3</code></div></foreignObject>
-        <foreignObject x="340" y="222" width="210" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#3aa99f"></i>Figure</span><span class="flow-box-note">Compose panels, restyle any part, export.</span></div></foreignObject>
-        <foreignObject x="660" y="222" width="210" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#ce5d97"></i>Slides</span><span class="flow-box-note">Reveal, morph and turn, one step at a time.</span></div></foreignObject>
+        <foreignObject x="340" y="222" width="210" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#2f6bb3"></i>Figure</span><span class="flow-box-note">Compose panels, restyle any part, export.</span></div></foreignObject>
+        <foreignObject x="660" y="222" width="210" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#7fc241"></i>Slides</span><span class="flow-box-note">Reveal, morph and turn, one step at a time.</span></div></foreignObject>
         <foreignObject x="970" y="22" width="250" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-export"><span class="flow-box-title">Documents</span><span class="flow-box-note">One manuscript, any format.</span><span class="flow-formats"><span>Word</span><span>PDF</span><span>HTML</span><span>Journal styles</span></span></div></foreignObject>
         <foreignObject x="970" y="222" width="250" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-export"><span class="flow-box-title">Decks</span><span class="flow-box-note">One deck, any format.</span><span class="flow-formats"><span>HTML deck</span><span>PowerPoint</span><span>PDF handout</span><span>Video</span></span></div></foreignObject>
       </svg>
@@ -283,12 +281,12 @@ description: "Flux is a free, open-source desktop workspace for scientists. Comp
           <text x="186" y="620" text-anchor="end">export</text>
           <text x="386" y="620" text-anchor="end">export</text>
         </g>
-        <foreignObject x="20" y="0" width="160" height="150"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#8b7ec8"></i>Library</span><span class="flow-box-note">References and PDFs, shared by all your projects.</span></div></foreignObject>
+        <foreignObject x="20" y="0" width="160" height="150"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#9a80e6"></i>Library</span><span class="flow-box-note">References and PDFs, shared by all your projects.</span></div></foreignObject>
         <foreignObject x="220" y="0" width="160" height="150"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-code"><span class="flow-box-title">Python plots</span><span class="flow-box-note">fluxplot names every part:</span><code>control.line · axis.x.tick.3</code></div></foreignObject>
         <foreignObject x="20" y="206" width="160" height="150"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#d0a215"></i>Reader</span><span class="flow-box-note">Read, highlight and keep notes on the source.</span></div></foreignObject>
-        <foreignObject x="220" y="206" width="160" height="150"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#3aa99f"></i>Figure</span><span class="flow-box-note">Compose panels, restyle any part, export.</span></div></foreignObject>
+        <foreignObject x="220" y="206" width="160" height="150"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#2f6bb3"></i>Figure</span><span class="flow-box-note">Compose panels, restyle any part, export.</span></div></foreignObject>
         <foreignObject x="20" y="440" width="160" height="150"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#4385be"></i>Paper</span><span class="flow-box-note">Write and cite. One manuscript, every output format.</span></div></foreignObject>
-        <foreignObject x="220" y="440" width="160" height="150"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#ce5d97"></i>Slides</span><span class="flow-box-note">Reveal, morph and turn, one step at a time.</span></div></foreignObject>
+        <foreignObject x="220" y="440" width="160" height="150"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#7fc241"></i>Slides</span><span class="flow-box-note">Reveal, morph and turn, one step at a time.</span></div></foreignObject>
         <foreignObject x="20" y="646" width="160" height="222"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-export"><span class="flow-box-title">Documents</span><span class="flow-box-note">One manuscript, any format.</span><span class="flow-formats"><span>Word</span><span>PDF</span><span>HTML</span><span>Journal styles</span></span></div></foreignObject>
         <foreignObject x="220" y="646" width="160" height="222"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-export"><span class="flow-box-title">Decks</span><span class="flow-box-note">One deck, any format.</span><span class="flow-formats"><span>HTML deck</span><span>PowerPoint</span><span>PDF handout</span><span>Video</span></span></div></foreignObject>
       </svg>
@@ -301,7 +299,7 @@ description: "Flux is a free, open-source desktop workspace for scientists. Comp
   </section>
 
   <section class="structure-section content-width section-space" aria-labelledby="structure-title">
-    <div class="section-heading"><p class="eyebrow">Semantic plots</p><h2 id="structure-title">A plot is a structure, not a picture.</h2><p>Every meaningful part of a fluxplot plot carries a stable name. Hover the plot: a single point, the median line, the tick labels of an axis. That name is what you restyle in Figure, caption in Paper and animate in Slides, and it survives when the plot is regenerated.</p></div>
+    <div class="section-heading"><p class="eyebrow">Semantic plots</p><h2 id="structure-title">A plot is a structure, not a picture.</h2><p>Explore a point, the median line or a set of tick labels below. Each has a name stored in the plot. In Flux, press <strong>R</strong> to find that part in X-ray and <strong>F</strong> to edit its properties. The name keeps your edit attached when you regenerate the plot or animate it in Slides.</p></div>
     <div class="part-explorer" data-part-explorer role="group" aria-label="Explore the named parts of a fluxbox plot">
 <div class="explorer-stage"><img src="/assets/media/docs/explorer-fluxbox.svg" width="720" height="540" alt="A fluxbox plot with three conditions: Control, Low dose and High dose. Each condition shows eight points beside a box with a median line and a mean notch." loading="lazy"></div>
 <div class="explorer-panel"><div class="explorer-head"><span>Named parts</span><button type="button" data-explorer-clear>Release selection</button></div>
@@ -312,7 +310,20 @@ description: "Flux is a free, open-source desktop workspace for scientists. Comp
 </div>
 <script src="/assets/scripts/explorer.js" defer></script>
 <script src="/assets/scripts/film.js" defer></script>
-    <div class="structure-links"><a class="text-link" href="/docs/semantic-plots.html">Semantic plots, explained<span aria-hidden="true">→</span></a><a class="text-link" href="/docs/fluxplot.html">Start plotting with fluxplot<span aria-hidden="true">→</span></a></div>
+    <div class="structure-links"><a class="text-link" href="/docs/semantic-plots.html">Semantic plots, explained<span aria-hidden="true">→</span></a><a class="text-link" href="/docs/plot-editing.html#x-ray">Inspect and edit plot parts<span aria-hidden="true">→</span></a><a class="text-link" href="/docs/fluxplot.html">Start plotting with fluxplot<span aria-hidden="true">→</span></a></div>
+  </section>
+
+  <section class="image-stack-feature content-width section-space" aria-labelledby="image-stack-title">
+    <div class="image-stack-intro">
+      <p class="eyebrow">Scientific images</p>
+      <h2 id="image-stack-title">From image stack to figure panel.</h2>
+      <p>Find a plane, compare two channels or follow a segmented cell through a stack. Pull a magnified inset onto the figure and keep it linked as you adjust the parent image.</p>
+      <a class="text-link" href="/docs/fluximg.html">Explore scientific images and stacks<span aria-hidden="true">→</span></a>
+    </div>
+    <figure>
+      <a href="/assets/media/docs/fluximg-control-board.png" data-enlarge data-caption="Flux’s image live view around an illustrative fluorescence stack."><img src="/assets/media/docs/fluximg-control-board.png" alt="Cyan and magenta cell image in Figure, with depth and time rails and a contrast histogram for each channel." width="1636" height="1070" loading="lazy"></a>
+      <figcaption>Two channels in an illustrative fluorescence stack. <a href="/docs/visual-credits.html#scientific-images">Visual credits</a>.</figcaption>
+    </figure>
   </section>
 
   <section class="showcase-section content-width section-space" aria-labelledby="showcase-title">
@@ -327,18 +338,18 @@ description: "Flux is a free, open-source desktop workspace for scientists. Comp
   <section id="slides" class="motion-showcase content-width section-space" aria-labelledby="motion-title">
     <div class="section-heading"><p class="eyebrow">Slides</p><h2 id="motion-title">Explain it in motion.</h2><p>In Flux, any figure can become a slide, because the underlying editor and files are the same. That makes it seamless and simple to take a figure you have already made and add motion: turn one chart into the statistic it explains, send a figure’s parts into a new plot, morph one 3D shape into the next. Every change is a step you trigger, and the deck exports as one self-contained HTML file.</p></div>
     <div class="scene-tabs" role="group" aria-label="Choose a slide" hidden>
-      <button type="button" data-scene="0" aria-pressed="true"><span>Regions become latencies</span><small>Ghost and Become</small></button>
-      <button type="button" data-scene="1" aria-pressed="false"><span>Shapes that change shape</span><small>3D morph</small></button>
-      <button type="button" data-scene="2" aria-pressed="false"><span>The figure becomes a slide</span><small>Become</small></button>
-      <button type="button" data-scene="3" aria-pressed="false"><span>The fold becomes a fingerprint</span><small>Change</small></button>
-      <button type="button" data-scene="4" aria-pressed="false"><span>From genes to programs</span><small>Ghost and Change</small></button>
-      <button type="button" data-scene="5" aria-pressed="false"><span>Agreement, revealed</span><small>Ghost and Change</small></button>
+      <button type="button" data-scene="0" aria-pressed="true"><span>Japan’s earthquakes, from the side</span><small>Map and depth section</small></button>
+      <button type="button" data-scene="1" aria-pressed="false"><span>The Moon’s month</span><small>Orbit and lunar phases</small></button>
+      <button type="button" data-scene="2" aria-pressed="false"><span>A neuron, untangled</span><small>Neuron and dendrogram</small></button>
+      <button type="button" data-scene="3" aria-pressed="false"><span>A sunflower’s golden angle</span><small>Seed patterns</small></button>
+      <button type="button" data-scene="4" aria-pressed="false"><span>Shapes that change shape</span><small>3D morph</small></button>
+      <button type="button" data-scene="5" aria-pressed="false"><span>The figure becomes a slide</span><small>Become</small></button>
     </div>
     <div class="slide-demo" id="slide-demo" data-demo-src="/demos/slides/index.html" data-demo-scene="0">
-      <button type="button" class="demo-launch" aria-label="Load the interactive slides from the Flux film" data-demo-start><img src="/assets/media/slide-poster.svg" alt="Twelve brain regions on a mouse coronal section, each matched to a row of visual response latencies. Open the native Flux player to play six slides from the film." width="1280" height="720" loading="lazy"><span class="demo-launch-prompt"><span class="play-disc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 6 9 6-9 6Z" /></svg></span><span>Play the slides<small>The slides from the film, running in your browser</small></span></span></button>
+      <button type="button" class="demo-launch" aria-label="Load the interactive Flux slides" data-demo-start><img src="/assets/media/slide-poster.svg" alt="Map of Japan showing earthquakes by depth. Play the slide to see a section through northern Honshu." width="1280" height="720" loading="lazy"><span class="demo-launch-prompt"><span class="play-disc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 6 9 6-9 6Z" /></svg></span><span>Play the slides<small>Start with Japan’s earthquakes</small></span></span></button>
     </div>
     <div class="demo-caption"><p>Pick a slide above, then use the arrows to step through it. The player is Flux’s own.</p><a class="text-link" href="/docs/slides.html">Learn about Slides<span aria-hidden="true">→</span></a></div>
-    <p class="visual-credit">Data: <a href="https://www.rcsb.org/structure/1CRN">PDB 1CRN</a>, <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE52778">GEO GSE52778</a> and <a href="https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/BPX_J.htm">NHANES</a>. Anatomy: Allen CCF2017, with illustrative latencies. <a href="/docs/visual-credits.html#slides">Visual credits</a>.</p>
+    <p class="visual-credit">Earthquake data from the <a href="https://earthquake.usgs.gov/earthquakes/search/">USGS earthquake catalog</a>. <a href="/docs/visual-credits.html#slides">Sources for all slides</a>.</p>
   </section>
 
   <section id="get-started" class="closing-section content-width section-space" aria-labelledby="closing-title">

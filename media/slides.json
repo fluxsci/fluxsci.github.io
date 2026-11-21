@@ -1,41 +1,114 @@
 {
   "source": {
     "repository": "https://github.com/fluxsci/flux.git",
-    "revision": "2f110436eafc445fe6a6ec9686203046367ba37c",
-    "patches": [
-      {
-        "path": "media/flux-patches/flux-057-glyph-handoff.patch",
-        "sha256": "8400a745a4eb9566c8bf31c838c7cf3554bd4ce9049d65352c8d3a4147e7e725"
-      }
-    ]
+    "revision": "d3dd41993773fd31c535b853f873cdd1e3ec9d36",
+    "patches": []
   },
-  "description": "Slides from the Flux launch film, exported unchanged from the owner-authorized decks of the master demonstration project with the native Flux player. See visual credits for data sources.",
-  "project": {
-    "id": "proj_7ce9d145-d18a-4811-abf9-1947ce1a8103",
-    "decks": [
-      "deck_muyqzusk33zg_21",
-      "deck_muzr6gljt5vd_46"
-    ],
-    "inputHashes": {
-      "fig/index.json": "8a94a5a28c9641a2e9c78cfa2e74b32746684cc55704a38076a553c9b5b997b5",
-      "slides/deck_muyqzusk33zg_21/deck.json": "d7e5df32affbcf507cf47ea0f7d301eedd61b7411d193bc2f21f0ff104208393",
-      "fig/assets/asset_muywflpk7r70_111.fluxplot.json": "3c594f2b77324f8b96b5842160e6522904fb23c97bfaa0a9f597a9dbb8871bc0",
-      "fig/assets/asset_muywflpk7r70_111.svg": "2d57997834474fe29d4ad65000fd686f27dee4538c001472c0d1ab5fe1724e78",
-      "fig/assets/asset_muyy5i2hhhq4.fluxplot.json": "786b9bb6bd3693740e74f18e5a19695c7bb6e13d172031af6aedb135fe2090b2",
-      "fig/assets/asset_muyy5i2hhhq4.recipe.json": "837b8f970531f24c48f282802d6f33dc7c9d306d19a6bfb60c0bd80fcf7b5a24",
-      "fig/assets/asset_muyy5i2hhhq4.svg": "189adcf33610bfa2e7c6a7cf2be1fc3cab0c5240590bbe06aedc4008a5dd63ef",
-      "fig/assets/asset_muzr3myet5vd_41.fluxplot.json": "d618328c7bbc01a212a47606ce8a9ffa2444ed2f72f9e70f2e28e146bc912e85",
-      "fig/assets/asset_muzr3myet5vd_41.svg": "df25041303116756a47b799bc5620f5c3aadcb1bc23c12eebc450946689663e4",
-      "slides/deck_muzr6gljt5vd_46/deck.json": "fcd57e14d724278d9a652fc0eba7ba0189c65d7ef0081fa46fbd003974e95aeb"
+  "description": "Authored Plots in Motion and launch-film slides from the master demonstration project, played with the native Flux player. See visual credits for data sources.",
+  "projects": {
+    "motion": {
+      "id": "proj_7ce9d145-d18a-4811-abf9-1947ce1a8103",
+      "inputHashes": {
+        "fig/index.json": "65793f0990c2e46c661b01b813ae7bcbe6721918924c6e2f1afc64da8c56edfc",
+        "slides/deck_mwlhqg7l74tm_533/deck.json": "b3994623b681912be5b18374ed475564f71b3757da98cd8e5f598977b18ef371",
+        "slides/deck_mwlhqg7l74tm_533/assets/asset_mwlr2r2z8f1w_3.svg": "e313a660b4e44947256fe3fe2ee142035b7e9c6caa42c134e9010b57212222ff",
+        "slides/deck_mwlhqg7l74tm_533/assets/asset_mwlr2r318f1w_5.svg": "7c18658de3c07560fcf85d7b9b8cf186975509f15ed74aede83936f8dea6e8a4",
+        "slides/deck_mwlhqg7l74tm_533/assets/asset_mwlr2r328f1w_7.svg": "650b3e5a956a6029801ee78de396e8074ccd1cb1d12b10a6c3c6aef25cf59d76",
+        "slides/deck_mwlhqg7l74tm_533/assets/asset_mwlr2r338f1w_9.svg": "5569a890bce431e38e62fd92a2c8a63718da8a485f4bc758ef9bc41e5179f5a5",
+        "slides/deck_mwlhqg7l74tm_533/assets/asset_mwlr2r3b8f1w_185.svg": "06a316eb8901c2fb5d0a20b0a17fb5bc7c86d22a23e4d99f2c378408e928874a",
+        "slides/deck_mwlhqg7l74tm_533/assets/asset_mwlr2r2z8f1w_3.fluxplot.json": "3c9df65bb1c0c057872787104b7ee91a329c0ebf177314e367ce07a1e51c5e2d",
+        "slides/deck_mwlhqg7l74tm_533/assets/asset_mwlr2r318f1w_5.fluxplot.json": "ecf222d1c586d153369ceef76ea2459c79523649b2642deaa6acb01279ee939f",
+        "slides/deck_mwlhqg7l74tm_533/assets/asset_mwlr2r328f1w_7.fluxplot.json": "2a008c19b114e757692f99ec176e8de8eed4d2d8d528983758121f2557818007",
+        "slides/deck_mwlhqg7l74tm_533/assets/asset_mwlr2r338f1w_9.fluxplot.json": "a798954521ee7c805a0a8916ddc426445e68f7419804e764a47c99f1013d5012",
+        "slides/deck_mwlhqg7l74tm_533/assets/asset_mwlr2r3b8f1w_185.fluxplot.json": "261e70c925bd17036c2410f48a8ff7fb621a99e8c58a14e2dc7d4a666385ea80",
+        "slides/deck_mwlhqg7l74tm_533/assets/asset_mwlr2pnj1w9c_3.svg": "ba06f45f4a4a748be4779302b497fb126f5118f237b1474b655a4555e9733dcf",
+        "slides/deck_mwlhqg7l74tm_533/assets/asset_mwlr2pnk1w9c_5.svg": "cce04139ffc7cd5ab62bc40eea58898c27d63d163988b88fb3a76bc80b56b977",
+        "slides/deck_mwlhqg7l74tm_533/assets/asset_mwlr2pnk1w9c_7.svg": "e132ce5a5f67997fa12dae2a400a98f033c289410c1ac175613b811490a3a981",
+        "slides/deck_mwlhqg7l74tm_533/assets/asset_mwlr2pnl1w9c_9.svg": "ccee645a644f3e323d60aa5d97ca5123e28a992a631012a7437663cb46778f4e",
+        "slides/deck_mwlhqg7l74tm_533/assets/asset_mwlr2pnj1w9c_3.fluxplot.json": "412f9d297353be55e03f92892fa6521f1a6e382ce78c01d2b0e12aa302ed4b95",
+        "slides/deck_mwlhqg7l74tm_533/assets/asset_mwlr2pnk1w9c_5.fluxplot.json": "31bff40d78dbe0bcd0a6dd6aade29a29d35f96ce70fb099355e4343501c39aac",
+        "slides/deck_mwlhqg7l74tm_533/assets/asset_mwlr2pnk1w9c_7.fluxplot.json": "6070caf21bb58c1f4371afa3263139e558644654316c9f7951dfc4737dc9e457",
+        "slides/deck_mwlhqg7l74tm_533/assets/asset_mwlr2pnl1w9c_9.fluxplot.json": "89734528b0d14a40534ae273b6bcb8b0be97d3979d9e49629670730f55eac831",
+        "slides/deck_mwlhqg7l74tm_533/assets/asset_mwlr2xk7bs6r_3.svg": "cd39ca0766a502399d77abebc6c92bb88485ca813c3b2b8abf1a6e8f5dffa0e3",
+        "slides/deck_mwlhqg7l74tm_533/assets/asset_mwlr2xk8bs6r_5.svg": "d7a37286d7ad72a620cc918255b1e3d6ebe74f23625197842c832d155fe8147a",
+        "slides/deck_mwlhqg7l74tm_533/assets/asset_mwlr2xkdbs6r_136.svg": "7cf08b48e9189ae8b405bd06c2bc804f137b6b4e9707bb4c1c7f8cf9b0402ded",
+        "slides/deck_mwlhqg7l74tm_533/assets/asset_mwlr2xk7bs6r_3.fluxplot.json": "cfebe66fdd269a78dc408593124d6861e74284515c99099371a9d0e489ab65ec",
+        "slides/deck_mwlhqg7l74tm_533/assets/asset_mwlr2xk8bs6r_5.fluxplot.json": "333a7d9028498c7d57569b3aa81404b3d693e78a51c9a63954d23adabe839272",
+        "slides/deck_mwlhqg7l74tm_533/assets/asset_mwlr2xkdbs6r_136.fluxplot.json": "8f56fbdf2fac1df8966ae0cfa4cf95ef1bc0c563cfdd6d54f96ace579ad1368c",
+        "slides/deck_mwlhqg7l74tm_533/assets/asset_mwlr2ptk1w9c_591.svg": "f3259d471218694e1990c5b4c02a7155d1999f6920a4957bf5e27188b89cd091",
+        "slides/deck_mwlhqg7l74tm_533/assets/asset_mwlr2ptl1w9c_593.svg": "c1620f555db0e0fffa55f018dbffcc895b4e0b38a80c57f57ec5af01dfc09846",
+        "slides/deck_mwlhqg7l74tm_533/assets/asset_mwlr2ptm1w9c_663.svg": "26bc89a99b17eb237275337d578283153b25571940d8fdcfc9757a81e10a1d76",
+        "slides/deck_mwlhqg7l74tm_533/assets/asset_mwlr2ptn1w9c_668.svg": "09cc9872ea3a5f832c6b847b933c8683222251a77f945208484072d312725526",
+        "slides/deck_mwlhqg7l74tm_533/assets/asset_mwlr2pto1w9c_672.svg": "b6f4cb8c29b59b1df75e33796fb0314845ae7b1b082584be2768dd63e546296e",
+        "slides/deck_mwlhqg7l74tm_533/assets/asset_mwlr2pto1w9c_676.svg": "49238206c36c4d78ba67f18b5026cdcdb1ae3406f5c303fb8bb265ceb1a29554",
+        "slides/deck_mwlhqg7l74tm_533/assets/asset_mwlr2ptp1w9c_680.svg": "26bc89a99b17eb237275337d578283153b25571940d8fdcfc9757a81e10a1d76",
+        "slides/deck_mwlhqg7l74tm_533/assets/asset_mwlr2ptk1w9c_591.fluxplot.json": "c38da0a2e3c42c6fc8367fd684dde31f7f7fede286871a8bb05b90cdb69f2244",
+        "slides/deck_mwlhqg7l74tm_533/assets/asset_mwlr2ptl1w9c_593.fluxplot.json": "24474b95c9beb7d2491662d27e8be37e930eec523ff7fa177f7adc46a63d95ff",
+        "slides/deck_mwlhqg7l74tm_533/assets/asset_mwlr2ptm1w9c_663.fluxplot.json": "8cb199b45075c0634417b30ade67c962a0453a546af87a9ce3918a776a11980e",
+        "slides/deck_mwlhqg7l74tm_533/assets/asset_mwlr2ptn1w9c_668.fluxplot.json": "b6af6df90729293a9f57c39a3bdaf6f129ea02631668c0a332b39e39f04351bb",
+        "slides/deck_mwlhqg7l74tm_533/assets/asset_mwlr2pto1w9c_672.fluxplot.json": "65b60ace4b4ecbb1a985aedc19b7ed5b2e75b4f680303a34d0214dac757f42d0",
+        "slides/deck_mwlhqg7l74tm_533/assets/asset_mwlr2pto1w9c_676.fluxplot.json": "ebbe50e64d6bc2962f52bf602ece2fe054200609c1ed03a4f0fe7f590e6de75b",
+        "slides/deck_mwlhqg7l74tm_533/assets/asset_mwlr2ptp1w9c_680.fluxplot.json": "8cb199b45075c0634417b30ade67c962a0453a546af87a9ce3918a776a11980e"
+      },
+      "decks": [
+        "deck_mwlhqg7l74tm_533"
+      ]
+    },
+    "film": {
+      "id": "proj_7ce9d145-d18a-4811-abf9-1947ce1a8103",
+      "decks": [
+        "deck_muyqzusk33zg_21",
+        "deck_muzr6gljt5vd_46"
+      ],
+      "inputHashes": {
+        "fig/index.json": "8a94a5a28c9641a2e9c78cfa2e74b32746684cc55704a38076a553c9b5b997b5",
+        "slides/deck_muyqzusk33zg_21/deck.json": "d7e5df32affbcf507cf47ea0f7d301eedd61b7411d193bc2f21f0ff104208393",
+        "fig/assets/asset_muywflpk7r70_111.fluxplot.json": "3c594f2b77324f8b96b5842160e6522904fb23c97bfaa0a9f597a9dbb8871bc0",
+        "fig/assets/asset_muywflpk7r70_111.svg": "2d57997834474fe29d4ad65000fd686f27dee4538c001472c0d1ab5fe1724e78",
+        "fig/assets/asset_muyy5i2hhhq4.fluxplot.json": "786b9bb6bd3693740e74f18e5a19695c7bb6e13d172031af6aedb135fe2090b2",
+        "fig/assets/asset_muyy5i2hhhq4.recipe.json": "837b8f970531f24c48f282802d6f33dc7c9d306d19a6bfb60c0bd80fcf7b5a24",
+        "fig/assets/asset_muyy5i2hhhq4.svg": "189adcf33610bfa2e7c6a7cf2be1fc3cab0c5240590bbe06aedc4008a5dd63ef",
+        "fig/assets/asset_muzr3myet5vd_41.fluxplot.json": "d618328c7bbc01a212a47606ce8a9ffa2444ed2f72f9e70f2e28e146bc912e85",
+        "fig/assets/asset_muzr3myet5vd_41.svg": "df25041303116756a47b799bc5620f5c3aadcb1bc23c12eebc450946689663e4",
+        "slides/deck_muzr6gljt5vd_46/deck.json": "fcd57e14d724278d9a652fc0eba7ba0189c65d7ef0081fa46fbd003974e95aeb"
+      },
+      "export": {
+        "revision": "d85533f4b1b9874e6773df8c68d49b2175d5ddb0",
+        "source": {
+          "repository": "https://github.com/fluxsci/flux.git",
+          "revision": "2f110436eafc445fe6a6ec9686203046367ba37c",
+          "patches": [
+            {
+              "path": "media/flux-patches/flux-057-glyph-handoff.patch",
+              "sha256": "8400a745a4eb9566c8bf31c838c7cf3554bd4ce9049d65352c8d3a4147e7e725"
+            }
+          ]
+        },
+        "inputHashes": {
+          "site/demos/slides/index.html": "741d64ed4e61beb040a03685ace9e7911e58f34e8fbe304de67699219de5fbf8",
+          "site/demos/studies/entrances.html": "cdd3c6b2211af21996860fad706d37557dc1d26df151b0375ad376229db6807e",
+          "site/demos/studies/entrances.svg": "5250125bf2d3239b088c14158962fb8dae16cf0fb32ebaddacad77c602ee2280",
+          "site/demos/studies/easing.html": "45cf0a0fdb797b71e734feb7da570bfdf81e721bd38216a117f64170a3f5ab04",
+          "site/demos/studies/easing.svg": "21eed1b07edb9c683581f09ed6ceee1c4700ec92737f3556032103c5ba032dd8",
+          "site/demos/studies/emphasis.html": "5a3440b06ff9e486939798b5a7342b2fd83d5e7b3551d9ad9b1120ea4188da0a",
+          "site/demos/studies/emphasis.svg": "76a4607d04a93e262abfc2880054c8ab490fd0a58b3e83905a4d930f8b45f1ee",
+          "site/demos/studies/change.html": "56034e66c8faf3a284e1ac30919a952c60576975fa5e8cf9140b1eee38289cc4",
+          "site/demos/studies/change.svg": "ada0414d2abb1f313a981744883deea452aa7af066b6a583ec9f59a480882232",
+          "site/demos/studies/ghost.html": "87f847120e22789bbed02a832fde1219853743b4c08919a4d94a87beeb2ac96e",
+          "site/demos/studies/ghost.svg": "27135277961c6f730de7e425d5726092484a025ede9bf02dee78765576be9bd7",
+          "site/demos/studies/become.html": "14006fbc16347cec09d0d46e4e31e6a973860cb4a595bbd2ac060db08df1359c",
+          "site/demos/studies/become.svg": "dd53b04f76483c60c7a8726245222047e176c489177eb55e4228c3a00dda7169"
+        }
+      }
     }
   },
   "homepage": [
-    "slide_muz1bgcmzb92_3",
+    "slide_mwlr2r2w8f1w_1",
+    "slide_mwlr2pnj1w9c_1",
+    "slide_mwlr2xk7bs6r_1",
+    "slide_mwlr2ptk1w9c_589",
     "slide_muz2tp5izb92_249",
-    "slide_muzr6gllt5vd_47",
-    "slide_muz991ncyfxw_867",
-    "slide_muzb9z5cakd6_9141",
-    "slide_muzb9z5kakd6_13448"
+    "slide_muzr6gllt5vd_47"
   ],
   "studies": [
     {
@@ -68,64 +141,89 @@
     "css-tree",
     "source-map-js",
     "esm-env",
-    "svelte"
+    "svelte",
+    "@lume/kiwi"
   ],
   "outputs": {
+    "site/demos/slides/slide_mwlr2r2w8f1w_1.json.gz": {
+      "bytes": 4736414,
+      "sha256": "e592ee60f5aa0ea8c0378969e374adc95b5e0b4f87bf55cc49aee12cb7f3a92b"
+    },
+    "site/demos/slides/slide_mwlr2pnj1w9c_1.json.gz": {
+      "bytes": 285255,
+      "sha256": "42c9c19a0db500ba1cc94853f66cb3e436abb1b827af3f2cbbb26b002496a08f"
+    },
+    "site/demos/slides/slide_mwlr2xk7bs6r_1.json.gz": {
+      "bytes": 212876,
+      "sha256": "9a740d0b0e62078e0a86f9d0f714bf7f46612284be815a133f86c6f63e6edca8"
+    },
+    "site/demos/slides/slide_mwlr2ptk1w9c_589.json.gz": {
+      "bytes": 631920,
+      "sha256": "1ea27a42a2e67f8efafe0e5fa772eacd154848fe7379dd8725d638d611330452"
+    },
+    "site/demos/slides/slide_muz2tp5izb92_249.json.gz": {
+      "bytes": 5519948,
+      "sha256": "13eb1190d105ccde23364ca11f0c0d8a91459c380bacb42e492ef97e96f463e9"
+    },
+    "site/demos/slides/slide_muzr6gllt5vd_47.json.gz": {
+      "bytes": 12097,
+      "sha256": "55bcb452acf705c9305fa8b3ee286e3f757f81c9c217df4eb5c4a8dfe0146174"
+    },
     "site/demos/slides/index.html": {
-      "bytes": 15123963,
-      "sha256": "741d64ed4e61beb040a03685ace9e7911e58f34e8fbe304de67699219de5fbf8"
+      "bytes": 1570811,
+      "sha256": "a7b185c202d4d4da9e57e0fcc8530a4391e7c90f532430864ceba08f9820b490"
     },
     "site/assets/media/slide-poster.svg": {
-      "bytes": 561710,
-      "sha256": "925896a34a354a885b20b28877c3133a9269780c978ea20f3b3d6b2b3540aa67"
+      "bytes": 4592647,
+      "sha256": "bc37b53f69b10e84c983e4912fac4d679e583b2a8b8ad042911926f433166e0f"
     },
     "site/demos/studies/entrances.svg": {
       "bytes": 1214075,
       "sha256": "5250125bf2d3239b088c14158962fb8dae16cf0fb32ebaddacad77c602ee2280"
     },
     "site/demos/studies/entrances.html": {
-      "bytes": 2983588,
-      "sha256": "cdd3c6b2211af21996860fad706d37557dc1d26df151b0375ad376229db6807e"
+      "bytes": 3231481,
+      "sha256": "3f5fe53e069ffb7149bcac43d1f0ab35a52ad628a86954e95dc894464326cefa"
     },
     "site/demos/studies/easing.svg": {
       "bytes": 174447,
       "sha256": "21eed1b07edb9c683581f09ed6ceee1c4700ec92737f3556032103c5ba032dd8"
     },
     "site/demos/studies/easing.html": {
-      "bytes": 1707837,
-      "sha256": "45cf0a0fdb797b71e734feb7da570bfdf81e721bd38216a117f64170a3f5ab04"
+      "bytes": 1955730,
+      "sha256": "7cd4e4a482169a3d0fe17ded14acfef58b04538feebcbc53641f508f402675d4"
     },
     "site/demos/studies/emphasis.svg": {
       "bytes": 2463100,
       "sha256": "76a4607d04a93e262abfc2880054c8ab490fd0a58b3e83905a4d930f8b45f1ee"
     },
     "site/demos/studies/emphasis.html": {
-      "bytes": 3758453,
-      "sha256": "5a3440b06ff9e486939798b5a7342b2fd83d5e7b3551d9ad9b1120ea4188da0a"
+      "bytes": 4006346,
+      "sha256": "94f4d36536007087ce14642e9a6aaf987655200bea3d648afd815b85ef57897c"
     },
     "site/demos/studies/change.svg": {
       "bytes": 386761,
       "sha256": "ada0414d2abb1f313a981744883deea452aa7af066b6a583ec9f59a480882232"
     },
     "site/demos/studies/change.html": {
-      "bytes": 2872285,
-      "sha256": "56034e66c8faf3a284e1ac30919a952c60576975fa5e8cf9140b1eee38289cc4"
+      "bytes": 3120178,
+      "sha256": "67663971530cf2ebe1d4fe2e3621cc00220aa315dc8fbff5570dcf95abd795b3"
     },
     "site/demos/studies/ghost.svg": {
       "bytes": 213139,
       "sha256": "27135277961c6f730de7e425d5726092484a025ede9bf02dee78765576be9bd7"
     },
     "site/demos/studies/ghost.html": {
-      "bytes": 2076326,
-      "sha256": "87f847120e22789bbed02a832fde1219853743b4c08919a4d94a87beeb2ac96e"
+      "bytes": 2324219,
+      "sha256": "a8fe743c33c4e10ddc94c631eb96d55ae72390c775f6b444a421e88e5e52d4bd"
     },
     "site/demos/studies/become.svg": {
       "bytes": 107892,
       "sha256": "dd53b04f76483c60c7a8726245222047e176c489177eb55e4228c3a00dda7169"
     },
     "site/demos/studies/become.html": {
-      "bytes": 1393427,
-      "sha256": "14006fbc16347cec09d0d46e4e31e6a973860cb4a595bbd2ac060db08df1359c"
+      "bytes": 1641320,
+      "sha256": "ff215940b87b3dc30e0f510f5af40cee7b98ce76429144760bfc8be0c5541869"
     },
     "site/assets/licenses/three-LICENSE.txt": {
       "bytes": 1081,
@@ -146,6 +244,10 @@
     "site/assets/licenses/svelte-LICENSE.txt": {
       "bytes": 1126,
       "sha256": "06257f4847b13a49a039efb17b944c141e71b12fd8d231b362d86919067d77a3"
+    },
+    "site/assets/licenses/lume-kiwi-LICENSE.txt": {
+      "bytes": 3360,
+      "sha256": "ea342bd17d669b713d344ba817943e7ce47a5d805980a8fa123550c47bb2a498"
     }
   }
 }

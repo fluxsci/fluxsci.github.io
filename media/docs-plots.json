@@ -1,9 +1,10 @@
 {
   "source": {
     "repository": "https://github.com/fluxsci/fluxplot.git",
-    "note": "Drawn with the fluxplot checkout at the version below: media/docs-plots/make_docs_plots.py (synthetic values, labelled as illustrative on the pages) and the library's own examples/meanmark_example.py (meanmark-styles).",
+    "note": "Synthetic values drawn with fluxplot. The guides use media/docs-plots/make_docs_plots.py and the library’s examples/meanmark_example.py. The interactive part explorer uses media/explorer/make_explorer.py and media/explorer/build_explorer.py.",
     "fluxplot": "0.4.0",
-    "specVersion": "0.4.0"
+    "specVersion": "0.4.0",
+    "revision": "65b3aabeee4a8938dbde827e88961836ec3fa144"
   },
   "outputs": {
     "site/assets/media/docs/plots/meanmark-vs-fluxbox.svg": {
@@ -45,6 +46,14 @@
       ],
       "bytes": 122386,
       "sha256": "c3e4fbf02bced54dad3b63efa59526c04e83f1b0c78bf0a3abf00bdb84c6ecd1"
+    },
+    "site/assets/media/docs/explorer-fluxbox.svg": {
+      "viewBox": [
+        223.2,
+        172.8
+      ],
+      "bytes": 25033,
+      "sha256": "5a95212817b7f24934de9b0d4a3b7fd3f9902724af27bd24ba3d4a7e9f1c4d77"
     }
   }
 }
