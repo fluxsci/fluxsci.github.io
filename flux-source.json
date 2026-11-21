@@ -8,8 +8,8 @@
     "patches": [
       {
         "path": "media/flux-patches/website-slide-playback.patch",
-        "sha256": "8e975aa9fd7d55fd8544784b327bd68f5bbf72991d29e7501282f34875c260fb",
-        "fixes": "Play manual steps to completion, queue navigation, and expose explicit playback and native rewind in the website embeds."
+        "sha256": "c7d1568b387943bee8a8d77512ef468ba4e0b5a3d93760abad2ee22681fb787f",
+        "fixes": "Keep manual transitions continuous through repeated navigation and rendering stalls. Provide explicit playback and native rewind in the website embeds."
       }
     ]
   },

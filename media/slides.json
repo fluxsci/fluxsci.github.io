@@ -5,7 +5,7 @@
     "patches": [
       {
         "path": "media/flux-patches/website-slide-playback.patch",
-        "sha256": "8e975aa9fd7d55fd8544784b327bd68f5bbf72991d29e7501282f34875c260fb"
+        "sha256": "c7d1568b387943bee8a8d77512ef468ba4e0b5a3d93760abad2ee22681fb787f"
       }
     ]
   },
@@ -175,8 +175,8 @@
       "sha256": "55bcb452acf705c9305fa8b3ee286e3f757f81c9c217df4eb5c4a8dfe0146174"
     },
     "site/demos/slides/index.html": {
-      "bytes": 1576198,
-      "sha256": "bba7d007edaac33df99603b21c5f64d35ed935e6c7ad7cf5802e8c0c3b711c25"
+      "bytes": 1576336,
+      "sha256": "ac0b0e51fe6b1b054bcc76873596b680e564e1aeb2658545c9b7a858fa8fbfd7"
     },
     "site/assets/media/slide-poster.svg": {
       "bytes": 4592647,
@@ -187,48 +187,48 @@
       "sha256": "5250125bf2d3239b088c14158962fb8dae16cf0fb32ebaddacad77c602ee2280"
     },
     "site/demos/studies/entrances.html": {
-      "bytes": 3236868,
-      "sha256": "fd11c242203ed19bf389406bf3fd0eddf8c12dba893b6ac88e6bbb5e2639f74d"
+      "bytes": 3237006,
+      "sha256": "9c6b543800f76bcead19308b04bfb56d004a9c6695b14a6e375e0f6d019da9d0"
     },
     "site/demos/studies/easing.svg": {
       "bytes": 174447,
       "sha256": "21eed1b07edb9c683581f09ed6ceee1c4700ec92737f3556032103c5ba032dd8"
     },
     "site/demos/studies/easing.html": {
-      "bytes": 1961117,
-      "sha256": "ad3af2e246489874bc270c2c1fd6db24b09fb9f50d5b21a06c307f0c63cee2cc"
+      "bytes": 1961255,
+      "sha256": "1f9cb508b263937ecf3bc5ee0571bf399b47b580621ec526d3e929eb87df52f4"
     },
     "site/demos/studies/emphasis.svg": {
       "bytes": 2463100,
       "sha256": "76a4607d04a93e262abfc2880054c8ab490fd0a58b3e83905a4d930f8b45f1ee"
     },
     "site/demos/studies/emphasis.html": {
-      "bytes": 4011733,
-      "sha256": "ef724ec18b7780a83b4551b7ebac08feecf6ca38b7a8d964797673607d36b9df"
+      "bytes": 4011871,
+      "sha256": "0d25e6f6cbce73fab628bf76a688ba9c42c5e51e1d625824921d5c8718a7bba7"
     },
     "site/demos/studies/change.svg": {
       "bytes": 386761,
       "sha256": "ada0414d2abb1f313a981744883deea452aa7af066b6a583ec9f59a480882232"
     },
     "site/demos/studies/change.html": {
-      "bytes": 3125565,
-      "sha256": "a9852a42a4e6cf49b14795c990debdeb036784329ccbc441e4d05e46d2648a16"
+      "bytes": 3125703,
+      "sha256": "7f4e7d8e730c25c10a3b63b942e8f88d301713df3f263adecae4fbf86ecc4064"
     },
     "site/demos/studies/ghost.svg": {
       "bytes": 213139,
       "sha256": "27135277961c6f730de7e425d5726092484a025ede9bf02dee78765576be9bd7"
     },
     "site/demos/studies/ghost.html": {
-      "bytes": 2329606,
-      "sha256": "9c8ce38c3f9e93972ceb1c66e92cec3e6c4af73563675982a251ee8b5f7fb618"
+      "bytes": 2329744,
+      "sha256": "baa73f24f7b55747722b83924fee3bc78e6e462f827f2f7653f91292a4e505c1"
     },
     "site/demos/studies/become.svg": {
       "bytes": 107892,
       "sha256": "dd53b04f76483c60c7a8726245222047e176c489177eb55e4228c3a00dda7169"
     },
     "site/demos/studies/become.html": {
-      "bytes": 1646707,
-      "sha256": "2122d676bc2370e10c894db73cf30e5812769e865c7b47f857746f3dcac190e9"
+      "bytes": 1646845,
+      "sha256": "60c6fe56b83484c81a83da7b0117e6ec40801ee0bcac7fb9579d6b93f78d4d6b"
     },
     "site/assets/licenses/three-LICENSE.txt": {
       "bytes": 1081,

@@ -1,5 +1,5 @@
 diff --git a/src/lib/slide/embedPlayer.ts b/src/lib/slide/embedPlayer.ts
-index 510949e1..55f1412d 100644
+index 510949e1..632e860b 100644
 --- a/src/lib/slide/embedPlayer.ts
 +++ b/src/lib/slide/embedPlayer.ts
 @@ -8,8 +8,8 @@ import { payloadModelContext } from './export/model3dPayloadHost';
@@ -18,7 +18,7 @@ index 510949e1..55f1412d 100644
    const button = (text: string, label: string, action: () => void) => { const b = document.createElement("button"); b.type = "button"; b.textContent = text; b.title = label; b.setAttribute("aria-label", label); b.addEventListener("click", e => { e.stopPropagation(); action(); }); bar.append(b); return b; };
    let reduced = options.state?.reduced ?? prefersReducedMotion();
 -  const player = createPlayer(fit, deck, { ...embedPlayerOptions(payload), ...payloadModelContext(payload), model3d: options.model3d,
-+  const native = createPlayer(fit, deck, { ...embedPlayerOptions(payload), ...payloadModelContext(payload), model3d: options.model3d,
++  const native = createPlayer(fit, deck, { ...embedPlayerOptions(payload), ...payloadModelContext(payload), model3d: options.model3d, maxFrameIntervalMs: 120,
      pixelScale: () => Math.max(.01, art.clientWidth / deck.stage.width) });
 -  const advance = () => player.next({ animate: !reduced });
 -  const back = button("‹", "Previous animation step", () => player.prev());
@@ -118,8 +118,8 @@ index 510949e1..55f1412d 100644
 +  player.on("change", () => {
 +    update();
 +    if (queued && !paused && !player.state().playing) {
-+      // Let the native player finish its change/beat-end notifications first.
-+      queueMicrotask(() => {
++      // Present the finished pose before starting the queued transition.
++      requestAnimationFrame(() => {
 +        if (!destroyed && queued && !paused && !player.state().playing) {
 +          const direction = queued;
 +          queued = 0;
@@ -143,3 +143,46 @@ index 510949e1..55f1412d 100644
 -  return { player, pauseOffscreen: () => player.pause(), destroy: () => { ro.disconnect(); host.removeEventListener("keydown", key); art.removeEventListener("click", click); player.destroy(); options.model3d?.dispose(); host.replaceChildren(); } };
 +  return { player, pauseOffscreen: pause, setReducedMotion, destroy: () => { destroyed = true; queued = 0; ro.disconnect(); host.removeEventListener("keydown", key); art.removeEventListener("click", click); player.destroy(); options.model3d?.dispose(); host.replaceChildren(); } };
  }
+diff --git a/src/lib/slide/player/player.ts b/src/lib/slide/player/player.ts
+index 140eed69..bb87d041 100644
+--- a/src/lib/slide/player/player.ts
++++ b/src/lib/slide/player/player.ts
+@@ -47,6 +47,8 @@ export interface PlayerOpts extends Omit<SlideRenderCtx, "theme"> {
+   reducedMotion?: boolean;
+   /** Documents advance exactly one authored beat per explicit action. */
+   manualSteps?: boolean;
++  /** Maximum wall time one presented animation frame may consume after a render stall. */
++  maxFrameIntervalMs?: number;
+   /** T7: frame-by-frame capture. The camera layer's raster is re-baked after every seek whose pose changed
+    *  (awaited via settleRaster()); live players (default) re-bake once the stage is at rest. */
+   captureMode?: boolean;
+@@ -1077,6 +1079,7 @@ export function createPlayer(mount: HTMLElement, deck: Deck, opts: PlayerOpts):
+   let si = -1, bi = 0, time = 0, duration = 0, playing = false, raf = 0, generation = 0, origin = 0, firstTick = false, prerolling = false;
+   /** cue ms the clock advanced in the last presented frame (the camera's early re-bake lead is a number of these) */
+   let frameDt = 17;
++  let lastPresented: number | undefined;
+   /** the nodes with an entering translate flight in the cue that is playing (begin) */
+   let gliders: BoundNode[] = [];
+   let specs: Spec[] = [], issues: AnimationIssue[] = [], durations: number[] = [];
+@@ -1105,6 +1108,7 @@ export function createPlayer(mount: HTMLElement, deck: Deck, opts: PlayerOpts):
+   function state(): PlayerState { return { slide: si, beat: bi, totalBeats: beats(), totalSlides: deck.slides.length, time, duration, playing, reversing: !!pendingRewind(), ...(pendingRewind() ? { rewindTo: pendingRewind()!.to } : {}), issues, ...(media?.state() ?? { mediaPlaying: false, mediaPaused: false }) }; }
+   const emit = (event: Ev) => { const value = state(); for (const listener of listeners[event]) listener(value); };
+   function cancelClock(): void {
++    lastPresented = undefined;
+     generation++; if (raf) cancelAnimationFrame(raf); raf = 0;
+     clearTimeout(auto); auto = undefined; playing = false;
+     clockMode = "forward"; settleRun = null; rewind = null; queuedClicks = 0; parked = null; firstTick = false; prerolling = false;
+@@ -1211,6 +1215,13 @@ export function createPlayer(mount: HTMLElement, deck: Deck, opts: PlayerOpts):
+     // primed layers rasterise in it. Until a real frame (>= PREROLL_MIN_MS) has passed, wait.
+     if (prerolling) { if (timestamp - origin < PREROLL_MIN_MS) { queueFrame(); return; } prerolling = false; }
+     if (firstTick) { firstTick = false; if (clockMode !== "settling") origin = firstTickOrigin(origin, timestamp); }   // setup never eats the beginning (timing.ts)
++    // A slow paint or a suspended tab can otherwise skip an entire cue on the
++    // next callback. Move the origin by only the excess; ordinary playback keeps
++    // its authored time and an interrupted rewind keeps its original direction.
++    if (opts.maxFrameIntervalMs && lastPresented !== undefined && clockMode !== "settling") {
++      origin += Math.max(0, timestamp - lastPresented - opts.maxFrameIntervalMs);
++    }
++    lastPresented = timestamp;
+     const before = time;
+     time = clockTime(timestamp);
+     frameDt = Math.min(60, Math.max(8, Math.abs(time - before)));
