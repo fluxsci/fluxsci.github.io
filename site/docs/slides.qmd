@@ -16,7 +16,7 @@ Build a presentation from the plots and figures in your project. The stage is th
 
 <div class="doc-study" data-doc-study="/demos/studies/emphasis.html">
 <div class="doc-study-stage"><img src="/demos/studies/emphasis.svg" alt="The immune cluster stays bright while the other spots dim" width="1280" height="720" loading="lazy"><button class="doc-study-launch" type="button" data-study-start data-title="The immune cluster stays bright while the other spots dim" hidden><span aria-hidden="true">▶</span> Try this example</button></div>
-<div class="doc-study-caption"><span class="study-label">Interactive example · a slide from the Flux film</span><p><strong>Direct attention without removing context.</strong> The tissue section is ghosted aside into a UMAP of the same spots. Then <strong>Dim</strong> quiets every cluster except the immune cells, in both views at once. Simulated expression on a Visium-style spot grid. Use the next-step arrow to play; reset to watch again. Reduced motion shows each finished step.</p></div>
+<div class="doc-study-caption"><span class="study-label">Interactive example · a slide from the Flux film</span><p><strong>Direct attention without removing context.</strong> The tissue section is ghosted aside into a UMAP of the same spots. Then <strong>Dim</strong> quiets every cluster except the immune cells, in both views at once. Simulated expression on a Visium-style spot grid. Use the next-step arrow to advance. With reduced motion, it shows each finished step. Choose <strong>Play animation</strong> to watch the motion.</p></div>
 </div>
 
 ## Where to find things {#where-to-find-things}

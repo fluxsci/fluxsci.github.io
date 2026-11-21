@@ -85,6 +85,14 @@ and hashes for the homepage player and its per-slide compressed payloads (`site/
 (`site/demos/studies/`), the homepage poster and the bundled runtime license notices. Each
 slide keeps its own theme and styles. The website hides the player’s authoring notes.
 
+For the 3D example, browsers with software rendering or without WebGL play recordings
+sampled from Flux. The reverse recording also supplies the backward step on hardware
+WebGL. To refresh them after a change to the slide or its renderer, run
+`node scripts/refresh-slide-3d-fallback.mjs --flux-source /path/to/clean-pinned-flux`
+from a clean checkout of the pinned Flux revision with its generated slide and 3D runtimes,
+Playwright Chromium, and FFmpeg available. `media/slide-3d-fallback.json` ties
+all four recordings to the reviewed payload. A normal build verifies their hashes.
+
 ## Documentation examples and close-ups
 
 Prepare the teaching deck and tutorial plots before staging the guide captures:

@@ -5,7 +5,13 @@
   "slidePlayer": {
     "revision": "d3dd41993773fd31c535b853f873cdd1e3ec9d36",
     "note": "The homepage and documentation examples use the native slide player from this Flux revision.",
-    "patches": []
+    "patches": [
+      {
+        "path": "media/flux-patches/website-slide-playback.patch",
+        "sha256": "8e975aa9fd7d55fd8544784b327bd68f5bbf72991d29e7501282f34875c260fb",
+        "fixes": "Play manual steps to completion, queue navigation, and expose explicit playback and native rewind in the website embeds."
+      }
+    ]
   },
   "captureRevisions": [
     "8a5ee8354b8f9608bd83bbd715afc5e0ee7f81da"

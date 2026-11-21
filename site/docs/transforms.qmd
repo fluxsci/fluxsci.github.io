@@ -38,7 +38,7 @@ transform it again, and chained transforms compose. While a transform is selecte
 
 <div class="doc-study" data-doc-study="/demos/studies/change.html">
 <div class="doc-study-stage"><img src="/demos/studies/change.svg" alt="233 seeds move from a nearby angle to the golden angle" width="1280" height="720" loading="lazy"><button class="doc-study-launch" type="button" data-study-start data-title="233 seeds move from a nearby angle to the golden angle" hidden><span aria-hidden="true">▶</span> Try this example</button></div>
-<div class="doc-study-caption"><span class="study-label">Interactive example · a slide from the Flux film</span><p><strong>Keep the objects; change their state.</strong> Each of the 233 seeds is one object. One <strong>Change</strong> per seed moves the spiral to a nearby angle, which leaves gaps; the next moves it back to the golden angle, which fills the disc. Later steps draw the 13 and 21 spiral families through the same seeds. Vogel’s model, computed. Use the next-step arrow to play; reset to watch again. Reduced motion shows each finished step.</p></div>
+<div class="doc-study-caption"><span class="study-label">Interactive example · a slide from the Flux film</span><p><strong>Keep the objects; change their state.</strong> Each of the 233 seeds is one object. One <strong>Change</strong> per seed moves the spiral to a nearby angle, which leaves gaps; the next moves it back to the golden angle, which fills the disc. Later steps draw the 13 and 21 spiral families through the same seeds. Vogel’s model, computed. Use the next-step arrow to advance. With reduced motion, it shows each finished step. Choose <strong>Play animation</strong> to watch the motion.</p></div>
 </div>
 
 
@@ -144,7 +144,7 @@ stretches until it is regenerated.
 
 <div class="doc-study" data-doc-study="/demos/studies/ghost.html">
 <div class="doc-study-stage"><img src="/demos/studies/ghost.svg" alt="Each projection leaves a Ghost in the sinogram" width="1280" height="720" loading="lazy"><button class="doc-study-launch" type="button" data-study-start data-title="Each projection leaves a Ghost in the sinogram" hidden><span aria-hidden="true">▶</span> Try this example</button></div>
-<div class="doc-study-caption"><span class="study-label">Interactive example · a slide from the Flux film</span><p><strong>One source, independent copies.</strong> Every projection of the three disks leaves a <strong>Ghost</strong> that travels into the sinogram, one angle per step. In the last step the same copies sweep back through the object to form an unfiltered backprojection. Exact projections, computed. Use the next-step arrow to play; reset to watch again. Reduced motion shows each finished step.</p></div>
+<div class="doc-study-caption"><span class="study-label">Interactive example · a slide from the Flux film</span><p><strong>One source, independent copies.</strong> Every projection of the three disks leaves a <strong>Ghost</strong> that travels into the sinogram, one angle per step. In the last step the same copies sweep back through the object to form an unfiltered backprojection. Exact projections, computed. Use the next-step arrow to advance. With reduced motion, it shows each finished step. Choose <strong>Play animation</strong> to watch the motion.</p></div>
 </div>
 
 
@@ -175,7 +175,7 @@ ghost's creation lane removes that copy and its later effects; Undo restores the
 
 <div class="doc-study" data-doc-study="/demos/studies/become.html">
 <div class="doc-study-stage"><img src="/demos/studies/become.svg" alt="The dots of the Flux mark become shapes and a caption" width="1280" height="720" loading="lazy"><button class="doc-study-launch" type="button" data-study-start data-title="The dots of the Flux mark become shapes and a caption" hidden><span aria-hidden="true">▶</span> Try this example</button></div>
-<div class="doc-study-caption"><span class="study-label">Interactive example · a slide from the Flux film</span><p><strong>Objects become other objects.</strong> The 88 dots of a plotted Flux mark <strong>Become</strong> five shapes, a frame and a caption, and each letter flies out of a dot. This is the slide made live in the Flux film: select the dots, press <strong>B</strong>, pick the targets. Use the next-step arrow to play; reset to watch again. Reduced motion shows each finished step.</p></div>
+<div class="doc-study-caption"><span class="study-label">Interactive example · a slide from the Flux film</span><p><strong>Objects become other objects.</strong> The 88 dots of a plotted Flux mark <strong>Become</strong> five shapes, a frame and a caption, and each letter flies out of a dot. This is the slide made live in the Flux film: select the dots, press <strong>B</strong>, pick the targets. Use the next-step arrow to advance. With reduced motion, it shows each finished step. Choose <strong>Play animation</strong> to watch the motion.</p></div>
 </div>
 
 

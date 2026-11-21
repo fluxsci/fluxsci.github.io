@@ -256,13 +256,15 @@ test.describe('without JavaScript', () => {
 });
 
 test('3D slides keep accurate saved views at every step when WebGL is unavailable',async({page})=>{
+ await page.emulateMedia({reducedMotion:'reduce'});
  await page.addInitScript(()=>{
   const original=HTMLCanvasElement.prototype.getContext;
   HTMLCanvasElement.prototype.getContext=function(kind,...options){return kind==='webgl2'?null:original.call(this,kind,...options);};
  });
  await page.goto('/demos/slides/');
  await page.getByRole('combobox',{name:'Choose a slide'}).selectOption('4');
- await expect(page.getByRole('button',{name:'Toggle animation',exact:true})).toBeDisabled();
+ await expect(page.getByRole('button',{name:'Toggle animation',exact:true})).toBeEnabled();
+ await expect(page.getByRole('button',{name:'Toggle animation',exact:true})).toHaveAttribute('aria-pressed','false');
  const views=[];
  for(let beat=0;beat<=2;beat++){
   if(beat)await page.getByRole('button',{name:'Next animation step',exact:true}).click();

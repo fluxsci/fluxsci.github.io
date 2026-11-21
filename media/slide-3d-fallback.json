@@ -1,0 +1,37 @@
+{
+  "source": {
+    "revision": "d3dd41993773fd31c535b853f873cdd1e3ec9d36",
+    "slideId": "slide_muz2tp5izb92_249",
+    "path": "site/demos/slides/slide_muz2tp5izb92_249.json.gz",
+    "sha256": "13eb1190d105ccde23364ca11f0c0d8a91459c380bacb42e492ef97e96f463e9"
+  },
+  "capture": {
+    "width": 1280,
+    "height": 720,
+    "fps": 30,
+    "sampler": "Flux createPlayer in captureMode, using SwiftShader",
+    "durations": [
+      0,
+      3000,
+      5000
+    ]
+  },
+  "outputs": {
+    "site/demos/slides/3d-fallback/step-1-forward.mp4": {
+      "bytes": 60143,
+      "sha256": "007eff86fd607740830c60144940ffb7162c47586d9d340dd76101da43ca66bf"
+    },
+    "site/demos/slides/3d-fallback/step-1-reverse.mp4": {
+      "bytes": 57926,
+      "sha256": "07a0e533764b188742d17efe92fadb30853e9b3416a572301482358d561250d2"
+    },
+    "site/demos/slides/3d-fallback/step-2-forward.mp4": {
+      "bytes": 513828,
+      "sha256": "451ddfe07b04bf3d91328311fd53e05dc7c15cf5c469cf414c2c5effd63e4be8"
+    },
+    "site/demos/slides/3d-fallback/step-2-reverse.mp4": {
+      "bytes": 506405,
+      "sha256": "a54f6465468d437fdee7923ea0039b199907c74de170971de2ebc1c43059342a"
+    }
+  }
+}

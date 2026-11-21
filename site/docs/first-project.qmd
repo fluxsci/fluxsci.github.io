@@ -152,11 +152,11 @@ An interactive slide can also live inside a Paper document. HTML preserves its s
 
 ```{=html}
 <div class="slide-demo" id="slide-demo" data-demo-src="/demos/slides/index.html" data-demo-scene="5">
-<button type="button" class="demo-launch" aria-label="Load the interactive Flux slides" data-demo-start><img src="/demos/studies/become.svg" alt="A slide titled “In Flux, any figure can become a slide”: the dots of the Flux mark have become five coloured shapes. Load the native slides to play them." width="1280" height="720" loading="lazy"><span class="demo-launch-prompt"><span class="play-disc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 6 9 6-9 6Z" /></svg></span><span>Play the slides<small>Start with the Flux mark</small></span></span></button>
+<button type="button" class="demo-launch" aria-label="Load the interactive Flux slides" data-demo-start><img src="/demos/studies/become.svg" alt="A slide titled “In Flux, any figure can become a slide”: the dots of the Flux mark have become five coloured shapes." width="1280" height="720" loading="lazy"><span class="demo-launch-prompt"><span class="play-disc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 6 9 6-9 6Z" /></svg></span><span>Load the interactive Flux slides<small>Start with the Flux mark</small></span></span></button>
 </div>
 ```
 
-The example opens on the slide made live in the film: the dots of a plotted Flux mark become five shapes and a caption. Use the arrows to advance, or choose another slide from the menu. Each slide names its data source below the player. [Visual credits](/docs/visual-credits.html#slides) · [Slides guide](/docs/slides.html).
+The example opens on the slide made live in the film: the dots of a plotted Flux mark become five shapes and a caption. Use the arrows to advance, or choose another slide from the menu. If your device prefers reduced motion, choose **Play animation** for one step or turn on **Animate steps** to play each transition. Each slide names its data source below the player. [Visual credits](/docs/visual-credits.html#slides) · [Slides guide](/docs/slides.html).
 
 ## 7. Export and keep the sources {#export}
 

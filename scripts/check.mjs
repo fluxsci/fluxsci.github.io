@@ -69,6 +69,24 @@ export async function checkSource() {
   const player = pin.slidePlayer;
   assert(/^[a-f0-9]{40}$/.test(player?.revision ?? ''), 'flux-source.json must pin the slide player to a full commit hash.');
   for (const patch of player.patches) assert.equal(createHash('sha256').update(await readFile(path.join(ROOT, patch.path))).digest('hex'), patch.sha256, `Slide player patch changed: ${patch.path}`);
+  const recorded3d = JSON.parse(await readFile(path.join(ROOT, 'media/slide-3d-fallback.json'), 'utf8'));
+  const recordedPayload = `demos/slides/${recorded3d.source.slideId}.json.gz`;
+  assert(SLIDE_PAYLOAD.test(recordedPayload) && recorded3d.source.path === 'site/' + recordedPayload);
+  assert.equal(recorded3d.source.revision, player.revision, '3D motion uses a different player revision.');
+  const compressed = await readFile(path.join(SOURCE, recordedPayload));
+  assert.equal(createHash('sha256').update(compressed).digest('hex'), recorded3d.source.sha256, 'Recapture 3D motion for the current slide.');
+  const [slide] = JSON.parse(gunzipSync(compressed)).deck.slides;
+  const recordedDirectory = 'demos/slides/3d-fallback/';
+  const recordedPaths = slide.beats.slice(1).flatMap((_, i) => ['forward', 'reverse'].map(direction =>
+    recordedDirectory + `step-${i + 1}-${direction}.mp4`)).sort();
+  assert.deepEqual(files.filter(file => file.startsWith(recordedDirectory)).sort(), recordedPaths);
+  assert.deepEqual(Object.keys(recorded3d.outputs).sort(), recordedPaths.map(file => 'site/' + file));
+  for (const file of recordedPaths) {
+    const bytes = await readFile(path.join(SOURCE, file));
+    const expected = recorded3d.outputs['site/' + file];
+    assert.equal(bytes.length, expected.bytes, `3D recording size changed: ${file}`);
+    assert.equal(createHash('sha256').update(bytes).digest('hex'), expected.sha256, `3D recording changed: ${file}`);
+  }
   const playerSource = { repository: pin.repository, revision: player.revision, patches: player.patches.map(({ path, sha256 }) => ({ path, sha256 })) };
   for (const [manifestFile, expected] of [['media/native-assets.json', release], ['media/screenshots.json', release], ['media/docs-demos.json', release], ['media/docs-screenshots.json', release], ['media/feature-captures.json', release], ['media/slides.json', playerSource]]) {
     const manifest = JSON.parse(await readFile(path.join(ROOT, manifestFile), 'utf8'));

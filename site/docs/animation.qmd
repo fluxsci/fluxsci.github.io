@@ -108,7 +108,7 @@ Use **Fade in** for a quiet reveal, **Scale in** or **Pop in** to bring attentio
 
 <div class="doc-study" data-doc-study="/demos/studies/entrances.html">
 <div class="doc-study-stage"><img src="/demos/studies/entrances.svg" alt="Sample means pop in and a normal curve draws on" width="1280" height="720" loading="lazy"><button class="doc-study-launch" type="button" data-study-start data-title="Sample means pop in and a normal curve draws on" hidden><span aria-hidden="true">▶</span> Try this example</button></div>
-<div class="doc-study-caption"><span class="study-label">Interactive example · a slide from the Flux film</span><p><strong>Entrances build the argument.</strong> A sample lights up in the population, its five dots fly down, and their mean <strong>pops</strong> in below: one sample, then two, then a cascade of a hundred. The normal curve then <strong>draws on</strong> over the pile. Simulated samples from a skewed Gamma population. Use the next-step arrow to play; reset to watch again. Reduced motion shows each finished step.</p></div>
+<div class="doc-study-caption"><span class="study-label">Interactive example · a slide from the Flux film</span><p><strong>Entrances build the argument.</strong> A sample lights up in the population, its five dots fly down, and their mean <strong>pops</strong> in below: one sample, then two, then a cascade of a hundred. The normal curve then <strong>draws on</strong> over the pile. Simulated samples from a skewed Gamma population. Use the next-step arrow to advance. With reduced motion, it shows each finished step. Choose <strong>Play animation</strong> to watch the motion.</p></div>
 </div>
 
 ### Select and arrange effects {#select-and-arrange-effects}
@@ -276,7 +276,7 @@ The alignment diagrams above use their own example durations; the rules here onl
 
 <div class="doc-study" data-doc-study="/demos/studies/easing.html">
 <div class="doc-study-stage"><img src="/demos/studies/easing.svg" alt="Hundreds of spike marks ease into a histogram" width="1280" height="720" loading="lazy"><button class="doc-study-launch" type="button" data-study-start data-title="Hundreds of spike marks ease into a histogram" hidden><span aria-hidden="true">▶</span> Try this example</button></div>
-<div class="doc-study-caption"><span class="study-label">Interactive example · a slide from the Flux film</span><p><strong>One easing, hundreds of moves.</strong> Every spike mark travels to its histogram bin with <strong>Smooth</strong> easing: it speeds up, then settles. Because all 346 marks share the curve, the rearrangement reads as one gesture. Simulated spike trains. Use the next-step arrow to play; reset to watch again. Reduced motion shows each finished step.</p></div>
+<div class="doc-study-caption"><span class="study-label">Interactive example · a slide from the Flux film</span><p><strong>One easing, hundreds of moves.</strong> Every spike mark travels to its histogram bin with <strong>Smooth</strong> easing: it speeds up, then settles. Because all 346 marks share the curve, the rearrangement reads as one gesture. Simulated spike trains. Use the next-step arrow to advance. With reduced motion, it shows each finished step. Choose <strong>Play animation</strong> to watch the motion.</p></div>
 </div>
 
 Select an effect and click **Easing**, or press **E** while the Animator has focus.

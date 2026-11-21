@@ -346,9 +346,9 @@ description: "Flux is a free, open-source desktop workspace for scientists. Comp
       <button type="button" data-scene="5" aria-pressed="false"><span>The figure becomes a slide</span><small>Become</small></button>
     </div>
     <div class="slide-demo" id="slide-demo" data-demo-src="/demos/slides/index.html" data-demo-scene="0">
-      <button type="button" class="demo-launch" aria-label="Load the interactive Flux slides" data-demo-start><img src="/assets/media/slide-poster.svg" alt="Map of Japan showing earthquakes by depth. Play the slide to see a section through northern Honshu." width="1280" height="720" loading="lazy"><span class="demo-launch-prompt"><span class="play-disc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 6 9 6-9 6Z" /></svg></span><span>Play the slides<small>Start with Japan’s earthquakes</small></span></span></button>
+      <button type="button" class="demo-launch" aria-label="Load the interactive Flux slides" data-demo-start><img src="/assets/media/slide-poster.svg" alt="Map of Japan showing earthquakes by depth." width="1280" height="720" loading="lazy"><span class="demo-launch-prompt"><span class="play-disc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 6 9 6-9 6Z" /></svg></span><span>Load the interactive Flux slides<small>Start with Japan’s earthquakes</small></span></span></button>
     </div>
-    <div class="demo-caption"><p>Pick a slide above, then use the arrows to step through it. The player is Flux’s own.</p><a class="text-link" href="/docs/slides.html">Learn about Slides<span aria-hidden="true">→</span></a></div>
+    <div class="demo-caption"><p>Pick a slide and use the arrows to advance. If your device prefers reduced motion, choose <strong>Play animation</strong> for one step or turn on <strong>Animate steps</strong> to play each transition.</p><a class="text-link" href="/docs/slides.html">Learn about Slides<span aria-hidden="true">→</span></a></div>
     <p class="visual-credit">Earthquake data from the <a href="https://earthquake.usgs.gov/earthquakes/search/">USGS earthquake catalog</a>. <a href="/docs/visual-credits.html#slides">Sources for all slides</a>.</p>
   </section>
 

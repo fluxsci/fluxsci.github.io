@@ -135,13 +135,21 @@ const prepared=await prepareSlideDocument(`![](x.svg){.flux-slide deck="${styleR
 
 // The homepage loads only the selected payload. Studies embed one portable snapshot.
 // Flux governs rendering, animation and transforms in both players.
-const hostSource=`import {payloadModelHost} from ${JSON.stringify(path.join(source,'src/lib/slide/export/model3dPayloadHost.ts'))};
+const recorded3d=JSON.parse(await fs.readFile(path.join(site,'media/slide-3d-fallback.json'),'utf8'));
+const hostSource=`import {recorded3dPlayer} from ${JSON.stringify(path.join(site,'scripts/slide-3d-fallback.mjs'))};
+import {payloadModelHost} from ${JSON.stringify(path.join(source,'src/lib/slide/export/model3dPayloadHost.ts'))};
 import {mountSlideEmbed} from ${JSON.stringify(path.join(source,'src/lib/slide/embedPlayer.ts'))};
 const entries=JSON.parse(document.getElementById('payload').textContent);
 const host=document.getElementById('native-player'),selector=document.getElementById('slide-select');
 const count=document.getElementById('selected-slide-status'),error=document.getElementById('slide-load-error');
 const single=document.documentElement.dataset.single==='true',states=new Map(),loads=new Map();
-let controller,selected=-1,request=0,reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const preference=matchMedia('(prefers-reduced-motion: reduce)');
+let controller,selected=-1,request=0,reduced=preference.matches;
+function useMotionPreference(value){
+ reduced=value;
+ controller?.setReducedMotion(value);
+}
+preference.addEventListener('change',event=>useMotionPreference(event.matches));
 function payloadAt(index){
  const entry=entries[index];
  if(!entry.file)return Promise.resolve(entry);
@@ -181,9 +189,14 @@ async function mount(index,play=false){
  const slide=payload.deck.slides[0];
  if(selected!==index){
   controller?.destroy();
-  const modelHost=payloadModelHost(payload),stills=!modelHost&&slide.elements.some(e=>e.type==='model3d');
-  const state=states.get(slide.id)||{beatId:slide.beats[0].id,reduced};
-  controller=mountSlideEmbed(host,payload,{model3d:modelHost,state:{...state,reduced:stills||state.reduced},onState:state=>{states.set(slide.id,state);if(!stills)reduced=state.reduced}});
+  const modelHost=payloadModelHost(payload),recorded=slide.id===${JSON.stringify(recorded3d.source.slideId)};
+  const stills=!modelHost&&!recorded&&slide.elements.some(e=>e.type==='model3d');
+  controller=mountSlideEmbed(host,payload,{
+   model3d:modelHost,
+   adaptPlayer:recorded?(player,art)=>recorded3dPlayer(player,art,{liveModel:!!modelHost}):undefined,
+   state:{beatId:states.get(slide.id)?.beatId??slide.beats[0].id,reduced:stills||reduced},
+   onState:state=>{states.set(slide.id,state);if(!stills)reduced=state.reduced}
+  });
   if(stills){
    const motion=host.querySelector('[aria-label="Toggle animation"]');
    motion.disabled=true;motion.title='This browser shows saved 3D views. Use the arrows to change view.';
@@ -214,7 +227,7 @@ document.documentElement.classList.add('has-player');
 mount(fromHash());
 if(parent!==window){let previous=0;new ResizeObserver(()=>{const height=Math.ceil(document.body.getBoundingClientRect().height);if(height>0&&height!==previous){previous=height;parent.postMessage({type:single?'flux-docs-resize':'flux-demo-resize',height},location.origin)}}).observe(document.body);}
 document.addEventListener('visibilitychange',()=>{if(document.hidden)controller?.pauseOffscreen()});
-window.addEventListener('message',event=>{if(event.source!==parent||event.origin!==location.origin)return;if(event.data?.type==='flux-demo-pause')controller?.pauseOffscreen();if(event.data?.type==='motion-preference'&&typeof event.data.reducedMotion==='boolean'){reduced=event.data.reducedMotion;for(const [key,state]of states)states.set(key,{...state,reduced});const button=host.querySelector('[aria-label="Toggle animation"]');if(button&&!button.disabled&&(button.getAttribute('aria-pressed')==='true')===reduced)button.click();}});
+window.addEventListener('message',event=>{if(event.source!==parent||event.origin!==location.origin)return;if(event.data?.type==='flux-demo-pause')controller?.pauseOffscreen();if(event.data?.type==='motion-preference'&&typeof event.data.reducedMotion==='boolean')useMotionPreference(event.data.reducedMotion);});
 window.addEventListener('pagehide',event=>{if(event.persisted)controller?.pauseOffscreen();else{request++;controller?.destroy()}});`;
 const bundle=await build({stdin:{contents:hostSource,resolveDir:source,sourcefile:'flux-website-slides.js'},bundle:true,write:false,format:'iife',platform:'browser',target:'es2022',minify:true,legalComments:'inline',metafile:true,logLevel:'silent'});
 const STYLE=`<style>html,body{margin:0;background:#fffcf0;color:#22272e}body{padding:0 1px}.flux-slide-embed{margin:0!important;width:100%!important}.deck-selector{display:none;align-items:center;gap:12px;justify-content:space-between;padding:10px 14px;background:#f7f8f8;border-bottom:1px solid #e5e7e8;font:12px system-ui,sans-serif}.has-player .deck-selector{display:flex}.load-error{margin:8px 12px;font:12px system-ui,sans-serif}.deck-selector label{font-weight:600;white-space:nowrap}.deck-selector select{min-width:0;max-width:100%;min-height:44px;flex:1;font:inherit;border:1px solid #c9ced3;border-radius:5px;padding:8px 30px 8px 10px;background:#fff;color:#22272e}.source-credit{margin:0;padding:8px 12px;border-top:1px solid #e5e7e8;font:10px/1.5 system-ui,sans-serif;color:#646b72}.source-credit[hidden]{display:none}.flux-slide-status{display:none}.source-credit a{color:#266e9e}.slide-count{font-variant-numeric:tabular-nums;white-space:nowrap;color:#575e65}.flux-slide-bar{padding:5px 12px;gap:8px;min-height:44px;border-top:1px solid #e5e7e8}.flux-slide-bar button{min-width:44px;min-height:44px}.flux-slide-art:focus-visible,button:focus-visible,select:focus-visible{outline:2px solid #266e9e;outline-offset:-3px}.flux-slide-title{font-size:12px}.fallback{width:100%;height:auto;display:block}.enhanced .fallback{display:none}@media(max-width:550px){.flux-slide-title,.slide-count{display:none}.deck-selector{gap:8px;padding:8px}.deck-selector label{font-size:11px}}@media print{#native-player,.deck-selector{display:none!important}.fallback{display:block!important}}</style>`;
