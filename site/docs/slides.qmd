@@ -39,6 +39,12 @@ each is one readable file in the project. Double-click a deck name to rename it.
 or click away to save the name, or press **Esc** to cancel. The title field at the top of the
 window edits the same name.
 
+To take slides to another deck, select them in the filmstrip: **Shift+click** selects the range
+from the slide on the stage, and **Ctrl/Cmd+click** adds or removes one. Then right-click, choose
+**Move to deck…** or **Copy to deck…** and pick the deck. The slides arrive at the end of that
+deck with their animation, notes and media, and you stay in the deck you are in. **Ctrl+Z**
+brings moved slides back.
+
 Drag the filmstrip thumbnails to
 reorder slides. Double-click a thumbnail caption or press **F2** on the selected slide to
 rename it. Duplicate or delete from a thumbnail, or choose **+ Add slide** for a new slide (layouts seed

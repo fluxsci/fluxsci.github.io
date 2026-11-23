@@ -11,7 +11,7 @@ description: "Save a calibrated fluximg from Python, inspect channels and segmen
 Place a microscopy stack once. Scrub depth and time, inspect a segmented cell, or pull a magnified inset into the figure. Each panel stores its own view of the same image.
 :::
 
-**Build availability.** This guide describes the development builds of Flux and fluxplot with fluximg support. The Flux v0.3.0 desktop download and the fluxplot 0.4.0 release on PyPI predate this workflow. To check your Python environment, run `python -c "from fluxplot import imsave"`. [Installation and published releases](/install/).
+**Availability.** Scientific images need Flux v0.4.0 or later and fluxplot 0.5.0 or later with its `images` extra (`pip install "fluxplot[images]"`). Earlier releases of either predate this workflow. To check your Python environment, run `python -c "from fluxplot import imsave"`. [Installation and published releases](/install/).
 
 ## Save a stack from Python {#save-a-stack}
 
@@ -32,7 +32,7 @@ img = fp.fluximg(
 img.save("plots/specimen", recipe=True)
 ```
 
-This writes `plots/specimen.fluximg/` and a companion recipe. For a single plane, `fp.imsave("plots/section", plane, pixel_size=0.25)` suffices. For a movie, include `t` in `dims` and give `dt` in seconds or supply frame times in `coords`. You can name other sampled dimensions, such as trial. The writer needs zstd support, supplied by the image-enabled build’s `images` extra or Python 3.14’s standard library.
+This writes `plots/specimen.fluximg/` and a companion recipe. For a single plane, `fp.imsave("plots/section", plane, pixel_size=0.25)` suffices. For a movie, include `t` in `dims` and give `dt` in seconds or supply frame times in `coords`. You can name other sampled dimensions, such as trial. The writer needs zstd support, supplied by fluxplot’s `images` extra or Python 3.14’s standard library.
 
 Integers retain their original values. For floats, the writer tests compact 16-bit storage against the variation between neighbouring pixels in each channel and keeps the original floats when rounding would exceed its tolerance. Set `lossless=True` for exact floats regardless of that test. The Inspector reports the encoding. [Python image API](/docs/fluxplot-api.html#scientific-image-bundles).
 

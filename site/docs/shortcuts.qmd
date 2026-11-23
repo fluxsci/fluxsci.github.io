@@ -276,7 +276,9 @@ Align & Arrange. Additionally:
 | Shortcut | Action |
 |---|---|
 | **F5** / **Shift+F5** | Present from the start / from the current slide |
-| **↓** / **↑** (nothing selected) | Next / previous slide |
+| **↓** / **↑** (nothing selected), **PageDown** / **PageUp** | Next / previous slide |
+| **Shift+click** / **Ctrl/Cmd+click** a slide in the filmstrip | Select a range from the current slide / add or remove one |
+| Right-click a slide in the filmstrip | Move or copy the selected slides to another deck |
 | **Ctrl+B** (nothing text-like selected) | Hide/show the left rail (filmstrip or Plots) |
 | **Alt+G** | Toggle the left rail between **Plots** and **Slides**; a hidden rail opens to Plots with search focused (type `_vid` for the `_videos` folder) |
 | **Ctrl+Shift+A** | Add appearance for the selection *(animator open)* |

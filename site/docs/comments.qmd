@@ -215,7 +215,7 @@ Replying in the item's thread continues the same session when it can; a reply se
 the agent is working waits for that turn to finish. If a run ends
 without replying or resolving, its last message is added to the thread.
 
-A background agent works in the project and its analysis workspace. Claude Code uses its auto permission mode where available, which can refuse an action without prompting. If that account, model or CLI version lacks auto mode, Flux falls back to asking before additional actions. Codex uses workspace-write access. Both are instructed to propose a push, publication or deletion for the user to decide.
+A background agent works in the project and its analysis workspace. Claude Code uses its auto permission mode where available, which can refuse an action without prompting. If that account, model or CLI version lacks auto mode, the agent still runs without dialogs: an action that would need your confirmation is declined, and the agent tries another way. To review each request yourself, switch on **Ask for tool permissions in new Claude background sessions** in Settings, under **Agents**. Codex uses workspace-write access. Both are instructed to propose a push, publication or deletion for the user to decide.
 
 One agent works on each item. **Agent that Flux launches** (Settings, or AI status)
 sets how many background runs go at once (1–3, default 2); further items wait for a

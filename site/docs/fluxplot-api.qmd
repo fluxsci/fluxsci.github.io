@@ -11,7 +11,7 @@ description: "Signatures and behaviour of the public fluxplot plotting, saving, 
 Find the function, its parameters and its return value. Import the library as `import fluxplot as fp`.
 :::
 
-Start with the [quickstart](/docs/fluxplot.html) for a complete script. The examples in this reference describe individual calls; variables such as `ax`, `x` and `data` come from your own analysis. The plotting reference covers the published [fluxplot 0.4.0 package](https://pypi.org/project/fluxplot/0.4.0/). [Scientific image bundles](#scientific-image-bundles) describes the additional API in the image-enabled development source.
+Start with the [quickstart](/docs/fluxplot.html) for a complete script. The examples in this reference describe individual calls; variables such as `ax`, `x` and `data` come from your own analysis. This reference covers the published [fluxplot 0.5.0 package](https://pypi.org/project/fluxplot/0.5.0/). [Scientific image bundles](#scientific-image-bundles) describes the image API that 0.5.0 adds.
 
 `**kwargs` generally pass through to the corresponding Matplotlib method. See the [plotting guides](/docs/plot-types.html), [signature plots](/docs/signature-plots.html), [colour guide](/docs/colors-and-style.html) and [3D guide](/docs/3d-plots.html) for worked patterns, and [Plot format and identity](/docs/plot-format.html) for the files `fp.save` writes.
 
@@ -604,9 +604,9 @@ Returns the list of matplotlib collections drawn (in draw order).
 
 ## Scientific image bundles {#scientific-image-bundles}
 
-The image-enabled development source adds these functions. Importing them requires
-that source build of fluxplot. Placing the resulting bundle also requires an
-image-enabled build of the Flux desktop app. See [Scientific images and stacks](/docs/fluximg.html).
+fluxplot 0.5.0 adds these functions. Writing a bundle needs the `images` extra
+(`pip install "fluxplot[images]"`); placing one needs Flux v0.4.0 or later.
+See [Scientific images and stacks](/docs/fluximg.html).
 
 ### `fp.imsave` {#imsave}
 
@@ -2317,6 +2317,6 @@ Most helpers return the Matplotlib artists or containers they drew, so anything 
 | `rasterized` | Ids of the layers rasterized on the way out (empty on an ordinary save). |
 | `skipped` | `True` when `FLUXPLOT_ONLY` filtered this plot out — nothing was written. |
 
-`fp.__version__` is the installed package version. `fp.SPEC_VERSION` is the manifest and recipe schema version the build emits — `"0.4.0"` for fluxplot 0.4, carried in every manifest's `schemaVersion` — and `fp.SCENE3D_SPEC_VERSION` (`"0.1.0"`) the 3D scene manifest's. They identify output formats, not the application version. Schema 0.4.0 is additive over 0.3.2: a manifest written by fluxplot 0.4 differs from an older one by the `layout` block and a few new scaffold roles, and plots saved by older versions still open; they simply cannot be reflowed until regenerated. See [Plot format and identity](/docs/plot-format.html#layout-capture).
+`fp.__version__` is the installed package version. `fp.SPEC_VERSION` is the manifest and recipe schema version the build emits — `"0.4.0"` for fluxplot 0.4 and 0.5, carried in every manifest's `schemaVersion` — and `fp.SCENE3D_SPEC_VERSION` (`"0.1.0"`) the 3D scene manifest's. They identify output formats, not the application version. Schema 0.4.0 is additive over 0.3.2: a manifest written by fluxplot 0.4 differs from an older one by the `layout` block and a few new scaffold roles, and plots saved by older versions still open; they simply cannot be reflowed until regenerated. See [Plot format and identity](/docs/plot-format.html#layout-capture).
 
 [Format and identity](/docs/plot-format.html) · [Statistics guide](/docs/statistics.html) · [Source repository](https://github.com/fluxsci/fluxplot)

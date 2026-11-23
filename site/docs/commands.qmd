@@ -221,7 +221,7 @@ These verbs are the file-based twins of the editor's **Align & Arrange** panel (
 
 ### Scientific images in Figure {#figure-images}
 
-These development-build commands work on the same image elements as the [live view](/docs/fluximg.html). Run them in a saved project, or pass `--root`.
+These commands work on the same image elements as the [live view](/docs/fluximg.html). Run them in a saved project, or pass `--root`.
 
 | CLI | MCP tool | Result |
 |---|---|---|
