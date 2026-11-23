@@ -1,5 +1,9 @@
 ---
 title: "Flux: a visual tour"
+image: /assets/brand/social-card.png
+image-width: "1200"
+image-height: "630"
+image-alt: "Flux: a unified scientific workspace."
 description: "What Flux is and why it exists, followed by a visual tour of Flux Figure, Slides and Paper, and of working with your own AI agent."
 ---
 

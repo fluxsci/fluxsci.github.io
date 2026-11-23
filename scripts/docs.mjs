@@ -46,6 +46,8 @@ export async function decorateDocuments(){
   const filename=path.join(OUTPUT,route.output),$=load(await readFile(filename,'utf8'));
   $('link[rel="canonical"]').remove();$('head').append(`<link rel="canonical" href="${ORIGIN}${route.url}">`);
   $('meta[property="og:url"]').attr('content',ORIGIN+route.url);
+  // Quarto resolves the site image relative to each page (or doubles the slash); point every page at the real file.
+  for(const sel of ['meta[property="og:image"]','meta[name="twitter:image"]']){const el=$(sel),v=el.attr('content');if(v){const m=v.match(/assets\/brand\/[\w.-]+$/);if(m)el.attr('content',`${ORIGIN}/${m[0]}`);}}
   // The homepage title already names Flux; drop the site-name suffix Quarto appends.
   if(route.url==='/')$('title').text(route.title);
   if(route.kind){
