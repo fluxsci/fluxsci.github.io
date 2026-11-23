@@ -55,12 +55,20 @@ test('appearance selection persists and both color schemes remain accessible', a
   expect(dark.violations).toEqual([]);
   await page.getByRole('combobox', { name:'Appearance' }).selectOption('light');
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
-  await page.getByRole('combobox', { name:'Appearance' }).selectOption('system');
-  await expect(page.locator('html')).not.toHaveAttribute('data-theme');
-  await page.emulateMedia({ colorScheme:'dark' });
-  await expect(page.locator('html')).toHaveCSS('background-color', 'rgb(16, 15, 15)');
-  await page.emulateMedia({ colorScheme:'light' });
   await expect(page.locator('html')).toHaveCSS('background-color', 'rgb(255, 252, 240)');
+  await expect(page.getByRole('combobox', { name:'Appearance' }).locator('option')).toHaveText(['Dark', 'Light']);
+});
+
+test('a first visit is dark whatever the system prefers', async ({ browser }) => {
+  for (const colorScheme of ['light', 'dark']) {
+    const context = await browser.newContext({ colorScheme });
+    const page = await context.newPage();
+    await page.goto('/');
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+    await expect(page.locator('html')).toHaveCSS('background-color', 'rgb(16, 15, 15)');
+    await expect(page.getByRole('combobox', { name:'Appearance' })).toHaveValue('dark');
+    await context.close();
+  }
 });
 
 test('navigation works with mobile menu and keyboard dismissal', async ({ page }) => {
@@ -79,7 +87,8 @@ test('navigation works with mobile menu and keyboard dismissal', async ({ page }
   await expect(page).toHaveURL(/\/docs\/$/);
   await page.goto('/');
   await page.locator('#film figcaption .text-link').click();
-  await expect(page).toHaveURL(/#explore$/);
+  await expect(page).toHaveURL(/\/visual-tour\/$/);
+  await page.goto('/');
   if (await menu.isVisible()) await expect(menu).toHaveAttribute('aria-expanded', 'false');
   await page.locator('[data-workspace-guide]').click();
   await expect(page).toHaveURL(/\/docs\/figure.html$/);
@@ -241,8 +250,8 @@ test.describe('without JavaScript', () => {
     const navigation = page.getByRole('navigation', { name:'Main navigation', exact:true });
     await expect(navigation.getByRole('link', { name:/Documentation/ })).toBeVisible();
     await expect(page.locator('.scene-tabs')).toBeHidden();
-    await page.locator('.hero-actions .text-link').click();
-    await expect(page).toHaveURL(/#film$/);
+    await expect(page.locator('.hero-actions a[href$="visual-tour/"]')).toHaveText('How it works');
+    await expect(page.locator('#film video.film-video')).toHaveAttribute('poster', /assets\/film\/poster\.webp$/);
     await expect(page.locator('[data-enlarge]').first()).toHaveAttribute('href', /assets\/media\/figure-materials\.webp$/);
     const fallback = page.locator('.showcase-plates img').first();
     await fallback.scrollIntoViewIfNeeded();

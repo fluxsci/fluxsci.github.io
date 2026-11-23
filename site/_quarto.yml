@@ -41,7 +41,7 @@ format:
     include-in-header:
       text: |
         <meta name="color-scheme" content="light dark">
-        <script>try{const theme=localStorage.getItem('flux-site-appearance');if(theme==='light'||theme==='dark')document.documentElement.setAttribute('data-theme',theme)}catch{}</script>
+        <script>document.documentElement.setAttribute('data-theme','dark');try{const theme=localStorage.getItem('flux-site-appearance');if(theme==='light'||theme==='dark')document.documentElement.setAttribute('data-theme',theme)}catch{}</script>
         <script>(function(){var h=document.documentElement;h.classList.add('js');try{if(location.pathname==='/'&&!sessionStorage.getItem('flux-intro')){sessionStorage.setItem('flux-intro','1');h.classList.add('intro')}}catch(e){h.classList.add('intro')}})()</script>
         <link rel="canonical" href="https://fluxsci.org/">
         <meta property="og:type" content="website">

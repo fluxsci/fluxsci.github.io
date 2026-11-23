@@ -16,8 +16,9 @@ const settle = page => page.evaluate(() => Promise.all(document.getAnimations().
 async function expectWorkspace(page, name) {
   const workspace = workspaces.find(item => item.name === name);
   const surface = preview(page);
-  await expect(choice(page, name)).toHaveAttribute('aria-pressed', 'true');
-  await expect(surface.locator('button[aria-pressed="true"]')).toHaveCount(1);
+  await expect(choice(page, name)).toHaveAttribute('aria-selected', 'true');
+  await expect(surface.locator('[role="tab"][aria-selected="true"]')).toHaveCount(1);
+  await expect(choice(page, name)).toHaveAttribute('tabindex', '0');
   await expect(surface.locator('.hero-image img')).toHaveAttribute('src', new RegExp(`/assets/media/${filename(name)}\\.webp$|^assets/media/${filename(name)}\\.webp$`));
   await expect(surface.locator('.hero-image img')).toHaveAttribute('alt', workspace.alt);
   await expect.poll(() => surface.locator('.hero-image img').evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);
@@ -34,7 +35,7 @@ test('five workspace choices keep the image, description, guide, and enlargement
   page.on('pageerror', error => errors.push(error.message));
   await page.goto('/');
   await settle(page);
-  await expect(preview(page).getByRole('group', { name:'Choose a Flux workspace' }).getByRole('button')).toHaveCount(5);
+  await expect(preview(page).getByRole('tablist', { name:'Choose a Flux workspace' }).getByRole('tab')).toHaveCount(5);
   for (const workspace of workspaces) {
     await choice(page, workspace.name).click();
     await expectWorkspace(page, workspace.name);
@@ -112,6 +113,34 @@ test('reduced motion preserves manual workspace selection without an image fade'
   expect(await preview(page).locator('.hero-image img').evaluate(image => image.getAnimations().length)).toBe(0);
 });
 
+test('the pill tours the workspaces on its own until a visitor chooses one', async ({ page }) => {
+  await page.clock.install();
+  await page.goto('/');
+  await settle(page);
+  await expectWorkspace(page, 'figure');
+  await preview(page).scrollIntoViewIfNeeded();
+  await page.mouse.move(0, 0);
+  await page.clock.runFor(4600);
+  await expectWorkspace(page, 'slides');
+  await page.clock.runFor(4600);
+  await expectWorkspace(page, 'paper');
+  // The indicator follows the active mode.
+  await expect(preview(page).locator('[role="tablist"]')).toHaveAttribute('style', /--mi:\s*2/);
+  await choice(page, 'library').click();
+  await expectWorkspace(page, 'library');
+  await page.mouse.move(0, 0);
+  await page.clock.runFor(15000);
+  await expectWorkspace(page, 'library');
+});
+
+test('reduced motion never starts the tour', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion:'reduce' });
+  await page.clock.install();
+  await page.goto('/');
+  await page.clock.runFor(10000);
+  await expectWorkspace(page, 'figure');
+});
+
 test.describe('without JavaScript', () => {
   test.use({ javaScriptEnabled:false });
 
@@ -120,6 +149,7 @@ test.describe('without JavaScript', () => {
     const surface = preview(page);
     await expect(surface.locator('.workspace-choices')).toBeHidden();
     await expect(surface.getByRole('button')).toHaveCount(0);
+    await expect(surface.getByRole('tab')).toHaveCount(0);
     await expectWorkspace(page, 'figure');
     await surface.locator('[data-workspace-guide]').click();
     await expect(page).toHaveURL(/\/docs\/figure.html$/);

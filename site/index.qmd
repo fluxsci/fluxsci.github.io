@@ -155,36 +155,25 @@ description: "Flux is a free, open-source desktop workspace for scientists. Comp
         With built-in tools to connect the AI agent of your choice.
       </p>
       <div class="hero-actions intro-rise" style="--intro-delay: 300ms">
-        <a class="button button-primary" href="/install/">Install Flux<svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a><a class="text-link" href="#film" data-film-watch>Watch the video<span aria-hidden="true">↓</span></a>
+        <a class="button button-primary" href="/install/">Install Flux<svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a><a class="button button-secondary" href="/visual-tour/">How it works</a>
       </div>
       <p class="hero-platforms intro-rise" style="--intro-delay: 360ms">macOS and Linux · Open source, MIT license · Python plotting with fluxplot</p>
     </div>
-    <figure id="film" class="hero-film wide-width intro-rise" style="--intro-delay: 420ms">
-      <div class="figure-overline">
-        <span><span class="status-dot"></span>Flux in three and a half minutes</span><span>Up to 4K at 60 fps</span>
-      </div>
-      <div class="film-frame" data-film data-film-src="assets/film/master.m3u8" data-film-poster="assets/film/poster.webp" data-film-captions="assets/film/captions.vtt">
-        <button type="button" class="film-launch" data-film-start aria-label="Play the Flux film, 3 minutes 37 seconds, with music"><img src="assets/film/poster.webp" alt="" width="1920" height="1080" fetchpriority="high" /><span class="film-launch-prompt"><span class="play-disc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 6 9 6-9 6Z" /></svg></span><span>Watch the film<small>3 min 37 s · with music</small></span></span></button>
-        <noscript><video class="film-video" controls playsinline preload="none" poster="assets/film/poster.webp" src="assets/film/master.m3u8"><track kind="captions" src="assets/film/captions.vtt" srclang="en" label="English" /></video></noscript>
-      </div>
-      <figcaption>
-        <span>One project in Flux: the manuscript, its figures, an AI collaborator, and the talk built from the same plots.</span>
-        <a class="text-link" href="#explore">Explore the workspaces<span aria-hidden="true">↓</span></a>
-      </figcaption>
-    </figure>
     <figure id="explore" class="hero-figure workspace-figure wide-width" data-workspace-preview>
       <div class="figure-overline">
         <span><span class="status-dot"></span>Five workspaces. One project folder.</span
         ><span class="workspace-prompt">Explore the workspace</span>
       </div>
-      <div class="workspace-choices" role="group" aria-label="Choose a Flux workspace" hidden>
-        <button type="button" data-workspace="figure" aria-pressed="true" style="--workspace-color:#2f6bb3"><svg class="icon" aria-hidden="true"><use href="#i-figure" /></svg>Figure<span>Compose &amp; refine</span></button>
-        <button type="button" data-workspace="slides" aria-pressed="false" style="--workspace-color:#7fc241"><svg class="icon" aria-hidden="true"><use href="#i-slides" /></svg>Slides<span>Build the explanation</span></button>
-        <button type="button" data-workspace="paper" aria-pressed="false" style="--workspace-color:#4385be"><svg class="icon" aria-hidden="true"><use href="#i-paper" /></svg>Paper<span>Write &amp; publish</span></button>
-        <button type="button" data-workspace="library" aria-pressed="false" style="--workspace-color:#9a80e6"><svg class="icon" aria-hidden="true"><use href="#i-library" /></svg>Library<span>Collect &amp; connect</span></button>
-        <button type="button" data-workspace="reader" aria-pressed="false" style="--workspace-color:#d0a215"><svg class="icon" aria-hidden="true"><use href="#i-reader" /></svg>Reader<span>Read &amp; understand</span></button>
-      </div>
+      <div class="workspace-choices" hidden><div class="mode-pill" role="tablist" aria-label="Choose a Flux workspace" style="--mi:0">
+        <span class="mode-indicator" aria-hidden="true"></span>
+        <button type="button" role="tab" data-workspace="figure" aria-selected="true" aria-controls="explore-view" tabindex="0"><svg class="icon" aria-hidden="true"><use href="#i-figure" /></svg><span class="mode-label">Figure</span></button>
+        <button type="button" role="tab" data-workspace="slides" aria-selected="false" aria-controls="explore-view" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#i-slides" /></svg><span class="mode-label">Slides</span></button>
+        <button type="button" role="tab" data-workspace="paper" aria-selected="false" aria-controls="explore-view" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#i-paper" /></svg><span class="mode-label">Paper</span></button>
+        <button type="button" role="tab" data-workspace="library" aria-selected="false" aria-controls="explore-view" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#i-library" /></svg><span class="mode-label">Library</span></button>
+        <button type="button" role="tab" data-workspace="reader" aria-selected="false" aria-controls="explore-view" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#i-reader" /></svg><span class="mode-label">Reader</span></button>
+      </div></div>
       <a
+        id="explore-view"
         class="media-enlarge hero-image"
         href="assets/media/figure-materials.webp"
         data-enlarge
@@ -210,85 +199,88 @@ description: "Flux is a free, open-source desktop workspace for scientists. Comp
 
   <section id="how-it-works" class="flow-section content-width section-space" aria-labelledby="flow-title">
     <div class="section-heading"><p class="eyebrow">How it fits together</p><h2 id="flow-title">One project. Every part stays connected.</h2><p>Plots made with fluxplot keep a name on every part. Figures are composed from those plots, papers and slides are built from those figures, and references flow in from your library. One document, one deck: export them to whatever format the journal, the conference or your <span class="nowrap">co-author</span> needs.</p></div>
-    <div class="flow" role="img" aria-label="Diagram: Library opens into Reader, and Reader's notes are cited in Paper. Python plots are imported into Figure; re-running the script updates the figure. Figures are placed and captioned in Paper and animated in Slides. Paper exports to Word, PDF, HTML and journal styles; Slides export to an HTML deck, PowerPoint, PDF handouts and video.">
-      <svg class="flow-wide" viewBox="0 0 1240 418" aria-hidden="true">
+    <div class="flow" role="img" aria-label="Diagram, read left to right: sources, your Flux project, outputs. The Library opens into Reader, and notes from Reader are cited in Paper. Python plots made with fluxplot are imported into Figure, and re-running the script updates the figure. Figures are placed and captioned in Paper and animated in Slides. Paper exports to Word, PDF, HTML and journal styles; Slides export to an HTML deck, PowerPoint, PDF handouts and video.">
+      <svg class="flow-wide" viewBox="0 0 1240 460" aria-hidden="true">
         <defs>
-          <marker id="flow-head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z"/></marker>
+          <marker id="fh-muted" class="is-muted" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z"/></marker>
+          <marker id="fh-library" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#9a80e6"/></marker>
+          <marker id="fh-reader" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#d0a215"/></marker>
+          <marker id="fh-figure" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#4f8fd6"/></marker>
+          <marker id="fh-paper" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#4385be"/></marker>
+          <marker id="fh-slides" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#7fc241"/></marker>
         </defs>
+        <rect class="flow-project" x="240" y="40" width="690" height="404" rx="18"/>
         <g class="flow-edges">
-          <path d="M230 90h96" marker-end="url(#flow-head)"/>
-          <path d="M550 90h96" marker-end="url(#flow-head)"/>
-          <path d="M230 290h96" marker-end="url(#flow-head)"/>
-          <path d="M550 290h96" marker-end="url(#flow-head)"/>
-          <path d="M550 262c50 0 50 -146 96 -146" marker-end="url(#flow-head)"/>
-          <path class="flow-export" d="M870 90L956 54" marker-end="url(#flow-head)"/>
-          <path class="flow-export" d="M870 90L956 78" marker-end="url(#flow-head)"/>
-          <path class="flow-export" d="M870 90L956 102" marker-end="url(#flow-head)"/>
-          <path class="flow-export" d="M870 90L956 126" marker-end="url(#flow-head)"/>
-          <path class="flow-export" d="M870 290L956 254" marker-end="url(#flow-head)"/>
-          <path class="flow-export" d="M870 290L956 278" marker-end="url(#flow-head)"/>
-          <path class="flow-export" d="M870 290L956 302" marker-end="url(#flow-head)"/>
-          <path class="flow-export" d="M870 290L956 326" marker-end="url(#flow-head)"/>
-          <path class="flow-return" d="M125 362C125 396 445 396 445 368" marker-end="url(#flow-head)"/>
+          <path d="M200 152H354" stroke="#9a80e6" marker-end="url(#fh-library)"/>
+          <path d="M560 152H684" stroke="#d0a215" marker-end="url(#fh-reader)"/>
+          <path class="is-muted" d="M200 336H354" marker-end="url(#fh-muted)"/>
+          <path class="is-muted flow-return" d="M200 368H354" marker-end="url(#fh-muted)"/>
+          <path d="M560 352H684" stroke="#4f8fd6" marker-end="url(#fh-figure)"/>
+          <path d="M560 300C628 300 622 184 684 184" stroke="#4f8fd6" marker-end="url(#fh-figure)"/>
+          <path d="M890 152H964" stroke="#4385be" marker-end="url(#fh-paper)"/>
+          <path d="M890 352H964" stroke="#7fc241" marker-end="url(#fh-slides)"/>
         </g>
         <g class="flow-labels">
-          <text x="278" y="78">open</text>
-          <text x="598" y="78">cite</text>
-          <text x="278" y="278">import</text>
-          <text x="598" y="278">animate</text>
-          <text x="588" y="194" text-anchor="end">place, caption</text>
-          <text x="913" y="146">export</text>
-          <text x="913" y="346">export</text>
-          <text x="285" y="410">re-run the script → the figure updates</text>
+          <text class="flow-stage" x="16" y="66" text-anchor="start">Sources</text>
+          <text class="flow-stage" x="262" y="66" text-anchor="start">Your Flux project</text>
+          <text class="flow-stage" x="970" y="66" text-anchor="start">Outputs</text>
+          <text x="298" y="141">open</text>
+          <text x="622" y="141">cite notes</text>
+          <text x="298" y="325">import</text>
+          <text x="298" y="390">re-run → updates</text>
+          <text x="622" y="341">animate</text>
+          <text x="606" y="257" text-anchor="end">place, caption</text>
         </g>
-        <foreignObject x="20" y="22" width="210" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#9a80e6"></i>Library</span><span class="flow-box-note">References and PDFs, shared by all your projects.</span></div></foreignObject>
-        <foreignObject x="340" y="22" width="210" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#d0a215"></i>Reader</span><span class="flow-box-note">Read, highlight and keep notes on the source.</span></div></foreignObject>
-        <foreignObject x="660" y="22" width="210" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#4385be"></i>Paper</span><span class="flow-box-note">Write and cite. One manuscript, every output format.</span></div></foreignObject>
-        <foreignObject x="20" y="222" width="210" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-code"><span class="flow-box-title">Python plots</span><span class="flow-box-note">fluxplot names every part:</span><code>control.line · axis.x.tick.3</code></div></foreignObject>
-        <foreignObject x="340" y="222" width="210" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#2f6bb3"></i>Figure</span><span class="flow-box-note">Compose panels, restyle any part, export.</span></div></foreignObject>
-        <foreignObject x="660" y="222" width="210" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#7fc241"></i>Slides</span><span class="flow-box-note">Reveal, morph and turn, one step at a time.</span></div></foreignObject>
-        <foreignObject x="970" y="22" width="250" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-export"><span class="flow-box-title">Documents</span><span class="flow-box-note">One manuscript, any format.</span><span class="flow-formats"><span>Word</span><span>PDF</span><span>HTML</span><span>Journal styles</span></span></div></foreignObject>
-        <foreignObject x="970" y="222" width="250" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-export"><span class="flow-box-title">Decks</span><span class="flow-box-note">One deck, any format.</span><span class="flow-formats"><span>HTML deck</span><span>PowerPoint</span><span>PDF handout</span><span>Video</span></span></div></foreignObject>
+        <foreignObject x="16" y="84" width="184" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-source"><span class="flow-box-title"><svg class="icon"><use href="#i-library"/></svg>Library</span><span class="flow-box-note">References and PDFs, shared by all your projects.</span></div></foreignObject>
+        <foreignObject x="16" y="284" width="184" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-source is-code"><span class="flow-box-title"><svg class="icon"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M13.5 5l-3 14"/></svg>Python plots</span><span class="flow-box-note">fluxplot names every part:</span><code>control.line · axis.x.tick.3</code></div></foreignObject>
+        <foreignObject x="360" y="84" width="200" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-mode" style="--mode:#d0a215"><span class="flow-box-title"><svg class="icon"><use href="#i-reader"/></svg>Reader</span><span class="flow-box-note">Read, highlight and keep notes on the source.</span></div></foreignObject>
+        <foreignObject x="360" y="284" width="200" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-mode" style="--mode:#2f6bb3"><span class="flow-box-title"><svg class="icon"><use href="#i-figure"/></svg>Figure</span><span class="flow-box-note">Compose panels and restyle any named part.</span></div></foreignObject>
+        <foreignObject x="690" y="84" width="200" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-mode" style="--mode:#4385be"><span class="flow-box-title"><svg class="icon"><use href="#i-paper"/></svg>Paper</span><span class="flow-box-note">Write and cite in one manuscript.</span></div></foreignObject>
+        <foreignObject x="690" y="284" width="200" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-mode" style="--mode:#7fc241"><span class="flow-box-title"><svg class="icon"><use href="#i-slides"/></svg>Slides</span><span class="flow-box-note">Reveal, morph and turn, one step at a time.</span></div></foreignObject>
+        <foreignObject x="970" y="84" width="254" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-export"><span class="flow-box-title"><svg class="icon"><path d="M6 3h8l4 4v14H6zM14 3v4h4M9 12h6M9 16h6"/></svg>Documents</span><span class="flow-box-note">One manuscript, any format.</span><span class="flow-formats"><span>Word</span><span>PDF</span><span>HTML</span><span>Journal styles</span></span></div></foreignObject>
+        <foreignObject x="970" y="284" width="254" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-export"><span class="flow-box-title"><svg class="icon"><rect x="3" y="4.5" width="18" height="12" rx="1.5"/><path d="M8 20.5h8M12 16.5v4"/></svg>Decks</span><span class="flow-box-note">One deck, any format.</span><span class="flow-formats"><span>HTML deck</span><span>PowerPoint</span><span>PDF handout</span><span>Video</span></span></div></foreignObject>
       </svg>
-      <svg class="flow-tall" viewBox="0 0 400 876" aria-hidden="true">
+      <svg class="flow-tall" viewBox="0 0 340 768" aria-hidden="true">
         <defs>
-          <marker id="flow-head-tall" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z"/></marker>
+          <marker id="fht-muted" class="is-muted" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z"/></marker>
+          <marker id="fht-library" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#9a80e6"/></marker>
+          <marker id="fht-reader" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#d0a215"/></marker>
+          <marker id="fht-figure" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#4f8fd6"/></marker>
+          <marker id="fht-paper" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#4385be"/></marker>
+          <marker id="fht-slides" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#7fc241"/></marker>
         </defs>
+        <rect class="flow-project" x="1" y="180" width="338" height="374" rx="16"/>
+        <rect class="flow-notch" x="68" y="172" width="164" height="16"/>
         <g class="flow-edges">
-          <path d="M100 154v42" marker-end="url(#flow-head-tall)"/>
-          <path d="M270 154v42" marker-end="url(#flow-head-tall)"/>
-          <path class="flow-return" d="M330 154v42" marker-end="url(#flow-head-tall)"/>
-          <path d="M100 360v70" marker-end="url(#flow-head-tall)"/>
-          <path d="M300 360v70" marker-end="url(#flow-head-tall)"/>
-          <path d="M216 315C196 315 204 495 190 495" marker-end="url(#flow-head-tall)"/>
-          <path class="flow-export" d="M100 594L52 638" marker-end="url(#flow-head-tall)"/>
-          <path class="flow-export" d="M100 594L84 638" marker-end="url(#flow-head-tall)"/>
-          <path class="flow-export" d="M100 594L116 638" marker-end="url(#flow-head-tall)"/>
-          <path class="flow-export" d="M100 594L148 638" marker-end="url(#flow-head-tall)"/>
-          <path class="flow-export" d="M300 594L252 638" marker-end="url(#flow-head-tall)"/>
-          <path class="flow-export" d="M300 594L284 638" marker-end="url(#flow-head-tall)"/>
-          <path class="flow-export" d="M300 594L316 638" marker-end="url(#flow-head-tall)"/>
-          <path class="flow-export" d="M300 594L348 638" marker-end="url(#flow-head-tall)"/>
+          <path d="M50 160V234" stroke="#9a80e6" marker-end="url(#fht-library)"/>
+          <path class="is-muted" d="M256 160V234" marker-end="url(#fht-muted)"/>
+          <path class="is-muted flow-return" d="M306 160V234" marker-end="url(#fht-muted)"/>
+          <path d="M50 352V420" stroke="#d0a215" marker-end="url(#fht-reader)"/>
+          <path d="M270 352V420" stroke="#4f8fd6" marker-end="url(#fht-figure)"/>
+          <path d="M196 354C196 388 140 386 140 420" stroke="#4f8fd6" marker-end="url(#fht-figure)"/>
+          <path d="M85 538V586" stroke="#4385be" marker-end="url(#fht-paper)"/>
+          <path d="M255 538V586" stroke="#7fc241" marker-end="url(#fht-slides)"/>
         </g>
         <g class="flow-labels">
-          <text x="108" y="180" text-anchor="start">open</text>
-          <text x="262" y="180" text-anchor="end">import</text>
-          <text x="338" y="180" text-anchor="start">re-run</text>
-          <text x="92" y="400" text-anchor="end">cite</text>
-          <text x="308" y="400" text-anchor="start">animate</text>
-          <text x="214" y="398" text-anchor="start">place,</text>
-          <text x="214" y="414" text-anchor="start">caption</text>
-          <text x="186" y="620" text-anchor="end">export</text>
-          <text x="386" y="620" text-anchor="end">export</text>
+          <text class="flow-stage" x="8" y="14" text-anchor="start">Sources</text>
+          <text class="flow-stage" x="150" y="184">Your Flux project</text>
+          <text class="flow-stage" x="170" y="568">Outputs</text>
+          <text x="58" y="218" text-anchor="start">open</text>
+          <text x="248" y="218" text-anchor="end">import</text>
+          <text x="281" y="218">re-run</text>
+          <text x="58" y="392" text-anchor="start">cite</text>
+          <text x="278" y="392" text-anchor="start">animate</text>
+          <text x="204" y="382" text-anchor="start">place,</text>
+          <text x="204" y="397" text-anchor="start">caption</text>
         </g>
-        <foreignObject x="20" y="0" width="160" height="150"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#9a80e6"></i>Library</span><span class="flow-box-note">References and PDFs, shared by all your projects.</span></div></foreignObject>
-        <foreignObject x="220" y="0" width="160" height="150"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-code"><span class="flow-box-title">Python plots</span><span class="flow-box-note">fluxplot names every part:</span><code>control.line · axis.x.tick.3</code></div></foreignObject>
-        <foreignObject x="20" y="206" width="160" height="150"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#d0a215"></i>Reader</span><span class="flow-box-note">Read, highlight and keep notes on the source.</span></div></foreignObject>
-        <foreignObject x="220" y="206" width="160" height="150"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#2f6bb3"></i>Figure</span><span class="flow-box-note">Compose panels, restyle any part, export.</span></div></foreignObject>
-        <foreignObject x="20" y="440" width="160" height="150"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#4385be"></i>Paper</span><span class="flow-box-note">Write and cite. One manuscript, every output format.</span></div></foreignObject>
-        <foreignObject x="220" y="440" width="160" height="150"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box"><span class="flow-box-title"><i style="background:#7fc241"></i>Slides</span><span class="flow-box-note">Reveal, morph and turn, one step at a time.</span></div></foreignObject>
-        <foreignObject x="20" y="646" width="160" height="222"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-export"><span class="flow-box-title">Documents</span><span class="flow-box-note">One manuscript, any format.</span><span class="flow-formats"><span>Word</span><span>PDF</span><span>HTML</span><span>Journal styles</span></span></div></foreignObject>
-        <foreignObject x="220" y="646" width="160" height="222"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-export"><span class="flow-box-title">Decks</span><span class="flow-box-note">One deck, any format.</span><span class="flow-formats"><span>HTML deck</span><span>PowerPoint</span><span>PDF handout</span><span>Video</span></span></div></foreignObject>
+        <foreignObject x="8" y="24" width="154" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-source"><span class="flow-box-title"><svg class="icon"><use href="#i-library"/></svg>Library</span><span class="flow-box-note">References and PDFs for every project.</span></div></foreignObject>
+        <foreignObject x="178" y="24" width="154" height="136"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-source is-code"><span class="flow-box-title"><svg class="icon"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M13.5 5l-3 14"/></svg>Python plots</span><span class="flow-box-note">fluxplot names every part:</span><code>axis.x.tick.3</code></div></foreignObject>
+        <foreignObject x="8" y="240" width="154" height="112"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-mode" style="--mode:#d0a215"><span class="flow-box-title"><svg class="icon"><use href="#i-reader"/></svg>Reader</span><span class="flow-box-note">Read, highlight and keep notes.</span></div></foreignObject>
+        <foreignObject x="178" y="240" width="154" height="112"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-mode" style="--mode:#2f6bb3"><span class="flow-box-title"><svg class="icon"><use href="#i-figure"/></svg>Figure</span><span class="flow-box-note">Compose panels, restyle any part.</span></div></foreignObject>
+        <foreignObject x="8" y="426" width="154" height="112"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-mode" style="--mode:#4385be"><span class="flow-box-title"><svg class="icon"><use href="#i-paper"/></svg>Paper</span><span class="flow-box-note">Write and cite in one manuscript.</span></div></foreignObject>
+        <foreignObject x="178" y="426" width="154" height="112"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-mode" style="--mode:#7fc241"><span class="flow-box-title"><svg class="icon"><use href="#i-slides"/></svg>Slides</span><span class="flow-box-note">Reveal, morph and turn, step by step.</span></div></foreignObject>
+        <foreignObject x="8" y="592" width="154" height="170"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-export"><span class="flow-box-title"><svg class="icon"><path d="M6 3h8l4 4v14H6zM14 3v4h4M9 12h6M9 16h6"/></svg>Documents</span><span class="flow-formats"><span>Word</span><span>PDF</span><span>HTML</span><span>Journal styles</span></span></div></foreignObject>
+        <foreignObject x="178" y="592" width="154" height="170"><div xmlns="http://www.w3.org/1999/xhtml" class="flow-box is-export"><span class="flow-box-title"><svg class="icon"><rect x="3" y="4.5" width="18" height="12" rx="1.5"/><path d="M8 20.5h8M12 16.5v4"/></svg>Decks</span><span class="flow-formats"><span>HTML deck</span><span>PowerPoint</span><span>PDF handout</span><span>Video</span></span></div></foreignObject>
       </svg>
     </div>
     <ul class="flow-points">
@@ -296,6 +288,22 @@ description: "Flux is a free, open-source desktop workspace for scientists. Comp
       <li><strong>Live links.</strong> A plot placed in a figure stays linked to its source. Re-run the analysis and the regenerated plot hot-swaps into every figure, with your restyles intact.</li>
       <li><strong>Write once, export anywhere.</strong> A journal style is applied on the way out, never to your text, so switching from one journal to another or from PDF to Word is a menu choice.</li>
     </ul>
+  </section>
+
+  <section class="film-section section-space" aria-label="The Flux film">
+    <figure id="film" class="hero-film wide-width">
+      <div class="figure-overline">
+        <span><span class="status-dot"></span>Flux in three and a half minutes</span><span>Up to 4K at 60 fps</span>
+      </div>
+      <div class="film-frame" data-film data-film-src="assets/film/master.m3u8" data-film-poster="assets/film/poster.webp" data-film-captions="assets/film/captions.vtt">
+        <button type="button" class="film-launch" data-film-start aria-label="Play the Flux film, 3 minutes 37 seconds, with music"><img src="assets/film/poster.webp" alt="" width="1920" height="1080" loading="lazy" /><span class="film-launch-prompt"><span class="play-disc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 6 9 6-9 6Z" /></svg></span><span>Watch the film<small>3 min 37 s · with music</small></span></span></button>
+        <noscript><video class="film-video" controls playsinline preload="none" poster="assets/film/poster.webp" src="assets/film/master.m3u8"><track kind="captions" src="assets/film/captions.vtt" srclang="en" label="English" /></video></noscript>
+      </div>
+      <figcaption>
+        <span>One project in Flux: the manuscript, its figures, an AI collaborator, and the talk built from the same plots.</span>
+        <a class="text-link" href="/visual-tour/">Take the visual tour<span aria-hidden="true">→</span></a>
+      </figcaption>
+    </figure>
   </section>
 
   <section class="structure-section content-width section-space" aria-labelledby="structure-title">

@@ -15,7 +15,7 @@ for (const { width, layout } of [{ width:1440, layout:'flow-wide' }, { width:900
       if (css) await page.addStyleTag({ content:css });
       await page.evaluate(() => document.fonts.ready);
       const report = await page.evaluate(() => {
-        const svg = [...document.querySelectorAll('.flow svg')].find(item => getComputedStyle(item).display !== 'none');
+        const svg = [...document.querySelectorAll('.flow > svg')].find(item => getComputedStyle(item).display !== 'none');
         const boxes = [...svg.querySelectorAll('.flow-box')];
         const spill = boxes.filter(box => box.scrollHeight > box.clientHeight + 1 || box.scrollWidth > box.clientWidth + 1).map(box => box.textContent.slice(0, 30));
         const labels = [...svg.querySelectorAll('.flow-labels text')].map(text => text.getBoundingClientRect());

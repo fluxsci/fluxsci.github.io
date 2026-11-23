@@ -5,12 +5,14 @@
   root.classList.add("js");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-  // A visitor chooses the pace. Each view is a photograph of the actual app,
-  // loaded before it replaces the current view; rapid choices cannot race.
+  // Flux's own mode pill, enlarged. It tours the five workspaces on its own until the
+  // visitor picks one; from then on the visitor chooses the pace. Each view is a photograph
+  // of the actual app, loaded before it replaces the current view; rapid choices cannot race.
   const preview = document.querySelector("[data-workspace-preview]");
   if (preview) {
     const choices = preview.querySelector(".workspace-choices");
-    const buttons = [...choices.querySelectorAll("button")];
+    const pill = choices.querySelector("[role=tablist]");
+    const buttons = [...pill.querySelectorAll("[role=tab]")];
     const link = preview.querySelector(".hero-image");
     const image = link.querySelector("img");
     const caption = preview.querySelector("[data-workspace-caption]");
@@ -62,7 +64,6 @@
         arrow.setAttribute("aria-hidden", "true");
         arrow.textContent = "→";
         guide.append(arrow);
-        for (const button of buttons) button.setAttribute("aria-pressed", String(button.dataset.workspace === name));
         selected = name;
       } catch {
         if (token === request) caption.textContent = "This preview could not load. Open the workspace guide below.";
@@ -73,17 +74,79 @@
         }
       }
     }
+    // The pill answers at once (as in the app); the image follows when it has loaded.
+    const mark = (name) => {
+      buttons.forEach((button, index) => {
+        const on = button.dataset.workspace === name;
+        button.setAttribute("aria-selected", String(on));
+        button.tabIndex = on ? 0 : -1;
+        if (on) pill.style.setProperty("--mi", index);
+      });
+    };
+    const choose = (name) => {
+      mark(name);
+      show(name);
+    };
+
+    // The tour: DWELL ms per workspace, only while the figure is on screen, the tab is
+    // visible and the visitor is not pointing at or focused in the pill. Any choice ends it.
+    const DWELL = 4500;
+    let touring = !reducedMotion.matches;
+    let onScreen = false;
+    let held = false;
+    let timer = 0;
+    const schedule = () => {
+      clearTimeout(timer);
+      timer = 0;
+      if (!touring || !onScreen || held || document.hidden) return;
+      timer = setTimeout(() => {
+        const current = buttons.findIndex(button => button.getAttribute("aria-selected") === "true");
+        choose(buttons[(current + 1) % buttons.length].dataset.workspace);
+        schedule();
+      }, DWELL);
+    };
+    const stopTour = () => {
+      if (!touring) return;
+      touring = false;
+      clearTimeout(timer);
+      choices.classList.remove("is-touring");
+      caption.setAttribute("aria-live", "polite");
+    };
+    if (touring) {
+      choices.classList.add("is-touring");
+      // Silent while touring: a screen reader should not hear a new caption every few seconds.
+      caption.setAttribute("aria-live", "off");
+      new IntersectionObserver(([entry]) => {
+        onScreen = entry.isIntersecting;
+        schedule();
+      }, { threshold: 0.25 }).observe(preview);
+      document.addEventListener("visibilitychange", schedule);
+      const hold = (value) => () => {
+        held = value || pill.matches(":hover") || pill.contains(document.activeElement);
+        schedule();
+      };
+      pill.addEventListener("pointerenter", hold(true));
+      pill.addEventListener("pointerleave", hold(false));
+      pill.addEventListener("focusin", hold(true));
+      pill.addEventListener("focusout", () => setTimeout(hold(false)));
+      reducedMotion.addEventListener("change", () => { if (reducedMotion.matches) stopTour(); });
+    }
+
     for (const [index, button] of buttons.entries()) {
       const name = button.dataset.workspace;
-      button.addEventListener("click", () => show(name));
+      button.addEventListener("click", () => {
+        stopTour();
+        choose(name);
+      });
       for (const event of ["pointerenter", "focus"]) button.addEventListener(event, () => preload(name).catch(() => {}));
       button.addEventListener("keydown", event => {
         const offsets = { ArrowRight: 1, ArrowLeft: -1, Home: -index, End: buttons.length - 1 - index };
         if (!(event.key in offsets)) return;
         event.preventDefault();
         const next = buttons[(index + offsets[event.key] + buttons.length) % buttons.length];
+        stopTour();
         next.focus();
-        show(next.dataset.workspace);
+        choose(next.dataset.workspace);
       });
     }
     choices.hidden = false;
@@ -94,8 +157,8 @@
   }
 
   const appearance = document.getElementById("appearance");
-  const allowedThemes = new Set(["light", "dark", "system"]);
-  let preference = "system";
+  const allowedThemes = new Set(["light", "dark"]);
+  let preference = "dark";
   try {
     const saved = localStorage.getItem("flux-site-appearance");
     if (allowedThemes.has(saved)) preference = saved;
@@ -103,15 +166,14 @@
     /* Storage can be unavailable in privacy modes. */
   }
   function applyAppearance(value) {
-    if (value === "system") root.removeAttribute("data-theme");
-    else root.setAttribute("data-theme", value);
+    root.setAttribute("data-theme", value);
     if (appearance) appearance.value = value;
   }
   applyAppearance(preference);
   appearance?.addEventListener("change", () => {
     const next = allowedThemes.has(appearance.value)
       ? appearance.value
-      : "system";
+      : "dark";
     applyAppearance(next);
     try {
       localStorage.setItem("flux-site-appearance", next);
@@ -122,7 +184,7 @@
   window.addEventListener("storage", (event) => {
     if (event.key === "flux-site-appearance")
       applyAppearance(
-        allowedThemes.has(event.newValue) ? event.newValue : "system",
+        allowedThemes.has(event.newValue) ? event.newValue : "dark",
       );
   });
 

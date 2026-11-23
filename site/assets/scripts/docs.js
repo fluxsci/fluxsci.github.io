@@ -91,6 +91,26 @@
  let scheduled=false;
  function updateSection(){scheduled=false;let index=0;sections.forEach((section,i)=>{if(section?.getBoundingClientRect().top<150)index=i;});toc.forEach((a,i)=>{if(i===index)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});}
  if(toc.length){window.addEventListener('scroll',()=>{if(!scheduled){scheduled=true;requestAnimationFrame(updateSection);}},{passive:true});updateSection();}
+ // Sidebar groups open and close smoothly. Browsers that can animate to height:auto do it in CSS
+ // (docs.css); elsewhere the native details element keeps its semantics and this script animates it.
+ if(!CSS.supports('interpolate-size','allow-keywords')){
+  const still=matchMedia('(prefers-reduced-motion: reduce)'),running=new WeakMap();
+  for(const details of document.querySelectorAll('.docs-sidebar details')){
+   const summary=details.querySelector(':scope>summary'),body=summary?.nextElementSibling;if(!body)continue;
+   summary.addEventListener('click',e=>{
+    if(still.matches||!body.animate)return;
+    e.preventDefault();
+    const opening=!details.open||details.dataset.closing==='1',from=body.getBoundingClientRect().height;
+    running.get(details)?.cancel();delete details.dataset.closing;
+    details.open=true;const to=opening?body.scrollHeight:0;
+    if(!opening)details.dataset.closing='1';
+    body.style.overflow='hidden';
+    const anim=body.animate([{height:from+'px',opacity:opening?Math.min(1,from/Math.max(1,body.scrollHeight)):1},{height:to+'px',opacity:opening?1:0}],{duration:300,easing:'cubic-bezier(.22,.8,.24,1)'});
+    running.set(details,anim);
+    anim.onfinish=()=>{body.style.overflow='';if(!opening){details.open=false;delete details.dataset.closing;}running.delete(details);};
+   });
+  }
+ }
  const dialog=document.getElementById('docs-search'),input=document.getElementById('search-query');
  if(!dialog||!input)return;
  let index,opener,active=-1;

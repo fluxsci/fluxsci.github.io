@@ -19,6 +19,7 @@ test('the film waits for a visitor, then plays the whole ladder as one continuou
   await page.goto('/');
   const frame = page.locator('[data-film]');
   const launch = frame.getByRole('button', { name: /^Play the Flux film/ });
+  await launch.scrollIntoViewIfNeeded();
   await expect(launch).toBeVisible();
   const poster = launch.locator('img');
   await expect.poll(() => poster.evaluate(image => image.complete && image.naturalWidth >= 1920)).toBe(true);
@@ -49,43 +50,29 @@ test('the film waits for a visitor, then plays the whole ladder as one continuou
   expect(errors).toEqual([]);
 });
 
-test('"Watch the video" in the hero starts the film full screen', async ({ page }) => {
+test('the film\'s play button plays it in place', async ({ page }) => {
   test.setTimeout(60_000);
   const errors = [];
   page.on('pageerror', error => errors.push(error.message));
   await page.goto('/');
-  const link = page.locator('.hero-actions [data-film-watch]');
-  await expect(link).toHaveText(/^Watch the video/);
-  await expect(link).toHaveAttribute('href', '#film');
+  const launch = page.locator('[data-film] [data-film-start]');
+  await launch.scrollIntoViewIfNeeded();
   const decodes = await canDecode(page);
-  await link.click();
+  await launch.click();
   const video = page.locator('[data-film] video.film-video');
   await expect(video).toHaveCount(1);
-  await expect(page).not.toHaveURL(/#film$/);
-  const elementFullscreen = await video.evaluate(element => !!(element.requestFullscreen || element.webkitRequestFullscreen));
-  if (elementFullscreen) {
-    await expect.poll(() => page.evaluate(() => (document.fullscreenElement || document.webkitFullscreenElement)?.tagName ?? null)).toBe('VIDEO');
-    await page.evaluate(() => (document.exitFullscreen || document.webkitExitFullscreen).call(document));
-    await expect.poll(() => page.evaluate(() => document.fullscreenElement || document.webkitFullscreenElement || null)).toBe(null);
-  } else {
-    expect(await video.evaluate(element => element.playsInline)).toBe(false);   // iPhone: plays in the system's full-screen player
-  }
   if (decodes) await expect.poll(() => video.evaluate(element => element.currentTime), { timeout: 20000 }).toBeGreaterThan(0.5);
-  // Leaving full screen returns to the film, still the only video, still playing.
   await expect(video).toBeInViewport();
-  await link.click();
-  await expect(page.locator('[data-film] video')).toHaveCount(1);
   expect(errors).toEqual([]);
 });
 
-test('the explorer follows the film and keeps all five workspaces', async ({ page }) => {
+test('the film follows the diagram, and the explorer keeps all five workspaces', async ({ page }) => {
   await page.goto('/');
   const film = await page.locator('#film').boundingBox();
-  const explorer = await page.locator('#explore').boundingBox();
-  expect(explorer.y).toBeGreaterThan(film.y + film.height);
-  await expect(page.locator('#explore .workspace-choices button')).toHaveCount(5);
-  await page.locator('#film figcaption a[href="#explore"]').click();
-  await expect(page).toHaveURL(/#explore$/);
+  const flow = await page.locator('#how-it-works').boundingBox();
+  expect(film.y).toBeGreaterThan(flow.y + flow.height - 1);
+  await expect(page.locator('#explore [role="tab"]')).toHaveCount(5);
+  await expect(page.locator('#film figcaption a[href$="visual-tour/"]')).toHaveCount(1);
 });
 
 test('a phone shows the whole film frame without horizontal scrolling', async ({ page }) => {
