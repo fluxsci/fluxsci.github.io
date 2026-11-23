@@ -25,6 +25,20 @@ export function footer(){
 }
 const searchDialog=`<dialog class="search-dialog" id="docs-search" aria-labelledby="search-title"><div class="search-heading"><h2 id="search-title">Search the docs</h2><button type="button" data-search-close aria-label="Close search">Esc</button></div><label class="visually-hidden" for="search-query">Search documentation</label><input type="search" id="search-query" placeholder="Try “figures”, “3D”, or “export”…" autocomplete="off"><p class="search-status" role="status">Search guides, workspaces, and reference topics.</p><ul class="search-results" aria-label="Search results"></ul><p class="search-help">↑ ↓ to move · Enter to open · Esc to close</p></dialog>`;
 const mediaDialog=`<dialog class="media-dialog" id="media-dialog" aria-labelledby="media-dialog-caption"><div class="media-dialog-inner"><button class="dialog-close" type="button" aria-label="Close enlarged image">Close ×</button><img id="media-dialog-image" alt=""><p id="media-dialog-caption"></p></div></dialog>`;
+// The page outline of a long article: its title (Overview), its sections and their sub-sections.
+// A heading's `nav` attribute in the source (`{#id nav="Short"}`, rendered as data-nav) gives the
+// shorter label shown in the outline. On a desk it stands in the left margin; narrower, it folds
+// into an "On this page" toggle above the title (docs.css, docs.js).
+function articleOutline($){
+ const label=el=>{const h=$(el),short=h.attr('data-nav');h.removeAttr('data-nav');return escape(short?.trim()||h.text().trim());};
+ const groups=[];
+ const title=$('h1[id]').first();
+ if(title.length)groups.push({id:title.attr('id'),label:label(title),items:[]});
+ $('h2[id],h3[id]').each((i,el)=>{const item={id:$(el).attr('id'),label:label(el),items:[]};if(el.name==='h2'||!groups.length)groups.push(item);else groups.at(-1).items.push(item);});
+ if(!groups.length)return'';
+ const entry=item=>`<li><a href="#${item.id}">${item.label}</a>${item.items.length?`<ol>${item.items.map(entry).join('')}</ol>`:''}</li>`;
+ return `<nav class="article-outline" aria-label="On this page"><p class="article-outline-title" aria-hidden="true">On this page</p><button class="article-outline-toggle" type="button" aria-expanded="false" aria-controls="article-outline-list" hidden>On this page</button><ol id="article-outline-list">${groups.map(entry).join('')}</ol></nav>`;
+}
 export async function decorateDocuments(){
  const search=[];
  const clips = JSON.parse(await readFile(path.join(ROOT, 'media/docs-clips.json'), 'utf8'));
@@ -67,6 +81,7 @@ export async function decorateDocuments(){
    });
    // Scrollable diagrams are reachable from the keyboard too.
    $('.doc-diagram').attr('tabindex','0');
+   const outline=route.kind==='article'&&route.outline?articleOutline($):'';
    const content=$('body').html();
    // Minimal Quarto documents have no app chrome. The site owns the shared frame.
    const headings=$($('h2[id]').length<=2?'h2[id],h3[id]':'h2[id]').toArray().map(el=>({title:$(el).clone().find('.heading-link').remove().end().text(),id:$(el).attr('id')}));
@@ -77,7 +92,7 @@ export async function decorateDocuments(){
    // Previous and next run through the whole reading order, so no section ends in a dead end.
    const sequence=groups.flatMap(g=>g.items.map(item=>({...item,group:g.title}))),current=sequence.findIndex(item=>item.url===route.url);
    const pageLinks=route.kind==='guide'?`<nav class="guide-pagination" aria-label="Previous and next guide">${[sequence[current-1],sequence[current+1]].map((item,i)=>item?`<a href="${item.url}"><span>${i?'Next →':'← Previous'}${item.group!==group?.title?` · ${escape(item.group)}`:''}</span><strong>${escape(item.title)}</strong></a>`:'<span></span>').join('')}</nav>`:'';
-   $('body').html(`${header(route.url)}<div class="docs-layout ${route.kind==='install'?'install-layout':''} ${route.kind==='directory'?'directory-layout':''} ${article?'article-layout':''}">${side}<main id="main-content" class="doc-content ${route.kind==='directory'?'docs-directory':''}" data-page="${route.output.replace(/^docs\//,'').replace(/\/?index\.html$|\.html$/,'')}">${content}${pageLinks}${article?'':`<div class="doc-source"><a href="https://github.com/fluxsci/fluxsci.github.io/blob/main/site/${route.source}">Improve this page on GitHub ↗</a></div>`}</main>${toc}</div>${footer()}${mediaDialog}${searchDialog}`);
+   $('body').html(`${header(route.url)}${outline?'<div class="article-frame">':''}<div class="docs-layout ${route.kind==='install'?'install-layout':''} ${route.kind==='directory'?'directory-layout':''} ${article?'article-layout':''}${outline?' has-outline':''}">${side}${outline}<main id="main-content" class="doc-content ${route.kind==='directory'?'docs-directory':''}" data-page="${route.output.replace(/^docs\//,'').replace(/\/?index\.html$|\.html$/,'')}">${content}${pageLinks}${article?'':`<div class="doc-source"><a href="https://github.com/fluxsci/fluxsci.github.io/blob/main/site/${route.source}">Improve this page on GitHub ↗</a></div>`}</main>${toc}</div>${outline?'</div>':''}${footer()}${mediaDialog}${searchDialog}`);
    if(route.unlisted)$('head').append('<meta name="robots" content="noindex">');
    else search.push({title:route.title,url:route.url,description:$('.doc-lead').text().trim(),text:$('.doc-content').text().replace(/\s+/g,' ').trim(),external:false});
   }else{

@@ -77,8 +77,17 @@
    for(const type of ['play','pause'])v.addEventListener(type,()=>figure.classList.toggle('is-paused',v.paused&&!!v.dataset.held));
   }
  }
+ // An article's outline folds into an "On this page" toggle when the window is too narrow to hold
+ // it in the margin; following one of its links folds it again.
+ const outline=document.querySelector('.article-outline'),outlineToggle=outline?.querySelector('.article-outline-toggle');
+ if(outlineToggle){
+  const fold=open=>{outline.classList.toggle('is-open',open);outlineToggle.setAttribute('aria-expanded',String(open));};
+  outlineToggle.hidden=false;
+  outlineToggle.addEventListener('click',()=>fold(!outline.classList.contains('is-open')));
+  outline.addEventListener('click',e=>{if(e.target.closest('a')&&outline.classList.contains('is-open'))fold(false);});
+ }
  // Mark the current section without moving focus or changing the URL.
- const toc=[...document.querySelectorAll('.doc-toc a')],sections=toc.map(a=>document.getElementById(decodeURIComponent(a.hash.slice(1))));
+ const toc=[...document.querySelectorAll('.doc-toc a,.article-outline a')],sections=toc.map(a=>document.getElementById(decodeURIComponent(a.hash.slice(1))));
  let scheduled=false;
  function updateSection(){scheduled=false;let index=0;sections.forEach((section,i)=>{if(section?.getBoundingClientRect().top<150)index=i;});toc.forEach((a,i)=>{if(i===index)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});}
  if(toc.length){window.addEventListener('scroll',()=>{if(!scheduled){scheduled=true;requestAnimationFrame(updateSection);}},{passive:true});updateSection();}

@@ -12,9 +12,11 @@ const PUBLIC_ASSET = /^(?:assets|demos)\/(?:[\w@().-]+\/)*[\w@().-]+\.(?:html|cs
 // The homepage film is an HLS ladder of fragmented-MP4 segments (playlists, init and media segments) with its own budget.
 const FILM_ASSET = /^assets\/film\/(?:[\w-]+\/)?[\w.-]+\.(?:m3u8|m4s|mp4|webp|vtt)$/;
 const FILM_BUDGET_MB = 600;
-// Clips for the tour article (media/pitch.json): two sizes of each, about 6–16 MB a clip, 21 clips.
+// Clips for the tour article (media/pitch.json): two sizes of each, 25 clips.
 const CLIP_ASSET = /^assets\/media\/pitch\//;
-const CLIP_BUDGET_MB = 320;
+const CLIP_BUDGET_MB = 500;
+// GitHub Pages publishes a site of at most 1 GB.
+const PAGES_LIMIT_MB = 1024;
 const SITE_BUDGET_MB = 150;
 const SLIDE_PAYLOAD = /^demos\/slides\/slide_[a-z0-9_]+\.json\.gz$/;
 const FONT_LICENSE = /^assets\/fonts\/(?:OFL|LICENSE)[\w.-]*\.txt$/;
@@ -178,7 +180,7 @@ export async function checkOutput() {
     assert(OUTPUT_FILES.has(file) || allowedAsset(file), `Unexpected output: ${file}. The publication allowlist must be deliberately reviewed.`);
     const stat = await lstat(path.join(OUTPUT, file));
     if (file.startsWith('assets/film/')) filmBytes += stat.size; else if (CLIP_ASSET.test(file)) clipBytes += stat.size; else bytes += stat.size;
-    const limitMB = 15;
+    const limitMB = 30; // GitHub warns about files over 50 MB
     assert(stat.size <= limitMB * 1024 * 1024, `Oversized public asset (>${limitMB} MB): ${file}`);
     if (SLIDE_PAYLOAD.test(file)) {
       const data = gunzipSync(await readFile(path.join(OUTPUT, file))).toString('utf8');
@@ -226,6 +228,7 @@ export async function checkOutput() {
   assert(bytes <= SITE_BUDGET_MB * 1024 * 1024, `Site exceeds ${SITE_BUDGET_MB} MB publication budget.`);
   assert(filmBytes <= FILM_BUDGET_MB * 1024 * 1024, `The film exceeds its ${FILM_BUDGET_MB} MB budget.`);
   assert(clipBytes <= CLIP_BUDGET_MB * 1024 * 1024, `The article clips exceed their ${CLIP_BUDGET_MB} MB budget.`);
+  assert(bytes + filmBytes + clipBytes <= PAGES_LIMIT_MB * 1024 * 1024, `The site exceeds GitHub Pages' ${PAGES_LIMIT_MB} MB limit.`);
   for (const [file, expected] of Object.entries((await filmManifest()).outputs)) {
     const published = await readFile(path.join(OUTPUT, file.slice(5)));
     assert.equal(createHash('sha256').update(published).digest('hex'), expected.sha256, `Published film file differs from media/film.json: ${file}. Rebuild the site.`);

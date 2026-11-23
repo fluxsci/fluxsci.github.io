@@ -1,0 +1,370 @@
+---
+title: "Flux: a visual tour"
+description: "What Flux is and why it exists, followed by a visual tour of Flux Figure, Slides and Paper, and of working with your own AI agent."
+---
+
+# Flux: a visual tour {#overview nav="Overview"}
+
+::: {.doc-lead}
+Flux is a studio for creating scientific and technical materials: figures, posters, slide decks,
+and documents such as journal articles, grant applications and book chapters. It is a set of
+tools that work as one.
+:::
+
+Making these materials usually takes a long chain of separate tools, none of them designed for
+science. Figures are arranged in Adobe Illustrator, Figma or Inkscape, then exported and pasted
+into Word or Overleaf. Pieces of them are screenshotted into PowerPoint or After Effects for
+talks and posters. When the analysis changes, every figure has to be updated, exported and
+inserted again by hand. Each journal then asks for its own formatting: how figures are cited in
+the text, which fonts and sizes to use, what order the sections come in. Those edits are tedious
+and add nothing to the science. And because none of these tools was made with science in mind,
+the results are often less inspiring than they could be.
+
+Flux aims to solve all of these problems. For each part of the work it provides a tool designed
+for science from the ground up, and it connects them so that every piece of a project can work
+with every other. Flux has five parts:
+
+```{=html}
+<ol class="tour-parts">
+<li><a class="tour-part-name" href="/docs/figure.html">Figure</a><p>Take the plots you make in Python and compose them into complete multi-panel figures. Think of it as Figma, had Figma been designed for science from the start. Flux Figure knows what each part of a plot is, so “hide the x-axis title on this plot” or “align the y-axis spines of these plots” is a single step. Plots stay tied to the data and scripts that made them: regenerate one with new data and it updates in place on the figure, with every visual edit you have made still applied.</p></li>
+<li><a class="tour-part-name" href="/docs/paper.html">Paper</a><p>Write the manuscript once, and think only about what it says. From that one source, Flux exports the paper with the structure and formatting of any format you define: one copy for submission to Nature, another for bioRxiv. Everything the paper refers to in the project (figures, statistics, references) updates live.</p></li>
+<li><a class="tour-part-name" href="/docs/slides.html">Slides</a><p>Once there is a figure editor designed for science, slides should be easy: the same editing surface and the same objects, gathered into decks, with first-class motion. Any figure becomes a slide in one click, and beautiful animation is simple to add. If you can picture an animation, you can probably build it. Flux Slides is meant to replace both PowerPoint and After Effects, and to be easier than either without giving up their power.</p></li>
+<li><a class="tour-part-name" href="/docs/library.html">Library</a><p>One library for all of your references, shared by every project. It does what a reference manager should: it fetches abstracts and full text automatically, extracts the text, labels papers by meaning, and draws on open indexes such as OpenAlex and Semantic Scholar. For any paper, one click finds the papers that cite it, the papers it cites, and papers like it. Zotero already does much of this well and is open source, so Flux can also work with <a href="/docs/zotero.html">your existing Zotero library</a>.</p></li>
+<li><a class="tour-part-name" href="/docs/reader.html">Reader</a><p>A PDF reader with features made for reading science.</p></li>
+</ol>
+```
+
+Each part is designed, first of all, to be the best tool for a person. AI integration is built
+in, and optional. Take any agent you already use (Claude Code, Codex and others), however you
+already use it (the command line, a desktop app), and give it one
+[`flux-connect`](/docs/connect.html) command. It then knows how to use every part of Flux, and
+can see, read and edit anything in the project. While you work, you can point at anything on the
+screen and ask a connected agent to do what you want: it sees exactly what you see, and works
+live alongside you.
+
+Flux was inspired in part by the "file over app" philosophy. A project is a folder of ordinary
+files, so at any time you can take those files and do whatever you like with them. Flux is free,
+open source, and runs on your own machine. With AI programming agents, that also puts changing
+Flux itself, whether to fix, extend or personalise it, within easy reach.
+
+For more on any part of Flux, see [the documentation](/docs/) or watch
+[the short introductory film](/#film). To try it,
+[installing takes one copied line](/install/). What follows is a visual tour of a small
+fraction of what Flux can do.
+
+```{=html}
+<nav class="tour-jump" aria-label="Sections of this tour"><span>The tour</span><a href="#flux-figure">Figure</a><a href="#flux-slides">Slides</a><a href="#flux-paper">Paper</a><a href="#agents">Your own AI agent</a></nav>
+```
+
+## Flux Figure: the ideal visual editor for science and data visualization {#flux-figure nav="Flux Figure"}
+
+### Resize and arrange plots with ease {#arrange nav="Arrange plots"}
+
+Plots arrive at the size they will print. From there, Flux works like a design tool that knows
+it is holding plots: it lines panels up by their axes rather than their outer boxes, spaces them
+evenly with guides you drag, and resizes a plot by laying it out again, so its axes stretch while
+its text and lines keep their sizes.
+
+::: {.tour-step}
+Start from an empty canvas. The Layers rail's **+** makes a new figure; drag plots in from the Plots rail, select them and click the Crystallize button at the selection's corner to snap them into a grid on their axes, then drag the pink gap guides to set the spacing. Drag any plot's edge or corner and it lays itself out again at the new size, with its text unchanged.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/fig-arrange.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="An empty canvas with both side rails, as in a design tool. A new figure is made with the Layers rail&#x27;s plus button, the right rail is closed, and twelve small phase portraits are dragged in from the Plots rail in two loose handfuls. Hovering the Crystallize button previews the grid, and a click snaps the plots into three rows of four, lined up on their axes; the pink gap guides then widen the columns and tighten the rows. A bifurcation diagram and a Lyapunov map are dragged in below, widened by an edge and fitted by a corner, and both redraw at the new size with their text unchanged."><source src="/assets/media/pitch/fig-arrange-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/fig-arrange.mp4" type="video/mp4"></video><figcaption><span>A figure laid out from nothing: a dozen plots crystallized into a grid on their axes, spaced with the pink guides, and two larger plots resized to fit under them.</span></figcaption></figure>
+```
+
+::: {.tour-step}
+Plots line up on their axes, not their boxes. Select plots and press **A** for Align & Arrange:
+**Y spines** puts their vertical axes on one line, whatever the width of their tick labels, and
+**X spines** does the same for horizontal axes.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/fig-align.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="The figure from the previous clip: a grid of phase portraits, a bifurcation diagram and a Lyapunov map. The map is narrowed by its left edge to the bottom right, and two more plots, a time trace and a power spectrum, are dragged in and resized into the bottom left. With Align and Arrange, Y spines moves their y axes onto the diagram&#x27;s, and X spines puts the map&#x27;s x axis on the same line as the lower plot&#x27;s."><source src="/assets/media/pitch/fig-align-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/fig-align.mp4" type="video/mp4"></video><figcaption><span>Two more plots resized into a corner, then lined up with <strong>A</strong>: <strong>Y spines</strong> puts their y axes on the diagram's, and <strong>X spines</strong> gives the bottom row one baseline.</span></figcaption></figure>
+```
+
+### Change any part of a plot, by name {#restyle nav="Change any part"}
+
+Flux has a companion Python package, [fluxplot](/docs/fluxplot.html), which saves plots as
+ordinary SVG files with one or two small "sidecar" files beside each. You never need to look at
+the sidecars. They tell Flux which marks belong to which part of the plot, so you can reach into
+a finished plot and change any part of it by name, without rerunning the script that made it.
+
+::: {.tour-step}
+Say you want a different colormap. The plot remembers the value behind every colour, so Flux repaints it directly: press **F**, click the colour scale's **Edit…**, and click through curated collections of scientific colormaps. The same scale in the X-ray (**R**) takes its limits in data units.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/fig-colormap.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="A six-panel figure. The view moves in on panel c, a map of hexagons in rainbow colours with a colour bar. Its properties menu opens and the colour scale&#x27;s list of colormaps appears beside the plot, and three maps from the matplotlib, Paul Tol and Crameri collections are clicked in turn, each repainting the hexagons and the colour bar. The menu closes, the X-ray opens beside the plot, and its colour scale&#x27;s maximum is scrolled down from 1.5 to 0.5 and back, deepening the blues and changing the colour bar&#x27;s ticks, before the view returns to the whole figure."><source src="/assets/media/pitch/fig-colormap-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/fig-colormap.mp4" type="video/mp4"></video><figcaption><span>Pick a matplotlib, a Paul Tol and a Crameri map from the colour scale, then narrow its maximum in the X-ray and set it back: the hexagons and the colour bar follow every change.</span></figcaption></figure>
+```
+
+::: {.tour-step}
+Any other part of a plot can be reached the same way. Press **R** and the **X-ray** lays out the
+plot's anatomy by name, down to single tick marks; hover a row and its part is outlined on the
+plot. Hide a whole axis with a click on its eye, or search for `line`, pick every result and
+restyle them all together.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/fig-xray.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="The view moves in on panel d, uptake curves for six peptides. R opens the X-ray beside it, a dark list of the plot&#x27;s parts; hovering a row outlines that part on the plot, and the x axis is hidden with its eye and shown again. Searching the list for line finds the six fitted curves; a drag down the results picks all six, the Properties button opens their shared settings, and the wheel raises their stroke width from 0.1 to 1 as the curves thicken together. The view returns to the whole figure."><source src="/assets/media/pitch/fig-xray-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/fig-xray.mp4" type="video/mp4"></video><figcaption><span>Press <strong>R</strong> for the X-ray: hover a row to find its part, hide the x axis with its eye, then search <code>line</code>, sweep the six results and thicken all six fitted curves at once.</span></figcaption></figure>
+```
+
+::: {.tour-step}
+Select several plots and the X-ray lists the parts they share, so one change applies to all of
+them.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/fig-xray-common.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="The view moves in on panel e, four enzyme-kinetics plots in a grid. The top two are selected with a click and a Shift+click, and R opens the X-ray with a list of the parts both plots share. Hovering the common tick labels outlines them on both plots; one click on the row&#x27;s eye hides them on both, and a second click hides both x-axis titles, since the plots below already show the same axis. The view returns to the whole figure."><source src="/assets/media/pitch/fig-xray-common-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/fig-xray-common.mp4" type="video/mp4"></video><figcaption><span>Select two plots and press <strong>R</strong>: the X-ray lists the parts they share, and one click hides the x-axis labels on both.</span></figcaption></figure>
+```
+
+::: {.tour-step}
+Because Flux knows where the data lie, the limits of an axis are just a setting: open the
+plot's **x view** and scroll each limit, and the data and tick labels follow as you go. Flux also
+knows each piece of text by its role. **Ctrl+click** picks the axis title on its own, and the
+**X-ray** lists every tick label, so you can pick all six and restyle them together.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/fig-axes.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="The view moves in on panel f, a plot of RMSD over simulation time showing about 200 to 600 nanoseconds. Its properties menu opens the x view, and the wheel scrolls the minimum down to 0 and the maximum up to 1000 while the curves extend and the axis re-ticks. Ctrl+click picks the axis title, which is made bold from its weight list; a tick label is picked, the X-ray opens, a sweep down its rows picks all six tick labels and they grow together. Two clicks on Undo in the toolbar restore the text and the view returns to the whole figure."><source src="/assets/media/pitch/fig-axes-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/fig-axes.mp4" type="video/mp4"></video><figcaption><span>Scroll the x limits out to the whole run, make the axis title bold, then pick all six tick labels in the <strong>X-ray</strong> and size them up together.</span></figcaption></figure>
+```
+
+### Every plot carries its evidence {#dissections nav="Plot evidence"}
+
+A figure panel is a summary. The material behind it, such as the panels for each cell or
+subject, the test behind the asterisk and the analyses you didn't show, usually sits in a
+scratch folder far from the figure. In Flux every plot can keep that material attached to it,
+in a dissections folder that your analysis script writes. It stays out of the way: nothing in it
+enters a figure or an export unless you put it there.
+
+::: {.tour-step}
+Click a plot and its dissections fill the rail beside the canvas: statistics first, then each
+group of panels. Double-click one to see it large and flip through the rest along the strip; a
+table of test results reads out as a sentence you can copy into your results. Click another
+plot and the same cell stays selected, now showing what that plot keeps for it. Drag a panel
+onto the figure to place it.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/fig-dissect.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="A figure of mouse visual-cortex tuning sits beside the Plots rail. Clicking the rose of preferred directions on the canvas fills the Dissections pane with a Rayleigh test card and three example cells for each direction. A double-click opens one cell&#x27;s tuning lobe full screen; clicking along the strip below flips through its neighbours and into the next direction, and the statistics table reads its result out as a sentence. Back on the canvas, clicking the scatter plot keeps the same cell selected in the pane, now showing its response traces, and the cell is then dragged into the figure&#x27;s empty panel d."><source src="/assets/media/pitch/fig-dissect-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/fig-dissect.mp4" type="video/mp4"></video><figcaption><span>Click the rose and its dissections appear beside the figure: open a cell large, read the statistics as a sentence, keep the same cell while switching plots, then drag it into the figure. Data: Allen Brain Observatory, Allen Institute for Brain Science.</span></figcaption></figure>
+```
+
+### 3D objects and complex images, directly on the canvas {#rich-media nav="3D and images"}
+
+A figure can hold more than flat plots. 3D models and multi-dimensional images sit on the same
+canvas as everything else, and stay live: turn a model, step through an image stack in time or
+depth, and every view you choose is saved with the figure.
+
+::: {.tour-step}
+A 3D model is a live object on the figure. Double-click it and drag to turn it in place. Press
+**R** for its X-ray: scroll the **Frame** of a model saved as a sequence to play through its
+states, and click the eye beside any named part to hide it and see what lies beneath.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/fig-3d.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="A figure of the cardiac cycle: a 3D heart on the left and pressure, volume and ECG traces on the right. A double-click and one drag turn the heart to show its side and back, then return it to the front. Its X-ray opens beside it; scrolling the Frame field plays one heartbeat, and hiding the four chambers leaves the coronary arteries and veins around the great vessels. The chambers return and the view goes back to the whole figure."><source src="/assets/media/pitch/fig-3d-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/fig-3d.mp4" type="video/mp4"></video><figcaption><span>Turn the heart in place, scroll its <strong>Frame</strong> through one heartbeat, then hide its four chambers to see the coronary arteries. Heart model: Z-Anatomy, CC BY-SA 4.0.</span></figcaption></figure>
+```
+
+::: {.tour-step}
+Models from your own simulations work the same way. Drag a shape weight in the Inspector and a
+spinning black hole reshapes itself beside its 2D cross-sections; in a model's X-ray, change the
+colormap of its value field or scroll through its frames.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/fig-3d-models.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="A figure of spinning black holes with the Inspector beside it. A shape-weight slider is dragged down and back up, and the black hole&#x27;s ergosphere, frame-dragging lines and accretion disc shrink and grow back as its spin falls and rises. A double-click and a drag turn the model to look into its cut-away, then back. The merger model&#x27;s X-ray opens, its strain field is recoloured from one diverging colormap to another, its ripples spiral through 39 frames, and Reset puts everything back."><source src="/assets/media/pitch/fig-3d-models-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/fig-3d-models.mp4" type="video/mp4"></video><figcaption><span>Spin a Kerr black hole down and up with its shape weight, look into its cut-away, then recolour a merger's strain field and step through its frames in the X-ray. Models computed from the Kerr metric and a post-Newtonian waveform.</span></figcaption></figure>
+```
+
+::: {.tour-step}
+An image stack is one object on the figure. Drag it in from the Plots rail and double-click it to open its control board: drag along the time rail to run through time, and **Shift**-drag along it for a maximum projection of just those frames. Click **Split channels** for a panel per wavelength; drag along any panel's time rail and every panel follows.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/fig-img-time.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="A blank figure stands beside the Plots rail. An ultraviolet time-lapse of the Sun from NASA&#x27;s Solar Dynamics Observatory is dragged from the rail onto the figure, and a double-click opens its control board. Dragging along the time rail runs through the 120 frames, slowing to a crawl as a filament erupts and a flare brightens, then crawling back across the flare. A Shift-drag along the rail makes a maximum projection of the flare frames, and three clicks on Auto brighten its contrast. Split channels turns it into a colour composite and four panels, each in its own channel's colour, and dragging along one panel&#x27;s time rail moves all five through time together."><source src="/assets/media/pitch/fig-img-time-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/fig-img-time.mp4" type="video/mp4"></video><figcaption><span>Drag the image onto a figure, run through four hours of the Sun on its time rail, project the flare's frames onto one image, then split it into four wavelengths that move through time together. Images courtesy of NASA/SDO and the AIA, EVE and HMI science teams.</span></figcaption></figure>
+```
+
+::: {.tour-step}
+A microscopy stack is one object on the figure. Double-click it and its controls stand round it: roll the wheel to step through the tissue plane by plane, choose **max** at the foot of the depth rail for a projection, then switch channels with their lamps and drag their histogram handles.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/fig-img-depth.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="A confocal image of an Arabidopsis shoot meristem stands on a figure. A double-click opens its controls, and the mouse wheel steps up through the planes to the tips of the flower buds, then down into the meristem. Choosing max at the foot of the depth rail shows the projection of all 65 planes, already in full contrast. The blue nuclei channel is switched off and the stem-cell channel&#x27;s white and black points are dragged until the stem cells glow orange among green and magenta cell walls."><source src="/assets/media/pitch/fig-img-depth-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/fig-img-depth.mp4" type="video/mp4"></video><figcaption><span>Step through 65 planes of an Arabidopsis shoot meristem, project them, and set each channel's contrast on the image itself. Images: Galvan-Ampudia, Cerutti et al. (2020), CC BY 4.0.</span></figcaption></figure>
+```
+
+::: {.tour-step}
+Click **Inset** and drag a box on the image: Flux adds a panel of that region, with a scale
+bar, beside or under the image. The box stays a handle, so dragging its edge changes what the
+inset shows while you watch.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/fig-img-inset.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="The meristem&#x27;s projection stands at the top of a figure with empty space below it. With its controls open, the Inset key is clicked and a box is dragged across the centre of the meristem. A magnified panel of that region with a 10 µm scale bar appears under the image. Dragging the box&#x27;s edge up and to the left moves the region onto the orange stem cells, and the inset follows as it moves."><source src="/assets/media/pitch/fig-img-inset-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/fig-img-inset.mp4" type="video/mp4"></video><figcaption><span>Pull the stem-cell niche out as an inset, then slide its region on the image and watch the inset follow.</span></figcaption></figure>
+```
+
+## Flux Slides: the same editor plus decks, time, and motion {#flux-slides nav="Flux Slides"}
+
+A slide in Flux is a figure with time added. It is the same canvas, the same plots and the same
+tools you have just seen, so nothing is exported, pasted or rebuilt to give a talk. And because
+Flux knows what every part of a plot is, its motion can follow the data.
+
+### From figure to slide {#figure-to-slide nav="Figure to slide"}
+
+::: {.tour-step}
+Any figure becomes a slide in one click. **Send to deck…** copies the whole figure into a talk, the **Slide** button opens it there, and every tool you used on the figure still works on the slide. Steps are built by pointing too: select what should come in together and click **Appear** once. Then click **Present**: the slide plays step by step, and seven more slides show how far Flux animation can go.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/sl-intro.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="A figure of Arctic sea ice, river discharge and a map of South America&#x27;s rivers is open in Flux Figure. An arrow and the label Amazon are drawn on the map, Send to deck copies the figure into the deck slides_basics, and the Slide button opens it there as the first slide. A text box is typed at the bottom of the slide and four animation steps are built in the Animator, one of them by dragging a box around the map, the arrow and the label and clicking Appear once. Present plays the slide step by step, then seven more slides: Flux&#x27;s icons morphing into one another, light through a prism, a neuron, earthquakes under Japan, hurricane tracks, the rhythm of the elements and a sunflower&#x27;s seeds."><source src="/assets/media/pitch/sl-intro-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/sl-intro.mp4" type="video/mp4"></video><figcaption><span>Draw on the figure, click <strong>Send to deck…</strong>, build four steps in the Animator, then <strong>Present</strong>: the slide plays, followed by seven slides that show what Flux animation can do.</span></figcaption></figure>
+```
+
+### Motion that understands the data {#data-motion nav="Motion from data"}
+
+::: {.tour-step}
+Any edit can be a step. Click **+ Step**, then **Edit after step 1**, and change the plot as you would in a figure: here new time limits zoom into the moment the first gravitational waves arrived. In a second step, drag the plot smaller and bring in a time–frequency map beside it. Click **Present** and Flux moves between the states in the plot's own units: the axis glides in and the data re-render at full resolution in every frame.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/sl-steps.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="A slide shows three seconds of noisy strain from the two LIGO detectors. The user adds a step, types new time limits into the Inspector, and a second step shrinks the plot to the left half and brings in a time–frequency map. Present then shows the full slide: a click zooms the axis into the last quarter second, where both detectors show the same rising chirp, and a second click shrinks the plot as the map rises in beside it."><source src="/assets/media/pitch/sl-steps-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/sl-steps.mp4" type="video/mp4"></video><figcaption><span>Make two steps, then <strong>Present</strong>: three seconds of LIGO data zoom into the chirp of two black holes merging, then make room for its time–frequency sweep. Data: LIGO Scientific Collaboration and Virgo Collaboration, GWOSC (CC BY 4.0).</span></figcaption></figure>
+```
+
+::: {.tour-step}
+One thing can become another. Select the six fitted curves, choose **Become** from the **Transform** menu and box the bars they should become. With **Source stays**, the curves stay where they are while a copy of each flies across and lands as the bar of its half-time, so an audience sees where every number comes from. Raise **Piece lag** and the bars land one after another.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/sl-become.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="A slide with deuterium uptake curves for six peptides beside a bar chart of their half-times. The six curves are selected, Become is chosen from the Transform menu, the source is set to stay, and a box round the six bars picks them. Played, the curves stay while a copy of each lifts off and lands as its bar. After Piece lag is raised in the Animation inspector and the slide plays again, the bars land one after another."><source src="/assets/media/pitch/sl-become-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/sl-become.mp4" type="video/mp4"></video><figcaption><span>Pick the six curves, choose <strong>Transform ▸ Become</strong>, click <strong>Source stays</strong> and box the six bars; play it, then raise <strong>Piece lag</strong> and the copies leave one at a time.</span></figcaption></figure>
+```
+
+::: {.tour-step}
+And because Flux understands the data behind the plots, it works just as well for thousands of points. Pick the cells of a brain section, choose **Become** and box the same cells in a UMAP of their gene expression: each of 5,000 cells flies from where it sits in the tissue to what it is, and a second step sends them home.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/sl-bec-tissue.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="A slide shows a sagittal section of the mouse brain drawn as 5,000 coloured dots, one per cell, beside a UMAP of the same cells. The tissue&#x27;s cells are picked, Transform then Become is chosen, a box is drawn round the UMAP&#x27;s points and pairing is set to by order. On play, every cell flies from its place in the tissue to its island in the UMAP, labels appear, and then the cells fly back and the anatomy reassembles."><source src="/assets/media/pitch/sl-bec-tissue-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/sl-bec-tissue.mp4" type="video/mp4"></video><figcaption><span>5,000 cells of a mouse brain section become their own UMAP, then return to the tissue. Data: Zhuang lab MERFISH (Zhang et al. 2023, Nature), Allen Brain Cell Atlas (Allen Institute for Brain Science); UMAP computed for this clip.</span></figcaption></figure>
+```
+
+::: {.tour-step}
+Images move too. On a slide, choose **Edit after step N**, open the image's board, and whatever you do there becomes that step: drag the time rail and the step walks the frames, roll the wheel and the slide zooms in, widen a max projection and the stars draw their trails. Play runs the steps in order, at full resolution.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/sl-image.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="A 16:9 slide holds a time-lapse of the night side of the Earth taken from the International Space Station. On the image&#x27;s board, dragging the time rail makes step 1 walk through the frames and typing a duration sets it to four seconds; zooming into the aurora makes step 2; widening a max projection over forty frames and zooming back out makes step 3. Play then runs all three: the night pass moves, the view zooms into the aurora, and star trails draw themselves as the view pulls back out to the whole station."><source src="/assets/media/pitch/sl-image-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/sl-image.mp4" type="video/mp4"></video><figcaption><span>Three steps made on the image's own board (a walk through time, a zoom, a max projection that grows), then played back. Image courtesy of the Earth Science and Remote Sensing Unit, NASA Johnson Space Center (ISS030-E-68921 to 69120).</span></figcaption></figure>
+```
+
+### It plays anywhere {#plays-anywhere nav="Plays anywhere"}
+
+::: {.tour-step}
+A deck exports as one self-contained HTML file that plays in any browser, with nothing to
+install, and also as PowerPoint (with its builds), PDF and video. Here are four slides from this tour,
+exported from Flux and running in this page.
+:::
+
+```{=html}
+<div class="doc-study tour-live" data-doc-study="/demos/tour/minideck.html" data-study-aspect="0.5625"><div class="doc-study-stage"><img src="/demos/tour/minideck.webp" alt="A slide titled 14 September 2015: two detectors hear the same chirp, showing three seconds of strain from the LIGO Hanford and Livingston detectors" width="1280" height="720" loading="lazy"><button class="doc-study-launch" type="button" data-study-start data-title="Four slides from this tour" hidden><span aria-hidden="true">▶</span> Open the live deck</button></div><div class="doc-study-caption"><p>A short deck of four slides from this tour, exported from Flux as one HTML file. Open it, then click it or press <strong>→</strong> to play each step: the chirp is zoomed into and then makes room for its map, electrodes become their traces, curves become bars, and 5,000 cells fly into their UMAP and back. <strong>←</strong> rewinds.</p></div></div>
+```
+
+## Flux Paper: write once, export anywhere {#flux-paper nav="Flux Paper"}
+
+In Flux you write the paper once and think only about what it says. Its figures and references
+are the live ones from the project, and a journal's formatting is applied when you export, never
+to your text.
+
+### The manuscript knows the project {#manuscript nav="Live manuscript"}
+
+::: {.tour-step}
+Figures and panel references are live objects in your text. Type **@@**, pick the figure and click the panels you mean, and “Fig. 1c–e” goes into the sentence; type **/figure** to place the figure itself with its caption. Renumber the figure later and every reference and the caption follow.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/pa-figures.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="A manuscript paragraph in Flux Paper. Typing two at signs opens a picker of the project&#x27;s figures; clicking the Protein Structure figure and its panels c, d and e inserts the reference Fig. 1c–e mid-sentence. Typing slash figure and picking the same figure embeds Figure 1 below the paragraph, and the text scrolls down to the whole figure and the first lines of its caption."><source src="/assets/media/pitch/pa-figures-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/pa-figures.mp4" type="video/mp4"></video><figcaption><span>Cite panels c to e by clicking them, then place the figure under the paragraph with its caption.</span></figcaption></figure>
+```
+
+::: {.tour-step}
+Change the figure, and the paper has already changed. Click **Open in Figure** on a figure in your manuscript and it opens beside the text; give a plot a new colormap, delete plots or widen a panel, and the copy in Paper redraws as you work, with no export, save or reload between.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/pa-live.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="Flux Paper shows a manuscript with Figure 1 embedded. Clicking Open in Figure on the embed opens the same figure on the canvas beside the text. The hexagon map of panel c gets a new colormap from the colour scale&#x27;s palette list, and the manuscript&#x27;s copy redraws in the new colours. Next, the two lower plots of panel e are deleted, and they vanish from the manuscript too. Last, panel f is dragged wider to fill the gap, and the manuscript&#x27;s panel f widens to match."><source src="/assets/media/pitch/pa-live-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/pa-live.mp4" type="video/mp4"></video><figcaption><span>Open the figure from the manuscript, then edit it: a new colormap, two plots deleted, panel f widened; each change appears in the text a moment later.</span></figcaption></figure>
+```
+
+::: {.tour-step}
+Cite from your library as you write. Type **@** and a name, pick the paper, and the citation and
+its reference-list entry appear. Hover a citation for its card, and one click opens the PDF in
+Reader beside your text, where you can highlight the passage that backs your claim.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/pa-cite.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="Typing @jumper at the end of a sentence about pLDDT opens the library list, and clicking the AlphaFold paper inserts Jumper et al., 2021 and adds it to the reference list. Hovering the citation shows its card, and Read PDF opens the paper in Reader beside the manuscript, whose text is made smaller to fit its half. The PDF scrolls to page 2, where the sentence saying the pLDDT confidence measure reliably predicts lDDT accuracy is selected and highlighted in green. The view widens to show the manuscript and the highlighted paper side by side."><source src="/assets/media/pitch/pa-cite-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/pa-cite.mp4" type="video/mp4"></video><figcaption><span>Type <code>@jumper</code> to cite AlphaFold from your library, open its PDF beside the text, and highlight the passage on page 2 that supports the sentence. Paper: Jumper et al., Nature (2021), CC BY 4.0.</span></figcaption></figure>
+```
+
+### Focus on the content, then export to anything {#formats nav="Export anywhere"}
+
+::: {.tour-step}
+Choose the journal when you export, not while you write. Click **Export**, pick Nature, and Flux builds Nature's submission from the same manuscript: superscript citations, its section order, numbered lines. Then it lists what it did and what is still yours to check, such as a summary five words over the limit. Pick bioRxiv and the same text comes out as a preprint. Your text is never changed.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/pa-export.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="The pointer clicks Export in Paper&#x27;s status bar, opens the Style list in the export sheet and picks Nature, which lists the changes it will make. Flux renders the PDF and opens a report: four things to check, including a summary of about 205 words against Nature&#x27;s 200, and six things Flux did, such as numbering the references and reordering the sections. The same steps with bioRxiv preprint give a short report, and the manuscript itself is unchanged."><source src="/assets/media/pitch/pa-export-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/pa-export.mp4" type="video/mp4"></video><figcaption><span>One manuscript exported for Nature, then for bioRxiv, each with a report of what Flux changed and what is left to check.</span></figcaption></figure>
+```
+
+```{=html}
+<figure class="tour-pages"><div class="tour-pages-pair"><div><img src="/assets/media/tour/export-nature.webp" width="1280" height="960" alt="Top of the first page of the Nature export: Times, numbered lines, double spacing, and the summary paragraph set in bold." loading="lazy"><span>Nature</span></div><div><img src="/assets/media/tour/export-biorxiv.webp" width="1280" height="960" alt="Top of the first page of the bioRxiv export: a sans-serif face, numbered lines, an Abstract heading and an Introduction heading." loading="lazy"><span>bioRxiv preprint</span></div><div><img src="/assets/media/tour/export-science.webp" width="1280" height="960" alt="Top of the first page of the Science export: Submitted Manuscript: Confidential, a centred title, an inline Abstract label and a Main Text label, single spacing." loading="lazy"><span>Science</span></div><div><img src="/assets/media/tour/export-cell.webp" width="1280" height="960" alt="Top of the first page of the Cell export: a sans-serif face, a lead contact note under the affiliations and a SUMMARY heading." loading="lazy"><span>Cell</span></div></div><figcaption>The top of the first page of four files Flux wrote from the same manuscript. Each follows its journal: Nature sets the summary in bold and cites with superscript numbers, bioRxiv cites by author and year, Science numbers its citations in parentheses and writes “Fig. 1, C to F”, and Cell adds a lead contact and a SUMMARY heading.</figcaption></figure>
+```
+
+Co-authors can stay in Word. Export to Word and the citations are live Zotero fields, so a
+collaborator can keep working on the references with the tools they already use.
+
+## Bring your own agent: Flux gives it the tools {#agents nav="Flux AI"}
+
+Flux does not come with an AI of its own, and it does not need one. Take the agent you already
+use, such as Claude Code or Codex, and run one command:
+
+```bash
+flux-connect ~/projects/my-paper
+```
+
+The agent now knows how to use every part of Flux, and can see, read and edit the open project.
+From then on you can point at anything on the screen and ask. Here are four requests, from the
+smallest job to the biggest.
+
+::: {.tour-step}
+In Figure, point at it and say what you want. Press **Ctrl+Shift+M**, draw a box round the plots you mean, and type: the note names every plot inside the box. Your agent claims it, edits the script that drew the plots and reruns it through Flux: the panels change in place, and a new panel takes its place beside them in your figure's style. Its answer, with the numbers, arrives in the note's thread.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/ag-figure.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="A figure of four bar charts of penguin measurements. The user boxes it in Annotate and asks for half violins with every bird shown and a panel on how bill length and depth relate within each species. The agent rewrites and reruns the plotting script: the four panels change at once to show every bird, the distributions and the tests, and a new panel e appears on the right showing that bill depth falls with bill length across all birds but rises within each species. Its Inbox reply gives the numbers."><source src="/assets/media/pitch/ag-figure-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/ag-figure.mp4" type="video/mp4"></video><figcaption><span>Box the bar charts and ask for the raw data and one more panel: the agent rewrites the plotting script, all four panels change at once, and a fifth panel shows a Simpson's paradox hiding in the data. Data: Palmer Station Antarctica LTER penguins (Gorman, Williams &amp; Fraser 2014), CC0.</span></figcaption></figure>
+```
+
+::: {.tour-step}
+In Slides, describe the animation you can picture, in a sentence or two. The agent builds it with the same steps you would use: each part becoming the next, a zoom into the data, a box drawn where the data says. The Animator shows exactly what it made, so you can retime any of it. Then click **Slide** to play it.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/ag-slides.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="A slide shows a brain, a 10-20 EEG montage and nineteen EEG traces. The user boxes the slide in Annotate and asks the connected agent to make the brain regions become the electrodes, the electrodes become their traces, and then zoom in on a sleep spindle; the agent fills the Animator with five steps. On Play, each brain region flies onto its electrodes, each electrode unrolls into its trace, the traces zoom to 13 to 22 seconds and a box marked Spindle outlines the burst at about 18 seconds, then the view zooms back out."><source src="/assets/media/pitch/ag-slides-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/ag-slides.mp4" type="video/mp4"></video><figcaption><span>One note to the agent, and the brain's regions become their electrodes, the electrodes become their traces, and the view zooms in on a sleep spindle the agent found in the data.</span></figcaption></figure>
+```
+
+::: {.tour-step}
+Ask about what you read. Select a passage in Reader, click **Annotate** and ask whether it contradicts your manuscript. The agent reads your text and your figure's data, answers in the Inbox, and leaves its evidence as a margin comment on the sentence in question; **Jump to** takes you there.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/ag-paper.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="A paper is open in Reader. The user selects a sentence warning that low AlphaFold confidence can mean regions structured only in complex, and asks the connected agent whether it contradicts their manuscript. The agent replies in the Inbox that it qualifies a claim about p53, citing a structure paper and the scores in the user&#x27;s own Figure 1a. Jump to opens the manuscript, where the agent&#x27;s margin comment sits on the sentence."><source src="/assets/media/pitch/ag-paper-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/ag-paper.mp4" type="video/mp4"></video><figcaption><span>Select a passage in Reader, click <strong>Annotate</strong> and ask; then follow the agent's comment back to your manuscript with <strong>Jump to</strong>. Paper: Tunyasuvunakool et al., Nature (2021), CC BY 4.0.</span></figcaption></figure>
+```
+
+::: {.tour-step}
+Or hand it the whole job. Box the empty half of a figure and say what belongs there: your agent writes and runs the analysis on your data, makes the plots in your figure's style, lays them out beside the panels you made and letters them. You get its script, and its reply gives every number it reports.
+:::
+
+```{=html}
+<figure class="doc-clip article-clip"><video poster="/assets/media/pitch/ag-panel.webp" width="1920" height="1440" muted loop playsinline controls preload="none" aria-label="A figure about Darwin&#x27;s finches has an engraving and a scatter plot on top and an empty bottom half. The user opens Annotate, draws a box over the empty half and asks the connected agent heron to fill it with the analysis of data/daphne, styled like panels a and b, laid out and lettered. The agent runs a script, five new plots appear in the Plots rail and land in the figure in a designed layout lettered c to g, and its reply in the Inbox gives the result of each panel with its statistics."><source src="/assets/media/pitch/ag-panel-1280.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/assets/media/pitch/ag-panel.mp4" type="video/mp4"></video><figcaption><span>A box on the empty half and one sentence: the agent writes the analysis, five plots arrive in the Plots rail and on the figure, laid out and lettered, and its reply lists what each panel shows. Data: P. R. and B. R. Grant, Daphne Major (Grant &amp; Grant 2014, Dryad, CC0).</span></figcaption></figure>
+```
+
+::: {.tour-credits}
+**About the material.** Everything in this tour was filmed in Flux itself, on a copy of a demonstration project. The protein figure is demonstration material: panels a and b use public data, the AlphaFold Protein Structure Database model of human p53 and the cryo-EM structures of the SARS-CoV-2 spike, PDB 6VSB (Wrapp et al., *Science*, 2020) and 6VXX (Walls et al., *Cell*, 2020); the other panels are simulated. The phase portraits, bifurcation diagram, Lyapunov map, time trace and spectrum are computed from a driven Duffing oscillator, and the black-hole figure from the Kerr metric, with a synthetic post-Newtonian merger waveform. The heart model is from Z-Anatomy (CC BY-SA 4.0). The tuning figure uses public measurements from the Allen Brain Observatory (Allen Institute for Brain Science, Visual Coding 2-photon, experiment 501940850), under the Allen Institute's [terms of use](https://alleninstitute.org/legal/terms-of-use); no endorsement is implied. The images are real and openly licensed: the Sun from NASA/SDO and the AIA, EVE and HMI science teams; the Arabidopsis meristem from Galvan-Ampudia, Cerutti et al., *eLife* (2020), CC BY 4.0; and, as thumbnails in the Plots rail, image sets from Sakaguchi, Leiwe and Imai (2018), FISBe (Mais, Hirsch et al., 2024), Clark, Battistara and Benton (2022), the Human Protein Atlas, Winfree, El-Achkar and Ferkowicz (2022) and NASA's Earth observations from the International Space Station. The manuscript “Reading a protein across scales” and its authors were invented for this tour; its references are real. The papers open in Reader are Jumper et al., “Highly accurate protein structure prediction with AlphaFold”, *Nature* **596**, 583–589 (2021), and Tunyasuvunakool et al., “Highly accurate protein structure prediction for the human proteome”, *Nature* **596**, 590–596 (2021), both shown under their CC BY 4.0 licences. The agent in the last section is Claude, working through Flux's own agent tools: its edits are made live during recording, and its replies are the answers it gave to these requests, replayed so that each clip could be filmed more than once.
+:::
+
+::: {.article-next}
+<a class="article-install" href="/install/">Install Flux</a>
+<a href="/docs/first-project.html">Make your first project</a>
+<a href="/docs/">Read the documentation</a>
+:::

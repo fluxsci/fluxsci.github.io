@@ -20,7 +20,7 @@ test('articles read as one column without sideways scroll, on any screen',async(
 });
 
 test('every article clip is a muted, looping, inline 4:3 picture with a still frame and no control bar',async({page})=>{
- await page.goto('/in-60-seconds/');
+ await page.goto('/visual-tour/');
  // Read every clip where it stands: scrolling to each would start all of them playing.
  const clips=await page.locator('.article-clip video').evaluateAll(videos=>videos.map(v=>{const b=v.getBoundingClientRect();return {muted:v.muted,loop:v.loop,controls:v.controls,inline:v.hasAttribute('playsinline'),autoplay:v.hasAttribute('autoplay'),preload:v.getAttribute('preload'),label:v.getAttribute('aria-label')||'',poster:v.getAttribute('poster'),sources:[...v.querySelectorAll('source')].map(s=>s.getAttribute('src')),width:b.width,height:b.height};}));
  expect(clips.length).toBeGreaterThan(0);
@@ -43,7 +43,7 @@ test('every article clip is a muted, looping, inline 4:3 picture with a still fr
 
 test('reduced motion keeps an article clip still and gives the visitor the controls',async({page})=>{
  await page.emulateMedia({reducedMotion:'reduce'});
- await page.goto('/in-60-seconds/');
+ await page.goto('/visual-tour/');
  const video=page.locator('.article-clip video').first();
  await video.scrollIntoViewIfNeeded();
  await expect(video).toHaveJSProperty('controls',true);
@@ -61,7 +61,7 @@ test('unlisted routes stay out of the sitemap and the search index',async({reque
 });
 
 test('the tour\'s live slide is a still until asked for, then the exported slide itself',async({page})=>{
- await page.goto('/in-60-seconds/');
+ await page.goto('/visual-tour/');
  const box=page.locator('.tour-live');
  await box.scrollIntoViewIfNeeded();
  await expect(box.locator('iframe')).toHaveCount(0);
@@ -69,14 +69,14 @@ test('the tour\'s live slide is a still until asked for, then the exported slide
  await box.locator('[data-study-start]').click();
  const frame=box.locator('iframe');
  await expect(frame).toHaveCount(1);
- await expect(frame).toHaveAttribute('title',/becomes its half-time/);
+ await expect(frame).toHaveAttribute('title',/Four slides from this tour/);
  const size=await frame.boundingBox();
- expect(Math.abs(size.height/size.width-0.75)).toBeLessThan(0.02);
+ expect(Math.abs(size.height/size.width-0.5625)).toBeLessThan(0.02);
  expect((await page.request.get(await frame.getAttribute('src'))).status()).toBe(200);
 });
 
 test('the tour links each of its sections from the top',async({page})=>{
- await page.goto('/in-60-seconds/');
+ await page.goto('/visual-tour/');
  for(const id of ['flux-figure','flux-slides','flux-paper','agents']){
   await expect(page.locator(`.tour-jump a[href="#${id}"]`)).toHaveCount(1);
   await expect(page.locator(`h2#${id}`)).toHaveCount(1);

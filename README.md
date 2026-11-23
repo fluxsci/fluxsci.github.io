@@ -56,14 +56,14 @@ npm test
 
 ## Article clips
 
-`site/in-60-seconds/` is the pitch article, "Flux: a brief tour" (the folder keeps its first name while the page is unlisted, so links already shared keep working): one reading column (`kind: "article"` in `scripts/routes.mjs`) with 4:3 clips of the app. It is `unlisted` (built and checked, but absent from the sitemap, search and navigation, and marked `noindex`) until it is announced.
+`site/visual-tour/` is the article "Flux: a visual tour": one reading column, with an "On this page" outline in the left margin (`outline: true` and `kind: "article"` in `scripts/routes.mjs`), and 4:3 clips of the app. It is `unlisted` (built and checked, but absent from the sitemap, search and navigation, and marked `noindex`) until it is announced.
 
 Each clip is filmed in the real desktop app, never in a mock-up. A clip is one file in `media/pitch/takes/` (the contract and the house rules are in its `README.md`):
 
 ```sh
-FLUX_XVFB=/path/to/Xvfb node media/pitch/make.mjs --flux-source /path/to/flux --project /path/to/MASTER_DEMO_FluxProj --take colormap
-node media/pitch/make.mjs … --take colormap --reuse <take dir>     # new framing or encoding, same recording
-node media/pitch/make.mjs … --take colormap --no-install --keep <dir> --display 101 --port 9341   # review before installing; one private display per parallel build
+FLUX_XVFB=/path/to/Xvfb node media/pitch/make.mjs --flux-source /path/to/flux --project /path/to/MASTER_DEMO_FluxProj --take <name>
+node media/pitch/make.mjs … --take <name> --reuse <take dir>     # new framing or encoding, same recording
+node media/pitch/make.mjs … --take <name> --no-install --keep <dir> --display 101 --port 9341   # review before installing; one private display per parallel build
 ```
 
 - `stage.mjs` copies the project to a scratch folder (the take's `prepare` may edit that copy first), isolates HOME, and runs the production Electron build on a private X display, normally at 4x pixel density.
