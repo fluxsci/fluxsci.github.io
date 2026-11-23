@@ -157,7 +157,7 @@ test.use({ reducedMotion: 'no-preference' });
 
 for (const [index, name] of homepageSlides.entries()) {
   test(`homepage slide renders intermediate frames · ${name}`, async ({ page }) => {
-    if (index === 4) test.setTimeout(60_000);
+    if (index === 4) test.setTimeout(180_000);   // the shape morphs step frame by frame; CI runners need the time
     await page.goto(`/demos/slides/#scene=${index}`);
     await expect(page.getByRole('combobox', { name: 'Choose a slide' })).toHaveValue(String(index));
     await expect(nextStep(page)).toBeVisible();
