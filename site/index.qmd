@@ -304,6 +304,7 @@ description: "Flux is a free, open-source desktop workspace for scientists. Comp
         <a class="text-link" href="/visual-tour/">Take the visual tour<span aria-hidden="true">→</span></a>
       </figcaption>
     </figure>
+    <p class="visual-credit">Data shown in the film: <a href="https://brain-map.org/">Allen Institute for Brain Science</a>, <a href="https://www.microns-explorer.org/">MICrONS</a>, <a href="https://www.rcsb.org/structure/1CRN">RCSB PDB</a>, <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE52778">NCBI GEO</a>, <a href="https://wwwn.cdc.gov/nchs/nhanes/">NHANES</a>, the <a href="https://www.crystallography.net/cod/">Crystallography Open Database</a>, FermiSurfer and the Datasaurus Dozen (Matejka &amp; Fitzmaurice, 2017). The paper read in the film is Kass et al., “Ten simple rules for effective statistical practice”, <em>PLOS Computational Biology</em> (2016), <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. <a href="/docs/visual-credits.html#film">Sources and captions →</a></p>
   </section>
 
   <section class="structure-section content-width section-space" aria-labelledby="structure-title">

@@ -115,7 +115,7 @@ uv run python make_growth.py
 
 <figure class="doc-figure">
 <a href="/assets/media/figure-properties.webp" data-enlarge data-caption="A plot selected in the authored materials figure, with the native property menu open."><img src="/assets/media/figure-properties.webp" alt="Flux Figure with a stress-field plot selected and its native Properties menu open." width="1500" height="950" loading="lazy"></a>
-<figcaption>The property menu opens beside the selection. This screenshot uses the separate materials showcase; see its <a href="/docs/visual-credits.html#materials">sources</a>.</figcaption>
+<figcaption>The property menu opens beside the selection. This screenshot uses the separate materials showcase. Crystal structures: <a href="https://www.crystallography.net/cod/">Crystallography Open Database</a>. Fermi surface: the MgB₂ example from <a href="https://github.com/mitsuaki1987/fermisurfer">FermiSurfer</a>. The other panels are calculated or illustrative. <a href="/docs/visual-credits.html#materials">Visual credits</a>.</figcaption>
 </figure>
 
 ## 4. Collect and read a reference {#read}

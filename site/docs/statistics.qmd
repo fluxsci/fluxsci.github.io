@@ -140,6 +140,28 @@ from, and `flux get-plot-data` reports it.
 
 <figure class="doc-figure doc-plot doc-figure-compact"><img src="/assets/media/docs/plots/meanmark-brackets.svg" alt="A meanmark of three groups, Control, Low dose and High dose, with three significance brackets stacked above the data, each labelled with stars." width="259" height="216" loading="lazy"><figcaption>Reporting rows from <code>fp.stats.pairwise</code> become stacked brackets with <code>mm.brackets(rows)</code>; stars follow the Holm-corrected p. Synthetic values.</figcaption></figure>
 
+## References {#references}
+
+fluxplot's statistics build on SciPy. The tests, effect sizes, intervals and corrections follow these papers; cite the ones your figure relies on.
+
+- Benjamini, Y. and Hochberg, Y. (1995). Controlling the false discovery rate: a practical and powerful approach to multiple testing. *Journal of the Royal Statistical Society B* 57, 289–300. [doi:10.1111/j.2517-6161.1995.tb02031.x](https://doi.org/10.1111/j.2517-6161.1995.tb02031.x)
+- Bonett, D. G. (2008). Confidence intervals for standardized linear contrasts of means. *Psychological Methods* 13, 99–109. [doi:10.1037/1082-989X.13.2.99](https://doi.org/10.1037/1082-989X.13.2.99)
+- Cliff, N. (1996). *Ordinal Methods for Behavioral Data Analysis*. Lawrence Erlbaum.
+- Dunn, O. J. (1964). Multiple comparisons using rank sums. *Technometrics* 6, 241–252. [doi:10.1080/00401706.1964.10490181](https://doi.org/10.1080/00401706.1964.10490181)
+- Friedman, M. (1937). The use of ranks to avoid the assumption of normality implicit in the analysis of variance. *Journal of the American Statistical Association* 32, 675–701. [doi:10.1080/01621459.1937.10503522](https://doi.org/10.1080/01621459.1937.10503522)
+- Games, P. A. and Howell, J. F. (1976). Pairwise multiple comparison procedures with unequal n's and/or variances: a Monte Carlo study. *Journal of Educational Statistics* 1, 113–125.
+- Hedges, L. V. (1981). Distribution theory for Glass's estimator of effect size and related estimators. *Journal of Educational Statistics* 6, 107–128. [doi:10.3102/10769986006002107](https://doi.org/10.3102/10769986006002107)
+- Holm, S. (1979). A simple sequentially rejective multiple test procedure. *Scandinavian Journal of Statistics* 6, 65–70.
+- Kerby, D. S. (2014). The simple difference formula: an approach to teaching nonparametric correlation. *Comprehensive Psychology* 3, 11.IT.3.1. [doi:10.2466/11.IT.3.1](https://doi.org/10.2466/11.IT.3.1)
+- Kruskal, W. H. and Wallis, W. A. (1952). Use of ranks in one-criterion variance analysis. *Journal of the American Statistical Association* 47, 583–621. [doi:10.1080/01621459.1952.10483441](https://doi.org/10.1080/01621459.1952.10483441)
+- Mann, H. B. and Whitney, D. R. (1947). On a test of whether one of two random variables is stochastically larger than the other. *Annals of Mathematical Statistics* 18, 50–60. [doi:10.1214/aoms/1177730491](https://doi.org/10.1214/aoms/1177730491)
+- Newcombe, R. G. (2006). Confidence intervals for an effect size measure based on the Mann–Whitney statistic. Part 2: asymptotic methods and evaluation. *Statistics in Medicine* 25, 559–573. [doi:10.1002/sim.2324](https://doi.org/10.1002/sim.2324)
+- Steiger, J. H. (2004). Beyond the F test: effect size confidence intervals and tests of close fit in the analysis of variance and contrast analysis. *Psychological Methods* 9, 164–182. [doi:10.1037/1082-989X.9.2.164](https://doi.org/10.1037/1082-989X.9.2.164)
+- Tukey, J. W. (1949). Comparing individual means in the analysis of variance. *Biometrics* 5, 99–114.
+- Welch, B. L. (1947). The generalization of 'Student's' problem when several different population variances are involved. *Biometrika* 34, 28–35. [doi:10.1093/biomet/34.1-2.28](https://doi.org/10.1093/biomet/34.1-2.28)
+- Welch, B. L. (1951). On the comparison of several mean values: an alternative approach. *Biometrika* 38, 330–336. [doi:10.1093/biomet/38.3-4.330](https://doi.org/10.1093/biomet/38.3-4.330)
+- Wilcoxon, F. (1945). Individual comparisons by ranking methods. *Biometrics Bulletin* 1, 80–83. [doi:10.2307/3001968](https://doi.org/10.2307/3001968)
+
 ::: {.next-reading}
 **Related guides**
 

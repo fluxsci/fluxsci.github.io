@@ -11,7 +11,7 @@ description: "Write and organise documents, with figures and references close at
 Write and organise documents, with figures and references close at hand.
 :::
 
-<figure class="doc-figure"><a href="/assets/media/paper.webp" data-enlarge data-caption="A manuscript in Paper with an embedded figure; the caption comes from the figure itself."><img src="/assets/media/paper.webp" alt="The Paper workspace: a manuscript with an embedded multi-panel figure and its caption, beside the Files and Outline sidebar." width="1500" height="950" loading="lazy"></a><figcaption>A manuscript in Paper with an embedded figure; the caption comes from the figure itself. <a href="/docs/visual-credits.html">Visual credits</a>.</figcaption></figure>
+<figure class="doc-figure"><a href="/assets/media/paper.webp" data-enlarge data-caption="A manuscript in Paper with an embedded figure; the caption comes from the figure itself."><img src="/assets/media/paper.webp" alt="The Paper workspace: a manuscript with an embedded multi-panel figure and its caption, beside the Files and Outline sidebar." width="1500" height="950" loading="lazy"></a><figcaption>A manuscript in Paper with an embedded figure; the caption comes from the figure itself. Crystal structures: <a href="https://www.crystallography.net/cod/">Crystallography Open Database</a>. Fermi surface: the MgB₂ example from <a href="https://github.com/mitsuaki1987/fermisurfer">FermiSurfer</a>. The other panels are calculated or illustrative. <a href="/docs/visual-credits.html#materials">Visual credits</a>.</figcaption></figure>
 
 ## The writing surface {#the-writing-surface}
 

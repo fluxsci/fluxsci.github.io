@@ -54,7 +54,7 @@ blue pulse beneath it, and the caret never moves. Anything less certain — a mi
 letter, a word with several plausible neighbours — is not guessed at: it is underlined for you to
 decide (see [Spelling suggestions](#sentence-judgment)).
 
-Checking runs in a local Harper worker and never sends manuscript text anywhere. Acronyms,
+Checking runs in a local [Harper](https://writewithharper.com) worker (open source, Apache-2.0) and never sends manuscript text anywhere. Acronyms,
 mixed-case scientific names, numbers, code, math, citations, links and table source are left
 alone. Project titles, authors, references, figure captions and recurring technical terms feed the
 local vocabulary.

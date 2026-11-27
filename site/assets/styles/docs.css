@@ -161,6 +161,7 @@
 .workspace-guides span{display:block;padding:14px;font:13px/1.5 var(--sans)}
 .workspace-guides b{float:right;color:var(--blue)}
 .workspace-guides a:hover{border-color:var(--blue)}
+.doc-content .guides-credit{font:11px/1.7 var(--sans);color:var(--muted);max-width:none;margin:-28px 0 42px;text-align:left}
 .doc-study{border:1px solid var(--rule);border-radius:9px;overflow:hidden;margin:28px 0 34px;background:var(--paper)}
 .doc-study-stage{position:relative;display:flow-root;background:#fffefa}
 .doc-study-stage>img{display:block;width:100%;height:auto}

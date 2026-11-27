@@ -102,7 +102,7 @@ See [Plot gallery](/docs/plot-gallery.html#global-plot-library).
 
 ### Colour pickers and the property menu {#colour-pickers}
 
-**Palette collection** and **Colormap collection** choose which collection a colour picker opens on (including the **Project palette**). Inside a picker, **Tab** switches between palettes and colormaps and **Shift+Tab** cycles collections. The **Property menu** has no settings: press **F** with objects selected, use each row's left-hand key, and adjust the armed value with the mouse wheel. See [Colours and colormaps](/docs/figure-layout.html#colours-and-colormaps) and [The property menu](/docs/figure-layout.html#property-menu).
+**Palette collection** and **Colormap collection** choose which collection a colour picker opens on (including the **Project palette**). The collections and their authors are credited under [Colormaps and palettes](/docs/visual-credits.html#colour). Inside a picker, **Tab** switches between palettes and colormaps and **Shift+Tab** cycles collections. The **Property menu** has no settings: press **F** with objects selected, use each row's left-hand key, and adjust the armed value with the mouse wheel. See [Colours and colormaps](/docs/figure-layout.html#colours-and-colormaps) and [The property menu](/docs/figure-layout.html#property-menu).
 
 ## Paper {#paper}
 

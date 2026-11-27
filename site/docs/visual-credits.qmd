@@ -1,6 +1,6 @@
 ---
 title: "Visual and data credits"
-description: "Sources, interpretation and attribution for the scientific figures, native slides and screenshots shown on the Flux website."
+description: "Sources and attribution for the figures, slides, clips and screenshots on the Flux website, and for the colormaps, fonts and software in Flux."
 ---
 
 <p class="eyebrow">Around Flux</p>
@@ -8,7 +8,7 @@ description: "Sources, interpretation and attribution for the scientific figures
 # Visual and data credits
 
 ::: {.doc-lead}
-The showcase uses real Flux compositions: authored scientific figures, public datasets and calculated examples. This page identifies their sources and what the views represent.
+The showcase uses real Flux compositions: authored scientific figures, public datasets and calculated examples. This page identifies their sources and what the views represent. It also credits the [colormaps, fonts and software](#software) that Flux and fluxplot are built on.
 :::
 
 ## The figures and screenshots {#figures}
@@ -43,7 +43,9 @@ The homepage plays examples from the Plots in Motion deck and the Flux film. The
 
 The 3D slide uses WebGL. Browsers without it show Flux’s saved views of each step.
 
-The launch film also shows these examples.
+### In the film {#film}
+
+The film on the homepage shows the two figures described under [Neuroscience](#neuroscience) and [Materials](#materials), and these examples.
 
 | Slide | Source and interpretation |
 |---|---|
@@ -51,6 +53,40 @@ The launch film also shows these examples.
 | The fold becomes a fingerprint | C-alpha coordinates of crambin, [PDB 1CRN](https://www.rcsb.org/structure/1CRN). A contact is a C-alpha distance below 8 Å with sequence separation above 2. The motion is a change of representation, not protein unfolding. |
 | From genes to programs | Airway RNA-seq, [GEO GSE52778](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE52778) (Himes et al. 2014, [doi:10.1371/journal.pone.0099625](https://doi.org/10.1371/journal.pone.0099625)), read counts from the Bioconductor `airway` package. The 36 most variable genes are clustered into three descriptive groups, not validated pathways. |
 | Agreement, revealed | First and second systolic blood-pressure readings from [NHANES 2017–2018](https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/BPX_J.htm): a deterministic sample of 240 complete pairs. Descriptive and unweighted; not a population estimate. |
+| Scatter plots sent to the agent | The Datasaurus Dozen: J. Matejka and G. Fitzmaurice (2017), [Same stats, different graphs](https://doi.org/10.1145/3025453.3025912), after Alberto Cairo's Datasaurus. |
+
+The paper read and highlighted in the film is R. E. Kass, B. S. Caffo, M. Davidian, X.-L. Meng, B. Yu and N. Reid (2016), [Ten simple rules for effective statistical practice](https://doi.org/10.1371/journal.pcbi.1004961), *PLOS Computational Biology* 12, e1004961, shown under its [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) licence. The manuscript and the reply to reviewers in the film were written for the demonstration.
+
+## The visual tour {#visual-tour}
+
+Every clip in the [visual tour](/visual-tour/) was filmed in Flux on a copy of a demonstration project. Each clip's caption names its source, and the note at the end of the tour lists them all. The sources are collected here with their licences.
+
+| Material | Source and licence |
+|---|---|
+| Phase portraits, bifurcation diagram, Lyapunov map, time trace and spectrum | Computed from a driven Duffing oscillator. |
+| Protein figure | Panels a and b: the [AlphaFold Protein Structure Database](https://alphafold.ebi.ac.uk/) model of human p53 (CC BY 4.0) and the cryo-EM structures of the SARS-CoV-2 spike, [PDB 6VSB](https://www.rcsb.org/structure/6VSB) (Wrapp et al., *Science*, 2020) and [PDB 6VXX](https://www.rcsb.org/structure/6VXX) (Walls et al., *Cell*, 2020). The other panels, including the uptake curves, enzyme kinetics and simulation traces, are simulated. |
+| Tuning figure and its dissections | Allen Brain Observatory, Visual Coding 2-photon, experiment 501940850 (Allen Institute for Brain Science), under the [Allen Institute terms](https://alleninstitute.org/legal/terms-of-use). |
+| Heart model | [Z-Anatomy](https://www.z-anatomy.com/), CC BY-SA 4.0. The pressure, volume and ECG traces come from physiological models. |
+| Black holes and merger | Computed from the Kerr metric, with a synthetic post-Newtonian waveform. |
+| The Sun | NASA/SDO and the AIA, EVE and HMI science teams. Public domain. |
+| Arabidopsis shoot meristem | Galvan-Ampudia, Cerutti et al. (2020), *eLife*; [Zenodo 3737795](https://doi.org/10.5281/zenodo.3737795). CC BY 4.0. |
+| Night side of the Earth | Earth Science and Remote Sensing Unit, NASA Johnson Space Center, frames ISS030-E-68921 to 69120. Public domain. |
+| Image thumbnails in the Plots rail | Sakaguchi, Leiwe and Imai (2018), *eLife*, CC BY; FISBe (Mais, Hirsch et al., 2024), from Janelia FlyLight, CC BY 4.0; Clark, Battistara and Benton (2022), *eLife*, CC0; the [Human Protein Atlas](https://www.proteinatlas.org/), CC BY 4.0; Winfree, El-Achkar and Ferkowicz (2022), CC BY 4.0. |
+| Sea ice, river discharge and the map of South America | Sea ice: [NSIDC Sea Ice Index, Version 4](https://nsidc.org/data/g02135) (Fetterer, Knowles, Meier, Savoie and Windnagel). Rivers and borders: [Natural Earth](https://www.naturalearthdata.com/), public domain. Relief: NOAA ETOPO1 (Amante and Eakins, 2009). The discharge curves are synthetic. |
+| White light is every colour | A ray-traced prism. The spectrum is the SAO2010 solar reference spectrum: K. Chance and R. L. Kurucz (2010), [doi:10.1016/j.jqsrt.2010.01.036](https://doi.org/10.1016/j.jqsrt.2010.01.036). |
+| A neuron and its synapses | A layer 2/3 pyramidal cell of mouse visual cortex from the [MICrONS](https://www.microns-explorer.org/) cubic millimetre, with its input synapses (MICrONS Consortium, 2025). CC BY 4.0. |
+| Japan's earthquakes | [USGS earthquake catalog](https://earthquake.usgs.gov/earthquakes/search/), magnitude 5 and above, 1975–2025, over ETOPO1 relief. |
+| Hurricane tracks | IBTrACS version 4: Knapp et al. (2010), [doi:10.1175/2009BAMS2755.1](https://doi.org/10.1175/2009BAMS2755.1), NOAA NCEI. Coastlines: Natural Earth. |
+| The rhythm of the elements | First ionization energies from the [PubChem periodic table](https://pubchem.ncbi.nlm.nih.gov/periodic-table/). |
+| Sunflower | Computed. |
+| Gravitational-wave strain | LIGO Hanford and Livingston strain for GW150914 from the [Gravitational Wave Open Science Center](https://gwosc.org/) (LIGO Scientific Collaboration and Virgo Collaboration). CC BY 4.0. |
+| Mouse-brain cells and their UMAP | MERFISH measurements from the Zhuang laboratory (Zhang et al., *Nature*, 2023) in the Allen Brain Cell Atlas (Allen Institute for Brain Science), under the [Allen Institute terms](https://alleninstitute.org/legal/terms-of-use). The UMAP was computed for the clip. |
+| Brain, electrodes and EEG traces | Cortex: the FreeSurfer fsaverage surface (Fischl, 2012) with Desikan–Killiany regions, read with MNE-Python (Gramfort et al., 2013). Electrodes: the standard 10–20 montage. The traces are synthetic. |
+| Penguin measurements | Palmer Station Antarctica LTER: Gorman, Williams and Fraser (2014), [doi:10.1371/journal.pone.0090081](https://doi.org/10.1371/journal.pone.0090081). CC0. |
+| Darwin's finches | Measurements of P. R. and B. R. Grant on Daphne Major: Grant and Grant (2014), [Dryad](https://doi.org/10.5061/dryad.vc348), CC0; beak depths of 1976 and 1978 as published in Ramsey and Schafer, *The Statistical Sleuth*; museum specimen measurements from David Lack, archived on Dryad, CC0. Engraving: John Gould, in Darwin's *Journal of Researches* (1845), public domain. |
+| Papers open in Reader | Jumper et al. (2021), [Highly accurate protein structure prediction with AlphaFold](https://doi.org/10.1038/s41586-021-03819-2), and Tunyasuvunakool et al. (2021), [Highly accurate protein structure prediction for the human proteome](https://doi.org/10.1038/s41586-021-03828-1), *Nature* 596. Both CC BY 4.0. |
+
+The manuscript “Reading a protein across scales” and its authors were invented for the tour; its references are real. Journal names in the export examples identify the submission formats Flux prepares. Flux is not affiliated with or endorsed by those journals.
 
 ## Neuroscience {#neuroscience}
 
@@ -89,6 +125,69 @@ FermiSurfer: M. Kawamura (2019), [Fermi-surface viewer providing multiple repres
 
 The cyan and magenta stack in the [image guide](/docs/fluximg.html) is a synthetic fluorescence example. Its channels, depth and time samples, segmented cell outlines and attached object values were generated for the demonstration. They illustrate how to inspect an image and do not represent measurements from a specimen.
 
-## Fonts, colours and software {#software}
+## Software, fonts and colours {#software}
 
-Flux supplies the phyllotaxis mark, the real application UI and the native slide player. The website uses Georgia and Gelasio, a warm paper palette and quiet blue controls. The palettes and colormaps in fluxplot retain their upstream notices in the [fluxplot repository](https://github.com/fluxsci/fluxplot/blob/main/THIRD_PARTY_NOTICES.md). Bundled player dependency notices accompany the website assets.
+Flux supplies the phyllotaxis mark, the application and the native slide player. Everything else on this list is other people's work that Flux, fluxplot or this website uses. The complete lists, with every bundled library and its licence, are the notices in the [Flux](https://github.com/fluxsci/flux/blob/main/THIRD_PARTY_NOTICES.md) and [fluxplot](https://github.com/fluxsci/fluxplot/blob/main/THIRD_PARTY_NOTICES.md) repositories.
+
+### Colormaps and palettes {#colour}
+
+The collections in Flux's colour pickers and in `fp.colors` come from these projects. If a figure's colours matter to your argument, cite the map you used.
+
+| Collection | Made by | Cite or credit | Licence |
+|---|---|---|---|
+| Flexoki | Steph Ango | [stephango.com/flexoki](https://stephango.com/flexoki) | MIT |
+| matplotlib | The Matplotlib Development Team | Hunter (2007), *Computing in Science & Engineering* 9, 90–95, [doi:10.1109/MCSE.2007.55](https://doi.org/10.1109/MCSE.2007.55) | Matplotlib licence |
+| Crameri | Fabio Crameri | Crameri (2018), Scientific colour maps, Zenodo, [doi:10.5281/zenodo.1243862](https://doi.org/10.5281/zenodo.1243862); Crameri, Shephard and Heron (2020), *Nature Communications* 11, 5444, [doi:10.1038/s41467-020-19160-7](https://doi.org/10.1038/s41467-020-19160-7) | MIT |
+| Paul Tol | Paul Tol | Tol, Colour Schemes, SRON Technical Note SRON/EPS/TN/09-002, [personal.sron.nl/~pault](https://personal.sron.nl/~pault/) | BSD-3-Clause |
+| CMasher | Ellert van der Velden | van der Velden (2020), *Journal of Open Source Software* 5(46), 2004, [doi:10.21105/joss.02004](https://doi.org/10.21105/joss.02004) | BSD-3-Clause |
+| ColorBrewer | Cynthia Brewer, Mark Harrower and The Pennsylvania State University | Harrower and Brewer (2003), *The Cartographic Journal* 40, 27–37, [doi:10.1179/000870403235002042](https://doi.org/10.1179/000870403235002042) | Apache-2.0 |
+
+Flux's "green" ramp in the Flexoki palette is the author's own, built around Paul Tol's bright green as its main shade; Flexoki's green is kept under the name "olive". The five house maps in the `flexoki` collection were made for fluxplot.
+
+Some maps in the matplotlib collection have authors of their own:
+
+- viridis, magma, inferno and plasma: Nathaniel J. Smith, Stéfan van der Walt and Eric Firing (CC0).
+- cividis: Nuñez, Anderton and Renslow (2018), *PLOS ONE* 13, e0199239, [doi:10.1371/journal.pone.0199239](https://doi.org/10.1371/journal.pone.0199239).
+- turbo: Anton Mikhailov, Google (Apache-2.0).
+- twilight: Bastian Bechtold.
+- coolwarm: Kenneth Moreland (2009), [doi:10.1007/978-3-642-10520-3_9](https://doi.org/10.1007/978-3-642-10520-3_9).
+- cubehelix: D. A. Green (2011), *Bulletin of the Astronomical Society of India* 39, 289–295.
+- The Brewer maps: ColorBrewer, as above. The `gist` maps: Yorick, The Regents of the University of California. Wistia: Wistia (MIT). The `tab` palettes: Vega, after Tableau. berlin, managua and vanimo: Fabio Crameri.
+
+The colour-vision simulation in **View as** and in fluxplot's colour checks uses the model of Machado, Oliveira and Fernandes (2009), *IEEE Transactions on Visualization and Computer Graphics* 15, 1291–1298, [doi:10.1109/TVCG.2009.113](https://doi.org/10.1109/TVCG.2009.113).
+
+### Fonts and icons {#fonts}
+
+Flux and this website use Gelasio (The Gelasio Project Authors, [SIL Open Font License 1.1](/assets/fonts/OFL.txt)) beside the system's Georgia. Mathematics in Flux is set with KaTeX and its fonts (Khan Academy and contributors, MIT). Most of Flux's interface icons come from [Lucide](https://lucide.dev) (ISC).
+
+### Software in Flux {#software-in-flux}
+
+| Part of Flux | Built on |
+|---|---|
+| The app | [Electron](https://www.electronjs.org) (MIT), with Chromium and Node.js; [Svelte](https://svelte.dev) (MIT) |
+| Paper's editor | [CodeMirror](https://codemirror.net) (Marijn Haverbeke, MIT); markdown-it (MIT); [KaTeX](https://katex.org) (MIT) |
+| Spelling and grammar | [Harper](https://writewithharper.com) (Elijah Potter and Automattic, Apache-2.0) |
+| Citations | [citation.js](https://citation.js.org) (Lars Willighagen, MIT) and citeproc-js (Frank Bennett). The built-in Nature, Science and Cell styles are from the Citation Style Language project through the [Zotero Style Repository](https://www.zotero.org/styles), under CC BY-SA 3.0; each style file names its authors. |
+| Reader | [pdf.js](https://mozilla.github.io/pdf.js/) (Mozilla, Apache-2.0); pdf-lib (Andrew Dillon, MIT) |
+| 3D models | [three.js](https://threejs.org) (MIT) |
+| Plot editing | Colour scales, tick placement and layout rules ported from [Matplotlib](https://matplotlib.org), so an edited plot matches what Matplotlib would draw |
+| Slides | Camera moves after van Wijk and Nuij (2003), [doi:10.1109/INFVIS.2003.1249004](https://doi.org/10.1109/INFVIS.2003.1249004); several easing curves after [Manim Community](https://www.manim.community) (MIT); colour blending in OKLab (Björn Ottosson) |
+| Video export | [FFmpeg](https://ffmpeg.org), run as a separate program under the GNU GPL version 3 |
+| Raster export | resvg, through resvg-js (MPL-2.0) |
+| Word, Quarto and LaTeX export | [Quarto](https://quarto.org), [Pandoc](https://pandoc.org) and [TinyTeX](https://yihui.org/tinytex/), installed only when you ask for them |
+| Agent connections | The [Model Context Protocol](https://modelcontextprotocol.io) SDK (MIT) |
+| Finding papers | The public services of Crossref, OpenAlex, Unpaywall, Semantic Scholar, PubMed Central, arXiv and bioRxiv; optional links to [Zotero](https://www.zotero.org), Better BibTeX and [GROBID](https://github.com/grobidOrg/grobid) |
+
+The journal export presets follow the public author guidelines of Nature, Science, Cell and bioRxiv. Flux is not affiliated with or endorsed by those journals.
+
+### fluxplot {#software-in-fluxplot}
+
+fluxplot builds on [Matplotlib](https://matplotlib.org), NumPy, SciPy, seaborn, lxml and CMasher. Its statistics follow the published methods named in the [statistics guide](/docs/statistics.html), and its 3D viewer uses three.js.
+
+### This website {#software-in-website}
+
+The site is built with [Quarto](https://quarto.org). The slide players use Flux's own runtime with Svelte, three.js, css-tree and kiwi; their licence notices are published with the site: [three.js](/assets/licenses/three-LICENSE.txt), [Svelte](/assets/licenses/svelte-LICENSE.txt), [css-tree](/assets/licenses/css-tree-LICENSE.txt) and [kiwi](/assets/licenses/lume-kiwi-LICENSE.txt).
+
+### Inspiration {#inspiration}
+
+Two apps shaped how Flux works: [Figma](https://www.figma.com/) was the main inspiration for Figure, and [Obsidian](https://obsidian.md/) for Paper. Flux contains no code from either and is not affiliated with them.

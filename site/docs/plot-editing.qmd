@@ -213,7 +213,7 @@ change can also animate between steps; see
 ## View as {#view-as}
 
 **View as…** in the toolbar shows the whole canvas the way a colour-deficient reader sees it —
-**deuteranopia**, **protanopia**, **tritanopia** (Machado 2009 at full severity, the same
+**deuteranopia**, **protanopia**, **tritanopia** ([Machado, Oliveira and Fernandes, 2009](https://doi.org/10.1109/TVCG.2009.113), at full severity, the same
 simulation fluxplot's accessibility lint uses) — or in **greyscale** (luminance, what a
 black-and-white print keeps). It is a way of looking, applied as a display filter over the canvas: nothing
 in the figure changes, exports are untouched, and it lasts for the session. Use it while choosing

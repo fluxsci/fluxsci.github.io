@@ -68,6 +68,8 @@ file…**. Flux records the setting in the document’s `csl:` front matter. Hou
 uses the CSL for citations and the reference list. In-app house-style PDF and HTML
 continue to use Flux’s own reference formatter.
 
+The three shipped styles come from the Citation Style Language project through the [Zotero Style Repository](https://www.zotero.org/styles), under CC BY-SA 3.0. Each file names its authors, and Flux copies it into your project unchanged. The journal presets follow each journal’s public author guidelines; Flux is not affiliated with or endorsed by those journals.
+
 ### Live Zotero citations in Word {#live-zotero-citations}
 
 With **Word** selected, tick **Live Zotero citations** and the citations arrive in the `.docx`

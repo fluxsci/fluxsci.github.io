@@ -38,6 +38,8 @@ category_colours = fp.colors.palettes.get("tol", "bright")
 | `cmasher` | 57 | CMasher colormaps |
 | `brewer` | palettes | ColorBrewer sets: 9-class sequential, 11-class diverging and the qualitative sets |
 
+These collections are other people's work: Flexoki by Steph Ango, Matplotlib's maps by the Matplotlib Development Team and the authors of individual maps, the Scientific colour maps by Fabio Crameri, Paul Tol's colour schemes, CMasher by Ellert van der Velden, and ColorBrewer by Cynthia Brewer and Mark Harrower. Their licences and the papers to cite are listed under [Colormaps and palettes](/docs/visual-credits.html#colour).
+
 `fp.colors.maps.names("crameri")` lists a collection, and `fp.colors.maps.info("tol.sunset")` describes a map. `fp.colors.maps.truncate("batlow", 0.2, 0.8)` selects part of a map, and `fp.colors.maps.discretize("viridis", [0, 2, 5, 10])` returns a colormap and normalization for bins.
 
 Every `fp.use_*` theme installs `cmasher.rainforest` (`fp.style.SEQUENTIAL`) as Matplotlib's default `image.cmap`, so a heatmap without `cmap=` is in the house style; `fp.style.DEFAULT_DIVERGING` names the diverging default. You can override either for any plot with `cmap=`. In a signature plot's `palette=`, a colour name such as `"red"` selects a pale-to-deep ramp of that one hue, while `"flexoki.red"` selects the 13-step Flexoki ramp.
