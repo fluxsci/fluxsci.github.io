@@ -98,10 +98,11 @@ also appears in the global and Paper palettes and Library's **Commands…** menu
 | **Alt+K** | Manuscript Check pane — broken references and citations, display items cited out of order or never cited, placeholders, abbreviations, inconsistent terms, open comments; click a finding to jump, apply a fix with one undo |
 | **Alt+E** | Export… (file format × journal style) |
 | **Alt+F** | Figures pane (insert a figure, or a figure or panel reference) |
-| **Alt+A** | Comments pane |
+| **Alt+A** | Comments pane (on an artifact: its comments, beside the page) |
+| **Alt+H** | Switch between the document and the artifact you last had open |
 | **Alt+C** | Edit the citation at the cursor |
 | **Alt+P** / **Ctrl+Alt+P** | Close the active margin pane / close all panes |
-| **Ctrl+Alt+M** | Add a personal comment to selected text |
+| **Ctrl+Alt+M** | Add a personal comment to selected text (on an artifact: comment on the selected words for an agent) |
 | **Ctrl+Shift+Alt+M** | Share a comment on selected text with Flux AI |
 | **Ctrl+Enter** on the comment card | Send the comment |
 | **Alt+D** / **Shift+Alt+D** | Toggle the selected word in the personal / project dictionary |

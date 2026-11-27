@@ -12,10 +12,10 @@ One command puts the workspace on your machine. A short setup window takes care 
 :::
 
 ::: {.availability-note role="note"}
-**Flux v0.4.0 is available.** The desktop release includes macOS builds for Apple Silicon and Intel, and a Debian/Ubuntu package for x86-64 Linux. [Read the release notes](https://github.com/fluxsci/flux/releases/tag/v0.4.0).
+**Flux v0.4.1 is available.** The desktop release includes macOS builds for Apple Silicon and Intel, and a Debian/Ubuntu package for x86-64 Linux. [Read the release notes](https://github.com/fluxsci/flux/releases/tag/v0.4.1).
 :::
 
-This release adds [scientific image stacks](/docs/fluximg.html), the redesigned [property menu](/docs/figure-layout.html#property-menu) and [X-ray](/docs/plot-editing.html#x-ray), and [comment tags](/docs/paper.html#comment-tags). The installer below delivers the latest published release; running it again updates an installed copy.
+This release adds [artifacts in Paper](/docs/paper.html#artifacts): an agent's HTML pages open beside your writing and take comments. The app now carries the [licences of the work it is built on](/docs/visual-credits.html#software). The installer below delivers the latest published release; running it again updates an installed copy.
 
 ## One line to install {#install-command}
 
@@ -96,14 +96,14 @@ On macOS, **Update now** waits for Flux to close, replaces the app, and reopens 
 To choose a specific **published** release:
 
 ```bash
-curl -fsSL https://fluxsci.org/install.sh | bash -s -- --version v0.4.0
+curl -fsSL https://fluxsci.org/install.sh | bash -s -- --version v0.4.1
 ```
 
 ## If something needs attention {#troubleshooting}
 
 <details class="doc-details"><summary>The command cannot find a public release</summary>
 
-Check that you can reach [GitHub Releases](https://github.com/fluxsci/flux/releases) from your network. If you use `--version`, copy the exact tag of a published release, such as `v0.4.0`. A misspelled tag or unavailable release cannot be downloaded.
+Check that you can reach [GitHub Releases](https://github.com/fluxsci/flux/releases) from your network. If you use `--version`, copy the exact tag of a published release, such as `v0.4.1`. A misspelled tag or unavailable release cannot be downloaded.
 
 </details>
 

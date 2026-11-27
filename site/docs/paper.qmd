@@ -88,6 +88,20 @@ Choose **+ tag**, type a label such as `needs-reference`, and press **Enter**. R
 
 <figure data-doc-clip="paper-comment-tags" data-clip-label="Two manuscript threads are open. A needs-reference tag is created on one, and clicking that tag filters the pane to the tagged thread. Clicking again restores both."><figcaption>Create <code>needs-reference</code> on a thread, then select that tag in Comments to see matching threads. Select it again to show all comments.</figcaption></figure>
 
+## Artifacts {#artifacts}
+
+An artifact is an HTML page an agent made for you to read, such as an interactive explorer of a dataset or a report with its plots. Paper opens it in place of the document, so the page and your notes about it share one window.
+
+Flux lists the pages in the project's `artifacts` folder under **Files › Artifacts**, and those in one more folder that you link in **Settings → Paper → Artifacts**. A linked folder is read where it is and never copied. Click a page to open it, or press **Ctrl+K** and type *Open artifact*. The strip above the page names it and offers its other pages; the Outline lists its headings. **Alt+H** switches between the document and the artifact, and your document comes back exactly as you left it.
+
+When an agent rewrites the page or its data, the open page reloads in place and stays where you were. A page runs in a compartment of its own: it cannot read your project or reach into Flux, and it stays off the network. If a page asks for something from the web, the strip shows **N blocked**; click it to allow the network for that page's folder.
+
+### Comment on a page {#artifact-comments}
+
+Select words in the page and choose **Comment** (**Ctrl+Alt+M**). For a plot, a figure or a table, click the comment key in the strip and then click the thing; on a plot Flux also notes the point under the pointer. Choose who receives it under **To** and press **Ctrl+Enter**.
+
+The comment goes to the [Inbox](/docs/comments.html) with a picture of the page, the view you were on and exactly what it is about. On the page the words stay tinted and the element outlined. Rest the pointer there to read the thread, where an agent's answers appear as they are written. **Alt+A** lists every comment on the artifact beside the page. When the page is rebuilt, each comment is found again by its words or its element; one whose subject is gone is kept and says *no longer on the page*.
+
 ## Troubleshooting {#troubleshooting}
 
 | Symptom | Cause → fix |
@@ -99,6 +113,8 @@ Choose **+ tag**, type a label such as `needs-reference`, and press **Enter**. R
 | A figure embed shows no caption | The figure has no caption yet → write it in **Figure-Meta** (**Alt+M**) |
 | A Word export says figures will be missing | No render could be produced for the named figures → open Figure so they load, then export again. A figure with no render is not in the document at all, so this is an error, not a warning |
 | A correct technical term is underlined in red | The checker does not know it → press **+** in its popover to add it to your Personal dictionary, or use **Word tools** (**Shift+Alt+W**); see [Writing tools](/docs/writing-tools.html#dictionaries) |
+| An artifact shows no plots, or looks unstyled | The page loads its chart library or styles from the web, and artifacts are kept offline → click **N blocked** in the strip to allow the network for that folder |
+| An artifact is not in the Files rail | Flux lists the project's `artifacts` folder and one linked folder → link the folder in **Settings → Paper → Artifacts** |
 | A comment shows as *Detached* | Its anchored text was edited away — the thread is preserved; re-select and start a fresh one if needed |
 
 ::: {.next-reading}
