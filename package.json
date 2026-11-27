@@ -12,6 +12,7 @@
     "dev": "node scripts/dev.mjs",
     "preview": "node scripts/serve.mjs",
     "check": "node scripts/check.mjs",
+    "cut": "node media/cutter/server.mjs",
     "test": "npm run build && node --test tests/server.test.mjs && playwright test",
     "test:browser": "playwright test",
     "test:install": "playwright install chromium firefox webkit"

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clip cutter · Flux</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="/app.css">
+</head>
+<body>
+<header class="bar">
+  <h1>Clip cutter</h1>
+  <span class="dim">clips from the Flux website → one short video</span>
+  <span id="prep" class="prep"></span>
+  <button id="helpBtn" class="ghost" aria-expanded="false" aria-controls="help">Keys</button>
+  <div id="help" class="help" hidden>
+    <table>
+      <tr><td><kbd>Drag</kbd> on the filmstrip</td><td>mark a range (drag its pink edges to trim, its middle to move it; hold <kbd>Shift</kbd> for fine)</td></tr>
+      <tr><td><kbd>Click</kbd> / drag the ruler</td><td>scrub</td></tr>
+      <tr><td><kbd>Wheel</kbd> on the timeline</td><td>zoom (<kbd>Shift</kbd>+wheel pans); <kbd>Z</kbd> zooms to the range, <kbd>F</kbd> fits the clip</td></tr>
+      <tr><td><kbd>Space</kbd></td><td>play / pause (loops the range)</td></tr>
+      <tr><td><kbd>←</kbd> <kbd>→</kbd></td><td>one frame (<kbd>Shift</kbd>: one second)</td></tr>
+      <tr><td><kbd>I</kbd> <kbd>O</kbd></td><td>range starts / ends at this frame</td></tr>
+      <tr><td><kbd>Enter</kbd></td><td>add the range to the sequence</td></tr>
+      <tr><td><kbd>Esc</kbd></td><td>clear the range / stop editing a segment / stop a preview</td></tr>
+      <tr><td><kbd>P</kbd></td><td>play the whole sequence</td></tr>
+      <tr><td><kbd>↑</kbd> <kbd>↓</kbd></td><td>previous / next clip</td></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>Z</kbd></td><td>undo a sequence change</td></tr>
+    </table>
+    <p class="dim">Click a segment in the sequence to re-trim it; drag segments to reorder them.</p>
+  </div>
+</header>
+
+<aside class="library">
+  <input id="filter" type="search" placeholder="Filter clips" aria-label="Filter clips" autocomplete="off">
+  <nav id="clips" aria-label="Clips"></nav>
+</aside>
+
+<main class="editor">
+  <div class="stage" id="stage">
+    <video id="player" muted playsinline preload="auto"></video>
+    <video class="pv" muted playsinline preload="auto"></video>
+    <video class="pv" muted playsinline preload="auto"></video>
+    <video id="result" controls playsinline loop hidden></video>
+    <div id="empty" class="empty">Pick a clip on the left.</div>
+    <div id="stageLabel" class="stage-label" hidden><span></span><button id="stageClose" class="ghost">Back to editing <kbd>Esc</kbd></button></div>
+  </div>
+  <p id="caption" class="caption"></p>
+  <div class="transport">
+    <button id="play" class="icon" aria-label="Play" disabled>▶</button>
+    <span class="tc"><span id="now">0:00.00</span><span class="dim"> / <span id="dur">0:00.00</span></span></span>
+    <span id="rangeInfo" class="range-info"></span>
+    <span class="spacer"></span>
+    <label class="check"><input type="checkbox" id="loopSel" checked> Loop range</label>
+    <button id="clearSel" class="ghost" disabled>Clear range</button>
+    <button id="addSeg" class="primary" disabled>Add to sequence <kbd>Enter</kbd></button>
+  </div>
+  <div id="timeline" class="timeline">
+    <canvas id="ruler"></canvas>
+    <div class="strip-wrap">
+      <canvas id="strip"></canvas>
+      <div id="sel" class="sel" hidden><div class="h l"></div><div class="h r"></div></div>
+    </div>
+    <div id="used" class="used"></div>
+    <div id="hover" class="hover" hidden><span></span></div>
+    <div id="ph" class="ph" hidden><span class="knob"></span></div>
+  </div>
+</main>
+
+<section class="sequence" aria-label="Sequence">
+  <div class="seq-head">
+    <h2>Sequence</h2>
+    <span id="seqInfo" class="dim"></span>
+    <button id="playSeq" class="ghost" disabled>▶ Play sequence <kbd>P</kbd></button>
+    <span class="spacer"></span>
+    <label>Joins <select id="transition"><option value="cut">Cuts</option><option value="fade">Crossfades</option></select></label>
+    <label id="fadeWrap" hidden><input id="fade" type="number" min="0.05" max="1.5" step="0.05" value="0.25"> s</label>
+    <label>Size <select id="size" title="Auto: 1080 tall, in the shape of the first segment. Segments of another shape are fitted inside it.">
+      <option value="auto" selected>Auto (first segment's shape)</option>
+      <optgroup label="4:3, the tour clips">
+        <option value="1920x1440">1920 × 1440</option>
+        <option value="1440x1080">1440 × 1080</option>
+        <option value="1280x960">1280 × 960</option>
+        <option value="960x720">960 × 720</option>
+      </optgroup>
+      <optgroup label="16:9, the film">
+        <option value="3840x2160">3840 × 2160</option>
+        <option value="2560x1440">2560 × 1440</option>
+        <option value="1920x1080">1920 × 1080</option>
+        <option value="1280x720">1280 × 720</option>
+      </optgroup>
+    </select></label>
+    <label>FPS <select id="fps"><option>60</option><option>30</option></select></label>
+    <input id="name" type="text" placeholder="file name" aria-label="File name" size="18" autocomplete="off">
+    <button id="export" class="primary" disabled>Export MP4</button>
+  </div>
+  <div id="exportState" class="export-state" hidden><progress id="exportProg" max="1" value="0"></progress><span></span><button id="exportCancel" class="ghost">Cancel</button></div>
+  <div id="seqBar" class="seq-bar"></div>
+  <ol id="seq" class="seq"></ol>
+  <details id="exportsBox" class="exports"><summary>Exports <span id="exportsInfo" class="dim"></span></summary><ul id="exports"></ul></details>
+</section>
+
+<script src="/app.js" type="module"></script>
+</body>
+</html>
